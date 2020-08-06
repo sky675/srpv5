@@ -1,0 +1,11 @@
+ITEM.name = "Sledgehammer" --tier 1 melee
+ITEM.desc = "A large sledgehammer with a wooden handle."
+ITEM.price = 3150
+ITEM.model = "models/mosi/fallout4/props/weapons/melee/sledgehammer.mdl"
+ITEM.width = 1
+ITEM.height = 4
+ITEM.weight = 8
+ITEM.flag = "1"
+ITEM.category = "Weapons - Melees"
+ITEM.class = "sky_m_nmrih_sledge"
+ITEM.weaponCategory = "melee"

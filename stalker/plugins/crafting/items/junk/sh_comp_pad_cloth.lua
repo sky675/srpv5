@@ -1,0 +1,9 @@
+ITEM.name = "Padded Cloth"
+ITEM.desc = "A bit of padded cloth for crafting."
+ITEM.model = "models/items/repairpacks/textile_patch_m.mdl"
+ITEM.category = "Components"
+ITEM.weight = 0.08
+ITEM.price = 350
+ITEM.flag = "J"
+ITEM.countMax = 15
+ITEM.maxQuantity = 15

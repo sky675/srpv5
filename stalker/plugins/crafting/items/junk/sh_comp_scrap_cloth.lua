@@ -1,0 +1,9 @@
+ITEM.name = "Scrap of Cloth"
+ITEM.desc = "A bit of cloth for crafting."
+ITEM.model = "models/items/repairpacks/textile_patch_b.mdl"
+ITEM.category = "Components"
+ITEM.weight = 0.01
+ITEM.price = 150
+ITEM.flag = "J"
+ITEM.countMax = 25
+ITEM.maxQuantity = 25

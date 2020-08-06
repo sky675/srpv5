@@ -1,0 +1,11 @@
+ITEM.name = "Wooden Baseball Bat" --tier 1 melee
+ITEM.desc = "A wooden baseball bat."
+ITEM.price = 1100
+ITEM.model = "models/mosi/fallout4/props/weapons/melee/baseballbat.mdl"
+ITEM.width = 1
+ITEM.height = 3
+ITEM.weight = 0.66
+ITEM.flag = "1"
+ITEM.category = "Weapons - Melees"
+ITEM.class = "sky_m_nmrih_f4bat"
+ITEM.weaponCategory = "melee"

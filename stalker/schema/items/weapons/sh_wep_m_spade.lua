@@ -1,0 +1,11 @@
+ITEM.name = "Spade" --tier 1 melee
+ITEM.desc = "A shovel."
+ITEM.price = 1150
+ITEM.model = "models/weapons/tfa_nmrih/w_me_spade.mdl"
+ITEM.width = 1
+ITEM.height = 3
+ITEM.weight = 2.5
+ITEM.flag = "1"
+ITEM.category = "Weapons - Melees"
+ITEM.class = "sky_m_nmrih_spade"
+ITEM.weaponCategory = "melee"

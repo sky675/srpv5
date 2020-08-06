@@ -1,0 +1,11 @@
+ITEM.name = "Claw Hammer" --tier 1 melee
+ITEM.desc = "A yellow metal hammer."
+ITEM.price = 850
+ITEM.model = "models/weapons/tfa_nmrih/w_tool_barricade.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.weight = 0.4
+ITEM.flag = "1"
+ITEM.category = "Weapons - Melees"
+ITEM.class = "sky_m_nmrih_bcd"
+ITEM.weaponCategory = "melee"

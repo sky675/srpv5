@@ -1,0 +1,9 @@
+ITEM.name = "Gas Can"
+ITEM.desc = "An empty red gas can."
+ITEM.model = "models/props_junk/gascan001a.mdl"
+ITEM.weight = 1.2
+ITEM.width = 2
+ITEM.height = 2
+ITEM.category = "Junk"
+ITEM.price = 900
+ITEM.flag = "m"

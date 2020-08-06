@@ -1,0 +1,11 @@
+ITEM.name = "Bear Detector";
+ITEM.desc = "The last generation of anomalous activity detector can be used to locate anomalous formations and has a color diode panel, which not only indicates the direction of artifacts, but also measures the distance to them. To switch to artifact search mode, open the device's front cover. Also includes a somehow unlimited supply of bolts."
+ITEM.model = "models/kali/miscstuff/stalker/detector_bear.mdl";
+ITEM.class = "detector_bear"
+ITEM.category = "Detectors"
+ITEM.weaponCategory = "detector"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.weight = 0.36
+ITEM.price = 7480
+ITEM.flag = "N"

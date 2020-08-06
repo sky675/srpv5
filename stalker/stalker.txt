@@ -1,0 +1,7 @@
+"stalker"
+{
+	"base"		"nutscript"
+	"title"		"stalker"
+	"author"	"sky"
+	"menusystem" "1"
+}
