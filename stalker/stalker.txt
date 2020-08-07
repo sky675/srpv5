@@ -1,7 +1,7 @@
 "stalker"
 {
 	"base"		"nutscript"
-	"title"		"stalker"
+	"title"		"Resurgence: Stalker"
 	"author"	"sky"
 	"menusystem" "1"
 }
