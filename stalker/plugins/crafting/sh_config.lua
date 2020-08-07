@@ -6,7 +6,6 @@ local armor_items = {
 	[ARMOR_II] = "up_armor_2",
 	[ARMOR_IIIA] = "up_armor_3a",
 	[ARMOR_III] = "up_armor_3",
-	[ARMOR_IIIp] = "up_armor_3p",
 	[ARMOR_IV] = "up_armor_4",
 	
 }
@@ -1601,100 +1600,6 @@ Result: 1x that tire iron, with the att applied]],
 			data = item:getData("upgrades", {})
 
 			data["up_armor_chest"] = "Swapped Chest Armor (III)"
-
-			item:setData("upgrades", data)
-
-		end,
-		addbasedonpick = function(handpick)
-			if(!handpick) then return end
-			local item = nut.item.instances[handpick]
-
-			if(item.oldArmor) then
-				return armor_items[item.oldArmor]
-			end
-		end
-		--adddata = true,
-	},
-	["armor_level_chest_3p"] = {
-		name = "Swap Chest Armor with III+",
-		desc = [[Swaps the current armor with a III+ plate
-NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable armor in your inventory
-
-Trait Requirements: Armor Crafting Level 1
-Ingredients: 1x any unequipped suit with a chest level (even if its none, so helmets wont work), 1x III+ Plate
-Result: 1x that tire iron, with the att applied]],
-		category = "Custom Armor Upgrades",
-		model = "models/props_junk/cardboard_box002a.mdl",
-		--skin = skin of model (not required),
-		workbench = {["armor"]=true,},
-		traits = { --traits requirements
-			["crafting_armor"] = 1,--min level needed or true for no level ones,
-		},
-		--[[
-		attribs = { --attrib requirements
-			["id"] = min needed,
-		},
-		traits = { --traits requirements
-			["id"] = min level needed or true for no level ones,
-		},
-		requirements = { --require for items that will not be taken
-			["requireuniqueid"] = true, --or # of needed,
-		},
-		ingredients = { --items that will be taken
-			--["wep_glocka"] = true, --or # of needed,
-			--["jar_antiseptic"] = true,
-			["comp_mech1"] = 1,
-			["comp_scrap_metal"] = 4,
-		},
-		]]
-		dynamicingredients = function(itemid, char)
-			local item = nut.item.instances[itemid]
-			local tbl = {}
-			--change based on handpicked item
-
-
-			return tbl
-		end,
-		--result = "wep_glock", --can also be table for multiple results
-		--flag = "", --optional can be left out, flag to check for
-		handpick = function(items) --pick an item 
-			for k,v in pairs(items) do
-				--get the first item thats a weapon and isnt equipped
-				if(v.base == "base_armor" and v:getData("equip") != true) then
-					local ar = v:getData("armor", {})
-					--dont allow upgrade past 3+ or 4
-					if(!ar["chest"] or ar["chest"].level == ARMOR_IIIp or v.uniqueID:find("radsuit") or v.uniqueID:find("skat")) then --if theres something in the barrel slot, whatever
-						continue
-					end
-					--local u = v:getData("upgrades", {})
-					--if(u["up_armor_chest"]) then continue end --already done
-					return k
-				end
-			end
-		end,
-		beforeCraft = function(ply, items, handpick)
-			--items are the items that will be taken, 
-			--return a table and it will reappear in oncreate as data
-			if(!handpick) then ply:notify("uh this should never happen") return end
-			local item = nut.item.instances[handpick]
-			local data = item:getData("armor", {})
-			
-			item.oldArmor = armor["chest"].level --old armor
-			armor["chest"].level = ARMOR_IIIp --should be fine here
-			
-			item:setData("armor", data)
-
-			data = item:getData("resists",{})
-			--change based on difference between old armor and new? for weight too
-			local multi = item.oldArmor-ARMOR_IIIp
-			data["spd"] = math.min(data["spd"] or 1 + (0.06 * multi), 1)
-			item:setData("resists", data)
-
-			item:setData("weight", item:getData("weight",item.weight) + (0.45*multi))
-
-			data = item:getData("upgrades", {})
-
-			data["up_armor_chest"] = "Swapped Chest Armor (III+)"
 
 			item:setData("upgrades", data)
 

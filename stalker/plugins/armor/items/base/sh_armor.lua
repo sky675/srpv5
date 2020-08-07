@@ -110,7 +110,6 @@ ARMOR_IIA = 1
 ARMOR_II = 2
 ARMOR_IIIA = 3
 ARMOR_III = 4
-ARMOR_IIIp = 5
 ARMOR_IV = 6
 ARMOR_V = 7 
 local stringtoenum = {
@@ -119,7 +118,6 @@ local stringtoenum = {
 	[ARMOR_II] = "II",
 	[ARMOR_IIIA] = "IIIA",
 	[ARMOR_III] = "III",
-	[ARMOR_IIIp] = "III+",
 	[ARMOR_IV] = "IV",
 	[ARMOR_V] = "V",
 }

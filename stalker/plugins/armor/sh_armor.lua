@@ -74,9 +74,8 @@ ARMOR_IIA = 1
 ARMOR_II = 2
 ARMOR_IIIA = 3
 ARMOR_III = 4
-ARMOR_IIIp = 5
-ARMOR_IV = 6
-ARMOR_V = 7 --unsure if thisll be used but mebi lmao
+ARMOR_IV = 5
+ARMOR_V = 6 --unsure if thisll be used but mebi lmao
 
 
 local blank = {
@@ -125,52 +124,52 @@ baseammotype = {
 
 local ammoProtect = {
 	["sky9x18"] = {
-		normal = {[ARMOR_IIA] = 0.5,[ARMOR_II] = 0.35, [ARMOR_IIIA] = 0.2, [ARMOR_III] = 0.05, [ARMOR_IIIp] = 0.04, [ARMOR_IV] = 0.025},
-		ap = {[ARMOR_II] = 0.5, [ARMOR_IIIA] = 0.35, [ARMOR_III] = 0.2, [ARMOR_IIIp] = 0.15, [ARMOR_IV] = 0.05},
+		normal = {[ARMOR_IIA] = 0.5,[ARMOR_II] = 0.35, [ARMOR_IIIA] = 0.2, [ARMOR_III] = 0.05, [ARMOR_IV] = 0.025},
+		ap = {[ARMOR_II] = 0.5, [ARMOR_IIIA] = 0.35, [ARMOR_III] = 0.2, [ARMOR_IV] = 0.05},
 	},
 	["sky9x19"] = {
-		normal = {[ARMOR_IIA] = 0.7,[ARMOR_II] = 0.55, [ARMOR_IIIA] = 0.4, [ARMOR_III] = 0.25, [ARMOR_IIIp] = 0.2, [ARMOR_IV] = 0.1},
-		ap = {[ARMOR_II] = 0.7, [ARMOR_IIIA] = 0.5, [ARMOR_III] = 0.3, [ARMOR_IIIp] = 0.25, [ARMOR_IV] = 0.15},
+		normal = {[ARMOR_IIA] = 0.7,[ARMOR_II] = 0.55, [ARMOR_IIIA] = 0.4, [ARMOR_III] = 0.25, [ARMOR_IV] = 0.1},
+		ap = {[ARMOR_II] = 0.7, [ARMOR_IIIA] = 0.5, [ARMOR_III] = 0.3, [ARMOR_IV] = 0.15},
 	},
 	["sky45acp"] = {
-		normal = {[ARMOR_IIA] = 0.7,[ARMOR_II] = 0.525, [ARMOR_IIIA] = 0.375, [ARMOR_III] = 0.225, [ARMOR_IIIp] = 0.2, [ARMOR_IV] = 0.1},
-		ap = {[ARMOR_II] = 0.7, [ARMOR_IIIA] = 0.55, [ARMOR_III] = 0.35, [ARMOR_IIIp] = 0.3, [ARMOR_IV] = 0.15},
+		normal = {[ARMOR_IIA] = 0.7,[ARMOR_II] = 0.525, [ARMOR_IIIA] = 0.375, [ARMOR_III] = 0.225, [ARMOR_IV] = 0.1},
+		ap = {[ARMOR_II] = 0.7, [ARMOR_IIIA] = 0.55, [ARMOR_III] = 0.35, [ARMOR_IV] = 0.15},
 	},
 	["buckshot"] = {
-		normal = {[ARMOR_IIIA] = 0.5, [ARMOR_III] = 0.35, [ARMOR_IIIp] = 0.3, [ARMOR_IV] = 0.1},
-		slug = {[ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.45, [ARMOR_IIIp] = 0.35, [ARMOR_IV] = 0.15},
+		normal = {[ARMOR_IIIA] = 0.5, [ARMOR_III] = 0.35, [ARMOR_IV] = 0.1},
+		slug = {[ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.15},
 	},
 	["357"] = {
-		normal = {[ARMOR_II] = 0.65, [ARMOR_IIIA] = 0.5, [ARMOR_III] = 0.3, [ARMOR_IIIp] = 0.25, [ARMOR_IV] = 0.1},
-		ap = {[ARMOR_IIIA] = 0.6, [ARMOR_III] = 0.4, [ARMOR_IIIp] = 0.3, [ARMOR_IV] = 0.15},
+		normal = {[ARMOR_II] = 0.65, [ARMOR_IIIA] = 0.5, [ARMOR_III] = 0.3, [ARMOR_IV] = 0.1},
+		ap = {[ARMOR_IIIA] = 0.6, [ARMOR_III] = 0.4, [ARMOR_IV] = 0.15},
 	},
 	["sky762x39"] = {
-		normal = {[ARMOR_III] = 0.5, [ARMOR_IIIp] = 0.4, [ARMOR_IV] = 0.25},
-		ap = { [ARMOR_IIIp] = 0.65, [ARMOR_IV] = 0.5},
+		normal = {[ARMOR_III] = 0.5, [ARMOR_IV] = 0.25},
+		ap = { [ARMOR_IV] = 0.5},
 	},
 	["sky762x51"] = {
-		normal = {[ARMOR_III] = 0.5, [ARMOR_IIIp] = 0.4, [ARMOR_IV] = 0.25},
-		ap = {[ARMOR_IIIp] = 0.65, [ARMOR_IV] = 0.5},
+		normal = {[ARMOR_III] = 0.5, [ARMOR_IV] = 0.25},
+		ap = {[ARMOR_IV] = 0.5},
 	},
 	["sky556"] = {
-		normal = {[ARMOR_III] = 0.5, [ARMOR_IIIp] = 0.4, [ARMOR_IV] = 0.25},
-		ap = {[ARMOR_IIIp] = 0.65, [ARMOR_IV] = 0.5},
+		normal = {[ARMOR_III] = 0.5, [ARMOR_IV] = 0.25},
+		ap = {[ARMOR_IV] = 0.5},
 	},
 	["sky545"] = {
-		normal = {[ARMOR_III] = 0.5, [ARMOR_IIIp] = 0.4, [ARMOR_IV] = 0.25},
-		ap = {[ARMOR_IIIp] = 0.65, [ARMOR_IV] = 0.5},
+		normal = {[ARMOR_III] = 0.5, [ARMOR_IV] = 0.25},
+		ap = {[ARMOR_IV] = 0.5},
 	},
 	["sky50ae"] = {
-		normal = {[ARMOR_III] = 0.4, [ARMOR_IIIp] = 0.35, [ARMOR_IV] = 0.2},
-		ap = {[ARMOR_IIIp] = 0.4, [ARMOR_IV] = 0.3},
+		normal = {[ARMOR_III] = 0.4, [ARMOR_IV] = 0.2},
+		ap = {[ARMOR_IV] = 0.3},
 	},
 	["sky9x39"] = {
-		normal = {[ARMOR_III] = 0.65,[ARMOR_IIIp] = 0.5,  [ARMOR_IV] = 0.3},
-		ap = {[ARMOR_IIIp] = 0.6, [ARMOR_IV] = 0.45},
+		normal = {[ARMOR_III] = 0.65, [ARMOR_IV] = 0.3},
+		ap = {[ARMOR_IV] = 0.45},
 	},
 	["sky762x54"] = {
-		normal = {[ARMOR_IIIp] = 0.65, [ARMOR_IV] = 0.4},
-		ap = {[ARMOR_IIIp] = 0.8, [ARMOR_IV] = 0.6},
+		normal = {[ARMOR_IV] = 0.4},
+		ap = {[ARMOR_IV] = 0.6},
 	},
 	--23mm and 338 pens everything so not here
 }
