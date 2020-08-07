@@ -38,9 +38,14 @@ nut.command.add("rollattribadv", {
 	end
 })
 
+nut.command.add("chardie", {
+	desc = "Used to kill yourself if you die in RP",
+	onRun = function(client, arguments)
+		client:Kill()
+	end
+})
 
-
---hope this works
+--hope this works (it doesnt)
 nut.command.add("precachemodels", {
 	desc = "Precache important models clientside that arent automatically (npc models, weapon world models mainly). Will likely cause lag after running, just wait. Also might not even work, this is experimental.",
     onRun = function(client, arguments)
