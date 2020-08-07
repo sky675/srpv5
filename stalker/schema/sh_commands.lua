@@ -53,32 +53,7 @@ netstream.Hook("precachecmd", function()
 	PrecacheConfigModels()
 end)
 end
---[[
-nut.command.add("charsetbandit", {
-    syntax = "<string name> [bool unset]",
-	desc = "put a loner character under bandit class",
-    adminOnly = true,
-    onRun = function(client, arguments)
-        local target = nut.util.findPlayer(arguments[1])
-		if(!target) then return "invalid player" end
-		if(target:getChar():getFaction() != FACTION_LONER) then return "not a loner" end
-		if(tobool(arguments[2]) == false) then
-			target:getChar():setData("customclass")
-			target:getChar():kickClass() 
-			return "removed" 
-		end
-		target:getChar():setData("customclass", "bandit")
-		if(target:getChar():joinClass(CLASS_BANDIT)) then
-			target:notify("you are now bandit")
-		else
-			target:getChar():setData("customclass")
-			return "failed?"
-		end
 
-		return "worked"
-	end
-})
-]]
 nut.command.add("charsetanorakskin", {
 	syntax = "<string target> <int skin>",
 	desc = "Set the skin of the person's anorak (these are not found on the model)",

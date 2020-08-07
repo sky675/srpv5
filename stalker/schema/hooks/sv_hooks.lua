@@ -201,17 +201,6 @@ function SCHEMA:OnCharCreated(client, character)
     end
 end
 
-function SCHEMA:PostPlayerLoadout(ply)
-	local fac = ply:getChar():getFaction()
-	if(fac == FACTION_LONER) then
-		for k, v in ipairs(nut.class.list) do
-			if (ply:getChar():joinClass(k)) then
-				break
-			end
-		end
-	end
-end
-
 --this should force the arms being hidden with no item equipped
 hook.Add("PlayerRemoveOutfitEnd", "resetbg", function(ply, item)
 	if(ply.bm and ply.bm.t) then	
