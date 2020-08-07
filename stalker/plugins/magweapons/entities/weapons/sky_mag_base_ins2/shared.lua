@@ -425,6 +425,8 @@ function SWEP:Reload(released)
 				if(v.uniqueID == self:GetStat("MagType") and v:getData("type") == self:GetStat("SpecAmmo")) then
 					if(!self.Owner:getNutData("normalreload")) then
 						local cnt = v:getData("mag")
+						--just skip if this mag is full
+						if(cnt == self.Primary.ClipSize) then mag = v break end
 						local needed = self.Primary.ClipSize
 						--i dont like doing this here but fuck it lmao
 						for k2,v2 in pairs(inv:getItems()) do
