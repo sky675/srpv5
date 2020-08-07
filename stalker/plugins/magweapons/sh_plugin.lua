@@ -92,6 +92,17 @@ function PLUGIN:InitializedItems()
     --end
 end
 
+
+nut.command.add("togglemagreload", {
+	desc = "Toggle the autoreload helper (enabled by default)",
+	onRun = function(client, arguments)
+		local cur = client:getNutData("normalreload", false)
+		client:setNutData("normalreload", !cur)
+		return "toggled autoreload "..(cur and "on" or "off")
+	end
+})
+
+
 if(SERVER) then
 	--[[
 	hook.Add("OnCharFallover", "redoatts", function(ply, _, bool)

@@ -185,7 +185,6 @@ local l_CT = CurTime
 hook.Add("TFA_PreDeploy", "givemeammo", function(self)
 	if(!nut) then return end
 	if(self.Base != "sky_mag_base_ins2") then return end
-	print("its using the plugin one")
 	if(self.gaveammo) then return end --only do once
 
 	if(self:Clip1() == 0 and self:Ammo1() != 0) then --it does this every time
@@ -383,90 +382,7 @@ hook.Add("TFA_DrawHUDAmmo", "ammoismags", function(self, xx, yy, myalpha)
 
 	return false
 end)
---[[
-function SWEP:AltAttack()
-	if self:GetStat("Secondary.CanBash") == false then return end
-	if not self:OwnerIsValid() then return end
-	if CurTime() < self:GetNextSecondaryFire() then return end
-	local stat = self:GetStatus()
-	if ( not TFA.Enum.ReadyStatus[stat] ) and not self.Secondary.BashInterrupt then return end
-	if ( stat == TFA.GetStatus("bashing") ) and self.Secondary.BashInterrupt then return end
-	if self:IsSafety() then return end
-	if self:GetHolding() then return end
 
-	local vm = self:GetOwner():GetViewModel()
-	--if SERVER then
-	self:SendViewModelAnim(ACT_VM_DRAW)
-
-	--else
-	--	self:SendWeaponAnim(ACT_VM_HITCENTER)
-	--end
-	if self:GetOwner().Vox then
-		self:GetOwner():Vox("bash", 0)
-	end
-
-	local altanim = false
-	--if IsValid(wep) and wep.GetHoldType then
-	local ht = self.HoldType
-
-	if ht == "ar2" or ht == "shotgun" or ht == "crossbow" or ht == "physgun" then
-		altanim = true
-	end
-
-	self.unpredbash = true
-
-	timer.Simple(0.1, function()
-		if IsValid(self) then
-			self.unpredbash = false
-		end
-	end)
-	self:BashAnim()
-	if game.SinglePlayer() and SERVER then self:CallOnClient("BashAnim","") end
-
-	self.tmptoggle = not self.tmptoggle
-	self:SetNextPrimaryFire(CurTime() + (self:GetStat("Secondary.BashEnd") or self:GetActivityLength(ACT_VM_HITCENTER, false) ) )
-	self:SetNextSecondaryFire(CurTime() + (self:GetStat("Secondary.BashEnd") or self:GetActivityLength(ACT_VM_HITCENTER, true) ) )
-
-	if IsFirstTimePredicted() then
-		self:EmitSound(self:GetStat("Secondary.BashSound"))
-	end
-	self:SetStatus(TFA.Enum.STATUS_BASHING)
-	self:SetStatusEnd( CurTime() + (self:GetStat("Secondary.BashEnd") or self:GetActivityLength(ACT_VM_HITCENTER, true) ) )
-
-	self:SetNW2Float("BashTTime", CurTime() + self:GetStat("Secondary.BashDelay"))
-end
-function SWEP:HandleDoor(slashtrace)
-	if CLIENT then return end
-
-	if slashtrace.Entity:GetClass() == "func_door_rotating" or slashtrace.Entity:GetClass() == "prop_door_rotating" then
-		if(slashtrace.Entity.getNetVar and slashtrace.Entity:getNetVar("disabled")) then
-			return false
-		end
-		
-		local ply = self:GetOwner()
-		ply:EmitSound("ambient/materials/door_hit1.wav", 100, math.random(80, 120))
-		ply.oldname = ply:GetName()
-		ply:SetName("bashingpl" .. ply:EntIndex())
-		slashtrace.Entity:SetKeyValue("Speed", "500")
-		slashtrace.Entity:SetKeyValue("Open Direction", "Both directions")
-		slashtrace.Entity:SetKeyValue("opendir", "0")
-		slashtrace.Entity:Fire("unlock", "", .01)
-		slashtrace.Entity:Fire("openawayfrom", "bashingpl" .. ply:EntIndex(), .01)
-
-		timer.Simple(0.02, function()
-			if IsValid(ply) then
-				ply:SetName(ply.oldname)
-			end
-		end)
-
-		timer.Simple(0.3, function()
-			if IsValid(slashtrace.Entity) then
-				slashtrace.Entity:SetKeyValue("Speed", "100")
-			end
-		end)
-	end
-end
-]]
 function SWEP:Reload(released)
 	if self.Owner:IsNPC() then
 		return
@@ -507,9 +423,34 @@ function SWEP:Reload(released)
 			--count = 0
 			for k,v in pairs(inv:getItems()) do
 				if(v.uniqueID == self:GetStat("MagType") and v:getData("type") == self:GetStat("SpecAmmo")) then
+					if(!self.Owner:getNutData("normalreload")) then
+						local cnt = v:getData("mag")
+						local needed = self.Primary.ClipSize
+						--i dont like doing this here but fuck it lmao
+						for k2,v2 in pairs(inv:getItems()) do
+							--looking for magazines that are ammoboxes, have the same ammo type and special ammo type as the weapon, and arent empty
+							if(v2.base == "base_magazines" and v2.ammoBox and v2.ammoType == self.Primary.Ammo and v2:getData("type") == self:GetStat("SpecAmmo") and v2:getData("mag") > 0) then
+								--less ammo than required (or exact)
+								if(v2:getData("mag") <= needed) then
+									cnt = cnt + v2:getData("mag")
+									needed = needed - v2:getData("mag")
+									v2:remove() --remove as normally it would do this otherwise
+								else --else is fine
+									cnt = self.Primary.ClipSize
+									v2:setData("mag", v2:getData("mag")-needed)
+									break
+								end
+							end
+						end
+						if(cnt == 0) then return end --no ammo
+						v:setData("mag", cnt)
+						mag = v
+						break
+					end
 					if(v:getData("mag", 0) > 0) then
 						table.insert(mags, v)
 						count = count + v:getData("mag", 0)
+						--if no valid mags left and this one is empty
 					end
 				end
 			end
