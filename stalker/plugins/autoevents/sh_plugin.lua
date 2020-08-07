@@ -3,7 +3,6 @@ PLUGIN.name = "Autoevents"
 PLUGIN.author = "sky"
 PLUGIN.desc = "an in-map version of the run system, may be held together with duct tape idk"
 
-
 --im prob gonna regret this
 nut.config.add("autoeventsEnabled", true, "Whether autoevents are being generated.", nil, {
     category = "Autoevents"    
