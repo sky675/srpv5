@@ -173,29 +173,6 @@ hook.Add("PlayerSpawnedNPC", "disableDrop", function(ply, ent)
 	ent:SetKeyValue("spawnflags", "8192") --disable drop weapons
 end)
 ---[[
---just gonna put this down hereeeee
-util.AddNetworkString("SendQuizDone")
-util.AddNetworkString("SendQuizFail")
-util.AddNetworkString("SendWeightToClient")
-
-net.Receive("SendQuizDone", function(_, ply)
-	local done = net.ReadBool()
-	if(done) then
-		ply:setNutData("quiz", true)
-		ply:saveNutData()
-	end
-end)
-
-net.Receive("SendQuizFail", function(_, ply)
-	local prog = net.ReadTable()
-	if(#prog == 0) then
-		RunConsoleCommand("ev","kick",ply:Name(),"Failed the quiz -- also answered 0 questions anyway. are you okay?")
-	end
-
-	RunConsoleCommand("ev","kick",ply:Name(),"Failed the quiz")
-
-	nut.log.addRaw(ply:Name().." was kicked for failing the quiz, they answered "..tostring(#prog).." questions, and this is the answer table: "..tostring(prog[1]).." "..tostring(prog[2]).." "..tostring(prog[3]).." "..tostring(prog[4]).." "..tostring(prog[5]).." "..tostring(prog[6]).." "..tostring(prog[7]).." "..tostring(prog[8]).." "..tostring(prog[9]), FLAG_DANGER)
-end)
 --]]
 	gameevent.Listen("player_disconnect")
 	hook.Add("player_disconnect", "leavelog", function(data) --this is better
