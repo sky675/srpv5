@@ -418,36 +418,14 @@ function SWEP:Reload(released)
 
 			end
 			
-			--moved this out becuz its now needed even when were not getting these mags
-			--mags = {}
-			--count = 0
+			local fullmag
+			local easymag
 			for k,v in pairs(inv:getItems()) do
 				if(v.uniqueID == self:GetStat("MagType") and v:getData("type") == self:GetStat("SpecAmmo")) then
-					if(!self.Owner:getNutData("normalreload")) then
-						local cnt = v:getData("mag")
-						--just skip if this mag is full
-						if(cnt == self.Primary.ClipSize) then mag = v break end
-						local needed = self.Primary.ClipSize
-						--i dont like doing this here but fuck it lmao
-						for k2,v2 in pairs(inv:getItems()) do
-							--looking for magazines that are ammoboxes, have the same ammo type and special ammo type as the weapon, and arent empty
-							if(v2.base == "base_magazines" and v2.ammoBox and v2.ammoType == self.Primary.Ammo and v2:getData("type") == self:GetStat("SpecAmmo") and v2:getData("mag") > 0) then
-								--less ammo than required (or exact)
-								if(v2:getData("mag") <= needed) then
-									cnt = cnt + v2:getData("mag")
-									needed = needed - v2:getData("mag")
-									v2:remove() --remove as normally it would do this otherwise
-								else --else is fine
-									cnt = self.Primary.ClipSize
-									v2:setData("mag", v2:getData("mag")-needed)
-									break
-								end
-							end
-						end
-						if(cnt == 0) then return end --no ammo
-						v:setData("mag", cnt)
-						mag = v
-						break
+					if(!self.Owner:getNutData("normalreload") and !self.Shotgun and !self.DoubleB) then
+						if(v:getData("mag") == self.Primary.ClipSize) then fullmag = v break end
+						if(!easymag) then v = easymag end
+						
 					end
 					if(v:getData("mag", 0) > 0) then
 						table.insert(mags, v)
@@ -455,6 +433,33 @@ function SWEP:Reload(released)
 						--if no valid mags left and this one is empty
 					end
 				end
+			end
+			if(fullmag) then
+				mag = fullmag
+			end
+			if(!mag and easymag) then
+				local cnt = easymag:getData("mag")
+				--just skip if this mag is full
+				local needed = self.Primary.ClipSize
+				--i dont like doing this here but fuck it lmao
+				for k2,v2 in pairs(inv:getItems()) do
+					--looking for magazines that are ammoboxes, have the same ammo type and special ammo type as the weapon, and arent empty
+					if(v2.base == "base_magazines" and v2.ammoBox and v2.ammoType == self.Primary.Ammo and v2:getData("type") == self:GetStat("SpecAmmo") and v2:getData("mag") > 0) then
+						--less ammo than required (or exact)
+						if(v2:getData("mag") <= needed) then
+							cnt = cnt + v2:getData("mag")
+							needed = needed - v2:getData("mag")
+							v2:remove() --remove as normally it would do this otherwise
+						else --else is fine
+							cnt = self.Primary.ClipSize
+							v2:setData("mag", v2:getData("mag")-needed)
+							break
+						end
+					end
+				end
+				if(cnt == 0) then return end --no ammo
+				easymag:setData("mag", cnt)
+				mag = easymag
 			end
 
 
