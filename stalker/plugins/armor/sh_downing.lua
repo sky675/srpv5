@@ -249,7 +249,7 @@ if(SERVER) then
 		local atk = dmginfo:GetAttacker()
 		local msgs = nut.config.get("shootMessages", true)
 
-		--fucking party poopers
+		--s m h
 		if(!on) then 
 			if(msgs) then
             net.Start("PlayerGetDmg")
