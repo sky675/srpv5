@@ -2,7 +2,7 @@
 
 # sky's Stalker Roleplay
 
-A custom Nutscript schema for S.T.A.L.K.E.R. roleplay (based on the game series). Includes lots of gameplay features to both boost rp as well as fill the voice between.
+A custom Nutscript schema for S.T.A.L.K.E.R. roleplay (based on the game series). Includes lots of gameplay features to both boost rp as well as fill the void between.
 ## Installation
 
 Drop the repository in your `garrysmod/gamemodes/` folder and set your gamemode launch option as such:
