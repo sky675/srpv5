@@ -6,7 +6,11 @@ PLUGIN.desc = "Adds a quick menu (inventory) function. i only google translated 
 --SOUND_INVENTORY_OPEN = {""}
 
 
+
 if (CLIENT) then
+	hook.Add("CanPlayerViewInventory", "inventorylock", function()
+		return false
+	end)
 	netstream.Hook("quickMenu", function()
 		if (quickInventoryPanel) then
 			quickInventoryPanel:Remove()

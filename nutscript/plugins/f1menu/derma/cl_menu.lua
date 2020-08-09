@@ -119,7 +119,8 @@ local PANEL = {}
 		surface.SetDrawColor(color_bright)
 		surface.DrawRect(0, 78, w, 8)
 	end
-
+	
+	--f1 menu dummy
 	function PANEL:addTab(name, callback, uniqueID)
 		name = L(name)
 

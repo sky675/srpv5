@@ -94,7 +94,7 @@ local PANEL = {}
 	function PANEL:setup()
 		local char = LocalPlayer():getChar()
 		if (self.desc) then
-			self.desc:SetText(char:getDesc():gsub("#", "\226\128\139#"))
+			self.desc:SetText(char:getDesc():gsub("#", "\226\128\139#")) --zero width space :hmmm:
 			self.desc.OnEnter = function(this, w, h)
 				nut.command.send(
 					"chardesc",
@@ -125,6 +125,7 @@ local PANEL = {}
 			self.faction:SetText(L("charFaction", L(team.GetName(LocalPlayer():Team()))))
 		end
 
+		--TIME
 		if (self.time) then
 			local format = "%X"--"%A, %d %B %Y %X"
 			
@@ -248,7 +249,6 @@ local PANEL = {}
 						if(!IsValid(panel)) then return end
 						if(!panel.model.modelcache or panel.model.modelcache == 0) then return end
 
-						print("just wanted to check how often this runs actually e")
 
 						panel.model.modelcache[1]:SetBodygroup(0, char:getData("gtop", 0))
 						panel.model.modelcache[1]:SetSkin(char:getData("gtopskin", 0))
@@ -265,10 +265,39 @@ local PANEL = {}
 				end
 			end
 		end
+		
+		if (self.quickInventoryPanel) then
+			self.quickInventoryPanel:Remove()
+		end
+
+		local inventory = LocalPlayer():getChar():getInv()
+
+		if (inventory) then
+			if (SOUND_INVENTORY_OPEN) then
+				LocalPlayer():EmitSound(unpack(SOUND_INVENTORY_OPEN))
+			end
+
+			self.quickInventoryPanel = inventory:show()
+			self.quickinventorypanel.Paint = function() end
+
+			self.quickInventoryPanel:ShowCloseButton(false)
+			--self.quickInventoryPanel:SetDraggable(false)
+			hook.Add("PostRenderVGUI", self.quickInventoryPanel, function()
+				hook.Run("PostDrawInventory", self.quickInventoryPanel)
+			end)
+			
+		end
 
 		hook.Run("OnCharInfoSetup", self)
+
+
+		
 	end
 
 	function PANEL:Paint(w, h)
 	end
+
+	function PANEL:OnRemove() self.quickInventoryPanel:Remove() 
+	end
+
 vgui.Register("nutCharInfo", PANEL, "EditablePanel")

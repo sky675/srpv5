@@ -28,24 +28,27 @@ function PANEL:Init()
     if(!IsValid(nut.gui.pda)) then
         nut.gui.pda = self
     end
-    
+    local factpda = {
+		[FACTION_ECO] = "pda/pda_eco.png"
+	}
     self.Paint = function()
         surface.SetDrawColor(255,255,255,255)
-        surface.SetMaterial(Material("sky/ui_pda_eng.png"))
+        surface.SetMaterial(Material(factpda[LocalPlayer():getChar():getFaction()] or "sky/ui_pda_eng.png"))
         surface.DrawTexturedRect(0,0,1024,702)
     end
 
     --close button
-    self.CloseB = vgui.Create("DLabel", self)
-    self.CloseB:SetFont("nutBigFont")
-    self.CloseB:SetText("x")
-    self.CloseB:SetTextColor(Color(250,0,0,255))
-    self.CloseB:SetPos(984, 00)
-    self.CloseB:SetSize(20, 20)
+    self.CloseB = vgui.Create("DImageButton")
+    --self.CloseB:SetFont("nutBigFont")
+    --self.CloseB:SetText("x")
+	--self.CloseB:SetTextColor(Color(250,0,0,255))
+	self.CloseB:SetMaterial(Material("pda/close_idle.png"))
+    self.CloseB:SetPos((ScrW()*0.5-64), (ScrH()*0.5+370)) --half pda h 351
+    self.CloseB:SetSize(126, 96)
     self.CloseB:SetZPos(99)
     self.CloseB:SetMouseInputEnabled(true)
     self.CloseB.DoClick = function()
-        self:Remove()
+		self:Remove()
     end
 
     self.Main = vgui.Create("DPanel", self)
@@ -120,6 +123,7 @@ end
 
 function PANEL:OnRemove()
 	PDA_DATA_DISPLAY = nil --reset this
+	self.CloseB:Remove()
 end
 
 function PANEL:ClearContent(cleardisplay)
