@@ -188,6 +188,7 @@ function ITEM:getDesc()
     local res = self:getData("resists")
     if(res) then
 		for k,v in pairs(res) do
+			if(!ARTIFACT_TRANS[k]) then continue end
             str = str..(ARTIFACT_TRANS[k] and ARTIFACT_TRANS[k].name or "???")..": "..math.Round(v*100).."%\n"
         end
         str = str.."\n"
@@ -232,7 +233,9 @@ function ITEM:RemoveOutfit(client)
 		uni = self.uniqueID
 	end
 
-	client:removePart(uni)
+	if(client.removePart) then
+		client:removePart(uni)
+	end
 	
 	if(self.gs or self.getCustomGS) then
 		if(!self.getCustomGS) then
