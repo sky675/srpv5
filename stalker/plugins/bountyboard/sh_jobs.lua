@@ -122,7 +122,11 @@ PLUGIN.jobTemps = {
 			return {itemid = sel.uniqueID, itemcount = cnt.count, reward = cnt.rewards[math.random(#cnt.rewards)]}
 		end,
 		format = function(job) --format table, return table
-			return {job.itemcount, job.itemcount != 1 and genericItemPlurs[job.itemid] or nut.item.get(job.itemid).name, nut.currency.get(job.reward)}
+			return {
+				job.itemcount, 
+				job.itemcount != 1 and genericItemPlurs[job.itemid] 
+					or nut.item.get(job.itemid).name or "UNKNOWN ITEM", 
+				nut.currency.get(job.reward)}
 		end,
 		--checked when you try and turn it in, return true/false
 		onTurnIn = function(client, job) 
