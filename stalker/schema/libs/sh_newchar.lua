@@ -605,7 +605,7 @@ hook.Add("PlayerSpawn", "regivemodels", function(ply)
 end)
 function clothesnonply(ply, data, realply)
 	local setthistime = false
-	print("??????? wtf")
+	
 					--just pick one to check i guess
 	if(!ply.bm or !IsValid(ply.bm.t)) then --if the models dont exist make them
 		ply.bm = {}

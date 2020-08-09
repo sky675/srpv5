@@ -48,7 +48,7 @@ function PLUGIN:InitializedItems()
 			ITEM.otherMagTypes = data.otherMagTypes --it should be ok if this is nil
             ITEM.specammo = data.specammo --default ammo type (for ammo boxes)
 			if(data.iconCam) then --prob wont be used for anything else so
-				ITEM.exRender = true
+				--ITEM.exRender = true
 				ITEM.iconCam = data.iconCam
 			end
         end
