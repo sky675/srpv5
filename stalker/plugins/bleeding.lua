@@ -4,7 +4,15 @@ PLUGIN.name = "Bleeding"
 PLUGIN.author = "sky"
 PLUGIN.desc = "Adds the possibility for players to bleed"
 
-nut.config.add("bleed", true, "Whether bleeding is on.", nil, {
+nut.config.add("bleed", false, "Whether bleeding is on.", function(oldValue,newValue)
+	--unsure if this will persist on restart
+	if(CLIENT) then
+		local bar = nut.bar.get("bleed")
+		if(bar) then
+			bar.visible = newValue
+		end
+	end
+end, {
     category = "server"    
 })
 
