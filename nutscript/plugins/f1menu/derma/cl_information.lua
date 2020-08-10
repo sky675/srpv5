@@ -278,7 +278,7 @@ local PANEL = {}
 			end
 
 			self.quickInventoryPanel = inventory:show()
-fi			self.quickInventorypanel.Paint = function() end
+			self.quickInventoryPanel.Paint = function() end
 
 			self.quickInventoryPanel:ShowCloseButton(false)
 			--self.quickInventoryPanel:SetDraggable(false)
