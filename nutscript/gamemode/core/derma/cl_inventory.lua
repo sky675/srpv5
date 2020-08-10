@@ -242,7 +242,7 @@ PANEL = {}
 		self:MakePopup()
 		self:Center()
 		self:ShowCloseButton(false)
-		self:SetDraggable(true)
+		self:SetDraggable(false)
 		self:SetTitle(L"inv")
 	end
 
