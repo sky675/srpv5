@@ -34,7 +34,7 @@ function PANEL:Init()
         nut.gui.pda = self
     end
     local factpda = {
-		[FACTION_ECO] = "pda/pda_eco.png"
+		[FACTION_ECO] = "sky/pda_eco.png"
 	}
     self.Paint = function()
         surface.SetDrawColor(255,255,255,255)
@@ -47,7 +47,7 @@ function PANEL:Init()
     --self.CloseB:SetFont("nutBigFont")
     --self.CloseB:SetText("x")
 	--self.CloseB:SetTextColor(Color(250,0,0,255))
-	self.CloseB:SetMaterial(Material("pda/close_idle.png"))
+	self.CloseB:SetMaterial(Material("sky/close_idle.png"))
     self.CloseB:SetPos((scrw*0.5-63), (scrh*0.825+19))--5+370)) --half pda h 351
     self.CloseB:SetSize(126, 96)
     --self.CloseB:SetZPos(-1)
