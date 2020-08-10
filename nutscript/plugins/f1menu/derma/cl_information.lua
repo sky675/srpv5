@@ -277,7 +277,7 @@ local PANEL = {}
 				LocalPlayer():EmitSound(unpack(SOUND_INVENTORY_OPEN))
 			end
 
-			self.quickInventoryPanel = inventory:show()
+			self.quickInventoryPanel = inventory:show(nut.gui.menu)
 			self.quickInventoryPanel.Paint = function() end
 
 			self.quickInventoryPanel:ShowCloseButton(false)
