@@ -231,12 +231,12 @@ PLUGIN.stages = {
 					[ "$pp_colour_addr" ] = 0.04,
 					[ "$pp_colour_addg" ] = 0,
 					[ "$pp_colour_addb" ] = 0,
-					[ "$pp_colour_brightness" ] = -0.06,
+					[ "$pp_colour_brightness" ] = -0.09,
 					[ "$pp_colour_contrast" ] = 1.19,
 					[ "$pp_colour_colour" ] = 0.56,
-					[ "$pp_colour_mulr" ] = 25.5,
-					[ "$pp_colour_mulg" ] = 0.01,
-					[ "$pp_colour_mulb" ] = 0.01
+					[ "$pp_colour_mulr" ] = 20.5,
+					[ "$pp_colour_mulg" ] = 0.02,
+					[ "$pp_colour_mulb" ] = 0.02
 
 				}
 				OVERRIDE_PP = true

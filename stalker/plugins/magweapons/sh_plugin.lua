@@ -76,9 +76,10 @@ function PLUGIN:InitializedItems()
 			ITEM.defaultAmmo = data.defaultAmmo
 			ITEM.cantDetach = data.cantDetach
 			if(data.iconCam) then --prob wont be used for anything else so
-				ITEM.exRender = true
+				--ITEM.exRender = true
 				ITEM.iconCam = data.iconCam
 			end
+			ITEM.icon = data.icon
 			ITEM.biolock = data.biolock
 			ITEM.cantBeUnloaded = data.cantBeUnloaded
 			ITEM.noBusiness = data.noBusiness
