@@ -1015,11 +1015,12 @@ PLUGIN.wepList = {
 	magType = "mag_pm",
 	disableChamber = false,
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"},
-	iconCam = {
+	--[[iconCam = { --this still will prob work for most/all pistols tho
 		pos = Vector(0.60000002384186, 200, -0.30000001192093),
 		ang = Angle(0, 270, 0),
 		fov = 3,
-	},
+	},]]
+	icon = Material("sky/itemicons/w_pm.png")
 },
 --[[
 ["wep_scarl"] = {

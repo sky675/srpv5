@@ -51,6 +51,7 @@ function PLUGIN:InitializedItems()
 				--ITEM.exRender = true
 				ITEM.iconCam = data.iconCam
 			end
+			ITEM.icon = data.icon
         end
         for id, data in pairs(PLUGIN.wepList) do
             local ITEM = nut.item.register(id, "base_mweapons", nil, nil, true)
