@@ -17,9 +17,14 @@ function PANEL:Init()
                 break
             end
         end
-    end
+	end
+	
+	local scrw, scrh = ScrW(), ScrH()
 
-    self:SetSize(1024,702)
+	--1024/1920 - 0.5333
+	local mainpdaw, mainpdwh = scrw*0.5333, scrh*0.65
+	--1024/1080 0.65
+    self:SetSize(mainpdaw, mainpdwh) -- 1024,702)
     self:Center()
     self:MakePopup()
     self:SetTitle("")
@@ -34,7 +39,7 @@ function PANEL:Init()
     self.Paint = function()
         surface.SetDrawColor(255,255,255,255)
         surface.SetMaterial(Material(factpda[LocalPlayer():getChar():getFaction()] or "sky/ui_pda_eng.png"))
-        surface.DrawTexturedRect(0,0,1024,702)
+        surface.DrawTexturedRect(0,0,mainpdaw, mainpdwh)
     end
 
     --close button
@@ -43,27 +48,32 @@ function PANEL:Init()
     --self.CloseB:SetText("x")
 	--self.CloseB:SetTextColor(Color(250,0,0,255))
 	self.CloseB:SetMaterial(Material("pda/close_idle.png"))
-    self.CloseB:SetPos((ScrW()*0.5-64), (ScrH()*0.5+370)) --half pda h 351
+    self.CloseB:SetPos((scrw*0.5-63), (scrh*0.825+19))--5+370)) --half pda h 351
     self.CloseB:SetSize(126, 96)
-    self.CloseB:SetZPos(99)
+    --self.CloseB:SetZPos(-1)
     self.CloseB:SetMouseInputEnabled(true)
     self.CloseB.DoClick = function()
 		self:Remove()
     end
 
-    self.Main = vgui.Create("DPanel", self)
-    self.Main:SetSize(775, 537)
-    self.Main:SetPos(102, 80)
+	self.Main = vgui.Create("DPanel", self)
+	local mainconw, mainconh = scrw*0.405, scrh*0.498
+	local mainconx, maincony = scrw*0.0525, scrh*0.075
+    self.Main:SetSize(mainconw, mainconh)--775, 537)
+    self.Main:SetPos(mainconx, maincony)--102, 80)
     self.Main.Paint = function (self, w, h)
         draw.NoTexture()
     end
 
-    self.Content = vgui.Create("Panel", self.Main)
-    self.Content:SetSize(555, 537)
-    self.Content:SetPos(220,0)
+	self.Content = vgui.Create("Panel", self.Main)
+	local conw = scrw*0.289
+	local conx = scrw*0.115
+    self.Content:SetSize(conw, mainconh)--555, 537)
+    self.Content:SetPos(conx, 0)--220,0)
 
-    self.Scroll = vgui.Create("DScrollPanel", self.Main)
-    self.Scroll:SetSize(219, 537)
+	self.Scroll = vgui.Create("DScrollPanel", self.Main)
+	local sclw = scrw*0.114
+    self.Scroll:SetSize(sclw, mainconh)--219, 537)
     self.Scroll:SetPos(0,0)
     self.Scroll:SetBackgroundColor(Color(0,255,0))
     --self.Content:SetVisible(false)
@@ -144,7 +154,8 @@ function PANEL:CreateAnnouncements()
 
     self.Content.Cont = vgui.Create("DPanel", self.Content)
     self.Content.Cont:SetPos(0,20)
-    self.Content.Cont:SetSize(555, 516)
+	self.Content.Cont:SetSize(555, 516)
+	self.Content.Cont:Dock(FILL)
     self.Content.Cont.Paint = function(self, w, h)
         draw.NoTexture()
         surface.SetDrawColor(Color(150,150,150,255))
@@ -176,6 +187,7 @@ function PANEL:CreateDataLookup()
     self.Content.Cont = vgui.Create("DPanel", self.Content)
     self.Content.Cont:SetPos(0,20)
     self.Content.Cont:SetSize(555, 516)
+	self.Content.Cont:Dock(FILL)
     self.Content.Cont.Paint = function(self, w, h)
         draw.NoTexture()
         surface.SetDrawColor(Color(150,150,150,255))
@@ -690,6 +702,7 @@ function PANEL:CreateLeaderboard()
     self.Content.Cont = vgui.Create("DPanel", self.Content)
     self.Content.Cont:SetPos(0,20)
     self.Content.Cont:SetSize(555, 516)
+	self.Content.Cont:Dock(FILL)
     self.Content.Cont.Paint = function(self, w, h)
         draw.NoTexture()
         surface.SetDrawColor(Color(150,150,150,255))
@@ -712,6 +725,7 @@ function PANEL:CreateSettings()
     self.Content.Cont = vgui.Create("DPanel", self.Content)
     self.Content.Cont:SetPos(0,20)
     self.Content.Cont:SetSize(555, 516)
+	self.Content.Cont:Dock(FILL)
     self.Content.Cont.Paint = function(self, w, h)
         draw.NoTexture()
         surface.SetDrawColor(Color(150,150,150,255))
