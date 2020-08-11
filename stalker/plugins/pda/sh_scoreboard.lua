@@ -10,16 +10,16 @@ if(SERVER) then
 
 else--client
 	--unhide/create pda
-	function PLUGIN:ScoreboardHide()
+	hook.Add("ScoreboardHide", "aaahide", function()--function PLUGIN:ScoreboardHide()
 		if (IsValid(nut.gui.pda)) then
 			nut.gui.pda:DisablePDA()
 			CloseDermaMenus()
 		end
 
 		return true
-	end
+	end)
 
-	function PLUGIN:ScoreboardShow()
+	hook.Add("ScoreboardShow", "aaashow", function() --function PLUGIN:ScoreboardShow()
 		local pd = LocalPlayer():GetPDA()
 		if(!pd) then return true end
 		if (IsValid(nut.gui.pda) && nut.gui.pda:IsVisible()) then
@@ -31,7 +31,7 @@ else--client
 		end
 
 		return true
-	end
+	end)
 
 	function PLUGIN:OnReloaded()
 		-- Reload the scoreboard.
