@@ -122,6 +122,8 @@ PLUGIN.jobTemps = {
 			return {itemid = sel.uniqueID, itemcount = cnt.count, reward = cnt.rewards[math.random(#cnt.rewards)]}
 		end,
 		format = function(job) --format table, return table
+			print("nut? ")
+			print(nut.item)
 			return {
 				job.itemcount, 
 				job.itemcount != 1 and genericItemPlurs[job.itemid] 
