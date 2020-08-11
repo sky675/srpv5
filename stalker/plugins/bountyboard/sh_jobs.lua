@@ -125,7 +125,10 @@ PLUGIN.jobTemps = {
 			return {
 				job.itemcount, 
 				job.itemcount != 1 and genericItemPlurs[job.itemid] 
-					or nut.item.get(job.itemid).name or "UNKNOWN ITEM", 
+					or nut.item
+						.get(job.itemid)
+						.name 
+						or "UNKNOWN ITEM", 
 				nut.currency.get(job.reward)}
 		end,
 		--checked when you try and turn it in, return true/false
