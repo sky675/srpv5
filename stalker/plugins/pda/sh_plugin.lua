@@ -342,6 +342,7 @@ function PLUGIN:GetSimList()
 end
 
 nut.util.include("sh_commands.lua")
+nut.util.include("sh_scoreboard.lua")
 
 if (CLIENT) then
     net.Receive("OpenPDA", function()
@@ -350,9 +351,13 @@ if (CLIENT) then
 
             if(IsValid(nut.gui.menu)) then
                 nut.gui.menu:Remove()
-            end
+			end
+			if(!nut.gui.pda) then
             nut.gui.pda = vgui.Create("pdaPanel")
-            nut.gui.pda.instid = inst
+			nut.gui.pda.instid = inst
+			else
+				nut.gui.pda:Reset(inst)
+			end
 	end)
 	
 	net.Receive("RecPDAData", function()

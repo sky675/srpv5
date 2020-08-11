@@ -154,6 +154,11 @@ PLUGIN.wepList = {
 	weaponCategory = "sidearm",
 	magType = "mag_deserteagle",
 	disableChamber = false,
+	iconCam = { --this still will prob work for most/all pistols tho
+		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		ang = Angle(0, 270, 0),
+		fov = 3,
+	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_famas"] = {
@@ -205,6 +210,11 @@ PLUGIN.wepList = {
 	weaponCategory = "sidearm",
 	magType = "mag_glock",
 	disableChamber = false,
+	iconCam = { --this still will prob work for most/all pistols tho
+		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		ang = Angle(0, 270, 0),
+		fov = 3,
+	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_glocka"] = {
@@ -223,6 +233,11 @@ PLUGIN.wepList = {
 	magType = "mag_glock",
 	disableChamber = false,
 	noBusiness = true,
+	iconCam = { --this still will prob work for most/all pistols tho
+		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		ang = Angle(0, 270, 0),
+		fov = 3,
+	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 --[[
@@ -260,6 +275,11 @@ PLUGIN.wepList = {
 	magType = "mag_usp",
 	--defaultMods = {},
 	disableChamber = false,
+	iconCam = { --this still will prob work for most/all pistols tho
+		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		ang = Angle(0, 270, 0),
+		fov = 3,
+	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_usp9"] = {
@@ -278,6 +298,11 @@ PLUGIN.wepList = {
 	magType = "mag_usp9",
 	defaultMods = {[11] = "sky_usp_9mm",},
 	disableChamber = false,
+	iconCam = { --this still will prob work for most/all pistols tho
+		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		ang = Angle(0, 270, 0),
+		fov = 3,
+	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_uspm"] = {
@@ -296,6 +321,11 @@ PLUGIN.wepList = {
 	magType = "mag_usp9",
 	defaultMods = {[11] = "sky_usp_9mm", [12] = "tfa_ins2_si_tiggsmatch"},
 	disableChamber = false,
+	iconCam = { --this still will prob work for most/all pistols tho
+		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		ang = Angle(0, 270, 0),
+		fov = 3,
+	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_izh"] = {
@@ -410,6 +440,11 @@ PLUGIN.wepList = {
 	weaponCategory = "sidearm",
 	magType = "mag_1911",
 	disableChamber = false,
+	iconCam = { --this still will prob work for most/all pistols tho
+		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		ang = Angle(0, 270, 0),
+		fov = 3,
+	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_m4a1"] = {
@@ -482,6 +517,11 @@ PLUGIN.wepList = {
 	weaponCategory = "sidearm",
 	magType = "mag_m9",
 	disableChamber = false,
+	iconCam = { --this still will prob work for most/all pistols tho
+		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		ang = Angle(0, 270, 0),
+		fov = 3,
+	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_para"] = {
@@ -676,6 +716,11 @@ PLUGIN.wepList = {
 	weaponCategory = "sidearm",
 	magType = "mag_mp443",
 	disableChamber = false,
+	iconCam = { --this still will prob work for most/all pistols tho
+		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		ang = Angle(0, 270, 0),
+		fov = 3,
+	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 --[[
@@ -775,6 +820,11 @@ PLUGIN.wepList = {
 	weaponCategory = "sidearm",
 	magType = "mag_1911",
 	disableChamber = false,
+	iconCam = { --this still will prob work for most/all pistols tho
+		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		ang = Angle(0, 270, 0),
+		fov = 3,
+	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },--[[
 ["wep_m500"] = {
@@ -1071,6 +1121,11 @@ PLUGIN.wepList = {
 	weaponCategory = "sidearm",
 	magType = "mag_p226",
 	disableChamber = false,
+	iconCam = { --this still will prob work for most/all pistols tho
+		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		ang = Angle(0, 270, 0),
+		fov = 3,
+	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_g3"] = {

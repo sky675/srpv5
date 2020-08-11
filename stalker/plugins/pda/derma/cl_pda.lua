@@ -1,10 +1,45 @@
 
 local PANEL = {}
 
+function PANEL:DisablePDA()
+
+	--self:ClearContent()
+	self:SetVisible(false)
+	self.CloseB:SetVisible(false)
+end
+
+function PANEL:Reset(newid)
+	self:SetVisible(true)
+	self.CloseB:SetVisible(true)
+    local ply = LocalPlayer()
+    local char = ply:getChar()
+	local inv = char:getInv()
+	
+	if(type(newid) == "table") then
+		self.pda = newid
+	else
+	    for k,v in pairs(inv:getItems()) do
+    	    if(v.base == "base_npda") then
+        	    if(newid) then
+            	    if(v.id == newid) then
+        	            self.pda = v
+    	                break
+	                end
+    	        elseif(self.pda:getOwner() == ply) then
+	                self.pda = v
+            	    break
+        	    end
+			end
+		end
+	end
+
+end
+
 function PANEL:Init()
     local ply = LocalPlayer()
     local char = ply:getChar()
-    local inv = char:getInv()
+	local inv = char:getInv()
+	if(!self.pda) then
     for k,v in pairs(inv:getItems()) do
         if(v.base == "base_npda") then
             if(self.instid) then
@@ -17,6 +52,7 @@ function PANEL:Init()
                 break
             end
         end
+	end
 	end
 	
 	local scrw, scrh = ScrW(), ScrH()
@@ -53,7 +89,7 @@ function PANEL:Init()
     --self.CloseB:SetZPos(-1)
     self.CloseB:SetMouseInputEnabled(true)
     self.CloseB.DoClick = function()
-		self:Remove()
+		self:DisablePDA()--Remove()
     end
 
 	self.Main = vgui.Create("DPanel", self)
@@ -78,25 +114,14 @@ function PANEL:Init()
     self.Scroll:SetBackgroundColor(Color(0,255,0))
     --self.Content:SetVisible(false)
 
-    --[[self.Scroll.Scoreboard = vgui.Create("DButton", self.Scroll)
-    self.Scroll.Scoreboard:SetText("leaderboard")
+    self.Scroll.Scoreboard = vgui.Create("DButton", self.Scroll)
+    self.Scroll.Scoreboard:SetText("Online List")
     self.Scroll.Scoreboard:SetSize(219, 60)
-	self.Scroll.Scoreboard:Dock(TOP)
-	self.Scroll.Scoreboard:SetEnabled(false) --todo idk? different thing? for announce too
+    self.Scroll.Scoreboard:Dock(TOP)
     self.Scroll.Scoreboard.DoClick = function()
         self:ClearContent()
-        self:CreateLeaderboard()
+        self:CreateScoreboard()
     end
-    
-    self.Scroll.Announcements = vgui.Create("DButton", self.Scroll)
-    self.Scroll.Announcements:SetText("announce")
-    self.Scroll.Announcements:SetSize(219, 60)
-	self.Scroll.Announcements:Dock(TOP)
-	self.Scroll.Announcements:SetEnabled(false)
-    self.Scroll.Announcements.DoClick = function()
-        self:ClearContent()
-        self:CreateAnnouncements()
-	end]]
 	
 	--display data
 	--[[
@@ -127,7 +152,7 @@ function PANEL:Init()
     self.Scroll.Close:SetSize(219, 60)
     self.Scroll.Close:Dock(TOP)
 	self.Scroll.Close.DoClick = function()
-        self:Remove()
+		self:DisablePDA()--Remove()
     end
 end
 
@@ -714,6 +739,38 @@ function PANEL:CreateLeaderboard()
     self.Content.Scroll:DockMargin(2,2,2,2)
     self.Content.Scroll:Dock(FILL)
     self.Content.Scroll:OpenURL("http://rprstalker.site.nfoservers.com/test/leaderboards.php")
+end
+
+function PANEL:UpdateScoreboard(tbl)
+
+end
+
+function PANEL:CreateScoreboard()
+    self.Content.Paint = function(self, w, h)
+        draw.NoTexture()
+        draw.SimpleText("Online List", "nutSmallFont", w/2, 7, Color(255,255,255,255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+    end
+
+    self.Content.Cont = vgui.Create("DPanel", self.Content)
+    self.Content.Cont:SetPos(0,20)
+    self.Content.Cont:SetSize(555, 516)
+	self.Content.Cont:Dock(FILL)
+    self.Content.Cont.Paint = function(self, w, h)
+        draw.NoTexture()
+        surface.SetDrawColor(Color(150,150,150,255))
+        surface.DrawOutlinedRect(0,0,w,h)
+        surface.SetDrawColor(Color(255,255,255,255))
+    end
+
+    self.Content.Scroll = vgui.Create("DScrollPanel", self.Content.Cont)
+    self.Content.Scroll:DockMargin(2,2,2,2)
+    self.Content.Scroll:Dock(FILL)
+    
+	local y = 10
+	--do default here, centered
+
+	--send request, result sent back should call update scoreboard
+
 end
 
 function PANEL:CreateSettings() 
