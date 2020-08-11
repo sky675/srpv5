@@ -122,15 +122,11 @@ PLUGIN.jobTemps = {
 			return {itemid = sel.uniqueID, itemcount = cnt.count, reward = cnt.rewards[math.random(#cnt.rewards)]}
 		end,
 		format = function(job) --format table, return table
-			print("nut? ")
-			print(nut.item)
+			local item = nut.item.get(job.itemid)
 			return {
 				job.itemcount, 
 				job.itemcount != 1 and genericItemPlurs[job.itemid] 
-					or nut.item
-						.get(job.itemid)
-						.name 
-						or "UNKNOWN ITEM", 
+					or (item and item.name or "UNKNOWN ITEM"), 
 				nut.currency.get(job.reward)}
 		end,
 		--checked when you try and turn it in, return true/false
