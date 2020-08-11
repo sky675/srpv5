@@ -160,6 +160,27 @@ ITEM.functions.toggle = {
         return char:hasFlags("Z")]]
     end
 }
+ITEM.functions.setactive = {
+    name = "Set Active PDA",
+    tip = "set active pda",
+    icon = "icon16/drive_edit.png",
+	onRun = function(item)
+		item.player:getChar():setData("activePDA", item.id)
+		item.player:notify("set")
+
+        return false
+    end,
+	onCanRun = function(item)
+		local char
+        if(item.player) then
+            char = item.player:getChar()
+        else
+            char = LocalPlayer():getChar()
+        end
+
+        return char:getData("activePDA", 0) != item.id and !IsValid(item.entity)
+    end
+}
 ITEM.functions.zfindid = {
     name = "Find ID",
     tip = "Find ID of PDA",
@@ -169,15 +190,14 @@ ITEM.functions.zfindid = {
         return false
     end,
 	onCanRun = function(item)
-		return !IsValid(item.entity)
-        --[[local char
+		local char
         if(item.player) then
             char = item.player:getChar()
         else
             char = LocalPlayer():getChar()
         end
 
-        return char:hasFlags("Z")]]
+        return char:hasFlags("Z") and !IsValid(item.entity)
     end
 }
 --[[

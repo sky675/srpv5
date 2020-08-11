@@ -7,8 +7,71 @@ end)
 
 if(SERVER) then
 	--get info for page
+	netstream.Hook("reqlist", function(ply)
+		local tbl = {}
+
+		--go through all players
+		for k,ply in ipairs(player.GetAll()) do
+			local got = false
+			if(ply:getChar()) then
+				local char = ply:getChar()
+				for _,item in pairs(char:getInv():getItems()) do
+					if(item.base == "base_npda" and !item:getData("isoff")) then
+						if(char:getData("activePDA") and item.id == char:getData("activePDA")) then
+							got = true
+							--active pda
+							tbl[#tbl+1] = {
+								["handle"] = item:getData("pdahandle", "invalid"),
+								["avail"] = "a" --todo different statuses
+							}
+						elseif(!char:getData("activePDA") and !got) then
+							tbl[#tbl+1] = {
+								["handle"] = item:getData("pdahandle", "invalid"),
+								["avail"] = "a" --todo different statuses
+							}
+						else--inactive pda
+							tbl[#tbl+1] = {
+								["handle"] = item:getData("pdahandle", "invalid"),
+								["avail"] = "i"
+							}
+							
+						end
+					end
+				end
+			end
+		end
+		--then find storages (both of these should have a unique status)
+		for k,v in ipairs(ents.FindByClass("nut_storage")) do
+			for _,item in pairs(v:getInv():getItems()) do
+				if(item.base == "base_npda" and !item:getData("isoff")) then
+					tbl[#tbl+1] = {
+						["handle"] = item:getData("pdahandle", "invalid"),
+						["avail"] = "u"
+					}
+				end
+			end
+		end
+		--then find ents
+		for k,v in ipairs(ents.FindByClass("nut_item")) do
+			local item = nut.item.instances[v.nutItemID]
+			if(item.base == "base_npda" and !item:getData("isoff")) then
+				tbl[#tbl+1] = {
+					["handle"] = item:getData("pdahandle", "invalid"),
+					["avail"] = "u"
+				}
+			end
+		end
+
+
+		netstream.Start(ply, "addlist", tbl)
+	end)
 
 else--client
+	netstream.Hook("addlist", function(tbl)
+		if(IsValid(nut.gui.pda) && nut.gui.pda:IsVisible()) then
+			nut.gui.pda:UpdateScoreboard(tbl)
+		end
+	end)
 	--unhide/create pda
 	hook.Add("ScoreboardHide", "aaahide", function()--function PLUGIN:ScoreboardHide()
 		if (IsValid(nut.gui.pda)) then
@@ -22,7 +85,7 @@ else--client
 	hook.Add("ScoreboardShow", "aaashow", function() --function PLUGIN:ScoreboardShow()
 		local pd = LocalPlayer():GetPDA()
 		if(!pd) then return true end
-		if (IsValid(nut.gui.pda) && nut.gui.pda:IsVisible()) then
+		if (IsValid(nut.gui.pda)) then
 			--get active pda
 			nut.gui.pda:Reset(pd)
 		else

@@ -72,7 +72,7 @@ if(SERVER) then
 	end
 	--idk i did this in the other one
 	bb_loadedalready = bb_loadedalready or false
-	function PLUGIN:InitializedPlugins()
+	function PLUGIN:InitializedConfig()
 		if(bb_loadedalready) then
 			return
 		else
