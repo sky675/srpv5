@@ -773,21 +773,56 @@ function PANEL:UpdateScoreboard(tbl)
 	local y = 10
 	for k,v in ipairs(tbl) do
 		--replace with panel,
-		--handle 0.25 wide, status 0.6 wide, avail 0.15 wide
-		local pdaLabel = vgui.Create("DLabel", self.Content.Scroll)
-		pdaLabel:SetPos(10, y)
-		pdaLabel:SetFont("nutSmallFont")
-		pdaLabel:SetText(tbl[k].handle.." - "..tbl[k].avail)
-		pdaLabel:DockMargin(6,(first == false and 22 or 2),2,2)
+		local pan = vgui.Create("DPanel", self.Content.Scroll)
+		pan:SetSize(self.Content.Scroll:GetWide(), ScrH()*0.04)
+		pan:DockMargin(2,(first == false and 22 or 2),2,2)
 		first = true
-		pdaLabel:Dock(TOP)
+		pan:Dock(TOP)
+		self.Content.Scroll:AddItem(pan)
+
+
+		--handle 0.25 wide, status 0.6 wide, avail 0.15 wide
+		local pdaLabel = vgui.Create("DLabel", pan)
+		pdaLabel:SetPos(10, y)
+		pdaLabel:SetSize(pan:GetWide()*0.28, 0)
+		pdaLabel:SetFont("nutSmallFont")
+		pdaLabel:SetText(tbl[k].handle)
+		pdaLabel:DockMargin(6,2,4,2)
+		pdaLabel:SetContentAlignment(4)
+		first = true
+		pdaLabel:Dock(LEFT)
 		--pdaLabel:SetWide(self.Content.Scroll:GetWide())
 		pdaLabel:SetWrap(true)
-		pdaLabel:SetAutoStretchVertical(true)
 		--pdaLabel:SizeToContents()
-		self.Content.Scroll:AddItem(pdaLabel)
-		y = y+pdaLabel:GetTall() + 5
+		--self.Content.Scroll:AddItem(pdaLabel)
+		
+		pdaLabel = vgui.Create("DLabel", pan)
+		pdaLabel:SetPos(10, y)
+		pdaLabel:SetSize(pan:GetWide()*0.6, 0)
+		pdaLabel:SetFont("nutSmallFont")
+		pdaLabel:SetText(tbl[k].title)
+		pdaLabel:DockMargin(2,2,2,2)
+		pdaLabel:SetContentAlignment(4)
+		first = true
+		pdaLabel:Dock(FILL)
+		--pdaLabel:SetWide(self.Content.Scroll:GetWide())
+		pdaLabel:SetWrap(true)
+		--pdaLabel:SizeToContents()
+		--self.Content.Scroll:AddItem(pdaLabel)
 
+		pdaLabel = vgui.Create("DLabel", pan)
+		pdaLabel:SetPos(10, y)
+		pdaLabel:SetSize(pan:GetWide()*0.12, 0)
+		pdaLabel:SetFont("nutSmallFont")
+		pdaLabel:SetText(tbl[k].avail)
+		pdaLabel:DockMargin(2,2,6,2)
+		pdaLabel:SetContentAlignment(6)
+		first = true
+		pdaLabel:Dock(RIGHT)
+		--pdaLabel:SetWide(self.Content.Scroll:GetWide())
+		pdaLabel:SetWrap(true)
+		--pdaLabel:SizeToContents()
+		--self.Content.Scroll:AddItem(pdaLabel)
 	end
 end
 
@@ -896,12 +931,16 @@ function PANEL:CreateSettings()
 	netHandle.DoClick = function(sel)
 		Derma_StringRequest(
 			"Edit Net Handle",
-			"Input a new handle here. Must be at least 3 and no more than 32 characters long.\nNo spaces.\nExtremely vulgar and/or racist names may get removed without warning.",
+			"Input a new handle here. Must be at least 3 and no more than 32 characters long.\nNo spaces.\nExtremely vulgar and/or racist/etc names may get removed without warning.",
 			"",
 			function(text)
 				local str = text:gsub("%s+", "")
 				if(string.len(str) < 3 or string.len(str) > 32) then
 					nut.util.notify("The handle you input is too short/long.")
+					return
+				end
+				if(str == "invalid") then
+					nut.util.notify("You cannot return your name to default.")
 					return
 				end
 				--[[if(isnumber(str) and !LocalPlayer():isCombine()) then
@@ -922,6 +961,62 @@ function PANEL:CreateSettings()
 	end
 	self.Content.Scroll:AddItem(netHandle)
 	y = y+netHandle:GetTall() + 5
+	
+	local titleLabel = vgui.Create("DLabel", self.Content.Scroll)
+	titleLabel:SetPos(10,y)
+	titleLabel:SetFont("nutSmallFont")
+	titleLabel:SetText("Title Message: A short message other online users can see.")
+	titleLabel:DockMargin(2,7,2,2)
+	titleLabel:Dock(TOP)
+	--netHandleLabel:SetWide(self.Content.Scroll:GetWide())
+	titleLabel:SetWrap(true)
+	titleLabel:SetAutoStretchVertical(true)
+	--pdaLabel:SizeToContents()
+	titleLabel.PaintOver = function(sel,w,h)
+		DisableClipping(true)   --replace temp with self.pda:getData("pdahandle", "invalid")
+		draw.SimpleText("Your current title: "..self.pda:getData("pdatitle", ""), "nutSmallFont", 0, h+15, Color(200,200,200,255), TEXT_ALIGN_LEFT, TEXT_ALIGN_BOTTOM)
+		DisableClipping(false)
+	end
+	self.Content.Scroll:AddItem(titleLabel)
+	y = y+titleLabel:GetTall() + 22
+
+	local titleBut = vgui.Create("DButton", self.Content.Scroll)
+	titleBut:SetPos(10,y)
+	titleBut:SetSize(ScrW()*0.15, 22)--80,22)
+	titleBut:DockMargin(2,22,2,2)
+	titleBut:Dock(TOP)
+	--setsize
+	titleBut:SetFont("nutSmallFont")
+	titleBut:SetText("Edit Title")
+	titleBut.DoClick = function(sel)
+		Derma_StringRequest(
+			"Edit Title",
+			"Input a new title here. Must be no more than 96 characters long.\nInappropriate titles will be removed.",
+			"",
+			function(text)
+				local str = text--:gsub("%s+", "")
+				if(string.len(str) > 96) then
+					nut.util.notify("The handle you input is too long.")
+					return
+				end
+				--[[if(isnumber(str) and !LocalPlayer():isCombine()) then
+					nut.util.notify("You are not allowed to have a handle of only numbers!")
+					return
+				end]]
+				print("ur result was "..str)
+
+				net.Start("ChangePDATitle")
+				net.WriteString(str)
+				net.WriteInt(self.pda.id, 32)
+				net.SendToServer()
+			end,
+			function(text) end,
+			"Submit Handle",
+			"Cancel"
+		)
+	end
+	self.Content.Scroll:AddItem(titleBut)
+	y = y+titleBut:GetTall() + 5
 	
 	--clear content and create form, recieve default via GivePDAData with all = false, will be filled out above in dataCreateTable
 	--[[

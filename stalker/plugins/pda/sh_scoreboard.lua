@@ -22,16 +22,19 @@ if(SERVER) then
 							--active pda
 							tbl[#tbl+1] = {
 								["handle"] = item:getData("pdahandle", "invalid"),
+								["title"] = item:getData("pdatitle", ""),
 								["avail"] = "a" --todo different statuses
 							}
 						elseif(!char:getData("activePDA") and !got) then
 							tbl[#tbl+1] = {
 								["handle"] = item:getData("pdahandle", "invalid"),
+								["title"] = item:getData("pdatitle", ""),
 								["avail"] = "a" --todo different statuses
 							}
 						else--inactive pda
 							tbl[#tbl+1] = {
 								["handle"] = item:getData("pdahandle", "invalid"),
+								["title"] = item:getData("pdatitle", ""),
 								["avail"] = "i"
 							}
 							
@@ -46,6 +49,7 @@ if(SERVER) then
 				if(item.base == "base_npda" and !item:getData("isoff")) then
 					tbl[#tbl+1] = {
 						["handle"] = item:getData("pdahandle", "invalid"),
+						["title"] = item:getData("pdatitle", ""),
 						["avail"] = "u"
 					}
 				end
@@ -57,6 +61,7 @@ if(SERVER) then
 			if(item.base == "base_npda" and !item:getData("isoff")) then
 				tbl[#tbl+1] = {
 					["handle"] = item:getData("pdahandle", "invalid"),
+					["title"] = item:getData("pdatitle", ""),
 					["avail"] = "u"
 				}
 			end

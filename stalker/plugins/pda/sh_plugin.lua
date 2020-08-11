@@ -414,6 +414,28 @@ if (CLIENT) then
 else
 	util.AddNetworkString("OpenPDA")
 	util.AddNetworkString("ChangePDAHandle")
+	util.AddNetworkString("ChangePDATitle")
+	
+	net.Receive("ChangePDAHandle", function(len, ply)
+		local change = net.ReadString()
+		local idd = net.ReadInt(32)
+	
+		for k, v in pairs(nut.item.instances) do
+			if(v:getData("pdahandle", "") == change) then
+				ply:notify("This handle is taken!")
+				return
+			end
+		end
+	
+		nut.item.instances[idd]:setData("pdahandle", change, player.GetAll())
+	end)
+	
+    net.Receive("ChangePDATitle", function(len, ply)
+        local change = net.ReadString()
+        local idd = net.ReadInt(32)
+
+        nut.item.instances[idd]:setData("pdatitle", change, player:GetAll())
+    end)
 	
 	util.AddNetworkString("RecPDAData")
 	util.AddNetworkString("GivePDAData")
@@ -544,24 +566,6 @@ else
 		net.Send(ply)
 	end)
 	
-	net.Receive("ChangePDAHandle", function(len, ply)
-		local change = net.ReadString()
-		local idd = net.ReadInt(32)
-	
-		local handles = {}
-		for k, v in pairs(nut.item.instances) do
-			if(v:getData("pdahandle")) then
-				handles[v:getData("pdahandle")] = true
-			end
-		end
-			
-		if(handles[change]) then
-			ply:notify("This handle is taken!")
-			return
-		end
-	
-		nut.item.instances[idd]:setData("pdahandle", change, player.GetAll())
-	end)
 	
     function PLUGIN:LoadData()
         local banlis = nut.data.get("pdabanlist", {})
