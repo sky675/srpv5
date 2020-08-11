@@ -41,7 +41,7 @@ local genericItemTbl = {
 			{count = 1, rewards = {}}
 		},
 	},
-	]]--[[
+	]]
 	{
 		uniqueID = "part_boar",
 		counts = {
@@ -77,7 +77,7 @@ local genericItemTbl = {
 			{count = 5, rewards = {1550,1500,1600}},
 			{count = 7, rewards = {1950,1900,2000}},
 		},
-	},]]
+	},
 	{
 		uniqueID = "datachik1",
 		counts = {
