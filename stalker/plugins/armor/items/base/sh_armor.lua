@@ -171,14 +171,14 @@ function ITEM:getDesc()
 		for k,v in pairs(lvls) do
 			if(type(v) == "string") then print(k.." is string woops") continue end
 			if(v.level == ARMOR_NONE) then continue end
-            str = str..k..": "..StringToArmorEnum(v.level).."\n"-- ("..(math.Round((v.durability or 1)*100) or 100).."%)\n"
+            str = str..k:upper()..": "..StringToArmorEnum(v.level).."\n"-- ("..(math.Round((v.durability or 1)*100) or 100).."%)\n"
         end
 		str = str.."\n"
 	elseif(self.armor) then
 		for k,v in pairs(self.armor) do
 			if(type(v) == "string") then print(k.." is string woops") continue end
 			if(v.level == ARMOR_NONE) then continue end
-            str = str..k..": "..StringToArmorEnum(v.level).."\n"
+            str = str..k:upper()..": "..StringToArmorEnum(v.level).."\n"
         end
 		str = str.."\n"
 
