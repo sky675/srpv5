@@ -91,6 +91,53 @@ if(CLIENT) then
 		
 	end)
 end
+--[[
+nut.command.add("pdapartyset", {
+	desc = "Set the party channel in your active pda to a specified id.",
+	syntax = "<string id>",
+	onRun = function(client, arguments)
+        if(client:getNetVar("neardeath")) then return end
+        if(client:getNetVar("restricted")) then return "You cannot do this while tied!" end
+
+		local item = client:GetPDA()
+        if(!item) then return "You need a PDA that is turned on to use PDA commands." end
+		if(client:getNetVar("isjammed")) then return "Something is preventing you from sending PDA messages." end
+        if(!PDA_AVAILABLE) then return "The chat servers are currently unavailable." end
+
+
+		if(item) then
+			item:setData("partych", arguments[1])
+			client:notify("Party channel ID set to "..arguments[1])
+		else
+			client:notify("You need a PDA to use PDA commands.")
+		end
+	end,
+})]]
+nut.command.add("pdagetpartychannel", {
+	desc = "sysadmin thing that gets the party channel a pda is using from a handle",
+    syntax = "<string handle>",
+    onRun = function(client,arguments)
+        if(client:getNetVar("neardeath")) then return end
+        if(client:getNetVar("restricted")) then return "You cannot do this while tied!" end
+
+        if(!client:getChar():hasFlags("Z")) then
+            return "You need either sysadmin privileges to do this!"
+        end
+        local pda = nil
+		for k,v in ipairs(player.GetAll()) do --look through for handles
+			local p = v:GetPDA()
+			if(!p) then continue end
+            if(nut.util.stringMatches(p:getData("pdahandle", ""), arguments[1])) then
+                if(p:getData("pdahandle") == "invalid") then return "You cannot get the channel of someone with an invalid handle!" end
+                pda = p
+                break
+            end
+        end
+		if(!IsValid(pda)) then return "Handle not found!" end
+
+        return "The PDAID for "..pda:getData("pdahandle").." is "..tostring(pda:getData("partych"))
+    end
+})
 
 nut.command.add("pdaparty", {
 	desc = "Use party channel, requires you to be in a run and have a PDA",
@@ -100,16 +147,16 @@ nut.command.add("pdaparty", {
         if(client:getNetVar("restricted")) then return "You cannot do this while tied!" end
 
 		local message = table.concat(arguments, " ")
-		local item = client:HasPDA()
+		local item = client:GetPDA()
         if(!item) then return "You need a PDA that is turned on to use PDA commands." end
 		if(client:getNetVar("isjammed")) then return "Something is preventing you from sending PDA messages." end
         if(!PDA_AVAILABLE) then return "The chat servers are currently unavailable." end
 
-        if(!client:getChar():getData("activerun")) then return "You have to be in a run to use this command." end
+        if(!item:getData("partych")) then return "You have to set the channel via settings to use this command." end
 
         local anonymous = false
 
-        if(client:HasPDA()) then
+        if(item) then
             if(client:GetPDAHandle() == "invalid" and !client:GetPDAMono()) then return "You need to set up your handle first!" end
 		end
 		

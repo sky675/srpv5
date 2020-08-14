@@ -217,11 +217,12 @@ nut.chat.register("pdafac", {
 
 nut.chat.register("pdaparty", {
 	onCanSay = function(speaker, text)
-        
-		return speaker:getChar() and speaker:getChar():getData("activerun") and speaker:HasPDA()
+        local pdas = speaker:GetPDA()
+		return pdas and pdas:getData("partych")
 	end,
 	onCanHear = function(speaker, listener)
-		if(!listener:getChar() or listener:getChar():getData("activerun") == nil) then
+		local pdas, pdal = speaker:GetPDA(), listener:GetPDA()
+		if(!pdal or pdal:getData("partych") == nil) then
 			return false
 		end
         local block = string.find(listener:GetPDABlockList(), tostring(speaker:GetPDAID()))
@@ -229,7 +230,7 @@ nut.chat.register("pdaparty", {
             return false
         end
 		if(listener:getNetVar("isjammed")) then return false end
-		return speaker:getChar():getData("activerun") == listener:getChar():getData("activerun") and listener:HasPDA()
+		return pdas:getData("partych") == pdal:getData("partych")
 	end,
 	onChatAdd = function(speaker, text, anonymous)
 		if(text == "") then return end
@@ -415,6 +416,7 @@ else
 	util.AddNetworkString("OpenPDA")
 	util.AddNetworkString("ChangePDAHandle")
 	util.AddNetworkString("ChangePDATitle")
+	util.AddNetworkString("ChangePDAParty")
 	
 	net.Receive("ChangePDAHandle", function(len, ply)
 		local change = net.ReadString()
@@ -435,6 +437,13 @@ else
         local idd = net.ReadInt(32)
 
         nut.item.instances[idd]:setData("pdatitle", change, player:GetAll())
+	end)
+	
+    net.Receive("ChangePDAParty", function(len, ply)
+        local change = net.ReadString()
+        local idd = net.ReadInt(32)
+
+        nut.item.instances[idd]:setData("partych", change, player:GetAll())
     end)
 	
 	util.AddNetworkString("RecPDAData")

@@ -1011,12 +1011,68 @@ function PANEL:CreateSettings()
 				net.SendToServer()
 			end,
 			function(text) end,
-			"Submit Handle",
+			"Submit Title",
 			"Cancel"
 		)
 	end
 	self.Content.Scroll:AddItem(titleBut)
 	y = y+titleBut:GetTall() + 5
+	
+	local partyLabel = vgui.Create("DLabel", self.Content.Scroll)
+	partyLabel:SetPos(10,y)
+	partyLabel:SetFont("nutSmallFont")
+	partyLabel:SetText("Party Channel ID: The ID of the channel you're using for /pdaparty.")
+	partyLabel:DockMargin(2,7,2,2)
+	partyLabel:Dock(TOP)
+	--netHandleLabel:SetWide(self.Content.Scroll:GetWide())
+	partyLabel:SetWrap(true)
+	partyLabel:SetAutoStretchVertical(true)
+	--pdaLabel:SizeToContents()
+	partyLabel.PaintOver = function(sel,w,h)
+		DisableClipping(true)   --replace temp with self.pda:getData("pdahandle", "invalid")
+		draw.SimpleText("Your current channel: "..self.pda:getData("partych", ""), "nutSmallFont", 0, h+15, Color(200,200,200,255), TEXT_ALIGN_LEFT, TEXT_ALIGN_BOTTOM)
+		DisableClipping(false)
+	end
+	self.Content.Scroll:AddItem(partyLabel)
+	y = y+partyLabel:GetTall() + 22
+
+	local partyBut = vgui.Create("DButton", self.Content.Scroll)
+	partyBut:SetPos(10,y)
+	partyBut:SetSize(ScrW()*0.15, 22)--80,22)
+	partyBut:DockMargin(2,22,2,2)
+	partyBut:Dock(TOP)
+	--setsize
+	partyBut:SetFont("nutSmallFont")
+	partyBut:SetText("Edit Channel")
+	partyBut.DoClick = function(sel)
+		Derma_StringRequest(
+			"Edit Channel",
+			"Input a new channel here. Must be no more than 12 characters long.",
+			"",
+			function(text)
+				local str = text--:gsub("%s+", "")
+				if(string.len(str) > 12) then
+					nut.util.notify("The handle you input is too long.")
+					return
+				end
+				--[[if(isnumber(str) and !LocalPlayer():isCombine()) then
+					nut.util.notify("You are not allowed to have a handle of only numbers!")
+					return
+				end]]
+				print("ur result was "..str)
+
+				net.Start("ChangePDAParty")
+				net.WriteString(str)
+				net.WriteInt(self.pda.id, 32)
+				net.SendToServer()
+			end,
+			function(text) end,
+			"Submit Channel ID",
+			"Cancel"
+		)
+	end
+	self.Content.Scroll:AddItem(partyBut)
+	y = y+partyBut:GetTall() + 5
 	
 	--clear content and create form, recieve default via GivePDAData with all = false, will be filled out above in dataCreateTable
 	--[[
