@@ -144,7 +144,7 @@ ITEM.functions.toggle = {
         local val = !item:getData("isoff", false)
         item:setData("isoff", val)
 
-        item.player:notify("PDA is now "..val and "off" or "on")
+        item.player:notify("PDA is now "..(val and "off" or "on"))
 
         return false
     end,

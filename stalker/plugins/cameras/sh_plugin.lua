@@ -50,10 +50,14 @@ else
 				if(text == "") then nut.util.notify("text empty") return end
 				netstream.Start("camsStartServ", text)
 			end)
+		--closing menu
+		if(IsValid(nut.gui.menu)) then
+			nut.gui.menu:remove()
+		end
 	end)
 end
 
-hook.Add("StartCommand", "cammovement", function(ply, cmd)
+hook.Add("SetupMove", "cammovement", function(ply, mov, cmd)
 	if(!ply:GetNW2Bool("viewcams")) then return end --get outttaaaaaaaa here
 
 	--idk wat else here?
@@ -63,8 +67,6 @@ hook.Add("StartCommand", "cammovement", function(ply, cmd)
 		--exit
 		if(SERVER) then PLUGIN:EndCams(ply) end
 		print("exit")
-		cmd:ClearMovement()
-		cmd:ClearButtons() --uh just in case
 		return
 	end
 
@@ -72,11 +74,11 @@ hook.Add("StartCommand", "cammovement", function(ply, cmd)
 	--put thing to only do this if touched a or d
 	local cams = PLUGIN:GetCameras(ply:GetNW2String("viewcamid"))
 	if(!cams or #cams == 0) then return end --just in case
-	local id = table.KeyFromValue(cams, ply:GetNW2Entity("viewcament")) or 1
-	local move = cmd:GetSideMove()
+	local id = ply:GetNW2Int("viewcamentid",1)--table.KeyFromValue(cams, ply:GetNW2Entity("viewcament")) or 1
 	--i thiiiiiiiiink this should work?
+	--print("move ",cmd:KeyDown(IN_MOVELEFT),cmd:KeyDown(IN_MOVERIGHT))
 	--ok now if pressed a, move id down one, 
-	if(move < 0) then --left, so down
+	if(mov:KeyPressed(IN_MOVELEFT)) then --left, so down
 		--and if not in cams make it 1 instead
 		if(id != 1) then
 			id = id - 1
@@ -86,10 +88,10 @@ hook.Add("StartCommand", "cammovement", function(ply, cmd)
 		ply:SetNW2Entity("viewcament", cams[id])
 
 	--else if pressed d move it up one instead,
-	elseif(move < 0) then --right, so sup
+	elseif(mov:KeyPressed(IN_MOVERIGHT)) then --right, so sup
 		--and if 0 make it max cams
-		if(id <= #cams-1) then
-			id = 1
+		if(id == #cams) then
+			
 		else
 			id = id + 1
 		end
@@ -101,8 +103,8 @@ hook.Add("StartCommand", "cammovement", function(ply, cmd)
 		--nothing?
 	end
 
-	cmd:ClearMovement()
-	cmd:ClearButtons() --uh just in case
+	mov:SetVelocity(Vector(0,0,0))
+	mov:SetButtons(0) --uh just in case
 end)
 
 --no idea how to view at origin, calcview?
@@ -113,7 +115,9 @@ if(CLIENT) then
 		local tbl = {drawviewer = true, ["fov"] = fov, ["znear"] = znear, ["zfar"] = zfar}
 		local cam = ply:GetNW2Entity("viewcament")
 		if(IsValid(cam) and !cam:GetDestroyed()) then
-			tbl.origin = cam:GetPos()+cam.viewOffset
+			--this still doesnt work 100% properly, but im the only one that will
+			--be using this, so whatever
+			tbl.origin = cam:GetPos()+(cam:GetForward()*cam.viewOffset)
 			tbl.angles = cam:GetForward():Angle()+cam.anglOffset
 			return tbl
 		else
@@ -152,3 +156,32 @@ else--server
 end
 
 --save/load cameras and the netvars
+--saving via permaprops
+if(SERVER and PermaProps) then
+	local function save(ent)
+		local content = {}
+		content.Other = {id = ent:GetCircuitID()}
+		print("uh save")
+		PrintTable(content)
+
+		return content
+	end
+	local function spawn(ent, data)
+		if !data or !istable( data ) then 
+			print("uh load no data")
+			ent:Spawn()
+			return 
+		end
+		print("uh load")
+		PrintTable(data)
+
+		ent:Spawn()
+
+		if(data.id) then
+			ent:SetCircuitID(data.id)
+		end
+	end
+
+	PermaProps.SpecialENTSSave["sky_cam_css"] = save
+	PermaProps.SpecialENTSSpawn["sky_cam_css"] = spawn
+end

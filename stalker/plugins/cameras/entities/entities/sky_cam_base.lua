@@ -38,6 +38,7 @@ end
 game.AddParticles("particles/fire_01.pcf")
 PrecacheParticleSystem("smoke_gib_01")
 
+ENT.Editable = true
 function ENT:SetupDataTables()
 	self:NetworkVar("Bool", 0, "Destroyed")
 	self:NetworkVar("Int", 0, "HP", {KeyName = "camhp", Edit = {type = "Int", max = 40}}) --again change?

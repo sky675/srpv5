@@ -18,7 +18,9 @@ ENT.model = "models/props/cs_assault/camera.mdl"
 ENT.viewOffset = Vector( 13.62, 33.53, -6.37 )
 ENT.anglOffset = Angle( 21.5, 32.5, 0 )
 
+--lua_run_cl local vec = Vector( 1.79, -20.4, -1 ) local self = LocalPlayer():GetEyeTrace().Entity CreateParticleSystem(self, "smoke_gib_01", PATTACH_ABSORIGIN_FOLLOW, 0, vec)
+
 if(CLIENT) then
-	ENT.relativeAtt = Vector( 0, 23.7, -6.43 ) --vector where smoke should appear
-	ENT.relativeSpark = Vector( 0, 23.7, -6.43 ) --vector where spark should appear
+	ENT.relativeAtt = Vector( 1.79, -20.4, -1 ) --vector where smoke should appear
+	ENT.relativeSpark = Vector( 1.79, -20.4, -1 ) --vector where spark should appear
 end

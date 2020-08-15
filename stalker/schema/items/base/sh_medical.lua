@@ -201,119 +201,118 @@ ITEM.functions.usef = { -- sorry, for name order.
 		
 		val = val * nut.traits.getMod(client, "actiontime")
 
-		client:setAction("Using...", val, function(client)
+		client:setAction("Using...")
+		if(faketarget:getNetVar("player")) then
+			target = faketarget:getNetVar("player")
+		end
+		client:doStaredAction(target, function()
+			if(!client:Alive() or client:getNetVar("neardeath") or item:getOwner() != client) then return end
 			if(faketarget:getNetVar("player")) then
-				target = faketarget:getNetVar("player")
-			end
-			client:doStaredAction(target, function()
-				if(!client:Alive() or client:getNetVar("neardeath") or item:getOwner() != client) then return end
-				if(faketarget:getNetVar("player")) then
-					local ply = faketarget:getNetVar("player")
-					if(ply:IsValid()) then
-					--if(item.canRevive) then --dont think ill ever do this again but just in case
-						if(item.canRevive and ply:getNetVar("canrevive")) then
-							client:setAction("Reviving", 10, function()
-								ply:setRagdolled(false)
-								ply:setNetVar("neardeath", nil)
-								ply:setNetVar("startdown", nil)
-								ply:setNetVar("canrevive", nil)
-								ply:setNetVar("canscirevive", nil)
-								ply:setNetVar("canplatrevive", nil)
-								ply:SetNoTarget(false) --so npcs stop attacking
-								ply:SetHealth(15)
-								ply:setAction()
-								nut.traits.addXp(client, "tech_med", 25)
-							end)
-
-							item:remove()
-							return
-						elseif(item.sciRevive and ply:getNetVar("canscirevive")) then
-							client:setAction("Reviving", 10, function()
-								ply:setRagdolled(false)
-								ply:setNetVar("neardeath", nil)
-								ply:setNetVar("startdown", nil)
-								ply:setNetVar("canrevive", nil)
-								ply:setNetVar("canscirevive", nil)
-								ply:setNetVar("canplatrevive", nil)
-								ply:SetNoTarget(false) --so npcs stop attacking
-								ply:SetHealth(45)
-								ply:setAction()
-								nut.traits.addXp(client, "tech_med", 25)
-							end)
-
-							item:remove()
-							return
-						elseif(item.platRevive and ply:getNetVar("canplatrevive")) then
-							client:setAction("Reviving", 10, function()
-								ply:setRagdolled(false)
-								ply:setNetVar("neardeath", nil)
-								ply:setNetVar("startdown", nil)
-								ply:setNetVar("canrevive", nil)
-								ply:setNetVar("canscirevive", nil)
-								ply:setNetVar("canplatrevive", nil)
-								ply:SetNoTarget(false) --so npcs stop attacking
-								ply:SetHealth(75)
-								ply:setAction()
-								nut.traits.addXp(client, "tech_med", 25)
-							end)
-							item:remove()
-							return 
-						else
-							client:notify("You cannot revive this person.")
-						end
-				--end
-					end
-				end
-
-				if (target and target:IsValid() and target:IsPlayer() and target:Alive() and !target:getNetVar("neardeath") and !item.reviveOnly) then
-					local char = target:getChar()
-					healPlayer(client, target, item.healAmount, item.healSeconds, item:getID())
-					if(item.bleedStop and item.bleedStop != 1) then --1 is the same so ignore
-						hook.Run("ReduceBleed", client:getChar(), item.bleedStop)
-					end
-					if(item.healLeg) then
-						timer.Create("healLeg_"..target:SteamID(), item.legSec or 30, 1, function()
-							if(target:getChar():getData("leghit")) then
-								target:getChar():setData("leghit", nil, nil, player.GetAll())
-								target:notify("You appear to be able to run again.")
-							end
+				local ply = faketarget:getNetVar("player")
+				if(ply:IsValid()) then
+				--if(item.canRevive) then --dont think ill ever do this again but just in case
+					if(item.canRevive and ply:getNetVar("canrevive")) then
+						client:setAction("Reviving", 10, function()
+							ply:setRagdolled(false)
+							ply:setNetVar("neardeath", nil)
+							ply:setNetVar("startdown", nil)
+							ply:setNetVar("canrevive", nil)
+							ply:setNetVar("canscirevive", nil)
+							ply:setNetVar("canplatrevive", nil)
+							ply:SetNoTarget(false) --so npcs stop attacking
+							ply:SetHealth(15)
+							ply:setAction()
+							nut.traits.addXp(client, "tech_med", 25)
 						end)
+
+						item:remove()
+						return
+					elseif(item.sciRevive and ply:getNetVar("canscirevive")) then
+						client:setAction("Reviving", 10, function()
+							ply:setRagdolled(false)
+							ply:setNetVar("neardeath", nil)
+							ply:setNetVar("startdown", nil)
+							ply:setNetVar("canrevive", nil)
+							ply:setNetVar("canscirevive", nil)
+							ply:setNetVar("canplatrevive", nil)
+							ply:SetNoTarget(false) --so npcs stop attacking
+							ply:SetHealth(45)
+							ply:setAction()
+							nut.traits.addXp(client, "tech_med", 25)
+						end)
+
+						item:remove()
+						return
+					elseif(item.platRevive and ply:getNetVar("canplatrevive")) then
+						client:setAction("Reviving", 10, function()
+							ply:setRagdolled(false)
+							ply:setNetVar("neardeath", nil)
+							ply:setNetVar("startdown", nil)
+							ply:setNetVar("canrevive", nil)
+							ply:setNetVar("canscirevive", nil)
+							ply:setNetVar("canplatrevive", nil)
+							ply:SetNoTarget(false) --so npcs stop attacking
+							ply:SetHealth(75)
+							ply:setAction()
+							nut.traits.addXp(client, "tech_med", 25)
+						end)
+						item:remove()
+						return 
+					else
+						client:notify("You cannot revive this person.")
 					end
-					if(item.customUse) then
-						item:customUse(char)
-					end
-					if(item.hungerAmt) then
-					char:SetHunger(math.Clamp(char:GetHunger()+item.hungerAmt, 0, 100))
-					end
-					if(item.thirstAmt) then
-					char:SetThirst(math.Clamp(char:GetThirst()+item.thirstAmt, 0, 100))
-					end
-					if(item.regenStam) then
-						stamPlayer(target, item.regenStam[1], item.regenStam[2], item.id)
-					end
-					--artifact radiation support
-					if(char.addRad and item.radGive) then
-						if(item.radGiveTime) then
-							radPlayer(target, item.radGive, item.radGiveTime, item.id)
-						else
-							char:addRad(item.radGive)
-						end
-					end
-					if(item.uses) then
-						if(item:getData("uses", item.uses) == 1) then
-							item:remove()
-							return false
-						else
-							item:setData("uses", item:getData("uses", item.uses)-1)
-							return false
-						end
-					end
-					item:remove()
-					return
+			--end
 				end
-			end, val, function()
-				client:setAction()
-			end)
+			end
+
+			if (target and target:IsValid() and target:IsPlayer() and target:Alive() and !target:getNetVar("neardeath") and !item.reviveOnly) then
+				local char = target:getChar()
+				healPlayer(client, target, item.healAmount, item.healSeconds, item:getID())
+				if(item.bleedStop and item.bleedStop != 1) then --1 is the same so ignore
+					hook.Run("ReduceBleed", client:getChar(), item.bleedStop)
+				end
+				if(item.healLeg) then
+					timer.Create("healLeg_"..target:SteamID(), item.legSec or 30, 1, function()
+						if(target:getChar():getData("leghit")) then
+							target:getChar():setData("leghit", nil, nil, player.GetAll())
+							target:notify("You appear to be able to run again.")
+						end
+					end)
+				end
+				if(item.customUse) then
+					item:customUse(char)
+				end
+				if(item.hungerAmt) then
+				char:SetHunger(math.Clamp(char:GetHunger()+item.hungerAmt, 0, 100))
+				end
+				if(item.thirstAmt) then
+				char:SetThirst(math.Clamp(char:GetThirst()+item.thirstAmt, 0, 100))
+				end
+				if(item.regenStam) then
+					stamPlayer(target, item.regenStam[1], item.regenStam[2], item.id)
+				end
+				--artifact radiation support
+				if(char.addRad and item.radGive) then
+					if(item.radGiveTime) then
+						radPlayer(target, item.radGive, item.radGiveTime, item.id)
+					else
+						char:addRad(item.radGive)
+					end
+				end
+				if(item.uses) then
+					if(item:getData("uses", item.uses) == 1) then
+						item:remove()
+						return false
+					else
+						item:setData("uses", item:getData("uses", item.uses)-1)
+						return false
+					end
+				end
+				item:remove()
+				return
+			end
+		end, val, function()
+			client:setAction()
 		end)
 
 		return false

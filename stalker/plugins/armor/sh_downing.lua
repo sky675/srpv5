@@ -61,6 +61,8 @@ nut.command.add("plyrevive", {
 		net.Start("toggleHeartbeat")
 		net.WriteBool(false)
 		net.Send(target)
+
+		local char = target:getChar()
 		
 		char:setData("leghit", nil, nil, player.GetAll())
 		char:setData("bleed", nil, nil, nil, player.GetAll())
