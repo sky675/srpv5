@@ -68,7 +68,7 @@ function GM:LoadNutFonts(font, genericFont)
 	font = genericFont
 
 	surface.CreateFont("nutCleanTitleFont", {
-		font = font,
+		font = "font",
 		size = 200,
 		extended = true,
 		weight = 1000
@@ -94,6 +94,7 @@ function GM:LoadNutFonts(font, genericFont)
 		extended = true,
 		weight = 1000
 	})
+	
 
 	surface.CreateFont("nutMediumLightFont", {
 		font = font,
@@ -217,6 +218,43 @@ function GM:LoadNutFonts(font, genericFont)
 		extended = true,
 		antialias = true
 	})
+
+	--special stalker fonts
+	surface.CreateFont("nutScaledBrokenMed", {	
+		font = "Dirty Headline",
+		size = 28*(ScrH()/768),
+		extended = true,
+		weight = 800
+	})
+
+	surface.CreateFont("nutScaledInvenLightButMediumer", {	
+		font = genericFont,
+		size = 20*(ScrH()/768),
+		extended = true,
+		weight = 100
+	})
+
+	surface.CreateFont("nutScaledInvenLight", {	
+		font = genericFont,
+		size = 15*(ScrH()/768),
+		extended = true,
+		weight = 100
+	})
+	surface.CreateFont("nutScaledInvenMed", {	
+		font = genericFont,
+		size = 25*(ScrH()/768),
+		extended = true,
+		weight = 500
+	})
+	surface.CreateFont("nutScaledInvenMedLight", {	
+		font = genericFont,
+		size = 20*(ScrH()/768),
+		extended = true,
+		weight = 500
+	})
+
+
+	--end stalker fonts reeeeeeeeeeee i need to add the custom font file oh shit my bad gotta do coder word TODO: add font file
 
 	hook.Run("LoadFonts", oldFont, oldGenericFont)
 end

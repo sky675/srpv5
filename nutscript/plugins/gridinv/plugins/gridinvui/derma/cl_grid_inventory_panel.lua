@@ -45,7 +45,7 @@ function PANEL:updateWeight()
 	local inventory = self.inventory
 	if (not inventory) then return end
 
-	self:GetParent():SetTitle(L"inv".." | "..inventory:getWeight().."/"..inventory:getMaxWeight().."kg")
+	--self:GetParent():SetTitle(L"inv".." | "..inventory:getWeight().."/"..inventory:getMaxWeight().."kg")
 
 end
 
@@ -73,6 +73,7 @@ function PANEL:onItemPressed(itemIcon, keyCode)
 	if (hook.Run("InterceptClickItemIcon", self, itemIcon, keyCode) != true) then
 		if (keyCode == MOUSE_RIGHT) then
 			itemIcon:openActionMenu()
+			surface.PlaySound( "interface/inv_menu.ogg" )
 		elseif (keyCode == MOUSE_LEFT) then
 			itemIcon:DragMousePress(keyCode)
 			itemIcon:MouseCapture(true)
@@ -133,6 +134,7 @@ function PANEL:addItem(item)
 		local heldPanel = nut.item.heldPanel
 		if (IsValid(heldPanel)) then
 			heldPanel:onItemReleased(icon, keyCode)
+			surface.PlaySound( "interface/inv_ruck.ogg" )
 		end
 		icon:DragMouseRelease(keyCode)
 		icon:MouseCapture(false)
@@ -142,9 +144,9 @@ function PANEL:addItem(item)
 	self.icons[id] = icon
 end
 
-local COLOR_OCCUPIED = Color(231, 76, 60, 25)
-local COLOR_UNOCCUPIED = Color(46, 204, 113, 25)
-local COLOR_COMBINE = Color(241, 196, 15, 25)
+local COLOR_OCCUPIED = Color(231, 76, 60, 10)
+local COLOR_UNOCCUPIED = Color(46, 204, 113, 10)
+local COLOR_COMBINE = Color(241, 196, 15, 10)
 
 function PANEL:drawHeldItemRectangle()
 	local heldItem = nut.item.held
@@ -228,6 +230,7 @@ end
 
 function PANEL:Center()
 	local parent = self:GetParent()
+	print(parent)
 	local centerX, centerY = ScrW() * 0.5, ScrH() * 0.5
 	
 	self:SetPos(

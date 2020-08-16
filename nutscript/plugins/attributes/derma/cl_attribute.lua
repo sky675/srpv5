@@ -83,7 +83,9 @@ local PANEL = {}
 
 		self.label = self.bar:Add("DLabel")
 		self.label:Dock(FILL)
-		self.label:SetExpensiveShadow(1, Color(0, 0, 60))
+		self.label:SetFont("nutScaledInvenLight") --F1 MENU ATTRIBUTE BAR FONT
+
+		--self.label:SetExpensiveShadow(1, Color(0, 0, 60))
 		self.label:SetContentAlignment(5)
 	end
 

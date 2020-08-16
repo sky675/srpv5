@@ -1,7 +1,7 @@
 local PANEL = {}
 	local gradient = nut.util.getMaterial("vgui/gradient-u")
 	local gradient2 = nut.util.getMaterial("vgui/gradient-d")
-	local alpha = 80
+	local alpha = 0
 
 	function PANEL:Init()
 		if (IsValid(nut.gui.menu)) then
@@ -11,8 +11,8 @@ local PANEL = {}
 		nut.gui.menu = self
 
 		self:SetSize(ScrW(), ScrH())
-		self:SetAlpha(0)
-		self:AlphaTo(255, 0.25, 0)
+		--self:SetAlpha(0)
+		--self:AlphaTo(255, 0.25, 0)
 		self:SetPopupStayAtBack(true)
 
 		self.tabs = self:Add("DHorizontalScroller")
@@ -31,7 +31,7 @@ local PANEL = {}
 		self.title:SetExpensiveShadow(1, Color(0, 0, 0, 150))
 		self.title:SetFont("nutTitleFont")
 		self.title:SetText("")
-		self.title:SetAlpha(0)
+		--self.title:SetAlpha(0)
 		self.title:SetSize(self.panel:GetWide(), 72)
 
 		local tabs = {}
@@ -60,6 +60,7 @@ local PANEL = {}
 			end
 
 			local tab = self:addTab(L(name), callback, name)
+			--print(L(name))
 			self.tabList[name] = tab
 		end
 
@@ -68,9 +69,11 @@ local PANEL = {}
 		self:MakePopup()
 
 		self.info = vgui.Create("nutCharInfo", self)
-		self.info:setup()
-		self.info:SetAlpha(0)
-		self.info:AlphaTo(255, 0.5)
+		--self.info:MakePopup()
+		--self.info:SetPopupStayAtBack(true)
+		self.info:setup(nut.gui.menu)
+		--self.info:SetAlpha(0)
+		--self.info:AlphaTo(255, 0.5)
 	end
 
 	function PANEL:OnKeyCodePressed(key)
@@ -106,6 +109,7 @@ local PANEL = {}
 
 	local color_bright = Color(240, 240, 240, 180)
 
+	--[[
 	function PANEL:Paint(w, h)
 		nut.util.drawBlur(self, 12)
 
@@ -119,7 +123,7 @@ local PANEL = {}
 		surface.SetDrawColor(color_bright)
 		surface.DrawRect(0, 78, w, 8)
 	end
-	
+	--]]
 	--f1 menu dummy
 	function PANEL:addTab(name, callback, uniqueID)
 		name = L(name)
@@ -137,42 +141,42 @@ local PANEL = {}
 		surface.SetFont("nutMenuButtonLightFont")
 		local w = surface.GetTextSize(name)
 
-		local tab = self.tabs:Add("DButton")
-			tab:SetSize(0, self.tabs:GetTall())
-			tab:SetText(name)
-			tab:SetPos(self.tabs:GetWide(), 0)
-			tab:SetTextColor(Color(250, 250, 250))
-			tab:SetFont("nutMenuButtonLightFont")
-			tab:SetExpensiveShadow(1, Color(0, 0, 0, 150))
-			tab:SizeToContentsX()
-			tab:SetWide(w + 32)
-			tab.Paint = paintTab
-			tab.DoClick = function(this)
-				if (IsValid(nut.gui.info)) then
-					nut.gui.info:Remove()
-				end
+		-- local tab = self.tabs:Add("DButton")
+		-- 	tab:SetSize(0, self.tabs:GetTall())
+		-- 	tab:SetText(name)
+		-- 	tab:SetPos(self.tabs:GetWide(), 0)
+		-- 	tab:SetTextColor(Color(250, 250, 250))
+		-- 	tab:SetFont("nutMenuButtonLightFont")
+		-- 	tab:SetExpensiveShadow(1, Color(0, 0, 0, 150))
+		-- 	tab:SizeToContentsX()
+		-- 	tab:SetWide(w + 32)
+		-- 	tab.Paint = paintTab
+		-- 	tab.DoClick = function(this)
+		-- 		if (IsValid(nut.gui.info)) then
+		-- 			nut.gui.info:Remove()
+		-- 		end
 
-				self.panel:Clear()
+		-- 		self.panel:Clear()
 
-				self.title:SetText(this:GetText())
-				self.title:SizeToContentsY()
-				self.title:AlphaTo(255, 0.5)
-				self.title:MoveAbove(self.panel, 8)
+		-- 		self.title:SetText(this:GetText())
+		-- 		self.title:SizeToContentsY()
+		-- 		--self.title:AlphaTo(255, 0.5)s
+		-- 		self.title:MoveAbove(self.panel, 8)
 
-				self.panel:AlphaTo(255, 0.5, 0.1)
-				self.activeTab = this
-				lastMenuTab = uniqueID
+		-- 		--self.panel:AlphaTo(255, 0.5, 0.1)
+		-- 		self.activeTab = this
+		-- 		lastMenuTab = uniqueID
 
-				if (callback) then
-					callback(self.panel, this)
-				end
-			end
-		self.tabs:AddPanel(tab)
+		-- 		if (callback) then
+		-- 			callback(self.panel, this)
+		-- 		end
+		-- 	end
+		-- self.tabs:AddPanel(tab)
 
-		self.tabs:SetWide(math.min(self.tabs:GetWide() + tab:GetWide(), ScrW()))
-		self.tabs:SetPos((ScrW() * 0.5) - (self.tabs:GetWide() * 0.5), 0)
+		-- self.tabs:SetWide(math.min(self.tabs:GetWide() + tab:GetWide(), ScrW()))
+		-- self.tabs:SetPos((ScrW() * 0.5) - (self.tabs:GetWide() * 0.5), 0)
 
-		return tab
+		-- return tab
 	end
 
 	function PANEL:setActiveTab(key)
@@ -188,9 +192,10 @@ local PANEL = {}
 		CloseDermaMenus()
 
 		if (!self.closing) then
-			self:AlphaTo(0, 0.25, 0, function()
-				self:Remove()
-			end)
+		--	self:AlphaTo(0, 0.25, 0, function()
+		--		self:Remove()
+		--	end)
+			self:Remove()
 			self.closing = true
 		end
 	end

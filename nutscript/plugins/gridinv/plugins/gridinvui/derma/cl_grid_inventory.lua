@@ -2,30 +2,31 @@ local PLUGIN = PLUGIN
 
 local PANEL = {}
 
-local PADDING = 2
-local BORDER = 4
-local WEIGHT_PANEL_HEIGHT = 32
-local HEADER_FIX = 22
-local BORDER_FIX_H = 9 + PADDING
+local PADDING = (7*(invw/invTextureW))
+local BORDER = 4*(invw/invTextureW)
+local WEIGHT_PANEL_HEIGHT = (32*(invh/invTextureH))
+local HEADER_FIX = (22*(invh/invTextureH))
+local BORDER_FIX_H = (9*(invh/invTextureH))-- + PADDING
 
 local SHADOW_COLOR = Color(0, 0, 0, 100)
 
 function PANEL:Init()
 	self:MakePopup()
-
+	
 	self.content = self:Add("nutGridInventoryPanel")
 	self.content:Dock(FILL)
 	self.content:setGridSize(1, 1)
 end
-
+--((360*(invw/invTextureW)), (invPosY+(65*(invh/invTextureH)))
 function PANEL:setInventory(inventory)
 	self.gridW, self.gridH = inventory:getSize()
 	self:SetSize(
-		self.gridW * (NS_ICON_SIZE + PADDING) + BORDER*2,
-		self.gridH * (NS_ICON_SIZE + PADDING) + HEADER_FIX + BORDER*2
+		--(self.gridW * (NS_ICON_SIZE + PADDING))*(invw/invTextureW),
+		(self.gridW * (NS_ICON_SIZE)+ PADDING),
+		self.gridH * (NS_ICON_SIZE) + HEADER_FIX
 	)
-	self:InvalidateLayout(true)
-	self:SetTitle(L"inv".." | "..inventory:getWeight().."/"..inventory:getMaxWeight().."kg")
+	--self:InvalidateLayout(true)
+	--self:SetTitle(L"inv".." | "..inventory:getWeight().."/"..inventory:getMaxWeight().."kg")
 
 	self.content:setGridSize(self.gridW, self.gridH)
 	self.content:setInventory(inventory)

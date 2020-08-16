@@ -1,4 +1,13 @@
-NS_ICON_SIZE = 64
+invTextureW, invTextureH = 812, 768
+invRatio = invTextureW/invTextureH
+invw, invh = ScrH()*invRatio, ScrH()
+invPosX, invPosY = (ScrW()-(invw)+1), 0
+
+
+INVEN_WIDTH = (311*(invw/invTextureW))
+NS_ICON_SIZE = math.ceil(((300*(invw/invTextureW))/7)) --account for the padding variable in cl_grid_inventory.lua
+
+--("===ICON SIZE: " .. math.ceil(((300*(invw/invTextureW))/7)))
 
 -- The queue for the rendered icons.
 renderedIcons = renderedIcons or {}
@@ -111,7 +120,8 @@ end
 
 function PANEL:PaintBehind(w, h)
 	surface.SetDrawColor(0, 0, 0, 85)
-	surface.DrawRect(2, 2, w - 4, h - 4)
+	--surface.DrawRect(2, 2, w - 4, h - 4)
+	surface.DrawRect(2*(invw/invTextureW), 2*(invw/invTextureW), w, h)
 end
 
 function PANEL:ExtraPaint(w, h)
@@ -130,6 +140,7 @@ function PANEL:openActionMenu()
 
 	local menu = DermaMenu()
 	local override = hook.Run("OnCreateItemInteractionMenu", self, menu, itemTable)
+	
 	if (override) then
 		if (IsValid(menu)) then
 			menu:Remove()
@@ -241,14 +252,15 @@ PANEL = {}
 	function PANEL:Init()
 		self:MakePopup()
 		self:Center()
-		self:ShowCloseButton(false)
-		self:SetDraggable(false)
-		self:SetTitle(L"inv")
+		--self:ShowCloseButton(false)
+		--self:SetDraggable(false)
+		--self:SetTitle(L"inv")
 	end
 
 	-- Sets which inventory this panel is representing.
 	function PANEL:setInventory(inventory)
 		self.inventory = inventory
+		--print(inventory)
 		self:nutListenForInventoryChanges(inventory)
 	end
 
@@ -285,7 +297,7 @@ PANEL = {}
 	function PANEL:OnRemove()
 		self:nutDeleteInventoryHooks()
 	end
-vgui.Register("nutInventory", PANEL, "DFrame")
+vgui.Register("nutInventory", PANEL, "DPanel")
 
 local margin = 10
 hook.Add("CreateMenuButtons", "nutInventory", function(tabs)

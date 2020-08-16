@@ -489,20 +489,20 @@ function DisplayTraitsMenu(char)
 end
 
 
-hook.Add("CreateCharInfoText", "traits", function(main)
-	--info panel is main.info
-	--create button here, button should run nut_displaytraits on pressed
-	--see where this hook is run for where to dock, etc
-	main.traitButton = main.info:Add("DButton")
-	main.traitButton:SetText("Traits")
-	main.traitButton:Dock(TOP)
-	main.traitButton:SetTall(30)
-	main.traitButton:SetFont("nutMediumFont")
-	main.traitButton:SetTextColor(color_white)
-	main.traitButton:SetExpensiveShadow(1, Color(0, 0, 0, 150))
-	main.traitButton:DockMargin(0, 10, 0, 0)
-	main.traitButton.DoClick = function(self)
-		RunConsoleCommand("nut_displaytraits")
-	end
-end)
+-- hook.Add("CreateCharInfoText", "traits", function(main)
+-- 	--info panel is main.info
+-- 	--create button here, button should run nut_displaytraits on pressed
+-- 	--see where this hook is run for where to dock, etc
+-- 	main.traitButton = main.info:Add("DButton")
+-- 	main.traitButton:SetText("Traits")
+-- 	main.traitButton:Dock(TOP)
+-- 	main.traitButton:SetTall(30)
+-- 	main.traitButton:SetFont("nutMediumFont")
+-- 	main.traitButton:SetTextColor(color_white)
+-- 	main.traitButton:SetExpensiveShadow(1, Color(0, 0, 0, 150))
+-- 	main.traitButton:DockMargin(0, 10, 0, 0)
+-- 	main.traitButton.DoClick = function(self)
+-- 		RunConsoleCommand("nut_displaytraits")
+-- 	end
+-- end)
 end

@@ -585,4 +585,4 @@ nut.flag.add("y", "Access to the business menu.")
 nut.flag.add("m", "Access to special trader goods/admin goods. Don't freely give this out.")
 --nut.flag.add("U", "Access to tech abilities (not even sure if this still in use anywhere, im keeping it tho).")
 
-nut.currency.set("₽", "ruble", "rubles")
+nut.currency.set("", "RU", "RU")

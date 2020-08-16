@@ -59,12 +59,13 @@ nut.config.add("spawnTime", 5, "The time it takes to respawn.", nil, {
 	category = "characters"
 })
 
-nut.config.add("invW", 6, "How many slots in a row there is in a default inventory.", nil, {
+--ok whoops hah teehee turns out invw, the texture background for inventory is the same letters as invW, the grid size. KEEP THIS IN MIND teehee heehee
+nut.config.add("invW", 7, "How many slots in a row there is in a default inventory.", nil, {
 	data = {min = 0, max = 20},
 	category = "characters"
 })
 
-nut.config.add("invH", 4, "How many slots in a column there is in a default inventory.", nil, {
+nut.config.add("invH", 13, "How many slots in a column there is in a default inventory.", nil, {
 	data = {min = 0, max = 20},
 	category = "characters"
 })

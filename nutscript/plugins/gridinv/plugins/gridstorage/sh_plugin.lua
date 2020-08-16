@@ -161,7 +161,30 @@ STORAGE_DEFINITIONS["models/props/de_prodigy/ammo_can_02.mdl"] = {
 
 
 if (CLIENT) then
+
+
 	function PLUGIN:StorageOpen(storage)
+		
+		self = vgui.Create( "EditablePanel" )
+		self:SetSize(ScrW(), ScrH())
+		self.noAnchor = CurTime() + .4
+		self.anchorMode = true
+		self:SetPopupStayAtBack(true)
+		self:MakePopup()
+
+		local storageInv = storage:getInv()
+		if (not storageInv) then
+			return nutStorageBase:exitStorage()
+		end
+		self.storageInventoryPanel = storageInv:show()
+		self.storageInventoryPanel:SetPos(invPosX-(self.storageInventoryPanel:GetWide()), ScrH()*0.5-(self.storageInventoryPanel:GetTall()*0.5))
+		self.storageInventoryPanel.Paint = function() end
+		self.storageInventoryPanel:SetPopupStayAtBack(true)
+
+		
+		self.info = vgui.Create("nutCharInfo", self)
+		self.info:setup(self)
+		self.info.quickInventoryPanel:RequestFocus()
 		-- Number of pixels between the local inventory and storage inventory.
 		local PADDING = 4
 
@@ -173,48 +196,74 @@ if (CLIENT) then
 		end
 
 		-- Get the inventory for the player and storage.
-		local localInv =
-			LocalPlayer():getChar() and LocalPlayer():getChar():getInv()
-		local storageInv = storage:getInv()
-		if (not localInv or not storageInv) then
-			return nutStorageBase:exitStorage()
-		end
+		--local localInv =
+		--	LocalPlayer():getChar() and LocalPlayer():getChar():getInv()
 
+		
 		-- Show both the storage and inventory.
-		local localInvPanel = localInv:show()
-		local storageInvPanel = storageInv:show()
-		storageInvPanel:SetTitle(L(storage:getStorageInfo().name))
+		--local localInvPanel = localInv:show()
+
+
+		
+
+
+		--storageInvPanel:SetTitle(L(storage:getStorageInfo().name))
 
 		-- Allow the inventory panels to close.
-		localInvPanel:ShowCloseButton(true)
-		storageInvPanel:ShowCloseButton(true)
+		--localInvPanel:ShowCloseButton(true)
+		--storageInvPanel:ShowCloseButton(true)
 
 		-- Put the two panels, side by side, in the middle.
-		local extraWidth = (storageInvPanel:GetWide() + PADDING) / 2
-		localInvPanel:Center()
-		storageInvPanel:Center()
-		localInvPanel.x = localInvPanel.x + extraWidth
-		storageInvPanel:MoveLeftOf(localInvPanel, PADDING)
+		--local extraWidth = (storageInvPanel:GetWide() + PADDING) / 2
+		--localInvPanel:Center()
+		--storageInv:Center()
+		--localInvPanel.x = localInvPanel.x + extraWidth
+		--storageInvPanel:MoveLeftOf(localInvPanel, PADDING)
 
 		-- Signal that the user left the inventory if either closes.
-		local firstToRemove = true
-		localInvPanel.oldOnRemove = localInvPanel.OnRemove
-		storageInvPanel.oldOnRemove = storageInvPanel.OnRemove
+		-- local firstToRemove = true
+		-- localInvPanel.oldOnRemove = localInvPanel.OnRemove
+		-- storageInvPanel.oldOnRemove = storageInvPanel.OnRemove
+		-- local function exitStorageOnRemove(panel)
+		-- 	if (firstToRemove) then
+		-- 		firstToRemove = false
+		-- 		nutStorageBase:exitStorage()
+		-- 		local otherPanel =
+		-- 			panel == localInvPanel and storageInvPanel or localInvPanel
+		-- 		if (IsValid(otherPanel)) then otherPanel:Remove() end
+		-- 	end
+		-- 	panel:oldOnRemove()
+		-- end
 
-		local function exitStorageOnRemove(panel)
-			if (firstToRemove) then
-				firstToRemove = false
-				nutStorageBase:exitStorage()
-				local otherPanel =
-					panel == localInvPanel and storageInvPanel or localInvPanel
-				if (IsValid(otherPanel)) then otherPanel:Remove() end
+		if (self:IsKeyboardInputEnabled()) then
+			print("Ok you can do funny keyboard")
+		end
+		
+		function self:OnKeyCodePressed(key)
+			print("f1 pressed cool cool")
+			-- F1 Close
+			local keypress = KEY_F1
+			if(input.LookupBinding("gm_showhelp") != "no value") then
+				keypress = input.GetKeyCode(input.LookupBinding("gm_showhelp"))
 			end
-			panel:oldOnRemove()
+	
+			if (key == keypress) then
+				print("ok i close now")
+				nutStorageBase:exitStorage()
+
+				self.storageInventoryPanel:Remove()
+				self.info:Remove()
+				self:Remove()
+			end
 		end
 
-		hook.Run("OnCreateStoragePanel", localInvPanel, storageInvPanel, storage)
 
-		localInvPanel.OnRemove = exitStorageOnRemove
-		storageInvPanel.OnRemove = exitStorageOnRemove
+
+
+			hook.Run("OnCreateStoragePanel", localInvPanel, storageInv, storage)
+			
+			--self.OnRemove = exitStorageOnRemove
+			--storageInv.OnRemove = exitStorageOnRemove
 	end
+
 end
