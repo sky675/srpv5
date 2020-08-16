@@ -11,7 +11,7 @@ ITEM.junkArt = false --if true, cant put into belt
 
 function ITEM:drawEntity(ent)
 	local pos = LocalPlayer():GetPos() --200 seems good
-	if(LocalPlayer():GetActiveWeapon() and LocalPlayer():GetActiveWeapon():GetClass():find("detector") and pos:Distance(ent:GetPos()) < 200) then
+	if(IsValid(LocalPlayer():GetActiveWeapon()) and LocalPlayer():GetActiveWeapon():GetClass():find("detector") and pos:Distance(ent:GetPos()) < 200) then
 		ent.dontinteract = nil
 		ent:DrawModel()
 	else
