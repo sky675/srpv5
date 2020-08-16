@@ -235,23 +235,7 @@ local PANEL = {}
 
 			if (!suppress or !suppress.pages) then --other pages
 				PAGE_TABS = {
-					["business"] =
-					{icon="sky/buttons/icon/shop.png",
-					tip = "Business",
-					order = 10,
-					func = function()
-						if (hook.Run("BuildBusinessMenu", panel) != false) then
-							if (IsValid(nut.gui.info)) then
-								nut.gui.info:Remove()
-							end
-							  
-							local panel = nut.gui.menu.panel
-							panel:Clear()
-							panel:AlphaTo(255, 0.5, 0.1)
-							panel:Add("nutBusiness")
-						end
-					end
-					},
+
 					["chars"] = 
 						{icon="sky/buttons/icon/char_menu.png",
 						tip = "Characters",
@@ -386,6 +370,26 @@ local PANEL = {}
 
 						end
 						}
+				end
+
+				if (LocalPlayer():getChar():hasFlags("y")) then
+					PAGE_TABS["business"] =
+					{icon="sky/buttons/icon/shop.png",
+					tip = "Business",
+					order = 10,
+					func = function()
+						if (hook.Run("BuildBusinessMenu", panel) != false) then
+							if (IsValid(nut.gui.info)) then
+								nut.gui.info:Remove()
+							end
+							  
+							local panel = nut.gui.menu.panel
+							panel:Clear()
+							panel:AlphaTo(255, 0.5, 0.1)
+							panel:Add("nutBusiness")
+						end
+					end
+					}
 				end
 				
 				table.SortByMember(PAGE_TABS, "order", true)
