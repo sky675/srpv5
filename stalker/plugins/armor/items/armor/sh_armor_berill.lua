@@ -110,6 +110,10 @@ function ITEM:getCustomGS()
 	
 	return tbl
 end
+--should keep them?
+ITEM.getBodygroupsKeep = function(item, ply)
+	return {}
+end
 ITEM.getBodyGroups = function(item, ply)
 	return {["arms"] = ply:isFemale() and 3 or 4,["hands"] = 3}
 end

@@ -85,8 +85,7 @@ hook.Add("CustomFemaleModel", "customSrpModel", function(model, ply, char, creat
 	if(char and char:getData("cFemale")) then
 		return char:getData("cFemale")
 	end
-
-	if(IsValid(ply) and ply:getChar() and ply:getChar():getData("cFemale")) then
+	if(!char and IsValid(ply) and ply:getChar() and ply:getChar():getData("cFemale")) then
 		return ply:getChar():getData("cFemale")
 	end
 

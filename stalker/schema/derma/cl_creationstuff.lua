@@ -231,7 +231,7 @@ function PANEL:onDisplay()
 		end
 		y = y + 20
 	elseif(faction.defaultBGs) then
-		local fem = hook.Run("CustomFemaleModel", model, LocalPlayer()) or model:find("female") or model:find("metroll/f")
+		local fem = hook.Run("CustomFemaleModel", model, LocalPlayer(), nil, true) or model:find("female") or model:find("metroll/f")
 
 		self:setContext("bgs", fem and faction.defaultBGs.female or faction.defaultBGs.male)
 	end
@@ -312,7 +312,7 @@ function PANEL:onDisplay()
 
 
 	if(nut.newchar.isBM(model) and SCHEMA.GSCharConfig and !faction.defaultClothing) then
-		local fem = hook.Run("CustomFemaleModel", model, LocalPlayer()) or model:find("female") or model:find("metroll/f")
+		local fem = hook.Run("CustomFemaleModel", model, LocalPlayer(), nil, true) or model:find("female") or model:find("metroll/f")
 
 		local curt = 0
 		local curb = 0

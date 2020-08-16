@@ -68,11 +68,9 @@ ITEM:postHook("Equip", function(item, result, data)
 	item.player:getChar():setData("submat", sub)
 end)--]]
 ITEM:postHook("EquipUn", function(item, result, data)
-	if(!item:getData("wasequipped")) then return end
-	item:setData("wasequipped")
 	
 	local client = item.player
-	local bgs = {hands = 3, head = 0, beanie = 0}
+	local bgs = {hands = 3, head = 0, beanie = 0, beanies = 0}
 	bgs["arms"] = client:isFemale() and 3 or 4
 	print("model", client:GetModel())
 
@@ -122,7 +120,7 @@ ITEM:postHook("EquipUn", function(item, result, data)
 end)
 ITEM:postHook("deathun", function(item, result, data)
 	local client = item.player
-	local bgs = {hands = 3, head = 0, beanie = 0}
+	local bgs = {hands = 3, head = 0, beanie = 0, beanies = 0}
 	bgs["arms"] = client:isFemale() and 3 or 4
 
 	if(client:getChar():getData("oldgst")) then
@@ -167,8 +165,11 @@ ITEM:postHook("deathun", function(item, result, data)
 	item.player:getChar():setData("submat", sub)
 end)
 ITEM:postHook("drop", function(item, result, data)
+	if(!item:getData("wasequipped")) then return end
+	item:setData("wasequipped")
+
 	local client = item.player
-	local bgs = {hands = 3, head = 0, beanie = 0}
+	local bgs = {hands = 3, head = 0, beanie = 0, beanies = 0}
 	bgs["arms"] = client:isFemale() and 3 or 4
 
 	if(client:getChar():getData("oldgst")) then
@@ -281,6 +282,7 @@ ITEM.getBodyGroups = function(item, ply)
 	end]]
 
 	--if(ply:GetModel():find("_mask")) then
+	bg["anorak"] = 0
 		bg["hood"] = 0
 	--else --have to redo the default bgs
 		--bg["hands"] = 3

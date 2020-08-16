@@ -336,8 +336,10 @@ function ITEM:RemoveOutfit(client)
 	end
 
 	local bgs = self.bodyGroups or {}
-	if(self.getBodyGroups) then
+	if(!self.getBodygroupsKeep and self.getBodyGroups) then
 		bgs = self:getBodyGroups(client)
+	elseif(self.getBodygroupsKeep) then
+		bgs = self:getBodygroupsKeep(client)
 	end
 
 	for k, v in pairs(bgs) do

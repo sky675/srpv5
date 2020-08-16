@@ -95,7 +95,7 @@ local starterdata = {
 }
 
 local function modelfem(model, client)
-	return hook.Run("CustomFemaleModel", model, client) or model:find("female") or model:find("metroll/f")
+	return hook.Run("CustomFemaleModel", model, client, nil, true) or model:find("female") or model:find("metroll/f")
 end
 
 --give starter kit

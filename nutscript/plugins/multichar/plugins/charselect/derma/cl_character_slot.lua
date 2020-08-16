@@ -141,7 +141,7 @@ function PANEL:setCharacter(character)
 		
 		local model = character:getModel()
 		if(nut.newchar and nut.newchar.isBM(model)) then
-			local fem = hook.Run("CustomFemaleModel", model, LocalPlayer()) or model:find("female") or model:find("metroll/f")
+			local fem = hook.Run("CustomFemaleModel", model, LocalPlayer(), character) or model:find("female") or model:find("metroll/f")
 
 			if(self.model.modelcache and self.model.modelcache != 0) then
 				for k,v in pairs(self.model.modelcache) do

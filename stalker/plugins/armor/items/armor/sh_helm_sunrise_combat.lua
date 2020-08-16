@@ -69,7 +69,7 @@ ITEM:postHook("Equip", function(item, result, data)
 end)--]]
 ITEM:postHook("EquipUn", function(item, result, data)
 	local client = item.player
-	local bgs = {hands = 3, head = 0, beanie = 0}
+	local bgs = {hands = 3, head = 0, beanie = 0, beanies = 0}
 	bgs["arms"] = client:isFemale() and 3 or 4
 	print("model", client:GetModel())
 
@@ -122,7 +122,7 @@ ITEM:postHook("EquipUn", function(item, result, data)
 end)
 ITEM:postHook("deathun", function(item, result, data)
 	local client = item.player
-	local bgs = {hands = 3, head = 0, beanie = 0}
+	local bgs = {hands = 3, head = 0, beanie = 0, beanies = 0}
 	bgs["arms"] = client:isFemale() and 3 or 4
 
 	if(client:getChar():getData("oldgst")) then
@@ -174,7 +174,7 @@ ITEM:postHook("drop", function(item, result, data)
 	item:setData("wasequipped")
 	
 	local client = item.player
-	local bgs = {hands = 3, head = 0, beanie = 0}
+	local bgs = {hands = 3, head = 0, beanie = 0, beanies = 0}
 	bgs["arms"] = client:isFemale() and 3 or 4
 
 	if(client:getChar():getData("oldgst")) then
