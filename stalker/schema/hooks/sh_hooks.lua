@@ -17,9 +17,7 @@ function SCHEMA:CanProperty(ply, prop, ent)
 	if(!ply:IsAdmin() && prop == "editentity") then return false end --uh prob dont let randos do that
 end
 
-function SCHEMA:InitializedPlugins()
-	--nut.plugin.setUnloaded("organization") --disable organization for now lol
-	
+function SCHEMA:InitializedPlugins()	
 	if(SERVER) then
 		if (!self.pacEx or #self.pacEx == 0) then return end
 	
@@ -93,38 +91,14 @@ end
 --itd just be if statements for each stat, all the ones in the att
 -- ply:getImplantRes() to get implant specific adds to this, but do GetArmorResists instead just in case
 hook.Add("GetKickUpStat", "MainS", function(wep, stat)
-	--[[local item = wep:GetOwner():getChar():getInv():hasItem("imp_main", {power = true})
-	if(!item) then return stat * nut.traits.getMod(wep:GetOwner(), "wepreceff", wep.Type or "") end
-	if(wep:IsAttached("sky_smartlink") and item:getData("attachedwep", "") == wep:GetClass()) then
-		local res = wep:GetOwner():GetArmorResists()
-		local smart = res["smartrec"] or 1
-
-		return stat * smart * nut.traits.getMod(wep:GetOwner(), "wepreceff", wep.Type or "")
-	end]]
 	return stat * nut.traits.getMod(wep:GetOwner(), "wepreceff", wep.Type or "")
 end)
 
 hook.Add("GetKickDownStat", "MainS", function(wep, stat)
-	--[[local item = wep:GetOwner():getChar():getInv():hasItem("imp_main", {power = true})
-	if(!item) then return stat * nut.traits.getMod(wep:GetOwner(), "wepreceff", wep.Type or "") end
-	if(wep:IsAttached("sky_smartlink") and item:getData("attachedwep", "") == wep:GetClass()) then
-		local res = wep:GetOwner():GetArmorResists()
-		local smart = res["smartrec"] or 1
-
-		return stat * smart --* nut.traits.getMod(wep:GetOwner(), "wepreceff", wep.Type or "")
-	end]]
 	return stat-- * nut.traits.getMod(wep:GetOwner(), "wepreceff", wep.Type or "")
 end)
 
 hook.Add("GetKickHorizontalStat", "MainS", function(wep, stat)
-	--[[local item = wep:GetOwner():getChar():getInv():hasItem("imp_main", {power = true})
-	if(!item) then return stat * nut.traits.getMod(wep:GetOwner(), "wepreceff", wep.Type or "") end
-	if(wep:IsAttached("sky_smartlink") and item:getData("attachedwep", "") == wep:GetClass()) then
-		local res = wep:GetOwner():GetArmorResists()
-		local smart = res["smartrec"] or 1
-
-		return stat * smart * nut.traits.getMod(wep:GetOwner(), "wepreceff", wep.Type or "")
-	end]]
 	return stat * nut.traits.getMod(wep:GetOwner(), "wepreceff", wep.Type or "")
 end)
 
@@ -137,14 +111,6 @@ hook.Add("GetDamageStat", "MainS", function(wep, stat)
 end)
 
 hook.Add("GetSpreadStat", "MainS", function(wep, stat)
-	--[[local item = wep:GetOwner():getChar():getInv():hasItem("imp_main", {power = true})
-	if(!item) then return stat * nut.traits.getMod(wep:GetOwner(), "wepspreff", wep.Type or "") end
-	if(wep:IsAttached("sky_smartlink") and item:getData("attachedwep", "") == wep:GetClass()) then
-		local res = wep:GetOwner():GetArmorResists()
-		local smart = res["smartspr"] or 1
-
-		return stat * smart * nut.traits.getMod(wep:GetOwner(), "wepspreff", wep.Type or "")
-	end]]
 	return stat * nut.traits.getMod(wep:GetOwner(), "wepspreff", wep.Type or "")
 end)
 
@@ -187,12 +153,6 @@ hook.Add("TFA_AnimationRate", "MainS", function(wep, anim, rate)
 
 	--todo move this to a table probably
 	if(anim == ACT_VM_RELOAD or anim == ACT_VM_RELOAD_EMPTY or anim == ACT_VM_RELOAD_INSERT or anim == ACT_VM_RELOAD_INSERT_PULL or anim == ACT_VM_RELOAD_END or anim == ACT_VM_RELOAD_END_EMPTY or anim == ACT_VM_RELOAD_INSERT_EMPTY or anim == ACT_SHOTGUN_RELOAD_START or anim == ACT_SHOTGUN_RELOAD_FINISH or anim == 2105 or anim == 2150 or anim == 2151 or anim == 2094 or anim == 2095) then
-		--[[local item = wep:GetOwner():getChar():getInv():hasItem("imp_main", {power = true})
-		local smart = 1
-		if(item and wep:IsAttached("sky_smartlink") and item:getData("attachedwep", "") == wep:GetClass()) then
-			local res = wep:GetOwner():GetArmorResists()
-			smart = res["smartreload"]
-		end]]
 		local qk = wep:GetOwner():getChar():getAttrib("qkn", 0)
 		local qkn = 1+((qk/30)*0.16)
 		

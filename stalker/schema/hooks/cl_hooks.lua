@@ -7,21 +7,7 @@
 		return false
 	end
 end]]
---[[
-function SCHEMA:SetupQuickMenu(menu)
-	if(NUT_CVAR_HEADBOOB) then
-		local buttonItem = menu:addCheck("Toggle Headbob", function(panel, state)
-			if(state) then
-				RunConsoleCommand("nut_headbob", "1")
-			else
-				RunConsoleCommand("nut_headbob", "0")
-			end
-		end, NUT_CVAR_HEADBOOB:GetBool())
 
-		menu:addSpacer()
-	end
-end
-]]
 hook.Add("CanCreateCharInfo", "hideclass", function()
 	return {class = true}
 end)
@@ -71,35 +57,6 @@ netstream.Hook("closeBag", function(id)
 	end
 end)
 
-hook.Add("BuildHelpMenu", "idkrulesiguess", function(tabs)
-	--i gotta use /**/ becuz of the [[]]s, reset later idk?
-	/*tabs["rules"] = function(node)
-		local name = LocalPlayer():steamName()
-		local body = [[<h2>Hello, ]]..name..[[!</h2>
-<div style="word-wrap: break-word">
-<p>Welcome to OASIS! Here are some basic rules to be followed. (these can also be found on the discord)</p>
-<p>Note: These are subject to change and additional rules can be made at any time.</p>
-<p>Remember to follow basic RP rules like no metagaming, powergaming, etc.</p>
-<ol>
-<li>If you find a bug or something that doesn't seem intentional with how something works, tell me (sky)! If anyone finds an exploitable bug and I find them abusing it, they will be permabanned immediately.</li>
-<li>Don't be an asshole. Having a mean shitty character is fine but please try to be respectful OOC. :)</li>
-<li>Adding into the above rule, respect people's whatever (gender, sexual orientation, etc) even if you don't "agree" with it. Any kind of racism, homophobia, transphobia or any other kind of bigotry will result in a ban, including "jokes" about it. basically just fucking respect other people please theyre humans too.</li>
-<li>IC trolling is fine (blocking passageways for a toll or whatever), but OOC trolling (related to 2 and 3 mainly but also just in general) is not</li>
-<li>PAC is allowed to use for free but you must follow these two guidelines regarding it:</li>
-</ol>
-<ul>
-<li>No exploity/hacky PACs of course.</li>
-<li>Replacing face and hair textures with submaterials is fine but please don't replace eye textures or headgear textures, it can mess with the script. If you want custom textured masks, headgear or whatever, just tell me. It won't be an issue to create a custom item if you have a material for it.</li>
-</ul></div>
-<p>I hope you enjoy OASIS as much as I did making it :)</p>]]
---note if more rules are made, u can do <ol start=6> to keep in line with the other numbers
-		return body
-	end*/
-end)
-
---[[hook.Add("InitPostEntity", "killfeeddisable", function()
-	RunConsoleCommand("hud_deathnotice_time", "0") --i think this already gets disabled but watever
-end)]]
 
 --kinda anticheat
 local lastcheck;

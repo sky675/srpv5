@@ -172,24 +172,6 @@ nut.command.add("apply", {
 	end
 })
 ]]
-nut.command.add("disablefuncdoor", {
-	adminOnly = true,
-	--desc = "Use to toggle prone status if the hotkeys dont work like when im making this rn",
-	onRun = function(client, arguments)
-		local tr = client:GetEyeTrace()
-		if(IsValid(tr.Entity) and tr.Entity:GetClass() == "func_door") then
-			local ent = tr.Entity
-			if(ent:getNetVar("doordis")) then
-				ent:setNetVar("doordis")
-				--ent:Fire("SetSpeed", 100) --speed is 100
-			else
-				ent:setNetVar("doordis", true)
-				--ent:Fire("SetSpeed", 0) --in theory should work?
-				
-			end
-		end
-	end
-})
 
 nut.command.add("toggleprone", {
 	desc = "Use to toggle prone status if the hotkeys dont work like when im making this rn",
@@ -199,19 +181,6 @@ nut.command.add("toggleprone", {
 		prone.Handle(client)
 	end
 })
---[[
-nut.command.add("togglesoundscapes", {
-	desc = "If for some reason soundscapes arent enabled, you should be able to use this to enable them (admin only)",
-	adminOnly = true,
-	onRun = function(client)
-		if(toggleStupidSoundscapes) then
-			toggleStupidSoundscapes()
-			return "They should be active now"
-		end
-		return "The function this uses isnt valid for some reason? this probably isnt needed so should be removed"
-	end
-})
-]]
 
 nut.command.add("devutildistance", {
 	adminOnly = true,
@@ -380,18 +349,3 @@ nut.command.add("gesturewave", {
 		setGesture(client, ACT_GMOD_GESTURE_WAVE)
 	end
 })
-
-
-
---lua_run nut.util.findPlayer("natsu"):EnterVehicle(nut.util.findPlayer("natsu"):GetEyeTrace().Entity.DriverSeat)
---[[
-nut.command.add("ForceIntoCar", {
-    adminOnly = true,
-    onRun = function(client, arguments)
-		local tr = client:GetEyeTrace()
-		if(tr.Entity and tr.Entity.DriverSeat) then
-			client:EnterVehicle(tr.Entity.DriverSeat)
-		end
-	end
-})
-]]

@@ -111,21 +111,10 @@ function SCHEMA:OnCharCreated(client, character)
 	if (inventory) then	
 		local gs = character:getData("gs", {})
 		if(gs and !gs.assign) then --give starting items from char creation
-			PrintTable(gs)
 			if(gs.top and top_trans[gs.top+1]) then
-				print("top is", top_trans[gs.top+1][1])
-				--[[nut.item.instance(inventory:getID(), top_trans[gs.top+1][modelfem(character:getModel(), client) and 1 or 2], {equip = true}, 3, 1,
-				function(item)
-					inventory:add(item.id, nil, nil, 3, 1)
-				end)]]
 				inventory:add(top_trans[gs.top+1][fem and 1 or 2], 1, {equip = true})--, 3, 1)
 			end
 			if(gs.bot and bot_trans[gs.bot+1]) then
-				print("bot is", bot_trans[gs.bot+1][1])
-				--[[nut.item.instance(inventory:getID(), bot_trans[gs.bot+1][modelfem(character:getModel(), client) and 1 or 2], {equip = true}, 4, 1,
-				function(item)
-					inventory:add(item.id, nil, nil, 4, 1)
-				end)]]
 				inventory:add(bot_trans[gs.bot+1][fem and 1 or 2], 1, {equip = true})--, 4, 1)
 			end
 		elseif(gs) then
@@ -142,62 +131,11 @@ function SCHEMA:OnCharCreated(client, character)
 		end
 
 
-		--[[if(client:isCombine()) then
-			local id = client:getDigits() --this is nil?
-			local valid = CMBD:addIntoDB(id, {
-				["status"] = (client:Team() == FACTION_CP and "metropolice" or "overwatch"),
-				["charid"] = character:getID()
-			})
-			
-			timer.Simple(0, function() --aghhhhhhhhhhhhhhh
-			character:setMoney(150)
-			end)
-
-			inventory:add("cppda", 1, {pdahandle = id})
-
-			inventory:add("radio")
-		end]]
 
 		for k,v in pairs(starters) do
 			inventory:add(v, 1, starterdata[v] or {})
 		end
-		--[[
-		if(character:getFaction() == FACTION_OW) then
-			inventory:add("armor_ota", 1, {equip = true})
-		end
-
-		if(character:getFaction() == FACTION_CITIZEN) then
-			local id = math.random(10000,99999)
-			if(CMBD:existInDB(id)) then --just to make sure
-				while (CMBD:existInDB(id)) do --just repeat until its good
-					id = math.random(10000,99999) --should only be 1-2 tries right?
-				end
-			end
-
-			inventory:add("cid", 1, {
-				name = character:getName(),
-				id = id,
-				status = "citizen"
-			})
-			CMBD:addIntoDB(id, {
-				name = character:getName(),
-				status = "citizen",
-				charid = character:getID()
-			})
-		end
-		]]
-
-
-		--inventory:add("cred_n5k", 1, {money = 1000})
 		
-		--[[if(character:isSectcom()) then
-			inventory:add(modelfem(character:getModel(), client) and "secrookkit_fem" or "secrookkit_male")
-		end]]
-		--inventory:add("cred_n5k", 1, {money = 1000}, 2, 1)
-		--	inventory:add("can_tuna", 1)
-		--	inventory:add("water", 1)
-		--	inventory:add("flashlight", 1)
-        
     end
 end
 
@@ -285,7 +223,6 @@ hook.Add("PlayerLoadedChar", "eyegive", function(ply, char, lastChar)
 	
 	timer.Simple(0.1, function()
 	if(char:getData("gbgs", {}).t or char:getData("gsub", {}).t) then
-		nut.log.addRaw("applying")
 		nut.newchar.setBodygroups(ply, "t", char:getData("gbgs", {}).t, char:getData("gsub", {}).t)
 	end
 	end)

@@ -61,14 +61,15 @@ do
             return 0
         end
         end, Color(26,201,236), nil, "thirst")
-    
+	
+		--this code is the stuff that drew the bars in the bottom left like it used to
+		--i dont want it doing that anymore still, but im keeping this anyway
         --[[hook.Add("ShouldBarDraw", "needsBars", function(bar)
             if(bar.identifier == "hunger" or bar.identifier == "thirst") then
                 return false
             end
-        end)]]
-	
-		--[[
+		end)
+		
         hook.Add("HUDPaintBackground", "needsBars", function()
             if(LocalPlayer():getChar()) then
                 local x, y = 4, ScrH()-12
@@ -111,8 +112,6 @@ if(SERVER) then
         timer.Create("needsTimer"..id, 1, 0, function()
             if(IsValid(ply)) then
 				if(ply:getChar()) then
-					--fine, i dont understand why they all have hatred towards mechanics
-					--maybe becuz im thinking about the avg player and not them but idk
 					if(ply:GetMoveType() == MOVETYPE_NOCLIP) then return end
 					if(IsValid(ply.nutScn) or ply:getChar():getFaction() == FACTION_OW) then return end --no degrade while scanner or ow
 
@@ -126,14 +125,6 @@ if(SERVER) then
 						if(curTime - lastCheckThir > (690 * nut.traits.getMod(ply, "thirst"))) then
 							char:SetThirst(thirst - 1)
 							lastCheckThir = curTime
-
-							--[[if(thirst < LOW_THIRST_THRESHOLD) then
-								char:addBoost("needboost", "stm", ((thirst-LOW_THIRST_THRESHOLD)*0.08)^2)
-								char:addBoost("needboost", "qkn", ((thirst-LOW_THIRST_THRESHOLD)*0.07)^2)
-							else
-								char:removeBoost("needboost", "stm")
-								char:removeBoost("needboost", "qkn")
-							end]]
 						end
 					else
 						if(curTime - lastCheckThir > 60) then
@@ -146,14 +137,6 @@ if(SERVER) then
 						if(curTime - lastCheckHung > (770 * nut.traits.getMod(ply, "hunger"))) then
 							char:SetHunger(hunger - 1)
 							lastCheckHung = curTime
-							
-							--[[if(hunger < LOW_HUNGER_THRESHOLD) then
-								char:addBoost("needboost", "end", ((hunger-LOW_HUNGER_THRESHOLD)*0.06)^2)
-								char:addBoost("needboost", "str", ((hunger-LOW_HUNGER_THRESHOLD)*0.05)^2)
-							else
-								char:removeBoost("needboost", "end")
-								char:removeBoost("needboost", "str")
-							end]]
 						end
 					else
 						if(curTime - lastCheckHung > 60) then

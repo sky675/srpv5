@@ -146,7 +146,9 @@ hook.Add("Tick", "Wavemovement", function()
 						endpos = v:GetPos()+Vector(0,0,20000), --i remember up is last
 						filter = {v},
 					})
-					if(res and res.HitSky) then --out of cover
+					print("hit, heres res")
+					PrintTable(res)
+					if(!res or (res and (res.HitSky or !res.Hit)) then --out of cover
 						v:TakeDamage(200)
 						nut.log.addRaw(v:Name().." ("..v:steamName()..") was killed by a blowout!", FLAG_WARNING)
 					end

@@ -24,7 +24,7 @@ nut.config.add("autoeventsTMax", 4800, "Maximum time for autoevent spawn", funct
 	data = {min = 900, max = 21000},
 	category = "Autoevents"
 })
-nut.config.add("autoeventsChance", 3, "Picks a random number between 1 and this, if the number picked is 1, it wont spawn anything for this round. (so the larger the number, less of a chance for nothing) 1 == feature disabled", nil, {
+nut.config.add("autoeventsChance", 3, "Picks a random number between 1 and this, if the number picked is 1, it wont spawn anything for this round. (so the larger the number, less of a chance for nothing) 1 == feature disabled (always spawn)", nil, {
 	form = "Int",
 	data = {min = 1, max = 12},
 	category = "Autoevents"
