@@ -104,19 +104,23 @@ end)]]
 --kinda anticheat
 local lastcheck;
 local hackCommands = { --may not be relevant anymore, do some 'research' on mpgh for me future me!
-	// GEAR1 Commands
+	-- GEAR1 Commands
 	"gear_printents", "gw_toggle",
 	"gw_pos", "gearmenu",
 	"gb_reload", "gb_toggle",
 	"+gb", "-gb", "gb_menu",
-	// GEAR2 Commands
+	-- GEAR2 Commands
 	"gear2_menu",
-	// AHack Commands
+	-- AHack Commands
 	"ahack_menu",
-	// Sasha Commands
+	-- Sasha Commands
 	"sasha_menu",
-	// Misc. Commands
-	"showents", "showhxmenu"
+	-- Misc. Commands
+	"showents", "showhxmenu",
+	--smeg, prob doesnt work anymore (2015)
+	"SmegHack_Menu",
+	--random ones found in uc
+	"sCheat_menu","lowkey_menu"
 }
 
 hook.Add("Think", "SRPThink", function()
