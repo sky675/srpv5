@@ -1,5 +1,10 @@
 ITEM.name = "Headlamp"
-ITEM.model = "models/props_junk/cardboard_box004a.mdl"
+ITEM.model = "models/kek1ch/dev_torch_light.mdl"
+
+ITEM.width = 1 
+ITEM.height = 1
+ITEM.iconCam = { pos = Vector(65.885673522949, 55.010261535645, 40.707977294922), ang = Angle(25, 220, 0), fov = 5.7956676860962, }
+
 ITEM.desc = "A headlamp with strap. Doesn't include batteries."
 ITEM.price = 4390
 ITEM.weight = 0.186
