@@ -132,7 +132,7 @@ nut.config.add("contentURL", "http://nutscript.net/", "Your server's collection 
 
 nut.config.add(
 	"moneyModel",
-	"models/props_lab/box01a.mdl",
+	"models/kek1ch/money_ukraina.mdl",
 	"The model for money entities.",
 	nil,
 	{category = "server"}
