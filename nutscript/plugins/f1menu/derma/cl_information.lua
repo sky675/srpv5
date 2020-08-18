@@ -7,47 +7,7 @@ local PANEL = {}
 		nut.gui.info = self
 
 		surface.PlaySound( "interface/inv_open.ogg" )
-		local function stalkerGreyButton(id, x, y, label, callback)
-			local unclick = Color(255,255,255)
-			local click = Color(143,143,143)
-
-			self[id] = self:Add("DImageButton") 
-			self[id]:SetImage("sky/buttons/grey_bar.png")
-			self[id]:SetPos(invPosX+(x*(invw/invTextureW)), (invPosY+(y*(invh/invTextureH))))		
-			self[id]:SetSize((77*(invw/invTextureW)), ((27*(invh/invTextureH))))
-
-			self[id].label = self:Add("DLabel")
-			self[id].label:SetFont("nutScaledInvenLight")
-			self[id].label:SetText(label)
-			self[id].label:SizeToContents()
-			self[id].label:SetTextColor(unclick)
-
-			local ButtonX, ButtonY = self[id]:GetPos()
-			local ButtonXsize, ButtonYsize = self[id]:GetSize()
-			local LabelXsize, LabelYsize = self[id].label:GetSize()
-			local labelOffsetX = ((ButtonXsize - LabelXsize)*0.5)
-			local labelOffsetY = ((ButtonYsize - LabelYsize)*0.45)
-
-			self[id].label:SetPos(ButtonX + (labelOffsetX), ButtonY + (labelOffsetY))
-
-
-			self[id].OnDepressed = function(this)
-				this:SetImage("sky/buttons/grey_bar_press.png")
-				labelXpos, labelYpos = self[id].label:GetPos()
-				self[id].label:SetTextColor(click)
-				self[id].label:SetPos(labelXpos, labelYpos + ((2*(invh/invTextureH))))
-
-			end
-
-			self[id].OnReleased = function(this)
-				surface.PlaySound( "interface/beep.ogg" )
-				this:SetImage("sky/buttons/grey_bar.png")
-				self[id].label:SetTextColor(unclick)
-				self[id].label:SetPos(ButtonX + (labelOffsetX), ButtonY + (labelOffsetY))
-
-				callback()
-			end
-		end
+		
 
 		local function stalkerGreyBoxButton(id, x, y, icon, tip, callback)
 			local unclick = Color(255,255,255, 255)
@@ -83,6 +43,8 @@ local PANEL = {}
 			end
 
 		end
+
+		
 
 
 		--[[
@@ -141,7 +103,7 @@ local PANEL = {}
 			if (!suppress or !suppress.desc) then --player physical description
 				self.desc = self:Add("DTextEntry")
 				self.desc:SetFont("nutScaledInvenLight")
-				self.desc:SetTextColor(color_white)
+				self.desc:SetTextColor(Color(255,255,255,150))
 				self.desc:SetEditable(false)
 
 				self.desc:SetDrawBackground(false)
@@ -153,43 +115,45 @@ local PANEL = {}
 
 			end
 
-			if (!suppress or !suppress.buttons) then --buttons of ui
+			if (!suppress or !suppress.buttons) then --buttons of ui (description button/traits button)
 
 				local char = LocalPlayer():getChar()
 
-				--DESCRIPTION BUTTON
-				stalkerGreyButton("descButton", 62, 556, "Description", 
-				function()
-					Derma_StringRequest(
-						"Physical Description", 
-						"Set your characters physical description:",
-						(char:getDesc():gsub("#", "\226\128\139#")),
-					function(text)
-						nut.command.send(
-						"chardesc",
-						(text:gsub("\226\128\139#", "#"))
-						)
-
-						local minLength = nut.config.get("minDescLen", 16)
-
-						if (!text or #text:gsub("%s", "") < minLength) then
-							return
-						end
-
-						self.desc:SetText(text:gsub("#", "\226\128\139#"))
-						
+				--DESCRIPTION BUTTON 
+				stalkerGreyButton("descButton", 77, 556, "Description", 
+					function()
+						--stalkerStringRequest(strPrompt, strDefaultText, fnEnter, fnCancel, strButtonText, strButtonCancelText)
+						stalkerStringRequest(
+							"Set your characters physical description:",
+							(char:getDesc():gsub("#", "\226\128\139#")),
+							function(text)
+								nut.command.send(
+								"chardesc",
+								((text:gsub("\226\128\139#", "#")):gsub("[\r\n]", " ", x))
+								)
+		
+								local minLength = nut.config.get("minDescLen", 16)
+		
+								if (!text or #text:gsub("%s", "") < minLength) then
+									return
+								end
+		
+								self.desc:SetText((text:gsub("\226\128\139#", "#")):gsub("[\r\n]", " ", x))
+								
+							end,
+							function(text) print("Cancelled description set") end,
+							"Change")
 					end,
+				true,
+				self)
 
-						function(text) print("Cancelled description set") end
-					)	
-				end)
-
-
-				--TRAITS BUTTON
-				stalkerGreyButton("traitsButton", 206, 556, "Traits",
+				--TRAITS BUTTON (id, x, y, label, callback, autoScale, parent)
+				stalkerGreyButton("traitsButton", 189, 556, "Traits",
 				function()
 					RunConsoleCommand("nut_displaytraits")
-				end)
+				end,
+				true,
+				self)
 
 			end
 
@@ -202,8 +166,7 @@ local PANEL = {}
 			if (!suppress or !suppress.money) then --money rubles
 				self.money = self:Add("DLabel")
 				self.money:SetFont("nutScaledBrokenMed")
-				self.money:SetTextColor(color_white)
-
+				self.money:SetTextColor( Color(255,255,255,150) )
 			end
 
 			if (!suppress or !suppress.weight) then --weight display under inv
