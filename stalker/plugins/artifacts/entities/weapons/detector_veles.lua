@@ -99,11 +99,10 @@ SWEP.VElements = {
 	["screen"] = { type = "Quad", bone = "Base", rel = "Veles", pos = Vector(1.5, 0.1, .710), angle = Angle(0, -90, 0), size = 0.040, draw_func = nil}
 }
 
---[[
 SWEP.WElements = {
 	["Bear"] = { type = "Model", model = "models/kali/miscstuff/stalker/detector_veles.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "", pos = Vector(4.675, 1.557, -2.597), angle = Angle(-106.364, -167.144, 12.857), size = Vector(1, 1, 1), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {[1] = 1} }
 }
-]]
+
 function SWEP:PrimaryAttack()
 	if (self.UseDel < CurTime() and self:Ammo1() > 0) then
 		self.UseDel = CurTime() + 3

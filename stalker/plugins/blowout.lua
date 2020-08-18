@@ -102,6 +102,7 @@ hook.Add("Think", "Wavemovement", function()
 			return --frame delay is ok
 		end
 		local lt = CurTime() - lastticktime
+		lastticktime = CurTime()
 		local sp = spawnPoints[game.GetMap()]
 		if(sp.pos) then
 			wavex = wavex + (lt * sp.wavemulti)
@@ -152,10 +153,8 @@ hook.Add("Think", "Wavemovement", function()
 						endpos = v:GetPos()+Vector(0,0,20000), --i remember up is last
 						filter = {v},
 					})
-					print("hit, heres res")
-					PrintTable(res)
 					if(!res or (res and (res.HitSky or !res.Hit))) then --out of cover
-						v:TakeDamage(200)
+						v:TakeDamage(20)
 						nut.log.addRaw(v:Name().." ("..v:steamName()..") was killed by a blowout!", FLAG_WARNING)
 					end
 				end
@@ -307,7 +306,7 @@ PLUGIN.stages = {
 
 			end,
 			onStart = function()
-				util.ScreenShake(Vector(0,0,0), 5, 5, 35, 100)
+				util.ScreenShake(Vector(0,0,0), 3, 5, 60, 100)
 			end,
 			onEnd = function(earlyexit)
 				if(earlyexit) then hook.Remove("RenderScreenspaceEffects", "zzzzzzz") OVERRIDE_PP = nil BLOWOUT_RUMBLE:Stop() end --dont want to have this playing forever if it gets canceled in this stage lol
@@ -317,7 +316,7 @@ PLUGIN.stages = {
 			length = 20,
 			onStart = function()
 				timer.Simple(8, function()
-					util.ScreenShake(Vector(0,0,0), 5, 7, 112, 100)
+					util.ScreenShake(Vector(0,0,0), 5, 6, 112, 100)
 					EmitSound(bwaves[math.random(#bwaves)], Vector(0,0,0), -2)
 					
 				end)
