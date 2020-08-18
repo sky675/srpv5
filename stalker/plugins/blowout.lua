@@ -94,18 +94,22 @@ local function DoWave()
 	wavemoving = true
 	print("wave")
 end
-
-hook.Add("Tick", "Wavemovement", function()
+local lastticktime = 0
+hook.Add("Think", "Wavemovement", function()
 	if(wavemoving) then
+		if(lastticktime == 0) then
+			lastticktime = CurTime()
+			return --frame delay is ok
+		end
+		local lt = CurTime() - lastticktime
 		local sp = spawnPoints[game.GetMap()]
 		if(sp.pos) then
-			wavex = wavex + (engine.TickInterval() * sp.wavemulti)
+			wavex = wavex + (lt * sp.wavemulti)
 		else
-			wavex = wavex - (engine.TickInterval() * sp.wavemulti)
-
+			wavex = wavex - (lt * sp.wavemulti)
 		end
 		if(debugwavex) then
-			print("wavex",wavex)
+			print("wavex",lt,wavex)
 		end
 
 		local s = sp.add
@@ -120,12 +124,13 @@ hook.Add("Tick", "Wavemovement", function()
 			end
 			local val = 1-(dis/8500000)
 
-			wavesound:ChangeVolume(math.Clamp(val, 0, 1))
+			wavesound:ChangeVolume(math.Clamp(val, 0.02, 1))
 
 
 			if((sp.pos and wavex >= sp.done) or (!sp.pos and wavex <= sp.done)) then
 				print("wave done")
 				wavemoving = false
+				lastticktime = 0
 				wavesound:Stop()
 			end
 		else--server
@@ -139,6 +144,7 @@ hook.Add("Tick", "Wavemovement", function()
 				else
 					dis = x:DistToSqr(Vector(x.x, wavex, x.z))
 				end
+
 				if(v:Alive() and v:GetMoveType() != MOVETYPE_NOCLIP and !v:getNetVar("neardeath") and dis < 50000) then
 					--roof check
 					local res = util.TraceLine({
@@ -148,15 +154,16 @@ hook.Add("Tick", "Wavemovement", function()
 					})
 					print("hit, heres res")
 					PrintTable(res)
-					if(!res or (res and (res.HitSky or !res.Hit)) then --out of cover
+					if(!res or (res and (res.HitSky or !res.Hit))) then --out of cover
 						v:TakeDamage(200)
 						nut.log.addRaw(v:Name().." ("..v:steamName()..") was killed by a blowout!", FLAG_WARNING)
 					end
 				end
 			end
 
-			if(wavex >= sp.done) then
+			if((sp.pos and wavex >= sp.done) or (!sp.pos and wavex <= sp.done)) then
 				wavemoving = false
+				lastticktime = 0
 			end
 		end
 	end
@@ -293,8 +300,8 @@ PLUGIN.stages = {
 		{
 			length = 20,
 			serverStart = function()
-				timer.Simple(math.random(8,11), function() 
-					netstream.Start(player.GetAll(), "fakepdanote", "WARNING: IF YOU ARE NOT IN COVER, GET INTO COVER IMMEDIATELY. CHAT SERVERS WILL BE TEMPORARILY DOWN.")
+				timer.Simple(math.random(6,8), function() 
+					netstream.Start(player.GetAll(), "fakepdanote", "Connection Lost...")
 					PDA_AVAILABLE = false
 				end)
 
@@ -438,7 +445,7 @@ PLUGIN.stages = {
 			end,
 			serverEnd = function()
 				timer.Simple(2, function() 
-				netstream.Start(player.GetAll(), "fakepdanote", "THE EMISSION HAS PASSED. CHAT SERVERS CONNECTION REESTABLISHED.")
+				netstream.Start(player.GetAll(), "fakepdanote", "Connection reestablished...")
 				end)
 				PDA_AVAILABLE = true
 			end,

@@ -8,6 +8,8 @@ PLUGIN.desc = "does some ui stuff maybe idk (currently empty)"
 	- show hunger/thirst/etc bars in inv? idk
 ]]
 
+nut.util.include("sh_invrefresh.lua")
+
 if(SERVER) then
 
 else --client

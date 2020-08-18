@@ -597,7 +597,7 @@ local PANEL = {}
 					local panel = self 
 					timer.Create("infomodelup", 2, 0, function()
 						if(!IsValid(panel)) then return end
-						if(!panel.model.modelcache or panel.model.modelcache == 0) then return end
+						if(!panel.model.modelcache or #panel.model.modelcache == 0) then return end
 
 
 						panel.model.modelcache[1]:SetBodygroup(0, char:getData("gtop", 0))

@@ -1,5 +1,8 @@
 local PLUGIN = PLUGIN
 
+nut.config.add("movementEffects", false, "Enable leg breaking", nil, {
+	category = "Shoot to RP"
+})
 nut.config.add("movespeedRatio", 0.4, "The percentage of health needed to be missing (1 == 100% of health, 0 == 0%) in order to start slowing players' speed. Requires downing to be on.", nil, {
 	form = "Float",
 	data = {min = 0, max = 1},
@@ -76,7 +79,7 @@ hook.Add("KeyRelease", "JumpStam", function(client, key)
 end)
 
 hook.Add("GetFallDamage", "BreakLegs", function(ply, speed)
-	local dw = nut.config.get("downing", false)
+	local dw = nut.config.get("movementEffects", false)
 	if (dw) then
 		if(IsValid(ply) and ply:getChar()) then
 			--[[if(ply:getChar().getImplants and ply:getChar():getImplants("implants", "fallprot")) then--Data("implants", {})["fallprot"]) then

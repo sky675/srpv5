@@ -74,10 +74,13 @@ ITEM:postHook("EquipUn", function(item, result, data)
 	print("model", client:GetModel())
 
 	if(client:getChar():getData("oldgst")) then
-		nut.newchar.setBody(client, "seperate", client:getChar():getData("oldhood", 0), client:getChar():getData("oldgst"), nil, nil, client:getChar():getData("gsub", {})["t"])
+		nut.newchar.setBody(client, "seperate", 0, client:getChar():getData("oldgst"), nil, nil, client:getChar():getData("gsub", {})["t"])
 	end
 
 	local groups = client:getChar():getData("groups", {})
+	if(client:getChar():getData("oldhood")) then
+		nut.newchar.setBodygroups(client, "t", client:getChar():getData("oldhood"))
+	end
 	for k, v in pairs(bgs) do
 		local index = client:FindBodygroupByName(k)
 
@@ -123,11 +126,13 @@ ITEM:postHook("deathun", function(item, result, data)
 	bgs["arms"] = client:isFemale() and 3 or 4
 
 	if(client:getChar():getData("oldgst")) then
-		nut.newchar.setBody(client, "seperate", client:getChar():getData("oldhood", 0), client:getChar():getData("oldgst"), nil, nil, client:getChar():getData("gsub", {})["t"])
+		nut.newchar.setBody(client, "seperate", 0, client:getChar():getData("oldgst"), nil, nil, client:getChar():getData("gsub", {})["t"])
 	end
 
-
 	local groups = client:getChar():getData("groups", {})
+	if(client:getChar():getData("oldhood")) then
+		nut.newchar.setBodygroups(client, "t", client:getChar():getData("oldhood"))
+	end
 	for k, v in pairs(bgs) do
 		local index = client:FindBodygroupByName(k)
 
@@ -172,11 +177,13 @@ ITEM:postHook("drop", function(item, result, data)
 	bgs["arms"] = client:isFemale() and 3 or 4
 
 	if(client:getChar():getData("oldgst")) then
-		nut.newchar.setBody(client, "seperate", client:getChar():getData("oldhood", 0), client:getChar():getData("oldgst"), nil, nil, client:getChar():getData("gsub", {})["t"])
+		nut.newchar.setBody(client, "seperate", 0, client:getChar():getData("oldgst"), nil, nil, client:getChar():getData("gsub", {})["t"])
 	end
 
-
 	local groups = client:getChar():getData("groups", {})
+	if(client:getChar():getData("oldhood")) then
+		nut.newchar.setBodygroups(client, "t", client:getChar():getData("oldhood"))
+	end
 	for k, v in pairs(bgs) do
 		local index = client:FindBodygroupByName(k)
 
@@ -257,7 +264,7 @@ ITEM.getBodyGroups = function(item, ply)
 				bg[v.name] = ply.bm.t:GetBodygroup(v.id)
 			end
 			if(v.name == "anorak" or v.name == "hood") then
-				ply:getChar():setData("oldhood", ply.bm.t:GetBodygroup(v.id))
+				ply:getChar():setData("oldhood", {[v.id] = ply.bm.t:GetBodygroup(v.id)})
 			end
 		end
 	end
