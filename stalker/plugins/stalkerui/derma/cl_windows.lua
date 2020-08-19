@@ -1,14 +1,6 @@
-local PLUGIN = PLUGIN
-PLUGIN.name = "Stalker UI Elements"
-PLUGIN.author = "🧔 Nate"
-PLUGIN.desc = "Adds stalker themed UI elements"
-
 if(CLIENT) then
     function stalkerGreyButton(id, x, y, label, callback, autoScale, parent)
-        print(autoScale)
-        --local autoScale = autoScale != nil and autoScale or true
         local self = parent or self
-        --print(autoScale)
         local unclick = Color(255,255,255)
         local click = Color(143,143,143)
 
@@ -16,10 +8,8 @@ if(CLIENT) then
         self[id]:SetImage("sky/buttons/grey_bar.png")
 
         if (autoScale) then
-            print("yes autoscale")
             self[id]:SetPos(invPosX+(x*(invw/invTextureW)), (invPosY+(y*(invh/invTextureH))))	
         else
-            print("no autoscale")
             self[id]:SetPos(x, y)
         end
             
@@ -131,7 +121,6 @@ if(CLIENT) then
             surface.DrawTexturedRect(popupX, popupY, scaledW, scaledH)	
         end
 
-        print("DRAWING BACKGROUND AT: x"..popupX.." y"..popupY)
 
     
         return InnerPanel
