@@ -34,7 +34,7 @@ function PANEL:createTabs()
 		vgui.Create("nutCharacterConfirm")
 			:setTitle("DISCORD")
 			:setMessage("CONFIRM TO OPEN THE DISCORD INVITE LINK.")
-			:onConfirm(function() gui.OpenURL("https://discord.gg/zWm3Pew") end)
+			:onConfirm(function() gui.OpenURL("https://discord.gg/VPztejY") end)
 	end, true)
 
 	-- If the player has a character (i.e. opened this menu from F1 menu), then

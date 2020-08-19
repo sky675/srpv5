@@ -35,6 +35,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_545ak",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(9.9499998092651, 67, -1),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_ak74"] = {
@@ -52,6 +58,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_545ak",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(7, 55, -1),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_akm"] = {
@@ -69,6 +81,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_762ak",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(6.25, 55, -1),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 --[[
@@ -105,6 +123,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_545ak",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(2.5, 43, -1),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_aug"] = {
@@ -122,6 +146,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_aug",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(2.5, 45, 0.20000000298023),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_awm"] = {
@@ -130,7 +160,7 @@ PLUGIN.wepList = {
 	price = 107500,--52000,--44000,--25000, --3406,
 	model = "models/weapons/tfa_ins2/w_awm_l86a1.mdl",
 	width = 6,
-	height = 2,
+	height = 1,
 	weight = 7,
 	flag = "5",
 	type = "ws",
@@ -139,6 +169,14 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "ammo_338",
 	disableChamber = true,
+	--[[iconCam = {
+		pos = Vector(10.75, 67, 0),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
+	exRender = false,]]
+	icon = Material("sky/itemicons/v_awm.png"),
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_deserteagle"] = {
@@ -146,7 +184,7 @@ PLUGIN.wepList = {
 	desc = "A large handgun chambered in .50 AE.",
 	price = 19680,--1750,--850, --670-720, price online 2000,
 	model = "models/weapons/tfa_ins2/w_deagle.mdl",
-	width = 1,
+	width = 2,
 	height = 1,
 	weight = 2,
 	flag = "3",
@@ -157,9 +195,11 @@ PLUGIN.wepList = {
 	magType = "mag_deserteagle",
 	disableChamber = false,
 	iconCam = { --this still will prob work for most/all pistols tho
-		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		pos = Vector(1.5, 17.5, -0.30000001192093),
 		ang = Angle(0, 270, 0),
-		fov = 3,
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+
 	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
@@ -178,6 +218,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_famas",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(0.5, 46, 1),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_g36c"] = {
@@ -195,6 +241,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_g36",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(2, 42, 0.40000000596046),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_glock"] = {
@@ -213,9 +265,11 @@ PLUGIN.wepList = {
 	magType = "mag_glock",
 	disableChamber = false,
 	iconCam = { --this still will prob work for most/all pistols tho
-		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		pos = Vector(1, 11, -0.5),
 		ang = Angle(0, 270, 0),
-		fov = 3,
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+
 	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
@@ -236,9 +290,11 @@ PLUGIN.wepList = {
 	disableChamber = false,
 	noBusiness = true,
 	iconCam = { --this still will prob work for most/all pistols tho
-		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		pos = Vector(1, 11, -0.5),
 		ang = Angle(0, 270, 0),
-		fov = 3,
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+
 	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
@@ -278,9 +334,11 @@ PLUGIN.wepList = {
 	--defaultMods = {},
 	disableChamber = false,
 	iconCam = { --this still will prob work for most/all pistols tho
-		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		pos = Vector(1.0499999523163, 12.699999809265, -0.25),
 		ang = Angle(0, 270, 0),
-		fov = 3,
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+
 	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
@@ -301,9 +359,10 @@ PLUGIN.wepList = {
 	defaultMods = {[11] = "sky_usp_9mm",},
 	disableChamber = false,
 	iconCam = { --this still will prob work for most/all pistols tho
-		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		pos = Vector(1.0499999523163, 12.699999809265, -0.25),
 		ang = Angle(0, 270, 0),
-		fov = 3,
+		entAng = Angle(0, 0, 0),
+		fov = 45,
 	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
@@ -324,9 +383,10 @@ PLUGIN.wepList = {
 	defaultMods = {[11] = "sky_usp_9mm", [12] = "tfa_ins2_si_tiggsmatch"},
 	disableChamber = false,
 	iconCam = { --this still will prob work for most/all pistols tho
-		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		pos = Vector(1.0499999523163, 12.699999809265, -0.25),
 		ang = Angle(0, 270, 0),
-		fov = 3,
+		entAng = Angle(0, 0, 0),
+		fov = 45,
 	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
@@ -335,7 +395,7 @@ PLUGIN.wepList = {
 	desc = "A double barreled shotgun.",
 	price = 11400,--1600,--600, --347?, estimated: 200-400,
 	model = "models/weapons/tfa_ins2/w_doublebarrel_fix.mdl",
-	width = 4,
+	width = 5,
 	height = 1,
 	weight = 3.2,
 	flag = "1",
@@ -345,6 +405,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "ammo_buckshot",
 	disableChamber = true,
+	iconCam = {
+		pos = Vector(11.75, 67, -1.5),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Buckshot", ["sky_ammo_slug"] = "Slug", 
 	["sky_ammo_frag"] = "Frag", ["sky_ammo_dragon"] = "Dragon's Breath",
 	["sky_ammo_nslug"] = "NL Slug", }
@@ -354,7 +420,7 @@ PLUGIN.wepList = {
 	desc = "A sawn-off variation of a double barreled shotgun.",
 	price = 8460,--1450,--1600,--600, --347?, estimated: 200-400,
 	model = "models/weapons/tfa_ins2/w_sawedoff.mdl", --forgot to check if this has good physics
-	width = 2,
+	width = 3,
 	height = 1,
 	weight = 2,
 	flag = "1",
@@ -364,6 +430,12 @@ PLUGIN.wepList = {
 	weaponCategory = "sidearm",
 	magType = "ammo_buckshot",
 	disableChamber = true,
+	iconCam = {
+		pos = Vector(2.5750000476837, 42, -1.5),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Buckshot", ["sky_ammo_slug"] = "Slug", 
 	["sky_ammo_frag"] = "Frag", ["sky_ammo_dragon"] = "Dragon's Breath",
 	["sky_ammo_nslug"] = "NL Slug", }
@@ -383,6 +455,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "ammo_buckshot",
 	disableChamber = true,
+	iconCam = {
+		pos = Vector(6.9000000953674, 52.5, -1.5),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Buckshot", ["sky_ammo_slug"] = "Slug", 
 	["sky_ammo_frag"] = "Frag", ["sky_ammo_dragon"] = "Dragon's Breath",
 	["sky_ammo_nslug"] = "NL Slug", }
@@ -423,6 +501,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "ammo_buckshot",
 	disableChamber = true,
+	iconCam = {
+		pos = Vector(6.5, 52.5, -1.5),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Buckshot", ["sky_ammo_slug"] = "Slug", 
 	["sky_ammo_frag"] = "Frag", ["sky_ammo_dragon"] = "Dragon's Breath",
 	["sky_ammo_nslug"] = "NL Slug", }
@@ -443,9 +527,11 @@ PLUGIN.wepList = {
 	magType = "mag_1911",
 	disableChamber = false,
 	iconCam = { --this still will prob work for most/all pistols tho
-		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		pos = Vector(1, 13, -0.30000001192093),
 		ang = Angle(0, 270, 0),
-		fov = 3,
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+
 	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
@@ -464,6 +550,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_stanag",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(4.6500000953674, 50, 0.20000000298023),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 --[[
@@ -500,6 +592,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "ammo_buckshot",
 	disableChamber = true,
+	iconCam = {
+		pos = Vector(13.5, 57.5, -0.20000000298023),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Buckshot", ["sky_ammo_slug"] = "Slug", 
 	["sky_ammo_frag"] = "Frag", ["sky_ammo_dragon"] = "Dragon's Breath",
 	["sky_ammo_nslug"] = "NL Slug", }
@@ -520,9 +618,10 @@ PLUGIN.wepList = {
 	magType = "mag_m9",
 	disableChamber = false,
 	iconCam = { --this still will prob work for most/all pistols tho
-		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		pos = Vector(1.3500000238419, 13.5, -0.5),
 		ang = Angle(0, 270, 0),
-		fov = 3,
+		entAng = Angle(0, 0, 0),
+		fov = 45,
 	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
@@ -541,6 +640,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_minimi",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(3.75, 43, 1.3999999761581),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 --[[
@@ -577,6 +682,7 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_mp5",
 	disableChamber = false,
+	icon = Material("sky/itemicons/w_mp5.png"),
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_mp5k"] = {
@@ -595,6 +701,7 @@ PLUGIN.wepList = {
 	weaponCategory = "sidearm",
 	magType = "mag_mp5",
 	disableChamber = false,
+	icon = Material("sky/itemicons/w_mp5k.png"),
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_mp5sd"] = {
@@ -602,7 +709,7 @@ PLUGIN.wepList = {
 	desc = "A SMG chambered in 9x19mm.",
 	price = 18800,--1360,--490, --303,
 	model = "models/weapons/fas2wm/smgs/w_mp5.mdl",
-	width = 2,
+	width = 3,
 	height = 2,
 	weight = 3.1,
 	flag = "2",
@@ -614,6 +721,7 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_mp5",
 	disableChamber = false,
+	icon = Material("sky/itemicons/w_mp5sd.png"),
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 --[[
@@ -650,6 +758,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_rpk",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(10, 59, 0),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_ump"] = {
@@ -667,6 +781,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_ump",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(0, 41, -1.5),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_kriss"] = {
@@ -684,6 +804,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_kriss",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(0.25, 41, -1.5),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_m49mm"] = {
@@ -701,6 +827,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_9mm32",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(3.2000000476837, 45, -1.2000000476837),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_mp443"] = {
@@ -719,9 +851,11 @@ PLUGIN.wepList = {
 	magType = "mag_mp443",
 	disableChamber = false,
 	iconCam = { --this still will prob work for most/all pistols tho
-		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		pos = Vector(0.55000001192093, 12, -0.44999998807907),
 		ang = Angle(0, 270, 0),
-		fov = 3,
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+
 	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
@@ -757,6 +891,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_evo",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(0.10000000149012, 30, 0.5),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },--[[
 ["wep_spectre"] = {
@@ -823,9 +963,11 @@ PLUGIN.wepList = {
 	magType = "mag_1911",
 	disableChamber = false,
 	iconCam = { --this still will prob work for most/all pistols tho
-		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		pos = Vector(1.1000000238419, 13, -0.34999999403954),
 		ang = Angle(0, 270, 0),
-		fov = 3,
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+
 	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },--[[
@@ -932,6 +1074,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_stanag",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(3.25, 42, 0.20000000298023),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_fn2000"] = {
@@ -949,6 +1097,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_stanag",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(0.30000001192093, 37, 0.85000002384186),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_val"] = {
@@ -966,6 +1120,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_val",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(6.25, 44, 0.85000002384186),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },--[[
 ["wep_fal"] = {
@@ -1005,7 +1165,7 @@ PLUGIN.wepList = {
 	desc = "A sniper rifle chambered in 7.62x51mm NATO.",
 	price = 40500,--2800,--1700, 
 	model = "models/weapons/tfa_ins2/w_m40a1.mdl",
-	width = 4,
+	width = 5,
 	height = 1,
 	weight = 6.6,
 	flag = "2",
@@ -1015,6 +1175,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "ammo_762x51",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(9.5, 60, -0.34999999403954),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_mosin"] = {
@@ -1022,7 +1188,7 @@ PLUGIN.wepList = {
 	desc = "A sniper rifle chambered in 7.62x54mmR.",
 	price = 10260,--2800,--1700, 
 	model = "models/weapons/tfa_ins2/w_mosin.mdl",
-	width = 4,
+	width = 5,
 	height = 1,
 	weight = 4.9,
 	flag = "1",
@@ -1032,6 +1198,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "ammo_762x54",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(11.5, 65, -0.34999999403954),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_pkp"] = {
@@ -1040,7 +1212,7 @@ PLUGIN.wepList = {
 	price = 90850,--2800,--1700, 
 	model = "models/weapons/tfa_ins2/w_pkm.mdl",
 	width = 6,
-	height = 5,
+	height = 2,
 	weight = 7.5,
 	flag = "4",
 	type = "ws",
@@ -1049,6 +1221,13 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_pkp",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(6.75, 51, 1.2000000476837),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},
+	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_pm"] = {
@@ -1124,9 +1303,11 @@ PLUGIN.wepList = {
 	magType = "mag_p226",
 	disableChamber = false,
 	iconCam = { --this still will prob work for most/all pistols tho
-		pos = Vector(0.60000002384186, 200, -0.30000001192093),
+		pos = Vector(-10.60000038147, 12, -0.15000000596046),
 		ang = Angle(0, 270, 0),
-		fov = 3,
+		entAng = Angle(0, 180, 0),
+		fov = 45,
+
 	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
@@ -1145,6 +1326,7 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_g3",
 	disableChamber = false,
+	icon = Material("sky/itemicons/w_g3.png"),
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_ks23"] = {
@@ -1152,7 +1334,7 @@ PLUGIN.wepList = {
 	desc = "A shotgun chambered in 23mm.",
 	price = 62800,--2800,--1700, 
 	model = "models/weapons/fas2wm/shotguns/ks23_wm.mdl",
-	width = 4,
+	width = 5,
 	height = 1,
 	weight = 3.85,
 	flag = "5",
@@ -1162,6 +1344,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "ammo_23",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(8.6000003814697, 55, -1.5),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	--default buckshot, slug, smoke, flashbang
 	otherMagTypes = {["default"] = "Buckshot", ["sky_ammo_slug"] = "Slug", 
 	--[[["sky_ammo_frag"] = "Frag", ["sky_ammo_dragon"] = "Dragon's Breath",
@@ -1172,7 +1360,7 @@ PLUGIN.wepList = {
 	desc = "A rifle chambered in 5.56x45mm.",
 	price = 43580,--2800,--1700, 
 	model = "models/weapons/fas2wm/rifles/w_sg55x.mdl",
-	width = 4,
+	width = 5,
 	height = 2,
 	weight = 4.1,
 	flag = "3",
@@ -1182,6 +1370,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_sg55x",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(-3.6500000953674, 56, -0.75),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(1.5, 180, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_sg553"] = {
@@ -1200,6 +1394,7 @@ PLUGIN.wepList = {
 	magType = "mag_sg55x",
 	disableChamber = false,
 	defaultMods = {[14] = "fas2tfa_sg550_cqb"}, --might work?
+	icon = Material("sky/itemicons/w_sg55x.png"),
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },	
 --[[ --kinda useless ngl, and also apparently no longer in production
@@ -1226,7 +1421,7 @@ PLUGIN.wepList = {
 	desc = "A rifle chambered in 7.62x39mm.",
 	price = 18580,--2800,--1700, 
 	model = "models/weapons/fas2wm/rifles/w_sks.mdl",
-	width = 4,
+	width = 5,
 	height = 1,
 	weight = 3.75,
 	flag = "1",
@@ -1236,6 +1431,13 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_sksclip",
 	disableChamber = true,
+	--[[iconCam = {
+		pos = Vector(-3, 55, -0.34999999403954),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(1, 180, 0),
+		fov = 45,
+	},	]]
+	icon = Material("sky/itemicons/w_sks1.png"),
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_sksa"] = { --hide?
@@ -1243,7 +1445,7 @@ PLUGIN.wepList = {
 	desc = "A custom automatic rifle chambered in 7.62x39mm using a detachable 20 round mag.",
 	price = 28400,--2800,--1700, 
 	model = "models/weapons/fas2wm/rifles/w_sks.mdl",
-	width = 4,
+	width = 5,
 	height = 2,
 	weight = 3.71,
 	flag = "2",
@@ -1254,6 +1456,7 @@ PLUGIN.wepList = {
 	magType = "mag_sks20",
 	disableChamber = true,
 	defaultMods = {[15] = "fas2tfa_sks_20rnd",[16] = "fas2tfa_sks_bf"},
+	icon = Material("sky/itemicons/w_sks.png"),
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_svd"] = {
@@ -1262,7 +1465,7 @@ PLUGIN.wepList = {
 	price = 62550,--2800,--1700, 
 	model = "models/weapons/fas2wm/rifles/w_svd.mdl",
 	width = 5,
-	height = 2,
+	height = 1,
 	weight = 3.91,
 	flag = "4",
 	type = "ws",
@@ -1271,6 +1474,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_svd",
 	disableChamber = true,
+	iconCam = {
+		pos = Vector(2.5, 67, -0.25),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(1, 180, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 ["wep_acr"] = {
@@ -1288,6 +1497,12 @@ PLUGIN.wepList = {
 	weaponCategory = "primary",
 	magType = "mag_stanag",
 	disableChamber = false,
+	iconCam = {
+		pos = Vector(4.5, 48, 0.20000000298023),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
 --[[

@@ -48,7 +48,7 @@ function PLUGIN:InitializedItems()
 			ITEM.otherMagTypes = data.otherMagTypes --it should be ok if this is nil
             ITEM.specammo = data.specammo --default ammo type (for ammo boxes)
 			if(data.iconCam) then --prob wont be used for anything else so
-				--ITEM.exRender = true
+				ITEM.exRender = true
 				ITEM.iconCam = data.iconCam
 			end
 			ITEM.icon = data.icon
@@ -76,8 +76,11 @@ function PLUGIN:InitializedItems()
 			ITEM.defaultAmmo = data.defaultAmmo
 			ITEM.cantDetach = data.cantDetach
 			if(data.iconCam) then --prob wont be used for anything else so
-				--ITEM.exRender = true
+				ITEM.exRender = true
 				ITEM.iconCam = data.iconCam
+			end
+			if(data.exRender != nil) then
+				ITEM.exRender = data.exRender
 			end
 			ITEM.icon = data.icon
 			ITEM.biolock = data.biolock
