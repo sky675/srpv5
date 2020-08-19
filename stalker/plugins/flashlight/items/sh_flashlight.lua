@@ -1,5 +1,5 @@
 ITEM.name = "Flashlight"
-ITEM.model = "models/props_junk/cardboard_box004a.mdl"
+ITEM.model = "models/raviool/flashlight.mdl"
 ITEM.desc = "An old flashlight. Doesn't include batteries."
 ITEM.price = 2440
 ITEM.weight = 0.484

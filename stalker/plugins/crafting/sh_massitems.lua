@@ -12,6 +12,95 @@ local itemList = {
 		--destroy = {["id"] = 1},
 	},
 	]]
+	--eft items - remember to add megapack to collection!
+	--[[
+	models/illusion/eftcontainers/30mmround.mdl
+	models/illusion/eftcontainers/aabattery.mdl
+	models/illusion/eftcontainers/alkali.mdl
+	models/illusion/eftcontainers/capacitors.mdl
+	models/illusion/eftcontainers/catfigurine.mdl
+	models/illusion/eftcontainers/chain.mdl
+	models/illusion/eftcontainers/circuitboard.mdl
+	models/illusion/eftcontainers/coffee.mdl
+	models/illusion/eftcontainers/controller.mdl
+	models/illusion/eftcontainers/defib.mdl
+	models/illusion/eftcontainers/diagset.mdl
+	models/illusion/eftcontainers/dryfuel.mdl
+	models/illusion/eftcontainers/electricdrill.mdl
+	models/illusion/eftcontainers/engine.mdl
+	models/illusion/eftcontainers/flashstorage.mdl
+	models/illusion/eftcontainers/fuelconditioner.mdl
+	models/illusion/eftcontainers/gasanalyser.mdl
+	models/illusion/eftcontainers/geigercounter.mdl
+	models/illusion/eftcontainers/goldchain.mdl
+	models/illusion/eftcontainers/gpblue.mdl
+	models/illusion/eftcontainers/gpgreen.mdl
+	models/illusion/eftcontainers/gphone.mdl
+	models/illusion/eftcontainers/gphonex.mdl --broken
+	models/illusion/eftcontainers/gpred.mdl
+	models/illusion/eftcontainers/graphicscard.mdl
+	models/illusion/eftcontainers/gyroscope.mdl
+	models/illusion/eftcontainers/gyrotachometer.mdl
+	models/illusion/eftcontainers/hdd.mdl
+	models/illusion/eftcontainers/helix.mdl
+	models/illusion/eftcontainers/horse.mdl
+	models/illusion/eftcontainers/hose.mdl
+	models/illusion/eftcontainers/insulatingtape.mdl
+	models/illusion/eftcontainers/lcdclean.mdl
+	models/illusion/eftcontainers/lcddirty.mdl
+	models/illusion/eftcontainers/lightbulb.mdl
+	models/illusion/eftcontainers/lionstatue.mdl
+	models/illusion/eftcontainers/magnet.mdl
+	models/illusion/eftcontainers/matches.mdl
+	models/illusion/eftcontainers/medpile.mdl
+	models/illusion/eftcontainers/medsyringe.mdl
+	models/illusion/eftcontainers/militarybattery.mdl
+	models/illusion/eftcontainers/militaryboard.mdl
+	models/illusion/eftcontainers/militarycable.mdl
+	models/illusion/eftcontainers/nailpack.mdl
+	models/illusion/eftcontainers/nixxorlens.mdl
+	models/illusion/eftcontainers/nuts.mdl
+	models/illusion/eftcontainers/packofscrews.mdl
+	models/illusion/eftcontainers/paracord.mdl
+	models/illusion/eftcontainers/phaseantenna.mdl
+	models/illusion/eftcontainers/phaserelay.mdl
+	models/illusion/eftcontainers/plexiglass.mdl
+	models/illusion/eftcontainers/pliers.mdl
+	models/illusion/eftcontainers/powerbank.mdl
+	models/illusion/eftcontainers/powercord.mdl
+	models/illusion/eftcontainers/powerfilter.mdl
+	models/illusion/eftcontainers/powersupplyunit.mdl
+	models/illusion/eftcontainers/pressuregauge.mdl
+	models/illusion/eftcontainers/propanetank.mdl
+	models/illusion/eftcontainers/rfidreader.mdl
+	models/illusion/eftcontainers/rolex.mdl
+	models/illusion/eftcontainers/screwdriver.mdl
+	models/illusion/eftcontainers/screwnutbolt.mdl
+	models/illusion/eftcontainers/silicontube.mdl
+	models/illusion/eftcontainers/sparkplug.mdl
+	models/illusion/eftcontainers/tetriz.mdl
+	models/illusion/eftcontainers/thermalmodule.mdl
+	models/illusion/eftcontainers/thermometer.mdl
+	models/illusion/eftcontainers/toolset.mdl
+	models/illusion/eftcontainers/toothpaste.mdl
+	models/illusion/eftcontainers/virtex.mdl
+	models/illusion/eftcontainers/waterfilter.mdl
+	models/illusion/eftcontainers/weaponparts.mdl
+	models/illusion/eftcontainers/wirelesstransmitter.mdl
+	models/illusion/eftcontainers/wires.mdl
+	models/illusion/eftcontainers/wrench.mdl
+	]]
+	--warfare items
+	--[[
+	models/kek1ch/box_condensers.mdl
+	models/kek1ch/box_toolkit_1.mdl --basic
+	models/kek1ch/box_toolkit_2.mdl --adv
+	models/kek1ch/box_toolkit_3.mdl --expert
+	models/kek1ch/box_transistors.mdl
+	models/kek1ch/dev_detector_0_samodel.mdl
+	models/kek1ch/grease.mdl
+	]]
+
 	--mutant parts
 	["hide_bloodsucker"] = {
 		name = "Bloodsucker Hide",
