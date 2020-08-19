@@ -94,10 +94,10 @@ else --client
 
 			--w276 h126
 			local barAreaH = 131
-			print("Bar Area H: " .. barAreaH)
+			--print("Bar Area H: " .. barAreaH)
 			local barSpacing = (barAreaH - (16*4))/4
 			local yOffset = barSpacing
-			print("Bar Spacing: " .. barSpacing)
+			--print("Bar Spacing: " .. barSpacing)
 			local ct = 0
 			for k, v in SortedPairsByMemberValue(nut.attribs.list, "name") do
 				ct = ct + 1
@@ -117,11 +117,11 @@ else --client
 				local attribValue = char:getAttrib(k, 0)
 				local maximum = v.maxValue or nut.config.get("maxAttribs", 30)
 				local progressPercent = (attribValue/maximum)
-				print("ATTRIB VALUE: " .. "value" .. attribValue .. " / max" .. maximum .. " = " .. progressPercent)
+				--print("ATTRIB VALUE: " .. "value" .. attribValue .. " / max" .. maximum .. " = " .. progressPercent)
 				--print("Attrib bar percent: " .. progressPercent)
 
-				local posColor = (Color(0,255,0,255))
-				local negColor = (Color(255,0,0,255))
+				local posColor = (Color(0,255,0,155))
+				local negColor = (Color(255,0,0,155))
 
 
 				local stalkerBarX = invPosX+(52*(invw/invTextureW))

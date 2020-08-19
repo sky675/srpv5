@@ -29,7 +29,7 @@ if (CLIENT) then
 		if (percentFill < 0) then
 			isNegative = true
 			percentFill = math.abs(percentFill)
-			fillColor = (Color(255, 0, 0, 255))
+			fillColor = (Color(255, 0, 0, 155))
 		end
 
 		local barCount = math.floor(totalWidth/(barSizeX + barSizeX))
@@ -81,7 +81,7 @@ if (CLIENT) then
 	function stalkerProgressHeight()
 		local barSizeX = math.ceil((2*(invw/invTextureW)))
 		local barSizeY = math.ceil(barSizeX*8)
-		print("===RETURNED: " .. barSizeY)
+		--print("===RETURNED: " .. barSizeY)
 
 		return barSizeY
 		
