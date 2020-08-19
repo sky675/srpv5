@@ -45,19 +45,11 @@ ITEM.canRemove = function(self, ply)
 	local inv = ply:getChar():getInv()
 	local item
 	local mask = false
-	local addonscheck = {"addon_mp_gearvest", "addon_mp_heavyarmor"}
 	for k,v in pairs(inv:getItems()) do
 		if(string.find(v.uniqueID, "helm_") and v:getData("equip")) then
 			item = v
 			mask = true
 			break
-		end
-		
-		for k2,v2 in pairs(addonscheck) do
-			if(string.find(v.uniqueID, v2) and v:getData("equip")) then
-				item = v
-				break
-			end
 		end
 	end
 	if(item) then
@@ -96,6 +88,10 @@ function ITEM:getCustomGS()
 	--submat
 	
 	return tbl
+end
+--should keep them?
+ITEM.getBodygroupsKeep = function(item, ply)
+	return {}
 end
 ITEM.getBodyGroups = function(item, ply)
 	return {["arms"] = ply:isFemale() and 3 or 4,["hands"] = 3}

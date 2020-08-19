@@ -27,6 +27,14 @@ ITEM.onGetDropModel = function(item, ent)
 	return "models/sky/dropped/eco.mdl"
 end
 
+function ITEM:onGetReplacement()
+	local fem = self.player:isFemale()
+	if(fem) then
+		return "models/sky/seperate/female_eco.mdl"
+	else
+		return "models/sky/seperate/male_eco.mdl"
+	end
+end
 --ITEM.upgradePath = "eyes"
 
 --[[
@@ -45,7 +53,7 @@ function ITEM:getName()
 	return name.." (Male)"
 end
 ]]
-
+--[[
 ITEM.canWear = function(self, ply)
 	local model = ply:GetModel()
 	if(nut.newchar.isBM(model)) then
@@ -106,10 +114,16 @@ function ITEM:getCustomGS()
 	
 	return tbl
 end
-ITEM.getBodyGroups = function(item, ply)
-	return {["arms"] = ply:isFemale() and 3 or 4,["hands"] = 3}
+--should keep them?
+ITEM.getBodygroupsKeep = function(item, ply)
+	return {["head"] = 0}
 end
-
+ITEM.getBodyGroups = function(item, ply)
+	--always hide head
+	local mx = ply:GetBodygroupCount(ply:FindBodygroupByName("head"))-1
+	return {["arms"] = ply:isFemale() and 3 or 4,["hands"] = 3,["head"] = mx}
+end
+]]
 ITEM.upgradePath = "eco"
 ITEM.armor = {
 	chest = {level = ARMOR_II},
