@@ -236,11 +236,11 @@ if (CLIENT) then
 		-- end
 
 		if (self:IsKeyboardInputEnabled()) then
-			print("Ok you can do funny keyboard")
+			--print("Ok you can do funny keyboard")
 		end
 		
 		function self:OnKeyCodePressed(key)
-			print("f1 pressed cool cool")
+			--print("f1 pressed cool cool")
 			-- F1 Close
 			local keypress = KEY_F1
 			if(input.LookupBinding("gm_showhelp") != "no value") then
@@ -248,7 +248,7 @@ if (CLIENT) then
 			end
 	
 			if (key == keypress) then
-				print("ok i close now")
+				--print("ok i close now")
 				nutStorageBase:exitStorage()
 
 				self.storageInventoryPanel:Remove()
