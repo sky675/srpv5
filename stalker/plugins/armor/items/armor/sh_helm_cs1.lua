@@ -1,6 +1,7 @@
 ITEM.name = "CS-1 Helmet"
 ITEM.desc = "Helmet typically worn with the CS-1 suit. Appearance based on worn suit."
 --ITEM.icon = Material("sky/itemicons/mpmask1.png")
+ITEM.icon = Material("sky/itemicons/helm_cs1.png")
 ITEM.model = "models/kek1ch/helm_hardhat.mdl"
 ITEM.category = "Clothing"
 ITEM.skin = 0

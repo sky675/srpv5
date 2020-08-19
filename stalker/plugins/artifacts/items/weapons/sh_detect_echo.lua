@@ -9,3 +9,10 @@ ITEM.height = 1
 ITEM.weight = 0.44
 ITEM.price = 3460
 ITEM.flag = "N"
+ITEM.exRender = true
+ITEM.iconCam = {
+	pos = Vector(111.2872543335, 93.798988342285, 66.754493713379),
+	ang = Angle(25, 220, 0),
+	entAng = Angle(0, -127.68507385254, 0),
+	fov = 2.1130716442623,
+}

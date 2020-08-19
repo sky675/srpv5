@@ -1,6 +1,7 @@
 ITEM.name = "Sphere M12 Helmet"
 ITEM.desc = "Helmet typically worn with SKAT-9 suits. Appearance based on worn suit."
 --ITEM.icon = Material("sky/itemicons/mpmask1.png")
+ITEM.icon = Material("sky/itemicons/helm_skat.png")
 ITEM.model = "models/kek1ch/helm_battle.mdl"
 ITEM.category = "Clothing"
 ITEM.skin = 0

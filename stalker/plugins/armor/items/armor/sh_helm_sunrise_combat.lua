@@ -1,6 +1,7 @@
 ITEM.name = "Exohelm"
 ITEM.desc = "Helmet typically worn with a radsuit. Appearance based on worn suit."
 --ITEM.icon = Material("sky/itemicons/mpmask1.png")
+ITEM.icon = Material("sky/itemicons/helm_exo.png")
 ITEM.model = "models/props_junk/cardboard_box004a.mdl"
 ITEM.category = "Clothing"
 ITEM.skin = 0

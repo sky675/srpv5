@@ -1,6 +1,7 @@
 ITEM.name = "M40 Gas Mask"
 ITEM.desc = "Mask typically worn with the IO7A suit. Appearance based on worn suit."
 --ITEM.icon = Material("sky/itemicons/mpmask1.png")
+ITEM.icon = Material("sky/itemicons/helm_io7a.png")
 ITEM.model = "models/kek1ch/helm_m40.mdl"
 ITEM.category = "Clothing"
 ITEM.skin = 0

@@ -1,6 +1,7 @@
 ITEM.name = "EO-20 PBF Gas Mask"
 ITEM.desc = "Gas mask typically worn with the sunrise suit. Appearance based on worn suit."
 --ITEM.icon = Material("sky/itemicons/mpmask1.png")
+ITEM.icon = Material("sky/itemicons/helm_sunrise.png")
 ITEM.model = "models/kek1ch/helm_respirator.mdl"
 ITEM.category = "Clothing"
 ITEM.skin = 0

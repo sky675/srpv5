@@ -1,6 +1,7 @@
 ITEM.name = "Sphere 08 Helmet"
 ITEM.desc = "A helmet typically worn with a Berill-5M suit. Appearance is based on worn suit."
 --ITEM.icon = Material("sky/itemicons/mpmask1.png")
+ITEM.icon = Material("sky/itemicons/helm_berill.png")
 ITEM.model = "models/kek1ch/helm_tactic.mdl"
 ITEM.category = "Clothing"
 ITEM.skin = 0

@@ -1,6 +1,7 @@
 ITEM.name = "sunrise mask helm temp"
 ITEM.desc = "Custom helmet with elements of the CS suits' helmets. Appearance based on worn suit."
 --ITEM.icon = Material("sky/itemicons/mpmask1.png")
+ITEM.icon = Material("sky/itemicons/helm_sunrise_helm.png")
 ITEM.model = "models/kek1ch/helm_hardhat.mdl"
 ITEM.category = "Clothing"
 ITEM.skin = 0

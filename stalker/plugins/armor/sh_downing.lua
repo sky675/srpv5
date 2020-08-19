@@ -251,33 +251,33 @@ if(SERVER) then
 		local atk = dmginfo:GetAttacker()
 		local msgs = nut.config.get("shootMessages", true)
 
-		--s m h
-		if(!on) then 
-			if(msgs) then
-				net.Start("PlayerGetDmg")
-				net.WriteEntity(ply)
-				net.WriteEntity(atk)
-				net.WriteEntity(wep)
-				net.WriteInt(hg, 4)
-				net.WriteInt(math.Round(ply:GetPos():Distance(atk:GetPos())/52.49, 2), 32)
-
-				local levels = ply:GetArmorLevels()
-				local protected
-				local dmgmulti = 1
-				if(wep.Primary) then
-					dmgmulti = PLUGIN:IsCharProtected(levels, hitToLevel[hg], wep, levels.durability)
-				end
-			
-				net.WriteFloat(dmgmulti)
-
-				net.Send({ply, atk})
-			end
-			
-			dmginfo:ScaleDamage(0) 
-			return true 
-		end
-
 		if(atk:IsPlayer()) then
+			--s m h
+			if(!on) then 
+				if(msgs) then
+					net.Start("PlayerGetDmg")
+					net.WriteEntity(ply)
+					net.WriteEntity(atk)
+					net.WriteEntity(wep)
+					net.WriteInt(hg, 4)
+					net.WriteInt(math.Round(ply:GetPos():Distance(atk:GetPos())/52.49, 2), 32)
+	
+					local levels = ply:GetArmorLevels()
+					local protected
+					local dmgmulti = 1
+					if(wep.Primary) then
+						dmgmulti = PLUGIN:IsCharProtected(levels, hitToLevel[hg], wep, levels.durability)
+					end
+				
+					net.WriteFloat(dmgmulti)
+	
+					net.Send({ply, atk})
+				end
+				
+				dmginfo:ScaleDamage(0) 
+				return true 
+			end
+
 			local wep = atk:GetActiveWeapon()
 			if(IsValid(ply.nutRagdoll)) then
 				return

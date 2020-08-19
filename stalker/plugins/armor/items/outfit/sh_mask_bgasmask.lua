@@ -8,6 +8,13 @@ ITEM.height = 1
 ITEM.outfitCategory = "mask;eyes"
 ITEM.price = 400
 ITEM.flag = "0"
+ITEM.exRender = true
+ITEM.iconCam = {
+	pos = Vector(184.8751373291, 154.96575927734, 114.09674835205),
+	ang = Angle(25, 220, 0),
+	entAng = Angle(11.853380203247, 0.23231868445873, -12.186507225037),
+	fov = 2.7732601405786,
+}
 
 --[[
 local modelsgoodfor1 = {

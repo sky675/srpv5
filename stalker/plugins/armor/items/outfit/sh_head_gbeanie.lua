@@ -9,6 +9,13 @@ ITEM.outfitCategory = "head"
 ITEM.price = 580
 ITEM.flag = "0"
 ITEM.permit = "cloth"
+ITEM.exRender = true
+ITEM.iconCam = {
+	pos = Vector(184.8751373291, 154.96575927734, 113.36277770996),
+	ang = Angle(25, 220, 0),
+	entAng = Angle(13.300696372986, 0.23231868445873, -9.5186910629272),
+	fov = 2.4224293883033,
+}
 
 ITEM.destroyval = {
 	["comp_scrap_cloth"] = 2,
