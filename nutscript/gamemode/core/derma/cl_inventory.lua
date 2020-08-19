@@ -70,7 +70,7 @@ function PANEL:setItemType(itemTypeOrID)
 						item.uniqueID,
 						item.width,
 						item.height,
-						item.getModel and item:getModel() or item.model,
+						item.iconmodel or (item.getModel and item:getModel()) or item.model,
 						item.iconCam
 					)
 				end

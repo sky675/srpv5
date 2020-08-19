@@ -10,6 +10,13 @@ ITEM.height = 1
 ITEM.weight = 0.3
 ITEM.price = 4104
 ITEM.flag = "U"
+ITEM.exRender = true
+ITEM.iconCam = {
+	pos = Vector(204.65017700195, 171.98754882813, 124.9169921875),
+	ang = Angle(25, 220, 0),
+	entAng = Angle(-3.1173117160797, -41.176486968994, -32.534511566162),
+	fov = 2.2803600311399,
+}
 
 ITEM.minDurability = 70
 ITEM.baseRepair = 15

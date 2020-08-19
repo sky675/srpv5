@@ -303,6 +303,9 @@ function ikon:renderIcon(name, w, h, mdl, camInfo, updateCache)
 	end
 
 	ikon.renderEntity:SetModel(ikon.renderModel)
+	--uh this is the best way i can think of fixing this..
+	ikon.renderEntity:SetSubMaterial()
+	
 	local oldRT = render.GetRenderTarget()
 	render.PushRenderTarget(ikon.RT)
 	

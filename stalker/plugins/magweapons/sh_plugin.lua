@@ -29,6 +29,7 @@ function PLUGIN:InitializedItems()
 				ITEM.destroyval = data.destroyval --in case i wanna add more
 				ITEM = EZADDDESTROYFUNC(ITEM)
 			end
+			ITEM.iconmodel = data.iconmodel
         end
         for id, data in pairs(PLUGIN.magList) do
             local ITEM = nut.item.register(id, "base_magazines", nil, nil, true)

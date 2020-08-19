@@ -1702,7 +1702,7 @@ PLUGIN.magList = {
 	name = "Box of .338 Lapua",
 	desc = "",
 	price = 9250,--160,--90,
-	model = "models/items/ammo/ammo_308.mdl",
+	model = "models/stalker/ammo/762x54.mdl",--models/items/ammo/ammo_308.mdl",
 	width = 2,
 	height = 1,
 	flag = "5",
@@ -1710,12 +1710,18 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky338",
 	ammoMax = 10,
+	iconCam = {
+		pos = Vector(184.46412658691, 155.1947479248, 113.36277008057),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 2.5,
+	},	
 },
 ["ammo_338_ap"] = {
 	name = "Box of AP .338 Lapua",
 	desc = "",
 	price = 10850,--180,--90,
-	model = "models/items/ammo/ammo_308.mdl",
+	model = "models/stalker/ammo/762x54.mdl",--models/items/ammo/ammo_308.mdl",
 	width = 2,
 	height = 1,
 	flag = "5",
@@ -1723,13 +1729,19 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky338",
 	ammoMax = 10,
+	iconCam = {
+		pos = Vector(184.46412658691, 155.1947479248, 113.36277008057),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 2.5,
+	},	
 	specammo = "ap"
 },
 ["ammo_338_hp"] = {
 	name = "Box of HP .338 Lapua",
 	desc = "",
 	price = 10800,--180,--90,
-	model = "models/items/ammo/ammo_308.mdl",
+	model = "models/stalker/ammo/762x54.mdl",
 	width = 2,
 	height = 1,
 	flag = "5",
@@ -1737,13 +1749,19 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky338",
 	ammoMax = 10,
+	iconCam = {
+		pos = Vector(184.46412658691, 155.1947479248, 113.36277008057),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 2.5,
+	},	
 	specammo = "hp"
 },
 ["ammo_buckshot"] = {
 	name = "Box of 12 Gauge Buckshot",
 	desc = "",
 	price = 1350,--60,--35,--25,
-	model = "models/items/ammo/ammo_12g.mdl",
+	model = "models/kek1ch/ammo_12x70_buck.mdl",
 	width = 2,
 	height = 1,
 	weight = 1.125,
@@ -1751,12 +1769,18 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "buckshot",
 	ammoMax = 25,
+	iconCam = {
+		pos = Vector(81.237319946289, 68.81290435791, 50.833000183105),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 180, 0),
+		fov = 5.5518290660998,
+	},
 },
 ["ammo_slug"] = {
 	name = "Box of 12 Gauge Slug",
 	desc = "",
 	price = 1150,--85,--45,--25,
-	model = "models/items/ammo/ammo_12g.mdl",
+	model = "models/kek1ch/ammo_12x70_buck.mdl",
 	width = 1,
 	height = 1,
 	weight = 1.125,
@@ -1764,13 +1788,19 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "buckshot",
 	ammoMax = 25,
+	iconCam = {
+		pos = Vector(81.237319946289, 68.81290435791, 50.833000183105),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 180, 0),
+		fov = 5.5518290660998,
+	},
 	specammo = "slug"
 },
 ["ammo_frag"] = {
 	name = "Box of 12 Gauge Frag",
 	desc = "",
 	price = 3200,-- 300,--125,--25,
-	model = "models/items/ammo/ammo_12g.mdl",
+	model = "models/kek1ch/ammo_12x70_buck.mdl",
 	width = 1,
 	height = 1,
 	weight = 1.2,
@@ -1778,13 +1808,19 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "buckshot",
 	ammoMax = 25,
+	iconCam = {
+		pos = Vector(81.237319946289, 68.81290435791, 50.833000183105),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 180, 0),
+		fov = 5.5518290660998,
+	},
 	specammo = "frag"
 },
 ["ammo_dragon"] = {
 	name = "Box of 12 Gauge Dragon's Breath",
 	desc = "",
 	price = 3050,--320,--110,--25,
-	model = "models/items/ammo/ammo_12g.mdl",
+	model = "models/kek1ch/ammo_12x70_buck.mdl",
 	width = 1,
 	height = 1,
 	weight = 1.175,
@@ -1792,13 +1828,19 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "buckshot",
 	ammoMax = 25,
+	iconCam = {
+		pos = Vector(81.237319946289, 68.81290435791, 50.833000183105),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 180, 0),
+		fov = 5.5518290660998,
+	},
 	specammo = "db"
 },
 ["ammo_nslug"] = {
 	name = "Box of 12 Gauge Non-Lethal Slug",
 	desc = "",
 	price = 1900,--280,--45,--25,
-	model = "models/items/ammo/ammo_12g.mdl",
+	model = "models/kek1ch/ammo_12x70_buck.mdl",
 	width = 1,
 	height = 1,
 	weight = 1.15,
@@ -1806,6 +1848,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "buckshot",
 	ammoMax = 25,
+	iconCam = {
+		pos = Vector(81.237319946289, 68.81290435791, 50.833000183105),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 180, 0),
+		fov = 5.5518290660998,
+	},
 	specammo = "nslug"
 },
 --[[
@@ -1826,7 +1874,7 @@ PLUGIN.magList = {
 	name = "Box of 23mm Shrapnel-25 Buckshot",
 	desc = "",
 	price = 4000,--60,--35,--25,
-	model = "models/items/ammo/ammo_12g.mdl",
+	model = "models/kek1ch/ammo_12x70_buck.mdl",
 	width = 2,
 	height = 1,
 	weight = 0.5,
@@ -1834,12 +1882,18 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky23mm",
 	ammoMax = 10,
+	iconCam = {
+		pos = Vector(81.237319946289, 68.81290435791, 50.833000183105),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 180, 0),
+		fov = 5.5518290660998,
+	},
 },
 ["ammo_23slug"] = {
 	name = "Box of 23mm Barricade",
 	desc = "",
 	price = 4350,--85,--45,--25,
-	model = "models/items/ammo/ammo_12g.mdl",
+	model = "models/kek1ch/ammo_12x70_buck.mdl",
 	width = 2,
 	height = 1,
 	weight = 0.55,
@@ -1847,6 +1901,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky23mm",
 	ammoMax = 10,
+	iconCam = {
+		pos = Vector(81.237319946289, 68.81290435791, 50.833000183105),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 180, 0),
+		fov = 5.5518290660998,
+	},
 	specammo = "slug"
 },
 ["ammo_762x54"] = {
@@ -1861,6 +1921,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky762x54",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(184.46412658691, 155.1947479248, 113.36277008057),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 2.5,
+	},	
 },
 ["ammo_762x54_large"] = {
 	name = "Large Box of 7.62x54mmR",
@@ -1875,6 +1941,12 @@ PLUGIN.magList = {
     ammoBox = false,
 	ammoType = "sky762x54",
 	ammoMax = 200,
+	iconCam = {
+		pos = Vector(203.1014251709, 170.42231750488, 129.82579040527),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 4.6754359758176,
+	},	
 	dontfill = true, --misleading variable lmao this actually causes it to be filled
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
@@ -1891,6 +1963,12 @@ PLUGIN.magList = {
     ammoBox = false,
 	ammoType = "sky762x51",
 	ammoMax = 200,
+	iconCam = {
+		pos = Vector(203.1014251709, 170.42231750488, 129.82579040527),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 4.6754359758176,
+	},	
 --	dontfill = true, --misleading variable lmao this actually causes it to be filled
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
@@ -1906,6 +1984,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky762x54",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(184.46412658691, 155.1947479248, 113.36277008057),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 2.5,
+	},	
 	specammo = "ap"
 },
 ["ammo_762x54_hp"] = {
@@ -1920,6 +2004,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky762x54",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(184.46412658691, 155.1947479248, 113.36277008057),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 2.5,
+	},	
 	specammo = "hp"
 },
 ["ammo_762x51"] = {
@@ -1934,6 +2024,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky762x51",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(81.237319946289, 68.81290435791, 50.833000183105),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 5.5518290660998,
+	},	
 },
 ["ammo_762x51_large"] = {
 	name = "Large Box of 7.62x51mm NATO",
@@ -1948,6 +2044,12 @@ PLUGIN.magList = {
     ammoBox = false,
 	ammoType = "sky762x51",
 	ammoMax = 200,
+	iconCam = {
+		pos = Vector(203.1014251709, 170.42231750488, 129.82579040527),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 4.6754359758176,
+	},	
 	dontfill = true, --misleading variable lmao this actually causes it to be filled
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
@@ -1964,6 +2066,12 @@ PLUGIN.magList = {
     ammoBox = false,
 	ammoType = "sky762x51",
 	ammoMax = 200,
+	iconCam = {
+		pos = Vector(203.1014251709, 170.42231750488, 129.82579040527),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 4.6754359758176,
+	},	
 --	dontfill = true, --misleading variable lmao this actually causes it to be filled
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
@@ -1979,6 +2087,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky762x51",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(81.237319946289, 68.81290435791, 50.833000183105),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 5.5518290660998,
+	},	
 	specammo = "ap"
 },
 ["ammo_762x51_hp"] = {
@@ -1993,13 +2107,19 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky762x51",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(81.237319946289, 68.81290435791, 50.833000183105),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 5.5518290660998,
+	},	
 	specammo = "hp"
 },
 ["ammo_9x19"] = {
 	name = "Box of 9x19mm",
 	desc = "",
 	price = 750,--60,--20,--9,
-	model = "models/items/ammo/ammo_9mm.mdl",
+	model = "models/kek1ch/ammo_9x19_fmj.mdl",
 	width = 1,
 	height = 1,
 	weight = 0.6,
@@ -2007,6 +2127,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky9x19",
 	ammoMax = 50,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.162933349609),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 180, 0),
+		fov = 5.9871338029682,
+	},	
 },
 ["ammo_9x19_large"] = {
 	name = "Large Box of 9x19mm",
@@ -2022,6 +2148,12 @@ PLUGIN.magList = {
 	ammoType = "sky9x19",
 	ammoMax = 500,
 	dontfill = true,
+	iconCam = {
+		pos = Vector(203.1014251709, 170.42231750488, 129.82579040527),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 8.3844973994041,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["ammo_9x19_largee"] = {
@@ -2038,13 +2170,19 @@ PLUGIN.magList = {
 	ammoType = "sky9x19",
 	ammoMax = 500,
 --	dontfill = true,
+	iconCam = {
+		pos = Vector(203.1014251709, 170.42231750488, 129.82579040527),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 8.3844973994041,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["ammo_9x19_hp"] = {
 	name = "Box of HP 9x19mm",
 	desc = "",
 	price = 1450,--90,--40,--9,
-	model = "models/items/ammo/ammo_9mm.mdl",
+	model = "models/kek1ch/ammo_9x19_fmj.mdl",
 	width = 1,
 	height = 1,
 	weight = 0.56,
@@ -2052,13 +2190,19 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky9x19",
 	ammoMax = 50,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.162933349609),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 180, 0),
+		fov = 5.9871338029682,
+	},	
 	specammo = "hp"
 },
 ["ammo_9x19_ap"] = {
 	name = "Box of AP 9x19mm",
 	desc = "",
 	price = 1530,--80,--40,--9,
-	model = "models/items/ammo/ammo_9mm.mdl",
+	model = "models/kek1ch/ammo_9x19_fmj.mdl",
 	width = 1,
 	height = 1,
 	weight = 0.5,
@@ -2066,6 +2210,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky9x19",
 	ammoMax = 50,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.162933349609),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 180, 0),
+		fov = 5.9871338029682,
+	},	
 	specammo = "ap"
 },
 ["ammo_9x18"] = {
@@ -2080,6 +2230,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky9x18",
 	ammoMax = 50,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.162933349609),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 5.9871338029682,
+	},	
 },
 ["ammo_9x18_large"] = {
 	name = "Large Box of 9x18mm",
@@ -2095,6 +2251,12 @@ PLUGIN.magList = {
 	ammoType = "sky9x18",
 	ammoMax = 500,
 	dontfill = true,
+	iconCam = {
+		pos = Vector(203.1014251709, 170.42231750488, 129.82579040527),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 8.3844973994041,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["ammo_9x18_largee"] = {
@@ -2111,6 +2273,12 @@ PLUGIN.magList = {
 	ammoType = "sky9x18",
 	ammoMax = 500,
 --	dontfill = true,
+	iconCam = {
+		pos = Vector(203.1014251709, 170.42231750488, 129.82579040527),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 8.3844973994041,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["ammo_9x18_hp"] = {
@@ -2125,6 +2293,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky9x18",
 	ammoMax = 50,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.162933349609),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 5.9871338029682,
+	},	
 	specammo = "hp"
 },
 ["ammo_9x18_ap"] = {
@@ -2139,6 +2313,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky9x18",
 	ammoMax = 50,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.162933349609),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 5.9871338029682,
+	},	
 	specammo = "ap"
 },
 ["ammo_9x39"] = {
@@ -2153,6 +2333,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky9x39",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.285171508789),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 6.7347368194257,
+	},	
 },
 ["ammo_9x39_large"] = {
 	name = "Large Box of 9x39mm",
@@ -2168,6 +2354,12 @@ PLUGIN.magList = {
 	ammoType = "sky9x39",
 	ammoMax = 500,
 	dontfill = true,
+	iconCam = {
+		pos = Vector(203.1014251709, 170.42231750488, 129.82579040527),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 4.6754359758176,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["ammo_9x39_largee"] = {
@@ -2184,6 +2376,12 @@ PLUGIN.magList = {
 	ammoType = "sky9x39",
 	ammoMax = 500,
 --	dontfill = true,
+	iconCam = {
+		pos = Vector(203.1014251709, 170.42231750488, 129.82579040527),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 4.6754359758176,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["ammo_9x39_hp"] = {
@@ -2198,6 +2396,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky9x39",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.285171508789),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 6.7347368194257,
+	},	
 	specammo = "hp"
 },
 ["ammo_9x39_ap"] = {
@@ -2212,13 +2416,19 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky9x39",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.285171508789),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 6.7347368194257,
+	},	
 	specammo = "ap"
 },
 ["ammo_45acp"] = {
 	name = "Box of .45 ACP",
 	desc = "",
 	price = 850,--60,--25,--15,
-	model = "models/items/ammo/ammo_45acp.mdl",
+	model = "models/kek1ch/ammo_1143x23_fmj.mdl",
 	width = 1,
 	height = 1,
 	weight = 1.03,
@@ -2226,12 +2436,18 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky45acp",
 	ammoMax = 50,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.285171508789),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 180, 0),
+		fov = 6.7347368194257,
+	},	
 },
 ["ammo_45acp_hp"] = {
 	name = "Box of HP .45 ACP",
 	desc = "",
 	price = 1500,--85,--45,--15,
-	model = "models/items/ammo/ammo_45acp.mdl",
+	model = "models/kek1ch/ammo_1143x23_fmj.mdl",
 	width = 1,
 	height = 1,
 	weight = 1.05,
@@ -2239,13 +2455,19 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky45acp",
 	ammoMax = 50,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.285171508789),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 180, 0),
+		fov = 6.7347368194257,
+	},	
 	specammo = "hp"
 },
 ["ammo_45acp_ap"] = {
 	name = "Box of AP .45 ACP",
 	desc = "",
 	price = 1620,--75,--45,--15,
-	model = "models/items/ammo/ammo_45acp.mdl",
+	model = "models/kek1ch/ammo_1143x23_fmj.mdl",
 	width = 1,
 	height = 1,
 	weight = 1.03,
@@ -2253,6 +2475,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky45acp",
 	ammoMax = 50,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.285171508789),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 180, 0),
+		fov = 6.7347368194257,
+	},	
 	specammo = "ap"
 },
 ["ammo_45acp_large"] = {
@@ -2269,6 +2497,12 @@ PLUGIN.magList = {
 	ammoType = "sky45acp",
 	ammoMax = 500,
 	dontfill = true,
+	iconCam = {
+		pos = Vector(203.1014251709, 170.42231750488, 129.82579040527),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 8.3844973994041,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["ammo_45acp_largee"] = {
@@ -2285,6 +2519,12 @@ PLUGIN.magList = {
 	ammoType = "sky45acp",
 	ammoMax = 500,
 --	dontfill = true,
+	iconCam = {
+		pos = Vector(203.1014251709, 170.42231750488, 129.82579040527),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 8.3844973994041,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["ammo_50ae"] = {
@@ -2299,6 +2539,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky50ae",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.285171508789),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 6.6968270997078,
+	},	
 },
 ["ammo_50ae_ap"] = {
 	name = "Box of AP .50 AE",
@@ -2312,6 +2558,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky50ae",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.285171508789),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 6.6968270997078,
+	},	
 	specammo = "ap"
 },
 ["ammo_50ae_hp"] = {
@@ -2326,6 +2578,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky50ae",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.285171508789),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 6.6968270997078,
+	},	
 	specammo = "hp"
 },
 --[[
@@ -2354,6 +2612,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky762x39",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.285171508789),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 6.6968270997078,
+	},	
 },
 ["ammo_762x39_ap"] = {
 	name = "Box of AP 7.62x39mm",
@@ -2367,6 +2631,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky762x39",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.285171508789),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 6.6968270997078,
+	},	
 	specammo = "ap"
 },
 ["ammo_762x39_hp"] = {
@@ -2381,6 +2651,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky762x39",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.285171508789),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 6.6968270997078,
+	},	
 	specammo = "hp"
 },
 ["ammo_762x39_large"] = {
@@ -2397,6 +2673,12 @@ PLUGIN.magList = {
 	ammoType = "sky762x39",
 	ammoMax = 200,
 	dontfill = true,
+	iconCam = {
+		pos = Vector(203.1014251709, 170.42231750488, 129.82579040527),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 4.6754359758176,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["ammo_762x39_largee"] = {
@@ -2413,6 +2695,12 @@ PLUGIN.magList = {
 	ammoType = "sky762x39",
 	ammoMax = 200,
 --	dontfill = true,
+	iconCam = {
+		pos = Vector(203.1014251709, 170.42231750488, 129.82579040527),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 4.6754359758176,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["ammo_556"] = {
@@ -2427,6 +2715,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky556",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.70874786377),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 8.5922074158764,
+	},	
 },
 ["ammo_556_ap"] = {
 	name = "Box of AP 5.56x45mm",
@@ -2440,6 +2734,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky556",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.70874786377),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 8.5922074158764,
+	},	
 	specammo = "ap"
 },
 ["ammo_556_hp"] = {
@@ -2454,6 +2754,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky556",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.70874786377),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 8.5922074158764,
+	},	
 	specammo = "hp"
 },
 ["ammo_556_large"] = {
@@ -2470,6 +2776,12 @@ PLUGIN.magList = {
 	ammoType = "sky556",
 	ammoMax = 200,
 	dontfill = true,
+	iconCam = {
+		pos = Vector(203.1014251709, 170.42231750488, 129.82579040527),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 4.6754359758176,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["ammo_556_largee"] = {
@@ -2486,6 +2798,12 @@ PLUGIN.magList = {
 	ammoType = "sky556",
 	ammoMax = 200,
 --	dontfill = true,
+	iconCam = {
+		pos = Vector(203.1014251709, 170.42231750488, 129.82579040527),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 4.6754359758176,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["ammo_545"] = {
@@ -2500,6 +2818,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky545",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.70874786377),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 8.5922074158764,
+	},	
 },
 ["ammo_545_ap"] = {
 	name = "Box of AP 5.45x39mm",
@@ -2513,6 +2837,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky545",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.70874786377),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 8.5922074158764,
+	},	
 	specammo = "ap"
 },
 ["ammo_545_hp"] = {
@@ -2527,6 +2857,12 @@ PLUGIN.magList = {
 	ammoBox = true,
 	ammoType = "sky545",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(64.591957092285, 54.257640838623, 40.70874786377),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 8.5922074158764,
+	},	
 	specammo = "hp"
 },
 ["ammo_545_large"] = {
@@ -2543,6 +2879,12 @@ PLUGIN.magList = {
 	ammoType = "sky545",
 	ammoMax = 200,
 	dontfill = true,
+	iconCam = {
+		pos = Vector(203.1014251709, 170.42231750488, 129.82579040527),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 4.6754359758176,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["ammo_545_largee"] = {
@@ -2559,6 +2901,12 @@ PLUGIN.magList = {
 	ammoType = "sky545",
 	ammoMax = 200,
 	--dontfill = true,
+	iconCam = {
+		pos = Vector(203.1014251709, 170.42231750488, 129.82579040527),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 4.6754359758176,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 
@@ -2575,6 +2923,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky545",
 	ammoMax = 30,
+	iconCam = {
+		pos = Vector(130.23403930664, 109.70960235596, 77.25577545166),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, -45, -90),
+		fov = 1.3324763868885,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_762ak"] = {
@@ -2590,6 +2944,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky762x39",
 	ammoMax = 30,
+	iconCam = {
+		pos = Vector(-11.892206192017, -7.9328498840332, -4.1999998092651),
+		ang = Angle(0, 0, 0),
+		entAng = Angle(20.341539382935, -90, 0),
+		fov = 27.704254770838,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_stanag"] = {
@@ -2605,6 +2965,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky556",
 	ammoMax = 30,
+	iconCam = {
+		pos = Vector(-8.4267454147339, -9.1002445220947, -1.7491419315338),
+		ang = Angle(0, 0, 0),
+		entAng = Angle(6.9756488800049, -90, 0),
+		fov = 27.704254770838,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_aug"] = {
@@ -2620,6 +2986,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky556",
 	ammoMax = 30,
+	iconCam = {
+		pos = Vector(-5.5912275314331, -5.3039054870605, 0.34840086102486),
+		ang = Angle(0, 0, 0),
+		entAng = Angle(6.9756488800049, -90, 0),
+		fov = 38.849921210635,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_deserteagle"] = {
@@ -2635,6 +3007,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky50ae",
 	ammoMax = 7,
+	iconCam = {
+		pos = Vector(163.30670166016, 134.83990478516, 97.704643249512),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 1.4174771324319,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_famas"] = {
@@ -2650,6 +3028,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky556",
 	ammoMax = 25,
+	iconCam = {
+		pos = Vector(-6.0856904983521, 0.99769747257233, -1.1255947351456),
+		ang = Angle(0, 0, 0),
+		entAng = Angle(0, -90, 0),
+		fov = 38.224559265091,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_g36"] = {
@@ -2665,6 +3049,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky556",
 	ammoMax = 30,
+	iconCam = {
+		pos = Vector(-7.0222849845886, -10.384406089783, -1.0276871919632),
+		ang = Angle(0, 0, 0),
+		entAng = Angle(7.026388168335, -90, 0),
+		fov = 37.015127894412,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_glock"] = {
@@ -2680,6 +3070,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky9x19",
 	ammoMax = 17,
+	iconCam = {
+		pos = Vector(163.03979492188, 134.83990478516, 98.723724365234),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(-14.149430274963, 0, 0),
+		fov = 1.4174771324319,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 --[[
@@ -2712,6 +3108,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky45acp",
 	ammoMax = 7,
+	iconCam = {
+		pos = Vector(163.03979492188, 134.60733032227, 98.723724365234),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(-7.6187415122986, 0, 0),
+		fov = 1.4174771324319,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_m9"] = {
@@ -2727,6 +3129,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky9x19",
 	ammoMax = 15,
+	iconCam = {
+		pos = Vector(163.03979492188, 134.60733032227, 98.418579101563),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(-7.6187415122986, 0, 0),
+		fov = 1.4174771324319,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_mp5"] = {
@@ -2742,6 +3150,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky9x19",
 	ammoMax = 30,
+	iconCam = {
+		pos = Vector(-7.0222849845886, -13.82103061676, -1.8927148580551),
+		ang = Angle(0, 0, 0),
+		entAng = Angle(7.026388168335, -90, 0),
+		fov = 38.068389159145,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_minimi"] = {
@@ -2758,6 +3172,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky556",
 	ammoMax = 100,
+	iconCam = {
+		pos = Vector(-9.0366706848145, 1.1244695186615, 3.3600375652313),
+		ang = Angle(0, 0, 0),
+		entAng = Angle(-26.407804489136, 0, 0),
+		fov = 31.977722719784,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_rpk"] = {
@@ -2773,6 +3193,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky762x39",
 	ammoMax = 75,
+	iconCam = {
+		pos = Vector(161.03611755371, 131.83570861816, 97.138206481934),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(-66.329727172852, -70.71280670166, 173.02359008789),
+		fov = 2.2305569084641,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_ump"] = {
@@ -2788,6 +3214,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky45acp",
 	ammoMax = 25,
+	iconCam = {
+		pos = Vector(-6.5164437294006, -11.333770751953, -2.2639524936676),
+		ang = Angle(0, 0, 0),
+		entAng = Angle(1.0338076353073, -90, 0),
+		fov = 50.823097672761,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_kriss"] = {
@@ -2803,6 +3235,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky45acp",
 	ammoMax = 25,
+	iconCam = {
+		pos = Vector(-6.5164437294006, -11.333770751953, -2.2639524936676),
+		ang = Angle(0, 0, 0),
+		entAng = Angle(1.0338076353073, -90, 0),
+		fov = 50.823097672761,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_usp"] = {
@@ -2818,6 +3256,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky45acp",
 	ammoMax = 12,
+	iconCam = {
+		pos = Vector(163.03979492188, 134.69683837891, 97.820045471191),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(-7.395236492157, 0, 0),
+		fov = 1.4174771324319,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_usp9"] = {
@@ -2833,6 +3277,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky9x19",
 	ammoMax = 18,
+	iconCam = {
+		pos = Vector(163.03979492188, 134.69683837891, 97.820045471191),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(-7.395236492157, 0, 0),
+		fov = 1.4174771324319,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_9mm32"] = {
@@ -2848,6 +3298,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky9x19",
 	ammoMax = 32,
+	iconCam = {
+		pos = Vector(-6.5164437294006, -8.0361804962158, 0.071006618440151),
+		ang = Angle(0, 0, 0),
+		entAng = Angle(0, -90, 0),
+		fov = 41.863437155029,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 --[[
@@ -2877,6 +3333,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky9x19",
 	ammoMax = 30,
+	iconCam = {
+		pos = Vector(-6.5164437294006, -11.333770751953, -2.2639524936676),
+		ang = Angle(0, 0, 0),
+		entAng = Angle(1.0338076353073, -90, 0),
+		fov = 50.823097672761,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },--[[
 ["mag_spectre"] = {
@@ -2933,6 +3395,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky9x39",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(161.03611755371, 134.70069885254, 95.284805297852),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(9.7365684509277, -52.27819442749, -90),
+		fov = 1.0425837890886,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },--[[
 ["mag_fal"] = {
@@ -2978,6 +3446,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky9x19",
 	ammoMax = 18,
+	iconCam = {
+		pos = Vector(163.03979492188, 134.83990478516, 98.723724365234),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(-14.149430274963, 0, 0),
+		fov = 1.4174771324319,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_pkp"] = {
@@ -2993,6 +3467,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky762x54",
 	ammoMax = 100,
+	iconCam = {
+		pos = Vector(161.03611755371, 135.16474914551, 100.03190612793),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 1.8461473386375,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_pm"] = {
@@ -3008,6 +3488,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky9x18",
 	ammoMax = 8,
+	iconCam = {
+		pos = Vector(163.03979492188, 134.60733032227, 98.723724365234),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(-7.6187415122986, 0, 0),
+		fov = 1.4174771324319,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 --[[
@@ -3056,6 +3542,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky9x19",
 	ammoMax = 15,
+	iconCam = {
+		pos = Vector(163.03979492188, 134.60733032227, 98.723724365234),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(-7.6187415122986, 0, 0),
+		fov = 1.4174771324319,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_g3"] = {
@@ -3071,6 +3563,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky762x51",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(-6.5164437294006, -10.747200965881, 0.033497247844934),
+		ang = Angle(0, 0, 0),
+		entAng = Angle(0, -90, 0),
+		fov = 36.558974843438,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_sg55x"] = {
@@ -3086,6 +3584,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky556",
 	ammoMax = 30,
+	iconCam = {
+		pos = Vector(-7.0222849845886, -10.384406089783, -1.0276871919632),
+		ang = Angle(0, 0, 0),
+		entAng = Angle(7.026388168335, -90, 0),
+		fov = 37.015127894412,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_sksclip"] = {
@@ -3116,6 +3620,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky762x39",
 	ammoMax = 20,
+	iconCam = {
+		pos = Vector(-11.892206192017, -7.9328498840332, -4.1999998092651),
+		ang = Angle(0, 0, 0),
+		entAng = Angle(20.341539382935, -90, 0),
+		fov = 27.704254770838,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 ["mag_svd"] = {
@@ -3131,6 +3641,12 @@ PLUGIN.magList = {
 	ammoBox = false,
 	ammoType = "sky762x54",
 	ammoMax = 10,
+	iconCam = {
+		pos = Vector(-7.0222849845886, -10.384406089783, -1.0276871919632),
+		ang = Angle(0, 0, 0),
+		entAng = Angle(7.026388168335, -90, 0),
+		fov = 37.015127894412,
+	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
 --[[
@@ -3451,7 +3967,14 @@ PLUGIN.attList = {
         weight = 1.3,
 		flag = "s",
         cat = 8,
-        attID = "ins2_fg_gp25_sky",
+		attID = "ins2_fg_gp25_sky",
+		iconmodel = "models/weapons/tfa_ins2/upgrades/w_gp25.mdl",
+		iconCam = {
+			pos = Vector(394.98468017578, 315.6354675293, 231.19079589844),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(-7.395236492157, 0, 0),
+			fov = 1.8632990437169,
+		},		
     },
     ["ins2_fg_m203_sky"] = {
         name = "M203",
@@ -3463,7 +3986,14 @@ PLUGIN.attList = {
         weight = 1.36,
 		flag = "s",
         cat = 8,
-        attID = "ins2_fg_m203_sky",
+		attID = "ins2_fg_m203_sky",
+		iconmodel = "models/weapons/tfa_ins2/upgrades/w_m203.mdl",
+		iconCam = {
+			pos = Vector(394.98468017578, 318.45745849609, 233.70213317871),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(-7.395236492157, 0, 0),
+			fov = 1.8632990437169,
+		},		
     },
     ["ins2_ub_light"] = {
         name = "Flashlight Attachment",
@@ -3479,6 +4009,13 @@ PLUGIN.attList = {
 		destroyval = {
 			["flashlight"] = 1,
 			["comp_wire1"] = 1,
+		},
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_flashlight_rail.mdl",
+		iconCam = {
+			pos = Vector(58.410423278809, 48.170078277588, 34.20760345459),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(-7.395236492157, 0, 0),
+			fov = 3.5928866180339,
 		}
     },
     ["ins2_ub_laser"] = {
@@ -3492,6 +4029,13 @@ PLUGIN.attList = {
 		flag = "k",
         cat = 9,
         attID = "ins2_ub_laser",
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_laser_rail.mdl",
+		iconCam = {
+			pos = Vector(58.410423278809, 48.554626464844, 34.20760345459),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(-7.395236492157, 0, 0),
+			fov = 2.9698550496017,
+		}
     },
     ["ins2_br_supp_45"] = {
         name = ".45 ACP Suppressor",
@@ -3515,6 +4059,13 @@ PLUGIN.attList = {
 			sizemodd = -1,
 			posmodd = 1,
 		},
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_suppressor_pistol.mdl",
+		iconCam = {
+			pos = Vector(83.123626708984, 73.36644744873, 52.737827301025),
+			ang = Angle(24.767116546631, 220, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 3.5492463697153,
+		}		
     },
     ["ins2_br_supp_9mm"] = {
         name = "9x19mm Suppressor",
@@ -3538,6 +4089,13 @@ PLUGIN.attList = {
 			sizemodd = -1,
 			posmodd = 1,
 		},
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_suppressor_pistol.mdl",
+		iconCam = {
+			pos = Vector(83.123626708984, 73.36644744873, 52.737827301025),
+			ang = Angle(24.767116546631, 220, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 3.5492463697153,
+		}		
     },
     ["ins2_br_supp_545"] = {
         name = "5.45x39mm Suppressor",
@@ -3561,6 +4119,13 @@ PLUGIN.attList = {
 			sizemodd = -1,
 			posmodd = 1,
 		},
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_suppressor_ak.mdl",
+		iconCam = {
+			pos = Vector(152.79402160645, 121.81871795654, 90.31029510498),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(-10.693998336792, -13.359538078308, 0),
+			fov = 3.7067785646665,
+		}		
     },
     ["ins2_br_supp_556"] = {
         name = "5.56x45mm Suppressor",
@@ -3584,6 +4149,13 @@ PLUGIN.attList = {
 			sizemodd = -1,
 			posmodd = 1,
 		},
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_suppressor_sec.mdl",
+		iconCam = {
+			pos = Vector(152.15942382813, 121.81550598145, 90.325531005859),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(-10.693998336792, -13.359538078308, 0),
+			fov = 2.8694050415436,
+		}		
     },
     ["ins2_br_supp_762x39"] = {
         name = "7.62x39mm Suppressor",
@@ -3607,6 +4179,13 @@ PLUGIN.attList = {
 			sizemodd = -1,
 			posmodd = 1,
 		},
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_suppressor_ak.mdl",
+		iconCam = {
+			pos = Vector(152.79402160645, 121.81871795654, 90.31029510498),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(-10.693998336792, -13.359538078308, 0),
+			fov = 3.7067785646665,
+		}		
 	},
     ["ins2_br_supp_762x51"] = {
         name = "7.62x51mm NATO Suppressor",
@@ -3630,6 +4209,13 @@ PLUGIN.attList = {
 			sizemodd = -1,
 			posmodd = 1,
 		},
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_suppressor_sec.mdl",
+		iconCam = {
+			pos = Vector(152.15942382813, 121.81550598145, 90.325531005859),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(-10.693998336792, -13.359538078308, 0),
+			fov = 2.8694050415436,
+		}		
 	},
     ["ins2_br_supp_762x54"] = {
         name = "7.62x54mmR Suppressor",
@@ -3653,6 +4239,13 @@ PLUGIN.attList = {
 			sizemodd = -1,
 			posmodd = 1,
 		},
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_suppressor_sec.mdl",
+		iconCam = {
+			pos = Vector(152.15942382813, 121.81550598145, 90.325531005859),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(-10.693998336792, -13.359538078308, 0),
+			fov = 2.8694050415436,
+		}		
 	},
     ["ins2_br_supp_338"] = {
         name = ".338 Lapua Magnum Suppressor",
@@ -3676,6 +4269,13 @@ PLUGIN.attList = {
 			sizemodd = -1,
 			posmodd = 1,
 		},
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_suppressor_sec.mdl",
+		iconCam = {
+			pos = Vector(152.15942382813, 121.81550598145, 90.325531005859),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(-10.693998336792, -13.359538078308, 0),
+			fov = 2.8694050415436,
+		}		
     },
     ["ins2_fg_grip"] = {
         name = "Fore Grip",
@@ -3688,6 +4288,13 @@ PLUGIN.attList = {
         weight = 0.08,
         cat = 8,
         attID = "ins2_fg_grip",
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_foregrip_sec.mdl",
+		iconCam = {
+			pos = Vector(113.61235809326, 95.299850463867, 64.212348937988),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, -10.03467464447, 0),
+			fov = 4.4362323129145,
+		}		
 	},
 	--[[
     ["ins2_si_eotech_gits"] = {
@@ -3749,6 +4356,13 @@ PLUGIN.attList = {
 		flag = "l",
         cat = 7,
         attID = "ins2_si_eotech",
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_optic_eotech.mdl",
+		iconCam = {
+			pos = Vector(54.820190429688, 45.727695465088, 34.162467956543),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, -10.03467464447, 0),
+			fov = 4.2093009339825,
+		}		
     },
     ["ins2_si_eotech_blitz"] = {
         name = "EOTech Holo-RDS", --1x
@@ -3761,6 +4375,13 @@ PLUGIN.attList = {
 		flag = "l",
         cat = 7,
         attID = "ins2_si_eotech_blitz",
+		iconmodel = "models/weapons/upblitz/a_optic_eotech.mdl",
+		iconCam = {
+			pos = Vector(52.085800170898, 43.624073028564, 32.396469116211),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, -10.03467464447, 0),
+			fov = 3.1066806749087,
+		}			
     },
     ["ins2_si_kobra"] = {
         name = "Kobra Sight", --1x
@@ -3773,6 +4394,13 @@ PLUGIN.attList = {
 		flag = "l",
         cat = 7,
         attID = "ins2_si_kobra",
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_optic_kobra.mdl",
+		iconCam = {
+			pos = Vector(52.003910064697, 43.771755218506, 32.55016708374),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, -10.03467464447, 0),
+			fov = 4.2,
+		}		
     },
     ["ins2_si_kobra_blitz"] = {
         name = "CMore RDS Sight", --1x
@@ -3785,6 +4413,13 @@ PLUGIN.attList = {
 		flag = "l",
         cat = 7,
         attID = "ins2_si_kobra_blitz",
+		iconmodel = "models/weapons/upblitz/a_optic_cmore.mdl",
+		iconCam = {
+			pos = Vector(52.003910064697, 43.430072784424, 31.881032943726),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, -10.03467464447, 0),
+			fov = 3.4943842732125,
+		}
     },
     ["ins2_si_kobra_blitz2"] = {
         name = "Low Profile Kobra Sight", --1x
@@ -3797,6 +4432,13 @@ PLUGIN.attList = {
 		flag = "l",
         cat = 7,
         attID = "ins2_si_kobra_blitz2",
+		iconmodel = "models/weapons/upblitz/a_optic_kobra_lp.mdl",
+		iconCam = {
+			pos = Vector(52.003910064697, 43.430072784424, 31.881032943726),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, -10.03467464447, 0),
+			fov = 3.4943842732125,
+		}
     },
     ["ins2_si_kobra_blitz3"] = {
         name = "OKP-7 Sight", --1x
@@ -3809,6 +4451,13 @@ PLUGIN.attList = {
 		flag = "l",
         cat = 7,
         attID = "ins2_si_kobra_blitz3",
+		iconmodel = "models/weapons/upblitz/a_optic_okp7.mdl",
+		iconCam = {
+			pos = Vector(52.003910064697, 43.249332427979, 31.881032943726),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, -10.03467464447, 0),
+			fov = 3.4943842732125,
+		}
     },
     ["ins2_si_rds"] = {
         name = "Aimpoint CompM2 Sight", --1x
@@ -3821,6 +4470,13 @@ PLUGIN.attList = {
 		flag = "l",
         cat = 7,
         attID = "ins2_si_rds",
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_optic_aimpoint.mdl",
+		iconCam = {
+			pos = Vector(54.15119934082, 44.243316650391, 33.410133361816),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, -10.03467464447, 0),
+			fov = 4.2032083913096,
+		}		
     },
     ["ins2_si_rds_blitz"] = {
         name = "Aimpoint CompM4s Sight", --1x
@@ -3833,6 +4489,13 @@ PLUGIN.attList = {
 		flag = "l",
         cat = 7,
         attID = "ins2_si_rds_blitz",
+		iconmodel = "models/weapons/upblitz/a_optic_aimpoint_m4.mdl",
+		iconCam = {
+			pos = Vector(54.15119934082, 44.243316650391, 33.410133361816),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, -10.03467464447, 0),
+			fov = 4.2032083913096,
+		}		
     },
     ["ins2_si_rds_blitz2"] = {
         name = "MWR RDS? Sight", --1x
@@ -3845,6 +4508,14 @@ PLUGIN.attList = {
 		flag = "l",
         cat = 7,
         attID = "ins2_si_rds_blitz2",
+		iconmodel = "models/weapons/upblitz/a_optic_mwr.mdl",
+		iconCam = {
+			pos = Vector(54.15119934082, 45.844234466553, 33.530811309814),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, -10.03467464447, 0),
+			fov = 3.3953871428709,
+		}
+		
     },
     ["ins2_si_2xrds"] = {
         name = "Aimpoint CompM2 2X Sight", --2x
@@ -3857,6 +4528,13 @@ PLUGIN.attList = {
 		flag = "l",
         cat = 7,
         attID = "ins2_si_2xrds",
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_optic_aimp2x.mdl",
+		iconCam = {
+			pos = Vector(-14.183379173279, 0.85000002384186, 1),
+			ang = Angle(0, -0, 0),
+			entAng = Angle(-19.458341598511, -38.671905517578, 0),
+			fov = 33.032518790958,
+		}		
     },--]]
     ["ins2_si_mx4"] = {
         name = "MX4 Scope", --8.7x
@@ -3869,6 +4547,13 @@ PLUGIN.attList = {
 		flag = "b",
         cat = 7,
         attID = "ins2_si_mx4",
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_optic_m40.mdl",
+		iconCam = {
+			pos = Vector(-14.183379173279, 0.85000002384186, 0.40000000596046),
+			ang = Angle(0, -0, 0),
+			entAng = Angle(-19.458341598511, -38.671905517578, 0),
+			fov = 47.880217327426,
+		}		
     },
     ["ins2_si_c79"] = {
         name = "C79 Elcan Scope", --3.4x
@@ -3881,6 +4566,13 @@ PLUGIN.attList = {
 		flag = "b",
         cat = 7,
         attID = "ins2_si_c79",
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_optic_elcan.mdl",
+		iconCam = {
+			pos = Vector(-14.183379173279, 1.4500000476837, 0.89999997615814),
+			ang = Angle(0, -0, 0),
+			entAng = Angle(-19.458341598511, -38.671905517578, 0),
+			fov = 33.46139053942,
+		}		
     },
     ["ins2_si_mosin"] = {
         name = "Mosin Scope", --7x
@@ -3893,6 +4585,13 @@ PLUGIN.attList = {
         weight = 0.4,
         cat = 7,
         attID = "ins2_si_mosin",
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_optic_mosin.mdl",
+		iconCam = {
+			pos = Vector(-14.183379173279, 0.89999997615814, 0.10000000149012),
+			ang = Angle(0, -0, 0),
+			entAng = Angle(-22.499622344971, -45.508110046387, 0),
+			fov = 35.932431957935,
+		}		
     },
     ["ins2_si_po4x"] = {
         name = "PO 4x24P Scope", --4x
@@ -3905,6 +4604,13 @@ PLUGIN.attList = {
         weight = 0.6,
         cat = 7,
         attID = "ins2_si_po4x",
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_optic_po4x24.mdl",
+		iconCam = {
+			pos = Vector(-14.183379173279, 2, 0.10000000149012),
+			ang = Angle(0, -0, 0),
+			entAng = Angle(-22.499622344971, -45.508110046387, 0),
+			fov = 33.658822005837,
+		}		
 	},
 	--[[
     ["ins2_si_po4x_gits"] = {

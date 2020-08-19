@@ -5,11 +5,18 @@ Requires armor repair.
 It can only be used above 40 percent durability.
 It will repair it by 35 percent durability.]]
 ITEM.model = "models/items/repairpacks/armor_repair_pro.mdl"
-ITEM.width = 1
+ITEM.width = 2
 ITEM.height = 1
 ITEM.weight = 3
 ITEM.price = 15000
 ITEM.flag = "m"
+ITEM.exRender = true
+ITEM.iconCam = {
+	pos = Vector(202.12817382813, 169.93515014648, 128.95216369629),
+	ang = Angle(25, 220, 0),
+	entAng = Angle(-0.049220696091652, -32.80810546875, 1.7597796916962),
+	fov = 6.8076937247928,
+}
 
 ITEM.minDurability = 40
 ITEM.baseRepair = 35
