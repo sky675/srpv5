@@ -83,62 +83,99 @@ else --client
 
 	function PLUGIN:OnCharInfoSetup(panel)
 		if (not IsValid(panel.attribs)) then return end
-		local char = LocalPlayer():getChar()
-		local boost = char:getBoosts()
-		local barNum = 1
-		local yOffset = 0
-		for k, v in SortedPairsByMemberValue(nut.attribs.list, "name") do
-			
-			local attribBoost = 0
-			if (boost[k]) then
-				for _, bValue in pairs(boost[k]) do
-					attribBoost = attribBoost + bValue
+
+		local oldPaint = panel.Paint
+
+		function panel:Paint(w, h)
+			local char = LocalPlayer():getChar()
+			local boost = char:getBoosts()
+			local barNum = 1
+			oldPaint(w,h)
+
+			--w276 h126
+			local barAreaH = 131
+			print("Bar Area H: " .. barAreaH)
+			local barSpacing = (barAreaH - (16*4))/4
+			local yOffset = barSpacing
+			print("Bar Spacing: " .. barSpacing)
+			local ct = 0
+			for k, v in SortedPairsByMemberValue(nut.attribs.list, "name") do
+				ct = ct + 1
+				if (ct == 1) then
+					yOffset = barSpacing*0.5
+				elseif(ct == 2) then
+					yOffset = (barSpacing*1.5) + 16 
 				end
-			end
 
+				local attribBoost = 0
+				if (boost[k]) then
+					for _, bValue in pairs(boost[k]) do
+						attribBoost = attribBoost + bValue
+					end
+				end
+
+				local attribValue = char:getAttrib(k, 0)
+				local maximum = v.maxValue or nut.config.get("maxAttribs", 30)
+				local progressPercent = (attribValue/maximum)
+				print("ATTRIB VALUE: " .. "value" .. attribValue .. " / max" .. maximum .. " = " .. progressPercent)
+				--print("Attrib bar percent: " .. progressPercent)
+
+				local posColor = (Color(0,255,0,255))
+				local negColor = (Color(255,0,0,255))
+
+
+				local stalkerBarX = invPosX+(52*(invw/invTextureW))
+				local stalkerBarY = (invPosY+(596+yOffset)*((invh/invTextureH)))
+				stalkerProgress(stalkerBarX, stalkerBarY, 276, posColor, progressPercent, true)
+				--print("Bar at: x" .. stalkerBarX .. " y" .. stalkerBarY)
+
+				yOffset = (yOffset + barSpacing + 16)
+				--print(stalkerProgressHeight())
+			end
 			
-			local bar = panel:Add("nutAttribBar")
-			bar:SetWide(314*(invw/invTextureW))
-			bar:SetTall(20*(invh/invTextureW))
-			bar:SetPos(invPosX+(15*(invw/invTextureW)), (invPosY+(610+yOffset)*((invh/invTextureH))))--)) --(600+(30*barNum
-			yOffset = yOffset + 30
-			atribPosX, atribPosY = bar:GetPos()
-			--print("Pos for Bar #" .. barNum .. ": x=" .. atribPosX .. ", y=" .. atribPosY)
-			barNum = barNum + 1 --ok cool... just learned lua doesnt have unary increment operators :)
-			
-
-			local atribWide = bar:GetWide()
-			--print("Attributes desired wide: " .. " x:" .. (200*(invw/invTextureW)))
-			--print("Attributes actual wide: " .. " x:" .. atribWide)
-
-			--bar:Dock(TOP)
-			--bar:DockMargin(0, 0, 0, 3)
-
-			local attribValue = char:getAttrib(k, 0)
-			if (attribBoost) then
-				bar:setValue(attribValue - attribBoost or 0)
-			else
-				bar:setValue(attribValue)
-			end
-
-			local maximum = v.maxValue or nut.config.get("maxAttribs", 30)
-			bar:setMax(maximum)
-			bar:setReadOnly()
-			bar:setText(
-				Format(
-					"%s [%.1f/%.1f] (%.1f",
-					L(v.name),
-					attribValue,
-					maximum,
-					attribValue/maximum*100
-				)
-				.."%)"
-			)
-
-			if (attribBoost) then
-				bar:setBoost(attribBoost)
-			end
 		end
+		-- 	local bar = panel:Add("nutAttribBar")
+		-- 	bar:SetWide(314*(invw/invTextureW))
+		-- 	bar:SetTall(20*(invh/invTextureW))
+		-- 	bar:SetPos(invPosX+(15*(invw/invTextureW)), (invPosY+(610+yOffset)*((invh/invTextureH))))--)) --(600+(30*barNum
+		-- 	yOffset = yOffset + 30
+		-- 	atribPosX, atribPosY = bar:GetPos()
+		-- 	--print("Pos for Bar #" .. barNum .. ": x=" .. atribPosX .. ", y=" .. atribPosY)
+		-- 	barNum = barNum + 1 --ok cool... just learned lua doesnt have unary increment operators :)
+			
+
+		-- 	local atribWide = bar:GetWide()
+		-- 	--print("Attributes desired wide: " .. " x:" .. (200*(invw/invTextureW)))
+		-- 	--print("Attributes actual wide: " .. " x:" .. atribWide)
+
+		-- 	--bar:Dock(TOP)
+		-- 	--bar:DockMargin(0, 0, 0, 3)
+
+		-- 	local attribValue = char:getAttrib(k, 0)
+		-- 	if (attribBoost) then
+		-- 		bar:setValue(attribValue - attribBoost or 0)
+		-- 	else
+		-- 		bar:setValue(attribValue)
+		-- 	end
+
+		-- 	local maximum = v.maxValue or nut.config.get("maxAttribs", 30)
+		-- 	bar:setMax(maximum)
+		-- 	bar:setReadOnly()
+		-- 	bar:setText(
+		-- 		Format(
+		-- 			"%s [%.1f/%.1f] (%.1f",
+		-- 			L(v.name),
+		-- 			attribValue,
+		-- 			maximum,
+		-- 			attribValue/maximum*100
+		-- 		)
+		-- 		.."%)"
+		-- 	)
+
+		-- 	if (attribBoost) then
+		-- 		bar:setBoost(attribBoost)
+		-- 	end
+		-- end
 
 		
 	end

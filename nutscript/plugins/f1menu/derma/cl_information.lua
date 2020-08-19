@@ -112,6 +112,7 @@ local PANEL = {}
 
 				self.desc:SetSize((300*(invw/invTextureW)), ((128*(invh/invTextureH))))
 				self.desc:SetPos(invPosX+(19*(invw/invTextureW)), (invPosY+(396*(invh/invTextureH))))
+				
 
 			end
 
@@ -141,7 +142,7 @@ local PANEL = {}
 								self.desc:SetText((text:gsub("\226\128\139#", "#")):gsub("[\r\n]", " ", x))
 								
 							end,
-							function(text) print("Cancelled description set") end,
+							function(text) end,
 							"Change")
 					end,
 				true,
@@ -612,6 +613,7 @@ local PANEL = {}
 		surface.SetDrawColor(255,255,255,255)
 		surface.SetMaterial(Material("sky/srp_inv.png"))
 		surface.DrawTexturedRect(invPosX, invPosY,invw, invh)
+		
 	end
 
 	function PANEL:OnRemove() self.quickInventoryPanel:Remove() 
