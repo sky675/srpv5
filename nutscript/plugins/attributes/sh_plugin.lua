@@ -99,13 +99,32 @@ else --client
 			local yOffset = barSpacing
 			--print("Bar Spacing: " .. barSpacing)
 			local ct = 0
+			local iconTexturePath = "sky/traitIcons/"
 			for k, v in SortedPairsByMemberValue(nut.attribs.list, "name") do
+				--Endurance
+				--Quickness
+				--Stamina
+				--Strength
+
+				local iconImage = (iconTexturePath .. v.name .. "Icon.png")
+				
+				local iconW = 25*(invw/invTextureW)
+				local iconH = 27*(invh/invTextureH)
+
+
+
+
+				--print(v.name)
 				ct = ct + 1
 				if (ct == 1) then
 					yOffset = barSpacing*0.5
 				elseif(ct == 2) then
 					yOffset = (barSpacing*1.5) + 16 
 				end
+
+				local barIconDiff = math.ceil(((27-16)*(invh/invTextureH))*0.5)
+
+
 
 				local attribBoost = 0
 				if (boost[k]) then
@@ -120,12 +139,34 @@ else --client
 				--print("ATTRIB VALUE: " .. "value" .. attribValue .. " / max" .. maximum .. " = " .. progressPercent)
 				--print("Attrib bar percent: " .. progressPercent)
 
+				local labelColor = (Color(156,178,206,155))
 				local posColor = (Color(0,255,0,155))
 				local negColor = (Color(255,0,0,155))
 
-
 				local stalkerBarX = invPosX+(52*(invw/invTextureW))
 				local stalkerBarY = (invPosY+(596+yOffset)*((invh/invTextureH)))
+
+				surface.SetFont( "stalkerNutLabel" )
+				surface.SetTextColor( labelColor )
+				surface.SetTextPos( stalkerBarX, stalkerBarY+(17*(ScrH()/768)) ) 
+				surface.DrawText( v.name )
+				-- GetTextSize
+
+				statEnd = stalkerProgressEndCoord(stalkerBarX, stalkerBarY, 276, true)
+
+				local textW, textH = surface.GetTextSize(attribValue .. "/" .. maximum)
+				surface.SetFont( "stalkerNutLabel" )
+				surface.SetTextColor( labelColor )
+				surface.SetTextPos( statEnd - textW, stalkerBarY+(17*(ScrH()/768)) ) 
+				surface.DrawText( math.floor(attribValue) .. "/" .. math.floor(maximum) )
+				
+				
+			
+
+
+				surface.SetDrawColor(Color(255,255,255,255))
+				surface.SetMaterial(Material(iconImage))
+				surface.DrawTexturedRect(invPosX+(17*(invw/invTextureW)), math.ceil(stalkerBarY+(2*(invh/invTextureH))+ - barIconDiff), iconW, iconH)
 				stalkerProgress(stalkerBarX, stalkerBarY, 276, posColor, progressPercent, true)
 				--print("Bar at: x" .. stalkerBarX .. " y" .. stalkerBarY)
 
@@ -180,7 +221,4 @@ else --client
 		
 	end
 
-	function PLUGIN:ConfigureCharacterCreationSteps(panel)
-		panel:addStep(vgui.Create("nutCharacterAttribs"), 99)
-	end
 end

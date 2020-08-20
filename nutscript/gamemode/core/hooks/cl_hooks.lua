@@ -220,6 +220,13 @@ function GM:LoadNutFonts(font, genericFont)
 	})
 
 	--special stalker fonts
+	surface.CreateFont("stalkerNutLabel", {	
+		font = genericFont,
+		size = 10*(ScrH()/768),
+		extended = true,
+		weight = 100
+	})
+
 	surface.CreateFont("nutScaledBrokenMed", {	
 		font = "Dirty Headline",
 		size = 28*(ScrH()/768),
