@@ -78,12 +78,32 @@ if (CLIENT) then
 			
 	end
 
+
+	function stalkerProgressEndCoord(x, y, w, autoScale, manualH)
+
+		local totalWidth = w*(invh/invTextureH)
+		local barSizeX = math.ceil((2*(invw/invTextureW)))
+		local barSizeY = math.ceil(barSizeX*8)
+		local barPosX, barPosY = x, y
+
+		local barCount = math.floor(totalWidth/(barSizeX + barSizeX))
+		local currentBarPosX = barPosX
+		
+		for i=1, barCount do
+			math.randomseed(1234)
+			if (i != barCount) then
+				currentBarPosX = currentBarPosX + ((barSizeX*2))
+			end
+		end
+		return (currentBarPosX + barSizeX)
+	end
+
 	function stalkerProgressHeight()
 		local barSizeX = math.ceil((2*(invw/invTextureW)))
 		local barSizeY = math.ceil(barSizeX*8)
 		--print("===RETURNED: " .. barSizeY)
 
-		return barSizeY
+		return barSizeY + barSizeX
 		
 	end
 end
