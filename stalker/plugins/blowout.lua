@@ -154,7 +154,11 @@ hook.Add("Think", "Wavemovement", function()
 						filter = {v},
 					})
 					if(!res or (res and (res.HitSky or !res.Hit))) then --out of cover
-						v:TakeDamage(20)
+						--v:TakeDamage(20)
+						local dmg = DamageInfo()
+						dmg:SetDamage(20)
+						dmg:SetDamageType(DMG_SONIC)
+						v:TakeDamageInfo(dmg)
 						nut.log.addRaw(v:Name().." ("..v:steamName()..") was killed by a blowout!", FLAG_WARNING)
 					end
 				end

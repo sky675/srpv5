@@ -75,7 +75,7 @@ ITEM.functions.Equip = {
 		for k,v in pairs(items) do
 			if((v.uniqueID == "headlamp" or v.uniqueID == "flashlight") and v:getData("equip") == true) then
 				client:notify("You already have a flashlight or headlamp equipped!")
-				return
+				return false
 			end
 		end
 
