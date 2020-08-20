@@ -7,7 +7,7 @@ ENT.Spawnable = false
 
 if (SERVER) then
 	function ENT:Initialize()
-		self:SetModel("models/Items/item_item_crate.mdl")
+		self:SetModel("models/kek1ch/safe_container.mdl")
 		self:SetSolid(SOLID_VPHYSICS)
 		self:PhysicsInit(SOLID_VPHYSICS)
 		self:SetUseType(SIMPLE_USE)
@@ -20,7 +20,7 @@ if (SERVER) then
 			physObj:Wake()
 		end
 
-		self:setNetVar("delTime", CurTime() + 120)
+		self:setNetVar("delTime", CurTime() + 500)
 
 		timer.Simple(120, function()
 			if (IsValid(self)) then
@@ -51,7 +51,7 @@ if (SERVER) then
 	end
 
 	function ENT:OnRemove()
-		self:EmitSound("physics/cardboard/cardboard_box_break"..math.random(1, 3)..".wav")
+		self:EmitSound("material/large_furniture_1.ogg")
 
 		local position = self:LocalToWorld(self:OBBCenter())
 
@@ -87,7 +87,7 @@ else
 			surface.DrawTexturedRect(-size/2, -size/2 - 10, size, size)
 
 			nut.util.drawText("k", 0, 0, color_white, 1, 4, "nutIconsBig")
-			nut.util.drawText(delTime, 0, -10, color_white, 1, 5, "nutBigFont")
+			nut.util.drawText(delTime, 0, -10, color_white, 1, 5, "stalkerBigFont")
 		end
 
 		cam.Start3D2D(pos, ang, .15)

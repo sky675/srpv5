@@ -154,7 +154,10 @@ else --client
 
 				statEnd = stalkerProgressEndCoord(stalkerBarX, stalkerBarY, 276, true)
 
-				local textW, textH = surface.GetTextSize(attribValue .. "/" .. maximum)
+				local textW, textH = surface.GetTextSize(math.floor(attribValue) .. "/" .. math.floor(maximum))
+				--print("\"" .. attribValue .. "/" .. maximum .. "\"" .. " text w: " .. textW)
+				--print("\"" .. attribValue .. "/" .. maximum .. "\"" .. " text h: " .. textH)
+
 				surface.SetFont( "stalkerNutLabel" )
 				surface.SetTextColor( labelColor )
 				surface.SetTextPos( statEnd - textW, stalkerBarY+(17*(ScrH()/768)) ) 

@@ -260,6 +260,12 @@ function GM:LoadNutFonts(font, genericFont)
 		weight = 500
 	})
 
+	surface.CreateFont("stalkerBigFont", {
+		font = "Dirty Headline",
+		size = 36,
+		extended = true,
+		weight = 500
+	})
 
 	--end stalker fonts reeeeeeeeeeee i need to add the custom font file oh shit my bad gotta do coder word TODO: add font file
 

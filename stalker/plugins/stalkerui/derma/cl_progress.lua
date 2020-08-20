@@ -81,7 +81,7 @@ if (CLIENT) then
 
 	function stalkerProgressEndCoord(x, y, w, autoScale, manualH)
 
-		local totalWidth = w*(invh/invTextureH)
+		local totalWidth = w*(invh/invTextureH) 
 		local barSizeX = math.ceil((2*(invw/invTextureW)))
 		local barSizeY = math.ceil(barSizeX*8)
 		local barPosX, barPosY = x, y
