@@ -68,7 +68,7 @@ end
 if (CLIENT) then
 	function ITEM:paintOver(item, w, h)
 		if(item.uses) then
-			draw.SimpleText(item:getData("uses", item.uses).."/"..item.uses, "DermaDefault", w , h - 5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_BOTTOM, 1, color_black)
+			draw.SimpleText(item:getData("uses", item.uses).."/"..item.uses, "DermaDefault", w - 5 , h - 5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_BOTTOM, 1, color_black)
 		end
 	end
 end
