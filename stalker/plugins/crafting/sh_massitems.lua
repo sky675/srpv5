@@ -1003,15 +1003,71 @@ local itemList = {
 	},
 	
 	--warfare items
-	--[[
-	models/kek1ch/box_condensers.mdl
-	models/kek1ch/box_toolkit_1.mdl --basic
-	models/kek1ch/box_toolkit_2.mdl --adv
-	models/kek1ch/box_toolkit_3.mdl --expert
-	models/kek1ch/box_transistors.mdl
-	models/kek1ch/dev_detector_0_samodel.mdl
-	models/kek1ch/grease.mdl
-	]]
+	["junk_detector"] = {
+		name = "Broken Detector",
+		desc = "",
+		price = 4200,--12,
+		model = "models/kek1ch/dev_detector_0_samodel.mdl",
+		width = 1,
+		height = 1,
+		weight = 0.42,
+		flag = "m",
+		count = 1,
+		isStackable = false,
+		--destroy = {["id"] = 1},
+	},
+	["junk_grease"] = {
+		name = "Industrial Grease",
+		desc = "",
+		price = 1200,--12,
+		model = "models/kek1ch/grease.mdl",
+		width = 1,
+		height = 1,
+		weight = 0.34,
+		flag = "m",
+		count = 1,
+		isStackable = false,
+		--destroy = {["id"] = 1},
+	},
+	["junk_toolkit1"] = {
+		name = "Basic Toolkit",
+		desc = "",
+		price = 7000,--12,
+		model = "models/kek1ch/box_toolkit_1.mdl",
+		width = 2,
+		height = 1,
+		weight = 2.29,
+		flag = "m",
+		count = 1,
+		isStackable = false,
+		--destroy = {["id"] = 1},
+	},
+	["junk_toolkit2"] = {
+		name = "Advanced Toolkit",
+		desc = "",
+		price = 10000,--12,
+		model = "models/kek1ch/box_toolkit_2.mdl",
+		width = 2,
+		height = 1,
+		weight = 2.56,
+		flag = "m",
+		count = 1,
+		isStackable = false,
+		--destroy = {["id"] = 1},
+	},
+	["junk_toolkit3"] = {
+		name = "Expert Toolkit",
+		desc = "",
+		price = 14000,--12,
+		model = "models/kek1ch/box_toolkit_3.mdl",
+		width = 2,
+		height = 1,
+		weight = 2.76,
+		flag = "m",
+		count = 1,
+		isStackable = false,
+		--destroy = {["id"] = 1},
+	},
 
 	--mutant parts
 	["hide_bloodsucker"] = {
