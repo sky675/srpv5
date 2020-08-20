@@ -4,6 +4,14 @@ ITEM.model = "models/stalker/item/handhelds/pda.mdl"
 ITEM.price = 200
 ITEM.flag = "m"
 ITEM.category = "misc"
+ITEM.exRender = true
+ITEM.iconCam = {
+	pos = Vector(184.46122741699, 155.1947479248, 113.36277008057),
+	ang = Angle(25, 220, 0),
+	entAng = Angle(-34.073291778564, 163.51727294922, 35.783752441406),
+	fov = 3.08363537394,
+}
+
 
 function ITEM:getDesc()
 	local desc = self.desc

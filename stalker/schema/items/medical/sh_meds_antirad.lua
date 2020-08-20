@@ -3,6 +3,14 @@ ITEM.model = "models/stalker/item/medical/antirad.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.05
+ITEM.exRender = true
+ITEM.iconCam = {
+	pos = Vector(184.46412658691, 154.84878540039, 112.38569641113),
+	ang = Angle(25, 220, 0),
+	entAng = Angle(36.626045227051, -1.1396334171295, -22.274087905884),
+	fov = 1.214615594208,
+}
+
 ITEM.useTime = 0.7
 ITEM.price = 1860
 ITEM.desc = "Common anti-radiation drugs."

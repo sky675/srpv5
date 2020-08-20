@@ -3,6 +3,14 @@ ITEM.model = "models/warz/consumables/medicine.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.05
+ITEM.exRender = true
+ITEM.iconCam = {
+	pos = Vector(184.46412658691, 154.32897949219, 111.84635925293),
+	ang = Angle(25, 220, 0),
+	entAng = Angle(-41.595664978027, -31.060558319092, -9.2851839065552),
+	fov = 0.97207285757747,
+}
+
 ITEM.uses = 3
 ITEM.useTime = 1.25
 ITEM.price = 3080

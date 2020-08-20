@@ -96,6 +96,7 @@ function ITEM:getDesc()
 		str = str.."\nAttachments:"
 		for k,v in pairs(ups) do
 			if(k == 3||k == 4||k == 5) then continue end --skip the nut att
+			if(!TFA.Attachments.Atts[v]) then continue end
 			
 			str = str.." "..TFA.Attachments.Atts[v].Name..","
 		end

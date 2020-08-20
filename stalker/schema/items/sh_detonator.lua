@@ -5,6 +5,13 @@ ITEM.price = 500
 ITEM.model = "models/weapons/w_eq_detonator.mdl"
 ITEM.flag = "1"
 ITEM.category = "misc"
+ITEM.exRender = true
+ITEM.iconCam = {
+	pos = Vector(378.59539794922, 325.91094970703, 240.1305847168),
+	ang = Angle(25, 220, 0),
+	entAng = Angle(0, 0, 0),
+	fov = 0.66153180990191,
+}
 
 function ITEM:getDesc()
 	local desc = self.desc
