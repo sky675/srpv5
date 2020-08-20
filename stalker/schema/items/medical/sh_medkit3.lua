@@ -10,6 +10,13 @@ ITEM.iconCam = {
 	ang = Angle(25, 220, 0),
 	entAng = Angle(10.982773780823, -5.8737111091614, -4.1379284858704),
 	fov = 2.5245093576938,
+	
+	drawHook = function(ent, w, h)
+		ent:SetSkin(2)
+	end,
+	drawPostHook = function(ent, w, h)
+		ent:SetSkin(0)
+	end,
 }
 
 ITEM.uses = 2
