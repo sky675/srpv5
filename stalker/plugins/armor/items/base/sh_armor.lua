@@ -321,6 +321,8 @@ function ITEM:RemoveOutfit(client)
 			ply:SetSubMaterial(mat, v)
 		end
 		end
+		
+		ply:SetupHands()
 
 		hook.Run("PlayerRemoveOutfitModel", ply, self)
 	end
@@ -529,6 +531,7 @@ ITEM.functions.Equip = {
 			char:setModel(item:onGetReplacement())
 			--wipe 0 and 1 submaterials just incase
 			item.player:SetSubMaterial()
+			item.player:SetupHands()
 		elseif (item.replacement or item.replacements) then
 			char:setData("oldMdl", char:getData("oldMdl", item.player:GetModel()))
 
@@ -546,6 +549,7 @@ ITEM.functions.Equip = {
 			end
 			--wipe 0 and 1 submaterials just incase
 			item.player:SetSubMaterial()
+			item.player:SetupHands()
 		end
 
 		if(item:getData("skin")) then --dynamic skins (via crafting or watever)

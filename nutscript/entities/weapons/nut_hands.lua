@@ -32,10 +32,10 @@ SWEP.Secondary.DefaultClip = 0
 SWEP.Secondary.Automatic = false
 SWEP.Secondary.Ammo = ""
 
-SWEP.ViewModel = Model("models/weapons/c_arms_cstrike.mdl")
+SWEP.ViewModel = Model("models/weapons/c_arms.mdl")
 SWEP.WorldModel = ""
 
-SWEP.UseHands = false
+SWEP.UseHands = true
 SWEP.LowerAngles = Angle(0, 5, -14)
 SWEP.LowerAngles2 = Angle(0, 5, -22)
 
@@ -82,7 +82,7 @@ PLAYER_PICKUP_RANGE = 100
 
 CARRY_FORCE_LIMIT = CARRY_FORCE_LEVEL[CARRY_STRENGTH_CHAD] -- default strength level is CHAD.
 
-if (CLIENT) then
+if (CLIENT) then--[[
 	function SWEP:PreDrawViewModel(viewModel, weapon, client)
 		local hands = player_manager.TranslatePlayerHands(player_manager.TranslateToPlayerModelName(client:GetModel()))
 
@@ -91,7 +91,7 @@ if (CLIENT) then
 			viewModel:SetSkin(hands.skin)
 			viewModel:SetBodyGroups(hands.body)
 		end
-	end
+	end]]
 end
 
 local player = player
@@ -641,8 +641,8 @@ function SWEP:OnRemove()
 	self:reset()
 end
 
-ACT_VM_FISTS_DRAW = 3
-ACT_VM_FISTS_HOLSTER = 2
+ACT_VM_FISTS_DRAW = 1
+ACT_VM_FISTS_HOLSTER = 1
 
 function SWEP:Deploy()
 	if (!IsValid(self.Owner)) then
@@ -692,7 +692,7 @@ end
 function SWEP:doPunchAnimation()
 	self.LastHand = math.abs(1 - self.LastHand)
 
-	local sequence = 4 + self.LastHand
+	local sequence = 3 + self.LastHand
 	local viewModel = self.Owner:GetViewModel()
 
 	if (IsValid(viewModel)) then

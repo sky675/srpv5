@@ -5,6 +5,20 @@ nut.newchar = {}
 
 --set to false to revert to older clientside code (not recommended)
 local serverside = true
+local sethands = true
+local handstbl = {
+	--["top model"] = "hands model",
+	["_anorak"] = "models/sky/hands/anorak.mdl",
+	["_sunrise"] = "models/sky/hands/sunrise.mdl",
+	["_berill"] = "models/sky/hands/berill.mdl",
+	["_cs1"] = "models/sky/hands/cs1.mdl",
+	["_cs2"] = "models/sky/hands/cs2.mdl",
+	["_io7a"] = "models/sky/hands/io7a.mdl",
+	["_radsuit"] = "models/sky/hands/radsuit.mdl",
+	["_seva"] = "models/sky/hands/seva.mdl",
+	["_skat"] = "models/sky/hands/skat.mdl",
+	["_eco"] = "models/sky/hands/sunrise.mdl",
+}
 
 --0 = not hidden, -1 = hidden
  defaultbothidden = -1
@@ -444,6 +458,59 @@ hook.Add("PlayerSpawn", "regivemodels", function(ply)
 	--	net.Send(ply)
 	end
 end)
+hook.Add("PlayerSetHandsModel", "newcharhands", function(ply, ent)
+	if(!sethands) then return end
+	local model = ply:GetModel() --get main model first,
+	local main = ply
+	--but if have top model, use that instead
+	if(ply.bm and IsValid(ply.bm.t)) then
+		model = ply.bm.t:GetModel()
+		main = ply.bm.t
+	end
+	local hands
+	print("passed model")
+	--find hands model from config table
+	for k,v in pairs(handstbl) do
+		print("looking ",model,k)
+		if(model:find(k)) then
+			print("found hands", v)
+			hands = v
+			break
+		end
+	end
+	--and dont bother if not found
+	if(!hands) then return end
+
+	ent:SetModel(hands)
+	print("set",ent:GetModel(),hands)
+
+	ent:SetSkin(main:GetSkin())
+	local m = ent:GetMaterials()
+	--match submats
+	for k2,v2 in ipairs(ent:GetMaterials()) do
+		local mat
+		for k,v in ipairs(main:GetMaterials()) do
+			if(v == v2) then mat = k-1 end
+		end
+		if(!mat) then continue end
+		local sub = main:GetSubMaterial(mat)
+		if(sub != "") then
+			ent:SetSubMaterial(k2-1, sub)
+		else
+			ent:SetSubMaterial(k2-1)
+		end
+	end
+	--match bgs
+	local bgs = main:GetBodyGroups()
+	for k,v in ipairs(bgs or {}) do
+		local id = ent:FindBodygroupByName(v.name)
+		if(id != -1) then
+			ent:SetBodygroup(id, main:GetBodygroup(k))
+		end
+	end
+
+	return true --prevent the gamemode hook from calling
+end)
 function clothesnonply(ply, data, realply)
 	local setthistime = false
 	
@@ -632,6 +699,9 @@ function clothesnonply(ply, data, realply)
 		else
 			ply.bm.t:SetRenderMode(RENDERMODE_TRANSALPHA)
 			ply.bm.t:SetColor(Color(255,255,255,0))
+		end
+		if(sethands) then
+			ply:SetupHands()
 		end
 	end
 	if(data.bot) then
@@ -937,6 +1007,10 @@ function nut.newchar.setBodygroups(ply, ind, bgs, submats)
 			adf[ind] = adf[ind] or {}
 			adf[ind][k] = v
 		end
+	end
+
+	if(ind == "t" and sethands) then
+		ply:SetupHands()
 	end
 	
 	char:setData("gbgs", sdf, nil, player.GetAll())
