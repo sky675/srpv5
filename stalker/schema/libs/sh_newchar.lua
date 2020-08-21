@@ -468,12 +468,9 @@ hook.Add("PlayerSetHandsModel", "newcharhands", function(ply, ent)
 		main = ply.bm.t
 	end
 	local hands
-	print("passed model")
 	--find hands model from config table
 	for k,v in pairs(handstbl) do
-		print("looking ",model,k)
 		if(model:find(k)) then
-			print("found hands", v)
 			hands = v
 			break
 		end
@@ -482,7 +479,6 @@ hook.Add("PlayerSetHandsModel", "newcharhands", function(ply, ent)
 	if(!hands) then return end
 
 	ent:SetModel(hands)
-	print("set",ent:GetModel(),hands)
 
 	ent:SetSkin(main:GetSkin())
 	local m = ent:GetMaterials()
