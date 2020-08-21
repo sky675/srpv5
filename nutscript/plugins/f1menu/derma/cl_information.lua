@@ -407,13 +407,17 @@ local PANEL = {}
 			-- local namePart2 = charName:sub(13)
 			-- print(namePart2)
 
-			local wrappedName = nut.util.wrapText(charName, (25*(invw/invTextureW)))
+			print("Max name width: " .. (165*(invw/invTextureW)))
+			local wrappedName = nut.util.wrapText(charName, (150*(invw/invTextureW)), "nutScaledInvenMed")
+			local firstPart = wrappedName[1]
+
 
 			if (wrappedName[2] and #wrappedName[2] > 0) then
-				self.nameTopLine:SetText(wrappedName[1])
-				self.nameBotLine:SetText(wrappedName[2]:sub(#wrappedName[2]-3, #wrappedName[2]) .. "...")
+				local secondPart = wrappedName[2]:sub(1, #wrappedName[2]) .. "..."
+				self.nameTopLine:SetText(firstPart)
+				self.nameBotLine:SetText(secondPart)
 			else
-				self.nameBotLine:SetText(wrappedName[1])
+				self.nameBotLine:SetText(firstPart)
 				self.nameTopLine:SetText("")
 			end
 
@@ -424,8 +428,8 @@ local PANEL = {}
 			self.nameBotLine:SizeToContents()
 			self.nameTopLine:SizeToContents()
 
-			self.nameBotLine:SetPos(invPosX+(360*(invw/invTextureW)), (invPosY+(55*(invh/invTextureH))) - 30*(ScrH()/768)) --this last bit is size from loadfonts
-			self.nameTopLine:SetPos(invPosX+(360*(invw/invTextureW)), (invPosY+(55*(invh/invTextureH))) - 45*(ScrH()/768))
+			self.nameBotLine:SetPos(invPosX+(355*(invw/invTextureW)), (invPosY+(55*(invh/invTextureH))) - 30*(ScrH()/768)) --this last bit is size from loadfonts
+			self.nameTopLine:SetPos(invPosX+(355*(invw/invTextureW)), (invPosY+(55*(invh/invTextureH))) - 45*(ScrH()/768))
 			
 			hook.Add(
 				"OnCharVarChanged",
