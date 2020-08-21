@@ -176,6 +176,9 @@ function PANEL:ClearContent(cleardisplay)
 			panel:Remove()
 		end
 	end
+	self.Content.Paint = function(self, w, h)
+		draw.NoTexture()
+	end
 end
 
 function PANEL:CreateAnnouncements()
