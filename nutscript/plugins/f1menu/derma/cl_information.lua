@@ -408,7 +408,7 @@ local PANEL = {}
 			-- print(namePart2)
 
 			print("Max name width: " .. (165*(invw/invTextureW)))
-			local wrappedName = nut.util.wrapText(charName, (150*(invw/invTextureW)), "nutScaledInvenMed")
+			local wrappedName = nut.util.wrapText(charName, (120*(invw/invTextureW)), "nutScaledInvenMed")
 			local firstPart = wrappedName[1]
 
 
