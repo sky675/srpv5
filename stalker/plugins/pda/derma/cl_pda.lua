@@ -153,11 +153,12 @@ function PANEL:Init()
 
 	--close alt
 	self.Scroll.Close = vgui.Create("DButton", self.Scroll)
-	self.Scroll.Close:SetText("Close")
+	self.Scroll.Close:SetText("Clear")
 	self.Scroll.Close:SetSize(219, 60)
 	self.Scroll.Close:Dock(TOP)
 	self.Scroll.Close.DoClick = function()
-		self:DisablePDA()--Remove()
+		self:ClearContent()
+		--self:DisablePDA()--Remove()
 	end
 end
 
