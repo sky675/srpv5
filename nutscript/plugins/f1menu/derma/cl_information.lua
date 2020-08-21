@@ -94,9 +94,16 @@ local PANEL = {}
 			end
 
 			if (!suppress or !suppress.name) then --character name
-				self.name = self:Add("DLabel")
-				self.name:SetFont("nutScaledInvenMed")
-				self.name:SetTextColor(Color(153, 143, 127))
+				self.nameTopLine = self:Add("DLabel")
+				self.nameBotLine = self:Add("DLabel")
+
+				local nameFont = "nutScaledInvenMed"
+				local nameColor = Color(153, 143, 127)
+
+				self.nameTopLine:SetFont(nameFont)
+				self.nameTopLine:SetTextColor(nameColor)
+				self.nameBotLine:SetFont(nameFont)
+				self.nameBotLine:SetTextColor(nameColor)
 
 			end
 
@@ -391,13 +398,35 @@ local PANEL = {}
 		end
 
 		--NAME SET TEXT
-		if (self.name) then
+		if (self.nameBotLine or self.nameTopLine) then
 			
-			self.name:SetText(LocalPlayer():Name():gsub("#", "\226\128\139#"))
-			self.name:SizeToContents()
+			local charName = (LocalPlayer():Name():gsub("#", "\226\128\139#"))
 
-			self.name:SetPos(invPosX+(360*(invw/invTextureW)), (invPosY+(55*(invh/invTextureH))) - 30*(ScrH()/768)) --this last bit is size from loadfonts
+			-- local namePart1 = charName:sub(1,12)--.."\n"..charName:sub(16+1)
+			-- print(namePart1)
+			-- local namePart2 = charName:sub(13)
+			-- print(namePart2)
 
+			local wrappedName = nut.util.wrapText(charName, (25*(invw/invTextureW)))
+
+			if (wrappedName[2] and #wrappedName[2] > 0) then
+				self.nameTopLine:SetText(wrappedName[1])
+				self.nameBotLine:SetText(wrappedName[2]:sub(#wrappedName[2]-3, #wrappedName[2]) .. "...")
+			else
+				self.nameBotLine:SetText(wrappedName[1])
+				self.nameTopLine:SetText("")
+			end
+
+			--add \n after 16th character
+			--charNameFixWrapAndCut = (charName:sub(1,16).."\n"..charName:sub(16+1)):sub(1,29) .. "..."
+			--replace everything after 29th character with "..."
+
+			self.nameBotLine:SizeToContents()
+			self.nameTopLine:SizeToContents()
+
+			self.nameBotLine:SetPos(invPosX+(360*(invw/invTextureW)), (invPosY+(55*(invh/invTextureH))) - 30*(ScrH()/768)) --this last bit is size from loadfonts
+			self.nameTopLine:SetPos(invPosX+(360*(invw/invTextureW)), (invPosY+(55*(invh/invTextureH))) - 45*(ScrH()/768))
+			
 			hook.Add(
 				"OnCharVarChanged",
 				self,
