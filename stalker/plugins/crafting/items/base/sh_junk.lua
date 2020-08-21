@@ -32,7 +32,7 @@ end
 if (CLIENT) then
 	function ITEM:paintOver(item, w, h)
 		if(!item.canSplit or !item.isStackable) then return end
-		draw.SimpleText(item:getQuantity().."/"..(item.maxQuantity or 1), "DermaDefault", w , h - 5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_BOTTOM, 1, color_black)
+		draw.SimpleText(item:getQuantity().."/"..(item.maxQuantity or 1), "DermaDefault", w - 5 , h - 5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_BOTTOM, 1, color_black)
 	end
 end
 

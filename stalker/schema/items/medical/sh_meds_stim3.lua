@@ -4,6 +4,14 @@ ITEM.skin = 0
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.1
+ITEM.exRender = true
+ITEM.iconCam = {
+	pos = Vector(101.9693069458, 86.370506286621, 61.702293395996),
+	ang = Angle(25, 220, 0),
+	entAng = Angle(-1.9984607696533, -81.233589172363, -31.571329116821),
+	fov = 3.6381696588477,
+}
+
 ITEM.healAmount = 50
 ITEM.healSeconds = 15
 ITEM.radGive = -30

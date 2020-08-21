@@ -3,6 +3,14 @@ ITEM.model = "models/stalker/item/medical/psy_pills.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.01
+ITEM.exRender = true
+ITEM.iconCam = {
+	pos = Vector(184.46412658691, 154.82962036133, 112.22286987305),
+	ang = Angle(25, 220, 0),
+	entAng = Angle(-16.444862365723, -92.06111907959, -19.979295730591),
+	fov = 2.022695806094,
+}
+
 ITEM.uses = 5
 ITEM.useTime = 1
 ITEM.price = 4450

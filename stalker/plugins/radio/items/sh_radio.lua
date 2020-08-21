@@ -6,6 +6,13 @@ ITEM.weight = 0.4
 ITEM.category = "Communication"
 ITEM.price = 1400
 ITEM.flag = "N"
+ITEM.exRender = true
+ITEM.iconCam = {
+	pos = Vector(184.46412658691, 155.1947479248, 116.58136749268),
+	ang = Angle(25, 220, 0),
+	entAng = Angle(0, -22.133018493652, 0),
+	fov = 2.1810190695629,
+}
 
 ITEM.destroyval = {
 	["comp_scrap_metal"] = 1,

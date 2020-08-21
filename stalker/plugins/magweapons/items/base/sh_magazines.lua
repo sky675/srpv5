@@ -42,7 +42,7 @@ end
 
 if (CLIENT) then
 	function ITEM:paintOver(item, w, h)
-		draw.SimpleText(item:getData("mag", 0).."/"..item.ammoMax, "DermaDefault", w , h - 5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_BOTTOM, 1, color_black)
+		draw.SimpleText(item:getData("mag", 0).."/"..item.ammoMax, "DermaDefault", w - 5, h - 5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_BOTTOM, 1, color_black)
 	end
 end
 

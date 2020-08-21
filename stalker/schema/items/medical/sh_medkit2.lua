@@ -4,6 +4,21 @@ ITEM.skin = 1
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.25
+ITEM.exRender = true
+ITEM.iconCam = {
+	pos = Vector(184.46412658691, 154.82537841797, 113.36277008057),
+	ang = Angle(25, 220, 0),
+	entAng = Angle(10.982773780823, -5.8737111091614, -4.1379284858704),
+	fov = 2.5245093576938,
+	
+	drawHook = function(ent, w, h)
+		ent:SetSkin(1)
+	end,
+	--[[drawPostHook = function(ent, w, h)
+		ent:SetSkin(0)
+	end,]]
+}
+
 ITEM.uses = 2
 ITEM.useTime = 3
 ITEM.healAmount = 50
