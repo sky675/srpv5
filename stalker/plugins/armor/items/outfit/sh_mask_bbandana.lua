@@ -14,6 +14,10 @@ ITEM.iconCam = {
 	ang = Angle(25, 220, 0),
 	entAng = Angle(11.853380203247, 0.23231868445873, -12.186507225037),
 	fov = 1.8945359089173,
+	
+	drawHook = function(ent, w, h)
+		ent:SetSkin(1)
+	end,
 }
 
 ITEM.bodyGroups = {
