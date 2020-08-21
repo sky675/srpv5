@@ -257,7 +257,7 @@ ITEM.getBodyGroups = function(item, ply)
 	end
 
 	--this should get all the ones rn
-	if(!ply.bm.t:GetNoDraw()) then
+	if(IsValid(ply.bm.t)) then
 		local old = ply.bm.t:GetBodyGroups()
 		for k,v in pairs(old) do
 			if((v.name != "anorak" and v.name != "hood") and ply.bm.t:FindBodygroupByName(v.name) != -1) then

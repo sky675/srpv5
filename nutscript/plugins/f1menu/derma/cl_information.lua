@@ -592,7 +592,7 @@ local PANEL = {}
 					--print("model info test")
 
 					local panel = self 
-					timer.Create("infomodelup", 2, 0, function()
+					--[[timer.Create("infomodelup", 2, 0, function()
 						if(!IsValid(panel)) then return end
 						if(!panel.model.modelcache or #panel.model.modelcache == 0) then return end
 
@@ -608,7 +608,7 @@ local PANEL = {}
 						elseif(panel.model.modelcache[2].nodraw and (defaultbothidden != -1 and LocalPlayer():getChar():getData("gbot", 0) != -1)) then
 							panel.model.modelcache[2].nodraw = nil
 						end
-					end)
+					end)]]
 				end
 			end
 		end

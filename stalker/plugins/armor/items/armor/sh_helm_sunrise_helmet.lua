@@ -1,5 +1,5 @@
-ITEM.name = "sunrise mask helm temp"
-ITEM.desc = "Custom helmet with elements of the CS suits' helmets. Appearance based on worn suit."
+ITEM.name = "Bulat Helmet"
+ITEM.desc = "Helmet sometimes worn with SKAT suits. Appearance based on worn suit."
 --ITEM.icon = Material("sky/itemicons/mpmask1.png")
 ITEM.icon = Material("sky/itemicons/helm_sunrise_helm.png")
 ITEM.model = "models/kek1ch/helm_hardhat.mdl"
@@ -260,7 +260,7 @@ ITEM.getBodyGroups = function(item, ply)
 	end
 
 	--this should get all the ones rn
-	if(!ply.bm.t:GetNoDraw()) then
+	if(IsValid(ply.bm.t)) then
 		local old = ply.bm.t:GetBodyGroups()
 		for k,v in pairs(old) do
 			if((v.name != "anorak" and v.name != "hood") and ply.bm.t:FindBodygroupByName(v.name) != -1) then
