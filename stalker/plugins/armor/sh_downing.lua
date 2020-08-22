@@ -196,8 +196,8 @@ if(SERVER) then
 
 				ply:EmitSound(deathSound)
 
-				local n1 = (atk.Name and (isfunction(atk.Name) and atk:Name()) or atk.PrintName) or "An entity"
-				local n2 = (atk.SteamName and atk:SteamName()) or atk:GetClass()
+				local n1 = (IsValid(atk) and (atk.Name and (isfunction(atk.Name) and atk:Name()) or atk.PrintName)) or "An entity"
+				local n2 = (IsValid(atk) and (atk.SteamName and atk:SteamName()) or atk:GetClass()) or "unset attacker"
 				local n3 = ply:Name()
 				local n4 = ply:SteamName()
 				nut.log.addRaw(n1.." ("..n2..") downed "..n3.." ("..n4..")!", FLAG_DANGER)
