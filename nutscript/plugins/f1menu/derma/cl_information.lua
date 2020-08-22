@@ -414,17 +414,16 @@ local PANEL = {}
 
 
 			if (wrappedName[2] and #wrappedName[2] > 0) then
-				local secondPart = wrappedName[2]:sub(1, #wrappedName[2]) .. "..."
+				local secondPart = wrappedName[2]:sub(1, #wrappedName[2])
+				if (wrappedName[3] and #wrappedName[3] > 0) then
+					secondPart = secondPart  .. "..."
+				end
 				self.nameTopLine:SetText(firstPart)
 				self.nameBotLine:SetText(secondPart)
 			else
 				self.nameBotLine:SetText(firstPart)
 				self.nameTopLine:SetText("")
 			end
-
-			--add \n after 16th character
-			--charNameFixWrapAndCut = (charName:sub(1,16).."\n"..charName:sub(16+1)):sub(1,29) .. "..."
-			--replace everything after 29th character with "..."
 
 			self.nameBotLine:SizeToContents()
 			self.nameTopLine:SizeToContents()
