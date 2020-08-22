@@ -9,6 +9,7 @@ local PANEL = {}
 		surface.PlaySound( "interface/inv_open.ogg" )
 		
 
+
 		local function stalkerGreyBoxButton(id, x, y, icon, tip, callback)
 			local unclick = Color(255,255,255, 255)
 			local click = Color(143,143,143, 255)
@@ -646,6 +647,22 @@ local PANEL = {}
 		surface.SetDrawColor(255,255,255,255)
 		surface.SetMaterial(Material("sky/srp_inv.png"))
 		surface.DrawTexturedRect(invPosX, invPosY,invw, invh)
+
+		local uiFactIcon = {
+			[FACTION_BANDIT] = "sky/faction_icons/inven_icon/bandit.png",
+			[FACTION_CLEARSKY] = "sky/faction_icons/inven_icon/clear_sky.png",
+			[FACTION_DUTY] = "sky/faction_icons/inven_icon/duty.png",
+			[FACTION_ECO] = "sky/faction_icons/inven_icon/ecologist.png",
+			[FACTION_FREEDOM] = "sky/faction_icons/inven_icon/freedom.png",
+			[FACTION_LONER] = "sky/faction_icons/inven_icon/stalker.png",
+			[FACTION_MERC] = "sky/faction_icons/inven_icon/mercenaries.png",
+			[FACTION_MILITARY] = "sky/faction_icons/inven_icon/military.png",
+			[FACTION_MONOLITH] = "sky/faction_icons/inven_icon/monolith.png",
+		}
+
+		surface.SetDrawColor(255,255,255,180)
+		surface.SetMaterial(Material(uiFactIcon[LocalPlayer():getChar():getFaction()] or "sky/faction_icons/inven_icon/stalker.png"))
+		surface.DrawTexturedRect(invPosX+(551*(invw/invTextureW)), (invPosY+(9*(invh/invTextureH))), (127*(invw/invTextureW)), ((89*(invh/invTextureH))))
 		
 	end
 
