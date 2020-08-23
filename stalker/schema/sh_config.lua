@@ -364,6 +364,8 @@ SCHEMA.workshop = {
 	"2003738116", --sounds
 	"1387617320", --blitz sights
 	"246756300", --3d stream radio
+	"1987973863", --gsh
+	"1999644123", --eft
 }
 
 --individual files to add to fastdl
