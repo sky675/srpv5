@@ -9,12 +9,13 @@ if(SERVER) then
 	}
 	hook.Add("OnPlayerInteractItem", "invupdate", function(ply, type, item, result, data)
 		if(refreshfuncs[type:lower()]) then
-			timer.Simple(0, function() netstream.Start(ply, "refreshModel") end)
+			netstream.Start(ply, "refreshModel")
 		end
 	end)
 
 else--client
 	netstream.Hook("refreshModel", function()
+		timer.Simple(0.2, function() 
 		if(IsValid(nut.gui.info)) then
 			local self = nut.gui.info
 			local ply = LocalPlayer()
@@ -121,6 +122,7 @@ else--client
 				end
 			end
 		end
+		end)
 	end)
 
 end
