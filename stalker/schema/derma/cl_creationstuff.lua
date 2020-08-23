@@ -167,7 +167,7 @@ function PANEL:onDisplay()
 		
 		local mats = panel.model:GetEntity():GetMaterials()
 		local mat = {}
-		for k,v in pairs(mats) do
+		for k,v in ipairs(mats) do
 			if(string.find(v, "eyeball_l")) then
 				mat[#mat+1] = {mat = k-1, type = "l"}
 			end
@@ -251,7 +251,7 @@ function PANEL:onDisplay()
 
 		local mats = panel.model:GetEntity().bm.t:GetMaterials()
 		local mat
-		for k,v in pairs(mats) do
+		for k,v in ipairs(mats) do
 			if(string.find(v, "anorak_lone")) then
 				mat = k-1
 				break
@@ -291,7 +291,7 @@ function PANEL:onDisplay()
 
 			local mats = panel.model:GetEntity().bm.t:GetMaterials()
 			local mat
-			for k,v in pairs(mats) do
+			for k,v in ipairs(mats) do
 				if(string.find(v, "anorak_lone")) then
 					mat = k-1
 					break

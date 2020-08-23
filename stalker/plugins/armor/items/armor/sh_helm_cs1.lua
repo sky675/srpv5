@@ -55,7 +55,7 @@ ITEM:postHook("Equip", function(item, result, data)
 	local sub = item.player:getChar():getData("submat", {})
 	for k2,v2 in pairs(repl) do
 		local mat
-		for k,v in pairs(mats) do
+		for k,v in ipairs(mats) do
 			if(string.find(v, k2)) then
 				mat = k-1
 			end
@@ -107,7 +107,7 @@ ITEM:postHook("EquipUn", function(item, result, data)
 	local sub = item.player:getChar():getData("submat", {})
 	for k2,v2 in pairs(repl) do
 		local mat
-		for k,v in pairs(mats) do
+		for k,v in ipairs(mats) do
 			if(string.find(v, k2)) then
 				mat = k-1
 				break
@@ -157,7 +157,7 @@ ITEM:postHook("deathun", function(item, result, data)
 	local sub = item.player:getChar():getData("submat", {})
 	for k2,v2 in pairs(repl) do
 		local mat
-		for k,v in pairs(mats) do
+		for k,v in ipairs(mats) do
 			if(string.find(v, k2)) then
 				mat = k-1
 				break
@@ -209,7 +209,7 @@ ITEM:postHook("drop", function(item, result, data)
 	local sub = item.player:getChar():getData("submat", {})
 	for k2,v2 in pairs(repl) do
 		local mat
-		for k,v in pairs(mats) do
+		for k,v in ipairs(mats) do
 			if(string.find(v, k2)) then
 				mat = k-1
 				break

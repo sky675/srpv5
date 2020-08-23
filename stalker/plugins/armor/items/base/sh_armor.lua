@@ -276,7 +276,7 @@ function ITEM:RemoveOutfit(client)
 
 		local mats = ply:GetMaterials()
 		local mat = {}
-		for k,v in pairs(mats) do
+		for k,v in ipairs(mats) do
 			if(string.find(v, "eyeball_l")) then
 				mat[#mat+1] = {mat = k-1, type = "l"}
 			end
@@ -287,24 +287,24 @@ function ITEM:RemoveOutfit(client)
 	
 		if(char:getData("eyes")) then
 			if(char:getData("eyes") == "blue") then
-				for k,v in pairs(mat) do
+				for k,v in ipairs(mat) do
 					ply:SetSubMaterial(v.mat, v.type == "l" and "models/bloo_ltcom_zel/citizens/eyeball_l_blue" or "models/bloo_ltcom_zel/citizens/eyeball_r_blue")
 				end
 			elseif(char:getData("eyes") == "green") then
-				for k,v in pairs(mat) do
+				for k,v in ipairs(mat) do
 					ply:SetSubMaterial(v.mat, v.type == "l" and "models/bloo_ltcom_zel/citizens/eyeball_l_green" or "models/bloo_ltcom_zel/citizens/eyeball_r_green")
 				end
 			elseif(char:getData("eyes") == "cyber") then
-				for k,v in pairs(mat) do
+				for k,v in ipairs(mat) do
 					ply:SetSubMaterial(v.mat, v.type == "l" and "models/sky/eyeball_cyber_l" or "models/sky/eyeball_cyber_r")
 				end
 			else
-				for k,v in pairs(mat) do
+				for k,v in ipairs(mat) do
 					ply:SetSubMaterial(v.mat)
 				end
 			end
 		else
-			for k,v in pairs(mat) do
+			for k,v in ipairs(mat) do
 				ply:SetSubMaterial(v.mat)
 			end
 		end
@@ -312,7 +312,7 @@ function ITEM:RemoveOutfit(client)
 		--submaterials from items
 		for k,v in pairs(char:getData("submat", {})) do
 		local mat
-		for k2,v2 in pairs(mats) do
+		for k2,v2 in ipairs(mats) do
 			if(string.find(v2, k)) then
 				mat = k2-1
 			end

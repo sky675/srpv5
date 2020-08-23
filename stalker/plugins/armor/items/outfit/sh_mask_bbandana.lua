@@ -31,7 +31,7 @@ ITEM.destroyval = {
 ITEM:postHook("Equip", function(item, result, data)
 	local mats = item.player:GetMaterials()
 	local mat
-	for k,v in pairs(mats) do
+	for k,v in ipairs(mats) do
 		if(string.find(v, "facewrap1")) then
 			mat = k-1
 		end
@@ -46,7 +46,7 @@ end)
 ITEM:postHook("EquipUn", function(item, result, data)
 	local mats = item.player:GetMaterials()
 	local mat
-	for k,v in pairs(mats) do
+	for k,v in ipairs(mats) do
 		if(string.find(v, "facewrap1")) then
 			mat = k-1
 		end
@@ -61,7 +61,7 @@ end)
 ITEM:postHook("deathun", function(item, result, data)
 	local mats = item.player:GetMaterials()
 	local mat
-	for k,v in pairs(mats) do
+	for k,v in ipairs(mats) do
 		if(string.find(v, "facewrap1")) then
 			mat = k-1
 		end
@@ -73,7 +73,7 @@ end)
 ITEM:postHook("drop", function(item, result, data)
 	local mats = item.player:GetMaterials()
 	local mat
-	for k,v in pairs(mats) do
+	for k,v in ipairs(mats) do
 		if(string.find(v, "facewrap1")) then
 			mat = k-1
 		end

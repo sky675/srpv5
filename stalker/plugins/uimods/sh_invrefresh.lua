@@ -1,4 +1,5 @@
 local PLUGIN = PLUGIN
+local ipairs = ipairs
 
 if(SERVER) then
 	local refreshfuncs = {
@@ -7,9 +8,8 @@ if(SERVER) then
 		["drop"] = true,
 	}
 	hook.Add("OnPlayerInteractItem", "invupdate", function(ply, type, item, result, data)
-		print("interact ", type)
 		if(refreshfuncs[type:lower()]) then
-			netstream.Start(ply, "refreshModel")
+			timer.Simple(0, function() netstream.Start(ply, "refreshModel") end)
 		end
 	end)
 
@@ -31,7 +31,7 @@ else--client
 
 			if (ent and IsValid(ent)) then
 				local mats = ply:GetMaterials()
-				for k, v in pairs(mats) do
+				for k, v in ipairs(mats) do
 					ent:SetSubMaterial(k - 1, ply:GetSubMaterial(k - 1))
 				end
 				
@@ -65,7 +65,7 @@ else--client
 						local mats1 = top:GetMaterials()
 						for k,v in pairs(subs["t"]) do
 							local mat
-							for k2,v2 in pairs(mats1) do
+							for k2,v2 in ipairs(mats1) do
 								if(string.find(v2, k)) then
 									mat = k2-1
 								end
@@ -100,7 +100,7 @@ else--client
 						local mats1 = bot:GetMaterials()
 						for k,v in pairs(subs["b"]) do
 							local mat
-							for k2,v2 in pairs(mats1) do
+							for k2,v2 in ipairs(mats1) do
 								if(string.find(v2, k)) then
 									mat = k2-1
 								end

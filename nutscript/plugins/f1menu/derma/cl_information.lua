@@ -507,7 +507,7 @@ local PANEL = {}
 
 			if (ent and IsValid(ent)) then
 				local mats = ply:GetMaterials()
-				for k, v in pairs(mats) do
+				for k, v in ipairs(mats) do
 					ent:SetSubMaterial(k - 1, ply:GetSubMaterial(k - 1))
 				end
 				
@@ -540,7 +540,7 @@ local PANEL = {}
 						local mats1 = top:GetMaterials()
 						for k,v in pairs(subs["t"]) do
 							local mat
-							for k2,v2 in pairs(mats1) do
+							for k2,v2 in ipairs(mats1) do
 								if(string.find(v2, k)) then
 									mat = k2-1
 								end
@@ -575,7 +575,7 @@ local PANEL = {}
 						local mats1 = bot:GetMaterials()
 						for k,v in pairs(subs["b"]) do
 							local mat
-							for k2,v2 in pairs(mats1) do
+							for k2,v2 in ipairs(mats1) do
 								if(string.find(v2, k)) then
 									mat = k2-1
 								end

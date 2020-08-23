@@ -164,7 +164,7 @@ function entMeta:setBodygroups(bodygroups, ply)
 	local mats = self:GetMaterials()
 	for k,v in pairs(char:getData("submat", {})) do
 		local mat
-		for k2,v2 in pairs(mats) do
+		for k2,v2 in ipairs(mats) do
 			if(string.find(v2, k)) then
 				mat = k2-1
 			end

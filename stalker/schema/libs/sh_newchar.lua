@@ -458,8 +458,11 @@ hook.Add("PlayerSpawn", "regivemodels", function(ply)
 	--	net.Send(ply)
 	end
 end)
+local ipairs = ipairs
 hook.Add("PlayerSetHandsModel", "newcharhands", function(ply, ent)
 	if(!sethands) then return end
+	if(timer.Exists("sethandscd"..ply:SteamID64())) then return end
+	timer.Create("sethandscd"..ply:SteamID64(), 2, 1, function() end)
 	local model = ply:GetModel() --get main model first,
 	local main = ply
 	--but if have top model, use that instead
@@ -482,10 +485,11 @@ hook.Add("PlayerSetHandsModel", "newcharhands", function(ply, ent)
 
 	ent:SetSkin(main:GetSkin())
 	local m = ent:GetMaterials()
+	local em = main:GetMaterials()
 	--match submats
-	for k2,v2 in ipairs(ent:GetMaterials()) do
+	for k2,v2 in ipairs(m) do
 		local mat
-		for k,v in ipairs(main:GetMaterials()) do
+		for k,v in ipairs(em) do
 			if(v == v2) then mat = k-1 end
 		end
 		if(!mat) then continue end
@@ -514,9 +518,7 @@ function clothesnonply(ply, data, realply)
 	if(!ply.bm or !IsValid(ply.bm.t)) then --if the models dont exist make them
 		ply.bm = {}
 		setthistime = true
-
-		print(realply)
-
+		
 		local t = ents.Create("base_gmodentity")
 		t:SetModel(data.customt or (realply:isFemale() and defaultfemtop or defaultmaletop))
 		t:Spawn()
@@ -536,8 +538,6 @@ function clothesnonply(ply, data, realply)
 		end
 		]]
 
-		print("excuse me "..tostring(ply))
-		print(tostring(ply.bm))
 		--t:InvalidateBoneCache()
 		t:SetParent(ply)
 		ply:CallOnRemove("remtop", function(ent) t:Remove() end)
@@ -663,31 +663,15 @@ function clothesnonply(ply, data, realply)
 				end
 			end
 			if(data.customsubt) then
-				--[[
-					currently there is a bug (according to chair)
-					in which on loading, submats arent applied, and
-					are never applied to the body even after reequipping the suit
-					make a mono, try it, check gsubs getData table (the t table
-					should have everything in it), make sure this appears so
-					its actually running, because nothing looks on here
-					and this does work (or has worked) in sp, keeping mats and all
-					(i think), however ive gotten this bug myself, but on the black
-					bandana and reequipping it fixes it
-					he also reported about helmets with anorak always showing skat
-					helms? (no matter the helmet)
-					there is also the hood status not saving, i have no idea
-				]]
-				nut.log.addRaw("doing top submats "..tostring(ply))
 				local mats = ply.bm.t:GetMaterials()
 				for k,v in pairs(data.customsubt) do
 					local mat
-					for k2,v2 in pairs(mats) do
+					for k2,v2 in ipairs(mats) do
 						if(string.find(v2, k)) then
 							mat = k2-1
 						end
 					end
 					if(mat) then
-						nut.log.addRaw("setting "..tostring(ply)..mat..v)
 						ply.bm.t:SetSubMaterial(mat, v)
 					end
 				end

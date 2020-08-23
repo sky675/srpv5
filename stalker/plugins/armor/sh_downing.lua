@@ -272,6 +272,10 @@ if(SERVER) then
 					net.WriteFloat(dmgmulti)
 	
 					net.Send({ply, atk})
+
+					if(IsValid(atk)) then
+						nut.log.addRaw(atk:Name().." ("..atk:steamName()..") attacked "..ply:Name().." ("..ply:steamName()..") with "..((wep and (wep.ClassName or wep:GetClass())) or "a mine or something probably").." ["..hitStrings[hg].."/"..((ply:getNetVar("typing") and "void") or tostring(dmgmulti)).."]")
+					end
 				end
 				
 				dmginfo:ScaleDamage(0) 

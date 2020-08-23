@@ -117,7 +117,7 @@ function PANEL:setCharacter(character)
 		local mats = self.model.Entity:GetMaterials()
 		for k,v in pairs(character:getData("submat", {})) do
 			local mat
-			for k2,v2 in pairs(mats) do
+			for k2,v2 in ipairs(mats) do
 				if(string.find(v2, k)) then
 					mat = k2-1
 				end
@@ -129,7 +129,7 @@ function PANEL:setCharacter(character)
 
 		if(character:getModel():find("sky/stalker") and ANORAKTEXTURES and character:getData("anorak")) then
 			local mat
-			for k,v in pairs(mats) do
+			for k,v in ipairs(mats) do
 				if(string.find(v, "anorak_lone")) then
 					mat = k-1
 					break
@@ -193,7 +193,7 @@ function PANEL:setCharacter(character)
 				local mats = top:GetMaterials()
 				for k,v in pairs(tb.customsubt) do
 					local mat
-					for k2,v2 in pairs(mats) do
+					for k2,v2 in ipairs(mats) do
 						if(string.find(v2, k)) then
 							mat = k2-1
 						end
@@ -225,7 +225,7 @@ function PANEL:setCharacter(character)
 				local mats = bot:GetMaterials()
 				for k,v in pairs(tb.customsubb) do
 					local mat
-					for k2,v2 in pairs(mats) do
+					for k2,v2 in ipairs(mats) do
 						if(string.find(v2, k)) then
 							mat = k2-1
 						end

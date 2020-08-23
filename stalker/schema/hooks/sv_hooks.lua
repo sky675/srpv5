@@ -171,7 +171,7 @@ end)
 hook.Add("PlayerLoadedChar", "eyegive", function(ply, char, lastChar)
 	local mats = ply:GetMaterials()
 	local mat = {}
-	for k,v in pairs(mats) do
+	for k,v in ipairs(mats) do
 		if(string.find(v, "eyeball_l")) then
 			mat[#mat+1] = {mat = k-1, type = "l"}
 		end
@@ -239,7 +239,7 @@ hook.Add("PlayerLoadedChar", "eyegive", function(ply, char, lastChar)
 	if(string.find(ply:GetModel(), "sky/stalker") and char:getData("anorak")) then
 		local mats = ply:GetMaterials()
 		local mat
-		for k,v in pairs(mats) do
+		for k,v in ipairs(mats) do
 			if(string.find(v, "anorak_lone")) then
 				mat = k-1
 				break
