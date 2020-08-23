@@ -344,20 +344,25 @@ function ITEM:RemoveOutfit(client)
 		bgs = self:getBodygroupsKeep(client)
 	end
 
+	local groups = character:getData("groups", {})
 	for k, v in pairs(bgs) do
+		if(k == "keep") then continue end
 		local index = client:FindBodygroupByName(k)
 
 		if (index > -1) then
-			client:SetBodygroup(index, 0)
+			client:SetBodygroup(index, bgs.keep and v or 0)
 
-			local groups = character:getData("groups", {})
 
-			if (groups[index]) then
-				groups[index] = nil
-				character:setData("groups", groups)
+			if(bgs.keep) then
+				groups[index] = v
+			else
+				if (groups[index]) then	
+					groups[index] = nil
+				end
 			end
 		end
 	end
+	character:setData("groups", groups)
 
 	if (self.attribBoosts) then
 		for k, _ in pairs(self.attribBoosts) do
