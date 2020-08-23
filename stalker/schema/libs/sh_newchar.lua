@@ -680,7 +680,7 @@ function clothesnonply(ply, data, realply)
 			ply.bm.t:SetRenderMode(RENDERMODE_TRANSALPHA)
 			ply.bm.t:SetColor(Color(255,255,255,0))
 		end
-		if(sethands) then
+		if(sethands and ply:IsPlayer()) then
 			ply:SetupHands()
 		end
 	end
