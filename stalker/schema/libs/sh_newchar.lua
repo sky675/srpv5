@@ -461,8 +461,6 @@ end)
 local ipairs = ipairs
 hook.Add("PlayerSetHandsModel", "newcharhands", function(ply, ent)
 	if(!sethands) then return end
-	if(timer.Exists("sethandscd"..ply:SteamID64())) then return true end
-	timer.Create("sethandscd"..ply:SteamID64(), 2, 1, function() end)
 	local model = ply:GetModel() --get main model first,
 	local main = ply
 	--but if have top model, use that instead
