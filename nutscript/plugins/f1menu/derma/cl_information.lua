@@ -493,50 +493,52 @@ local PANEL = {}
 		end
 
 		if (self.model) then
-			self.model:SetModel(LocalPlayer():GetModel())
-			self.model.Entity:SetSkin(LocalPlayer():GetSkin())
+			local ply = LocalPlayer()
+			local char = ply:getChar()
+			local modelPanel = self.model
+			
+			modelPanel:SetModel(ply:GetModel())
+			local ent = modelPanel.Entity
+			ent:SetSkin(ply:GetSkin())
 
-			for k, v in ipairs(LocalPlayer():GetBodyGroups()) do
-				self.model.Entity:SetBodygroup(v.id, LocalPlayer():GetBodygroup(v.id))
+			for k, v in ipairs(ply:GetBodyGroups()) do
+				ent:SetBodygroup(v.id, ply:GetBodygroup(v.id))
 			end
 
-			local ent = self.model.Entity
 			if (ent and IsValid(ent)) then
-				local mats = LocalPlayer():GetMaterials()
+				local mats = ply:GetMaterials()
 				for k, v in pairs(mats) do
-					ent:SetSubMaterial(k - 1, LocalPlayer():GetSubMaterial(k - 1))
+					ent:SetSubMaterial(k - 1, ply:GetSubMaterial(k - 1))
 				end
 				
-				local model = LocalPlayer():GetModel()
-				if(nut.newchar and nut.newchar.isBM(model)) then
-
-					if(self.model.modelcache and self.model.modelcache != 0) then
-						for k,v in pairs(self.model.modelcache) do
-							v:Remove()
-							self.model.modelcache[k] = nil --srsly it doesnt get removed from the table
-						end
+				local model = ply:GetModel()
+				if(modelPanel.modelcache and modelPanel.modelcache != 0) then
+					for k,v in pairs(modelPanel.modelcache) do
+						v:Remove()
+						modelPanel.modelcache[k] = nil --srsly it doesnt get removed from the table
 					end
-
-					
-
+				end
+				if(nut.newchar and nut.newchar.isBM(model)) then
 					local top = ClientsideModel(char:getData("gctop", 
-						LocalPlayer():isFemale() and defaultfemtop or 
+						ply:isFemale() and defaultfemtop or 
 						defaultmaletop))--, RENDERGROUP_OPAQUE)
 					--top:Spawn() --spawn here if needed not sure if needed
-					top:SetParent(self.model:GetEntity())
+					top:SetParent(ent)
 					top:AddEffects(EF_BONEMERGE)
 					top:SetNoDraw(true) --it does this so..
 					top:SetBodygroup(0, char:getData("gtop", 0))
 					top:SetSkin(char:getData("gtopskin", 0))
 					
-					if(char:getData("gbgs", {})["t"]) then
-						for k,v in pairs(char:getData("gbgs", {})["t"]) do
+					local bgs = char:getData("gbgs", {})
+					if(bgs["t"]) then
+						for k,v in pairs(bgs["t"]) do
 							top:SetBodygroup(k, v)
 						end
 					end
-					if(char:getData("gsub", {})["t"]) then
+					local subs = char:getData("gsub", {})
+					if(subs["t"]) then
 						local mats1 = top:GetMaterials()
-						for k,v in pairs(char:getData("gsub", {})["t"]) do
+						for k,v in pairs(subs["t"]) do
 							local mat
 							for k2,v2 in pairs(mats1) do
 								if(string.find(v2, k)) then
@@ -549,28 +551,29 @@ local PANEL = {}
 						end
 					end
 					
-					self.model.modelcache = self.model.modelcache or {}
-					table.insert(self.model.modelcache, top)
+					modelPanel.modelcache = modelPanel.modelcache or {}
+					table.insert(modelPanel.modelcache, top)
 
 	
 					local bot = ClientsideModel(char:getData("gcbot", 
-						LocalPlayer():isFemale() and defaultfembot or 
+						ply:isFemale() and defaultfembot or 
 						defaultmalebot))--, RENDERGROUP_OPAQUE)
 					--bot:Spawn() --spawn here if needed not sure if needed
-					bot:SetParent(self.model:GetEntity())
+					bot:SetParent(ent)
 					bot:AddEffects(EF_BONEMERGE)
 					bot:SetNoDraw(true) --it does this so..
-					bot:SetBodygroup(0, char:getData("gbot", 0))
+					local gbot = char:getData("gbot", 0)
+					bot:SetBodygroup(0, gbot)
 					bot:SetSkin(char:getData("gbotskin", 0))
 					
-					if(char:getData("gbgs", {})["b"]) then
-						for k,v in pairs(char:getData("gbgs", {})["b"]) do
+					if(bgs["b"]) then
+						for k,v in pairs(bgs["b"]) do
 							bot:SetBodygroup(k, v)
 						end
 					end
-					if(char:getData("gsub", {})["b"]) then
+					if(subs["b"]) then
 						local mats1 = bot:GetMaterials()
-						for k,v in pairs(char:getData("gsub", {})["b"]) do
+						for k,v in pairs(subs["b"]) do
 							local mat
 							for k2,v2 in pairs(mats1) do
 								if(string.find(v2, k)) then
@@ -583,32 +586,13 @@ local PANEL = {}
 						end
 					end
 
-					self.model.modelcache = self.model.modelcache or {}
-					table.insert(self.model.modelcache, bot)
-					--PrintTable(self.model.modelcache)
-					if(defaultbothidden == -1 or LocalPlayer():getChar():getData("gbot", 0) == -1) then
+					modelPanel.modelcache = modelPanel.modelcache or {}
+					table.insert(modelPanel.modelcache, bot)
+					--PrintTable(modelPanel.modelcache)
+					if(defaultbothidden == -1 or gbot == -1) then
 						bot.nodraw = true
 					end
 					--print("model info test")
-
-					local panel = self 
-					--[[timer.Create("infomodelup", 2, 0, function()
-						if(!IsValid(panel)) then return end
-						if(!panel.model.modelcache or #panel.model.modelcache == 0) then return end
-
-
-						panel.model.modelcache[1]:SetBodygroup(0, char:getData("gtop", 0))
-						panel.model.modelcache[1]:SetSkin(char:getData("gtopskin", 0))
-						panel.model.modelcache[2]:SetBodygroup(0, char:getData("gbot", 0))
-						panel.model.modelcache[2]:SetSkin(char:getData("gbotskin", 0))
-						
-						--if bot was hidden rehide it
-						if(!panel.model.modelcache[2].nodraw and (defaultbothidden == -1 or LocalPlayer():getChar():getData("gbot", 0) == -1)) then
-							panel.model.modelcache[2].nodraw = true
-						elseif(panel.model.modelcache[2].nodraw and (defaultbothidden != -1 and LocalPlayer():getChar():getData("gbot", 0) != -1)) then
-							panel.model.modelcache[2].nodraw = nil
-						end
-					end)]]
 				end
 			end
 		end
