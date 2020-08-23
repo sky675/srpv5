@@ -1505,6 +1505,30 @@ PLUGIN.wepList = {
 	},	
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
+["wep_gsh"] = {
+	name = "GSH-18", --tier 1 pistol
+	desc = "A pistol chambered in 9x19mm.",
+	price = 9680,--660,--310, --245?,
+	model = "models/weapons/w_gsh18.mdl",
+	width = 1,
+	height = 1,
+	weight = 0.8,
+	flag = "1",
+	type = "pistol",
+	category = "Weapons - Pistols",
+	class = "tfa_ins2_gsh18_sky",
+	weaponCategory = "sidearm",
+	magType = "mag_gsh",
+	disableChamber = false,
+	iconCam = { --this still will prob work for most/all pistols tho
+		pos = Vector(1.1000000238419, 13, -0.34999999403954),
+		ang = Angle(0, 270, 0),
+		entAng = Angle(0, 0, 0),
+		fov = 45,
+
+	},
+	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
+},
 --[[
 ["wep_ar2"] = {
 	name = "AR2", --tier 3 smg
@@ -3646,6 +3670,27 @@ PLUGIN.magList = {
 		ang = Angle(0, 0, 0),
 		entAng = Angle(7.026388168335, -90, 0),
 		fov = 37.015127894412,
+	},	
+	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
+},
+["mag_gsh"] = {
+	name = "GSH-18 Magazine",
+	desc = "",
+	price = 450,--8,--6,
+	model = "models/weapons/unloaded/pist_fiveseven_mag.mdl",
+	width = 1,
+	height = 1,
+	weight = 0.24,
+	baseWeight = 0.08,
+	flag = "1",
+	ammoBox = false,
+	ammoType = "sky9x19",
+	ammoMax = 18,
+	iconCam = {
+		pos = Vector(163.03979492188, 134.60733032227, 98.418579101563),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(-7.6187415122986, 0, 0),
+		fov = 1.4174771324319,
 	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
