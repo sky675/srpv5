@@ -463,7 +463,7 @@ hook.Add("PlayerSetHandsModel", "newcharhands", function(ply, ent)
 	local model = ply:GetModel() --get main model first,
 	local main = ply
 	--but if have top model, use that instead
-	if(ply.bm and IsValid(ply.bm.t)) then
+	if(ply.bm and IsValid(ply.bm.t) and model:find("heads")) then
 		model = ply.bm.t:GetModel()
 		main = ply.bm.t
 	end

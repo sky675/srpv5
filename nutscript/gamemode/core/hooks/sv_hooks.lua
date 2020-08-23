@@ -370,9 +370,9 @@ function GM:PlayerLoadout(client)
 
 	-- Check if they have loaded a character.
 	if (character) then
-		client:SetupHands()
 		-- Set their player model to the character's model.
 		client:SetModel(character:getModel())
+		client:SetupHands()
 		client:Give("nut_hands")
 		client:SetWalkSpeed(nut.config.get("walkSpeed", 130))
 		client:SetRunSpeed(nut.config.get("runSpeed", 235))
