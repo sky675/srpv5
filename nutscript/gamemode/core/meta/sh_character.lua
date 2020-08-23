@@ -106,6 +106,7 @@ if (SERVER) then
 			client:SetModel(self:getModel())
 			client:SetTeam(self:getFaction())
 			client:setNetVar("char", self:getID())
+			client:SetBodyGroups("000000000")
 
 			-- Apply saved body groups.
 			for k, v in pairs(self:getData("groups", {})) do
