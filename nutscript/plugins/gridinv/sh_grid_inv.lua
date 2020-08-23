@@ -32,7 +32,7 @@ local function CanNotAddItemIfNoSpace(inventory, action, context)
 	end
 
 	local weight = inventory:getWeight()
-	local maxWeight = inventory:getMaxWeight()*2 --for now ye
+	local maxWeight = inventory:getMaxWeight()*inventory:getData("maxover", 2)
 	if (weight + (context.item.weight or 1) > maxWeight) then
 		return false, "noFit"
 	end

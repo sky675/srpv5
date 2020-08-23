@@ -104,12 +104,13 @@ hook.Add("SetupMove", "slowhpply", function(ply, moved, commandd)
 	if(!ply:getChar()) then return end --no reason then lmao
 
 	local res = ply:GetArmorResists()
+	local char = ply:getChar()
 
 	local over = 1
-	local weight, max = ply:getChar():getInv():getWeight(), ply:getChar():getInv():getMaxWeight()
+	local weight, max = char:getInv():getWeight(), char:getInv():getMaxWeight()
 	--overencumbered, im gonna make double the max weight the point where you cant walk anymore
 	if(weight > max) then 
-		local fun = 1-(((weight-max) / max)*0.65)
+		local fun = 1-(((weight-max) / max)*char:getData("maxwgtbuf", 0.6))
 
 		over = math.max(0.01, fun) --just in case, max of 0.01
 	end
@@ -143,7 +144,7 @@ hook.Add("SetupMove", "slowhpply", function(ply, moved, commandd)
 					
 	if(!res["norat"]) then
 		local baserat = nut.config.get("movespeedRatio", 0.4)
-		if(IsValid(ply) and ply:getChar() and (ply:getChar():getFaction() == FACTION_MONO or res["imprat"])) then baserat = baserat + 0.2 end						
+		if(IsValid(ply) and (char:getFaction() == FACTION_MONO or res["imprat"])) then baserat = baserat + 0.2 end						
 		ratio = (ply:Health()/ply:GetMaxHealth()) + baserat
 		if(ratio > 1) then
 			ratio = 1
