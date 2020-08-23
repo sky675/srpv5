@@ -22,6 +22,7 @@ local modelsgoodfor1 = {
 
 }
 ]]
+ITEM.overlaytype = "gas"
 local immune = {
 	
 }

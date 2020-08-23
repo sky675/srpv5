@@ -119,6 +119,8 @@ ITEM.getBodyGroups = function(item, ply)
 end
 ]]
 
+ITEM.overlaytype = "sci"
+
 ITEM.upgradePath = "seva"
 ITEM.armor = {
 	chest = {level = ARMOR_IIIA},

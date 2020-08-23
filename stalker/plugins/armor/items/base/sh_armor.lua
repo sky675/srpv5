@@ -373,6 +373,10 @@ function ITEM:RemoveOutfit(client)
 		character:getInv():setData("maxWeight", character:getInv():getMaxWeight()-self:getData("addWeight", self.addWeight or 0))
 	end
 
+	if(self.overlaytype) then
+		character:setData("ovr")
+	end
+
 	hook.Run("PlayerRemoveOutfitEnd", client, self)
 end
 
@@ -609,6 +613,10 @@ ITEM.functions.Equip = {
 		
 		if(item.addWeight or item:getData("addWeight")) then
 			char:getInv():setData("maxWeight", char:getInv():getMaxWeight()+item:getData("addWeight", item.addWeight or 0))
+		end
+		
+		if(item.overlaytype) then
+			char:setData("ovr", item.overlaytype)
 		end
 		
 		return false

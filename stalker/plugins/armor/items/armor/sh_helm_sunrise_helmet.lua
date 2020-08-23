@@ -111,12 +111,13 @@ ITEM:postHook("EquipUn", function(item, result, data)
 		for k,v in pairs(mats) do
 			if(string.find(v, k2)) then
 				mat = k-1
+				break
 			end
 		end
 		if(mat) then
 			item.player:SetSubMaterial(mat)
-			sub[k2] = nil
 		end
+		sub[k2] = nil
 	end
 	item.player:getChar():setData("submat", sub)
 
@@ -161,12 +162,13 @@ ITEM:postHook("deathun", function(item, result, data)
 		for k,v in pairs(mats) do
 			if(string.find(v, k2)) then
 				mat = k-1
+				break
 			end
 		end
 		if(mat) then
 			item.player:SetSubMaterial(mat)
-			sub[k2] = nil
 		end
+		sub[k2] = nil
 	end
 	item.player:getChar():setData("submat", sub)
 end)
@@ -213,12 +215,13 @@ ITEM:postHook("drop", function(item, result, data)
 		for k,v in pairs(mats) do
 			if(string.find(v, k2)) then
 				mat = k-1
+				break
 			end
 		end
 		if(mat) then
 			item.player:SetSubMaterial(mat)
-			sub[k2] = nil
 		end
+		sub[k2] = nil
 	end
 	item.player:getChar():setData("submat", sub)
 end)
@@ -303,6 +306,8 @@ ITEM.getBodyGroups = function(item, ply)
 	print("hi hello?")
 	return bg
 end
+
+ITEM.overlaytype = "hard"
 
 ITEM.upgradePath = "helmshelm"
 ITEM.armor = {

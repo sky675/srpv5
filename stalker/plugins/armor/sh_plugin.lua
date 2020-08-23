@@ -11,6 +11,7 @@ nut.util.include("sh_downing.lua")
 nut.util.include("sh_movement.lua")
 --mass item creation for suits
 nut.util.include("sh_itemconfig.lua")
-
+--overlay
+nut.util.include("sh_overlay.lua")
 
 --todo: figure out modifications i had to make to base ns?

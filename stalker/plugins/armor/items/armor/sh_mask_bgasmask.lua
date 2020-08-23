@@ -26,6 +26,7 @@ local modelsgoodfor1 = {
 
 }
 ]]
+ITEM.overlaytype = "gas"
 
 function ITEM:getBodyGroups(ply)
 	local bg = {["masks"] = 2}

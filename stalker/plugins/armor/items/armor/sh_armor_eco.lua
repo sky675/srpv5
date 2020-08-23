@@ -124,6 +124,9 @@ ITEM.getBodyGroups = function(item, ply)
 	return {["arms"] = ply:isFemale() and 3 or 4,["hands"] = 3,["head"] = mx}
 end
 ]]
+
+ITEM.overlaytype = "sci"
+
 ITEM.upgradePath = "eco"
 ITEM.armor = {
 	chest = {level = ARMOR_II},
