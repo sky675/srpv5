@@ -421,7 +421,7 @@ local PANEL = {}
 				self.nameTopLine:SetText(firstPart)
 				self.nameBotLine:SetText(secondPart)
 			else
-				self.nameBotLine:SetText(firstPart)
+				self.nameBotLine:SetText(" " .. firstPart)
 				self.nameTopLine:SetText("")
 			end
 
