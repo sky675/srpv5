@@ -53,7 +53,7 @@ if(SERVER) then
 						if(v.base == "base_artifact") then
 							added = added + (ARTIFACT_DESCS[v.artid] and ARTIFACT_DESCS[v.artid].radGive or 0)
 						elseif(v.base == "base_artcont" and !v.isSafe) then
-							local vals = v:getData("contain", {})
+							local vals = v:getData("res", {})
 							for k3,art in pairs(vals) do
 								
 								local armor = math.max((ARTIFACT_DESCS[art] and ARTIFACT_DESCS[art].radGive or 0) + (v.radRemove or 0), 0)

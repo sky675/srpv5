@@ -44,7 +44,7 @@ hook.Add("CustomArmorResists", "artifacts", function(client, levels)
 	local items = PLUGIN:GetArtifactItems(client)
 	if(!items or #items == 0) then return end
 	for k,v in pairs(items) do
-		local vals = v:getData("contain", {})
+		local vals = v:getData("res", {})
 		for k3,art in pairs(vals) do
 			local armor = (ARTIFACT_DESCS[art] or {levels = {}}).levels
 			if(!armor) then continue end --just in case
