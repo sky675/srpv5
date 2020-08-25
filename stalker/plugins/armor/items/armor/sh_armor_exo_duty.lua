@@ -1,16 +1,28 @@
-ITEM.name = "IO7A Vest"
-ITEM.desc = "A vest from a suit officially designated as 'Light Combat Suit', commonly worn by Mercenaries."
-ITEM.model = "models/sky/seperate/male_io7a.mdl"
+ITEM.name = "Duty Exoskeleton"
+ITEM.desc = "An exoskeleton."
+ITEM.model = "models/sky/seperate/male_radsuit.mdl"
 ITEM.category = "Clothing"
-ITEM.skin = 0
-ITEM.weight = 6
-ITEM.addWeight = 9
+ITEM.skin = 1
+ITEM.weight = 48
+ITEM.addWeight = 113
 ITEM.width = 2
-ITEM.height = 2
+ITEM.height = 3
 ITEM.outfitCategory = "armor"
-ITEM.price = 9280
-ITEM.flag = "2"
+ITEM.price = 136680
+ITEM.flag = "5"
 
+--the materials to be replaced on the model
+local matreplace = {	
+	["beri_lone"] = "models/sky/stalker/beri_duty",
+	["cs1_lone"] = "models/sky/stalker/cs1_duty",
+	["cs2_lone"] = "models/sky/stalker/cs2_blak",
+	["exo_lone"] = "models/sky/stalker/exo_duty",
+	["io7a_lone"] = "models/sky/stalker/io7a_duty",
+	["seva_lone"] = "models/sky/stalker/seva_duty",
+	["skat_lone"] = "models/sky/stalker/skat_duty",
+	["sunrise_lone"] = "models/sky/stalker/psz9d_duty",
+	["sunrise_null"] = "models/sky/stalker/psz9d_duty"
+}
 
 ITEM.exRender = true
 ITEM.iconCam = {
@@ -20,11 +32,25 @@ ITEM.iconCam = {
 	fov = 14.763357201488,
 	
 	drawHook = function(ent, w, h)
+		local repl = matreplace
+		local mats = ent:GetMaterials()
+		for k2,v2 in pairs(repl) do
+			local mat
+			for k,v in pairs(mats) do
+				if(string.find(v, k2)) then
+					mat = k-1
+				end
+			end
+			if(mat) then
+				ent:SetSubMaterial(mat, v2)
+			end
+		end
 		
+		ent:SetBodygroup(1,1)
 	end,
 }
 ITEM.onGetDropModel = function(item, ent)
-	return "models/sky/dropped/io7a.mdl"
+	return "models/sky/dropped/exo.mdl"
 end
 
 --ITEM.upgradePath = "eyes"
@@ -88,16 +114,19 @@ function ITEM:getCustomGS()
 		bg = 0,
 	}
 
-	local exskin = self:getData("exskin")
-	if(exskin and TEXTURETABLE[exskin]) then
-		tbl.submat = TEXTURETABLE[exskin]
+	if(self.player:isFemale()) then
+		tbl.model = "models/sky/seperate/female_radsuit.mdl"
+	else
+		tbl.model = "models/sky/seperate/male_radsuit.mdl"
 	end
+
+	--moved like this, easier this way
+	tbl.submat = matreplace
 	--submat
-	
+
 	tbl.custombg = {[1] = 1}
 	tbl.remove = {[1] = 0}
 	tbl.removebg = -1
-	
 	
 	return tbl
 end
@@ -109,30 +138,35 @@ ITEM.getBodyGroups = function(item, ply)
 	return {["arms"] = ply:isFemale() and 3 or 4,["hands"] = 3}
 end
 
-ITEM.upgradePath = "io7avest"
+ITEM.upgradePath = "rad"
 ITEM.armor = {
-	chest = {level = ARMOR_IIIA},
+	chest = {level = ARMOR_IV},
+	larm = {level = ARMOR_III},
+	rarm = {level = ARMOR_III},
+	lleg = {level = ARMOR_III},
+	rleg = {level = ARMOR_III},
 }
 ITEM.resists = {
 	--burn
-	[DMG_BURN] = 0.01,
+	[DMG_BURN] = 0.08,
 	--electric --less
-	[DMG_SHOCK] = 0.04,
+	[DMG_SHOCK] = 0.4,
 	--ext rad
-	[DMG_RADIATION] = 0.001,
+	[DMG_RADIATION] = 0.03,
 	--chem
-	[DMG_ACID] = 0.03,
+	[DMG_ACID] = 0.032,
 	--psy
-	[DMG_SONIC] = 0,
-	["psy"] = 0,
+	[DMG_SONIC] = 0.07,
+	["psy"] = 0.07,
 	--explosion
-	[DMG_BLAST] = 0.12,
+	[DMG_BLAST] = 0.96,
 	--bullet fire wound
-	[DMG_BULLET] = 0.22,
+	[DMG_BULLET] = 0.58,
 	--phys
-	[DMG_SLASH] = 0.15,
-	[DMG_CLUB] = 0.15,
-	[DMG_CRUSH] = 0.15,
+	[DMG_SLASH] = 0.64,
+	[DMG_CLUB] = 0.64,
+	[DMG_CRUSH] = 0.64,
 
-	spd = 0.96,
+	spd = 0.5,
+	nospr = true,
 }
