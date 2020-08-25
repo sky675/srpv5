@@ -22,6 +22,15 @@ else--client
 			local char = ply:getChar()
 			local modelPanel = self.model
 			
+			local inventory = LocalPlayer():getChar():getInv()
+			if (self.weight) then
+				self.weight:SetText("Weight: " .. inventory:getWeight() .. " kg (max " .. inventory:getMaxWeight() .. " kg)")
+				self.weight:SizeToContents()
+	
+				self.weight:SetPos(invPosX+((670)*(invw/invTextureW)-(self.weight:GetWide())), (invPosY+(710*(invh/invTextureH)))) --money pos --justify left to 530
+			end
+			
+			
 			modelPanel:SetModel(ply:GetModel())
 			local ent = modelPanel.Entity
 			ent:SetSkin(ply:GetSkin())
