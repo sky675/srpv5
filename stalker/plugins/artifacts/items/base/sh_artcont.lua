@@ -7,6 +7,7 @@ ITEM.width = 1
 ITEM.height = 1
 ITEM.isSafe = false --if true, the artifact(s) inside wont add to radiation
 ITEM.contSlots = 1
+--ITEM.radRemove = 0 --needs to be negative to remove
 
 function ITEM:getDesc()
 	local str = self.desc.."\n"

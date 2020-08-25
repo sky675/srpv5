@@ -141,7 +141,7 @@ else
 	function ENT:onDrawEntityInfo(alpha)
 		local itemTable = self:getItemTable()
 		if (not itemTable) then return end
-		if(self.dontinteract) then return end
+		if(self:getNetVar("dontinteract")) then return end
 
 		local oldEntity = itemTable.entity
 		itemTable.entity = self

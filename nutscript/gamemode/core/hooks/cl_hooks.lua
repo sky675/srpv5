@@ -454,7 +454,7 @@ function GM:PlayerBindPress(client, bind, pressed)
 			if (
 				IsValid(entity) and
 				(entity:GetClass() == "nut_item" or entity.hasMenu == true) and
-				!entity.dontinteract --uh ye sry
+				!entity:getNetVar("dontinteract") --uh ye sry
 			) then
 				hook.Run("ItemShowEntityMenu", entity)
 			end

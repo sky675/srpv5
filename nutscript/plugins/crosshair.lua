@@ -143,7 +143,7 @@ function PLUGIN:GetCrosshairIcon(curAlpha, entity, weapon, distance)
 	if(IsValid(entity) and nut.xhair.entIgnore[entity:EntIndex()]) then
 		return
 	end
-	if(IsValid(entity) and entity.dontinteract) then return end
+	if(IsValid(entity) and entity:getNetVar("dontinteract")) then return end
 
 	if (IsValid(entity) and distance < 16384) then
 		if (!entity:IsPlayer() and !entity:IsNPC()) then

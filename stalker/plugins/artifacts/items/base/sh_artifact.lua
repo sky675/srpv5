@@ -11,14 +11,25 @@ ITEM.junkArt = false --if true, cant put into belt
 
 function ITEM:drawEntity(ent)
 	local pos = LocalPlayer():GetPos() --200 seems good
-	if(IsValid(LocalPlayer():GetActiveWeapon()) and LocalPlayer():GetActiveWeapon():GetClass():find("detector") and pos:Distance(ent:GetPos()) < 200) then
-		ent.dontinteract = nil
+	if(!ent:getNetVar("dontinteract")) then
 		ent:DrawModel()
 		ent:CreateShadow()
 	else
-		ent:DestroyShadow()--test this
-		ent.dontinteract = true --used to prevent item picking up
+		ent:DestroyShadow()
 	end
+end
+function ITEM:think(ent)
+	local nearby = ents.FindInSphere(ent:GetPos(), 200))
+	local set = true
+	for k,v in ipairs(nearby) do
+		if(v:IsPlayer() and IsValid(v:GetActiveWeapon()) 
+			and v:GetActiveWeapon():GetClass():find("detector")) then
+
+			set = false
+			break --stop it lmao dont need the rest of it
+		end
+	end
+	ent:setNetVar("dontinteract", set) 
 end
 
 function ITEM:getDesc()
