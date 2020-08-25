@@ -32,7 +32,7 @@ function ITEM:getDesc()
 	
 	local art = ARTIFACT_DESCS[self.artid]
 
-	str = str.."\n"
+	str = str..""
 	for k,v in pairs(art.levels) do
 		if(ARTIFACT_TRANS[k] and ARTIFACT_TRANS[k].hidden) then continue end
 		local fu = v
@@ -46,6 +46,10 @@ function ITEM:getDesc()
 	--idk any extra stuff
 	if(art.onAdd or art.active) then
 		str = str.."\n"..(ARTIFACT_TRANS[self.artid] or "Unknown Extra Effect")
+	end
+
+	if(art.radGive) then
+		str = str.."\nRads Per Minute: "..art.radGive
 	end
 
 	return str
