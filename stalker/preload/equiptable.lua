@@ -6,6 +6,7 @@ EQTBL = true
 
 local maxes = { --maxes of each
 	["art"] = 1,
+	["weapon"] = 2
 }
 
 function equipTblGet(char, type, default)
@@ -39,7 +40,7 @@ if(SERVER) then
 		if(!tbl[type]) then
 			tbl[type] = {}
 		end
-		tbl[type][#tbl[type]+1] = item
+		tbl[type][#tbl[type]+1] = item.id
 		char:setData("equiptbl", tbl)
 		return true
 	end
@@ -54,7 +55,7 @@ if(SERVER) then
 		if(!tbl[type]) then
 			return false, "No item found"
 		end
-		local search = table.KeyFromValue(tbl[type], item)
+		local search = table.KeyFromValue(tbl[type], item.id)
 		if(!search) then
 			return false, "No item found"
 		end
