@@ -262,14 +262,19 @@ ITEM.getBodyGroups = function(item, ply)
 	--this should get all the ones rn
 	if(IsValid(ply.bm.t)) then
 		local old = ply.bm.t:GetBodyGroups()
+		local olbg = {}
 		for k,v in pairs(old) do
+			local b = ply.bm.t:GetBodygroup(v.id)
+			--												i think this bit is redundant here, but idk
 			if((v.name != "anorak" and v.name != "hood") and ply.bm.t:FindBodygroupByName(v.name) != -1) then
-				bg[v.name] = ply.bm.t:GetBodygroup(v.id)
+				bg[v.name] = b
 			end
-			if(v.name == "anorak" or v.name == "hood") then
-				ply:getChar():setData("oldhood", {[v.id] = ply.bm.t:GetBodygroup(v.id)})
-			end
+			--if(v.name == "anorak" or v.name == "hood") then
+			olbg[v.id] = b
+			--end
 		end
+		ply:getChar():setData("oldhood", olbg)--{[v.id] = ply.bm.t:GetBodygroup(v.id)})
+
 	end
 
 	--[[
