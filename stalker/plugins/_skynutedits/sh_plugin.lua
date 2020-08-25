@@ -186,7 +186,7 @@ elseif(CLIENT) then
         local wep = LocalPlayer():GetActiveWeapon()
     
         if(wep and wep:IsValid()) then --for whatever reason the physgun's classname is nil
-            if(wep.ClassName == nil or wep.ClassName == "gmod_tool" or string.find(wep.ClassName, "nut_")) then
+            if(wep.ClassName == nil or wep.ClassName == "gmod_tool" or string.find(wep.ClassName, "nut_") or string.find(wep.ClassName, "detector_")) then
                 return true
             end
         end
