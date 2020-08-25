@@ -381,6 +381,10 @@ function ITEM:RemoveOutfit(client)
 	if(self.overlaytype) then
 		character:setData("ovr")
 	end
+	
+	if(self:getData("artcnt") or self.artifactCnt) then
+		character:setData("exart")
+	end
 
 	hook.Run("PlayerRemoveOutfitEnd", client, self)
 end
@@ -407,6 +411,12 @@ ITEM.functions.EquipUn = { -- sorry, for name order.
 				item.player:notify(err)
 				return false
 			end
+		end
+		
+		if((item:getData("artcnt") or item.artifactCnt)
+			and equipTblIsMax(item.player:getChar(), "art")) then
+			item.player:notify("Cannot unequip due to artifact containers.")
+			return false
 		end
 
 		item:RemoveOutfit(item.player)
@@ -622,6 +632,12 @@ ITEM.functions.Equip = {
 		
 		if(item.overlaytype) then
 			char:setData("ovr", item.overlaytype)
+		end
+
+		if(item:getData("artcnt")) then
+			char:setData("exart", item:getData("artcnt"))
+		elseif(item.artifactCnt) then
+			char:setData("exart", item.artifactCnt)
 		end
 		
 		return false

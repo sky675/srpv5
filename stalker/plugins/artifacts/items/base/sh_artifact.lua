@@ -19,7 +19,7 @@ function ITEM:drawEntity(ent)
 	end
 end
 function ITEM:think(ent)
-	local nearby = ents.FindInSphere(ent:GetPos(), 200))
+	local nearby = ents.FindInSphere(ent:GetPos(), 200)
 	local set = true
 	for k,v in ipairs(nearby) do
 		if(v:IsPlayer() and IsValid(v:GetActiveWeapon()) 

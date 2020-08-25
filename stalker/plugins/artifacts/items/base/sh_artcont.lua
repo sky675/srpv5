@@ -24,6 +24,17 @@ function ITEM:getDesc()
 	return str
 end
 
+-- Inventory drawing
+if (CLIENT) then
+	function ITEM:paintOver(item, w, h)
+		if (item:getData("equip")) then
+			surface.SetDrawColor(110, 255, 110, 100)
+			surface.DrawRect(w - 14, h - 14, 8, 8)
+		end
+	end
+end
+
+
 --adding/removing overtime stuff like heals and such
 function ITEM:removeBuffs()
 	local res = self:getData("res", {})
@@ -69,7 +80,17 @@ ITEM.functions.EquipUn = { --i hate this lol
 	name = "Unequip",
 	tip = "equipTip",
 	icon = "icon16/cross.png",
+	sound = "interface/inv_properties.ogg",
 	onRun = function(item)
+		local client = item.player
+		local char = client:getChar()
+		if(EQTBL) then
+			local succ, res = equipTblRem(char, "art", item)
+			if(succ == false) then
+				client:notify(res)
+				return false
+			end
+		end
 		item:setData("equip", nil)
 
 		item:removeBuffs()
@@ -85,8 +106,17 @@ ITEM.functions.Equip = {
 	name = "Equip",
 	tip = "equipTip",
 	icon = "icon16/tick.png",
+	sound = "interface/inv_properties.ogg",
 	onRun = function(item)
 		local client = item.player
+		local char = client:getChar()
+		if(EQTBL) then
+			local succ, res = equipTblAdd(char, "art", item)
+			if(succ == false) then
+				client:notify(res)
+				return false
+			end
+		end
 
 		item:setData("equip", true)
 
@@ -113,6 +143,8 @@ function ITEM:onRemoved()
 		self:removeBuffs()
 	end
 end
+
+--todo allow combining artifacts with this (to store automatically)
 
 --this should still work lol
 for n=1, 5 do
@@ -143,6 +175,7 @@ for n=1, 5 do
 			if(inv[sub]) then
 				res[n] = inv[sub].artid
 				inv[sub]:remove()
+				item:setData("res", res)
 			end
 			--[[for k,v in pairs(inv:getItems()) do
 				if(v.base == "base_artifacts") then
