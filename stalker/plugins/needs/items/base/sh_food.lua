@@ -110,7 +110,11 @@ ITEM.functions.use = {
 		end
 		--artifact radiation support
 		if(char.addRad and item.radGive) then
-			char:addRad(item.radGive)
+			if(!item.radGiveTime) then
+				char:addRad(item.radGive)
+			else
+				radPlayer(item.player, item.radGive, item.radGiveTime, item.id)
+			end
 		end
 
 		if(item.uses) then
