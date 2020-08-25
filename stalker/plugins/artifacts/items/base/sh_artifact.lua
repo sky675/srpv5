@@ -14,7 +14,9 @@ function ITEM:drawEntity(ent)
 	if(IsValid(LocalPlayer():GetActiveWeapon()) and LocalPlayer():GetActiveWeapon():GetClass():find("detector") and pos:Distance(ent:GetPos()) < 200) then
 		ent.dontinteract = nil
 		ent:DrawModel()
+		ent:CreateShadow()
 	else
+		ent:DestroyShadow()--test this
 		ent.dontinteract = true --used to prevent item picking up
 	end
 end
