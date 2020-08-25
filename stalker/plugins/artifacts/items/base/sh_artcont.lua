@@ -71,6 +71,9 @@ ITEM:hook("drop", function(item)
 	local client = item.player
 	local wep = client:GetActiveWeapon()
 	if(item:getData("equip")) then
+		if(EQTBL) then
+			local succ, res = equipTblRem(char, "art", item)
+		end
 		item:setData("equip", nil)
 		item:removeBuffs()
 	end
