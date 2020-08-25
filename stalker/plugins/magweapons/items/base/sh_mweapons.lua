@@ -141,25 +141,22 @@ ITEM:hook("drop", function(item)
 
 		local ply = item.player
 
+		if(EQTBL) then
+			local succ, res = equipTblRem(ply:getChar(), "weapon", item)
+		end
+
 		--helix had a good idea, make sure the owner is the same as the 1 calling this
 		if(item.player != item:getOwner()) then
 			ply = item:getOwner()
 		end
 
-		ply.carryWeapons = ply.carryWeapons or {}
-
-
-		local weapon = ply.carryWeapons[item.weaponCategory]
-		
-		if (!IsValid(weapon)) then
-			weapon = ply:GetWeapon(item.class)	
-		end
+		local weapon = ply:GetWeapon(item.class)	
 
 		if (IsValid(weapon)) then
 			item:setData("ammo", weapon:Clip1())
 
 			ply:StripWeapon(item.class)
-			ply.carryWeapons[item.weaponCategory] = nil
+			--ply.carryWeapons[item.weaponCategory] = nil
 			ply:EmitSound(item.unequipSound or "items/ammo_pickup.wav", 80)
 		end
 	end
@@ -236,30 +233,40 @@ ITEM.functions.Equip = {
 }
 
 function ITEM:Equip(client)
-	local items = client:getChar():getInv():getItems()
+	local char = client:getChar()
+	if (client:HasWeapon(self.class)) then
+		client:notify("Same type of weapon equipped")
+		return false 
+	end
 
-	client.carryWeapons = client.carryWeapons or {}
+	if(EQTBL) then
+		local succ, res = equipTblAdd(char, "weapon", self)
+		if(succ == false) then
+			client:notify(res)
+			return false
+		end
+	else--legacy i guess
+		local items = client:getChar():getInv():getItems()
 
-	for k, v in pairs(items) do
-		if (v.id != self.id) then
-			local itemTable = nut.item.instances[v.id]
-			
-			if (!itemTable) then
-				client:notifyLocalized("tellAdmin", "wid!xt")
+		client.carryWeapons = client.carryWeapons or {}
 
-				return false
-			else
-				if (itemTable.isWeapon and client.carryWeapons[self.weaponCategory] and IsValid(client.carryWeapons[self.weaponCategory]) and itemTable:getData("equip")) then
-					client:notifyLocalized("weaponSlotFilled")
+		for k, v in pairs(items) do
+			if (v.id != self.id) then
+				local itemTable = nut.item.instances[v.id]
+
+				if (!itemTable) then
+					client:notifyLocalized("tellAdmin", "wid!xt")
 
 					return false
+				else
+					if (itemTable.isWeapon and client.carryWeapons[self.weaponCategory] and IsValid(client.carryWeapons[self.weaponCategory]) and itemTable:getData("equip")) then
+						client:notifyLocalized("weaponSlotFilled")
+
+						return false
+					end
 				end
 			end
 		end
-	end
-	
-	if (client:HasWeapon(self.class)) then
-		client:StripWeapon(self.class)
 	end
 
 	local weapon = client:Give(self.class, true)
@@ -271,7 +278,7 @@ function ITEM:Equip(client)
 			client:SelectWeapon(weapon:GetClass())
 			--client:SetActiveWeapon(weapon)
 		end)
-		client.carryWeapons[self.weaponCategory] = weapon
+		--client.carryWeapons[self.class] = weapon
 		--client:SelectWeapon(weapon:GetClass())
 		--client:SetActiveWeapon(weapon)
 		client:EmitSound("items/ammo_pickup.wav", 80)
@@ -321,13 +328,15 @@ function ITEM:Equip(client)
 end
 
 function ITEM:Unequip(client, bPlaySound, bRemoveItem)
-	client.carryWeapons = client.carryWeapons or {}
-
-	local weapon = client.carryWeapons[self.weaponCategory]
-
-	if (!IsValid(weapon)) then
-		weapon = client:GetWeapon(self.class)	
+	if(EQTBL) then
+		local succ, res = equipTblRem(client:getChar(), "weapon", self)
+		if(succ == false) then
+			client:notify(res)
+			return false
+		end
 	end
+
+	local weapon = client:GetWeapon(self.class)	
 
 	if (IsValid(weapon)) then
 		weapon.nutItem = nil
@@ -343,7 +352,6 @@ function ITEM:Unequip(client, bPlaySound, bRemoveItem)
 		client:EmitSound("items/ammo_pickup.wav", 80)
 	end
 
-	client.carryWeapons[self.weaponCategory] = nil
 	self:setData("equip", nil)
 
 	if (self.OnUnequipWeapon) then
@@ -643,13 +651,11 @@ end
 function ITEM:onLoadout()
 	if (self:getData("equip")) then
 		local client = self.player
-		client.carryWeapons = client.carryWeapons or {}
 
 		local weapon = client:Give(self.class)
 
 		if (IsValid(weapon)) then
 			client:RemoveAmmo(weapon:Clip1(), weapon:GetPrimaryAmmoType())
-			client.carryWeapons[self.weaponCategory] = weapon
 
 			weapon.nutItem = self
 			weapon:SetClip1(self:getData("ammo", 0))
@@ -727,16 +733,22 @@ function ITEM:onInstanced()
 	end
 end
 
-hook.Add("PlayerDeath", "nutStripClip", function(client)
-	client.carryWeapons = {}
-
+--[[hook.Add("PlayerDeath", "nutStripClip", function(client)
+	
 	for k, v in pairs(client:getChar():getInv():getItems()) do
 		if (v.isWeapon and v:getData("equip")) then
+			if(EQTBL) then
+				local succ, res = equipTblRem(client:getChar(), "weapon", v)
+				if(succ == false) then
+					client:notify(res)
+					return false
+				end
+			end
 			v:setData("ammo", nil)
 			v:setData("equip", nil)
 		end
 	end
-end)
+end)]]
 
 function ITEM:onRemoved()
 	local inv = nut.item.inventories[self.invID]
@@ -745,6 +757,9 @@ function ITEM:onRemoved()
 
 	if (IsValid(receiver) and receiver:IsPlayer()) then
 		local weapon = receiver:GetWeapon(self.class)
+		if(EQTBL) then
+			local succ, res = equipTblRem(client:getChar(), "weapon", self)
+		end
 
 		if (IsValid(weapon)) then
 			weapon:Remove()
