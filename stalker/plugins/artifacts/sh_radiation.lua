@@ -56,7 +56,7 @@ if(SERVER) then
 							local vals = v:getData("res", {})
 							for k3,art in pairs(vals) do
 								
-								local armor = math.max((ARTIFACT_DESCS[art] and ARTIFACT_DESCS[art].radGive or 0) + (v.radRemove or 0), 0)
+								local armor = math.max((ARTIFACT_DESCS[art] and ARTIFACT_DESCS[art].radGive or 0) - (v.radRemove or 0), 0)
 
 								added = added + armor
 							end
