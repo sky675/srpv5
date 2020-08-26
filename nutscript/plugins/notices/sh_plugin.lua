@@ -1,5 +1,5 @@
-PLUGIN.name = "Notices"
-PLUGIN.author = "Cheesenut"
-PLUGIN.desc = "Adds a panel for notifications."
+PLUGIN.name = "Stalker Notices"
+PLUGIN.author = "Cheesenut & Nate"
+PLUGIN.desc = "Adds a stalker themed panel for notifications."
 
 nut.util.include("cl_notice.lua")

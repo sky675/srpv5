@@ -1,29 +1,62 @@
 local PANEL = {}
-	local gradient = nut.util.getMaterial("vgui/gradient-d")
+	--local gradient = nut.util.getMaterial("vgui/gradient-d")
+
+
+
+
 
 	function PANEL:Init()
 		self:SetSize(256, 36)
-		self:SetContentAlignment(5)
-		self:SetExpensiveShadow(1, Color(0, 0, 0, 150))
-		self:SetFont("nutNoticeFont")
-		self:SetTextColor(color_white)
+		self:SetContentAlignment(6)
+		--self:SetExpensiveShadow(1, Color(0, 0, 0, 150))
+		self:SetFont("stalkerNotif")
+		self:SetTextColor(Color(158,129,12,255))
 		self:SetDrawOnTop(true)
+		
+	end
+
+	function PANEL:SetLevel(level)
+
+
+		--local oldPaint = self.Paint
+		function self:PaintOver(w, h)
+			surface.SetDrawColor(255, 255, 255, 255)
+			if (level == 1) then
+				surface.SetMaterial(Material("sky/greenBar/lights/green.png"))
+			elseif (level == 2) then
+				surface.SetMaterial(Material("sky/greenBar/lights/yellow.png"))
+			elseif (level == 3) then
+				surface.SetMaterial(Material("sky/greenBar/lights/red.png"))
+			elseif (level == 0) then
+				surface.SetMaterial(Material("sky/greenBar/lights/red.png"))
+				surface.SetDrawColor(255, 255, 255, 0)
+			else
+				surface.SetMaterial(Material("sky/greenBar/lights/yellow.png"))
+			end
+			surface.DrawTexturedRect(5, (h*0.5)-(25*0.5), 26, 25)
+		end
 	end
 
 	function PANEL:Paint(w, h)
-		nut.util.drawBlur(self, 3, 2)
+		
+		local LCapMat = "sky/greenBar/LCap.png"
 
-		surface.SetDrawColor(230, 230, 230, 10)
-		surface.DrawRect(0, 0, w, h)
+		local fullBar = "sky/greenBar/greenBar.png"
 
-		if (self.start) then
-			local w2 = math.TimeFraction(self.start, self.endTime, CurTime()) * w
+		local RCapMat = "sky/greenBar/RCap.png"
 
-			surface.SetDrawColor(nut.config.get("color"))
-			surface.DrawRect(w2, 0, w - w2, h)
-		end
+		--background bar
+		surface.SetDrawColor(255, 255, 255, 255)
+		surface.SetMaterial(Material(fullBar))
+		surface.DrawTexturedRect(0, 0, 1666, h)
 
-		surface.SetDrawColor(0, 0, 0, 25)
-		surface.DrawOutlinedRect(0, 0, w, h)
+		--left cap material
+		surface.SetMaterial(Material(LCapMat))
+		surface.DrawTexturedRect(0, 0, 4, h)
+
+		--right cap material
+		surface.SetMaterial(Material(RCapMat))
+		surface.DrawTexturedRect(self:GetWide()-4, 0, 4, h)
+
 	end
 vgui.Register("nutNotice", PANEL, "DLabel")

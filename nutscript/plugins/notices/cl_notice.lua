@@ -14,15 +14,22 @@ local function OrganizeNotices()
 end
 
 -- Create a notification panel.
-function nut.util.notify(message)
+
+function nut.util.notify(message, level)
+	--Levels go 1(Green), 2(Yellow), 3(Red)
 	local notice = vgui.Create("nutNotice")
 	local i = table.insert(nut.notices, notice)
 	
 	-- Set up information for the notice.
-	notice:SetText(message)
+	notice:SetText(message .. "  ")
 	notice:SetPos(ScrW(), (i - 1) * (notice:GetTall() + 4) + 4)
 	notice:SizeToContentsX()
-	notice:SetWide(notice:GetWide() + 16)
+	notice:SetWide(notice:GetWide() + 30)
+	if(level == nil) then
+		local level = 1
+	end
+	notice:SetLevel(level)
+
 	notice.start = CurTime() + 0.25
 	notice.endTime = CurTime() + 7.75
 
@@ -34,7 +41,7 @@ function nut.util.notify(message)
 
 	-- Once the notice appears, make a sound and message.
 	timer.Simple(0.15, function()
-		LocalPlayer():EmitSound(unpack(SOUND_NOTIFY))
+		LocalPlayer():EmitSound("interface/notif.ogg")
 	end)
 
 	-- After the notice has displayed for 7.5 seconds, remove it.
