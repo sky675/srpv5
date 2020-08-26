@@ -252,36 +252,6 @@ if(SERVER) then
 		local msgs = nut.config.get("shootMessages", true)
 
 		if(atk:IsPlayer()) then
-			--s m h
-			if(!on) then 
-				if(msgs) then
-					net.Start("PlayerGetDmg")
-					net.WriteEntity(ply)
-					net.WriteEntity(atk)
-					net.WriteEntity(wep)
-					net.WriteInt(hg, 4)
-					net.WriteInt(math.Round(ply:GetPos():Distance(atk:GetPos())/52.49, 2), 32)
-	
-					local levels = ply:GetArmorLevels()
-					local protected
-					local dmgmulti = 1
-					if(wep.Primary) then
-						dmgmulti = PLUGIN:IsCharProtected(levels, hitToLevel[hg], wep, levels.durability)
-					end
-				
-					net.WriteFloat(dmgmulti)
-	
-					net.Send({ply, atk})
-
-					if(IsValid(atk)) then
-						nut.log.addRaw(atk:Name().." ("..atk:steamName()..") attacked "..ply:Name().." ("..ply:steamName()..") with "..((wep and (wep.ClassName or wep:GetClass())) or "a mine or something probably").." ["..hitStrings[hg].."/"..((ply:getNetVar("typing") and "void") or tostring(dmgmulti)).."]")
-					end
-				end
-				
-				dmginfo:ScaleDamage(0) 
-				return true 
-			end
-
 			local wep = atk:GetActiveWeapon()
 			if(IsValid(ply.nutRagdoll)) then
 				return
@@ -317,6 +287,11 @@ if(SERVER) then
 			local pl = ply
 			if(IsValid(atk)) then
 				nut.log.addRaw(atk:Name().." ("..atk:steamName()..") attacked "..pl:Name().." ("..pl:steamName()..") with "..((wep and (wep.ClassName or wep:GetClass())) or "a mine or something probably").." ["..hitStrings[hg].."/"..((pl:getNetVar("typing") and "void") or tostring(dmgmulti)).."]")
+			end
+			--smh
+			if(!on) then 
+				dmginfo:ScaleDamage(0) 
+				return true 
 			end
 
 			if(wep.TFA_NMRIH_MELEE) then
@@ -696,7 +671,7 @@ else --client
 		local wep = net.ReadEntity()
 		local hitgroup = net.ReadInt(4)
 		local dist = net.ReadInt(32)
-		local prot = net.ReadBool()
+		local prot = net.ReadFloat()
 		local protection = ""
 		
 		local ammo = ""
@@ -745,9 +720,9 @@ else --client
 		
 		if(wep.ClassName == "nut_hands") then
 			if(target == LocalPlayer()) then
-				chat.AddText("You were punched!")
+				chat.AddText("You were punched in "..(hitStrings[hitgroup] or "an unknown place").."!")
 			else
-				chat.AddText("You punched someone!")
+				chat.AddText("You punched someone in "..(hitStrings[hitgroup] or "an unknown place").."!")
 			end
 		
 			return --no need for the rest
@@ -755,16 +730,16 @@ else --client
 		
 		if(ammo and ammo == "none") then
 			if(target == LocalPlayer()) then
-				chat.AddText("You were hit with a(n) "..wep.PrintName.."!")
+				chat.AddText("You were hit with a(n) "..wep.PrintName.." in "..(hitStrings[hitgroup] or "an unknown place").."!")
 			else
-				chat.AddText("You someone with a(n) "..wep.PrintName.."!")
+				chat.AddText("You someone with a(n) "..wep.PrintName.." in "..(hitStrings[hitgroup] or "an unknown place").."!")
 			end
 
 			return
 		end
 		
 		if(target == LocalPlayer()) then --incoming damage
-			if(!prot) then
+			if(prot == 1) then
 				protection = "You are not protected from the bullet."
 			else
 				protection = "Your armor protects you from the bullet."
@@ -772,7 +747,7 @@ else --client
 
 			chat.AddText("You were hit by "..(ammoStrings[ammo] or ammo).." in "..(hitStrings[hitgroup] or "an unknown place").." from "..dist.." meters away! "..protection.." Bearing: "..math.Round(bear, 0))
 		else --confirmation
-			if(!prot) then
+			if(prot == 1) then
 				protection = "They do not appear to be protected from the bullet."
 			else
 				protection = "They appear to be protected from the bullet."
