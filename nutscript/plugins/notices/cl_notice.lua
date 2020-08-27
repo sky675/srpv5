@@ -26,7 +26,7 @@ function nut.util.notify(message, level)
 	notice:SizeToContentsX()
 	notice:SetWide(notice:GetWide() + 30)
 	if(level == nil) then
-		local level = 1
+		level = 1
 	end
 	notice:SetLevel(level)
 

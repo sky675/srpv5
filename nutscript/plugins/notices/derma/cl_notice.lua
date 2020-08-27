@@ -16,7 +16,7 @@ local PANEL = {}
 	end
 
 	function PANEL:SetLevel(level)
-
+		local level = level
 
 		--local oldPaint = self.Paint
 		function self:PaintOver(w, h)
