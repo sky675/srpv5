@@ -59,7 +59,7 @@ ITEM:postHook("Equip", function(item, result, data)
 		item.player:SetSubMaterial(mat, "models/sky/headgear/gasmask2")
 		local sub = item.player:getChar():getData("submat", {})
 		sub["gasmask1"] = "models/sky/headgear/gasmask2"
-		item.player:getChar():setData("submat")
+		item.player:getChar():setData("submat", sub)
 	end
 end)
 ITEM:postHook("EquipUn", function(item, result, data)
@@ -101,7 +101,7 @@ ITEM:postHook("drop", function(item, result, data)
 		item.player:SetSubMaterial(mat)
 		local sub = item.player:getChar():getData("submat", {})
 		sub["gasmask1"] = nil
-		item.player:getChar():setData("submat")
+		item.player:getChar():setData("submat", sub)
 	end
 end)
 
