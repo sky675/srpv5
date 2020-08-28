@@ -25,7 +25,7 @@ function nut.util.notify(message, level)
 	local i = table.insert(nut.notices, notice)
 	
 	-- Set up information for the notice.
-	notice:SetText(message .. "  ")
+	notice:SetText(" "..message .. "  ")
 	notice:SetPos(ScrW(), (i - 1) * (notice:GetTall() + 4) + 4)
 	notice:SizeToContentsX()
 	notice:SetWide(notice:GetWide() + 30)
