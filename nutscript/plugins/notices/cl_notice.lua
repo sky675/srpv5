@@ -1,6 +1,10 @@
 -- List of notice panels.
 nut.notices = nut.notices or {}
 
+net.Receive("nutNotify", function()
+	nut.util.notify(net.ReadString(), net.ReadInt(4))
+end)
+
 -- Move all notices to their proper positions.
 local function OrganizeNotices()
 	for k, v in ipairs(nut.notices) do

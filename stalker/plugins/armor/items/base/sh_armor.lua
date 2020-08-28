@@ -512,7 +512,7 @@ ITEM.functions.Equip = {
 				end
 					--old to replace if sameout doesnt work v.outfitCategory == item.outfitCategory
 				if ((itemTable.pacData or itemTable.pacF) and sameout and itemTable:getData("equip")) then
-					item.player:notify("You're already equipping this kind of outfit")
+					item.player:notify("You're already equipping something that conflicts with this outfit.", 3)
 
 					return false
 				end
