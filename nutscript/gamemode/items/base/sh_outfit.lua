@@ -170,7 +170,7 @@ ITEM.functions.Equip = {
 		if(item.canWear) then
 			local succ, err = item:canWear(item.player)
 			if(!succ) then
-				item.player:notify(err)
+				item.player:notify(err, 3)
 				return false
 			end
 		end

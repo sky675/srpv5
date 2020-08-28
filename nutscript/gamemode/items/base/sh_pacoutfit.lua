@@ -98,7 +98,7 @@ ITEM.functions.Equip = {
 		for k, v in pairs(items) do
 			if (v.id != item.id) then
 				if (v.pacData and v.outfitCategory == item.outfitCategory and v:getData("equip")) then
-					item.player:notify("You're already equipping this kind of outfit")
+					item.player:notify("You're already equipping this kind of outfit", 3)
 
 					return false
 				end

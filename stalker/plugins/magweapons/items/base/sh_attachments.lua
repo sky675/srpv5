@@ -33,7 +33,7 @@ function ITEM:attachTo(target, ply)
 	end
 	local ats = target:getData("atts", {})
 	if(ats[item.cat] != nil) then
-		ply:notify("Category already filled!")
+		ply:notify("Category already filled!", 3)
 		return false
 	end
 	--if(!wep or !IsValid(wep)) then
@@ -58,7 +58,7 @@ function ITEM:attachTo(target, ply)
 			if(stored.AttachmentExclusions[item.attID]) then
 				for k,v in ipairs(stored.AttachmentExclusions[item.attID]) do
 					if(table.KeyFromValue(ats, v)) then
-						ply:notify("You cannot attach this onto this weapon!")
+						ply:notify("You cannot attach this onto this weapon!", 3)
 						return false
 					end
 				end
@@ -66,7 +66,7 @@ function ITEM:attachTo(target, ply)
 			if(stored.AttachmentDependencies[item.attID]) then
 				for k,v in ipairs(stored.AttachmentDependencies[item.attID]) do
 					if(table.KeyFromValue(ats, v) == nil) then
-						ply:notify("You cannot attach this onto this weapon!")
+						ply:notify("You cannot attach this onto this weapon!", 3)
 						return false
 					end
 				end
@@ -79,7 +79,7 @@ function ITEM:attachTo(target, ply)
 	end
 
 	if(!val) then
-		ply:notify("You cannot use this on this weapon!")
+		ply:notify("You cannot use this on this weapon!", 3)
 		return false
 	end
 

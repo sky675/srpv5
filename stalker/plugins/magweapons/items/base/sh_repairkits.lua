@@ -35,7 +35,7 @@ function ITEM:onCombineTo(target)
 	
 
 	if(target:getData("equip") == true) then
-		ply:notify("You must unequip the weapon to repair it.")
+		ply:notify("You must unequip the weapon to repair it.", 3)
 		return false
 	end
 	
@@ -47,33 +47,33 @@ function ITEM:onCombineTo(target)
 	end
 
 	if(target:getData("durability", 100) < ((item.minDurability or 0)*minMult)) then
-		ply:notify("This weapon's durability is lower than the min durability for this item!")
+		ply:notify("This weapon's durability is lower than the min durability for this item!", 3)
 		return false
 	end
 	if(item.traitreq) then
 		local t = nut.traits.hasTrait(ply, item.traitreq.trait)
 		if(type(item.traitreq.val) == "number") then
 			if((t or 0) < item.traitreq.val) then
-				ply:notify("You do not meet the trait requirement for this item!")
+				ply:notify("You do not meet the trait requirement for this item!", 3)
 				return false
 			end
 		else
 			if(t != item.traitreq.val) then
-				ply:notify("You do not meet the trait requirement for this item!")
+				ply:notify("You do not meet the trait requirement for this item!", 3)
 				return false
 			end
 		end
 	end
 
 	if(!item.repairType[target.type] and !item.repairType[nut.item.get(target.magType).ammoType]) then
-		ply:notify("You cannot repair this with this item!")
+		ply:notify("You cannot repair this with this item!", 3)
 		return false
 	end
 	if(item.fixBroken and !target:getData("broken")) then
-		ply:notify("This only repairs broken weapons.")
+		ply:notify("This only repairs broken weapons.", 3)
 		return false
 	elseif(!item.fixBroken and target:getData("broken")) then
-		ply:notify("This cannot repair broken weapons!")
+		ply:notify("This cannot repair broken weapons!", 3)
 		return false
 	else --should only be fixbroken = true and then whether wep is broken doesnt matter
 	end

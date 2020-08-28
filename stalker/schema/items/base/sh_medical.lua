@@ -119,7 +119,7 @@ ITEM.functions.use = { -- sorry, for name order.
 		local client = item.player
 		if (item.player:Alive()) then
 			if(item.skillval and nut.traits.hasTrait(item.player, "tech_med") < item.skillval) then
-				item.player:notify("You don't meet trait requirements for this item!")
+				item.player:notify("You don't meet trait requirements for this item!", 3)
 				return false
 			end
 			local char = client:getChar()
@@ -194,7 +194,7 @@ ITEM.functions.usef = { -- sorry, for name order.
 		local target = faketarget
 		
 		if(item.skillval and nut.traits.hasTrait(item.player, "tech_med") < item.skillval) then
-			item.player:notify("You don't meet trait requirements for this item!")
+			item.player:notify("You don't meet trait requirements for this item!", 3)
 			return false
 		end
 		local val = item.useTimeGive or (item.useTime*2) or 2
@@ -259,7 +259,7 @@ ITEM.functions.usef = { -- sorry, for name order.
 						item:remove()
 						return 
 					else
-						client:notify("You cannot revive this person.")
+						client:notify("You cannot revive this person.", 3)
 					end
 			--end
 				end

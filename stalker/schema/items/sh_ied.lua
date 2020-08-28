@@ -85,7 +85,7 @@ ITEM.functions.Reset = {
 		local d = it:getData("linked", {})
 		d[item.id] = nil
 		it:setData("linked", d)
-		item.player:notify("The explosive is no longer linked to its detonator.")
+		item.player:notify("The explosive is no longer linked to its detonator.", 2)
 
 		return false
 	end,

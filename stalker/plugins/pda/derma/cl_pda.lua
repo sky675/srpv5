@@ -403,11 +403,11 @@ function PANEL:CreateSettings()
 			function(text)
 				local str = text:gsub("%s+", "")
 				if(string.len(str) < 3 or string.len(str) > 32) then
-					nut.util.notify("The handle you input is too short/long.")
+					nut.util.notify("The handle you input is too short/long.", 3)
 					return
 				end
 				if(str == "invalid") then
-					nut.util.notify("You cannot return your name to default.")
+					nut.util.notify("You cannot return your name to default.", 3)
 					return
 				end
 				--[[if(isnumber(str) and !LocalPlayer():isCombine()) then
@@ -463,7 +463,7 @@ function PANEL:CreateSettings()
 			function(text)
 				local str = text--:gsub("%s+", "")
 				if(string.len(str) > 96) then
-					nut.util.notify("The handle you input is too long.")
+					nut.util.notify("The handle you input is too long.", 3)
 					return
 				end
 				--[[if(isnumber(str) and !LocalPlayer():isCombine()) then
@@ -519,7 +519,7 @@ function PANEL:CreateSettings()
 			function(text)
 				local str = text--:gsub("%s+", "")
 				if(string.len(str) > 12) then
-					nut.util.notify("The handle you input is too long.")
+					nut.util.notify("The handle you input is too long.", 3)
 					return
 				end
 				--[[if(isnumber(str) and !LocalPlayer():isCombine()) then

@@ -35,7 +35,7 @@ nut.command.add("pdalocal", {
 		if(item) then
 			nut.chat.send(client, "pdalocal", message, anonymous)
 		else
-			client:notify("You need a PDA to use PDA commands.")
+			client:notify("You need a PDA to use PDA commands.", 3)
 		end
 	end,
 })
@@ -73,7 +73,7 @@ nut.command.add("pdafaction", {
 		if(item) then
 			nut.chat.send(client, "pdafac", message, anonymous)
 		else
-			client:notify("You need a PDA to use PDA commands.")
+			client:notify("You need a PDA to use PDA commands.", 3)
 		end
 	end,
 })
@@ -167,7 +167,7 @@ nut.command.add("pdaparty", {
 		if(item) then
 			nut.chat.send(client, "pdaparty", message, anonymous)
 		else
-			client:notify("You need a PDA to use PDA commands.")
+			client:notify("You need a PDA to use PDA commands.", 3)
 		end
 	end,
 })
@@ -246,7 +246,7 @@ nut.command.add("pdapm", {
 			if(item and titem) then
 				nut.chat.send(client, "pdapm", message, anonymous, {client, target})
 			elseif(!item) then
-				client:notify("You need a PDA or a Mini-PDA to use PDA commands.")
+				client:notify("You need a PDA to use PDA commands.", 3)
 			else
 				nut.chat.send(client, "pdapm", message, anonymous, {client})
 			end
@@ -287,7 +287,7 @@ nut.command.add("pdatrade", {
 		if(item) then
 			nut.chat.send(client, "pdatrade", message, anonymous)
 		else
-			client:notify("You need a PDA or a Mini-PDA to use PDA commands.")
+			client:notify("You need a PDA to use PDA commands.", 3)
 		end
 	end,
 })

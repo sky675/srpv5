@@ -90,7 +90,7 @@ ITEM.functions.EquipUn = { --i hate this lol
 		if(EQTBL) then
 			local succ, res = equipTblRem(char, "art", item)
 			if(succ == false) then
-				client:notify(res)
+				client:notify(res, 3)
 				return false
 			end
 		end
@@ -116,7 +116,7 @@ ITEM.functions.Equip = {
 		if(EQTBL) then
 			local succ, res = equipTblAdd(char, "art", item)
 			if(succ == false) then
-				client:notify(res)
+				client:notify(res, 3)
 				return false
 			end
 		end

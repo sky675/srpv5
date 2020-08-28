@@ -30,12 +30,12 @@ function ITEM:onCombineTo(target)
 		local t = nut.traits.hasTrait(ply, item.traitreq.trait)
 		if(type(item.traitreq.val) == "number") then
 			if(t < item.traitreq.val) then
-				ply:notify("You do not meet the trait requirements for this item!")
+				ply:notify("You do not meet the trait requirements for this item!", 3)
 				return
 			end
 		else
 			if(t != item.traitreq.val) then
-				ply:notify("You do not meet the trait requirements for this item!")
+				ply:notify("You do not meet the trait requirements for this item!", 3)
 				return
 			end
 		end
@@ -46,7 +46,7 @@ function ITEM:onCombineTo(target)
 	ply:notify("on combine to "..lvls)
 	if(lvls) then
 		if(lvls < (item.minDurability/100)) then
-			ply:notify("The armor is too damaged for this!")
+			ply:notify("The armor is too damaged for this!", 3)
 			return
 		end
 		

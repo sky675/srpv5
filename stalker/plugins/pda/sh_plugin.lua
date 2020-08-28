@@ -263,7 +263,7 @@ nut.chat.register("pdapm", {
 		local inv = listener:getChar():getInv()
 		local block = string.find(listener:GetPDABlockList(), tostring(speaker:GetPDAID()))
         if(block) then
-            speaker:notify("It appears "..listener:GetPDAHandle().." has your PDA blocked.")
+            speaker:notify("It appears "..listener:GetPDAHandle().." has your PDA blocked.", 2)
             return false
         end
 		return listener:HasPDA()
@@ -424,7 +424,7 @@ else
 	
 		for k, v in pairs(nut.item.instances) do
 			if(v:getData("pdahandle", "") == change) then
-				ply:notify("This handle is taken!")
+				ply:notify("This handle is taken!", 3)
 				return
 			end
 		end
