@@ -164,7 +164,7 @@ function PLUGIN:DoStashRequest(client)
 		-- Send stash menu to the client.
 		netstream.Start(client, "stashMenu", stashItems)
 	end, function(error)
-		client:notifyLocalized("stashFar")
+		client:notifyLocalizedL("stashFar", 3)
 	end)
 end
 
@@ -185,7 +185,7 @@ netstream.Hook("stashIn", function(client, itemID)
 			findStash(client):next(function(stashEntity)
 				if (IsValid(stashEntity)) then
 					if (char:getStashMax() == char:getStashCount()) then
-						client:notifyLocalized("stashFull")
+						client:notifyLocalizedL("stashFull", 3)
 						return
 					end
 
@@ -199,25 +199,25 @@ netstream.Hook("stashIn", function(client, itemID)
 					}
 					local canTransfer, reason = STASH_INVENTORY_MEASURE:canAccess("transfer", context)
 					if (not canTransfer) then
-						client:notifyLocalized(reason or "stashError")
+						client:notifyLocalizedL(reason or "stashError", 3)
 
 						return
 					end
 
 					local canTransferItem, reason = hook.Run("CanItemBeTransfered", item, inventory, STASH_INVENTORY_MEASURE)
 					if (canTransferItem == false) then
-						client:notifyLocalized(reason or "stashError")
+						client:notifyLocalizedL(reason or "stashError", 3)
 					
 						return
 					end
 					
 					-- If client is trying to put bag in the stash, reject the request.
 					if (item.isBag) then
-						client:notifyLocalized("stashBag")
+						client:notifyLocalizedL("stashBag", 3)
 						return
 					end
 					if (clientStash[itemID]) then
-						client:notifyLocalized("stashError")
+						client:notifyLocalizedL("stashError", 3)
 						return
 					end
 
@@ -227,11 +227,11 @@ netstream.Hook("stashIn", function(client, itemID)
 						char:setStash(clientStash)
 						netstream.Start(client, "stashIn")
 					end, function(error)
-						client:notifyLocalized("stashError")
+						client:notifyLocalizedL("stashError", 3)
 					end)
 				end
 			end, function(error)
-				client:notifyLocalized("stashFar")
+				client:notifyLocalizedL("stashFar", 3)
 			end)
 		end
 	end
@@ -247,7 +247,7 @@ netstream.Hook("stashOut", function(client, itemID)
 			findStash(client):next(function(stashEntity)
 				if (IsValid(stashEntity)) then
 					if (char:getStashMax() == char:getStashCount()) then
-						client:notifyLocalized("stashFull")
+						client:notifyLocalizedL("stashFull", 3)
 						return
 					end
 
@@ -255,10 +255,10 @@ netstream.Hook("stashOut", function(client, itemID)
 
 					-- If client is trying to put bag in the stash, reject the request.
 					if (item.isBag) then
-						client:notifyLocalized("stashBag")
+						client:notifyLocalizedL("stashBag", 3)
 						return
 					elseif (not clientStash[itemID]) then
-						client:notifyLocalized("stashError")
+						client:notifyLocalizedL("stashError", 3)
 						return
 					end
 						
@@ -268,11 +268,11 @@ netstream.Hook("stashOut", function(client, itemID)
 						char:setStash(clientStash)
 						netstream.Start(client, "stashOut")
 					end, function(error)
-						client:notifyLocalized("stashError")
+						client:notifyLocalizedL("stashError", 3)
 					end)
 				end
 			end, function(error)
-				client:notifyLocalized("stashFar")
+				client:notifyLocalizedL("stashFar", 3)
 			end)
 		end
 	end

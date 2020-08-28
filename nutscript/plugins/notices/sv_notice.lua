@@ -13,7 +13,7 @@ function nut.util.notify(message, recipient, level)
 end
 
 -- Sends a translated notification.
-function nut.util.notifyLocalizedL(message, recipient, level, ...)
+function nut.util.notifyLocalizedL(message, level, recipient, ...)
 	local args = {...}
 
 	-- Allow 2nd argument to just be part of the varargs.
@@ -50,6 +50,6 @@ do
 
 	-- Utility function to notify a localized message to a player.
 	function playerMeta:notifyLocalizedL(message, level, ...)
-		nut.util.notifyLocalizedL(message, self, level, ...)
+		nut.util.notifyLocalizedL(message, level, self, ...)
 	end
 end

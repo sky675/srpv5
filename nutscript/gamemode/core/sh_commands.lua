@@ -89,7 +89,7 @@ nut.command.add("flaggive", {
 			target:getChar():giveFlags(flags)
 
 			if(client:GetInfoNum("nut_broadcast", 1) == 1) then
-			nut.util.notifyLocalized("flagGive", nil, client:Name(), target:Name(), flags)
+			nut.util.notifyLocalizedL("flagGive", 2, nil, client:Name(), target:Name(), flags)
 			end
 		end
 	end
@@ -113,7 +113,7 @@ nut.command.add("flagtake", {
 			target:getChar():takeFlags(flags)
 
 			if(client:GetInfoNum("nut_broadcast", 1) == 1) then
-			nut.util.notifyLocalized("flagTake", nil, client:Name(), flags, target:Name())
+			nut.util.notifyLocalizedL("flagTake", 2, nil, client:Name(), flags, target:Name())
 			end
 		end
 	end
@@ -255,7 +255,7 @@ nut.command.add("chargiveitem", {
 				end)
 				:catch(function(err)
 					if (IsValid(client)) then
-						client:notifyLocalized(err)
+						client:notifyLocalizedL(err, 3)
 					end
 				end)
 		end
@@ -273,7 +273,7 @@ nut.command.add("charkick", {
 			if (char) then
 				if(client:GetInfoNum("nut_broadcast", 1) == 1) then
 				for k, v in ipairs(player.GetAll()) do
-					v:notifyLocalized("charKick", client:Name(), target:Name())
+					v:notifyLocalizedL("charKick", 3, client:Name(), target:Name())
 				end
 				end
 
@@ -294,7 +294,7 @@ nut.command.add("charban", {
 
 			if (char) then
 				if(client:GetInfoNum("nut_broadcast", 1) == 1) then
-				nut.util.notifyLocalized("charBan", client:Name(), target:Name())
+				nut.util.notifyLocalizedL("charBan", 3, client:Name(), target:Name())
 				end
 				char:ban()
 			end

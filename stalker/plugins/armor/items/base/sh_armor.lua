@@ -859,7 +859,7 @@ function ITEM:onCombine(other)
 	res:next(function(res)
 		if (not IsValid(client)) then return end
 		if (istable(res) and type(res.error) == "string") then
-			return client:notifyLocalized(res.error)
+			return client:notifyLocalizedL(res.error, 3)
 		end
 		client:EmitSound(
 			"physics/cardboard/cardboard_box_impact_soft2.wav",

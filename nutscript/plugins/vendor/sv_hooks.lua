@@ -84,7 +84,7 @@ function PLUGIN:VendorTradeAttempt(
 	)
 	if (canAccess == false) then
 		if (isstring(reason)) then
-			client:notifyLocalized(reason)
+			client:notifyLocalizedL(reason, 3)
 		end
 		return
 	end
@@ -113,14 +113,14 @@ function PLUGIN:VendorTradeAttempt(
 			}
 			local canTransfer, reason = VENDOR_INVENTORY_MEASURE:canAccess("transfer", context)
 			if (not canTransfer) then
-				client:notifyLocalized(reason or "vendorError")
+				client:notifyLocalizedL(reason or "vendorError", 3)
 
 				return
 			end
 
 			local canTransferItem, reason = hook.Run("CanItemBeTransfered", item, inventory, VENDOR_INVENTORY_MEASURE)
 			if (canTransferItem == false) then
-				client:notifyLocalized(reason or "vendorError")
+				client:notifyLocalizedL(reason or "vendorError", 3)
 			
 				return
 			end
@@ -152,13 +152,13 @@ function PLUGIN:VendorTradeAttempt(
 			end)
 			:catch(function(err)
 				if (IsValid(client)) then
-					client:notifyLocalized("itemOnGround")
+					client:notifyLocalizedL("itemOnGround", 3)
 				end
 				client.vendorTransaction = nil
 				return nut.item.spawn(itemType, position)
 			end)
 			:catch(function(err)
-				client:notifyLocalized(err)
+				client:notifyLocalizedL(err, 3)
 				client.vendorTransaction = nil
 			end)
 

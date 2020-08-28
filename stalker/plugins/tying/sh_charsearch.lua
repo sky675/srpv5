@@ -71,7 +71,7 @@ if (SERVER) then
 
 	function PLUGIN:searchPlayer(client, target)
 		if (IsValid(target:getNetVar("searcher")) or IsValid(client.nutSearchTarget)) then
-			client:notifyLocalized("This person is already being searched.")
+			client:notifyLocalizedL("This person is already being searched.", 2)
 			return false
 		end
 

@@ -29,7 +29,7 @@ function nut.chat.register(chatType, data)
 	if (!data.onCanSay) then
 		data.onCanSay = function(speaker, text)
 			if (!data.deadCanChat and !speaker:Alive()) then
-				speaker:notifyLocalized("noPerm")
+				speaker:notifyLocalizedL("noPerm", 3)
 
 				return false
 			end
@@ -292,7 +292,7 @@ do
 		nut.chat.register("ooc", {
 			onCanSay =  function(speaker, text)
 			if (!nut.config.get("allowGlobalOOC")) then
-				speaker:notifyLocalized("Global OOC is disabled on this server.")
+				speaker:notifyLocalizedL("Global OOC is disabled on this server.", 3)
 				return false		
 			else
 				local delay = nut.config.get("oocDelay", 10)
@@ -304,12 +304,12 @@ do
 					-- Use this method of checking time in case the oocDelay config changes.
 					if (lastOOC <= delay and !speaker:IsAdmin() and !speaker:IsUserGroup("operator")) then
 						if(lastOOC <= 5 and speaker:IsUserGroup("operator")) then
-							speaker:notifyLocalized("oocDelay", 5 - math.ceil(lastOOC))
+							speaker:notifyLocalizedL("oocDelay", 3, 5 - math.ceil(lastOOC))
 
 							return false
 						end
 						
-						speaker:notifyLocalized("oocDelay", delay - math.ceil(lastOOC))
+						speaker:notifyLocalizedL("oocDelay", 3, delay - math.ceil(lastOOC))
 
 						return false
 					end
@@ -360,7 +360,7 @@ do
 
 					-- Use this method of checking time in case the oocDelay config changes.
 					if (lastLOOC <= delay) then
-						speaker:notifyLocalized("loocDelay", delay - math.ceil(lastLOOC))
+						speaker:notifyLocalizedL("loocDelay", 3, delay - math.ceil(lastLOOC))
 
 						return false
 					end

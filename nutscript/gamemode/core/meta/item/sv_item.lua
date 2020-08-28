@@ -232,7 +232,7 @@ function ITEM:interact(action, client, entity, data)
 		hook.Run("CanPlayerInteractItem", client, action, self, data)
 	if (canInteract == false) then
 		if (reason) then 
-			client:notifyLocalized(reason)
+			client:notifyLocalizedL(reason, 3)
 		end
 
 		return false

@@ -150,7 +150,7 @@ else
 				(ent or client):EmitSound("buttons/combine_button1.wav", 50, 170)
 				item:setData("freq", freq, player.GetAll(), false, true)
 			else
-				client:notifyLocalized("radioNoRadio")
+				client:notifyLocalizedL("radioNoRadio", 3)
 			end
 		end
 	end)
@@ -321,7 +321,7 @@ nut.chat.register("radio", {
 				speaker:EmitSound("npc/metropolice/vo/on"..math.random(1, 2)..".wav", math.random(40, 60), math.random(80, 120))
 		--	end
 		else
-			speaker:notifyLocalized("radioNoRadioComm")
+			speaker:notifyLocalizedL("radioNoRadioComm", 3)
 			return false
 		end
 	end,
@@ -447,7 +447,7 @@ nut.chat.register("radiow", {
 				speaker:EmitSound("npc/metropolice/vo/on"..math.random(1, 2)..".wav", math.random(10, 30), math.random(80, 120))
 			--end
 		else
-			speaker:notifyLocalized("radioNoRadioComm")
+			speaker:notifyLocalizedL("radioNoRadioComm", 3)
 			return false
 		end
 	end,

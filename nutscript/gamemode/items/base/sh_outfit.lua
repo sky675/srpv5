@@ -183,7 +183,7 @@ ITEM.functions.Equip = {
 				--item.outfitCategory == other.outfitCategory and
 				other:getData("equip")
 			) then
-				item.player:notifyLocalized("sameOutfitCategory")
+				item.player:notifyLocalizedL("sameOutfitCategory", 3)
 				return false
 			end
 		end

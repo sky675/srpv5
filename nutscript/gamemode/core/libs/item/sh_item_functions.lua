@@ -52,7 +52,7 @@ NUT_ITEM_DEFAULT_FUNCTIONS = {
 				:catch(function(err)
 					client.itemTakeTransaction = nil
 
-					client:notifyLocalized(err)
+					client:notifyLocalizedL(err, 3)
 
 					d:reject()
 				end)
