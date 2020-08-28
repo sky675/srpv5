@@ -170,7 +170,7 @@ ITEM.functions.Equip = {
 		if(item.canWear) then
 			local succ, err = item:canWear(item.player)
 			if(!succ) then
-				item.player:notify(err)
+				item.player:notify(err, 3)
 				return false
 			end
 		end
@@ -183,7 +183,7 @@ ITEM.functions.Equip = {
 				--item.outfitCategory == other.outfitCategory and
 				other:getData("equip")
 			) then
-				item.player:notifyLocalized("sameOutfitCategory")
+				item.player:notifyLocalizedL("sameOutfitCategory", 3)
 				return false
 			end
 		end

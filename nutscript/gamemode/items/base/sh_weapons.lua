@@ -123,7 +123,7 @@ ITEM.functions.Equip = {
 					client.carryWeapons[item.weaponCategory] and
 					v:getData("equip")
 			 	) then
-					client:notifyLocalized("weaponSlotFilled")
+					client:notifyLocalizedL("weaponSlotFilled", 3)
 					return false
 				end
 			end

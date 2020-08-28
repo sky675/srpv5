@@ -393,7 +393,6 @@ nut.command.add("areaadd", {
 
 		if (!client:getNetVar("areaMin")) then
 			if (!name) then
-				nut.util.Notify(nut.lang.Get("missing_arg", 1), client)
 
 				return
 			end

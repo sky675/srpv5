@@ -212,7 +212,7 @@ if(SERVER) then
 
 		if(pk) then
 			nut.log.addRaw(ply:Name().." ("..ply:steamName().."|"..ply:SteamID()..") was just pked automatically!")
-			ply:notify("You have ran out of lives.")
+			ply:notify("You have ran out of lives.", 3)
 			--ply:getChar():setData("loseitems", true)
 			ply:getChar():setData("pkdeath", true)
 		end

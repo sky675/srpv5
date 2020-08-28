@@ -28,7 +28,7 @@ else
 		if (string.len(contents) <= PLUGIN.NOTELIMIT) then
 			local note = FindNoteByID(id)
 			if (note:CanWrite(client) == false) then
-				return client:notify("You do not own this note")
+				return client:notify("You do not own this note", 3)
 			end
 
 			WRITINGDATA[id] = contents

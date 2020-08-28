@@ -235,14 +235,14 @@ ITEM.functions.Equip = {
 function ITEM:Equip(client)
 	local char = client:getChar()
 	if (client:HasWeapon(self.class)) then
-		client:notify("Same type of weapon equipped")
+		client:notify("Same type of weapon equipped", 3)
 		return false 
 	end
 
 	if(EQTBL) then
 		local succ, res = equipTblAdd(char, "weapon", self)
 		if(succ == false) then
-			client:notify(res)
+			client:notify(res, 3)
 			return false
 		end
 	else--legacy i guess
@@ -331,7 +331,7 @@ function ITEM:Unequip(client, bPlaySound, bRemoveItem)
 	if(EQTBL) then
 		local succ, res = equipTblRem(client:getChar(), "weapon", self)
 		if(succ == false) then
-			client:notify(res)
+			client:notify(res, 3)
 			return false
 		end
 	end
@@ -471,7 +471,7 @@ ITEM.functions.zDetach = {
 				if(!succ) then ply:notify("couldnt expand") return false end
 			end
 			if(!ply:getChar():getInv():add(ats[sub])) then
-				ply:notify("No room!")
+				ply:notify("No room!", 3)
 				--reexpand fuck
 				if(att.expand) then
 					local succ = item:expand(att.expand.wh, att.expand.sizemod, att.expand.posmod, ply)
@@ -530,7 +530,7 @@ ITEM.functions.zChangeMag = {
 			wep = ply:GetWeapon(item.class)
 		end
 		if(!wep or !IsValid(wep)) then
-			ply:notify("You must equip the weapon.")
+			ply:notify("You must equip the weapon.", 3)
 			return false
 		end
 		local val
@@ -540,7 +540,7 @@ ITEM.functions.zChangeMag = {
 			if(wep.Attachments and wep.Attachments[4]) then
 				val = table.KeyFromValue(wep.Attachments[4].atts, sub)
 				if(!wep:CanAttach(sub)) then
-					ply:notify("Something you have attached is conflicting, or the weapon isnt equipped.")
+					ply:notify("Something you have attached is conflicting, or the weapon isnt equipped.", 3)
 					return false
 				end
 			end

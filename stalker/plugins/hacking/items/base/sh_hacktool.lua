@@ -160,7 +160,7 @@ ITEM.functions.Equip = {
 	sound = "weapons/ins2/uni/uni_weapon_draw_01.wav",
 	onRun = function(item)
 		if(item.hacklevel > (nut.traits.hasTrait(item.player, "tech_hack") or 0)) then
-			item.player:notify("You lack the skill level to use this!")
+			item.player:notify("You lack the skill level to use this!", 3)
 			return false
 		end
 

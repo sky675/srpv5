@@ -37,7 +37,7 @@ function PLUGIN:HandleItemTransferRequest(client, itemID, x, y, invID)
 	canTransfer, reason = inventory:canAccess(TRANSFER, context)
 	if (not canTransfer) then
 		if (isstring(reason)) then
-			client:notifyLocalized(reason)
+			client:notifyLocalizedL(reason, 3)
 		end
 		return
 	end
@@ -62,7 +62,7 @@ function PLUGIN:HandleItemTransferRequest(client, itemID, x, y, invID)
 			debug.Trace()
 		end
 		if (IsValid(client)) then
-			client:notifyLocalized("itemOnGround")
+			client:notifyLocalizedL("itemOnGround", 2)
 		end
 		item:spawn(failItemDropPos)
 	end

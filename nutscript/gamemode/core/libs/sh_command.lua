@@ -215,7 +215,7 @@ if (SERVER) then
 		if (IsValid(target)) then
 			return target
 		else
-			client:notifyLocalized("plyNoExist")
+			client:notifyLocalizedL("plyNoExist", 3)
 		end
 	end
 
@@ -279,7 +279,7 @@ if (SERVER) then
 				end
 			else
 				if (IsValid(client)) then
-					client:notifyLocalized("cmdNoExist")
+					client:notifyLocalizedL("cmdNoExist", 3)
 				else
 					print("Sorry, that command does not exist.")
 				end

@@ -110,7 +110,7 @@ function GM:CanPlayerDropItem(client, item)
 			
 			for id, item in pairs(items) do
 				if (not item.ignoreEquipCheck and item:getData("equip") == true) then
-					client:notifyLocalized("cantDropBagHasEquipped")
+					client:notifyLocalizedL("cantDropBagHasEquipped", 3)
 					return false
 				end	
 			end
@@ -150,7 +150,7 @@ function GM:CanPlayerTakeItem(client, item)
 			item.entity.nutSteamID == client:SteamID() and
 			item.entity.nutCharID ~= char:getID()
 		) then
-			client:notifyLocalized("playerCharBelonging")
+			client:notifyLocalizedL("playerCharBelonging", 3)
 
 			return false
 		end

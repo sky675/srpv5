@@ -72,7 +72,7 @@ ITEM.functions.Equip = {
 		local items = client:getChar():getInv():getItems()
 		for k,v in pairs(items) do
 			if((v.uniqueID == "headlamp" or v.uniqueID == "flashlight") and v:getData("equip") == true) then
-				client:notify("You already have a flashlight or headlamp equipped!")
+				client:notify("You already have a flashlight or headlamp equipped!", 3)
 				return false
 			end
 		end

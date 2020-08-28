@@ -125,7 +125,7 @@ if(SERVER) then
 	netstream.Hook("bbTurnIn", function(client, jobid)
 		--check if they meet requirements for the job, 
 		if(!PLUGIN.curJobs[jobid]) then
-			client:notify("This job no longer exists!")
+			client:notify("This job no longer exists!", 3)
 			return
 		end
 		local job = PLUGIN.curJobs[jobid]
@@ -134,7 +134,7 @@ if(SERVER) then
 			PLUGIN.jobTemps[job.type].giveReward(client, job)
 			PLUGIN.curJobs[jobid] = nil
 		else
-			client:notify("You do not meet the requirements for this job's completion!")
+			client:notify("You do not meet the requirements for this job's completion!", 3)
 			--return --eh refresh anyway?
 		end
 		--and then reload the board same way as V

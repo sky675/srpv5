@@ -41,7 +41,7 @@ nut.command.add("settypingimm", {
 			on = "enabled"
 		end
 
-		client:notify(on.." "..target:Name().."'s ability to be automatically immune from shots while typing.")
+		client:notify(on.." "..target:Name().."'s ability to be automatically immune from shots while typing.", 2)
 	end
 })
 
@@ -414,7 +414,7 @@ if(SERVER) then
 					ply:setNetVar("brth", true)
 					ply:ConCommand("-speed")
 					ply:setRagdolled(true, 60)--changed it to 60 like stunstick ig, old 120)
-					ply:notify("Excessive non-lethal damage has knocked you unconcious.")
+					ply:notify("Excessive non-lethal damage has knocked you unconcious.", 2)
 					return
 				end
 			end

@@ -1,7 +1,7 @@
 if (SERVER) then
 	netstream.Hook("bizBuy", function(client, items)
 		if (client.nextBiz and client.nextBiz > CurTime()) then
-			client:notifyLocalized("tooFast")
+			client:notifyLocalizedL("tooFast", 3)
 			return
 		end
 
@@ -109,12 +109,12 @@ if (SERVER) then
 					client:getChar():getInv():add(uniqueID, itemTable.maxQuantity, {})
 						:next(function(res)
 							if (IsValid(client) and res.error) then
-								client:notifyLocalized(res.error)
+								client:notifyLocalizedL(res.error, 3)
 							elseif (not res.error) then
 								itemTaken()
 							end
 						end, function(error)
-							client:notifyLocalized(error)
+							client:notifyLocalizedL(error, 3)
 							client.shipmentTransaction = nil
 						end)
 				end

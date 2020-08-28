@@ -91,7 +91,7 @@ hook.Add("GetFallDamage", "BreakLegs", function(ply, speed)
 			end]]
 			if(speed > 600) then --620
 				ply:getChar():setData("leghit", true, nil, player.GetAll())
-				ply:notify("It appears a leg broke from your fall.")
+				ply:notify("It appears a leg broke from your fall!", 3)
 			end
 		end
 	end

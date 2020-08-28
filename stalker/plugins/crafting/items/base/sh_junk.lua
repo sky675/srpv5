@@ -206,7 +206,7 @@ ITEM.functions.take = {
 			:catch(function(err)
 				client.itemTakeTransaction = nil
 
-				client:notifyLocalized(err)
+				client:notifyLocalizedL(err, 3)
 
 				d:reject()
 			end)

@@ -155,7 +155,7 @@ else
 			hook.Run("OnCharRecognized", client, id)
 			client:notifyLocalized("recognized")
 		else
-			client:notifyLocalized("already_recognized")
+			client:notifyLocalizedL("already_recognized", 2)
 		end
 	end)
 

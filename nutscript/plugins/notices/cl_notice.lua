@@ -5,6 +5,29 @@ net.Receive("nutNotify", function()
 	nut.util.notify(net.ReadString(), net.ReadInt(4))
 end)
 
+-- Creates a translated notification.
+function nut.util.notifyLocalizedL(message, level, ...)
+	nut.util.notify(L(message, ...), level)
+end
+
+-- Receives a notification from the server.
+net.Receive("nutNotifyLL", function()
+	local level = net.ReadInt(4)
+	local message = net.ReadString()
+	local length = net.ReadUInt(8)
+
+	if (length == 0) then
+		return nut.util.notifyLocalized(message)
+	end
+
+	local args = {}
+	for i = 1, length do
+		args[i] = net.ReadString()
+	end
+
+	nut.util.notifyLocalized(message, level, unpack(args))
+end)
+
 -- Move all notices to their proper positions.
 local function OrganizeNotices()
 	for k, v in ipairs(nut.notices) do

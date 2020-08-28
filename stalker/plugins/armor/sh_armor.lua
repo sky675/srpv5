@@ -392,7 +392,7 @@ do
 		end
 
         if((duradead or newdur == 0) and SERVER) then
-            self:notify("At least one of your armor parts broke!")
+            self:notify("At least one of your armor parts broke!", 3)
         end
     end
 end

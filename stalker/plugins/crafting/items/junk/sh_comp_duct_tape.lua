@@ -62,7 +62,7 @@ ITEM.functions.Tie = {
 			target:setNetVar("tying", true)
 			target:setAction("@beingTied", val)
 		else
-			item.player:notifyLocalized("plyNotValid")
+			item.player:notifyLocalizedL("plyNotValid", 3)
 		end
 
 		return false

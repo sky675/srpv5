@@ -345,7 +345,7 @@ function genChat(trait, chatbasename, lang, prefixtable)
 					speaker:EmitSound("npc/metropolice/vo/on"..math.random(1, 2)..".wav", math.random(40, 60), math.random(80, 120))
 				--end
 			else
-				speaker:notifyLocalized("radioNoRadioComm")
+				speaker:notifyLocalizedL("radioNoRadioComm", 3)
 				return false
 			end
 		end,
@@ -482,7 +482,7 @@ function genChat(trait, chatbasename, lang, prefixtable)
 					speaker:EmitSound("npc/metropolice/vo/on"..math.random(1, 2)..".wav", math.random(40, 60), math.random(80, 120))
 				--end
 			else
-				speaker:notifyLocalized("radioNoRadioComm")
+				speaker:notifyLocalizedL("radioNoRadioComm", 3)
 				return false
 			end
 		end,

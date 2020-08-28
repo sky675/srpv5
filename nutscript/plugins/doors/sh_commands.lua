@@ -491,7 +491,7 @@ nut.command.add("doorlock", {
 		-- Validate it is a door.
 		if (IsValid(entity) and entity:isDoor()) then
 			if(!client:IsAdmin() and !client:IsUserGroup("operator")) then
-				client:notify("You do not have access to this command.")
+				client:notify("You do not have access to this command.", 3)
 				return
 			end
 

@@ -29,7 +29,7 @@ if(SERVER) then
 						--play sound or something?
 					end
 				else
-					ply:notify("You are too far away from the crafting bench.")
+					ply:notify("You are too far away from the crafting bench.", 3)
 				end
 			end)
 		else
@@ -50,7 +50,7 @@ function PLUGIN:canCreate(ply, recipee)
 	if(recipe.flag) then
 		if(char) then
 			if(!char:hasFlags(recipe.flag)) then
-				ply:notify("You're missing the flag(s) required for this recipe!")
+				ply:notify("You're missing the flag(s) required for this recipe!", 3)
 				return false
 			end
 		end
@@ -59,7 +59,7 @@ function PLUGIN:canCreate(ply, recipee)
 	if(recipe.attribs and char) then
 		for k,v in pairs(attribs) do
 			if(char:getAttrib(k, 0) < v) then
-				ply:notify("You do not have the minimum attributes for this recipe!")
+				ply:notify("You do not have the minimum attributes for this recipe!", 3)
 				return false
 			end
 		end
@@ -69,7 +69,7 @@ function PLUGIN:canCreate(ply, recipee)
 		for k,v in pairs(traits) do
 			local res = nut.traits.hasTrait(ply, k)
 			if((type(res) == "number" and res < v) or (type(res) != "number" and res != true)) then
-				ply:notify("You do not have the minimum trait requirements for this recipe!")
+				ply:notify("You do not have the minimum trait requirements for this recipe!", 3)
 				return false
 			end
 		end
@@ -90,7 +90,7 @@ function PLUGIN:canCreate(ply, recipee)
 			end
 			for k,v in pairs(req) do
 				if(tobool(req[v.uniqueID])) then
-					ply:notify("You are missing requirements!")
+					ply:notify("You are missing requirements!", 3)
 					return false
 				end
 			end
@@ -118,11 +118,11 @@ function PLUGIN:canCreate(ply, recipee)
 			for k,v in pairs(req) do
 				if(type(v) == "number") then
 					if(v > 0) then
-						ply:notify("You are missing ingredients!")
+						ply:notify("You are missing ingredients!", 3)
 						return false
 					end
 				elseif(tobool(v)) then
-					ply:notify("You are missing ingredients!")
+					ply:notify("You are missing ingredients!", 3)
 					return false
 				end
 			end
@@ -133,7 +133,7 @@ function PLUGIN:canCreate(ply, recipee)
 			if(item) then
 				return true, item
 			else
-				ply:notify(notif or "Cannot find a valid item!")
+				ply:notify(notif or "Cannot find a valid item!", 3)
 				return false
 			end
 		end

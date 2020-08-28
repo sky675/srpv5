@@ -408,14 +408,14 @@ ITEM.functions.EquipUn = { -- sorry, for name order.
 			local ply = item.player
 			local succ, err = item:canRemove(ply)
 			if(!succ) then
-				item.player:notify(err)
+				item.player:notify(err, 3)
 				return false
 			end
 		end
 		
 		if((item:getData("artcnt") or item.artifactCnt)
 			and equipTblIsMax(item.player:getChar(), "art")) then
-			item.player:notify("Cannot unequip due to artifact containers.")
+			item.player:notify("Cannot unequip due to artifact containers.", 3)
 			return false
 		end
 
@@ -486,7 +486,7 @@ ITEM.functions.Equip = {
 			local ply = item.player
 			local succ, err = item:canWear(ply)
 			if(!succ) then
-				item.player:notify(err)
+				item.player:notify(err, 3)
 				return false
 			end
 		end
@@ -859,7 +859,7 @@ function ITEM:onCombine(other)
 	res:next(function(res)
 		if (not IsValid(client)) then return end
 		if (istable(res) and type(res.error) == "string") then
-			return client:notifyLocalized(res.error)
+			return client:notifyLocalizedL(res.error, 3)
 		end
 		client:EmitSound(
 			"physics/cardboard/cardboard_box_impact_soft2.wav",

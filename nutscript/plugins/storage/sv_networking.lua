@@ -28,7 +28,7 @@ net.Receive("nutStorageUnlock", function(_, client)
 	if (storage.password == password) then
 		storage:openInv(client)
 	else
-		client:notifyLocalized("wrongPassword")
+		client:notifyLocalizedL("wrongPassword", 3)
 		client.nutStorageEntity = nil
 	end
 end)
@@ -90,7 +90,7 @@ net.Receive("nutStorageTransfer", function(_, client)
 		:catch(function(err)
 			client.storageTransaction = nil
 			if (IsValid(client)) then
-				client:notifyLocalized(err)
+				client:notifyLocalizedL(err, 3)
 			end
 			return fromInv:add(item)
 		end)
@@ -98,7 +98,7 @@ net.Receive("nutStorageTransfer", function(_, client)
 			client.storageTransaction = nil
 			item:spawn(failItemDropPos)
 			if (IsValid(client)) then
-				client:notifyLocalized("itemOnGround")
+				client:notifyLocalizedL("itemOnGround", 3)
 			end
 		end)
 end)

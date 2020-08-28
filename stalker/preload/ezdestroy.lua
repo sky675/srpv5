@@ -15,7 +15,7 @@ local function destroyRun(item, data)
 			break
 		end
 	end
-	if(!hasbase) then ply:notify("You need to be near a workbench to deconstruct!") return false end
+	if(!hasbase) then ply:notify("You need to be near a workbench to deconstruct!", 3) return false end
 
 	local inv = ply:getChar():getInv()
 	local des = item.destroyval or {}
