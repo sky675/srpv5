@@ -107,6 +107,24 @@ nut.command.add("togglemagreload", {
 		return "toggled autoreload "..(cur and "on" or "off")
 	end
 })
+nut.command.add("randomdura", {
+	desc = "Randomize the durability of the specified item (armor or weapon), default min = 1, default max = 100",
+	syntax = "<int itemid> [int min] [int max]",
+	adminOnly = true,
+	onRun = function(client, arguments)
+		local id = arguments[1]
+		if(!isnumber(id)) then client:notify("id is not a number", 3) return end
+		local item = nut.item.instances[id]
+		if(!item or (item.base != "base_mweapons" and item.base != "base_armor")) then 
+			client:notify("no item or item isnt a weapon or armor",3) return 
+		end
+		local min = isnumber(arguments[2]) and arguments[2] or 1
+		local max = isnumber(arguments[3]) and arguments[3] or 100
+		local num = math.Clamp(math.Rand(min, max), 1, 100)
+		item:setData("durability", num)
+		return "set durability of item to "..num
+	end
+})
 
 
 if(SERVER) then
