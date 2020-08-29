@@ -93,15 +93,19 @@ function ITEM:getDesc()
 	local ups = self:getData("atts")
 	
 	if(ups) then
-		str = str.."\nAttachments:"
+		local addstr = "Attachments:"
 		for k,v in pairs(ups) do
 			if(k == 3||k == 4||k == 5) then continue end --skip the nut att
 			if(!TFA.Attachments.Atts[v]) then continue end
 			
-			str = str.." "..TFA.Attachments.Atts[v].Name..","
+			addstr = addstr.." "..TFA.Attachments.Atts[v].Name..","
 		end
-		str = str:sub(1, -2)
-		str = str.."."
+		addstr = addstr:sub(1, -2)
+		addstr = addstr.."."
+		--this is what happens when theres no valid atts, so make sure its not that
+		if(addstr != "Attachments.") then
+			str = str.."\n"..addstr
+		end
 	end
 
 	local up = false
@@ -470,7 +474,10 @@ ITEM.functions.zDetach = {
 				local succ = item:expand(att.expand.wh, att.expand.sizemodd, att.expand.posmodd, ply)
 				if(!succ) then ply:notify("couldnt expand") return false end
 			end
-			if(!ply:getChar():getInv():add(ats[sub])) then
+			local itd = ats[sub]
+			local item = item
+			timer.Simple(0, function()
+			if(!ply:getChar():getInv():add(itd)) then
 				ply:notify("No room!", 3)
 				--reexpand fuck
 				if(att.expand) then
@@ -480,6 +487,7 @@ ITEM.functions.zDetach = {
 				return false
 			else
 				--add atts weight onto item
+				item:sync(ply)
 				item:setData("maxWeight", item:getData("maxWeight", item.weight)-att.weight)
 				
 			end
@@ -488,6 +496,7 @@ ITEM.functions.zDetach = {
 	--		wep:SetTFAAttachment(sub, -1, true)
 			timer.Simple(0.06, function()
 				wep:SetTFAAttachment(sub, -1, true)
+			end)
 			end)
 		else
 			return false
@@ -499,7 +508,7 @@ ITEM.functions.zDetach = {
 		return false
 	end,
 	onCanRun = function(item, sub)
-		return (!IsValid(item.entity) and table.Count(item:getData("atts", {})) != 0)
+		return (!IsValid(item.entity) and table.Count(item:getData("atts", {})) != 0 and item:getData("equip"))
 	end
 }
 
@@ -774,25 +783,31 @@ end
 --worh: width or height, sizemod: what to modify the item by, 
 --posmod: how to modify the position (0 is right and down, check above this)
 function ITEM:expand(worh, sizemod, posmod, ply)
+	--so uh this works, except for when its not supposed to
+	--maybe the next and shit is ran on like a different frame or something?
+	--prob would need succ and fail func args, but eh its alright
 	local item = self
 	local ply = ply or item.player or item:getOwner()
 	local oldinv = nut.inventory.instances[item.invID]
 	local x,y = item:getData("x"), item:getData("y")
-	local succ = false
+	local succ = true
 	
 	if(worh == "width" or worh == "w") then
 		x = x + posmod
 		item:removeFromInventory(true):next( --so were removing it from the inv
 			function() --resolved
+				print("adding")
 				item.width = item.width + sizemod --modifying it
 				item:setData("width", item.width)
 				netstream.Start(ply, "updateitem", item.id, "width", item.width)
 				if(oldinv:doesItemFitAtPos(item, x, y)) then
 					oldinv:add(item, x, y):next( --and readding at old place
 						function()
+							print("succ??")
 							succ = true
 						end,
 						function() --rejected
+							print("failed to add")
 							--but if cant, we undo the changes and
 							item.width = item.width - sizemod
 							item:setData("width", item.width)
@@ -802,6 +817,7 @@ function ITEM:expand(worh, sizemod, posmod, ply)
 						end
 					)
 				else
+					print("no fit")
 					--same thing here as rejected
 					item.width = item.width - sizemod
 					item:setData("width", item.width)
