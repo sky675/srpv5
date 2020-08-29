@@ -129,6 +129,31 @@ nut.command.add("devutilhealth", {
 	end
 })
 
+nut.command.add("replyatk", {
+	desc = "Quick command to PM to whoever last attacked you",
+	syntax = "<string message>",
+	onRun = function(client, arguments)
+		local target = client:getChar():getVar("lastatk")
+
+		if (IsValid(target) and (client.nutNextPM or 0) < CurTime()) then
+			nut.chat.send(client, "pm", table.concat(arguments, " "), false, {client, target})
+			client.nutNextPM = CurTime() + 0.5
+		end
+	end
+})
+nut.command.add("replyvic", {
+	desc = "Quick command to PM to whoever you last attacked",
+	syntax = "<string message>",
+	onRun = function(client, arguments)
+		local target = client:getChar():getVar("lastvic")
+
+		if (IsValid(target) and (client.nutNextPM or 0) < CurTime()) then
+			nut.chat.send(client, "pm", table.concat(arguments, " "), false, {client, target})
+			client.nutNextPM = CurTime() + 0.5
+		end
+	end
+})
+
 if(SERVER) then
 	util.AddNetworkString("PlayerGetDmg")
 	--entity (target)
@@ -261,6 +286,9 @@ if(SERVER) then
 			if(dmginfo:GetInflictor().MainBullet) then
 				dmginfo:GetInflictor().MainBullet.PenetrationCount = 99
 			end
+
+			ply:getChar():setVar("lastatk", atk)
+			atk:getChar():setVar("lastvic", ply)
 
 			if(msgs) then
 				net.Start("PlayerGetDmg")
