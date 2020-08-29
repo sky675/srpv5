@@ -83,19 +83,19 @@ function ITEM:attachTo(target, ply)
 		return false
 	end
 
+	if(item.expand) then
+		local succ = target:expand(item.expand.wh, item.expand.sizemod, item.expand.posmod, ply)
+		if(!succ) then ply:notify("couldnt expand") return false end
+	end
+
 	if(wep) then    
 		--apply attachment to wep
 		wep:SetTFAAttachment(item.cat, val, true)
 	end
 
 
-	if(item.expand) then
-		local succ = target:expand(item.expand.wh, item.expand.sizemod, item.expand.posmod, ply)
-		if(!succ) then ply:notify("couldnt expand") return false end
-	end
-
 	--add atts weight onto item
-	item:setData("maxWeight", item:getData("maxWeight", item.weight)+self.weight)
+	target:setData("maxWeight", target:getData("maxWeight", target.weight)+self.weight)
 
 	--save on item
 	ats[item.cat] = item.attID
