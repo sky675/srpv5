@@ -1529,182 +1529,30 @@ PLUGIN.wepList = {
 	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
---[[
-["wep_ar2"] = {
-	name = "AR2", --tier 3 smg
-	desc = "A rifle chambered in idktemp.",
-	price = 250,--1600,--580, --623,
-	model = "models/weapons/w_irifle.mdl",
+["wep_groza"] = {
+	name = "OTs-14 Groza-4",
+	desc = "An assault rifle with an integrated suppressor chambered in 9x39mm.",
+	price = 36860,--2800,--1700, 
+	model = "models/weapons/tfa_ins2/w_groza_full.mdl",
 	width = 3,
 	height = 2,
-	weight = 2.5,
-	flag = "2",
-	type = "combine",
-	category = "Weapons - Combine",
-	class = "tfa_mmod_ar2_sky",
-	weaponCategory = "primary",
-	magType = "mag_ar2",
-	disableChamber = false,
-	biolock = true,
-	--otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
-},
-["wep_ar3"] = {
-	name = "AR3", --tier 3 smg
-	desc = "A disposable MG chambered in idktemp.",
-	price = 750,--1600,--580, --623,
-	model = "models/weapons/tfa_mmod/w_ar3.mdl",
-	width = 3,
-	height = 2,
-	weight = 2.5,
-	flag = "2",
-	type = "combine",
-	category = "Weapons - Combine",
-	class = "tfa_mmod_ar3_sky",
-	weaponCategory = "primary",
-	magType = "notactuallyanitem",
-	disableChamber = false,
-	cantBeUnloaded = true,
-	defaultAmmo = 200,
-	biolock = true,
-	--otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
-},]]
---modular guns
---[[
-["wep_akx"] = {
-	name = "AKX temp name", --tier 3 rifle
-	desc = RarityText(RARITY_UNCOMMON).."An assault rifle chambered in 5.45x39mm.",
-	price = 3150,--2800,--1500,--950, --722,
-	model = "models/sky/weapons/w_akx.mdl",
-	width = 4,
-	height = 2,
-	weight = 6.83,
-	flag = "2",
-	type = "n",
+	weight = 2.9,
+	flag = "3",
+	type = "ws", --todo what repairs this in stalker??
 	category = "Weapons - Rifles",
-	class = "tfa_ins2_akx_sky",
+	class = "tfa_ins2_groza_sky",
 	weaponCategory = "primary",
-	magType = "mag_akx",
+	magType = "mag_groza",
 	disableChamber = false,
-	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"},
-	convMagNames = {
-		["mod_akx_conv_drum"] = "AKX Drum Magazine",
-		["mod_akx_conv_snip"] = "AKX Sniper Magazine",
-		["mod_akx_conv_spec"] = "HKX Magazine",
-	},
-	convMagTypes = {
-		["mod_akx_conv_drum"] = "mag_akx_drum",
-		["mod_akx_conv_snip"] = "mag_akx_snip",
-		["mod_akx_conv_spec"] = "mag_hkx",
-	},
-	--defaultMods = {},
-	iconCam = {	
-		pos = Vector(-1.158297419548, -41.316745758057, -1.478454709053),
-		ang = Angle(0, 90, 0),
+	iconCam = {
+		pos = Vector(0.36859413981438, 37.972389221191, 0.30000001192093),
+		ang = Angle(0, 270, 0),
 		entAng = Angle(0, 0, 0),
-		fov = 45,
-		outline = true,
-		outlineColor = RARITY_COLORS[RARITY_UNCOMMON],
-	},
+		fov = 45,	
+	},	
+	defaultMods = {[8] = "ins2_fg_grip"}, 
+	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
-["wep_hkx"] = {
-	name = "HKX temp name", --tier 3 rifle
-	desc = RarityText(RARITY_UNCOMMON).."An assault rifle chambered in 5.56x45mm.",
-	price = 3150,--2800,--1500,--950, --722,
-	model = "models/sky/weapons/w_hkx.mdl",
-	width = 4,
-	height = 2,
-	weight = 6.83,
-	flag = "2",
-	type = "n",
-	category = "Weapons - Rifles",
-	class = "tfa_ins2_hkx_sky",
-	weaponCategory = "primary",
-	magType = "mag_hkx",
-	disableChamber = false,
-	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"},
-	convMagNames = {
-		["mod_hkx_conv_drum"] = "HKX Drum Magazine",
-		["mod_hkx_conv_snip"] = "HKX Sniper Magazine",
-	},
-	convMagTypes = {
-		["mod_hkx_conv_drum"] = "mag_hkx_drum",
-		["mod_hkx_conv_snip"] = "mag_hkx_snip",
-	},
-	--defaultMods = {},
-	iconCam = {	
-		pos = Vector(-1.158297419548, -41.316745758057, -1.478454709053),
-		ang = Angle(0, 90, 0),
-		entAng = Angle(0, 0, 0),
-		fov = 49.265,
-		outline = true,
-		outlineColor = RARITY_COLORS[RARITY_UNCOMMON],
-	},
-},
-["wep_macx"] = {
-	name = "MACX temp name", --tier 3 rifle
-	desc = RarityText(RARITY_UNCOMMON).."A submachine gun chambered in 9x19mm.",
-	price = 3150,--2800,--1500,--950, --722,
-	model = "models/sky/weapons/w_mac.mdl",
-	width = 2,
-	height = 2,
-	weight = 6.83,
-	flag = "1",
-	type = "pistol",
-	category = "Weapons - SMGs",
-	class = "tfa_ins2_macx_sky",
-	weaponCategory = "primary",
-	magType = "mag_mac",
-	disableChamber = false,
-	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"},
-	convMagNames = {
-		["mod_mac_conv_hbm"] = "MAC .45 Magazine",
-	},
-	convMagTypes = {
-		["mod_mac_conv_hbm"] = "mag_mac45",
-	},
-	--defaultMods = {},
-	iconCam = {	
-		pos = Vector(-5.1855640411377, -20.303838729858, -3.2192025184631),
-		ang = Angle(0, 90, 0),
-		entAng = Angle(0, 0, 0),
-		fov = 45,
-		outline = true,
-		outlineColor = RARITY_COLORS[RARITY_UNCOMMON],
-	},
-},
-["wep_pistolx"] = {
-	name = "HS2100 TEMP", --tier 3 rifle
-	desc = RarityText(RARITY_COMMON).."A pistol chambered in 9x19mm.",
-	price = 3150,--2800,--1500,--950, --722,
-	model = "models/sky/weapons/w_pistol.mdl",
-	width = 1,
-	height = 1,
-	weight = 6.83,
-	flag = "1",
-	type = "pistol",
-	category = "Weapons - Pistols",
-	class = "tfa_ins2_pistolx_sky",
-	weaponCategory = "primary",
-	magType = "mag_pistolx",
-	disableChamber = false,
-	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"},
-	convMagNames = {
-		["mod_pis_conv_bm"] = "HS2100 Extended Magazine",
-	},
-	convMagTypes = {
-		["mod_pis_conv_bm"] = "mag_pistolx_ext",
-	},
-	--defaultMods = {},
-	iconCam = {	
-		pos = Vector(-0.33122479915619, -12.628011703491, -2.6955764293671),
-		ang = Angle(0, 90, 0),
-		entAng = Angle(0, 0, 0),
-		fov = 45,
-		outline = true,
-		outlineColor = RARITY_COLORS[RARITY_COMMON],
-	},
-},
-]]
 }
 
 --list of mags
@@ -3694,270 +3542,27 @@ PLUGIN.magList = {
 	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
---[[
-["mag_ar2"] = {
-	name = "AR2 Mag",
+["mag_groza"] = {
+	name = "Groza Magazine",
 	desc = "",
-	price = 5,--12,
-	model = "models/weapons/tfa_mmod/w_irifle_magazine.mdl",
-	width = 1,
-	height = 1,
-	weight = 1.33,
-	baseWeight = 0.75,
-	flag = "1",
-	ammoBox = false,
-	ammoType = "ar2",
-	ammoMax = 30,
-	dontfill = true, --this is actually the other way around woops
-},
-["ammo_ar2"] = {
-	name = "Dark Energy Cartridges",
-	desc = "",
-	price = 25,--12,
-	model = "models/Items/BoxMRounds.mdl",
-	width = 1,
-	height = 1,
-	weight = 1.33,
-	baseWeight = 0.75,
-	flag = "1",
-	ammoBox = true,
-	ammoType = "ar2",
-	ammoMax = 150,
-},
-]]
---modular weps mags
---[[
-["mag_akx"] = {
-	name = "AKX Magazine",
-	desc = RarityText(RARITY_UNCOMMON).."",
-	price = 12,--12,
-	model = "models/sky/mags/akx_mag.mdl",
-	width = 1,
-	height = 1,
-	weight = 1.33,
-	baseWeight = 0.75,
-	flag = "2",
-	ammoBox = false,
-	ammoType = "sky545",
-	ammoMax = 30,
-	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"},
-	iconCam = {	
-		pos = Vector(-10.647581100464, -0.30974146723747, -3.5594799518585),
-		ang = Angle(0, 0, 0),
-		entAng = Angle(0, -90, 0),
-		fov = 45,
-		outline = true,
-		outlineColor = RARITY_COLORS[RARITY_UNCOMMON],
-	}
-},
-["mag_akx_drum"] = {
-	name = "AKX Drum Magazine",
-	desc = RarityText(RARITY_RARE).."",
-	price = 12,--12,
-	model = "models/sky/mags/akx_mag_drum.mdl",
+	price = 1000,--12,
+	model = "models/items/ammo/vss.mdl",
 	width = 1,
 	height = 2,
-	weight = 1.33,
-	baseWeight = 0.75,
-	flag = "2",
+	weight = 0.79,
+	baseWeight = 0.3,
+	flag = "3",
 	ammoBox = false,
-	ammoType = "sky545",
-	ammoMax = 60,
-	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"},
-	iconCam = {		
-		pos = Vector(-10.647581100464, -0.30974146723747, -3.5594799518585),
-		ang = Angle(0, 0, 0),
-		entAng = Angle(0, -90, 0),
-		fov = 29.484707082675,
-		outline = true,
-		outlineColor = RARITY_COLORS[RARITY_RARE],
-	}
-},
-["mag_akx_snip"] = {
-	name = "AKX Sniper Magazine",
-	desc = RarityText(RARITY_RARE).."",
-	price = 12,--12,
-	model = "models/sky/mags/akx_mag_snip.mdl",
-	width = 1,
-	height = 1,
-	weight = 1.33,
-	baseWeight = 0.75,
-	flag = "2",
-	ammoBox = false,
-	ammoType = "sky762x39",
+	ammoType = "sky9x39",
 	ammoMax = 20,
-	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"},
-	iconCam = {	
-		pos = Vector(-10.647581100464, -0.30974146723747, -3.5594799518585),
-		ang = Angle(0, 0, 0),
-		entAng = Angle(0, -90, 0),
-		fov = 45,
-		outline = true,
-		outlineColor = RARITY_COLORS[RARITY_RARE],
-	}
+	iconCam = {
+		pos = Vector(161.03611755371, 134.70069885254, 95.284805297852),
+		ang = Angle(25, 220, 0),
+		entAng = Angle(9.7365684509277, -52.27819442749, -90),
+		fov = 1.0425837890886,
+	},	
+	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
 },
-["mag_hkx"] = {
-	name = "HKX Magazine",
-	desc = RarityText(RARITY_UNCOMMON).."",
-	price = 12,--12,
-	model = "models/sky/mags/hkx_mag.mdl",
-	width = 1,
-	height = 1,
-	weight = 1.33,
-	baseWeight = 0.75,
-	flag = "2",
-	ammoBox = false,
-	ammoType = "sky556",
-	ammoMax = 30,
-	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"},
-	iconCam = {	
-		pos = Vector(-10.647581100464, -0.30974146723747, -3.5594799518585),
-		ang = Angle(0, 0, 0),
-		entAng = Angle(0, -90, 0),
-		fov = 45,
-		outline = true,
-		outlineColor = RARITY_COLORS[RARITY_UNCOMMON],
-	}
-},
-["mag_hkx_drum"] = {
-	name = "HKX Drum Magazine",
-	desc = RarityText(RARITY_RARE).."",
-	price = 12,--12,
-	model = "models/sky/mags/hkx_mag_drum.mdl",
-	width = 1,
-	height = 2,
-	weight = 1.33,
-	baseWeight = 0.75,
-	flag = "2",
-	ammoBox = false,
-	ammoType = "sky556",
-	ammoMax = 60,
-	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"},
-	iconCam = {	
-		pos = Vector(-9.3552532196045, 1.1615278720856, -3.6548936367035),
-		ang = Angle(0, 0, 0),
-		entAng = Angle(0, -90, 0),
-		fov = 29.424621192776,
-		outline = true,
-		outlineColor = RARITY_COLORS[RARITY_RARE],
-	}
-},
-["mag_hkx_snip"] = {
-	name = "HKX Sniper Magazine",
-	desc = RarityText(RARITY_RARE).."",
-	price = 12,--12,
-	model = "models/sky/mags/hkx_mag_snip.mdl",
-	width = 1,
-	height = 1,
-	weight = 1.33,
-	baseWeight = 0.75,
-	flag = "2",
-	ammoBox = false,
-	ammoType = "sky762x51",
-	ammoMax = 20,
-	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"},
-	iconCam = {	
-		pos = Vector(-9.3552532196045, 1.4111469984055, -3.8958749771118),
-		ang = Angle(0, 0, 0),
-		entAng = Angle(0, -90, 0),
-		fov = 36.560920967613,
-		outline = true,
-		outlineColor = RARITY_COLORS[RARITY_RARE],
-	}
-},
-["mag_mac"] = {
-	name = "MACX 9x19mm Magazine",
-	desc = RarityText(RARITY_UNCOMMON).."",
-	price = 12,--12,
-	model = "models/sky/mags/mac_mag.mdl",
-	width = 1,
-	height = 1,
-	weight = 1.33,
-	baseWeight = 0.75,
-	flag = "2",
-	ammoBox = false,
-	ammoType = "sky9x19",
-	ammoMax = 32,
-	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"},
-	iconCam = {	
-		pos = Vector(-12.376843452454, 6.3321108818054, -3.8958749771118),
-		ang = Angle(0, 0, 0),
-		entAng = Angle(0, -90, 0),
-		fov = 36.560920967613,
-		outline = true,
-		outlineColor = RARITY_COLORS[RARITY_UNCOMMON],
-	}
-},
-["mag_mac45"] = {
-	name = "MACX .45 ACP Magazine",
-	desc = RarityText(RARITY_RARE).."",
-	price = 12,--12,
-	model = "models/sky/mags/mac_mag.mdl",
-	width = 1,
-	height = 1,
-	weight = 1.33,
-	baseWeight = 0.75,
-	flag = "2",
-	ammoBox = false,
-	ammoType = "sky45acp",
-	ammoMax = 25,
-	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"},
-	iconCam = {	
-		pos = Vector(-12.376843452454, 6.3321108818054, -3.8958749771118),
-		ang = Angle(0, 0, 0),
-		entAng = Angle(0, -90, 0),
-		fov = 36.560920967613,
-		outline = true,
-		outlineColor = RARITY_COLORS[RARITY_RARE],
-	}
-},
-["mag_pistolx"] = {
-	name = "HS2100 Magazine",
-	desc = RarityText(RARITY_COMMON).."",
-	price = 12,--12,
-	model = "models/sky/mags/pistol_mag.mdl",
-	width = 1,
-	height = 1,
-	weight = 1.33,
-	baseWeight = 0.75,
-	flag = "1",
-	ammoBox = false,
-	ammoType = "sky9x19",
-	ammoMax = 16,
-	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"},
-	iconCam = {	
-		pos = Vector(-11.314499855042, 2.565750837326, -3.1306736469269),
-		ang = Angle(0, 0, 0),
-		entAng = Angle(0, -90, 0),
-		fov = 36.817431980752,
-		outline = true,
-		outlineColor = RARITY_COLORS[RARITY_COMMON],
-	}
-},
-["mag_pistolx_ext"] = {
-	name = "HS2100 Extended Magazine",
-	desc = RarityText(RARITY_UNCOMMON).."",
-	price = 12,--12,
-	model = "models/sky/mags/pistol_mag_ext.mdl",
-	width = 1,
-	height = 1,
-	weight = 1.33,
-	baseWeight = 0.75,
-	flag = "1",
-	ammoBox = false,
-	ammoType = "sky9x19",
-	ammoMax = 16,
-	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"},
-	iconCam = {	
-		pos = Vector(-13.686552047729, 2.565750837326, -4.5243635177612),
-		ang = Angle(0, 0, 0),
-		entAng = Angle(0, -90, 0),
-		fov = 42.125263040685,
-		outline = true,
-		outlineColor = RARITY_COLORS[RARITY_UNCOMMON],
-	}
-},
-]]
 --[[
 ["mag_wa2000"] = {
 	name = "WA-2000 Magazine",
@@ -3990,18 +3595,6 @@ PLUGIN.attList = {
         attID = "attid"
 	},
 	]]
-	--[["sky_smartlink"] = {
-        name = "SmartLink Receiver",
-        desc = "Required to be attached to a weapon to use the SmartLink cyberware on it.",
-        price = 14000,
-        model = "models/Items/BoxMRounds.mdl",
-        width = 1,
-        height = 1,
-        weight = 3.3,
-		flag = "4",
-        cat = 2,
-        attID = "sky_smartlink",
-    },]]
 	["ins2_fg_gp25_sky"] = {
         name = "GP-25",
         desc = "A grenade launcher. Only compatible with certain weapons.",
@@ -4292,6 +3885,36 @@ PLUGIN.attList = {
 			fov = 2.8694050415436,
 		}		
 	},
+    ["ins2_br_supp_groza"] = {
+        name = "Groza-4 9x39mm Suppressor",
+        desc = "",
+        price = 12500,
+        model = defaultAttachmentModel,
+        width = 2,
+        height = 1,
+		weight = 0.48,
+		flag = "l",
+        cat = 1,
+        attID = "ins2_br_supp_groza",
+		expand = {
+			--width = x, add right == 1, 0; add left == 1, -1;
+			--			remove right == -1, 0; remove left == -1, 1
+			--height = y, same as above but instead of left its down, and right is up
+			wh = "w",
+			sizemod = 1,
+			posmod = 0,
+			--used for removing
+			sizemodd = -1,
+			posmodd = 0,
+		},
+		iconmodel = "models/weapons/tfa_ins2/upgrades/a_suppressor_sec.mdl",
+		iconCam = {
+			pos = Vector(152.15942382813, 121.81550598145, 90.325531005859),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(-10.693998336792, -13.359538078308, 0),
+			fov = 2.8694050415436,
+		}		
+	},
     ["ins2_br_supp_338"] = {
         name = ".338 Lapua Magnum Suppressor",
         desc = "A suppressor for .338 Lapua Magnum weapons.",
@@ -4341,55 +3964,6 @@ PLUGIN.attList = {
 			fov = 4.4362323129145,
 		}		
 	},
-	--[[
-    ["ins2_si_eotech_gits"] = {
-        name = "EOTech 2552 Sight", --1x
-        desc = "A EOTech sight. Actual model may vary depending on weapon.",
-        price = 60,
-        model = defaultAttachmentModel,
-        width = 1,
-        height = 1,
-		flag = "4",
-        weight = 0.65,
-        cat = 7,
-        attID = "ins2_si_eotech_gits",
-    },
-    ["ins2_si_kobra_gits"] = {
-        name = "EKP-13-05 Kobra Sight", --1x
-        desc = "A Kobra sight. Actual model may vary depending on weapon.",
-        price = 650,
-        model = defaultAttachmentModel,
-        width = 1,
-        height = 1,
-		flag = "4",
-        weight = 0.9,
-        cat = 7,
-        attID = "ins2_si_kobra_gits",
-    },
-    ["ins2_si_rds_gits"] = {
-        name = "Aimpoint CompM9X Sight", --1x
-        desc = "An Aimpoint sight. Actual model may vary depending on weapon.",
-        price = 750,
-        model = defaultAttachmentModel,
-        width = 1,
-        height = 1,
-		flag = "4",
-        weight = 0.65,
-        cat = 7,
-        attID = "ins2_si_rds_gits",
-    },
-    ["ins2_si_2xrds_gits"] = {
-        name = "Aimpoint CompM9X 2X Sight", --2x
-        desc = "An Aimpoint sight with magnifier. May also be an ACOG depending on weapon.",
-        price = 1100,
-        model = defaultAttachmentModel,
-        width = 1,
-        height = 1,
-		flag = "4",
-        weight = 1,
-        cat = 7,
-        attID = "ins2_si_2xrds_gits",
-    },]]---[[
     ["ins2_si_eotech"] = {
         name = "EOTech 552 Sight", --1x
         desc = "",
@@ -4657,45 +4231,4 @@ PLUGIN.attList = {
 			fov = 33.658822005837,
 		}		
 	},
-	--[[
-    ["ins2_si_po4x_gits"] = {
-        name = "P8x24 Scope", --4x
-        desc = "A large scope with 4x magnification. Fairly weird to be honest.",
-        price = 1400,
-        model = defaultAttachmentModel,
-        width = 1,
-        height = 1,
-		flag = "4",
-        weight = 1.5,
-        cat = 7,
-        attID = "ins2_si_po4x_gits",
-	},
-	]]
-    --[[["specialatt_biolock"] = {
-        name = "Portable Biolock", --4x
-        desc = "A portable biolock. Cannot be unattached.",
-        price = 250,
-        model = defaultAttachmentModel,
-        width = 1,
-        height = 1,
-		flag = "4",
-        weight = 1.5,
-        cat = 99,
-		attID = "biofake",
-		specialAtt = function(self, target)
-			
-			target:setData("biolock", true)
-		end
-    },--[[
-    ["tfa_ins2_si_tiggsmatch"] = {
-        name = "USP Match Compensator",
-        desc = "",
-        price = 200,
-        model = defaultAttachmentModel,
-        width = 1,
-        height = 1,
-        weight = 0.25,
-        cat = 8,
-        attID = "tfa_ins2_si_tiggsmatch",
-    },    ]]
 }

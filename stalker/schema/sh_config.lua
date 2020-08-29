@@ -428,6 +428,7 @@ SCHEMA.workshop = {
 	"246756300", --3d stream radio
 	"1987973863", --gsh
 	"1999644123", --eft
+	"1430203237", --groza
 }
 
 --individual files to add to fastdl
