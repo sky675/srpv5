@@ -20,6 +20,14 @@ local spawnPoints = {
 		add = 16127.97, --makes calculations always positive
 		done = -16127.97, --the x point to end at
 		wavemulti = 1220, --how fast it travels
+	},
+	["rp_stalker_resurgence"] = {
+		xory = "y",
+		pos = false, --if false, goes negative
+		spawn = 14335.96, --the x point to start at
+		add = 14335.96, --makes calculations always positive
+		done = -14335.96, --the x point to end at
+		wavemulti = 1220, --how fast it travels
 	}
 }
 util.PrecacheSound("blowout/blowout_siren.ogg")
@@ -199,7 +207,7 @@ PLUGIN.stages = {
 	["blowout"] = {
 		--start rumble
 		{
-			length = 30,
+			length = 20,
 			serverStart = function()
 				if(StormFox) then
 					oldWeather = StormFox.GetWeather()
@@ -210,7 +218,7 @@ PLUGIN.stages = {
 			onStart = function()
 
 				EmitSound(bbegins[math.random(#bbegins)], Vector(0,0,0), -2)
-				timer.Simple(25, function()
+				timer.Simple(15, function()
 					EmitSound("blowout/blowout_siren.ogg", Vector(0,0,0), -2)
 				end)
 				local cc = {
@@ -260,11 +268,18 @@ PLUGIN.stages = {
 				end )
 				local ticks = 0
 				local max = 100
-				timer.Create("fading", 0.25, 400,function()
-					ticks = ticks + 0.25
+				local tbl = ents.FindByName("blowoutdome") or {}
+				local bld = tbl[1]
+				local al = 0
+				timer.Create("fading", 0.25, 300,function()
+					ticks = ticks + 1
 					for k,v in pairs(tab) do
 						--maybe this willf ucking work
 						tab[k] = Lerp(ticks/max, cc[k], cctarg[k])
+					end
+					if(IsValid(bld)) then
+						al = Lerp(ticks/max, 0, 255)
+						bld:SetColor(Color(255,255,255,al))
 					end
 				end)
 				
@@ -275,7 +290,7 @@ PLUGIN.stages = {
 			end
 		},
 		{
-			length = {min = 20,max = 30},
+			length = {min = 15,max = 20},
 			serverStart = function()
 				timer.Simple(math.random(1,3), function()  end)
 			end,
@@ -285,7 +300,7 @@ PLUGIN.stages = {
 			end
 		},
 		{
-			length = 30,
+			length = 20,
 			onStart = function()
 				timer.Simple(3, function()	
 					if(BLOWOUT_RUMBLE and BLOWOUT_RUMBLE:IsPlaying()) then BLOWOUT_RUMBLE:Stop() end
@@ -301,9 +316,9 @@ PLUGIN.stages = {
 			end
 		},
 		{
-			length = 20,
+			length = 15,
 			serverStart = function()
-				timer.Simple(math.random(6,8), function() 
+				timer.Simple(math.random(3,5), function() 
 					netstream.Start(player.GetAll(), "fakepdanote", "Connection Lost...")
 					PDA_AVAILABLE = false
 				end)
@@ -317,9 +332,9 @@ PLUGIN.stages = {
 			end
 		},
 		{ --first wave start
-			length = 20,
+			length = 15,
 			onStart = function()
-				timer.Simple(8, function()
+				timer.Simple(5, function()
 					util.ScreenShake(Vector(0,0,0), 5, 6, 112, 100)
 					EmitSound(bwaves[math.random(#bwaves)], Vector(0,0,0), -2)
 					
@@ -330,7 +345,7 @@ PLUGIN.stages = {
 			end
 		},
 		{
-			length = 36,
+			length = 20,
 			serverStart = function()
 				DoWave()
 			end,
@@ -342,9 +357,9 @@ PLUGIN.stages = {
 			end
 		},
 		{ --2nd wave start
-			length = 20,
+			length = 10,
 			onStart = function()
-				timer.Simple(8, function()
+				timer.Simple(4, function()
 					EmitSound(bwaves[math.random(#bwaves)], Vector(0,0,0), -2)
 					
 				end)
@@ -354,7 +369,7 @@ PLUGIN.stages = {
 			end
 		},
 		{
-			length = 36,
+			length = 20,
 			serverStart = function()
 				DoWave()
 			end,
@@ -366,9 +381,9 @@ PLUGIN.stages = {
 			end
 		},
 		{
-			length = 20,
+			length = 10,
 			onStart = function()
-				BLOWOUT_RUMBLE:FadeOut(20)
+				BLOWOUT_RUMBLE:FadeOut(10)
 				EmitSound("blowout/blowout_hit_3.ogg", Vector(0,0,0), -2)
 				
 				local cc = {
@@ -417,11 +432,18 @@ PLUGIN.stages = {
 				end )
 				local ticks = 0
 				local max = 20
+				local tbl = ents.FindByName("blowoutdome") or {}
+				local bld = tbl[1]
+				local al = 0
 				--fading out
-				timer.Create("fading", 0.25, 100,function()
-					ticks = ticks + 0.25
+				timer.Create("fading", 0.2, 100,function()
+					ticks = ticks + 0.2
 					for k,v in pairs(tab) do
 						tab[k] = Lerp(ticks/max, cctarg[k], cc[k])
+					end
+					if(IsValid(bld)) then
+						al = Lerp(ticks/max, 0, 255)
+						bld:SetColor(Color(255,255,255,al))
 					end
 				end)
 
