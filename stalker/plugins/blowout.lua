@@ -214,6 +214,18 @@ PLUGIN.stages = {
 					StormFox.SetWeather("rain", 0.95)
 					StormFox.SetNetworkData("Thunder", true)
 				end
+				local ticks = 0
+				local max = 100
+				local tbl = ents.FindByName("blowoutdome") or {}
+				local bld = tbl[1]
+				local al = 0
+				timer.Create("fading", 0.3, 100,function()
+					ticks = ticks + 1
+					if(IsValid(bld)) then
+						al = Lerp(ticks/max, 0, 255)
+						bld:SetColor(Color(255,255,255,al))
+					end
+				end)
 			end,
 			onStart = function()
 
@@ -268,18 +280,11 @@ PLUGIN.stages = {
 				end )
 				local ticks = 0
 				local max = 100
-				local tbl = ents.FindByName("blowoutdome") or {}
-				local bld = tbl[1]
-				local al = 0
-				timer.Create("fading", 0.25, 300,function()
+				timer.Create("fading", 0.3, 100,function()
 					ticks = ticks + 1
 					for k,v in pairs(tab) do
 						--maybe this willf ucking work
 						tab[k] = Lerp(ticks/max, cc[k], cctarg[k])
-					end
-					if(IsValid(bld)) then
-						al = Lerp(ticks/max, 0, 255)
-						bld:SetColor(Color(255,255,255,al))
 					end
 				end)
 				
@@ -432,24 +437,30 @@ PLUGIN.stages = {
 				end )
 				local ticks = 0
 				local max = 20
-				local tbl = ents.FindByName("blowoutdome") or {}
-				local bld = tbl[1]
-				local al = 0
 				--fading out
 				timer.Create("fading", 0.2, 100,function()
 					ticks = ticks + 0.2
 					for k,v in pairs(tab) do
 						tab[k] = Lerp(ticks/max, cctarg[k], cc[k])
 					end
-					if(IsValid(bld)) then
-						al = Lerp(ticks/max, 0, 255)
-						bld:SetColor(Color(255,255,255,al))
-					end
 				end)
 
 					
 			end,
 			serverStart = function()
+				local ticks = 0
+				local max = 20
+				local tbl = ents.FindByName("blowoutdome") or {}
+				local bld = tbl[1]
+				local al = 0
+				--fading out
+				timer.Create("fading", 0.2, 100,function()
+					ticks = ticks + 0.2
+					if(IsValid(bld)) then
+						al = Lerp(ticks/max, 255, 0)
+						bld:SetColor(Color(255,255,255,al))
+					end
+				end)
 				
 				--start rain if can?
 				if(StormFox) then
