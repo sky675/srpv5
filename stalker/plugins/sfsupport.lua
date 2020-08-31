@@ -211,6 +211,52 @@ for k,v in pairs(StormFox.WeatherTypes) do
 	end
 end
 
+	--stalker edit: 6500 fogstart, 9900 fogend
+	if(game.GetMap() == "rp_stalker_resurgence") then
+        for k,v in pairs(StormFox.WeatherTypes) do
+			v.TimeDependentData.Fogdensity = {}
+            v.TimeDependentData.Fogdensity["TIME_SUNRISE"] = 1
+			v.TimeDependentData.Fogdensity["TIME_SUNSET"] = 1
+			
+            if(k == "clear") then
+				v.TimeDependentData.Fogend = {}
+                v.TimeDependentData.Fogend["TIME_SUNRISE"] = 9900
+                v.TimeDependentData.Fogend["TIME_SUNSET"] = 9900
+                v.TimeDependentData.Fogstart = 6500
+                --v.TimeDependentData.Fogcolor = Color(123, 146, 169)
+            end
+            if(k == "cloudy") then
+				v.TimeDependentData.Fogend = {}
+                v.TimeDependentData.Fogend["TIME_SUNRISE"] = 9900
+                v.TimeDependentData.Fogend["TIME_SUNSET"] = 9900
+                v.TimeDependentData.Fogstart = 6500
+				--v.TimeDependentData.Fogcolor = Color(71, 76, 79)
+            end
+            if(k == "foggy") then
+				v.TimeDependentData.Fogend = {}
+                v.TimeDependentData.Fogend["TIME_SUNRISE"] = 6500
+                v.TimeDependentData.Fogend["TIME_SUNSET"] = 6500
+                v.TimeDependentData.Fogstart = 4500
+                --v.TimeDependentData.Fogcolor = Color(123, 146, 169)
+            end
+            if(k == "foggyrain") then
+				v.TimeDependentData.Fogend = {}
+                v.TimeDependentData.Fogend["TIME_SUNRISE"] = 6500
+                v.TimeDependentData.Fogend["TIME_SUNSET"] = 6500
+                v.TimeDependentData.Fogstart = 4500
+                --v.TimeDependentData.Fogcolor = Color(123, 146, 169)
+            end
+            if(k == "rain") then
+				v.TimeDependentData.Fogend = {}
+                v.TimeDependentData.Fogend["TIME_SUNRISE"] = 9000
+				v.TimeDependentData.Fogend["TIME_SUNSET"] = 9000
+				v.TimeDependentData.Fogstart = {}
+                v.TimeDependentData.Fogstart["TIME_SUNRISE"] = 6500
+                v.TimeDependentData.Fogstart["TIME_SUNSET"] = 6500
+                --v.TimeDependentData.Fogcolor = Color(38, 44, 51)
+            end
+		end
+	end
 
     --4000 farz
     if(game.GetMap() == "rp_necro_evocity_v33x_final") then
