@@ -421,7 +421,12 @@ local PANEL = {}
 				self.nameTopLine:SetText(firstPart)
 				self.nameBotLine:SetText(secondPart)
 			else
-				self.nameBotLine:SetText(" " .. firstPart)
+				if (firstPart[1] != " ") then
+					self.nameBotLine:SetText(" "..firstPart)
+				else
+					self.nameBotLine:SetText(firstPart)
+				end
+				print(" "..firstPart)
 				self.nameTopLine:SetText("")
 			end
 
