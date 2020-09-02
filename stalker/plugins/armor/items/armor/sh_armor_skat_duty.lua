@@ -104,7 +104,7 @@ ITEM.canRemove = function(self, ply)
 end
 
 
-ITEM.gsresetsubmat = true --this is annoying
+--ITEM.gsresetsubmat = true --this is annoying
 --todo need a way to change forms, set rank to something at some point?
 function ITEM:getCustomGS()
 	local tbl = {
@@ -120,6 +120,12 @@ function ITEM:getCustomGS()
 
 	--moved like this, easier this way
 	tbl.submat = matreplace
+	if(self:getData("equip")) then --equip is true when its equipping, and not when its unequipping
+		self.player:getChar():setData("oldgsub", self.player:getChar():getData("gsub", {})["t"])
+	elseif(self.player:getChar():getData("oldgsub")) then
+		tbl.submat = self.player:getChar():getData("oldgsub")
+		self.player:getChar():setData("oldgsub")
+	end
 
 	--submat
 	

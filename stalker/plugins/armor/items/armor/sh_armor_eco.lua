@@ -96,7 +96,7 @@ ITEM.canRemove = function(self, ply)
 end
 
 
-ITEM.gsresetsubmat = true --this is annoying
+--ITEM.gsresetsubmat = true --this is annoying
 --todo need a way to change forms, set rank to something at some point?
 function ITEM:getCustomGS()
 	local tbl = {

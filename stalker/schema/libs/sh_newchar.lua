@@ -953,9 +953,13 @@ end)
 ]]
 --extra thing to only change bgs:  ply, t or b, tbl of bgs to change, submats
 function nut.newchar.setBodygroups(ply, ind, bgs, submats)
-	if(ind != "t" and ind != "b") then
+	if(ind != "t" and ind != "b" and ind != "seperate") then
 		print("youre using setbodygroups incorrectly! ind should be t or b, not "..ind)
 		return
+	end
+	--im lazy and dont want to change it
+	if(ind == "seperate") then
+		ind = "t"
 	end
 
 	if(!ply.bm or !ply.bm[ind] or !IsValid(ply.bm[ind])) then return end
@@ -1004,6 +1008,9 @@ function nut.newchar.setBody(ply, type, bg, custommodel, skin, custombgs, submat
 		bg = 0
 		skin = 0
 	end
+
+	print("submats ",submats)
+	if(submats) then PrintTable(submats) end
 
 	local realtype = type
 	if(type == "seperate") then
@@ -1089,37 +1096,59 @@ function nut.newchar.setBody(ply, type, bg, custommodel, skin, custombgs, submat
 		char:setData("gtop", bg, nil, player.GetAll())
 		char:setData("gtopskin", skin, nil, player.GetAll())
 
-		local sdf = char:getData("gbgs", {})
-		sdf["t"] = custombgs
-		local adf = char:getData("gsub", {})
-		adf["t"] = submats
-		char:setData("gbgs", sdf, nil, player.GetAll())
-		char:setData("gsub", adf, nil, player.GetAll())
+		if(custombgs) then
+			local sdf = char:getData("gbgs", {})
+			sdf["t"] = custombgs
+			char:setData("gbgs", sdf, nil, player.GetAll())
+		end
+		if(submats) then
+			local adf = char:getData("gsub", {})
+			adf["t"] = submats
+			char:setData("gsub", adf, nil, player.GetAll())
+		end
 	end
 	if(type == "seperate" and realbg != -1) then
 		char:setData("gbot", -1, nil, player.GetAll())
 
-		local sdf = char:getData("gbgs", {})
-		sdf["t"] = custombgs
-		local adf = char:getData("gsub", {})
-		adf["t"] = submats
-		char:setData("gbgs", sdf, nil, player.GetAll())
-		char:setData("gsub", adf, nil, player.GetAll())
+		if(custombgs) then
+			local sdf = char:getData("gbgs", {})
+			sdf["t"] = custombgs
+			char:setData("gbgs", sdf, nil, player.GetAll())
+		end
+		if(submats) then
+			local adf = char:getData("gsub", {})
+			adf["t"] = submats
+			char:setData("gsub", adf, nil, player.GetAll())
+		end
 	
 	elseif(type == "seperate") then
 		char:setData("gbot", nil, nil, player.GetAll())
 		
+		if(custombgs) then
+			local sdf = char:getData("gbgs", {})
+			sdf["t"] = custombgs
+			char:setData("gbgs", sdf, nil, player.GetAll())
+		end
+		if(submats) then
+			local adf = char:getData("gsub", {})
+			adf["t"] = submats
+			char:setData("gsub", adf, nil, player.GetAll())
+		end
 	end
 	if(type == "bot") then
 		char:setData("gbot", bg, nil, player.GetAll())
 		char:setData("gbotskin", skin, nil, player.GetAll())
 
-		local sdf = char:getData("gbgs", {})
-		sdf["b"] = custombgs
-		local adf = char:getData("gsub", {})
-		adf["b"] = submats
-		char:setData("gbgs", sdf, nil, player.GetAll())
-		char:setData("gsub", adf, nil, player.GetAll())
+		if(custombgs) then
+			local sdf = char:getData("gbgs", {})
+			sdf["b"] = custombgs
+			char:setData("gbgs", sdf, nil, player.GetAll())
+		end
+		if(submats) then
+			local adf = char:getData("gsub", {})
+			adf["b"] = submats
+			char:setData("gsub", adf, nil, player.GetAll())
+		end
 	end
 
 end

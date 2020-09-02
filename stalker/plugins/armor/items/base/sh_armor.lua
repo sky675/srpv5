@@ -252,7 +252,7 @@ function ITEM:RemoveOutfit(client)
 					nut.newchar.setBody(client, gs.type, -1, gs.model, gs.skin, gs.custombg, gs.remsubmat or gs.submat)
 				end
 			else
-				nut.newchar.setBodygroups(client, gs.type, gs.rem, gs.sub)
+				nut.newchar.setBodygroups(client, gs.type, gs.remove or gs.custombg or gs.rem, gs.remsubmat or gs.submat or gs.sub)
 			end
 		end
 
@@ -540,7 +540,7 @@ ITEM.functions.Equip = {
 				if(!bgsonly) then
 					nut.newchar.setBody(item.player, gs.type, gs.bg, gs.model, gs.skin, gs.custombg, gs.submat) --YOU DID THIS
 				else
-					nut.newchar.setBodygroups(item.player, gs.type, gs.bgs)
+					nut.newchar.setBodygroups(item.player, gs.type, gs.custombg or gs.bgs, gs.submat or gs.sub)
 				end
 			end
 		end
