@@ -69,7 +69,8 @@ function ITEM:getWeight()
 end
 
 local magVals = {
-	["sky_usp_9mm"] = 18
+	["sky_usp_9mm"] = 18,
+	["fas2tfa_sks_20rnd"] = 20
 }
 
 function ITEM:getDesc()

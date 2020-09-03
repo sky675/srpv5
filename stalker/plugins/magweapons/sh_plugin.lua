@@ -125,6 +125,37 @@ nut.command.add("randomdura", {
 		return "set durability of item to "..num
 	end
 })
+nut.command.add("randomammo", {
+	desc = "Randomize the ammo in a specified item (ammo, mag or weapon)",
+	syntax = "<int itemid>",
+	adminOnly = true,
+	onRun = function(client, arguments)
+		local id = arguments[1]
+		if(!isnumber(id)) then client:notify("id is not a number", 3) return end
+		local item = nut.item.instances[id]
+		if(!item or (item.base != "base_mweapons" and item.base != "base_magazines")) then 
+			client:notify("no item or item isnt a weapon or mag or ammo",3) return 
+		end
+		local min = 1
+		local max = 1
+		if(item.base == "base_mweapons") then
+			local wep = weapons.GetStored(item.class)
+			if(IsValid(wep) and wep.Primary) then
+				max = wep.Primary.ClipSize --thisll work i guess
+			else
+				return "invalid weapon or nonscripted"
+			end
+			local num = math.random(min, max)
+			item:setData("ammo", num)
+			return "set ammo of item to "..num
+		else--mag/ammo
+			max = item.ammoMax
+			local num = math.random(min, max)
+			item:setData("mag", num)
+			return "set ammo of item to "..num
+		end
+	end
+})
 
 
 if(SERVER) then
