@@ -112,8 +112,8 @@ nut.command.add("randomdura", {
 	syntax = "<int itemid> [int min] [int max]",
 	adminOnly = true,
 	onRun = function(client, arguments)
-		local id = arguments[1]
-		if(!isnumber(id)) then client:notify("id is not a number", 3) return end
+		local id = tonumber(arguments[1])
+		if(!id) then client:notify("id is not a number", 3) return end
 		local item = nut.item.instances[id]
 		if(!item or (item.base != "base_mweapons" and item.base != "base_armor")) then 
 			client:notify("no item or item isnt a weapon or armor",3) return 
@@ -130,8 +130,8 @@ nut.command.add("randomammo", {
 	syntax = "<int itemid>",
 	adminOnly = true,
 	onRun = function(client, arguments)
-		local id = arguments[1]
-		if(!isnumber(id)) then client:notify("id is not a number", 3) return end
+		local id = tonumber(arguments[1])
+		if(!id) then client:notify("id is not a number", 3) return end
 		local item = nut.item.instances[id]
 		if(!item or (item.base != "base_mweapons" and item.base != "base_magazines")) then 
 			client:notify("no item or item isnt a weapon or mag or ammo",3) return 
@@ -140,7 +140,7 @@ nut.command.add("randomammo", {
 		local max = 1
 		if(item.base == "base_mweapons") then
 			local wep = weapons.GetStored(item.class)
-			if(IsValid(wep) and wep.Primary) then
+			if(wep and wep.Primary) then
 				max = wep.Primary.ClipSize --thisll work i guess
 			else
 				return "invalid weapon or nonscripted"
