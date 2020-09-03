@@ -227,6 +227,34 @@ nut.command.add("doorsetfaction", {
 	end
 })
 
+nut.command.add("doorfullhide", {
+	adminOnly = true,
+	desc = "fully hide+unownable a door, works one way, made for convenience",
+	onRun = function(client, arguments)
+		-- Get the door the player is looking at.
+		local entity = client:GetEyeTrace().Entity
+
+		-- Validate it is a door.
+		if (IsValid(entity) and entity:isDoor()) then
+			entity:setNetVar("noSell", true)
+			entity:setNetVar("hidden", true)
+			
+
+
+			PLUGIN:callOnDoorChildren(entity, function(child)
+				child:setNetVar("noSell", true)
+				child:setNetVar("hidden", true)
+
+			end)
+
+			PLUGIN:SaveDoorData()
+
+			return "done"
+		end
+
+	end
+})
+
 nut.command.add("doorsetdisabled", {
 	adminOnly = true,
 	syntax = "<bool disabled>",
