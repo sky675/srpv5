@@ -234,7 +234,8 @@ ANORAKBODYGROUPS = {
 		hair = 2
 	},
 	["models/sky/heads/female_15.mdl"] = {
-		head = 1
+		head = 1,
+		hair = 1
 	},
 	["models/sky/heads/female_16.mdl"] = {
 		head = 1,
@@ -259,7 +260,7 @@ ANORAKBODYGROUPS = {
 		hair = 2
 	},
 	["models/sky/heads/female_23.mdl"] = {
-		hair = 1
+		hair = 2
 	},
 	["models/sky/heads/female_26.mdl"] = {
 		head = 2
