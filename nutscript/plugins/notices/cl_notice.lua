@@ -17,7 +17,7 @@ net.Receive("nutNotifyLL", function()
 	local length = net.ReadUInt(8)
 
 	if (length == 0) then
-		return nut.util.notifyLocalized(message)
+		return nut.util.notifyLocalizedL(message, level)
 	end
 
 	local args = {}
@@ -25,7 +25,7 @@ net.Receive("nutNotifyLL", function()
 		args[i] = net.ReadString()
 	end
 
-	nut.util.notifyLocalized(message, level, unpack(args))
+	nut.util.notifyLocalizedL(message, level, unpack(args))
 end)
 
 -- Move all notices to their proper positions.
