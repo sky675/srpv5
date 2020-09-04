@@ -106,7 +106,7 @@ nut.command.add("togglehood", {
 		local index = client.bm.t:FindBodygroupByName(anorak and "anorak" or "hood")
 		if(index > -1) then --double checking
 			if(client.bm.t:GetBodygroup(index) == 0) then --its off
-				local hood = ANORAKHOODGROUP[client:GetModel()] or 1
+				local hood = math.Clamp(ANORAKHOODGROUP[client:GetModel()] or 1, 0, client.bm.t:GetBodygroupCount(index)-1)
 				--client:SetBodygroup(index, )
 
 				nut.newchar.setBodygroups(client, "t", {[index] = hood})

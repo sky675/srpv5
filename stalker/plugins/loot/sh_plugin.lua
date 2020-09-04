@@ -557,7 +557,7 @@ PLUGIN.dropTables = {
 		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
 		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
 	},
-	["npc_wick_mutant_bloodsucker_young"] = {
+	["npc_vj_srp_m_bloodsucker"] = {
 		loot = {
 			{"hide_bloodsucker", 5},
 			{"part_bloodsucker", 5},
@@ -567,7 +567,7 @@ PLUGIN.dropTables = {
 		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
 		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
 	},
-	["npc_wick_mutant_dog"] = {
+	["npc_vj_srp_m_dog"] = {
 		loot = {
 			{"part_dog", 5},
 			{"food_meat_dog", 5},
@@ -576,7 +576,7 @@ PLUGIN.dropTables = {
 		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
 		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
 	},
-	["npc_wick_mutant_snork"] = {
+	["npc_vj_srp_m_snork"] = {
 		loot = {
 			{"part_snork_leg", 5},
 			{"part_snork_mask", 5},
