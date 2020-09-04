@@ -7,8 +7,12 @@ if(SERVER) then
 		["equipun"] = true,
 		["drop"] = true,
 	}
+	local bases = {
+		["base_armor"] = true,
+		["base_outfit"] = true,
+	}
 	hook.Add("OnPlayerInteractItem", "invupdate", function(ply, type, item, result, data)
-		if(refreshfuncs[type:lower()]) then
+		if(refreshfuncs[type:lower()] and bases[item.base]) then
 			netstream.Start(ply, "refreshModel")
 		end
 	end)
