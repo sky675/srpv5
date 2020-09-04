@@ -209,17 +209,21 @@ PLUGIN.stages = {
 		{
 			length = 20,
 			serverStart = function()
+				timer.Simple(math.random(3,5), function() 
+					netstream.Start(player.GetAll(), "fakepdanote", "Connection Lost...")
+					PDA_AVAILABLE = false
+				end)
 				if(StormFox) then
 					oldWeather = StormFox.GetWeather()
 					StormFox.SetWeather("rain", 0.95)
 					StormFox.SetNetworkData("Thunder", true)
 				end
 				local ticks = 0
-				local max = 100
+				local max = 200
 				local tbl = ents.FindByName("blowoutdome") or {}
 				local bld = tbl[1]
 				local al = 0
-				timer.Create("fading", 0.3, 100,function()
+				timer.Create("fading", 0.3, 200,function()
 					ticks = ticks + 1
 					if(IsValid(bld)) then
 						al = Lerp(ticks/max, 0, 255)
@@ -230,7 +234,7 @@ PLUGIN.stages = {
 			onStart = function()
 
 				EmitSound(bbegins[math.random(#bbegins)], Vector(0,0,0), -2)
-				timer.Simple(15, function()
+				timer.Simple(7, function()
 					EmitSound("blowout/blowout_siren.ogg", Vector(0,0,0), -2)
 				end)
 				local cc = {
@@ -260,27 +264,27 @@ PLUGIN.stages = {
 					
 				}
 				local cctarg = {
-					[ "$pp_colour_addr" ] = 0.04,
+					[ "$pp_colour_addr" ] = 0.03,
 					[ "$pp_colour_addg" ] = 0,
 					[ "$pp_colour_addb" ] = 0,
-					[ "$pp_colour_brightness" ] = -0.09,
-					[ "$pp_colour_contrast" ] = 1.19,
-					[ "$pp_colour_colour" ] = 0.56,
-					[ "$pp_colour_mulr" ] = 20.5,
-					[ "$pp_colour_mulg" ] = 0.02,
-					[ "$pp_colour_mulb" ] = 0.02
+					[ "$pp_colour_brightness" ] = -0.13,
+					[ "$pp_colour_contrast" ] = 1.12,
+					[ "$pp_colour_colour" ] = 0.46,
+					[ "$pp_colour_mulr" ] = 15.5,
+					[ "$pp_colour_mulg" ] = 0.03,
+					[ "$pp_colour_mulb" ] = 0.03
 
 				}
 				OVERRIDE_PP = true
 				hook.Add( "RenderScreenspaceEffects", "zzzzzzz", function()
 					
 					DrawColorModify( tab )
-					return true
+					--return true
 				
 				end )
 				local ticks = 0
-				local max = 100
-				timer.Create("fading", 0.3, 100,function()
+				local max = 200
+				timer.Create("fading", 0.3, 200,function()
 					ticks = ticks + 1
 					for k,v in pairs(tab) do
 						--maybe this willf ucking work
@@ -323,10 +327,6 @@ PLUGIN.stages = {
 		{
 			length = 15,
 			serverStart = function()
-				timer.Simple(math.random(3,5), function() 
-					netstream.Start(player.GetAll(), "fakepdanote", "Connection Lost...")
-					PDA_AVAILABLE = false
-				end)
 
 			end,
 			onStart = function()
@@ -386,7 +386,7 @@ PLUGIN.stages = {
 			end
 		},
 		{
-			length = 10,
+			length = 60,
 			onStart = function()
 				BLOWOUT_RUMBLE:FadeOut(10)
 				EmitSound("blowout/blowout_hit_3.ogg", Vector(0,0,0), -2)
@@ -432,13 +432,13 @@ PLUGIN.stages = {
 				hook.Add( "RenderScreenspaceEffects", "zzzzzzz", function()
 				
 					DrawColorModify( tab )
-					return true
+					--return true
 				
 				end )
 				local ticks = 0
-				local max = 20
+				local max = 60
 				--fading out
-				timer.Create("fading", 0.2, 100,function()
+				timer.Create("fading", 0.2, 300,function()
 					ticks = ticks + 0.2
 					for k,v in pairs(tab) do
 						tab[k] = Lerp(ticks/max, cctarg[k], cc[k])
@@ -449,12 +449,12 @@ PLUGIN.stages = {
 			end,
 			serverStart = function()
 				local ticks = 0
-				local max = 20
+				local max = 60
 				local tbl = ents.FindByName("blowoutdome") or {}
 				local bld = tbl[1]
 				local al = 0
 				--fading out
-				timer.Create("fading", 0.2, 100,function()
+				timer.Create("fading", 0.2, 300,function()
 					ticks = ticks + 0.2
 					if(IsValid(bld)) then
 						al = Lerp(ticks/max, 255, 0)
