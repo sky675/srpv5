@@ -513,6 +513,20 @@ nut.command.add("startblowout", {
 		PLUGIN:StartBlowout()
  	end
 })
+nut.command.add("startblowoutdelay", {
+	adminOnly = true,
+	desc = "Function to make a blowout happen in a specified number of seconds. <=0 or nothing to remove the timer",
+	syntax = "[number seconds]",
+	onRun = function(client, arguments)
+		local num = tonumber(arguments[1])
+		if(num == nil or num <= 0) then timer.Remove("blowoutstarter") return "removed timer (if it existed)" end
+		timer.Create("blowoutstarter", num, 1, function()
+			if(BLOWOUT_ACTIVE) then return end
+
+			PLUGIN:StartBlowout()
+		end)
+ 	end
+})
 nut.command.add("startpsistorm", {
 	adminOnly = true,
 	desc = "Function to start a psi-storm.",
