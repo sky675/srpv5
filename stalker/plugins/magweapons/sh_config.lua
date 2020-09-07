@@ -1471,7 +1471,7 @@ PLUGIN.wepList = {
 	class = "tfa_fas2_svd_sky",
 	weaponCategory = "primary",
 	magType = "mag_svd",
-	disableChamber = true,
+	disableChamber = false,
 	iconCam = {
 		pos = Vector(2.5, 67, -0.25),
 		ang = Angle(0, 270, 0),
@@ -1551,6 +1551,23 @@ PLUGIN.wepList = {
 	defaultMods = {[8] = "ins2_fg_grip"}, 
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
+["wep_gauss"] = {
+	name = "Gauss Rifle", --tier 3 rifle
+	desc = "A rifle chambered in gauss ammo?.",
+	price = 85860,--2800,--1700, 
+	model = "models/weapons/w_stalker_gauss.mdl",
+	width = 5,
+	height = 1,
+	weight = 12.77,
+	flag = "4",
+	type = "gauss",
+	category = "Weapons - Snipers",
+	class = "tfa_fas2_gauss_sky",
+	weaponCategory = "primary",
+	magType = "mag_gauss",
+	disableChamber = false,
+	--otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
+},
 }
 
 --list of mags
@@ -1568,7 +1585,8 @@ PLUGIN.magList = {
         ammoType = "skyammo", --the ammo type to give
         ammoMax = 15--max ammo
 	},
-	]]["ammo_338"] = {
+	]]
+["ammo_338"] = {
 	name = "Box of .338 Lapua",
 	desc = "",
 	price = 9250,--160,--90,
@@ -3560,6 +3578,36 @@ PLUGIN.magList = {
 		fov = 1.0425837890886,
 	},	
 	otherMagTypes = {["default"] = "Normal", ["hp"] = "Hollow Point", ["ap"] = "Armor Piercing"}
+},
+
+["mag_gauss"] = {
+	name = "Gauss Mag",
+	desc = "",
+	price = 14680,--12,
+	model = "models/kek1ch/ammo_gauss.mdl",
+	width = 1,
+	height = 1,
+	weight = 1,
+	baseWeight = 0.6,
+	flag = "4",
+	ammoBox = false,
+	ammoType = "ar2",
+	ammoMax = 10,
+	dontfill = true, --this is actually the other way around woops
+},
+["ammo_gauss"] = {
+	name = "Gauss Cartridges",
+	desc = "",
+	price = 284000,--thems the maths (probably cheaper actually), tbh hell prob just give himself this anyway so the price doesnt matter
+	model = "models/Items/BoxMRounds.mdl",
+	width = 2,
+	height = 1,
+	weight = 8.1,
+	baseWeight = 0.1,
+	flag = "4",
+	ammoBox = true,
+	ammoType = "ar2",
+	ammoMax = 200,
 },
 --[[
 ["mag_wa2000"] = {
