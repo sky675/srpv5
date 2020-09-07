@@ -654,8 +654,8 @@ function SWEP:Deploy()
 	local viewModel = self.Owner:GetViewModel()
 
 	if (IsValid(viewModel)) then
-		--viewModel:SetPlaybackRate(1)
-		--viewModel:ResetSequence(ACT_VM_FISTS_DRAW)
+		viewModel:SetPlaybackRate(1)
+		viewModel:ResetSequence(0)
 	end
 
 	return true
@@ -671,8 +671,8 @@ function SWEP:Holster()
 	local viewModel = self.Owner:GetViewModel()
 
 	if (IsValid(viewModel)) then
-		--viewModel:SetPlaybackRate(1)
-		--viewModel:ResetSequence(ACT_VM_FISTS_HOLSTER)
+		viewModel:SetPlaybackRate(1)
+		viewModel:ResetSequence(0)
 	end
 
 	return true
