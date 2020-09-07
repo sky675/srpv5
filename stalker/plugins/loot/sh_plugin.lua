@@ -576,6 +576,29 @@ PLUGIN.dropTables = {
 		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
 		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
 	},
+	["npc_vj_srp_m_pseudodog"] = {
+		loot = {
+			{"hide_pseudodog", 5},
+			{"food_meat_pseudodog", 5},
+			{"part_pseudofang", 5},
+			{"part_pseudotail", 5},
+			{"none", 5},
+		},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},
+	["npc_vj_srp_m_psydog"] = {
+		loot = {
+			{"hide_psydog", 5},
+			{"food_meat_pseudodog", 5},
+			{"part_pseudofang", 5},
+			{"part_pseudotail", 5},
+			{"part_controller_brain", 3},
+			{"none", 5},
+		},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},
 	["npc_vj_srp_m_snork"] = {
 		loot = {
 			{"part_snork_leg", 5},
