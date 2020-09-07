@@ -89,7 +89,6 @@ PLUGIN.wepList = {
 	},
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
---[[
 ["wep_an94"] = {
 	name = "AN-94", --tier 3 rifle
 	desc = "An assault rifle chambered in 5.45x39mm.",
@@ -97,7 +96,7 @@ PLUGIN.wepList = {
 	model = "models/weapons/tfa_ins2/w_abakan.mdl",
 	width = 4,
 	height = 2,
-	weight = 6.83,
+	weight = 3.85,
 	flag = "3",
 	type = "ws",
 	category = "Weapons - Rifles",
@@ -107,7 +106,6 @@ PLUGIN.wepList = {
 	disableChamber = false,
 	otherMagTypes = {["default"] = "Normal", ["sky_ammo_hp"] = "Hollow Point", ["sky_ammo_ap"] = "Armor Piercing"}
 },
-]]
 ["wep_aks"] = {
 	name = "AKS-74U", --tier 3 rifle
 	desc = "A compact assault rifle chambered in 5.45x39mm.",

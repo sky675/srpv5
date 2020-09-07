@@ -429,6 +429,7 @@ SCHEMA.workshop = {
 	"1987973863", --gsh
 	"1999644123", --eft
 	"1430203237", --groza
+	"1490124474", --an94
 }
 
 --individual files to add to fastdl
