@@ -655,7 +655,7 @@ function SWEP:Deploy()
 
 	if (IsValid(viewModel)) then
 		viewModel:SetPlaybackRate(1)
-		viewModel:ResetSequence(0)
+		viewModel:ResetSequence(1)
 	end
 
 	return true
@@ -672,7 +672,7 @@ function SWEP:Holster()
 
 	if (IsValid(viewModel)) then
 		viewModel:SetPlaybackRate(1)
-		viewModel:ResetSequence(0)
+		viewModel:ResetSequence(1)
 	end
 
 	return true

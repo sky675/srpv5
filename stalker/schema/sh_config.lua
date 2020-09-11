@@ -403,9 +403,6 @@ SCHEMA.workshop = {
 	"879155991", --evo
 	"647697166", --stalker mutants
 	"1536251090", --anomalies
-	"1432183135", --blind dogs
-	"1414841703", --bloodsuckers
-	"1425185230", --snorks
 	"193137261", --arts detectors
 	"131759821", --vj
 	"1639165791", --warfare
@@ -427,9 +424,12 @@ SCHEMA.workshop = {
 	"1387617320", --blitz sights
 	"246756300", --3d stream radio
 	"1987973863", --gsh
-	"1999644123", --eft
+	"1999644123", --eft megapack
 	"1430203237", --groza
 	"1490124474", --an94
+	"2178654806", --eft grenades
+	"760239128", --tnb map textures
+	"646312597", --tnb map props
 }
 
 --individual files to add to fastdl
