@@ -430,6 +430,9 @@ SCHEMA.workshop = {
 	"2178654806", --eft grenades
 	"760239128", --tnb map textures
 	"646312597", --tnb map props
+	"1334129559", --fort500
+	"1447135404", --ppsh
+	"1983932027", --tt33
 }
 
 --individual files to add to fastdl
