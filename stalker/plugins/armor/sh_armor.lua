@@ -171,6 +171,10 @@ local ammoProtect = {
 		normal = {[ARMOR_IV] = 0.4},
 		ap = {[ARMOR_IV] = 0.6},
 	},
+	["sky762x25"] = {
+		normal = {[ARMOR_IIIA] = 0.8, [ARMOR_III] = 0.6, [ARMOR_IV] = 0.4},
+		ap = {[ARMOR_III] = 0.7, [ARMOR_IV] = 0.5},
+	}
 	--23mm and 338 pens everything so not here
 }
 
