@@ -55,7 +55,7 @@ function ITEM:attachTo(target, ply)
 		local stored = weapons.GetStored(target.class)
 		if(!stored.Attachments) then return false end
 		if(stored.Attachments[item.cat]) then
-			if(stored.AttachmentExclusions[item.attID]) then
+			if(stored.AttachmentExclusions and AttachmentExclusions[item.attID]) then
 				for k,v in ipairs(stored.AttachmentExclusions[item.attID]) do
 					if(table.KeyFromValue(ats, v)) then
 						ply:notify("You cannot attach this onto this weapon!", 3)
@@ -63,7 +63,7 @@ function ITEM:attachTo(target, ply)
 					end
 				end
 			end
-			if(stored.AttachmentDependencies[item.attID]) then
+			if(stored.AttachmentDependencies and AttachmentDependencies[item.attID]) then
 				for k,v in ipairs(stored.AttachmentDependencies[item.attID]) do
 					if(table.KeyFromValue(ats, v) == nil) then
 						ply:notify("You cannot attach this onto this weapon!", 3)
