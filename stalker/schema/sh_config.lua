@@ -369,7 +369,7 @@ SCHEMA.GSCharConfig = {
 ]]
 
 --workshop ids to use resource.AddWorkshop on
-SCHEMA.workshop = {
+SCHEMA.workshop = { --59 currently (last tt)
 	"415143062", --tfa base
 	"866368346", --ins2 shared parts
 	"1559017194", --heads

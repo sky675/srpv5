@@ -68,16 +68,17 @@ else
 	local colorAlpha = ColorAlpha
 	local drawText = nut.util.drawText
 
-	local size = 150
+	local size = 100
 	local tempMat = Material("particle/warp1_warp", "alphatest")
 	function ENT:Draw()
 		local pos, ang = self:GetPos(), self:GetAngles()
 
 		self:DrawModel()
 
-		pos = pos + self:GetUp()*25
+		--this still isnt exactly centered but it works
+		pos = pos + self:GetUp()*11
 		pos = pos + self:GetForward()*1
-		pos = pos + self:GetRight()*3
+		pos = pos + self:GetRight()*2
 
 		local delTime = math.max(math.ceil(self:getNetVar("delTime", 0) - CurTime()), 0)
 
@@ -95,7 +96,7 @@ else
 		cam.End3D2D()
 
 		ang:RotateAroundAxis(ang:Right(), 180)
-		pos = pos - self:GetUp()*26
+		pos = pos - self:GetUp()*11.25
 
 		cam.Start3D2D(pos, ang, .15)
 			func()
