@@ -17,10 +17,62 @@ nut.music = nut.music or {}
 nut.music.types = {
 	--[[
 		["id"] = {
-			[M_STATE_PASSIVE] = {} --table of songs to play during passive/non-combat state
-			[M_STATE_ACTIVE] = {} --table of songs to play during active/combat state
+			[M_STATE_PASSIVE] = {}, --table of songs to play during passive/non-combat state
+			[M_STATE_ACTIVE] = {}, --table of songs to play during active/combat state
 		}
 	]]
+	["stalker"] = {
+		daynight = true,
+		onetype = true,
+		[M_STATE_PASSIVE.."day"] = {
+			"music/stalker/day_normal/heifehen_icebreaker.ogg",
+			"music/stalker/day_normal/heifehen_road_to_the_north.ogg",
+			"music/stalker/day_normal/ilya_ponomarenko_day_one.ogg",
+			"music/stalker/day_normal/music_01.ogg",
+			"music/stalker/day_normal/music_02.ogg",
+			"music/stalker/day_normal/music_03.ogg",
+			"music/stalker/day_normal/music_04.ogg",
+			"music/stalker/day_normal/music_05.ogg",
+			"music/stalker/day_normal/music_06.ogg",
+			"music/stalker/day_normal/music_07.ogg",
+			"music/stalker/day_normal/music_08.ogg",
+			"music/stalker/day_normal/music_09.ogg",
+			"music/stalker/day_normal/music_10.ogg",
+			"music/stalker/day_normal/music_11.ogg",
+			"music/stalker/day_normal/music_12.ogg",
+		},
+		--[[
+		alternate northern day music, uncomment if we move to northern maps (pripyat, etc)
+		[M_STATE_PASSIVE.."day"] = {
+			"music/stalker/day_north/heifehen_common_consciousness.ogg",
+			"music/stalker/day_north/heifehen_scorched_dreams.ogg",
+			"music/stalker/day_north/music_01.ogg",
+			"music/stalker/day_north/music_02.ogg",
+			"music/stalker/day_north/music_03.ogg",
+			"music/stalker/day_north/music_04.ogg",
+			"music/stalker/day_north/music_05.ogg",
+			"music/stalker/day_north/music_06.ogg",
+		},
+		]]
+		[M_STATE_PASSIVE.."night"] = {
+			"music/stalker/night/heifehen_generators.ogg",
+			"music/stalker/night/ilya_ponomarenko_disappeared.ogg",
+			"music/stalker/night/ilya_ponomarenko_theme_1.ogg",
+			"music/stalker/night/ilya_ponomarenko_theme_2.ogg",
+			"music/stalker/night/ilya_ponomarenko_theme_4.ogg",
+			"music/stalker/night/music_01.ogg",
+			"music/stalker/night/music_02.ogg",
+			"music/stalker/night/music_03.ogg",
+			"music/stalker/night/music_04.ogg",
+			"music/stalker/night/music_05.ogg",
+			"music/stalker/night/music_06.ogg",
+			"music/stalker/night/music_07.ogg",
+			"music/stalker/night/music_08.ogg",
+			"music/stalker/night/music_09.ogg",
+			"music/stalker/night/music_10.ogg",
+			"music/stalker/night/music_11.ogg",
+		},
+	},
 	["halflife2"] = {
 		[M_STATE_PASSIVE] = {
 			"music/hl1_song19.mp3",
@@ -76,7 +128,7 @@ if CLIENT then
 	end, nil, "On use will reset the music's status to passive, use if it gets stuck in active")
 
 	MUSIC_STATE = M_STATE_PASSIVE
-	MUSIC_TYPE = "halflife2"
+	MUSIC_TYPE = defaultMusicType
 	MUSIC_PATCH = nil
 
 	--more specified parts to get translated into passive/active just in case
@@ -87,7 +139,17 @@ if CLIENT then
 	
 	function PLUGIN:SetupQuickMenu(menu)
 		
-        local buttonItem = menu:addCheck("Toggle Dynamic Music", function(panel, state)
+		local buttonItem = menu:addCheck("Toggle Dynamic Music", function(panel, state)
+			if(musicaddonlink != "") then
+				local amblist = file.Find(defaultmusiccheck, "GAME")
+				if(MUSIC_TYPE == defaultMusicType and !amblist) then
+					Derma_Query("You do not appear to have the music pack installed! The confirm button below will take you to the workshop page for said music.",
+					"Missing Music", "Confirm", function()
+						gui.OpenURL(musicaddonlink)
+					end)
+					return
+				end
+			end
             if(state) then
                 RunConsoleCommand("nut_dynamusic", "1")
             else
@@ -165,7 +227,7 @@ if CLIENT then
 	end)
 
 	hook.Add("InitPostEntity", "dynamusic", function()
-		MUSIC_TYPE = cookie.GetString("nutmustype", "shadowrun")
+		MUSIC_TYPE = cookie.GetString("nutmustype", defaultMusicType)
 		timer.Create("dynamain", 0.5, 0, function()
 			if(!NUT_CVAR_DYNAMUSIC:GetBool() and !timer.Exists("dynaMusicFader")) then MusicFade(2) return
 			elseif(!NUT_CVAR_DYNAMUSIC:GetBool()) then return end
@@ -221,16 +283,16 @@ if CLIENT then
 
 		--see if you can check what sounds they have for nombat thing?
 		--if(file.Exists("sound/nombat*", "GAME")) then
-		local _, filelist = file.Find("sound/nombat/*", "WORKSHOP")
+		local _, filelist = file.Find("sound/nombat/*", "GAME")
 		if(filelist) then
 		for k,v in pairs(filelist) do
 			print("nombat check ", k, v)
 			nut.music.types[v] = {[M_STATE_PASSIVE] = {}, [M_STATE_ACTIVE] = {}}
-			local plist = file.Find("sound/nombat/"..v.."/a*", "WORKSHOP")
+			local plist = file.Find("sound/nombat/"..v.."/a*", "GAME")
 			for k2,v2 in ipairs(plist) do
 				table.insert(nut.music.types[v][M_STATE_PASSIVE], "sound/nombat/"..v.."/"..v2)
 			end
-			local alist = file.Find("sound/nombat/"..v.."/c*", "WORKSHOP")
+			local alist = file.Find("sound/nombat/"..v.."/c*", "GAME")
 			for k2,v2 in ipairs(alist) do
 				table.insert(nut.music.types[v][M_STATE_ACTIVE], "sound/nombat/"..v.."/"..v2)
 			end
@@ -240,7 +302,7 @@ if CLIENT then
 		end
 
 		--dynamo support
-		local amblist = file.Find("sound/ayykyu_dynmus/ambient/*", "WORKSHOP")
+		local amblist = file.Find("sound/ayykyu_dynmus/ambient/*", "GAME")
 		local ambients = {} --saving the ambients to add later
 		if(amblist) then
 		for k,v in pairs(amblist) do
@@ -249,23 +311,38 @@ if CLIENT then
 		end
 		end
 
-		_, filelist = file.Find("sound/ayykyu_dynmus/combat/*", "WORKSHOP")
+		_, filelist = file.Find("sound/ayykyu_dynmus/combat/*", "GAME")
 		if(filelist) then
 		local all = {}
 		for k,v in pairs(filelist) do
 			local com = {}
-			local dlist = file.Find("sound/ayykyu_dynmus/combat/"..v.."/*", "WORKSHOP")
+			local dlist = file.Find("sound/ayykyu_dynmus/combat/"..v.."/*", "GAME")
 			for k2, v2 in ipairs(dlist) do
 				table.insert(com, "sound/ayykyu_dynmus/combat/"..v.."/"..v2)
 				table.insert(all, "sound/ayykyu_dynmus/combat/"..v.."/"..v2)
 			end
-			nut.music.types["dynamo-"..v] = {[M_STATE_PASSIVE] = ambients, [M_STATE_ACTIVE] = com}
+			nut.music.types["dynamo-"..v] = {[M_STATE_PASSIVE] = ambients, [M_STATE_ACTIVE] = com, altplay = true}
 		end
 		if(#all != 0) then --combine them all
-			nut.music.types["dynamo-all"] = {[M_STATE_PASSIVE] = ambients, [M_STATE_ACTIVE] = com}
+			nut.music.types["dynamo-all"] = {[M_STATE_PASSIVE] = ambients, [M_STATE_ACTIVE] = com, altplay = true}
 		end
 		end
 	end)
+	
+	--this should fucking be accessible in stormfox
+	local function timeToEnumeratedValue( flTime )
+		if flTime <= StormFox.Weather.TIME_SUNRISE - 60 then
+			return "night"
+		elseif flTime < StormFox.Weather.TIME_SUNRISE then
+			return "day"
+		elseif flTime < StormFox.Weather.TIME_SUNSET then
+			return "day"
+		elseif flTime < StormFox.Weather.TIME_SUNSET + 60 then
+			return "night"
+		else
+			return "night"
+		end
+	end
 
 	function CreateMusic(typ, one) --one is one time play idk
 		--just support to play specific stuff just in case
@@ -299,8 +376,20 @@ if CLIENT then
 		else
 			if(!typ) then typ = MUSIC_STATE end
 			if(!nut.music.types[MUSIC_TYPE]) then print("your current type, "..MUSIC_TYPE.." is not valid")return end --just in case
-			if(nut.music.types[MUSIC_TYPE][typ]) then
-				local source = nut.music.types[MUSIC_TYPE][typ][math.random(#nut.music.types[MUSIC_TYPE][typ])]
+			local mustbl
+			--if this is true, there should be M_STATE_PASSIVE.."day" and etc
+			if(StormFox and nut.music.types[MUSIC_TYPE].daynight) then
+				--the base value, or passive if it doesnt exist
+				local ty = istable(nut.music.types[MUSIC_TYPE][typ]) and typ or M_STATE_PASSIVE
+				local time = StormFox.GetTime()
+				local d = timeToEnumeratedValue(time)
+				local cmb = ty..d
+				mustbl = nut.music.types[MUSIC_TYPE][cmb]
+			else
+				mustbl = nut.music.types[MUSIC_TYPE][typ] or nut.music.types[MUSIC_TYPE][M_STATE_PASSIVE] --default to passive music
+			end
+			if(mustbl) then
+				local source = mustbl[math.random(#mustbl)]
 				if(source) then
 					--just in case
 					if(MUSIC_PATCH) then
@@ -385,6 +474,8 @@ if CLIENT then
 	
 	net.Receive("SetDynaMusicStatus", function()
 		local stat = net.ReadInt(4)
+		--prevents switching types
+		if(nut.music.types[MUSIC_TYPE] and nut.music.types[MUSIC_TYPE].onetype) then return end
 		--print("1 2 switch")
 		--if(MUSIC_TOCHANGE) then print("trying to switch but no") return end
 		MUSIC_TOCHANGE = stat
