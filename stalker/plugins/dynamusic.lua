@@ -7,6 +7,11 @@ M_STATE_DEAD = -1
 M_STATE_PASSIVE = 0
 M_STATE_ACTIVE = 1
 
+local musicaddonlink = "https://steamcommunity.com/sharedfiles/filedetails/?id=2228478997"
+local defaultmusiccheck = "sound/music/stalker/*"
+
+local defaultMusicType = "stalker"
+
 nut.music = nut.music or {}
 --types to choose from
 nut.music.types = {
