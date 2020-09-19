@@ -15,6 +15,15 @@ if(SERVER) then
 		if(refreshfuncs[type:lower()] and bases[item.base]) then
 			netstream.Start(ply, "refreshModel")
 		end
+		--probably should move this to its own thing
+		if(type:lower() == "drop" or type == "dropone") then
+			ply:EmitSound("interface/inv_drop.ogg", 60)
+		end
+		--same, also not entirely sure if this is constantly played in stalker, 
+		--will need to check
+		if(type:lower() == "take") then
+			ply:EmitSound("interface/inv_item_take.ogg", 60)
+		end
 	end)
 
 else--client
