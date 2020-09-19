@@ -152,6 +152,11 @@ ITEM.functions.EquipUn = { -- sorry, for name order.
 	icon = "icon16/cross.png",
 	onRun = function(item)
 		item:removeOutfit(item.player)
+		
+		if(item.unequipSound) then
+			item.player:EmitSound(item.unequipSound, 60)
+		end
+
 		return false
 	end,
 	onCanRun = function(item)
@@ -264,6 +269,10 @@ ITEM.functions.Equip = {
 			for attribute, boost in pairs(item.attribBoosts) do
 				char:addBoost(item.uniqueID, attribute, boost)
 			end
+		end
+
+		if(item.equipSound) then
+			item.player:EmitSound(item.equipSound, 60)
 		end
 
 		item:wearOutfit(item.player, false)

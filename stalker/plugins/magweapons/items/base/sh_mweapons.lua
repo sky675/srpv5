@@ -286,7 +286,7 @@ function ITEM:Equip(client)
 		--client.carryWeapons[self.class] = weapon
 		--client:SelectWeapon(weapon:GetClass())
 		--client:SetActiveWeapon(weapon)
-		client:EmitSound("items/ammo_pickup.wav", 80)
+		client:EmitSound(self.equipSound or "items/ammo_pickup.wav", 80)
 
 		-- Remove default given ammo.
 		if (!self.cantBeUnloaded and client:GetAmmoCount(ammoType) == weapon:Clip1() and self:getData("ammo", 0) == 0) then
@@ -354,7 +354,7 @@ function ITEM:Unequip(client, bPlaySound, bRemoveItem)
 	end
 
 	if (bPlaySound) then
-		client:EmitSound("items/ammo_pickup.wav", 80)
+		client:EmitSound(self.unequipSound or "items/ammo_pickup.wav", 80)
 	end
 
 	self:setData("equip", nil)

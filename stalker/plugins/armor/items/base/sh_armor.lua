@@ -421,6 +421,10 @@ ITEM.functions.EquipUn = { -- sorry, for name order.
 
 		item:RemoveOutfit(item.player)
 		
+		if(item.unequipSound) then
+			item.player:EmitSound(item.unequipSound, 60)
+		end
+		
 		return false
 	end,
 	onCanRun = function(item)
@@ -638,6 +642,10 @@ ITEM.functions.Equip = {
 			char:setData("exart", item:getData("artcnt"))
 		elseif(item.artifactCnt) then
 			char:setData("exart", item.artifactCnt)
+		end
+		
+		if(item.equipSound) then
+			item.player:EmitSound(item.equipSound, 60)
 		end
 		
 		return false

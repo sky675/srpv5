@@ -101,6 +101,9 @@ function ITEM:attachTo(target, ply)
 	ats[item.cat] = item.attID
 	target:setData("atts", ats)
 
+	if(item.useSound) then
+		item.player:EmitSound(item.useSound, 60)
+	end
 
 
 end

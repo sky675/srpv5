@@ -104,6 +104,9 @@ function ITEM:onCombineTo(target)
 			nut.traits.addXp(item.player, item.traitreq.trait, item.xpinc or 1)
 		end
 
+		if(item.useSound) then
+			item.player:EmitSound(item.useSound, 60)
+		end
 		--target:setData("armor", lvls)
 
 		item:remove()

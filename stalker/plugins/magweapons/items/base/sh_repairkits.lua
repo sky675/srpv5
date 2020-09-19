@@ -95,6 +95,10 @@ function ITEM:onCombineTo(target)
 	if(nut.traits and item.traitreq) then
 		nut.traits.addXp(ply, item.traitreq.trait, item.xpinc or 1)
 	end
+	
+	if(item.useSound) then
+		item.player:EmitSound(item.useSound, 60)
+	end
 
 	item:remove()
 end

@@ -179,6 +179,9 @@ for n=1, 5 do
 				res[n] = inv[sub].artid
 				inv[sub]:remove()
 				item:setData("res", res)
+				if(item.equipSound) then
+					item.player:EmitSound(item.equipSound, 60)
+				end
 			end
 			--[[for k,v in pairs(inv:getItems()) do
 				if(v.base == "base_artifacts") then
@@ -233,6 +236,9 @@ for n=1, 5 do
 				local succ = item.player:getChar():getInv():add(uni)
 				if(succ) then
 					res[n] = nil
+					if(item.unequipSound) then
+						item.player:EmitSound(item.unequipSound, 60)
+					end
 				end
 				item:setData("res", res)
 			end

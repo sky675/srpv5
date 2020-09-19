@@ -80,11 +80,6 @@ ITEM.functions.use = {
     onRun = function(item)
 		local char = item.player:getChar()
 
-		local soundto = item.playsound
-		if(soundto) then
-			item.player:EmitSound(soundto)
-		end
-
         if(item.hungerAmt) then
 		char:SetHunger(math.Clamp(char:GetHunger()+item.hungerAmt, 0, 100))
 		end
@@ -115,6 +110,10 @@ ITEM.functions.use = {
 			else
 				radPlayer(item.player, item.radGive, item.radGiveTime, item.id)
 			end
+		end
+		
+		if(item.useSound) then
+			item.player:EmitSound(item.useSound, 60)
 		end
 
 		if(item.uses) then
