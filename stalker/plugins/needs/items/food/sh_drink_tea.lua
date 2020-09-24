@@ -8,6 +8,8 @@ ITEM.weight = 0.85--1.03 0.37
 ITEM.hungerAmt = 0
 ITEM.thirstAmt = 25
 
+ITEM.useSound = "interface/inv_drink_flask.ogg"
+
 ITEM.regenStam = {
 	--amount, seconds
 	20, 30

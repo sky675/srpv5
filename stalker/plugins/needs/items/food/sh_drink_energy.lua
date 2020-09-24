@@ -10,6 +10,8 @@ ITEM.thirstAmt = 21
 ITEM.dontalch = true
 ITEM.alcrem = -3
 
+ITEM.useSound = "interface/inv_drink_can.ogg"
+
 ITEM.regenStam = {
 	--amount, seconds
 	75, 60

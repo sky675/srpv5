@@ -11,6 +11,11 @@ ITEM.outfitCategory = "armor"
 ITEM.price = 66900
 ITEM.flag = "D"
 
+--interface/inv_items_cloth_2.ogg super light (masks, addons)
+--interface/inv_items_cloth_3.ogg light (spd >= .7)
+--interface/inv_items_cloth_1.ogg med (rest, would like something more metal but eh)
+ITEM.equipSound = "interface/inv_items_cloth_1.ogg"
+ITEM.unequipSound = "interface/inv_items_cloth_1.ogg"
 --the materials to be replaced on the model
 local matreplace = {	
 	["beri_lone"] = "models/sky/stalker/beri_duty",

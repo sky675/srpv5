@@ -16,6 +16,9 @@ ITEM.iconCam = {
 	fov = 1.8945359089173,
 }
 
+ITEM.equipSound = "interface/inv_items_cloth_2.ogg"
+ITEM.unequipSound = "interface/inv_items_cloth_2.ogg"
+
 ITEM.bodyGroups = {
     ["masks"] = 1
 }

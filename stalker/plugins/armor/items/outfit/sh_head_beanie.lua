@@ -17,6 +17,9 @@ ITEM.iconCam = {
 	fov = 2.4224293883033,
 }
 
+ITEM.equipSound = "interface/inv_items_cloth_2.ogg"
+ITEM.unequipSound = "interface/inv_items_cloth_2.ogg"
+
 ITEM.destroyval = {
 	["comp_scrap_cloth"] = 2,
 }

@@ -14,3 +14,5 @@ ITEM.radRemove = 6
 --by each art in the item (will not heal radiation, just reduce it to 0)
 --aac 4
 --aam 6
+ITEM.equipSound = "interface/inv_aam_close.ogg"
+ITEM.unequipSound = "interface/inv_aam_open.ogg"

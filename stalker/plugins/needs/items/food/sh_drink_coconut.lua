@@ -8,6 +8,8 @@ ITEM.weight = 1.25
 ITEM.hungerAmt = 0
 ITEM.thirstAmt = 30
 
+ITEM.useSound = "interface/inv_drink_can.ogg"
+
 local function onUse(item)
 	 
 	--item.player:EmitSound("items/medshot4.wav", 80, 110)

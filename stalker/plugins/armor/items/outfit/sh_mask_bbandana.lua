@@ -20,6 +20,9 @@ ITEM.iconCam = {
 	end,
 }
 
+ITEM.equipSound = "interface/inv_items_cloth_2.ogg"
+ITEM.unequipSound = "interface/inv_items_cloth_2.ogg"
+
 ITEM.bodyGroups = {
     ["masks"] = 1
 }

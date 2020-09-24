@@ -9,3 +9,6 @@ ITEM.width = 1
 ITEM.height = 1
 ITEM.isSafe = true
 ITEM.contSlots = 1
+
+ITEM.equipSound = "interface/inv_lead_close.ogg"
+ITEM.unequipSound = "interface/inv_lead_open.ogg"

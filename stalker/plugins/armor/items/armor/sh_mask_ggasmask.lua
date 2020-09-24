@@ -16,6 +16,10 @@ ITEM.iconCam = {
 	fov = 2.7732601405786,
 }
 
+--interface/inv_items_cloth_2.ogg masks
+--interface/inv_items_cloth_3.ogg helms works i guess?
+ITEM.equipSound = "interface/inv_items_cloth_2.ogg"
+ITEM.unequipSound = "interface/inv_items_cloth_2.ogg"
 --[[
 local modelsgoodfor1 = {
 	["models/sky/heads/neo.mdl"] = true,

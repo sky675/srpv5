@@ -41,7 +41,7 @@ ITEM.functions.EquipUn = { --i hate this lol
 	name = "Unequip",
 	tip = "equipTip",
 	icon = "icon16/cross.png",
-	sound = "interface/inv_properties.ogg",
+	sound = "interface/inv_belt.ogg",
 	onRun = function(item)
 		item:setData("equip", nil)
 
@@ -65,7 +65,7 @@ ITEM.functions.Equip = {
 	name = "Equip",
 	tip = "equipTip",
 	icon = "icon16/tick.png",
-	sound = "interface/inv_properties.ogg",
+	sound = "interface/inv_belt.ogg",
 	onRun = function(item)
 		local client = item.player
 

@@ -115,6 +115,7 @@ function ITEM:onCombineTo(target)
             
             if(missing == 0) then return end --full
 
+			ply:EmitSound(self.transferSound or "interface/inv_items_ammo_2.ogg")
 
             --use that to determine if the box has enough left
             local itemag = item:getData("mag", 0)

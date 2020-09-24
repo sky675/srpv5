@@ -130,7 +130,8 @@ ITEM.functions.Ejectslot = {
 ITEM.functions.open = {
     name = "Open PDA",
     tip = "Open the GUI for this PDA.",
-    icon = "icon16/connect.png",
+	icon = "icon16/connect.png",
+	sound = "interface/inv_pda_on.ogg",
     onRun = function(item)
         net.Start("OpenPDA")
         net.WriteInt(item:getData("simid"), 20)

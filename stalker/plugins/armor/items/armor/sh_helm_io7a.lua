@@ -12,6 +12,10 @@ ITEM.outfitCategory = "head;mask;eyes"
 ITEM.price = 8920
 ITEM.flag = "2"
 
+--interface/inv_items_cloth_2.ogg masks
+--interface/inv_items_cloth_3.ogg helms works i guess?
+ITEM.equipSound = "interface/inv_items_cloth_2.ogg"
+ITEM.unequipSound = "interface/inv_items_cloth_2.ogg"
 
 --ITEM.upgradePath = "eyes"
 

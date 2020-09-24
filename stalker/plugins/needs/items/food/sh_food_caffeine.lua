@@ -11,6 +11,8 @@ ITEM.thirstAmt = -2
 ITEM.dontalch = true
 ITEM.alcrem = -2
 
+ITEM.useSound = "player/items/pain_pills/pills_deploy_2.wav"
+
 ITEM.regenStam = {
 	--amount, seconds
 	30, 50

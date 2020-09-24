@@ -10,6 +10,8 @@ ITEM.thirstAmt = 15
 ITEM.radGive = 10
 ITEM.radGiveTime = 5
 
+ITEM.useSound = "interface/inv_drink_can.ogg"
+
 local function onUse(item)
 	 
 	--item.player:EmitSound("items/medshot4.wav", 80, 110)

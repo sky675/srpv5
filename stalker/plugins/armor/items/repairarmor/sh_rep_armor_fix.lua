@@ -17,6 +17,7 @@ ITEM.iconCam = {
 	entAng = Angle(0, 0, 0),
 	fov = 4.7773290396822,
 }
+ITEM.useSound = "interface/inv_repair_kit_use_fast.ogg"
 
 ITEM.minDurability = -1
 ITEM.maxDurability = 41

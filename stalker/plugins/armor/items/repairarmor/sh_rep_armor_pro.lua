@@ -17,6 +17,7 @@ ITEM.iconCam = {
 	entAng = Angle(-0.049220696091652, -32.80810546875, 1.7597796916962),
 	fov = 6.8076937247928,
 }
+ITEM.useSound = "interface/inv_repair_sewing_kit_fast.ogg"
 
 ITEM.minDurability = 40
 ITEM.baseRepair = 35

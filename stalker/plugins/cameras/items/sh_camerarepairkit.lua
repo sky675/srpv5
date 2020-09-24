@@ -25,6 +25,8 @@ ITEM.functions.usef = { -- sorry, for name order.
 		print("hello ",target)
 		local val = (2 * nut.traits.getMod(client, "actiontime")) + 3
 
+		item.player:EmitSound("interface/inv_repair_kit_use_fast.ogg")
+
 		client:setAction("Repairing...", val)
 		client:doStaredAction(target, function()
 			if(!client:Alive() or client:getNetVar("neardeath") or item:getOwner() != client) then return end

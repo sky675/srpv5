@@ -6,6 +6,23 @@ PLUGIN.desc = "weapons that use magazines + more"
 nut.util.include("sh_config.lua")
 nut.util.include("sh_batch.lua")
 
+local ammoSounds = {
+	["sky9x19"] = "interface/inv_items_ammo_2.ogg",
+	["sky9x18"] = "interface/inv_items_ammo_2.ogg",
+	["sky45acp"] = "interface/inv_items_ammo_2.ogg",
+	["sky338"] = "interface/inv_items_ammo_5.ogg",
+	["buckshot"] = "interface/inv_items_ammo_4.ogg",
+	["sky23mm"] = "interface/inv_items_ammo_4.ogg",
+	["sky762x54"] = "interface/inv_items_ammo_5.ogg",
+	["sky762x51"] = "interface/inv_items_ammo_5.ogg",
+	["sky762x25"] = "interface/inv_items_ammo_2.ogg",
+	["sky9x39"] = "interface/inv_items_ammo_5.ogg",
+	["sky50ae"] = "interface/inv_items_ammo_2.ogg",
+	["sky762x39"] = "interface/inv_items_ammo_5.ogg",
+	["sky556"] = "interface/inv_items_ammo_5.ogg",
+	["sky545"] = "interface/inv_items_ammo_5.ogg",
+}
+
 function PLUGIN:InitializedItems()
     --do
         for id, data in pairs(PLUGIN.attList) do
@@ -30,6 +47,7 @@ function PLUGIN:InitializedItems()
 				ITEM = EZADDDESTROYFUNC(ITEM)
 			end
 			ITEM.iconmodel = data.iconmodel
+			ITEM.useSound = data.useSound or "cw/attach.wav"
         end
         for id, data in pairs(PLUGIN.magList) do
             local ITEM = nut.item.register(id, "base_magazines", nil, nil, true)
@@ -88,6 +106,7 @@ function PLUGIN:InitializedItems()
 			ITEM.cantBeUnloaded = data.cantBeUnloaded
 			ITEM.noBusiness = data.noBusiness
 			ITEM.expand = data.expand
+			ITEM.transferSound = data.transferSound or ammoSounds[data.type]
 			
 			if(data.destroyval) then
 				ITEM.destroyval = data.destroyval --in case i wanna add more

@@ -9,3 +9,5 @@ ITEM.flag = "2"
 ITEM.category = "Weapons - Grenades"
 ITEM.class = "sky_g_flash"
 ITEM.weaponCategory = "grenade"
+
+ITEM.equipSound = "interface/inv_items_grenade_1.ogg"

@@ -10,6 +10,9 @@ ITEM.outfitCategory = "mask"
 ITEM.price = 300
 ITEM.flag = "0"
 
+ITEM.equipSound = "interface/inv_items_cloth_2.ogg"
+ITEM.unequipSound = "interface/inv_items_cloth_2.ogg"
+
 ITEM.bodyGroups = {
     ["masks"] = 4
 }

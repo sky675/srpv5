@@ -9,6 +9,8 @@ ITEM.hungerAmt = 0
 ITEM.thirstAmt = 10
 ITEM.alcrem = 3
 
+ITEM.useSound = "interface/inv_drink_flask.ogg"
+
 local function onUse(item)
 	 
 	--item.player:EmitSound("items/medshot4.wav", 80, 110)

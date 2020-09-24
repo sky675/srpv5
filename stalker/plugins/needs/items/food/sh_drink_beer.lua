@@ -9,6 +9,7 @@ ITEM.hungerAmt = 4
 ITEM.thirstAmt = 10
 ITEM.alcrem = 2
 
+ITEM.useSound = "interface/inv_drink_flask.ogg"
 --ITEM.playsound = "npc/barnacle/barnacle_gulp1.wav"
 
 local function onUse(item)

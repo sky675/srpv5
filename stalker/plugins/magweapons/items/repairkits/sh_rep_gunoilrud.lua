@@ -17,6 +17,7 @@ ITEM.iconCam = {
 	entAng = Angle(-1.4595099687576, -27.862623214722, -51.32400894165),
 	fov = 2.1296318261501,
 }
+ITEM.useSound = "interface/inv_repair_spray_oil.ogg"
 
 ITEM.minDurability = 85
 ITEM.baseRepair = 10

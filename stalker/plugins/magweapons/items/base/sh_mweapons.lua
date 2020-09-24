@@ -162,7 +162,7 @@ ITEM:hook("drop", function(item)
 
 			ply:StripWeapon(item.class)
 			--ply.carryWeapons[item.weaponCategory] = nil
-			ply:EmitSound(item.unequipSound or "items/ammo_pickup.wav", 80)
+			ply:EmitSound(item.unequipSound or "interface/inv_items_generic_1.ogg", 80)
 		end
 	end
 end)
@@ -286,7 +286,7 @@ function ITEM:Equip(client)
 		--client.carryWeapons[self.class] = weapon
 		--client:SelectWeapon(weapon:GetClass())
 		--client:SetActiveWeapon(weapon)
-		client:EmitSound(self.equipSound or "items/ammo_pickup.wav", 80)
+		client:EmitSound(self.equipSound or "interface/inv_items_wpn_1.ogg", 80)
 
 		-- Remove default given ammo.
 		if (!self.cantBeUnloaded and client:GetAmmoCount(ammoType) == weapon:Clip1() and self:getData("ammo", 0) == 0) then
@@ -354,7 +354,7 @@ function ITEM:Unequip(client, bPlaySound, bRemoveItem)
 	end
 
 	if (bPlaySound) then
-		client:EmitSound(self.unequipSound or "items/ammo_pickup.wav", 80)
+		client:EmitSound(self.unequipSound or "interface/inv_items_generic_1.ogg", 80)
 	end
 
 	self:setData("equip", nil)
@@ -442,7 +442,6 @@ ITEM.functions.zDetach = {
 	name = "Detach",
 	tip = "unload",
 	icon = "icon16/cross.png",
-	sound = "cw/detach.wav",
 	isMulti = true,
 	multiOptions = function(item, ply)
 		local options = {}
@@ -492,6 +491,8 @@ ITEM.functions.zDetach = {
 				item:setData("maxWeight", item:getData("maxWeight", item.weight)-att.weight)
 				
 			end
+
+			ply:EmitSound("cw/detach.wav")
  
 			--apply attachment to wep
 	--		wep:SetTFAAttachment(sub, -1, true)
