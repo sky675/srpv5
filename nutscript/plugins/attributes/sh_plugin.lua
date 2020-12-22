@@ -224,4 +224,8 @@ else --client
 		
 	end
 
+
+	function PLUGIN:ConfigureCharacterCreationSteps(panel)
+		panel:addStep(vgui.Create("nutCharacterAttribs"), 99)
+	end
 end
