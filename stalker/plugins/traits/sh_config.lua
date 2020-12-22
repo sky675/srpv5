@@ -655,7 +655,6 @@ trait = {
 }
 nut.traits.add(uid, trait)
 
-
 --general (neg)
 uid = "gen_hunginc"
 trait = {
