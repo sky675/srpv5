@@ -31,9 +31,11 @@ function PLUGIN:GetArtifactItems(client)
 	local items = {}
 	if(client:getChar()) then
 		local inv = client:getChar():getInv()
-		for k,item in pairs(inv:getItems()) do
-			if(item.base == "base_artcont" and item:getData("equip")) then
-				items[item.id] = item
+		if(inv) then
+			for k,item in pairs(inv:getItems()) do
+				if(item.base == "base_artcont" and item:getData("equip")) then
+					items[item.id] = item
+				end
 			end
 		end
 	end

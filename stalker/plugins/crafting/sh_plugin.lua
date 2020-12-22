@@ -149,7 +149,7 @@ function PLUGIN:craft(ply, recipee, pickeditem)
 
 	if(char) then
 		local items = {}
-		local req = recipe.ingredients
+		local req = recipe.dynamicingredients and recipe.dynamicingredients(item, char) or recipe.ingredients
 		local adddata = {}
 		for k,v in pairs(char:getInv():getItems()) do
 			if(v:getData("equip")) then continue end
@@ -207,29 +207,7 @@ function PLUGIN:craft(ply, recipee, pickeditem)
 			end
 		end
 
-		if(type(recipe.result) == "table") then
-			local res = recipe.result
-			for k,v in pairs(res) do
-				if(tonumber(v)) then
-					char:getInv():add(k, v)
-				else
-					char:getInv():add(k)
-				end
-			end
-		elseif(recipe.result) then
-			local add = char:getInv():add(recipe.result, 1, recipe.adddata and adddata or nil)
-			if(!add) then
-				nut.item.spawn(recipe.result, ply:getItemDropPos(), function(item, ent)
-					if(recipe.onCreate) then
-						recipe.onCreate(ply, item, adddata, it)
-					end
-				end, nil, recipe.adddata and adddata or nil)
-			else
-			if(recipe.onCreate) then
-				recipe.onCreate(ply, add, adddata)
-			end
-			end
-		elseif(recipe.addbasedonpick) then
+		if(recipe.addbasedonpick) then
 			local toadd, quan = recipe.addbasedonpick(pickeditem)
 			local add = char:getInv():add(toadd, quan or 1, recipe.adddata and adddata or nil)
 			if(!add) then
@@ -240,7 +218,31 @@ function PLUGIN:craft(ply, recipee, pickeditem)
 				end, nil, recipe.adddata and adddata or nil)
 			else
 			if(recipe.onCreate) then
-				recipe.onCreate(ply, add, adddata)
+				recipe.onCreate(ply, add.value, adddata)
+			end
+			end
+		elseif(type(recipe.result) == "table") then
+			local res = recipe.result
+			for k,v in pairs(res) do
+				if(tonumber(v)) then
+					char:getInv():add(k, v)
+				else
+					char:getInv():add(k)
+				end
+			end
+		elseif(recipe.result) then
+			--these might need to be looked at, was made before ns2 (add is a promise now)
+			--i changed it to value but may not be enough
+			local add = char:getInv():add(recipe.result, 1, recipe.adddata and adddata or nil)
+			if(!add) then
+				nut.item.spawn(recipe.result, ply:getItemDropPos(), function(item, ent)
+					if(recipe.onCreate) then
+						recipe.onCreate(ply, item, adddata, it)
+					end
+				end, nil, recipe.adddata and adddata or nil)
+			else
+			if(recipe.onCreate) then
+				recipe.onCreate(ply, add.value, adddata)
 			end
 			end
 		end
