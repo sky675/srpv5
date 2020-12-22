@@ -247,12 +247,14 @@ do
 	function playerMeta:GetArmorItems()
 		local items = {}
         if(self:getChar()) then
-            local inv = self:getChar():getInv()
-			for k,item in pairs(inv:getItems()) do
-                if(item.base == "base_suit" and item:getData("equip")) then
-                    items[item.id] = item
-                end
-            end
+			local inv = self:getChar():getInv()
+			if(inv) then
+				for k,item in pairs(inv:getItems()) do
+        	        if(item.base == "base_armor" and item:getData("equip")) then
+        	            items[item.id] = item
+        	        end
+				end
+			end
         end
         return (table.Count(items) != 0 and items) or nil
     end
