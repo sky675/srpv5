@@ -58,6 +58,34 @@ local languages = {
 		radio = {"/gerr", "/germanr"},
 		radiow = {"/gerrw", "/germanrw"},
 	}},
+	{"lang_polish", "pol", "Polish", {
+		ic = {"/pol", "/polish"},
+		w = {"/polw", "/polishw"},
+		y = {"/poly", "/polishy"},
+		radio = {"/polr", "/polishr"},
+		radiow = {"/polrw", "/polishrw"},
+	}},
+	{"lang_arabic", "ara", "Arabic", {
+		ic = {"/ara", "/arabic"},
+		w = {"/araw", "/arabicw"},
+		y = {"/aray", "/arabicy"},
+		radio = {"/arar", "/arabicr"},
+		radiow = {"/ararw", "/arabicrw"},
+	}},
+	{"lang_portuguese", "por", "Portuguese", {
+		ic = {"/por", "/portuguese"},
+		w = {"/porw", "/portuguesew"},
+		y = {"/pory", "/portuguesey"},
+		radio = {"/porr", "/portugueser"},
+		radiow = {"/porrw", "/portugueserw"},
+	}},
+	{"lang_turkish", "tur", "Turkish", {
+		ic = {"/tur", "/turkish"},
+		w = {"/turw", "/turkishw"},
+		y = {"/tury", "/turkishy"},
+		radio = {"/turr", "/turkishr"},
+		radiow = {"/turrw", "/turkishrw"},
+	}},
 	{"lang_sign", "sign", "Sign Language", {
 		ic = {"/sign"}
 	}},

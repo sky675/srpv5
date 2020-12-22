@@ -91,6 +91,7 @@ end
 --remember arg to access the ... stuff, its a table
 function nut.traits.getMod(ply, type, ...)
 	local arg = { ... }
+	if(!ply or !ply:getChar()) then return end
 	
 	if(type == "hunger") then
 			local val = 1

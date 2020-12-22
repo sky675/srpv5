@@ -303,6 +303,51 @@ trait = {
 	conflicting = {},--"big_mute"}, --table of conflicting traits
 }
 nut.traits.add(uid, trait)
+
+uid = "lang_polish"
+trait = {
+	name = "Polish",
+	desc = "The ability to speak Polish.",
+	type = "pos", --can be pos or neg for listing on char creation, pos is left column, neg is right column, anything else will hide it from char creation
+	category = "Languages", --shown in char creation and menu
+	cost = 0, --cost in char creation, can be table for levels
+	conflicting = {},--"big_mute"}, --table of conflicting traits
+}
+nut.traits.add(uid, trait)
+
+uid = "lang_arabic"
+trait = {
+	name = "Arabic",
+	desc = "The ability to speak Arabic.",
+	type = "pos", --can be pos or neg for listing on char creation, pos is left column, neg is right column, anything else will hide it from char creation
+	category = "Languages", --shown in char creation and menu
+	cost = 0, --cost in char creation, can be table for levels
+	conflicting = {},--"big_mute"}, --table of conflicting traits
+}
+nut.traits.add(uid, trait)
+
+uid = "lang_portuguese"
+trait = {
+	name = "Portuguese",
+	desc = "The ability to speak Portuguese.",
+	type = "pos", --can be pos or neg for listing on char creation, pos is left column, neg is right column, anything else will hide it from char creation
+	category = "Languages", --shown in char creation and menu
+	cost = 0, --cost in char creation, can be table for levels
+	conflicting = {},--"big_mute"}, --table of conflicting traits
+}
+nut.traits.add(uid, trait)
+
+uid = "lang_turkish"
+trait = {
+	name = "Turkish",
+	desc = "The ability to speak Turkish.",
+	type = "pos", --can be pos or neg for listing on char creation, pos is left column, neg is right column, anything else will hide it from char creation
+	category = "Languages", --shown in char creation and menu
+	cost = 0, --cost in char creation, can be table for levels
+	conflicting = {},--"big_mute"}, --table of conflicting traits
+}
+nut.traits.add(uid, trait)
+
 --sign language
 uid = "lang_sign"
 trait = {
