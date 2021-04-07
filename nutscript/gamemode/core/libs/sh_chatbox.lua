@@ -253,7 +253,7 @@ do
 		-- Actions and such.
 		nut.chat.register("it", {
 			onChatAdd = function(speaker, text)
-				chat.AddText(nut.config.get("chatColor"), "**"..text)
+				chat.AddText(nut.config.get("chatColor"), "***"..text)
 			end,
 			onCanHear = nut.config.get("chatRange", 280),
 			prefix = {"/it"},
