@@ -1,5 +1,5 @@
 {
-    "lint_maxScopeDepth":               7,
+    "lint_maxScopeDepth":               9,
     "lint_syntaxErrors":                true,
     "lint_syntaxInconsistencies":       false,
     "lint_deprecated":                  false,
@@ -14,8 +14,8 @@
     "lint_redundantParentheses":        true,
     "lint_duplicateTableKeys":          true,
     "lint_profanity":                   true,
-    "lint_unusedVars":                  true,
-    "lint_unusedParameters":            true,
+    "lint_unusedVars":                  false,
+    "lint_unusedParameters":            false,
     "lint_unusedLoopVars":              false,
     "lint_ignoreFiles":                 [],
 
