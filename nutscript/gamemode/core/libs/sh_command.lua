@@ -210,7 +210,21 @@ end
 if (SERVER) then
 	-- Finds a player or gives an error notification.
 	function nut.command.findPlayer(client, name)
-		local target = type(name) == "string" and nut.util.findPlayer(name) or NULL
+		--local target = type(name) == "string" and nut.util.findPlayer(name) or NULL
+		if(!isstring(name)) then client:notifyLocalized("mustProvideString", 3) return end
+
+		if(name == "^") then return client end
+		if(name == "@") then
+			local trace = client:GetEyeTrace().Entity
+			if IsValid(trace) and trace:IsPlayer() then
+				return trace
+			else
+				client:notifyLocalized("need to be looking at player", 3)
+				return
+			end
+		end
+
+		local target = nut.util.findPlayer(name) or NULL
 
 		if (IsValid(target)) then
 			return target

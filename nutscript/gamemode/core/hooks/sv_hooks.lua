@@ -53,6 +53,13 @@ function GM:PlayerInitialSpawn(client)
 			"nutDataSync",
 			data, client.firstJoin, client.lastJoin
 		)
+
+		for _, v in pairs(nut.item.instances) do
+			if v.entity and v.invID == 0 then
+				v:sync(client)
+			end
+		end
+
 		hook.Run("PlayerNutDataLoaded", client)
 	end)
 
@@ -490,6 +497,12 @@ function GM:PlayerDisconnected(client)
 
 		hook.Run("OnCharDisconnect", client, character)
 		character:save()
+	end
+
+	if (IsValid(client.nutRagdoll)) then
+		client.nutRagdoll.nutNoReset = true
+		client.nutRagdoll.nutIgnoreDelete = true
+		client.nutRagdoll:Remove()
 	end
 
 	nut.char.cleanUpForPlayer(client)

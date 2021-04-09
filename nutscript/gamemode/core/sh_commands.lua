@@ -316,6 +316,7 @@ nut.command.add("charunban", {
 			if (nut.util.stringMatches(v:getName(), name)) then
 				if (v:getData("banned")) then
 					v:setData("banned")
+					v:setData("permakilled")
 				else
 					return "@charNotBanned"
 				end

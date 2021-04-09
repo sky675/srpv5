@@ -14,6 +14,11 @@ if (CLIENT) then
 	local NUT_CVAR_TP_HORI = CreateClientConVar("nut_tp_horizontal", 0, true)
 	local NUT_CVAR_TP_DIST = CreateClientConVar("nut_tp_distance", 50, true)
 
+	concommand.Add("nut_tp_toggle", function()
+		local setTP = GetConVar("nut_tp_enabled"):GetInt() == 0 and 1 or 0
+		GetConVar("nut_tp_enabled"):SetInt(setTP)
+	end)
+	
 	local PANEL = {}
 
 	local maxValues = {

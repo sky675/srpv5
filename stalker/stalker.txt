@@ -1,7 +1,8 @@
 "stalker"
 {
 	"base"		"nutscript"
-	"title"		"Resurgence: Stalker"
+	"title"		"Stalker"
 	"author"	"sky"
 	"menusystem" "1"
+	"category"	"rp"
 }

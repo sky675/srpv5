@@ -343,7 +343,7 @@ function GM:InitializedConfig()
 end
 
 function GM:CharacterListLoaded()
-	local hasNotSeenIntro = not nut.localData.intro
+	local hasNotSeenIntro = not nut.config.get("playIntroOnlyOnce", true) or not nut.localData.intro or nil
 	timer.Create("nutWaitUntilPlayerValid", 0.5, 0, function()
 		if (not IsValid(LocalPlayer())) then return end
 		timer.Remove("nutWaitUntilPlayerValid")

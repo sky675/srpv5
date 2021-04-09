@@ -28,7 +28,7 @@ if (SERVER) then
 	end)
 
 	nut.log.addType("playerDisconnected", function(client, ...)
-		return string.format("%s has disconnected from the server.", client:Name())
+		return string.format("%s[%s] has disconnected from the server.", client:Name(), client:SteamID())
 	end)
 
 	nut.log.addType("itemTake", function(client, ...)
@@ -128,7 +128,10 @@ if (SERVER) then
 		nut.log.add(client, "shipmentO")
 	end
 
-	function PLUGIN:OnCharTradeVendor(client, vendor, x, y, invID, price, isSell)
+	function PLUGIN:OnCharTradeVendor(client, vendor, item, issell)
+		if(!issell) then
+			nut.log.addRaw(client:Name().." ("..client:steamName()..") bought "..item:getName().." from "..vendor:getName())
+		end
 	end
 
 	function PLUGIN:OnPlayerInteractItem(client, action, item)
