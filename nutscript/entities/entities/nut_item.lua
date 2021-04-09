@@ -9,9 +9,9 @@ ENT.RenderGroup = RENDERGROUP_BOTH
 
 if (SERVER) then
 	function ENT:Initialize()
-		self:SetModel("models/props_junk/watermelon01.mdl")
-		self:SetSolid(SOLID_VPHYSICS)
-		self:PhysicsInit(SOLID_VPHYSICS)
+		--self:SetModel("models/props_junk/watermelon01.mdl")
+		--self:SetSolid(SOLID_VPHYSICS)
+		--self:PhysicsInit(SOLID_VPHYSICS)
 		self:SetCollisionGroup(COLLISION_GROUP_WEAPON)
 		self.health = 50
 
@@ -52,11 +52,20 @@ if (SERVER) then
 				or itemTable.worldModel
 		end
 
+		self:SetModel(model or "models/props_junk/watermelon01.mdl")
 		self:SetSkin(itemTable.skin or 0)
-		self:SetModel(model)
+		
+		if itemTable.groups then -- this has to be done after the model is set, hence why it looks a little messy
+			for k, v in pairs(itemTable.groups) do
+				if isstring(k) then k = self:FindBodygroupByName(k) end
+				self:SetBodygroup(k, v)
+			end
+		end
+
 		self:PhysicsInit(SOLID_VPHYSICS)
 		self:SetSolid(SOLID_VPHYSICS)
 		self:setNetVar("id", itemTable.uniqueID)
+		self:setNetVar("instanceId", itemID)
 		self.nutItemID = itemID
 
 		if (table.Count(itemTable.data) > 0) then
@@ -197,7 +206,7 @@ function ENT:getItemID()
 end
 
 function ENT:getItemTable()
-	return nut.item.list[self:getItemID()]
+	return nut.item.instances[self:getNetVar("instanceId")] or nut.item.list[self:getItemID()]
 end
 
 function ENT:getData(key, default)
