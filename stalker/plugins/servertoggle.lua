@@ -2,9 +2,10 @@ local PLUGIN = PLUGIN
 PLUGIN.name = "server opener"
 PLUGIN.author = "sky"
 PLUGIN.desc = "quick thing for easy access to opening/closing a server"
+if(game.SinglePlayer()) then return end --dont want this setting up in sp
 
 local pass = "lmaooo" --pass to get in when closed
-local closedStr = "| Open on weekends" --string to add when closed
+local closedStr = " | Open on weekends" --string to add when closed
 
 local curStatus = true --false = open
 
@@ -20,7 +21,7 @@ nut.command.add("servertoggle", {
 
 if(SERVER) then
 
-	local originalName = originalName or GetHostName()
+	local originalName = originalName or string.Split(GetHostName(), closedStr)[1]
 
 	//if i understand this right, onloaded will run first, need to wait until data is loaded
 	function PLUGIN:PostLoadData()//OnLoaded()
