@@ -5,7 +5,7 @@ PLUGIN.desc = "adds support for arccw weps+atts, no mags (for now..)"
 
 nut.util.include("sh_config.lua")
 nut.util.include("sh_patch.lua")
-nut.util.include("sh_dura.lua")
+nut.util.include("sv_dura.lua")
 
 --notes:
 --weapon seems to ignore noammo bool but i think theres a convar for it?
