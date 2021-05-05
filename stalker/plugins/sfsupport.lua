@@ -6,7 +6,32 @@
 local PLUGIN = PLUGIN
 PLUGIN.name = "stormfox support"
 PLUGIN.author = "sky"
-PLUGIN.desc = "adds some stuff so stormfox works better with ns+the maps we use+more probably idk"
+PLUGIN.desc = "sets stormfox's time to ns's time"
+
+if(StormFox2) then
+	if(SERVER) then
+		function PLUGIN:OnLoaded()
+			timer.Simple(2, function()
+				local dt = string.Explode(":", os.date("%H:%M:%S", nut.date.get()))
+				StormFox2.Time.Set(dt[1] * 60 + dt[2] + (dt[3] / 60))
+				StormFox2.Setting.Set("time_speed", 1) --should set real world speed, doing this because maybe itll stop being unsynced then idk
+				print("time set to nutscript date time")
+				--id like to believe that the time offset was fixed, but
+				--its here anyway, uncomment if it is
+				--[[
+				timer.Create("fixrealtime", 1200, 0, function()
+					--run every 20 mins to fix the time, adjust later to determine exactly when it starts getting offset
+					local dt = string.Explode(":", os.date("%H:%M:%S", nut.date.get()))
+					StormFox2.Time.Set(dt[1] * 60 + dt[2] + (dt[3] / 60))	
+				end)
+				]]
+			end)
+		end
+	end
+
+	return
+end
+
 
 PLUGIN.weatherList = PLUGIN.weatherList or {} --list of current weather schedule
 
