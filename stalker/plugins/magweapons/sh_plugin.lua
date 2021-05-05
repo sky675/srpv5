@@ -295,7 +295,7 @@ if(SERVER) then
 							if(v.item) then
 								wep.nutItem = nut.item.instances[v.item]
 								--because oncharfallover doesnt call if it gets up normally
-								if(wep.nutItem and wep.nutItem.base == "base_mweapons") then
+								if(wep.nutItem and wep.nutItem.doAttach) then
 									wep.nutItem:doAttach(wep)
 								end
 							end
