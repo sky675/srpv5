@@ -436,14 +436,14 @@ else
         local change = net.ReadString()
         local idd = net.ReadInt(32)
 
-        nut.item.instances[idd]:setData("pdatitle", change, player:GetAll())
+        nut.item.instances[idd]:setData("pdatitle", change, player.GetAll())
 	end)
 	
     net.Receive("ChangePDAParty", function(len, ply)
         local change = net.ReadString()
         local idd = net.ReadInt(32)
 
-        nut.item.instances[idd]:setData("partych", change, player:GetAll())
+        nut.item.instances[idd]:setData("partych", change, player.GetAll())
     end)
 	
 	util.AddNetworkString("RecPDAData")
