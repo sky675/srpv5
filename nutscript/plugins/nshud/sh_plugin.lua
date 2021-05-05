@@ -20,7 +20,7 @@ local hookRun = hook.Run
 local toScreen = FindMetaTable("Vector").ToScreen
 
 function PLUGIN:CanDrawAmmoHUD(weapon)
-	return IsValid(weapon) and weapon.DrawAmmo ~= false
+	return IsValid(weapon) and !weapon.ArcCW and weapon.DrawAmmo ~= false
 end
 
 function PLUGIN:DrawAmmoHUD(weapon)

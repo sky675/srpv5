@@ -134,7 +134,7 @@ nut.command.add("randomdura", {
 		local id = tonumber(arguments[1])
 		if(!id) then client:notify("id is not a number", 3) return end
 		local item = nut.item.instances[id]
-		if(!item or (item.base != "base_mweapons" and item.base != "base_armor")) then 
+		if(!item or (item.base != "base_mweapons" and item.base != "base_armor" and item.base != "base_cweapon")) then 
 			client:notify("no item or item isnt a weapon or armor",3) return 
 		end
 		local min = isnumber(arguments[2]) and arguments[2] or 1

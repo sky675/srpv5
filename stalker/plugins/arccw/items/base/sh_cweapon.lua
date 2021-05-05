@@ -229,7 +229,7 @@ ITEM.functions.zDetach = {
 			local slotids = {}
 			for key, value in ipairs(wep.Attachments) do
 				if(istable(value.Slot)) then
-					for _, s in ipairs(table) do
+					for _, s in ipairs(value.Slot) do
 						slotids[s] = key
 					end
 				else
@@ -237,6 +237,7 @@ ITEM.functions.zDetach = {
 				end
 			end
 			--remove attachment from wep
+			ply.isattaching = true
 			wep:Detach(slotids[sub])
 			--this seems to be the only way i can check this
 			local inst = wep.Attachments[slotids[sub]].Installed
@@ -274,7 +275,7 @@ function ITEM:doAttach(weapon)
 	local slotids = {}
 	for key, value in ipairs(weapon.Attachments) do
 		if(istable(value.Slot)) then
-			for _, s in ipairs(table) do
+			for _, s in ipairs(value.Slot) do
 				slotids[s] = key
 			end
 		else
@@ -289,14 +290,17 @@ function ITEM:doAttach(weapon)
 			nut.log.addRaw("uh something didnt attach correctly "..self:getID().." "..self:getOwner():Name()..", the slot "..slot.." doesnt exist")
 			continue 
 		end
+		local ply = self:getOwner()
 		--this has a default thing and needs to be detached
 		if(name == "") then
+			ply.isattaching = true
 			weapon:Detach(slotids[slot])
 			if(weapon.Attachments[slotids[slot]].Installed != nil) then
 				nut.log.addRaw("uh something didnt attach correctly "..self:getID().." "..self:getOwner():Name())
 				self:getOwner():notify("uh something didnt attach correctly lmao", 3)
 			end
 		else
+			ply.isattaching = true
 			weapon:Attach(slotids[slot], name)
 			if(weapon.Attachments[slotids[slot]].Installed != name) then
 				nut.log.addRaw("uh something didnt attach correctly "..self:getID().." "..self:getOwner():Name())
@@ -304,6 +308,9 @@ function ITEM:doAttach(weapon)
 			end
 		end
 	end
+	timer.Simple(1, function()
+	weapon:NetworkWeapon() --this is doing fucky shit, maybe thisll get it
+	end)
 	end)
 end
 
@@ -320,9 +327,10 @@ function ITEM:onLoadout()
 			weapon.nutItem = self
 			weapon:SetClip1(self:getData("ammo", 0))
 			
-			local ups = self:getData("atts")
+			self:doAttach(weapon) //uh? wasnt here before
+			--[[local ups = self:getData("atts")
 			--apply current atts
-			
+			]]
 		else
 			print(Format("[Nutscript] Weapon %s does not exist!", self.class))
 		end

@@ -55,7 +55,7 @@ function ITEM:attachTo(target, ply)
 	local slotids = {}
 	for key, value in ipairs(wep.Attachments) do
 		if(istable(value.Slot)) then
-			for _, s in ipairs(table) do
+			for _, s in ipairs(value.Slot) do
 				slotids[s] = key
 			end
 		else
@@ -65,6 +65,7 @@ function ITEM:attachTo(target, ply)
 
 	--if(IsValid(wep)) then    
 		--apply attachment to wep
+		ply.isattaching = true
 		wep:Attach(slotids[item.cat], item.attID, item.useSound)
 		if(wep.Attachments[slotids[item.cat]].Installed != item.attID) then
 			ply:notify("something went wrong while equipping, the weapon may not be compatible with the att", 3)

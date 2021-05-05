@@ -37,6 +37,7 @@ nut.util.include("sv_dura.lua")
 --need to change ammo types of all the guns and relevant atts
 --and the aug mag size
 --also the ammo types to saveammo
+--test force show/showhealth off to make sure its good now
 
 --convars to change:
 --arccw_truenames 1
@@ -44,8 +45,9 @@ nut.util.include("sv_dura.lua")
 --these are clientside only, so need a way to be forced serverside somehow?
 --they can be changed serverside, but id rather not change players personal settings
 --may have to use a special base to override the related funcs
---arccw_attinv_onlyinspect 1
---arccw_autosave 0
+--arccw_attinv_onlyinspect 1 -- this i think is mostly fixed below
+--arccw_autosave 0 --THIS however can only be fixed by changing the var
+--these i believe have been rendered useless, however will need to see:
 --arccw_hud_forceshow 1 --tho this and below may need to be something else, 
 --arccw_hud_showhealth 0 -- ns's hook needs to somehow be ran before theirs
 
@@ -89,6 +91,13 @@ hook.Add("ArcCW_PlayerCanAttach", "pickyatts", function(ply, wep, attname, slot,
 			end
 		end
 	end
+	if(!SERVER) then return end
+	print("hey ",ply.isattaching)
+	if(!ply.isattaching) then 
+		print("stop") 
+		return false 
+	end
+	ply.isattaching = nil
 end)
 
 if(CLIENT) then
@@ -105,9 +114,16 @@ if(CLIENT) then
 			return false
 		end
 	end)
+	--leaving this here, but i fixed it by stopping ns hud from appearing directly in it if the wep is arccw
 	hook.Add("CanDrawAmmoHUD", "arcno", function(weapon)
 		--this doesnt work..
 		if(weapon.ArcCW) then return false end --maybe pls?
+	end)
+	--let it go through without forceshow
+	hook.Add("HUDShouldDraw", "overrideforce", function(ele)
+		if(ArcCW and ele == "CHudAmmo" and ArcCW.PollingDefaultHUDElements) then return true end
+		if(ArcCW and ele == "CHudHealth" and ArcCW.PollingDefaultHUDElements) then return false end
+		if(ArcCW and ele == "CHudBattery" and ArcCW.PollingDefaultHUDElements) then return false end
 	end)
 end
 
@@ -115,10 +131,21 @@ if(SERVER) then
 	hook.Add("Hook_PostFireBullets", "nutgren", function(weapon)
 		--print("hook works, can use this to destroy grenades")
 	end)
+
+	hook.Add("InitPostEntity", "DisableArcStuff", function()
+		timer.Simple(2, function()
+		local cmenu = GetConVar("arccw_truenames")
+		cmenu:SetInt(1) --lets try this instead?
+		end)
+	   -- local bull = GetConVar("sv_tfa_bullet_penetration")
+		--bull:SetBool(false) --these dont work well with shoottorp, probably should mvoe it in there
+	end)
+	hook.Add("PlayerInitialSpawn", "fukoffmusic", function(ply)
+		ply:ConCommand("arccw_autosave 0")
+	end)
 	
 	--putting this here too becuz after this works,
 	--ill prob copy magweps somewhere else and delete it
-	--TODO ACTUALLY TEST THIS LOL
 	--overriding
 	local playerMeta = FindMetaTable("Player")
 
