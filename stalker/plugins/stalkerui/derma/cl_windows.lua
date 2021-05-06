@@ -48,6 +48,54 @@ if(CLIENT) then
         end
     end
 
+    function stalkerLongButton(id, x, y, label, callback, autoScale, parent)
+        local self = parent or self
+        local unclick = Color(255,255,255)
+        local click = Color(143,143,143)
+
+        self[id] = self:Add("DImageButton") 
+        self[id]:SetImage("sky/buttons/long_grey_bar.png")
+
+        if (autoScale) then
+            self[id]:SetPos(invPosX+(x*(invw/invTextureW)), (invPosY+(y*(invh/invTextureH))))	
+        else
+            self[id]:SetPos(x, y)
+        end
+            
+        self[id]:SetSize((236*(invw/invTextureW)), ((27*(invh/invTextureH))))
+
+        self[id].label = self:Add("DLabel")
+        self[id].label:SetFont("nutScaledInvenLight")
+        self[id].label:SetText(label)
+        self[id].label:SizeToContents()
+        self[id].label:SetTextColor(unclick)
+
+        local ButtonX, ButtonY = self[id]:GetPos()
+        local ButtonXsize, ButtonYsize = self[id]:GetSize()
+        local LabelXsize, LabelYsize = self[id].label:GetSize()
+        local labelOffsetX = ((ButtonXsize - LabelXsize)*0.5)
+        local labelOffsetY = ((ButtonYsize - LabelYsize)*0.45)
+
+        self[id].label:SetPos(ButtonX + (labelOffsetX), ButtonY + (labelOffsetY))
+
+
+        self[id].OnDepressed = function(this)
+            this:SetImage("sky/buttons/long_grey_bar_press.png")
+            labelXpos, labelYpos = self[id].label:GetPos()
+            self[id].label:SetTextColor(click)
+            self[id].label:SetPos(labelXpos, labelYpos + ((2*(invh/invTextureH))))
+
+        end
+
+        self[id].OnReleased = function(this)
+            surface.PlaySound( "interface/beep.ogg" )
+            this:SetImage("sky/buttons/long_grey_bar.png")
+            self[id].label:SetTextColor(unclick)
+            self[id].label:SetPos(ButtonX + (labelOffsetX), ButtonY + (labelOffsetY))
+
+            callback()
+        end
+    end
 
     function stalkerStringRequest(strPrompt, strDefaultText, fnEnter, fnCancel, strButtonText, strButtonCancelText)
         --self.m_fCreateTime = SysTime()
