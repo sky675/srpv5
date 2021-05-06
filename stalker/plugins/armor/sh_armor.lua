@@ -303,6 +303,11 @@ do
 						if(!levels[k2] or levels[k2] < v2) then --this should never be false but ya
 							levels[k2] = v2
 						end
+					elseif(k2 == "nospr") then
+						--this should be correct?
+						if(levels[k2] == nil or (levels[k2] == true and v2 == true)) then
+							levels[k2] = v2
+						end
 					else
 						levels[k2] = (levels[k2] or 0) + v2
 					end

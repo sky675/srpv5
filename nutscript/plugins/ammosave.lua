@@ -37,7 +37,9 @@ nut.ammo.register("helicoptergun")
 
 --y u no save?
 nut.ammo.register("sky9x19")
+nut.ammo.register("sky9x18")
 nut.ammo.register("sky9x39")
+nut.ammo.register("sky46")
 nut.ammo.register("sky45acp")
 nut.ammo.register("sky50ae")
 nut.ammo.register("sky762x25")
@@ -48,6 +50,7 @@ nut.ammo.register("sky556")
 nut.ammo.register("sky545")
 nut.ammo.register("sky22lr")
 nut.ammo.register("sky338")
+nut.ammo.register("sky23mm")
 nut.ammo.register("skygp25")
 nut.ammo.register("skym203")
 
@@ -85,6 +88,8 @@ function PLUGIN:PlayerLoadedChar(client)
 		if (!character) then
 			return
 		end
+
+		client:StripAmmo() //uh just realized it didnt do that
 
 		local ammoTable = character:getData("ammo")
 
