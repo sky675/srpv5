@@ -43,6 +43,8 @@ if (SERVER) then
 		local itemTable = nut.item.instances[itemID]
 		if (not itemTable) then return self:Remove() end
 
+		itemTable:sync() --is this rly necessary? never had networking issues before, ehhhhh
+
 		local model = itemTable.onGetDropModel
 			and itemTable:onGetDropModel(self)
 			or itemTable.model

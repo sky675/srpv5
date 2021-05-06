@@ -4,6 +4,8 @@ PLUGIN.desc = "Adds a chatbox that replaces the default one."
 
 if (CLIENT) then
 	NUT_CVAR_CHATFILTER = CreateClientConVar("nut_chatfilter", "", true, false)
+	NUT_CVAR_TIMESTAMP = CreateClientConVar("nut_timestamp", "0", true, false)
+	NUT_CVAR_TIMESTAMP24 = CreateClientConVar("nut_timestamp_24hr", "0", true, false)
 
 	function PLUGIN:createChat()
 		if (IsValid(self.panel)) then

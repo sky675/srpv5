@@ -177,8 +177,8 @@ local PANEL = {}
 			self.entry = self:Add("EditablePanel")
 			self.entry:SetPos(self.x + 4, self.y + self:GetTall() - 32)
 			self.entry:SetWide(self:GetWide() - 8)
-			self.entry.Paint = function(this, w, h)
-			end
+			--self.entry.Paint = function(this, w, h)
+			--end
 			self.entry.OnRemove = function()
 				hook.Run("FinishChat")
 			end
@@ -353,6 +353,11 @@ local PANEL = {}
 
 	function PANEL:addText(...)
 		local text = "<font=nutChatFont>"
+		if(NUT_CVAR_TIMESTAMP:GetBool()) then
+			text = "<color=255,255,255>["..os.date(
+				NUT_CVAR_TIMESTAMP24:GetBool() and "%H:%M:%S" or "%I:%M:%S %p"
+			).."] "
+		end
 
 		if (CHAT_CLASS) then
 			text = "<font="..(CHAT_CLASS.font or "nutChatFont")..">"
