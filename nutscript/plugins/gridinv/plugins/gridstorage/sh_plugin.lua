@@ -183,7 +183,7 @@ if (CLIENT) then
 
 		
 		self.info = vgui.Create("nutCharInfo", self)
-		self.info:setup(self)
+		self.info:setup(self, true)
 		self.info.quickInventoryPanel:RequestFocus()
 		-- Number of pixels between the local inventory and storage inventory.
 		local PADDING = 4

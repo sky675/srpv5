@@ -224,7 +224,7 @@ local PANEL = {}
 						tip = "Rules",
 						order = 40,
 						func = function()
-							print("lmao dont be an ass")
+							stalkerLibrary("Rules & Guidelines", STALKER_RULES)
 						end
 						},
 					["help"] =
@@ -232,7 +232,7 @@ local PANEL = {}
 						tip = "Help",
 						order = 50,
 						func = function()
-							print("do your best <3")
+							stalkerLibrary("Help Information", STALKER_HELP_TEXT)
 						end
 					}
 				}
@@ -243,6 +243,10 @@ local PANEL = {}
 						order = 30,
 						func = function()
 							if (!LocalPlayer():IsSuperAdmin()) then return end
+
+							if(self.bttnDisable) then
+								nut.util.notify("Exit the storage to access this.", 2) return
+							end
 							if (IsValid(nut.gui.info)) then
 								nut.gui.info:Remove()
 							end
@@ -350,7 +354,9 @@ local PANEL = {}
 					tip = "Business",
 					order = 10,
 					func = function()
-						if (hook.Run("BuildBusinessMenu", panel) != false) then
+						if(self.bttnDisable) then
+							nut.util.notify("Exit the storage to access this.", 2)
+						elseif (hook.Run("BuildBusinessMenu", panel) != false) then
 							if (IsValid(nut.gui.info)) then
 								nut.gui.info:Remove()
 							end
@@ -389,7 +395,9 @@ local PANEL = {}
 		hook.Run("CreateCharInfo", self)
 	end
 
-	function PANEL:setup(panelParent)
+	function PANEL:setup(panelParent, disable)
+		
+		self.bttnDisable = disable or false
 		local char = LocalPlayer():getChar()
 
 		--DESC
