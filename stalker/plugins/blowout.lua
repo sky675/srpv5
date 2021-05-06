@@ -25,7 +25,7 @@ local spawnPoints = {
 		xory = "y",
 		pos = false, --if false, goes negative
 		spawn = 14335.96, --the x point to start at
-		add = 14335.96, --makes calculations always positive
+		add = 14335.96, --makes calculations always positive, should always be non neg of below
 		done = -14335.96, --the x point to end at
 		wavemulti = 1220, --how fast it travels
 	}
@@ -39,7 +39,8 @@ util.PrecacheSound("blowout/blowout_wave_03.ogg")
 util.PrecacheSound("blowout/blowout_wave_04.ogg")
 util.PrecacheSound("blowout/blowout_wave_04.ogg")
 util.PrecacheSound("blowout/blowout_hit_03.ogg")
-util.PrecacheSound("blowout/blowout_rumble.wav")
+util.PrecacheSound("blowout/blowout_rumble.wav") --todo make this loop
+--https://wiki.facepunch.com/gmod/Creating_Looping_Sounds
 util.PrecacheSound("blowout/blowout_particle_wave.wav")
 
 local bbegins = {
@@ -213,10 +214,12 @@ PLUGIN.stages = {
 					netstream.Start(player.GetAll(), "fakepdanote", "Connection Lost...")
 					PDA_AVAILABLE = false
 				end)
-				if(StormFox) then
-					oldWeather = StormFox.GetWeather()
-					StormFox.SetWeather("rain", 0.95)
-					StormFox.SetNetworkData("Thunder", true)
+				if(StormFox2) then
+					oldWeather = StormFox2.Weather.GetCurrent().Name
+					--disable following the forecast
+					StormFox2.Setting.Set("auto_weather",false)
+					StormFox2.Weather.Set("Rain", 0.95)
+					StormFox2.Thunder.SetEnabled(true, 3)
 				end
 				local ticks = 0
 				local max = 200
@@ -388,7 +391,7 @@ PLUGIN.stages = {
 		{
 			length = 60,
 			onStart = function()
-				BLOWOUT_RUMBLE:FadeOut(10)
+				BLOWOUT_RUMBLE:FadeOut(25)
 				EmitSound("blowout/blowout_hit_3.ogg", Vector(0,0,0), -2)
 				
 				local cc = {
@@ -463,16 +466,18 @@ PLUGIN.stages = {
 				end)
 				
 				--start rain if can?
-				if(StormFox) then
-					StormFox.SetWeather("rain", 0.75)
-					StormFox.SetNetworkData("Thunder", true)
+				if(StormFox2) then
+					StormFox2.Weather.Set("Rain", 0.75)
+					StormFox2.Thunder.SetEnabled(true, 2)
 					timer.Simple(math.random(900,1800), function()
-						if(StormFox.GetWeather() == "Thunder") then
-							StormFox.SetNetworkData("Thunder", false)
+						if(StormFox2.Thunder.IsThundering()) then
+							StormFox2.Thunder.SetEnabled(false)
 							timer.Simple(math.random(600,1200), function()
+								--reenable following the forecast
+								StormFox2.Setting.Set("auto_weather",false)
 								--hopefully will return it to the other weather
 								if(oldWeather) then
-									StormFox.SetWeather(oldWeather)
+									StormFox2.Weather.Set(oldWeather)
 								end
 							end)
 						end
