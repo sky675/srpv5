@@ -5,7 +5,7 @@ SCHEMA.desc = ""--"Corporate control in Osaka, Japan."
 SCHEMA.descname = "STALKER RP"
 
 function SCHEMA:GetGameDescription()
-	return "NS - "..self.descname --?
+	return self.descname--"NS - "..self.descname --?
 end
 
 nut.util.include("sh_config.lua")
@@ -272,4 +272,4 @@ nut.flag.add("y", "Access to the business menu.")
 nut.flag.add("m", "Access to special trader goods/admin goods. Don't freely give this out.")
 --nut.flag.add("U", "Access to tech abilities (not even sure if this still in use anywhere, im keeping it tho).")
 
-nut.currency.set("", "RU", "RU")
+nut.currency.set("₽", "ruble", "rubles")

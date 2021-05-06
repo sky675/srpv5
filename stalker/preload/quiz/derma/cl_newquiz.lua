@@ -63,7 +63,7 @@ local quiztbl = {
 		correct = 1,
 	},
 	{
-		question = "Do you understand that cheating is not tolerated on this server, and that if we suspect you are cheating and/or hacking you will be permanently banned?",
+		question = "Do you understand that cheating is not tolerated on this server, and that if we suspect you are cheating and/or hacking you will be permanently banned? Exploits found are to be immediately reported to admins.",
 		answers = {
 			"Yes.",
 			"muh esp thoooooo",
