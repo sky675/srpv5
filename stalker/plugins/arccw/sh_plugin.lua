@@ -91,10 +91,8 @@ hook.Add("ArcCW_PlayerCanAttach", "pickyatts", function(ply, wep, attname, slot,
 			end
 		end
 	end
-	if(!SERVER) then return end
-	print("hey ",ply.isattaching)
+	if(!SERVER) then return end --just being sure
 	if(!ply.isattaching) then 
-		print("stop") 
 		return false 
 	end
 	ply.isattaching = nil
@@ -137,10 +135,9 @@ if(SERVER) then
 		local cmenu = GetConVar("arccw_truenames")
 		cmenu:SetInt(1) --lets try this instead?
 		end)
-	   -- local bull = GetConVar("sv_tfa_bullet_penetration")
-		--bull:SetBool(false) --these dont work well with shoottorp, probably should mvoe it in there
 	end)
-	hook.Add("PlayerInitialSpawn", "fukoffmusic", function(ply)
+	--unfortunately i have to do this
+	hook.Add("PlayerInitialSpawn", "sryautosave", function(ply)
 		ply:ConCommand("arccw_autosave 0")
 	end)
 	

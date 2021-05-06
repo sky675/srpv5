@@ -309,6 +309,7 @@ function ITEM:doAttach(weapon)
 		end
 	end
 	timer.Simple(1, function()
+		if(!weapon.NetworkWeapon) then return end --uhhh it do this
 	weapon:NetworkWeapon() --this is doing fucky shit, maybe thisll get it
 	end)
 	end)
