@@ -23,19 +23,19 @@ if(SERVER) then
 							tbl[#tbl+1] = {
 								["handle"] = item:getData("pdahandle", "invalid"),
 								["title"] = item:getData("pdatitle", ""),
-								["avail"] = "a" --todo different statuses
+								["avail"] = "active" --todo different statuses
 							}
 						elseif(!char:getData("activePDA") and !got) then
 							tbl[#tbl+1] = {
 								["handle"] = item:getData("pdahandle", "invalid"),
 								["title"] = item:getData("pdatitle", ""),
-								["avail"] = "a" --todo different statuses
+								["avail"] = "active" --todo different statuses
 							}
 						else--inactive pda
 							tbl[#tbl+1] = {
 								["handle"] = item:getData("pdahandle", "invalid"),
 								["title"] = item:getData("pdatitle", ""),
-								["avail"] = "i"
+								["avail"] = "idle"
 							}
 							
 						end
@@ -50,7 +50,7 @@ if(SERVER) then
 					tbl[#tbl+1] = {
 						["handle"] = item:getData("pdahandle", "invalid"),
 						["title"] = item:getData("pdatitle", ""),
-						["avail"] = "u"
+						["avail"] = "idle"
 					}
 				end
 			end
@@ -62,7 +62,7 @@ if(SERVER) then
 				tbl[#tbl+1] = {
 					["handle"] = item:getData("pdahandle", "invalid"),
 					["title"] = item:getData("pdatitle", ""),
-					["avail"] = "u"
+					["avail"] = "idle"
 				}
 			end
 		end
@@ -79,10 +79,10 @@ else--client
 	end)
 	--unhide/create pda
 	hook.Add("ScoreboardHide", "aaahide", function()--function PLUGIN:ScoreboardHide()
-		if (IsValid(nut.gui.pda)) then
-			nut.gui.pda:DisablePDA()
+		--if (IsValid(nut.gui.pda)) then
+		--	nut.gui.pda:DisablePDA()
 			CloseDermaMenus()
-		end
+		--end
 
 		return true
 	end)
@@ -92,7 +92,12 @@ else--client
 		if(!pd) then return true end
 		if (IsValid(nut.gui.pda)) then
 			--get active pda
-			nut.gui.pda:Reset(pd)
+			--hopefully this makes it a toggle?
+			if(nut.gui.pda:IsVisible()) then
+				nut.gui.pda:DisablePDA()
+			else
+				nut.gui.pda:Reset(pd)
+			end
 		else
 			nut.gui.pda = vgui.Create("pdaPanel")
 			nut.gui.pda.pda = pd
