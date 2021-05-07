@@ -134,7 +134,7 @@ var y = elmnt.scrollHeight;
 returnvar.gettall(y)]])
 
             end,
-            false, Window)
+            false, Window, v.color or Color(255,255,255))
 
             i = i + 1
 

@@ -48,13 +48,17 @@ if(CLIENT) then
         end
     end
 
-    function stalkerLongButton(id, x, y, label, callback, autoScale, parent)
+    function stalkerLongButton(id, x, y, label, callback, autoScale, parent, bttnColor)
+        local hue = bttnColor or Color(255,255,255) 
         local self = parent or self
+        local bttnUnclick = hue
+        local bttnClick = Color(math.Clamp(hue.r-112, 0, 255), math.Clamp(hue.g-112, 0, 255), math.Clamp(hue.b-112, 0, 255))
         local unclick = Color(255,255,255)
         local click = Color(143,143,143)
 
         self[id] = self:Add("DImageButton") 
         self[id]:SetImage("sky/buttons/long_grey_bar.png")
+        self[id]:SetColor(bttnUnclick)
 
         if (autoScale) then
             self[id]:SetPos(invPosX+(x*(invw/invTextureW)), (invPosY+(y*(invh/invTextureH))))	
@@ -81,6 +85,7 @@ if(CLIENT) then
 
         self[id].OnDepressed = function(this)
             this:SetImage("sky/buttons/long_grey_bar_press.png")
+            this:SetColor(bttnClick)
             labelXpos, labelYpos = self[id].label:GetPos()
             self[id].label:SetTextColor(click)
             self[id].label:SetPos(labelXpos, labelYpos + ((2*(invh/invTextureH))))
@@ -90,6 +95,7 @@ if(CLIENT) then
         self[id].OnReleased = function(this)
             surface.PlaySound( "interface/beep.ogg" )
             this:SetImage("sky/buttons/long_grey_bar.png")
+            this:SetColor(bttnUnclick)
             self[id].label:SetTextColor(unclick)
             self[id].label:SetPos(ButtonX + (labelOffsetX), ButtonY + (labelOffsetY))
 
