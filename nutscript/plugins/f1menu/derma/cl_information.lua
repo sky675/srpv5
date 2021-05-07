@@ -458,7 +458,8 @@ local PANEL = {}
 
 		--Money
 		if (self.money) then
-			self.money:SetText(nut.currency.get(char:getMoney()))
+			-- old way of doing it, forces you to set the config to match this use case (ew): self.money:SetText(nut.currency.get(char:getMoney()))
+			self.money:SetText(char:getMoney() .. " RU")
 			self.money:SizeToContents()
 
 			moneyWidthX, moneyWidthY = self.money:GetSize()
