@@ -1,17 +1,14 @@
 STALKER_HELP_TEXT = {
-    ["controls"] =
+    [1]=
         {
-            order = 1,
-            title = "Basic Controls",
+            title = "Discord",
             body = 
-[[<h1>Basic Controls:</h1>
-<p><strong>F1</strong>: <i>Open Inventory</i></p>
-<p><strong>F3:</strong> <i>Familiarity Menu (Allow people to recognize you)</i></p>
-<p><strong>Tab <i>(Hold)</i>:</strong> <i>View PDA</i></p>]]
+[[<h1>Discord:</h1>
+<p><strong>Discord Link <i>(Hold)</i>:</strong> <i>Test</i></p>]],
+            color=Color(138, 164, 255)
         },
-    ["exampleLong"] =
+    [2] =
         {
-            order = 2,
             title = "Lore or something",
             body = 
 [[<h1>Basic Lore:</h1>
@@ -39,9 +36,8 @@ STALKER_HELP_TEXT = {
 Officially, stalkers are trespassing in a restricted ecological disaster zone and will be shot on sight by the military due to armed encounters in the past. Unofficially, they are the most reliable workhorses for any individual who wants something retrieved in the Zone as they are the most experienced people who can be enlisted. Indeed, without stalkers, curiosities like artifacts would be a rarity outside the Zone and the experiments of the Ecologists would be stalled for a considerable amount of time as the military is hardly able to assist them because of their slipping control, low morale, and lack of sufficient manpower.             
 Stalkers come to the Zone for a number of reasons. Some go for profit, some for adventure, some seek to get away from the world, to escape the law or personal problems. It follows that former criminals can be found in all of the stalker factions except Duty, though most criminals not part of a bandit clan have long since started new lives.</p>]]
         },
-    ["Factions"] =
+    [3] =
         {
-            order = 3,
             title = "Factions of The Zone",
             body = 
 [[<head>
@@ -131,37 +127,35 @@ img {
     <p>The Monolith were originally ordinary Stalkers who believed in the power of the Wish Granter. Prior to Clear Sky, the faction reportedly made an exodus to the Zone's center and disappeared. After the large emission during the events of S.T.A.L.K.E.R.: Clear Sky, they became active. The Monolith are the front line soldiers of the C-Consciousness, and would rather die than let any Stalker reach the sacred crystal. Although capable of higher reasoning and emotion, they nevertheless carry out orders with fanatic effectiveness. The Monolith faction has no allies, and actively attacks all other factions.</p></div>
 </div>]]
         },
-    ["test4"] =
+    [4] =
         {
-            order = 4,
             title = "test4",
             body = 
 [[<h1>Test:</h1>
 <p><strong>Test <i>(Hold)</i>:</strong> <i>Test</i></p>]]
         },
-    ["test5"] =
+    [5] =
         {
-            order = 5,
             title = "test5",
             body = 
 [[<h1>Test:</h1>
 <p><strong>Test <i>(Hold)</i>:</strong> <i>Test</i></p>]]
         },
-    ["test6"] =
+    [6] =
         {
-            order = 6,
             title = "test6",
             body = 
 [[<h1>Test:</h1>
 <p><strong>Test <i>(Hold)</i>:</strong> <i>Test</i></p>]]
         },
+    [7] =
         {
-            order = 7,
-            title = "Discord",
+            title = "Basic Controls",
             body = 
-[[<h1>Discord:</h1>
-<p><strong>Discord Link <i>(Hold)</i>:</strong> <i>Test</i></p>]],
-            color=Color(138, 164, 255)
-        }
+[[<h1>Basic Controls:</h1>
+<p><strong>F1</strong>: <i>Open Inventory</i></p>
+<p><strong>F3:</strong> <i>Familiarity Menu (Allow people to recognize you)</i></p>
+<p><strong>Tab <i>(Hold)</i>:</strong> <i>View PDA</i></p>]]
+        },
 }
 

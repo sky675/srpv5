@@ -1,5 +1,6 @@
 if (CLIENT) then
-    function stalkerLibrary(winTitle, dictTabs, fnClose)
+    function stalkerLibrary(winTitle, dictTabs, fnClose, openTo)
+
         --Window is over-all container, background image
         local Window = vgui.Create( "DFrame" )
         print(dictTabs)
@@ -76,7 +77,10 @@ if (CLIENT) then
         tabContainer:SetSize((245*(scaledW/textW)), ((515*(scaledH/textH))))
         tabContainer:SetPos(popupX+(28*(scaledW/textW)), (popupY+(78*(scaledH/textH))))
 
-        table.SortByMember(dictTabs, "order", false)
+        --sortedOrder = table.SortByMember(dictTabs, "order", true))
+
+
+		
 
         --htmlBodyHeight = 620
         local barPosX = popupX+(34*(scaledW/textW))
@@ -114,29 +118,41 @@ if (CLIENT) then
 </body>
 </html>
 ]]
+        Body:AddFunction("returnvar", "gettall", function(str)
+            Body:SetTall(tonumber(str) + 10)
+        end)
+
+        openTo = openTo or nil
+
+        if openTo != nil then
+            print(openTo)
+            print("openTo not nil")
+            Body:SetHTML(baseHtml .. dictTabs[openTo].body .. tagHtml)
+            Body:RunJavascript(
+[[var elmnt = document.getElementById("content");
+var y = elmnt.scrollHeight;
+returnvar.gettall(y)]])
+        end
 
         for k,v in pairs(dictTabs) do
-            if i == 1 then
+            if k == 1 then
                 fbuttonY = barPosStartY + gap
             end
-            if i != 1 then
-                fbuttonY = (gap * i) + barPosStartY 
+            if k != 1 then
+                fbuttonY = (gap * k) + barPosStartY 
             end
-            stalkerLongButton(k, barPosX, fbuttonY, v.title, function() 
-                Body:SetHTML(baseHtml .. v.body .. tagHtml)
-                Body:AddFunction("returnvar", "gettall", function(str)
-                    Body:SetTall(tonumber(str) + 10)
-
-                end)
+            stalkerLongButton(k, barPosX, fbuttonY, dictTabs[k].title, function() 
+				print(k)
+                Body:SetHTML(baseHtml .. dictTabs[k].body .. tagHtml)
                 Body:RunJavascript(
 [[var elmnt = document.getElementById("content");
 var y = elmnt.scrollHeight;
 returnvar.gettall(y)]])
 
             end,
-            false, Window, v.color or Color(255,255,255))
+            false, Window, dictTabs[k].color or Color(255,255,255))
 
-            i = i + 1
+            --i = i + 1
 
         end
 
