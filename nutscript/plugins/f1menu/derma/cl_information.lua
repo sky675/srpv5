@@ -417,7 +417,6 @@ local PANEL = {}
 			-- local namePart2 = charName:sub(13)
 			-- print(namePart2)
 
-			print("Max name width: " .. (165*(invw/invTextureW)))
 			local wrappedName = nut.util.wrapText(charName, (120*(invw/invTextureW)), "nutScaledInvenMed")
 			local firstPart = wrappedName[1]
 
@@ -435,7 +434,6 @@ local PANEL = {}
 				else
 					self.nameBotLine:SetText(firstPart)
 				end
-				print(" "..firstPart)
 				self.nameTopLine:SetText("")
 			end
 

@@ -3,7 +3,6 @@ if (CLIENT) then
 
         --Window is over-all container, background image
         local Window = vgui.Create( "DFrame" )
-        print(dictTabs)
 
         local libraryText = (Material("sky/srp_library.png"))
         local textH = 630
@@ -89,7 +88,6 @@ if (CLIENT) then
         local pages = table.Count(dictTabs)
         local fbuttonY = 0
         local n = pages
-        print(n)
         local gap = 50
         local baseHtml =
 [[<html>
@@ -125,8 +123,6 @@ if (CLIENT) then
         openTo = openTo or nil
 
         if openTo != nil then
-            print(openTo)
-            print("openTo not nil")
             Body:SetHTML(baseHtml .. dictTabs[openTo].body .. tagHtml)
             Body:RunJavascript(
 [[var elmnt = document.getElementById("content");
@@ -142,7 +138,6 @@ returnvar.gettall(y)]])
                 fbuttonY = (gap * k) + barPosStartY 
             end
             stalkerLongButton(k, barPosX, fbuttonY, dictTabs[k].title, function() 
-				print(k)
                 Body:SetHTML(baseHtml .. dictTabs[k].body .. tagHtml)
                 Body:RunJavascript(
 [[var elmnt = document.getElementById("content");

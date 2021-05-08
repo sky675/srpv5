@@ -13,7 +13,6 @@ if (CLIENT) then
 
         --Window is over-all container, background image
         local Window = vgui.Create( "DFrame" )
-        print(dictTabs)
 
         local statsText = (Material("sky/srp_stats.png"))
         local textH = 607
@@ -34,10 +33,8 @@ if (CLIENT) then
         --InnerPanel:SetSize(scaledW, scaledH)
         InnerPanel:SetSize((425*(scaledW/textW)), ((326*(scaledH/textH))))
         InnerPanel:SetPos(popupX+(41*(scaledW/textW)), (popupY+(67*(scaledH/textH))))
-        print("#########Total width allowed: " .. (425*(scaledW/textW)) .. " -- Desired width of columns: " .. ((217*(scaledW/textW)) + (152*(scaledW/textW)) + (56*(scaledW/textW))))
         --Table
         local traitsTable = vgui.Create( "DListView", InnerPanel )
-        print("setting up properties")
         traitsTable:UpdateColours(nutscript)
         traitsTable:SetPaintBackground( false )
         traitsTable:SetPaintBorderEnabled( false )
@@ -57,13 +54,42 @@ if (CLIENT) then
         traitsTable:AddColumn( "Trait" )
         traitsTable:AddColumn( "Category" )
         traitsTable:AddColumn( "   " )
+
+        --box under traits table
+
+        local traitTitle = vgui.Create("DLabel", Window)
+        traitTitle:SetPos(popupX+(35*(scaledW/textW)), (popupY+(435*(scaledH/textH))))
+        traitTitle:SetSize(440*(scaledW/textW), 20*(scaledH/textH))
+        --traitTitle:SetText("Trait Title")
+        traitTitle:SetFont("nutScaledInvenLight")
+
+        local traitCat = vgui.Create("DLabel", Window)
+        traitCat:SetPos(popupX+(35*(scaledW/textW)), (popupY+(450*(scaledH/textH))))
+        traitCat:SetSize(440*(scaledW/textW), 20*(scaledH/textH))
+        --traitCat:SetText("Category")
+        traitCat:SetFont("nutScaledInvenLight")
+        traitCat:SetColor(Color(155, 200, 200))
+
+        local traitType = vgui.Create("DLabel", Window)
+        traitType:SetPos(popupX+(35*(scaledW/textW)), (popupY+(465*(scaledH/textH))))
+        traitType:SetSize(440*(scaledW/textW), 20*(scaledH/textH))
+        --traitType:SetText("Positive/Negative")
+        traitType:SetFont("nutScaledInvenLight")
+        traitType:SetColor(Color(0, 255, 200))
         
+        local traitDesc = vgui.Create("DLabel", Window)
+        traitDesc:SetContentAlignment(1)
+        traitDesc:SetPos(popupX+(35*(scaledW/textW)), (popupY+(470*(scaledH/textH))))
+        traitDesc:SetSize(440*(scaledW/textW), 70*(scaledH/textH))
+        --traitDesc:SetText("This is the description. Usually longer than other elements, it must take up more room than said other elements, nice.")
+        traitDesc:SetFont("nutScaledInvenLight")
+        traitDesc:SetWrap( true )
+        traitDesc:SetColor(Color(155, 155, 155))
+
         for k,v in pairs(nut.traits.list) do
             if(traits[k]) then
-                print("if passed")
                 --create it
                 local xpt = "N/A"
-                print("xp if")
                 if(v.xp and v.xp[traits[k]]) then
                     xpt = tostring(xp[k] or 0).."/"..v.xp[traits[k]]
                 end
@@ -76,33 +102,41 @@ if (CLIENT) then
                 --end
     
                 traitsTable:AddLine(v.getName and v.getName(char) or v.name, v.category, xpt or "Nil")
+                
+
                 --li:SetTooltip(v.desc)
             end
         end
+        traitsTable.OnRowSelected = function(panel, rowIndex, row)
+            for k,v in pairs(nut.traits.list) do
+                if (v.getName and v.getName(char) or v.name) == row:GetValue(1) then
+                    traitTitle:SetText(v.getName and v.getName(char) or v.name)
+                    traitCat:SetText(v.category)
+                    traitType:SetText(transtype[v.type] or "Neutral")
 
-        print("invalidating")
+                    if v.type == "pos" then
+                        traitType:SetColor(Color(0, 255, 200))
+                    
+                    elseif v.type == "neg" then
+                        traitType:SetColor(Color(255, 0, 76))
+                    
+                    else
+                        traitType:SetColor(Color(155, 155, 155))
+                    end
+
+                    traitDesc:SetText(v.desc)
+                end
+            end
+        end
+        
         traitsTable:InvalidateLayout(true)
         traitsTable.Columns[1]:SetFixedWidth(col1Width*(scaledW/textW))
         traitsTable.Columns[2]:SetFixedWidth(col2Width*(scaledW/textW))
         traitsTable.Columns[3]:SetFixedWidth(col3Width*(scaledW/textW))
         traitsTable.Columns[3]:SetTextAlign(5)
 
+        
 
-        
-        -- for k,v in pairs(nut.traits.list) do
-        --     local xpt = "None"
-        --     if(v.xp and v.xp[traits[k]]) then
-        --         xpt = tostring(xp[k] or 0).."/"..v.xp[traits[k]]
-        --     end
-        --     traitsTable:AddLine(v.getName(char), v.desc, xpt)
-        -- end
-        --traitsTable:AddLine( "Super Strong", "This trait makes you super strong!", "5/10" )
-        --traitsTable:AddLine( "Mega Weak", "This trait unfortunately makes you mega Weak!", "10/10" )
-        --iterating over & stylizing list elements
-        --traitsTable.Columns[1].Header:SetTextColor(Color(255,255,255))
-        --traitsTable.Columns[2].Header:SetTextColor(Color(255,255,255))
-        --traitsTable.Columns[3].Header:SetTextColor(Color(255,255,255))
-        
         highlightColor = Color(101, 133, 101) --background highlight for when you hover over a traight
 
         for _, column in pairs(traitsTable.Columns) do
@@ -122,6 +156,12 @@ if (CLIENT) then
                 label:SetFont("nutScaledInvenLight")
             end
         end        
+
+
+
+
+
+
 
         --Close button
         stalkerGreyButton("closeButton", (popupX+(403*(scaledW/textW))), (popupY+(579*(scaledH/textH))),
