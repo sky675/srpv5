@@ -159,7 +159,8 @@ local PANEL = {}
 				--TRAITS BUTTON (id, x, y, label, callback, autoScale, parent)
 				stalkerGreyButton("traitsButton", 189, 556, "Traits",
 				function()
-					RunConsoleCommand("nut_displaytraits")
+					--RunConsoleCommand("nut_displaytraits")
+					stalkerDisplayStats(LocalPlayer():getChar())
 				end,
 				true,
 				self)
@@ -416,7 +417,6 @@ local PANEL = {}
 			-- local namePart2 = charName:sub(13)
 			-- print(namePart2)
 
-			print("Max name width: " .. (165*(invw/invTextureW)))
 			local wrappedName = nut.util.wrapText(charName, (120*(invw/invTextureW)), "nutScaledInvenMed")
 			local firstPart = wrappedName[1]
 
@@ -434,7 +434,6 @@ local PANEL = {}
 				else
 					self.nameBotLine:SetText(firstPart)
 				end
-				print(" "..firstPart)
 				self.nameTopLine:SetText("")
 			end
 
