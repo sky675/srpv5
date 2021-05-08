@@ -63,7 +63,11 @@ local skills = {
 }
 --return levels for that num == add a level up pick
 function PLUGIN:LevelupCheck(name, num)
-
+	--check if name is in table above, 
+	if(!skills[name]) then return end
+	--and if num is in the levels table in names table
+	--if(!skills[name].levels[num]) then return end
+	return skills[name].levels[num]
 end
 
 if(SERVER) then			--orig skill, number of points to remove, new skill
