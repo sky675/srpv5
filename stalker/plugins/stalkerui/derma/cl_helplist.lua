@@ -7,7 +7,15 @@ STALKER_HELP_TEXT = {
 <p><strong>Discord Link <i>(Hold)</i>:</strong> <i>Test</i></p>]],
             color=Color(138, 164, 255)
         },
-    [2] =
+        [2]=
+        {
+            title = "Donate",
+            body = 
+[[<h1>Discord:</h1>
+<p><strong>Donate Link <i>(Hold)</i>:</strong> <i>Test</i></p>]],
+            color=Color(238,232,170)
+        },
+    [8] =
         {
             title = "Lore or something",
             body = 

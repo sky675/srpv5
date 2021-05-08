@@ -159,7 +159,8 @@ local PANEL = {}
 				--TRAITS BUTTON (id, x, y, label, callback, autoScale, parent)
 				stalkerGreyButton("traitsButton", 189, 556, "Traits",
 				function()
-					RunConsoleCommand("nut_displaytraits")
+					--RunConsoleCommand("nut_displaytraits")
+					stalkerDisplayStats(LocalPlayer():getChar())
 				end,
 				true,
 				self)
