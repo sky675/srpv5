@@ -20,6 +20,12 @@ function ITEM:attachTo(target, ply)
 		return self:specialAtt(target)
 	end
 
+	--this is useless until uniqueids are decoupled from detaching, which idk how id do
+	if(self.restrictWeps and !self.restrictWeps[target.uniqueID]) then
+		ply:notify("This weapon cannot equip this attachment.", 3)
+		return false
+	end
+
 	local wep
 	if(ply:GetActiveWeapon().nutItem == target) then
 		wep = ply:GetActiveWeapon()
