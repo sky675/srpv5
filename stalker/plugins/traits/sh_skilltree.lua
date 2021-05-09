@@ -94,7 +94,7 @@ end
 --[1] = {name = "", id = ""},
 function PLUGIN:GetSkillChoiceForSkill(name)
 	if(!skills[name] or !skills[name].picks) then return end
-	local levelcnt = client:getChar():getData("traitlevelups", {})
+	local levelcnt = LocalPlayer():getChar():getData("traitlevelups", {})
 	if(!levelcnt[name]) then return end
 
 	local avail = {}
