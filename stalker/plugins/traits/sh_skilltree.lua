@@ -101,7 +101,7 @@ function PLUGIN:GetSkillChoiceForSkill(name)
 	local avail = {}
 	for k,v in pairs(skills[name].picks) do
 		local spl = string.Split(k, ".")
-		if(curtrt[spl[1]] and curtrt[spl[1]] == true or curtrt[spl[1]] >= tonumber(spl[2])) then continue end 
+		if(curtrt[spl[1]] and (curtrt[spl[1]] == true or curtrt[spl[1]] >= tonumber(spl[2]))) then continue end 
 		if(levelcnt[name] >= v) then
 			avail[#avail+1] = {name = skills[name].picknames[k], id = k}
 			if(#avail == 4) then break end
