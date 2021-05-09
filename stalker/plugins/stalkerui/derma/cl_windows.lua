@@ -186,5 +186,93 @@ if(CLIENT) then
         return InnerPanel
     
     end
+
+    function stalkerQuery(qryPromt, bttn1text, bttn1func, bttn2text, bttn2func, bttn3text, bttn3func, bttn4text, bttn4func) --cancelable)
+        local qryWindow = vgui.Create("DFrame")
+        
+        local qryReqTexture = (Material("sky/srp_query.png"))
+        local textH = 261
+        local textW = 444
+        local scaledH = (textH*(invh/invTextureH))
+        local scaledW = (textW*(invw/invTextureW))
+        local popupX = (ScrW()*0.5)-(scaledW*0.5)
+        local popupY = (ScrH()*0.5)-(scaledH*0.5)
+
+        qryWindow:SetDraggable( false )
+        qryWindow:ShowCloseButton( false )
+        qryWindow:SetBackgroundBlur( true )
+        qryWindow:SetDrawOnTop( true )
+        --Window:SetAlpha(0)
     
+        local InnerPanel = vgui.Create( "DPanel", qryWindow )
+        InnerPanel:SetPaintBackground( false )
+        InnerPanel:SetSize(scaledW, scaledH)
+
+        local Text = vgui.Create( "DLabel", qryWindow )
+        Text:SetFont("nutScaledInvenLight")
+        Text:SetText( qryPromt or "Query Prompt (First Parameter)" )
+        Text:SetPos(popupX+(35*(scaledW/textW)), (popupY+(42*(scaledH/textH))))
+        Text:SizeToContents()
+        Text:SetTextColor( Color(255,255,255,150) )
+        print(bttn1text)
+        if bttn1text != nil then
+            stalkerLongButton("bttn1", popupX+(110*(scaledW/textW)), popupY+(85*(scaledH/textH)), bttn1text, 
+                function()
+                    print("bttn 1 pushed!")
+                    bttn1func()
+                    qryWindow:Close()
+                end,
+                false, qryWindow)
+        end
+
+        if bttn2text != nil then
+            stalkerLongButton("bttn2", popupX+(110*(scaledW/textW)), popupY+(121*(scaledH/textH)), bttn2text, 
+                function()
+                    print("bttn 2 pushed!")
+                    bttn2func()
+                    qryWindow:Close()
+                end,
+                false, qryWindow)
+        end
+        if bttn3text != nil then
+            stalkerLongButton("bttn3", popupX+(110*(scaledW/textW)), popupY+(157*(scaledH/textH)), bttn3text, 
+                function()
+                    print("bttn 3 pushed!")
+                    bttn3func()
+                    qryWindow:Close()
+                end,
+                false, qryWindow)
+        end
+        
+        if bttn4text != nil then
+            stalkerLongButton("bttn4", popupX+(110*(scaledW/textW)), popupY+(193*(scaledH/textH)), bttn4text, 
+                function()
+                    print("bttn 4 pushed!")
+                    bttn4func()
+                    qryWindow:Close()
+                end,
+                false, qryWindow)
+        end
+
+        -- local canCancel = cancelable or false
+
+        -- if (canCancel) then
+        stalkerGreyButton("qryCancelButton", (popupX+(184*(scaledW/textW))), (popupY+(231*(scaledH/textH))),
+        "Cancel",
+        function() qryWindow:Close() end,
+        false, qryWindow)
+        -- end
+        qryWindow:SetSize(ScrW(), ScrH())
+
+        qryWindow:MakePopup()
+        qryWindow:DoModal()
+
+        function qryWindow:Paint(w, h)
+            Derma_DrawBackgroundBlur( self, 0 )
+            surface.SetDrawColor(255,255,255,255)
+            surface.SetMaterial(qryReqTexture)
+            surface.DrawTexturedRect(popupX, popupY, scaledW, scaledH)	
+        end
+    end
+
 end
