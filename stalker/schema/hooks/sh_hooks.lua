@@ -87,9 +87,12 @@ function SCHEMA:CanItemBeTransfered(itemObject, curInv, inventory)
     end
 end
 
+--arccw: m_hook_(name), func(data) data is table of buff and cur mult
+
 --i guess a way to go around this is by using the TFA_GetStat hook, idk
 --itd just be if statements for each stat, all the ones in the att
 -- ply:getImplantRes() to get implant specific adds to this, but do GetArmorResists instead just in case
+--Hook_ModifyRecoil normal hook, var is tbl of Recoil, RecoilSide, VisualRecoilMul
 hook.Add("GetKickUpStat", "MainS", function(wep, stat)
 	return stat * nut.traits.getMod(wep:GetOwner(), "wepreceff", wep.Type or "")
 end)
@@ -105,15 +108,15 @@ end)
 hook.Add("GetStaticRecoilFactorStat", "MainS", function(wep, stat)
 
 end)
-
+--Damage
 hook.Add("GetDamageStat", "MainS", function(wep, stat)
 	return stat * nut.traits.getMod(wep:GetOwner(), "wepdmgeff", wep.Type or "")
 end)
-
+--accuracymoa or Mult_HipDispersion?
 hook.Add("GetSpreadStat", "MainS", function(wep, stat)
 	return stat * nut.traits.getMod(wep:GetOwner(), "wepspreff", wep.Type or "")
 end)
-
+--SightsDispersion?
 hook.Add("GetIronAccuracyStat", "MainS", function(wep, stat)
 	local res = wep:GetOwner():GetArmorResists()
 
@@ -128,7 +131,7 @@ end)
 hook.Add("GetCrouchAccuracyMultiStat", "MainS", function(wep, stat)
 
 end)
-
+--SightTime
 hook.Add("GetIronSightsTimeStat", "MainS", function(wep, stat)
 	local res = wep:GetOwner():GetArmorResists()
 	local qk = wep:GetOwner():getChar():getAttrib("qkn", 0)
@@ -140,13 +143,13 @@ end)
 hook.Add("GetWeaponMoveSpeedMulti", "MainS", function(wep, stat)
 
 end)
-
+--SightedSpeedMult
 hook.Add("GetIronSightsMoveSpeedMulti", "MainS", function(wep, stat)
 	local res = wep:GetOwner():GetArmorResists()
 	return stat * (res["ironms"] or 1)
 end)
-
 --this should be a way to speed up reloads
+--Mult_ReloadTime
 hook.Add("TFA_AnimationRate", "MainS", function(wep, anim, rate)
 	--i think these are all of them
 	if(!IsValid(wep) or !IsValid(wep:GetOwner()) or !wep:GetOwner():getChar()) then return end
