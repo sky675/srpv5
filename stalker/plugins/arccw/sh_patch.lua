@@ -9,6 +9,9 @@ local weaponEdits = {
 		}, 
 		--values in the primary table to change (ammo, clipsize)
 		primarymods = {
+		},
+		modatts = {
+			--[slotname] = {Slot = "tac"}
 		}
 	},
 	]]
@@ -40,6 +43,24 @@ local function PatchWeapon(weapon, name)
 	end
 	for k,v in pairs(tochange.primarymods or {}) do
 		weapon.Primary[k] = v
+	end
+	if(!tochange.modatts) then return end --small opt
+	local slotids = {}
+	for key, value in ipairs(weapon.Attachments) do
+		if(istable(value.Slot)) then
+			for _, s in ipairs(value.Slot) do
+				slotids[s] = key
+			end
+		else
+			slotids[value.Slot] = key
+		end
+	end
+	for k,v in pairs(tochange.modatts or {}) do
+		local num = slotids[k]
+		if(!num) then continue end
+		for l,m in pairs(v) do
+			weapon.Attachments[num][l] = m
+		end
 	end
 end
 local function PatchAttachment(att, name)
