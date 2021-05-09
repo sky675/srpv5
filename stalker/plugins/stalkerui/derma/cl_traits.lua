@@ -11,7 +11,7 @@ if (CLIENT) then
         local xp = char:getData("xp", {})
 
 
-        --Window is over-all container, background image
+        --Window is Main Trait Window container, background image
         local Window = vgui.Create( "DFrame" )
 
         local statsText = (Material("sky/srp_stats.png"))
@@ -120,11 +120,8 @@ if (CLIENT) then
                     --button = vgui.Create("DButton")
                     --pts = char:getData("traitlevelups", {})[k]
                 --end
-                if(char:getData("traitlevelups",{})[k]) then
-                    traitsTable:AddLine(v.getName and v.getName(char) or v.name, v.category, xpt or "Nil")
-                else
-                    traitsTable:AddLine(v.getName and v.getName(char) or v.name, v.category, xpt or "Nil")
-                end
+                traitsTable:AddLine(v.getName and v.getName(char) or v.name, v.category, xpt)
+                
 
                 --li:SetTooltip(v.desc)
             end
@@ -148,10 +145,27 @@ if (CLIENT) then
 
                     traitDesc:SetText(v.desc)
 
+                    local function dermaadd(text)
+                        if(!text) then return end
+                        netstream.Start("LevelupSkill", k, text)
+                        --base:Remove()
+                    end
+                    
                     if(char:getData("traitlevelups",{})[k]) then
+                        local res = nut.plugin.list.traits:GetSkillChoiceForSkill(k)
+                        pts = char:getData("traitlevelups", {})[k]
                         stalkerGreyButton("levelUp", (popupX+(25*(scaledW/textW))), (popupY+(579*(scaledH/textH))),
                         "New Trait",
-                        function() nut.util.notify("New Trait", 1) end,
+
+                        function() 
+                            Window:Close()
+                            stalkerQuery("Pick a new trait - " .. pts .. " point(s) available.",
+                            res[1] and res[1].name, function() dermaadd(res[1] and res[1].id) end,
+							res[2] and res[2].name, function() dermaadd(res[2] and res[2].id) end,
+							res[3] and res[3].name, function() dermaadd(res[3] and res[3].id) end,
+							res[4] and res[4].name, function() dermaadd(res[4] and res[4].id) end)
+                        end,
+
                         false, Window, Color(147,255,188))
                     elseif (IsValid(Window.levelUp)) then
                         Window.levelUp:Remove()

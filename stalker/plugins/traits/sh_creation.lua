@@ -98,7 +98,7 @@ function DisplayTraitsMenu(char)
 			li:SetTooltip(v.desc)
 			if(button) then
 				button:Dock(RIGHT)
-				button:SetWide(data:ColumnWidth(5))
+				button:SetWide(trlist:ColumnWidth(5))
 				button:SetText("Pick ("..pts.." pts) - XP:"..xpt)
 				button.DoClick = function()
 					local res = PLUGIN:GetSkillChoiceForSkill(k)
