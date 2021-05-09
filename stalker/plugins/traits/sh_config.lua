@@ -120,6 +120,7 @@ trait = {
 	gate = "gate_craft",
 	require = "crafting_1", --the trait required to pick this
 }--todo change when this is being used?
+nut.traits.add(uid, trait)
 uid = "crafting_cook"
 trait = {
 	name = "Cooking",
