@@ -72,7 +72,7 @@ end
 
 if(SERVER) then			--orig skill, number of points to remove, new skill
 	netstream.Hook("LevelupSkill", function(client, orig, add)
-		local pick = client:getChar():getData("traitlevelups")
+		local pick = client:getChar():getData("traitlevelups", {})
 		if(!pick[orig]) then return end --just in case?
 		local rem = skills[orig].picks[add]
 		pick[orig] = pick[orig] - rem
@@ -93,5 +93,18 @@ end
 --prob wont need more than that lol
 --[1] = {name = "", id = ""},
 function PLUGIN:GetSkillChoiceForSkill(name)
+	if(!skills[name] or !skills[name].picks) then return end
+	local levelcnt = client:getChar():getData("traitlevelups", {})
+	if(!levelcnt[name]) then return end
 
+	local avail = {}
+	for k,v in pairs(skills[name].picks) do
+		if(levelcnt[name] >= v) then
+			avail[#avail+1] = {name = skills[name].picknames[k], id = k}
+			if(#avail == 4) then break end
+		end
+	end
+	if(#avail == 0) then return end
+
+	return avail
 end
