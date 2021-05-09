@@ -120,9 +120,11 @@ if (CLIENT) then
                     --button = vgui.Create("DButton")
                     --pts = char:getData("traitlevelups", {})[k]
                 --end
-    
-                traitsTable:AddLine(v.getName and v.getName(char) or v.name, v.category, xpt or "Nil")
-                
+                if(char:getData("traitlevelups",{})[k]) then
+                    traitsTable:AddLine(v.getName and v.getName(char) or v.name, v.category, xpt or "Nil")
+                else
+                    traitsTable:AddLine(v.getName and v.getName(char) or v.name, v.category, xpt or "Nil")
+                end
 
                 --li:SetTooltip(v.desc)
             end
@@ -145,6 +147,16 @@ if (CLIENT) then
                     end
 
                     traitDesc:SetText(v.desc)
+
+                    if(char:getData("traitlevelups",{})[k]) then
+                        stalkerGreyButton("levelUp", (popupX+(25*(scaledW/textW))), (popupY+(579*(scaledH/textH))),
+                        "New Trait",
+                        function() nut.util.notify("New Trait", 1) end,
+                        false, Window, Color(147,255,188))
+                    elseif (IsValid(Window.levelUp)) then
+                        Window.levelUp:Remove()
+                        Window.levelUp.label:Remove()
+                    end
                 end
             end
         end
@@ -180,6 +192,16 @@ if (CLIENT) then
                 if (label:GetParent():IsLineSelected())  then return label:SetTextStyleColor( highlightColor ) end
                 label:SetPaintBorderEnabled( false )
                 label:SetFont("nutScaledInvenLight")
+
+                --highlight traits with a new pick available
+                for k,v in pairs(nut.traits.list) do
+                    if (v.getName and v.getName(char) or v.name) == label:GetText() then
+                        if(char:getData("traitlevelups",{})[k]) then
+                            label:SetTextColor(Color(26,194,90))
+                            label:SetExpensiveShadow(2, Color(138,138,138,100))
+                        end
+                    end
+                end
             end
         end        
         local tPanelw, tPanelh = traitsTable:GetSize()
@@ -193,7 +215,8 @@ if (CLIENT) then
 
 
 
-        --Close button
+        --Close button+
+        print("close button")
         stalkerGreyButton("closeButton", (popupX+(403*(scaledW/textW))), (popupY+(579*(scaledH/textH))),
         "Close",
         function() Window:Close() end,
