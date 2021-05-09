@@ -27,23 +27,43 @@ if (CLIENT) then
         Window:SetBackgroundBlur( true )
         Window:SetDrawOnTop( true )
 
-        --I don't know what this is for tbh but i'm not risking removing it :)
-        local InnerPanel = vgui.Create( "DPanel", Window )
+
+        --Scroll panel for all the traits
+        local InnerPanel = vgui.Create( "DScrollPanel", Window )
         InnerPanel:SetPaintBackground( false )
         --InnerPanel:SetSize(scaledW, scaledH)
-        InnerPanel:SetSize((425*(scaledW/textW)), ((326*(scaledH/textH))))
+        InnerPanel:SetSize((443*(scaledW/textW)), ((326*(scaledH/textH))))
         InnerPanel:SetPos(popupX+(41*(scaledW/textW)), (popupY+(67*(scaledH/textH))))
-        --Table
+
+        --Stylizing the scrollbar
+        local sbar = InnerPanel:GetVBar()
+        function sbar:Paint(w, h)
+            draw.RoundedBox(10, 0, 0, w, h, Color(80,80,80, 100))
+        end
+        function sbar.btnUp:Paint(w, h)
+            draw.RoundedBoxEx(10, 0, 0, w, h, Color(112,112,112, 100), true, true, false, false)
+        end
+        function sbar.btnDown:Paint(w, h)
+            draw.RoundedBoxEx(10, 0, 0, w, h, Color(112,112,112, 100), false, false, true, true)
+        end
+        function sbar.btnGrip:Paint(w, h)
+            draw.RoundedBox(0, 0, 0, w, h, Color(112,112,112, 100))
+        end
+
+        --Table for traits
         local traitsTable = vgui.Create( "DListView", InnerPanel )
         traitsTable:UpdateColours(nutscript)
+        traitsTable:DisableScrollbar()
         traitsTable:SetPaintBackground( false )
         traitsTable:SetPaintBorderEnabled( false )
-        traitsTable:Dock( FILL )
+        
+
         traitsTable:SetHeaderHeight(18*(scaledH/textH))
         traitsTable:SetDataHeight(18*(scaledH/textH))
         traitsTable:SetMultiSelect( false )
 
         local widthAllowed = (425*(scaledW/textW))
+
         -- total: 425
         -- col1:217   col2:152   col3:56
         --      51%        35%        13%
@@ -60,28 +80,28 @@ if (CLIENT) then
         local traitTitle = vgui.Create("DLabel", Window)
         traitTitle:SetPos(popupX+(35*(scaledW/textW)), (popupY+(435*(scaledH/textH))))
         traitTitle:SetSize(440*(scaledW/textW), 20*(scaledH/textH))
-        --traitTitle:SetText("Trait Title")
+        traitTitle:SetText("No Trait Selected")
         traitTitle:SetFont("nutScaledInvenLight")
 
         local traitCat = vgui.Create("DLabel", Window)
         traitCat:SetPos(popupX+(35*(scaledW/textW)), (popupY+(450*(scaledH/textH))))
         traitCat:SetSize(440*(scaledW/textW), 20*(scaledH/textH))
-        --traitCat:SetText("Category")
+        traitCat:SetText(" ")
         traitCat:SetFont("nutScaledInvenLight")
         traitCat:SetColor(Color(155, 200, 200))
 
         local traitType = vgui.Create("DLabel", Window)
         traitType:SetPos(popupX+(35*(scaledW/textW)), (popupY+(465*(scaledH/textH))))
         traitType:SetSize(440*(scaledW/textW), 20*(scaledH/textH))
-        --traitType:SetText("Positive/Negative")
+        traitType:SetText(" ")
         traitType:SetFont("nutScaledInvenLight")
         traitType:SetColor(Color(0, 255, 200))
         
         local traitDesc = vgui.Create("DLabel", Window)
         traitDesc:SetContentAlignment(1)
-        traitDesc:SetPos(popupX+(35*(scaledW/textW)), (popupY+(470*(scaledH/textH))))
+        traitDesc:SetPos(popupX+(35*(scaledW/textW)), (popupY+(480*(scaledH/textH))))
         traitDesc:SetSize(440*(scaledW/textW), 70*(scaledH/textH))
-        --traitDesc:SetText("This is the description. Usually longer than other elements, it must take up more room than said other elements, nice.")
+        traitDesc:SetText(" ")
         traitDesc:SetFont("nutScaledInvenLight")
         traitDesc:SetWrap( true )
         traitDesc:SetColor(Color(155, 155, 155))
@@ -130,14 +150,20 @@ if (CLIENT) then
         end
         
         traitsTable:InvalidateLayout(true)
+        
+        --This makes it so you cannot drag or change column headers and their width
         traitsTable.Columns[1]:SetFixedWidth(col1Width*(scaledW/textW))
         traitsTable.Columns[2]:SetFixedWidth(col2Width*(scaledW/textW))
         traitsTable.Columns[3]:SetFixedWidth(col3Width*(scaledW/textW))
         traitsTable.Columns[3]:SetTextAlign(5)
-
+        
+        --Sets the height of the table inside by just manually calculating what the height would be
+        local rowCount = table.Count(traitsTable:GetLines())
+        traitsTable:SetSize((425*(scaledW/textW)), ((((rowCount+1)*18)*(scaledH/textH))))
         
 
-        highlightColor = Color(101, 133, 101) --background highlight for when you hover over a traight
+        --never figured out how to implement this so we get the default gmod blue instead. todo?
+        highlightColor = Color(101, 133, 101) --background highlight for when you hover over a traight.
 
         for _, column in pairs(traitsTable.Columns) do
             column.Header:SetTextColor(Color(255,255,255))
@@ -156,6 +182,10 @@ if (CLIENT) then
                 label:SetFont("nutScaledInvenLight")
             end
         end        
+        local tPanelw, tPanelh = traitsTable:GetSize()
+        local sPanelw, sPanelh = InnerPanel:GetSize()
+        traitsTable:SizeToContentsY()
+
 
 
 

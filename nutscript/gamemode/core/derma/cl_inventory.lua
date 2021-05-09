@@ -3,6 +3,10 @@ invRatio = invTextureW/invTextureH
 invw, invh = ScrH()*invRatio, ScrH()
 invPosX, invPosY = (ScrW()-(invw)+1), 0
 
+hook.Add( "OnScreenSizeChanged", "uiAdjust", function()
+	invw, invh = ScrH()*invRatio, ScrH()
+	invPosX, invPosY = (ScrW()-(invw)+1), 0
+end )
 
 INVEN_WIDTH = (311*(invw/invTextureW))
 NS_ICON_SIZE = math.ceil(((300*(invw/invTextureW))/7)) --account for the padding variable in cl_grid_inventory.lua

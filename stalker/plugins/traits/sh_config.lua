@@ -645,7 +645,8 @@ nut.traits.add(uid, trait)
 uid = "gen_escape"
 trait = {
 	name = "Escape Artist",
-	desc = "Once a day (every 20 hours), while tied you can use a command (/struggle) to start an action to break free of the tie.\nThis will automatically do a /me to notify others nearby, and display a notification below your desc while this action is running.\nAnybody can stop it by pressing e on you and starting it in general will put the ability on cooldown.",
+	--desc = "Once a day (every 20 hours), while tied you can use a command (/struggle) to start an action to break free of the tie.\nThis will automatically do a /me to notify others nearby, and display a notification below your desc while this action is running.\nAnybody can stop it by pressing e on you and starting it in general will put the ability on cooldown.",
+	desc ="Once a day, you can use (/struggle) to start an action to break free of ties. This will notify surrounding players with a /me of the attempt. Anybody can stop this action by pressing 'use' on your character.",
 	type = "pos", --can be pos or neg for listing on char creation, pos is left column, neg is right column, anything else will hide it from char creation
 	category = "Abilities", --shown in char creation and menu
 	cost = 2, --cost in char creation, can be table for levels
