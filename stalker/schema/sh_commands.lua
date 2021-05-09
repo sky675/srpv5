@@ -49,7 +49,7 @@ nut.command.add("chardie", {
 nut.command.add("precachemodels", {
 	desc = "Precache important models clientside that arent automatically (npc models, weapon world models mainly). Will likely cause lag after running, just wait. Also might not even work, this is experimental.",
     onRun = function(client, arguments)
-		netstream.Start("precachecmd")
+		netstream.Start(client, "precachecmd")
         return "Done"
 	end
 })
