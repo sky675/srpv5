@@ -26,6 +26,9 @@ end
 --take = true == the trait is removed from the player
 function nut.traits.setTrait(ply, uid, take, level)
 	if(!ply.getChar or !ply:getChar()) then return end
+	if(!nut.traits.list[uid]) then 
+		print("hey uh this trait "..uid.." doesnt actually exist, its going to try to add/take it anyway, but you should probably add it in the config") 
+	end
 
 	--local traits = ply:getChar():getTrait()--Data("traits", {})
 	if(ply:getChar():getTrait(uid)) then

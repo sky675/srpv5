@@ -96,9 +96,12 @@ function PLUGIN:GetSkillChoiceForSkill(name)
 	if(!skills[name] or !skills[name].picks) then return end
 	local levelcnt = LocalPlayer():getChar():getData("traitlevelups", {})
 	if(!levelcnt[name]) then return end
+	local curtrt= LocalPlayer():getChar():getTrait()
 
 	local avail = {}
 	for k,v in pairs(skills[name].picks) do
+		local spl = string.Split(add, ".")
+		if(curtrt[spl[1]] and curtrt[spl[1]] == true or curtrt[spl[1]] >= tonumber(spl[2])) then continue end 
 		if(levelcnt[name] >= v) then
 			avail[#avail+1] = {name = skills[name].picknames[k], id = k}
 			if(#avail == 4) then break end
