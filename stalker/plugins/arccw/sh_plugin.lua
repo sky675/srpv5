@@ -3,36 +3,22 @@ PLUGIN.name = "arccw support"
 PLUGIN.author = "sky"
 PLUGIN.desc = "adds support for arccw weps+atts, no mags (for now..)"
 
+nut.util.include("sh_hooks.lua")
 nut.util.include("sh_config.lua")
 nut.util.include("sh_patch.lua")
 nut.util.include("sv_dura.lua")
 
+
 --notes:
---weapon seems to ignore noammo bool but i think theres a convar for it?
---didnt test falling over, should be good tho
+--[[todo:
+- recreate grenades using arccw
+- decide on melee base (arccw is prob fine)
+- finish weapons in general
+- finish weapon patches (ammo, etc)
+- finish atts
+- add ammo items (put in a config?)
+]]
 
---no weapons like tt33, ppsh or just realized, mosin, but tbh ehhhhhh
---tbh tho, not having those guns for stalker aesthetics wise is kinda bad
---so maybe hold off until then? 
---idea on this: some of these guns are/will be in different packs, however,
---only like a max of 4 guns will be used out of those packs, so might as well
---rip them and put them in seperate content, also at that point could edit them
---such as the 1 handed makarov lmao, thinking of makarov could do the same thing
---with the ins makarov too, if that idea doesnt work out
---so update on this: looked at black ops pack: - frankly tho these are awful weapons
---db - ehh works? needs definite mods tho, (sawn off fires both barrels with huge dropoff???)
---ppsh - only has drum mag unfortunately
---mw pack: - these are even worse
---f2000 - eh its ok actually, sight isnt very attached tho
---pp2000 - sucks that only the small mag is available, and cant unfold the stock (which i dont think is actually foldable?), and is 1 handed
---tar21 -ehhhhhhh
---vector - ehhhh is ok i guess? short range
-
---another idea for above: see if can adapt the tfa ins2 pmhands and use them
---on arccw? it may work?
---notes for that tho: vmiv just returns getowner():getviewmodel()
---and this should prob be done in the patching process, or since this would need
---to be their own weps, can just put the code in the swep itself, maybe as a base
 
 --need to change ammo types of all the guns and relevant atts
 --and the aug mag size
@@ -57,13 +43,157 @@ local suppAllow = {
 	--can also be a table of slot = id to restrict to certain atts already installed
 	--[[["supp"] = {
 		["weapon"] = true,
+		or
+		["weapon"] = {
+			["slot"] = "id"
+		}
+		or
+		["weapon"] = {
+			["slot"] = {["validid1"] = true, ["validid2"] = true}
+		}
 	},]]
-	["go_supp_ssq"]= {
-		["arccw_go_glock"] = true,--{
-			--["go_glock_mag"]
---		}
-		["arccw_go_m9"] = true
-	}
+	["go_supp_osprey"]= {
+		--9mm
+		["arccw_go_glock"] = {
+			["go_glock_mag"] = { ["none"] = true, ["go_glock_mag_28"] = true, }
+		},
+		["arccw_go_m9"] = true,
+		["arccw_go_cz75"] = true,
+		["arccw_go_p2000"] = true,
+		["arccw_go_p250"] = {
+			["go_p250_mag"] = { ["go_p250_mag_15_9mm"] = true, ["go_p250_mag_24_9mm"] = true, }
+		},
+		["arccw_go_usp"] = {
+			["go_usp_mag"] = { ["go_usp_mag_15_9"] = true, ["go_usp_mag_25_9"] = true }
+		},
+		["arccw_mifl_fas2_p226"] = true,
+		["arccw_go_mp5"] = true,
+		["arccw_go_ump"] = {
+			["go_ump_mag"] = {["go_ump_mag_30_9mm"] = true}
+		},
+		["arccw_go_mp9"] = true,
+		["arccw_go_m249para"] = {
+			["go_m249_mag"] = {["go_m249_mag_9_200"] = true}
+		},
+		["arccw_go_aug"] = {
+			["go_aug_9mm"] = {["go_aug_ammo_9mm"] = true}
+		},
+		["arccw_mifl_fas2_ak47"] = {
+			["mifl_fas2_ak_mag"] = {["mifl_fas2_ak_mag_919_30"] = true, ["mifl_fas2_ak_mag_919_50"] = true,}
+		},
+		["arccw_bo2_browninghp"] = true,
+		["arccw_bo1_uzi"] = true,
+	},
+	["go_supp_ssq"] = {
+		--45
+		["arccw_go_glock"] = {
+			["go_glock_mag"] = { ["go_glock_mag_13_45acp"] = true, ["go_glock_mag_26_45acp"] = true, }
+		},
+		["arccw_go_usp"] = {
+			["go_usp_mag"] = { ["none"] = true, ["go_usp_mag_20"] = true }
+		},
+		["arccw_go_p250"] = {
+			["go_p250_mag"] = { ["go_p250_mag_9_45acp"] = true, ["go_p250_mag_15_45acp"] = true, }
+		},
+		["arccw_mifl_fas2_m1911"] = true,
+		["arccw_go_ump"] = {
+			["go_ump_mag"] = {["none"] = true}
+		},
+		["arccw_go_mac10"] = true,
+		--57 (ughhhh)
+		["arccw_go_fiveseven"] = true,
+		["arccw_go_p90"] = true,
+		--762x51
+		["arccw_go_negev"] = true,
+		["arccw_go_fnfal"] = true,
+		["arccw_go_scar"] = {
+			["go_scar_mag"] = {["none"] = true}
+		},
+		["arccw_go_ssg08"] = true,
+		["arccw_mifl_fas2_m24"] = true,
+		["arccw_mifl_fas2_sr25"] = true,
+		["arccw_mifl_fas2_g3"] = true,
+
+	},
+	["go_supp_monster"] = {
+		--46
+		["arccw_go_mp7"] = true,
+		--556
+		["arccw_go_m249para"] = {
+			["go_m249_mag"] = {["none"] = true}
+		},
+		["arccw_go_aug"] = {
+			["go_aug_9mm"] = {["none"] = true}
+		},
+		["arccw_go_scar"] = {
+			["go_scar_mag"] = {["go_scar_mag_30_556"] = true, ["go_scar_mag_60_556"] = true}
+		},
+		["arccw_mifl_fas2_famas"] = true,
+		["arccw_mifl_fas2_g36c"] = true,
+		["arccw_mifl_fas2_sg55x"] = true,
+		["arccw_mifl_fas2_m4a1"] = true,
+	},
+	["go_supp_nt4"] = {
+		--556
+		["arccw_go_m249para"] = {
+			["go_m249_mag"] = {["none"] = true}
+		},
+		["arccw_go_aug"] = {
+			["go_aug_9mm"] = {["none"] = true}
+		},
+		["arccw_go_scar"] = {
+			["go_scar_mag"] = {["go_scar_mag_30_556"] = true, ["go_scar_mag_60_556"] = true}
+		},
+		["arccw_mifl_fas2_famas"] = true,
+		["arccw_mifl_fas2_g36c"] = true,
+		["arccw_mifl_fas2_sg55x"] = true,
+		["arccw_mifl_fas2_m4a1"] = true,
+	},
+	["go_supp_rotor43"] = {
+		--556
+		["arccw_go_m249para"] = {
+			["go_m249_mag"] = {["none"] = true}
+		},
+		["arccw_go_aug"] = {
+			["go_aug_9mm"] = {["none"] = true}
+		},
+		["arccw_go_scar"] = {
+			["go_scar_mag"] = {["go_scar_mag_30_556"] = true, ["go_scar_mag_60_556"] = true}
+		},
+		["arccw_mifl_fas2_famas"] = true,
+		["arccw_mifl_fas2_g36c"] = true,
+		["arccw_mifl_fas2_sg55x"] = true,
+		["arccw_mifl_fas2_m4a1"] = true,
+		--762x39
+		["arccw_mifl_fas2_ak47"] = {
+			["mifl_fas2_ak_mag"] = {["none"] = true, ["mifl_fas2_ak_mag_762_45"] = true, ["mifl_fas2_ak_mag_82"] = true}
+		},
+		["arccw_mifl_fas2_rpk"] = true,
+	},
+	["go_supp_pbs1"] = {
+		--762x39
+		["arccw_mifl_fas2_ak47"] = {
+			["mifl_fas2_ak_mag"] = {["none"] = true, ["mifl_fas2_ak_mag_762_45"] = true,}
+		},
+		["arccw_mifl_fas2_rpk"] = true,
+	},
+	["go_supp_tgpa"] = {
+		--545
+		["arccw_mifl_fas2_ak47"] = {
+			["mifl_fas2_ak_mag"] = {["mifl_fas2_ak_mag_545"] = true, ["mifl_fas2_ak_mag_545_45"] = true,}
+		},
+		["arccw_eap_aek"] =true,
+		--762x54
+		["arccw_temp_mosin"]=true,
+	},
+	["go_supp_pbs4"] = {
+		--545
+		["arccw_mifl_fas2_ak47"] = {
+			["mifl_fas2_ak_mag"] = {["mifl_fas2_ak_mag_545"] = true, ["mifl_fas2_ak_mag_545_45"] = true,}
+		},
+		["arccw_eap_aek"] =true,
+	},
+
 }
 
 --can use this to prevent attaching specific atts onto guns (ex 1 type of supp per wep)
@@ -87,7 +217,17 @@ hook.Add("ArcCW_PlayerCanAttach", "pickyatts", function(ply, wep, attname, slot,
 			
 			for k,v in pairs(suppAllow[attname][cl]) do
 				if(!slotids[k]) then return false end --uhhh
-				if(wep.Attachments[slotids[k]].Installed != v) then return false end
+				if(istable(v)) then
+					--if none exists, check for if its nil first, then stop this if it is
+					if(v["none"] and wep.Attachments[slotids[k]].Installed == nil) then break end
+					if(!v[wep.Attachments[slotids[k]].Installed]) then return false end
+				else
+					if(v != "none") then
+						if(wep.Attachments[slotids[k]].Installed != v) then return false end
+					else
+						if(wep.Attachments[slotids[k]].Installed != nil) then return false end
+					end
+				end
 			end
 		end
 	end
@@ -134,6 +274,7 @@ if(SERVER) then
 		timer.Simple(2, function()
 		local cmenu = GetConVar("arccw_truenames")
 		cmenu:SetInt(1) --lets try this instead?
+		GetConVar("arccw_mult_defaultammo"):SetInt(0)
 		end)
 	end)
 	--unfortunately i have to do this

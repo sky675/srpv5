@@ -158,6 +158,11 @@ function ITEM:calcPrice(origprice)
 	return relprice
 end
 ]]
+
+function ITEM:getName()
+	return self:getData("customName", self.name)
+end
+
 function ITEM:getDesc()
     local str = self.desc
 	str = str.."\n"
@@ -203,7 +208,12 @@ function ITEM:getDesc()
         
         str = str:sub(1, -3)
         str = str.."."
-    end
+	end
+	
+	--old thing, might as well keep it i guess
+	if(self:getData("flavor")) then
+		str = str.."\n\n<font=nutItemDescItalicFont>"..self:getData("flavor").."</font>"
+	end
 
     return str
 end

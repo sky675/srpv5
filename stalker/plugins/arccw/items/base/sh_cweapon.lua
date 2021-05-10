@@ -44,8 +44,41 @@ function ITEM:getWeight()
 	return self:getData("maxWeight", self.weight)
 end
 
+function ITEM:getName()
+	return self:getData("customName", self.name)
+end
+
 function ITEM:getDesc()
 	local str = self.desc
+
+	if(!self:getData("equip")) then
+		str = str.."\nMag: "..tostring(self:getData("ammo", 0))
+	end
+	
+	str = str.."\nDurability: "..tostring(math.floor(self:getData("durability", 100))).."%"
+	
+	local ups = self:getData("atts")
+	
+	if(ups) then
+		local addstr = "Attachments:"
+		for k,v in pairs(ups) do
+			--if(k == 3||k == 4||k == 5) then continue end --skip the nut att
+			if(!ArcCW.AttachmentTable[v]) then continue end
+			
+			addstr = addstr.." "..ArcCW.AttachmentTable[v].PrintName..","
+		end
+		addstr = addstr:sub(1, -2)
+		addstr = addstr.."."
+		--this is what happens when theres no valid atts, so make sure its not that
+		if(addstr != "Attachments.") then
+			str = str.."\n"..addstr
+		end
+	end
+
+	--old thing, might as well keep it i guess
+	if(self:getData("flavor")) then
+		str = str.."\n\n<font=nutItemDescItalicFont>"..self:getData("flavor").."</font>"
+	end
 
 	return str
 end

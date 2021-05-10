@@ -125,7 +125,6 @@ else
 	end)
 	net.Receive("nutTypeType", function(_, client)
 		local bool = net.ReadString()
-		print("recieved typestat", bool)
 		client:setNetVar("typingType", bool)
 	end)
 end

@@ -773,41 +773,6 @@ local weaponList = {
 		--	["item"] = 1, --these are the results
 		--},
 	},
-	--makarov
-	["cwep_makarov"] = {
-		--exclusive upgrade ideas: 
-		--unsure if should have different slides as upgrades or as other guns
-		--ext mag go_fiveseven_mag_30
-		name = "Makarov PM",
-		desc = "desc",
-		price = 0,
-		model = "models/weapons/w_pistol.mdl",
-		width = 2,
-		height = 1,
-		weight = 1,
-		class = "arccw_ins2_makarov",
-		category = "Weapons (Pistols)",
-		type = "pistol",
-		flag = "",
-		--defaultMods = {
-		--	["slot"] = "attid"
-		--},
-		--slots above should probably also be below
-		cantDetach = {
-			--["slot"] = true,
-			["go_ammo"] = true, --upgrade
-			["go_perk"] = true, --upgrade
-			["go_perk_pistol"] = true, --upgrade
-		},
-		--iconCam = {}, --pretty icons
-		--exRender = false, --overriding for old icon way if above exists
-		--icon = "", --premade icons
-		--noBusiness = true, --doesnt appear in business menu
-		--transferSound = "", --i think this is transferring between invs
-		--destroyval = { --creates an automatic destruction func
-		--	["item"] = 1, --these are the results
-		--},
-	},
 	--mp5
 	["cwep_mp5"] = {
 		--exclusive upgrade ideas: 
@@ -2311,6 +2276,46 @@ local weaponList = {
 		--	["item"] = 1, --these are the results
 		--},
 	},
+	["cwep_pp19"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "PP-19 Vityaz",
+		desc = "desc bootleg",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 3,
+		height = 2,
+		weight = 1,
+		class = "arccw_mifl_fas2_ak47",
+		category = "Weapons (ARs)",
+		type = "pistol",
+		flag = "",
+		defaultMods = {
+			["mifl_fas2_ak_hg"] = "mifl_fas2_ak_hg_12u",
+			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_919_30",
+			["mifl_fas2_ak47_stock"] = "mifl_fas2_ak_stock_ske"
+		},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["mifl_fas2_ak_hg"] = true,
+			["mifl_fas2_ak_mag"] = true, --upgrade
+			["mifl_fas2_ak47_stock"] = true, --upgrade
+			["go_stock"] = true, --upgrade
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
 	["cwep_svd"] = {
 		--exclusive upgrade ideas: 
 		--?
@@ -2987,28 +2992,31 @@ local weaponList = {
 		--	["item"] = 1, --these are the results
 		--},
 	},
-	--these are all of them i think, next is models and swep editing
-
-
-	--decided against: go: ace, galil
-	["cwep_test1"] = {
-		name = "glock",
+	["cwep_m79"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "M79",
 		desc = "desc",
 		price = 0,
 		model = "models/weapons/w_pistol.mdl",
-		width = 1,
+		width = 3,
 		height = 1,
 		weight = 1,
-		class = "arccw_go_glock",
-		category = "Weapons (cat)",
-		type = "unused curr, will be for repair",
+		class = "arccw_mifl_fas2_m79",
+		category = "Weapons (Misc)",
+		type = "shotgun",
 		flag = "",
 		--defaultMods = {
-		--	["slot"] = "attid"
 		--},
 		--slots above should probably also be below
 		cantDetach = {
 			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["mifl_fas2_m79_tube"] = true,
+			["mifl_fas2_m79_stock"] = true, --upgrade
+			["mifl_fas2_m79_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
 		},
 		--iconCam = {}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
@@ -3019,24 +3027,38 @@ local weaponList = {
 		--	["item"] = 1, --these are the results
 		--},
 	},
-	["cwep_test2"] = {
-		name = "glockauto",
+	--exotic
+	--aek
+	["cwep_aek"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "AEK-971",
 		desc = "desc",
 		price = 0,
 		model = "models/weapons/w_pistol.mdl",
-		width = 1,
-		height = 1,
+		width = 4,
+		height = 2,
 		weight = 1,
-		class = "arccw_go_glock",
-		category = "Weapons (cat)",
-		type = "unused curr, will be for repair",
+		class = "arccw_eap_aek",
+		category = "Weapons (ARs)",
+		type = "n",
 		flag = "",
-		defaultMods = {
-			["go_glock_slide"] = "go_glock_slide_auto"
-		},
+		--defaultMods = {
+		--},
 		--slots above should probably also be below
 		cantDetach = {
-			["go_glock_slide"] = true,
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["eap_aek_barrel"] = true,
+			["eap_aek_handguard"] = true, --upgrade
+			["eap_aek_mag"] = true, --upgrade
+			["eap_aek_stock"] = true, --upgrade
+			["eap_stock_wood"] = true,
+			["go_stock"] = true, --upgrade
+			["go_stock_none"] = true, --upgrade
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
 		},
 		--iconCam = {}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
@@ -3046,7 +3068,595 @@ local weaponList = {
 		--destroyval = { --creates an automatic destruction func
 		--	["item"] = 1, --these are the results
 		--},
-	}
+	},
+	--groza
+	["cwep_groza"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "OTs-14-4A-01 Groza",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 3,
+		height = 2,
+		weight = 1,
+		class = "arccw_eap_groza",
+		category = "Weapons (ARs)",
+		type = "n",
+		flag = "",
+		defaultMods = {
+			--["eap_groza_barrel"] = "",
+			["eap_groza_mag"] = "eap_groza_mag_939_20"
+		},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["eap_groza_barrel"] = true,
+			["eap_groza_mag"] = true, --upgrade
+			["stock"] = true, --upgrade
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["cwep_grozas"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "OTs-14-4A-02 Groza",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 4,
+		height = 2,
+		weight = 1,
+		class = "arccw_eap_groza",
+		category = "Weapons (ARs)",
+		type = "n",
+		flag = "",
+		defaultMods = {
+			["eap_groza_barrel"] = "eap_groza_barrel_sd",
+			["eap_groza_mag"] = "eap_groza_mag_939_20"
+		},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["eap_groza_barrel"] = true,
+			["eap_groza_mag"] = true, --upgrade
+			["stock"] = true, --upgrade
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["cwep_groza1"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "OTs-14-1A-01 Groza",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 3,
+		height = 2,
+		weight = 1,
+		class = "arccw_eap_groza",
+		category = "Weapons (ARs)",
+		type = "ws",
+		flag = "",
+		defaultMods = {
+			--["eap_groza_barrel"] = "",
+			--["eap_groza_mag"] = "eap_groza_mag_939_20"
+		},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["eap_groza_barrel"] = true,
+			["eap_groza_mag"] = true, --upgrade
+			["stock"] = true, --upgrade
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["cwep_groza1s"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "OTs-14-1A-02 Groza",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 4,
+		height = 2,
+		weight = 1,
+		class = "arccw_eap_groza",
+		category = "Weapons (ARs)",
+		type = "ws",
+		flag = "",
+		defaultMods = {
+			["eap_groza_barrel"] = "eap_groza_barrel_sd",
+			--["eap_groza_mag"] = "eap_groza_mag_939_20"
+		},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["eap_groza_barrel"] = true,
+			["eap_groza_mag"] = true, --upgrade
+			["stock"] = true, --upgrade
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+
+	--blackops
+	--browning
+	["cwep_browninghp"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "Browning HP",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		class = "arccw_bo2_browninghp",
+		category = "Weapons (Pistols)",
+		type = "pistol",
+		flag = "",
+		--defaultMods = {
+		--	["eap_groza_barrel"] = "eap_groza_barrel_sd",
+			--["eap_groza_mag"] = "eap_groza_mag_939_20"
+		--},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--db
+	["cwep_doublebarrel"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "Double Barrel",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 4,
+		height = 1,
+		weight = 1,
+		class = "arccw_waw_doublebarrel",
+		category = "Weapons (Shotguns)",
+		type = "shotgun",
+		flag = "",
+		defaultMods = {
+			["bo1_mp5stock"] = "bo1_solider_stock",
+			--["eap_groza_mag"] = "eap_groza_mag_939_20"
+		},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["waw_dbs_barrel"] = true,
+			["bo1_mp5stock"] = true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["cwep_doublebarrelsawn"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "Double Barrel Sawnoff",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		class = "arccw_waw_doublebarrel",
+		category = "Weapons (Shotguns)",
+		type = "shotgun",
+		flag = "",
+		defaultMods = {
+			["waw_dbs_barrel"] = "bo1_dbs_barrel_sawnoff",
+			--["eap_groza_mag"] = "eap_groza_mag_939_20"
+		},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["waw_dbs_barrel"] = true,
+			["bo1_mp5stock"] = true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--uzi
+	["cwep_uzi"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "IWI Uzi",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 3,
+		height = 2,
+		weight = 1,
+		class = "arccw_bo1_uzi",
+		category = "Weapons (Shotguns)",
+		type = "pistol",
+		flag = "",
+		defaultMods = {
+			["bo1_stock"] = "bo1_light_stock",
+			--["eap_groza_mag"] = "eap_groza_mag_939_20"
+		},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["bo1_stock"] = true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--ppsh
+	["cwep_ppsh"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "PPSh-41",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 3,
+		height = 2,
+		weight = 1,
+		class = "arccw_waw_ppsh41",
+		category = "Weapons (SMGs)",
+		type = "pistol",
+		flag = "",
+		--defaultMods = {
+		--	["bo1_stock"] = "bo1_light_stock",
+			--["eap_groza_mag"] = "eap_groza_mag_939_20"
+		--},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--m60?
+	["cwep_m60"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "M60",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 5,
+		height = 2,
+		weight = 1,
+		class = "arccw_bo1_m60",
+		category = "Weapons (MGs)",
+		type = "ws",
+		flag = "",
+		--defaultMods = {
+		--	["bo1_stock"] = "bo1_light_stock",
+			--["eap_groza_mag"] = "eap_groza_mag_939_20"
+		--},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+
+	--temp - need decompiled modified models for these, the physics model for all of these are fucked
+	--makarov
+	["cwep_makarov"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "Makarov",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		class = "arccw_temp_makarov",
+		category = "Weapons (Pistols)",
+		type = "pistol",
+		flag = "",
+		--defaultMods = {
+		--},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
+			["go_perk_pistol"] = true, 
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--tt33
+	["cwep_tt33"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "TT-33",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		class = "arccw_temp_tt33",
+		category = "Weapons (Pistols)",
+		type = "pistol",
+		flag = "",
+		--defaultMods = {
+		--},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
+			["go_perk_pistol"] = true, 
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--skorpion
+	["cwep_skorpion"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "Skorpion vz.65",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		class = "arccw_temp_skorpion",
+		category = "Weapons (Pistols)",
+		type = "pistol",
+		flag = "",
+		--defaultMods = {
+		--},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--mosin
+	["cwep_mosin"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "Mosin Nagant",
+		desc = "desc i dont know what model mosin this is sry",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 5,
+		height = 1,
+		weight = 1,
+		class = "arccw_temp_mosin",
+		category = "Weapons (Rifles)",
+		type = "ws",
+		flag = "",
+		--defaultMods = {
+		--},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--svt40
+	["cwep_svt40"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "SVT40",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 4,
+		height = 1,
+		weight = 1,
+		class = "arccw_temp_svt40",
+		category = "Weapons (Rifles)",
+		type = "ws",
+		flag = "",
+		--defaultMods = {
+		--},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--sks
+	["cwep_sks"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "SKS",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 4,
+		height = 1,
+		weight = 1,
+		class = "arccw_temp_sks",
+		category = "Weapons (Rifles)",
+		type = "ws",
+		flag = "",
+		--defaultMods = {
+		--},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+
+	--these are all of them i think, next is models and swep editing
+
+
+	--decided against: go: ace, galil
 }
 local attList = {
 	--[[
@@ -3061,6 +3671,7 @@ local attList = {
 		category = "Attachments",
 		flag = "flagunder",
 		cat = "slot", --attid should be id of item
+		--restrictWeps = {["wep"]=true} --if exists, will only be able to att to specified weapons, currently useless
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
@@ -3072,12 +3683,416 @@ local attList = {
 		--},
 	},
 	]]
-	["go_supp_ssq"] = {
-		name = "att test",
+	--tac
+	["go_flashlight"] = {
+		name = "Rail Flashlight",
+		desc = "desc bind a key to toggleatt to easily toggle",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "tac", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_flashlight_combo"] = {
+		name = "Combo Flashlight",
+		desc = "desc bind a key to toggleatt to easily toggle",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "tac", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_flashlight_combo"] = {
+		name = "Combo Flashlight",
+		desc = "desc bind a key to toggleatt to easily toggle",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "tac", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_laser_peq"] = {
+		name = "PEQ Laser Sight",
+		desc = "desc bind a key to toggleatt to easily toggle",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "tac", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_laser"] = {
+		name = "Laser Sight",
+		desc = "desc bind a key to toggleatt to easily toggle",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "tac", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--foregrip
+	["go_foregrip_stubby"] = {
+		name = "Stubby Foregrip",
 		desc = "desc",
 		price = 0,
 		model = "models/weapons/w_pistol.mdl",
 		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "foregrip", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_foregrip_snatch"] = {
+		name = "Snatch Foregrip",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "foregrip", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_foregrip_ergo"] = {
+		name = "Ergo Foregrip",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "foregrip", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_fore_bipod"] = {
+		name = "Rail Bipod",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "foregrip", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_foregrip_angled"] = {
+		name = "Angled Foregrip",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "foregrip", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--ubgl
+	["mifl_fas2_ubw_m203"] = {
+		name = "Railed M203",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "foregrip", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["mifl_fas2_ubw_gp25"] = {
+		name = "Railed GP25",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "foregrip", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+
+	--muzzle
+	["go_supp_ssq"] = {
+		name = "SSQ Suppressor",
+		desc = "desc 45, 57, 762x51",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "muzzle", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_supp_osprey"] = {
+		name = "Osprey Suppressor",
+		desc = "desc 9x19",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "muzzle", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_supp_monster"] = {
+		name = "Monster Suppressor",
+		desc = "desc 46 556",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "muzzle", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_supp_nt4"] = {
+		name = "NT4 Suppressor",
+		desc = "desc 556",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "muzzle", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_supp_rotor43"] = {
+		name = "Rotor43 Suppressor",
+		desc = "desc 556, 762x39 aks",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "muzzle", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_supp_pbs1"] = {
+		name = "PBS1 Suppressor",
+		desc = "desc 762x39 aks",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "muzzle", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_supp_tgpa"] = {
+		name = "TGP-A Suppressor",
+		desc = "desc 545 aks, mosin",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "muzzle", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_supp_pbs4"] = {
+		name = "PBS4 Suppressor",
+		desc = "desc 545 aks",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
 		height = 1,
 		weight = 1,
 		category = "Attachments",
@@ -3094,6 +4109,511 @@ local attList = {
 		--},
 	},
 
+	--sights
+	["go_optic_lp_t1"] = {
+		name = "Micro T1 Sight",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic_lp", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_optic_lp_rmr"] = {
+		name = "Trijicon RMR Sight",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic_lp", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},--[[	--decided against these, but theyre here
+	["go_optic_hunter"] = {
+		name = "Hunter Compact Scope (2.5x)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic_lp", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["mifl_fas2_optic_lmk4s"] = {
+		name = "Leupold Compact Scope (2.5x)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic_lp", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},]]
+	["go_optic_pvs4"] = {
+		name = "PVS-4 Scope (2xIR)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["optic_eompts"] = {
+		name = "EOMPTS Scope (FLIR)",
+		desc = "desc makeshift",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["mifl_fas2_optic_felin"] = {
+		name = "FRF2 Scope (3-12xIR)",
+		desc = "desc makeshift",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_optic_awp"] = {
+		name = "Arctic Warfare Scope (10x)",
+		desc = "desc commonly found on the awm",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["mifl_fas2_optic_lmk4"] = {
+		name = "Leupold Mk.4 Scope (3.5-8x)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["mifl_fas2_optic_lmk4"] = {
+		name = "Leupold Mk.4 Scope (3.5-8x)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},--skipped ssr
+	["go_optic_schmidt"] = {
+		name = "PM-II Scope (7x)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["mifl_fas2_optic_xm25"] = {
+		name = "Xleris Scope (6xIR)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["mifl_fas2_optic_551"] = {
+		name = "MRCS Scope (6x)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["mifl_fas2_optic_pso1"] = {
+		name = "PSO-1 Scope (4x)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["mifl_fas2_optic_acog"] = {
+		name = "ACOG Scope (4x)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_optic_elcan"] = {
+		name = "Elcan C79 Scope (3.5x)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_optic_hamr"] = {
+		name = "Leupold HAMR Scope (4xHYBR)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["mifl_fas2_optic_g36"] = {
+		name = "N43 High Sight (RDS)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_optic_t1"] = {
+		name = "Micro T1 Riser Sight (RDS)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_optic_eotech"] = {
+		name = "EoTech 553 Sight (RDS)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_optic_kobra"] = {
+		name = "EKP-8-18 Kobra Sight (RDS)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_optic_compm4"] = {
+		name = "CompM4 Sight (RDS)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_optic_cmore"] = {
+		name = "C-More Sight (RDS)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_optic_barska"] = {
+		name = "Barska Red Dot Sight (RDS)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		flag = "",
+		cat = "optic", --attid should be id of item
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
 }
 
 function PLUGIN:InitializedItems()
@@ -3141,6 +4661,7 @@ function PLUGIN:InitializedItems()
 		ITEM.flag = data.flag
 		ITEM.cat = data.cat
 		ITEM.attID = id--data.attID
+		ITEM.restrictWeps = data.restrictWeps
 		if(data.iconCam) then --prob wont be used for anything else so
 			ITEM.exRender = true
 			ITEM.iconCam = data.iconCam
