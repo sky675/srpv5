@@ -44,9 +44,9 @@ trait = {
 	desc = "Generic crafting level, used to determine what you can craft in a general sense.",
 	type = "pos", --can be pos or neg for listing on char creation, pos is left column, neg is right column, anything else will hide it from char creation
 	category = "Crafting", --shown in char creation and menu
-	cost = {[1] = 2, [2] = 4, [3] = 4}, --cost in char creation, can be table for levels
+	cost = {[1] = 3, [2] = 4, [3] = 4}, --cost in char creation, can be table for levels
 	max = 5, --max level for level trait
-	creationMax = 2,--3, --max for creation
+	creationMax = 1,--3, --max for creation
 	xp = {
 		[1] = 25,
 		[2] = 45,
