@@ -7,7 +7,7 @@ ITEM.height = 1
 ITEM.weight = 0.2
 ITEM.flag = "3"
 ITEM.category = "Weapons - Grenades"
-ITEM.class = "sky_g_frag_vog17"
+ITEM.class = "arccw_eft_vog17_wep"
 ITEM.weaponCategory = "grenade"
 
 ITEM.equipSound = "interface/inv_items_grenade_1.ogg"

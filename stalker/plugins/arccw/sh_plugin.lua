@@ -13,9 +13,7 @@ nut.util.include("sv_dura.lua")
 --[[todo:
 - recreate grenades using arccw
 - decide on melee base (arccw is prob fine)
-- finish weapons in general
-- finish weapon patches (ammo, etc)
-- finish atts
+- finish weapons+atts in general
 - add ammo items (put in a config?)
 ]]
 
@@ -266,8 +264,11 @@ if(CLIENT) then
 end
 
 if(SERVER) then
-	hook.Add("Hook_PostFireBullets", "nutgren", function(weapon)
-		--print("hook works, can use this to destroy grenades")
+	hook.Add("Hook_PostFireRocket", "nutgren", function(weapon, grenade)
+		--this will only be used with grenades
+		if(weapon.nutItem) then
+			weapon.nutItem:remove()
+		end
 	end)
 
 	hook.Add("InitPostEntity", "DisableArcStuff", function()
