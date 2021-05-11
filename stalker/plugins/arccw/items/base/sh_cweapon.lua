@@ -154,6 +154,7 @@ function ITEM:Equip(client, playSound)
 	local weapon = client:Give(self.class, true)
 
 	if (IsValid(weapon)) then
+		weapon.ForceDefaultAmmo = 0 --ye this works
 		local ammoType = weapon:GetPrimaryAmmoType()
 
 		timer.Simple(0, function()
