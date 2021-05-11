@@ -158,12 +158,16 @@ if (CLIENT) then
                         "New Trait",
 
                         function() 
-                            Window:Close()
-                            stalkerQuery("Pick a new trait - " .. pts .. " point(s) available.",
-                            res[1] and res[1].name, function() dermaadd(res[1] and res[1].id) end,
-							res[2] and res[2].name, function() dermaadd(res[2] and res[2].id) end,
-							res[3] and res[3].name, function() dermaadd(res[3] and res[3].id) end,
-							res[4] and res[4].name, function() dermaadd(res[4] and res[4].id) end)
+                            if (res) then
+                                Window:Close()
+                                stalkerQuery("Pick a new trait - " .. pts .. " point(s) available.",
+                                res[1] and res[1].name, function() dermaadd(res[1] and res[1].id) end,
+                                res[2] and res[2].name, function() dermaadd(res[2] and res[2].id) end,
+                                res[3] and res[3].name, function() dermaadd(res[3] and res[3].id) end,
+                                res[4] and res[4].name, function() dermaadd(res[4] and res[4].id) end)
+                            else
+                                nut.util.notify("There are no available trait picks.")
+                            end
                         end,
 
                         false, Window, Color(147,255,188))
