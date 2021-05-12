@@ -283,7 +283,7 @@ function GM:PlayerSay(client, message)
 		--this girls back to edit base ns again
 		--this is to provide the functionality the mute trait needs
 		if(nut.traits and (nut.traits.hasTrait(client, "big_mute") or nut.traits.hasTrait(client, "big_nonenglish"))) then 
-			client:ChatPrint("You are either mute or non-english, and as a result cannot speak english.")
+			client:ChatPrint("You are either mute or non-"..nonenglishname..", and as a result cannot speak english.")
 			return 
 		end
 		
