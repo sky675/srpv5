@@ -14,36 +14,47 @@ hook.Add("Hook_ModifyRecoil", "MainS", function(wep, rectbl)
 end)
 
 --Damage
-hook.Add("M_Hook_Mult_Damage", "MainS", function(wep, stat)
-	return stat * nut.traits.getMod(wep:GetOwner(), "wepdmgeff", wep.Type or "")
+hook.Add("M_Hook_Mult_Damage", "MainS", function(wep, data)
+	local stat = data.mult
+	data.mult = stat * nut.traits.getMod(wep:GetOwner(), "wepdmgeff", wep.Type or "")
+	return data
 end)
 --accuracymoa or Mult_HipDispersion?
-hook.Add("M_Hook_Mult_AccuracyMOA", "MainS", function(wep, stat)
-	return stat * nut.traits.getMod(wep:GetOwner(), "wepspreff", wep.Type or "")
+hook.Add("M_Hook_Mult_AccuracyMOA", "MainS", function(wep, data)
+	local stat = data.mult
+	data.mult = stat * nut.traits.getMod(wep:GetOwner(), "wepspreff", wep.Type or "")
+	return data
 end)
 --SightsDispersion?
-hook.Add("M_Hook_Mult_SightsDispersion", "MainS", function(wep, stat)
+hook.Add("M_Hook_Mult_SightsDispersion", "MainS", function(wep, data)
 	local res = wep:GetOwner():GetArmorResists()
 
-	return stat * (res["ironacc"] or 1)
+	local stat = data.mult
+	data.mult = stat * (res["ironacc"] or 1)
+	return data
 end)
 --SightTime
-hook.Add("M_Hook_Mult_SightTime", "MainS", function(wep, stat)
+hook.Add("M_Hook_Mult_SightTime", "MainS", function(wep, data)
 	local res = wep:GetOwner():GetArmorResists()
 	local qk = wep:GetOwner():getChar():getAttrib("qkn", 0)
 	local qkn = 1+((qk/30)*0.15)
 
-	return stat * (res["irontime"] or 1) * qkn * nut.traits.getMod(wep:GetOwner(), "wepireff", wep.Type or "")
+	local stat = data.mult
+
+	data.mult = stat * (res["irontime"] or 1) * qkn * nut.traits.getMod(wep:GetOwner(), "wepireff", wep.Type or "")
+	return data
 end)
 
 --SightedSpeedMult
-hook.Add("M_Hook_Mult_SightedSpeedMult", "MainS", function(wep, stat)
+hook.Add("M_Hook_Mult_SightedSpeedMult", "MainS", function(wep, data)
 	local res = wep:GetOwner():GetArmorResists()
-	return stat * (res["ironms"] or 1)
+	local stat = data.mult
+	data.mult = stat * (res["ironms"] or 1)
+	return data
 end)
 --this should be a way to speed up reloads
 --Mult_ReloadTime
-hook.Add("M_Hook_Mult_ReloadTime", "MainS", function(wep, rate)
+hook.Add("M_Hook_Mult_ReloadTime", "MainS", function(wep, data)
 	--todo prob reload below
 	if(!IsValid(wep) or !IsValid(wep:GetOwner()) or !wep:GetOwner():getChar()) then return end
 
@@ -52,5 +63,8 @@ hook.Add("M_Hook_Mult_ReloadTime", "MainS", function(wep, rate)
 		
 	qkn = qkn * nut.traits.getMod(wep:GetOwner(), "wepreloadeff", wep.Type or "")
 
-	return rate * qkn
+	local rate = data.mult
+
+	data.mult = rate * qkn
+	return data
 end)

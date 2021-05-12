@@ -91,6 +91,7 @@ else--client
 		local pd = LocalPlayer():GetPDA()
 		if(!pd) then return true end
 		if (IsValid(nut.gui.pda)) then
+			print("created")
 			--get active pda
 			--hopefully this makes it a toggle?
 			if(nut.gui.pda:IsVisible()) then
