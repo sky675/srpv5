@@ -3813,6 +3813,8 @@ local attList = {
 		category = "Attachments",
 		--flag = "",
 		cat = "foregrip", --attid should be id of item
+		--traitreq = {trait = "trait", val = 0},
+		--requireEnt = {class = "class", name = "a nicename", radius = 120},
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
@@ -3823,6 +3825,128 @@ local attList = {
 		--	["item"] = 1, --these are the results
 		--},
 	},
+	--stock
+	["go_stock_moe"] = {
+		name = "MOE Stock",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		--flag = "",
+		cat = "go_stock", --attid should be id of item
+		--traitreq = {trait = "trait", val = 0},
+		requireEnt = {class = "sky_craft_weapons", name = "a Weapon Crafting Bench", radius = 120},
+		techReq = 1,
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_stock_ergo"] = {
+		name = "Ergonomic Stock",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		--flag = "",
+		cat = "go_stock", --attid should be id of item
+		--traitreq = {trait = "trait", val = 0},
+		requireEnt = {class = "sky_craft_weapons", name = "a Weapon Crafting Bench", radius = 120},
+		techReq = 1,
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_stock_contractor"] = {
+		name = "Contractor Stock",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		--flag = "",
+		cat = "go_stock", --attid should be id of item
+		--traitreq = {trait = "trait", val = 0},
+		requireEnt = {class = "sky_craft_weapons", name = "a Weapon Crafting Bench", radius = 120},
+		techReq = 1,
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_stock_basilisk"] = {
+		name = "Basilisk Stock",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		--flag = "",
+		cat = "go_stock", --attid should be id of item
+		--traitreq = {trait = "trait", val = 0},
+		requireEnt = {class = "sky_craft_weapons", name = "a Weapon Crafting Bench", radius = 120},
+		techReq = 1,
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_nova_stock_sport"] = {
+		name = "SuperNova Sport-TAC Stock",
+		desc = "desc specifically for supernova",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		--flag = "",
+		cat = "go_nova_stock", --attid should be id of item
+		--traitreq = {trait = "trait", val = 0},
+		requireEnt = {class = "sky_craft_weapons", name = "a Weapon Crafting Bench", radius = 120},
+		techReq = 1,
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+
 	--ubgl
 	["mifl_fas2_ubw_m203"] = {
 		name = "Railed M203",
@@ -4590,6 +4714,8 @@ function PLUGIN:InitializedItems()
 		ITEM.cat = data.cat
 		ITEM.attID = id--data.attID
 		ITEM.restrictWeps = data.restrictWeps
+		ITEM.requireEnt = data.requireEnt
+		ITEM.traitreq = data.traitreq
 		if(data.iconCam) then --prob wont be used for anything else so
 			ITEM.exRender = true
 			ITEM.iconCam = data.iconCam

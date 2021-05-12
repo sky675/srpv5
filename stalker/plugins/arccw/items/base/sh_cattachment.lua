@@ -20,6 +20,46 @@ function ITEM:attachTo(target, ply)
 		return self:specialAtt(target)
 	end
 
+	if(self.requireEnt) then
+		local check = ents.FindInSphere(ply:GetPos(), self.requireEnt.radius)
+
+		local rdy = false
+		for k,v in pairs(check) do
+			if(v:GetClass() == self.requireEnt.class) then
+				rdy = true 
+				break
+			end
+		end
+		if(!rdy) then
+			ply:notify("This attachment requires "..(self.requireEnt.name or "an entity").." nearby to attach")
+			return false
+		end
+	end
+
+	if(self.techReq) then
+		local t = nut.traits.hasTrait(ply, "crafting_spec")
+		if((t or 0) < self.techReq) then
+			ply:notify("You do not meet the tech level for this item!", 3)
+			return false
+		end
+	end
+
+	--todo trait check
+	if(self.traitreq) then
+		local t = nut.traits.hasTrait(ply, self.traitreq.trait)
+		if(type(self.traitreq.val) == "number") then
+			if((t or 0) < self.traitreq.val) then
+				ply:notify("You do not meet the trait requirement for this item!", 3)
+				return false
+			end
+		else
+			if(t != self.traitreq.val) then
+				ply:notify("You do not meet the trait requirement for this item!", 3)
+				return false
+			end
+		end
+	end
+
 	--this is useless until uniqueids are decoupled from detaching, which idk how id do
 	if(self.restrictWeps and !self.restrictWeps[target.uniqueID]) then
 		ply:notify("This weapon cannot equip this attachment.", 3)
