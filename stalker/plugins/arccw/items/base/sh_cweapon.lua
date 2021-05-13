@@ -285,9 +285,6 @@ ITEM.functions.zDetach = {
 			ply:notify("No room! item was dropped", 3)
 			nut.item.spawn(itd, ply:getItemDropPos())
 		end
-		--add atts weight onto item
-		item:sync(ply)
-		item:setData("maxWeight", item:getData("maxWeight", item.weight)-att.weight)
 		--ply:EmitSound("cw/detach.wav")
 		if(item.defaultMods and item.defaultMods[sub] and item.defaultMods[sub] != "") then
 			ats[sub] = item.defaultMods[sub] --return it to default
@@ -295,6 +292,10 @@ ITEM.functions.zDetach = {
 			ats[sub] = nil
 		end
 		item:setData("atts", ats)
+
+		item:setData("maxWeight", item:getData("maxWeight", item.weight)-att.weight)
+		--add atts weight onto item
+		item:sync(ply)
 
 		return false
 	end,

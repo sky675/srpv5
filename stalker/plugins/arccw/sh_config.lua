@@ -1698,6 +1698,115 @@ local weaponList = {
 		--	["item"] = 1, --these are the results
 		--},
 	},
+	--ace
+	["cwep_ace22"] = {
+		--exclusive upgrade ideas: 
+		name = "ACE 22",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 4,
+		height = 2,
+		weight = 1,
+		class = "arccw_go_ace",
+		category = "Weapons (Rifles)",
+		type = "n",
+		--flag = "",
+		defaultMods = {
+			["foregrip"] = "go_extras_boondoggle3",
+		},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			["go_ace_barrel"] = true,
+			["go_ace_mag"] = true, --upgrade
+			["go_ak47_stock"] = true,
+			["go_stock"] = true,
+			["go_stock_none"] = true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["cwep_ace32"] = {
+		--exclusive upgrade ideas: 
+		name = "ACE 32",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 4,
+		height = 2,
+		weight = 1,
+		class = "arccw_go_ace",
+		category = "Weapons (Rifles)",
+		type = "ws",
+		--flag = "",
+		defaultMods = {
+			["foregrip"] = "go_extras_boondoggle3",
+			["go_ace_mag"] = "go_ace_mag_30_762",
+		},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			["go_ace_barrel"] = true,
+			["go_ace_mag"] = true, --upgrade
+			["go_ak47_stock"] = true,
+			["go_stock"] = true,
+			["go_stock_none"] = true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--galil
+	["cwep_galil"] = {
+		--exclusive upgrade ideas: 
+		name = "IWI Galil AR",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 4,
+		height = 2,
+		weight = 1,
+		class = "arccw_go_galil_ar",
+		category = "Weapons (Rifles)",
+		type = "n",
+		--flag = "",
+		--defaultMods = {
+		--	["foregrip"] = "go_extras_boondoggle3",
+		--},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			["go_galil_ar_barrel"] = true,
+			["go_stock"] = true,
+			["go_stock_none"] = true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
 	--ssg08
 	["cwep_ssg08"] = {
 		--exclusive upgrade ideas: 
@@ -2141,7 +2250,7 @@ local weaponList = {
 		--flag = "",
 		defaultMods = {
 			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_545",
-			["mifl_fas2_ak47_stock"] = "mifl_fas2_ak_stock_ske"
+			["go_stock"] = "mifl_fas2_ak_stock_ske"
 		},
 		--slots above should probably also be below
 		cantDetach = {
@@ -2181,7 +2290,7 @@ local weaponList = {
 		defaultMods = {
 			["mifl_fas2_ak_hg"] = "mifl_fas2_ak_hg_u",
 			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_545",
-			["mifl_fas2_ak47_stock"] = "mifl_fas2_ak_stock_ske"
+			["go_stock"] = "mifl_fas2_ak_stock_ske"
 		},
 		--slots above should probably also be below
 		cantDetach = {
@@ -2221,7 +2330,7 @@ local weaponList = {
 		defaultMods = {
 			["mifl_fas2_ak_hg"] = "mifl_fas2_ak_hg_12u",
 			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_919_30",
-			["mifl_fas2_ak47_stock"] = "mifl_fas2_ak_stock_ske"
+			["go_stock"] = "mifl_fas2_ak_stock_ske"
 		},
 		--slots above should probably also be below
 		cantDetach = {
@@ -2261,7 +2370,7 @@ local weaponList = {
 		defaultMods = {
 			["mifl_fas2_ak_hg"] = "mifl_fas2_ak_hg_svd",
 			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_82",
-			["mifl_fas2_ak47_stock"] = "mifl_fas2_ak_stock_svd"
+			["go_stock"] = "mifl_fas2_ak_stock_svd"
 		},
 		--slots above should probably also be below
 		cantDetach = {
@@ -2301,7 +2410,7 @@ local weaponList = {
 		defaultMods = {
 			["mifl_fas2_ak_hg"] = "mifl_fas2_ak_hg_sd",
 			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_939_20",
-			["mifl_fas2_ak47_stock"] = "mifl_fas2_ak_stock_ske"
+			["go_stock"] = "mifl_fas2_ak_stock_ske"
 		},
 		--slots above should probably also be below
 		cantDetach = {
@@ -2341,7 +2450,7 @@ local weaponList = {
 		defaultMods = {
 			["mifl_fas2_ak_hg"] = "mifl_fas2_ak_hg_sd",
 			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_939_20", --unsure if should use 10 or 20 tbh
-			["mifl_fas2_ak47_stock"] = "mifl_fas2_ak_stock_svd"
+			["go_stock"] = "mifl_fas2_ak_stock_svd"
 		},
 		--slots above should probably also be below
 		cantDetach = {
@@ -2381,7 +2490,7 @@ local weaponList = {
 		defaultMods = {
 			["mifl_fas2_ak_hg"] = "mifl_fas2_ak_hg_an94",
 			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_545",
-			["mifl_fas2_ak47_stock"] = "mifl_fas2_ak_stock_fold"
+			["go_stock"] = "mifl_fas2_ak_stock_fold"
 		},
 		--slots above should probably also be below
 		cantDetach = {
@@ -2456,13 +2565,13 @@ local weaponList = {
 		height = 2,
 		weight = 1,
 		class = "arccw_mifl_fas2_ak47",
-		category = "Weapons (ARs)",
+		category = "Weapons (Shotguns)",
 		type = "shotgun",
 		--flag = "",
 		defaultMods = {
 			["mifl_fas2_ak_hg"] = "mifl_fas2_ak_hg_saiga",
 			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_20g",
-			["mifl_fas2_ak47_stock"] = "mifl_fas2_ak_stock_skele"
+			["go_stock"] = "mifl_fas2_ak_stock_ske"
 		},
 		--slots above should probably also be below
 		cantDetach = {
@@ -3275,7 +3384,7 @@ local weaponList = {
 		height = 2,
 		weight = 1,
 		class = "arccw_bo1_uzi",
-		category = "Weapons (Shotguns)",
+		category = "Weapons (SMGs)",
 		type = "pistol",
 		--flag = "",
 		defaultMods = {
@@ -4078,7 +4187,7 @@ local attList = {
 	},
 	["go_supp_rotor43"] = {
 		name = "Rotor43 Suppressor",
-		desc = "desc 556, 762x39 aks, svd",
+		desc = "desc 556, 762x39 aks, ace, svd",
 		price = 0,
 		model = "models/weapons/w_pistol.mdl",
 		width = 2,
@@ -4682,7 +4791,7 @@ function PLUGIN:InitializedItems()
 		ITEM.class = data.class
 		ITEM.type = data.type
 		ITEM.flag = data.flag
-		ITEM.defaultMods = data.defaultMods
+		ITEM.defaultMods = table.Copy(data.defaultMods)
 		ITEM.defaultAmmo = data.defaultAmmo
 		ITEM.cantDetach = data.cantDetach
 		if(data.iconCam) then --prob wont be used for anything else so

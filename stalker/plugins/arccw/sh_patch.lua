@@ -163,6 +163,20 @@ local weaponEdits = {
 			Ammo = "sky762x51"
 		}
 	},
+	["arccw_go_ace"] = {
+		mods = {
+		}, 
+		primarymods = {
+			Ammo = "sky556"
+		}
+	},
+	["arccw_go_galil_ar"] = {
+		mods = {
+		}, 
+		primarymods = {
+			Ammo = "sky762x39"
+		}
+	},
 	["arccw_mifl_fas2_ks23"] = {
 		mods = {
 		}, 
@@ -475,6 +489,12 @@ local attEdits = {
 			Override_Ammo = "sky762x51"
 		}
 	},
+	["go_ace_mag_30_762"] = {
+		mods = {
+			--notable things:
+			Override_Ammo = "sky762x39"
+		}
+	},
 	["go_ssg08_mag_10_762"] = {
 		mods = {
 			--notable things:
@@ -701,6 +721,41 @@ local attEdits = {
 		mods = {
 			--notable things:
 			Override_Ammo = "sky9x39"
+		}
+	},
+	["bo1_dbs_barrel_sawnoff"] = {
+		mods = {
+			Override_AmmoPerShot = 1
+		}
+	},
+	["go_ammo_tmj"] = {
+		mods = {
+			SpecAmmo = "ap"
+		}
+	},
+	["go_ammo_jhp"] = {
+		mods = {
+			SpecAmmo = "jhp"
+		}
+	},
+	["go_ammo_sg_slug"] = {
+		mods = {
+			SpecAmmo = "slug"
+		}
+	},
+	["go_ammo_sg_flechette"] = {
+		mods = {
+			SpecAmmo = "flechette"
+		}
+	},
+	["eap_ammo_dragon"] = {
+		mods = {
+			SpecAmmo = "dragonsbreath"
+		}
+	},
+	["go_ammo_sg_sabot"] = {
+		mods = {
+			SpecAmmo = "sabot"
 		}
 	},
 }

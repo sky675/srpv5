@@ -123,6 +123,10 @@ local suppAllow = {
 		["arccw_go_scar"] = {
 			["go_scar_mag"] = {["go_scar_mag_30_556"] = true, ["go_scar_mag_60_556"] = true}
 		},
+		["arccw_go_ace"] = {
+			["go_ace_mag"] = {["none"] = true}
+		},
+		["arccw_go_galil_ar"] = true,
 		["arccw_mifl_fas2_famas"] = true,
 		["arccw_mifl_fas2_g36c"] = true,
 		["arccw_mifl_fas2_sg55x"] = true,
@@ -139,6 +143,10 @@ local suppAllow = {
 		["arccw_go_scar"] = {
 			["go_scar_mag"] = {["go_scar_mag_30_556"] = true, ["go_scar_mag_60_556"] = true}
 		},
+		["arccw_go_ace"] = {
+			["go_ace_mag"] = {["none"] = true}
+		},
+		["arccw_go_galil_ar"] = true,
 		["arccw_mifl_fas2_famas"] = true,
 		["arccw_mifl_fas2_g36c"] = true,
 		["arccw_mifl_fas2_sg55x"] = true,
@@ -155,6 +163,8 @@ local suppAllow = {
 		["arccw_go_scar"] = {
 			["go_scar_mag"] = {["go_scar_mag_30_556"] = true, ["go_scar_mag_60_556"] = true}
 		},
+		["arccw_go_ace"] = true,
+		["arccw_go_galil_ar"] = true,
 		["arccw_mifl_fas2_famas"] = true,
 		["arccw_mifl_fas2_g36c"] = true,
 		["arccw_mifl_fas2_sg55x"] = true,
@@ -194,6 +204,7 @@ local suppAllow = {
 		["arccw_go_m1014"] = true,
 		["arccw_go_870"] = true,
 		["arccw_go_nova"] = true,
+		["arccw_go_ace"] = true,
 		["arccw_mifl_fas2_m4a1"] = true,
 		["arccw_mifl_fas2_ak47"] = true,
 		["arccw_mifl_fas2_rpk"] = true,
@@ -206,6 +217,7 @@ local suppAllow = {
 		["arccw_go_m1014"] = true,
 		["arccw_go_870"] = true,
 		["arccw_go_nova"] = true,
+		["arccw_go_ace"] = true,
 		["arccw_mifl_fas2_m4a1"] = true,
 		["arccw_mifl_fas2_ak47"] = true,
 		["arccw_mifl_fas2_rpk"] = true,
@@ -218,6 +230,7 @@ local suppAllow = {
 		["arccw_go_m1014"] = true,
 		["arccw_go_870"] = true,
 		["arccw_go_nova"] = true,
+		["arccw_go_ace"] = true,
 		["arccw_mifl_fas2_m4a1"] = true,
 		["arccw_mifl_fas2_ak47"] = true,
 		["arccw_mifl_fas2_rpk"] = true,
@@ -230,6 +243,7 @@ local suppAllow = {
 		["arccw_go_m1014"] = true,
 		["arccw_go_870"] = true,
 		["arccw_go_nova"] = true,
+		["arccw_go_ace"] = true,
 		["arccw_mifl_fas2_m4a1"] = true,
 		["arccw_mifl_fas2_ak47"] = true,
 		["arccw_mifl_fas2_rpk"] = true,
