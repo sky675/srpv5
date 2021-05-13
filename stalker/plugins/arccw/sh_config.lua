@@ -55,7 +55,7 @@ local weaponList = {
 		class = "arccw_go_glock",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--	["slot"] = "attid"
 		--},
@@ -90,7 +90,7 @@ local weaponList = {
 		class = "arccw_go_glock",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["go_glock_slide"] = "go_glock_slide_short"
 		},
@@ -125,81 +125,9 @@ local weaponList = {
 		class = "arccw_go_glock",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["go_glock_slide"] = "go_glock_slide_auto"
-		},
-		--slots above should probably also be below
-		cantDetach = {
-			--["slot"] = true,
-			["go_glock_slide"] = true,
-			["go_glock_mag"] = true, --upgrade
-			["go_ammo"] = true, --upgrade
-			["go_perk"] = true, --upgrade
-			["go_perk_pistol"] = true, --upgrade
-		},
-		--iconCam = {}, --pretty icons
-		--exRender = false, --overriding for old icon way if above exists
-		--icon = "", --premade icons
-		--noBusiness = true, --doesnt appear in business menu
-		--transferSound = "", --i think this is transferring between invs
-		--destroyval = { --creates an automatic destruction func
-		--	["item"] = 1, --these are the results
-		--},
-	},
-	["cwep_g20"] = {
-		--exclusive upgrade ideas: 
-		--long slide go_glock_slide_long, 
-		--ext mag go_glock_mag_30_10auto
-		name = "Glock 20",
-		desc = "desc",
-		price = 0,
-		model = "models/weapons/w_pistol.mdl",
-		width = 2,
-		height = 1,
-		weight = 1,
-		class = "arccw_go_glock",
-		category = "Weapons (Pistols)",
-		type = "pistol",
-		flag = "",
-		defaultMods = {
-			["go_glock_mag"] = "go_glock_mag_15_10auto"
-		},
-		--slots above should probably also be below
-		cantDetach = {
-			--["slot"] = true,
-			["go_glock_slide"] = true,
-			["go_glock_mag"] = true, --upgrade
-			["go_ammo"] = true, --upgrade
-			["go_perk"] = true, --upgrade
-			["go_perk_pistol"] = true, --upgrade
-		},
-		--iconCam = {}, --pretty icons
-		--exRender = false, --overriding for old icon way if above exists
-		--icon = "", --premade icons
-		--noBusiness = true, --doesnt appear in business menu
-		--transferSound = "", --i think this is transferring between invs
-		--destroyval = { --creates an automatic destruction func
-		--	["item"] = 1, --these are the results
-		--},
-	},
-	["cwep_g29"] = {
-		--exclusive upgrade ideas: 
-		--ext mag go_glock_mag_30_10auto
-		name = "Glock 29",
-		desc = "desc",
-		price = 0,
-		model = "models/weapons/w_pistol.mdl",
-		width = 2,
-		height = 1,
-		weight = 1,
-		class = "arccw_go_glock",
-		category = "Weapons (Pistols)",
-		type = "pistol",
-		flag = "",
-		defaultMods = {
-			["go_glock_mag"] = "go_glock_mag_15_10auto",
-			["go_glock_slide"] = "go_glock_slide_short"
 		},
 		--slots above should probably also be below
 		cantDetach = {
@@ -233,7 +161,7 @@ local weaponList = {
 		class = "arccw_go_glock",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["go_glock_mag"] = "go_glock_mag_13_45acp"
 		},
@@ -268,7 +196,7 @@ local weaponList = {
 		class = "arccw_go_glock",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["go_glock_mag"] = "go_glock_mag_13_45acp",
 			["go_glock_slide"] = "go_glock_slide_short"
@@ -306,7 +234,7 @@ local weaponList = {
 		class = "arccw_go_m9",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--	["slot"] = "attid"
 		--},
@@ -342,7 +270,7 @@ local weaponList = {
 		class = "arccw_go_m9",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["go_m9_slide"] = "go_m9_slide_auto"
 		},
@@ -379,7 +307,7 @@ local weaponList = {
 		class = "arccw_go_usp",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--	["slot"] = "attid"
 		--},
@@ -416,7 +344,7 @@ local weaponList = {
 		class = "arccw_go_usp",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["go_usp_mag"] = "go_usp_mag_15_9"
 		},
@@ -453,7 +381,7 @@ local weaponList = {
 		class = "arccw_go_usp",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["go_usp_mag"] = "go_usp_mag_15_9",
 			["go_muzzle_usp"] = "go_usp_muzzle_match"
@@ -492,7 +420,7 @@ local weaponList = {
 		class = "arccw_go_cz75",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--	["slot"] = "attid"
 		--},
@@ -528,7 +456,7 @@ local weaponList = {
 		class = "arccw_go_cz75",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["go_cz75_slide"] = "go_cz75_slide_auto"
 		},
@@ -565,7 +493,7 @@ local weaponList = {
 		class = "arccw_go_p2000",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--	["slot"] = "attid"
 		--},
@@ -602,7 +530,7 @@ local weaponList = {
 		class = "arccw_go_p250",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["go_p250_mag"] = "go_p250_mag_15_9mm"
 		},
@@ -638,7 +566,7 @@ local weaponList = {
 		class = "arccw_go_p250",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["go_p250_mag"] = "go_p250_mag_9_45acp"
 		},
@@ -675,7 +603,7 @@ local weaponList = {
 		class = "arccw_go_deagle",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--	["slot"] = "attid"
 		--},
@@ -713,7 +641,7 @@ local weaponList = {
 		class = "arccw_go_tec9",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--	["slot"] = "attid"
 		--},
@@ -751,7 +679,7 @@ local weaponList = {
 		class = "arccw_go_fiveseven",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--	["slot"] = "attid"
 		--},
@@ -787,7 +715,7 @@ local weaponList = {
 		class = "arccw_go_mp5",
 		category = "Weapons (SMGs)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["foregrip"] = "go_extras_boondoggle"
 		},
@@ -824,7 +752,7 @@ local weaponList = {
 		class = "arccw_go_mp5",
 		category = "Weapons (SMGs)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["foregrip"] = "go_extras_boondoggle",
 			["go_mp5_barrel"] = "go_mp5_barrel_sd"
@@ -862,7 +790,7 @@ local weaponList = {
 		class = "arccw_go_mp5",
 		category = "Weapons (SMGs)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["foregrip"] = "go_extras_boondoggle",
 			["go_mp5_barrel"] = "go_mp5_barrel_long",
@@ -902,7 +830,7 @@ local weaponList = {
 		class = "arccw_go_bizon",
 		category = "Weapons (SMGs)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -940,7 +868,7 @@ local weaponList = {
 		class = "arccw_go_ump",
 		category = "Weapons (SMGs)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["foregrip"] = "go_extras_boondoggle"
 		},
@@ -977,7 +905,7 @@ local weaponList = {
 		class = "arccw_go_ump",
 		category = "Weapons (SMGs)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["foregrip"] = "go_extras_boondoggle",
 			["go_ump_barrel"] = "go_ump_barrel_long",
@@ -1016,7 +944,7 @@ local weaponList = {
 		class = "arccw_go_ump",
 		category = "Weapons (SMGs)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["foregrip"] = "go_extras_boondoggle",
 			["go_ump_mag"] = "go_ump_mag_30_9mm"
@@ -1054,7 +982,7 @@ local weaponList = {
 		class = "arccw_go_ump",
 		category = "Weapons (SMGs)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["foregrip"] = "go_extras_boondoggle",
 			["go_ump_mag"] = "go_ump_mag_30_9mm",
@@ -1096,7 +1024,7 @@ local weaponList = {
 		class = "arccw_go_mac10",
 		category = "Weapons (SMGs)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -1134,7 +1062,7 @@ local weaponList = {
 		class = "arccw_go_mp9",
 		category = "Weapons (SMGs)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -1172,7 +1100,7 @@ local weaponList = {
 		class = "arccw_go_p90",
 		category = "Weapons (SMGs)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -1207,7 +1135,7 @@ local weaponList = {
 		class = "arccw_go_mp7",
 		category = "Weapons (SMGs)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -1245,7 +1173,7 @@ local weaponList = {
 		class = "arccw_go_870",
 		category = "Weapons (Shotguns)",
 		type = "shotgun",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -1281,7 +1209,7 @@ local weaponList = {
 		class = "arccw_go_870",
 		category = "Weapons (Shotguns)",
 		type = "shotgun",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["go_870_barrel"] = "go_870_barrel_short",
 			["go_870_mag"] = "go_870_mag_4",
@@ -1322,7 +1250,7 @@ local weaponList = {
 		class = "arccw_go_nova",
 		category = "Weapons (Shotguns)",
 		type = "shotgun",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -1361,7 +1289,7 @@ local weaponList = {
 		class = "arccw_go_m1014",
 		category = "Weapons (Shotguns)",
 		type = "shotgun",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -1398,7 +1326,7 @@ local weaponList = {
 		class = "arccw_go_mag7",
 		category = "Weapons (Shotguns)",
 		type = "shotgun",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -1435,7 +1363,7 @@ local weaponList = {
 		class = "arccw_go_m249",
 		category = "Weapons (MGs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -1473,7 +1401,7 @@ local weaponList = {
 		class = "arccw_go_negev",
 		category = "Weapons (MGs)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -1513,7 +1441,7 @@ local weaponList = {
 		class = "arccw_go_aug",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -1549,7 +1477,7 @@ local weaponList = {
 		class = "arccw_go_aug",
 		category = "Weapons (SMGs)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["go_aug_barrel"] = "go_aug_barrel_short",
 			["go_aug_9mm"] = "go_aug_ammo_9mm",
@@ -1587,7 +1515,7 @@ local weaponList = {
 		class = "arccw_go_awp",
 		category = "Weapons (Rifles)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["optic"] = "", --should unequip the optic
 		},
@@ -1625,7 +1553,7 @@ local weaponList = {
 		class = "arccw_go_fnfal",
 		category = "Weapons (Rifles)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["foregrip"] = "go_extras_boondoggle2",
 			["go_fal_barrel"] = "go_fal_barrel_long",
@@ -1666,7 +1594,7 @@ local weaponList = {
 		class = "arccw_go_fnfal",
 		category = "Weapons (Rifles)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["foregrip"] = "go_extras_boondoggle2",
 			["go_fal_stock"] = "go_fal_stock_skeleton",
@@ -1707,7 +1635,7 @@ local weaponList = {
 		class = "arccw_go_scar",
 		category = "Weapons (Rifles)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["foregrip"] = "go_extras_boondoggle2",
 		},
@@ -1744,7 +1672,7 @@ local weaponList = {
 		class = "arccw_go_scar",
 		category = "Weapons (ARs)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["foregrip"] = "go_extras_boondoggle2",
 			["go_scar_barrel"] = "go_scar_barrel_short",
@@ -1756,6 +1684,115 @@ local weaponList = {
 			["go_scar_barrel"] = true,
 			["go_scar_mag"] = true, --upgrade
 			["go_scar_stock"] = true,
+			["go_stock"] = true,
+			["go_stock_none"] = true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--ace
+	["cwep_ace22"] = {
+		--exclusive upgrade ideas: 
+		name = "ACE 22",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 4,
+		height = 2,
+		weight = 1,
+		class = "arccw_go_ace",
+		category = "Weapons (Rifles)",
+		type = "n",
+		--flag = "",
+		defaultMods = {
+			["foregrip"] = "go_extras_boondoggle3",
+		},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			["go_ace_barrel"] = true,
+			["go_ace_mag"] = true, --upgrade
+			["go_ak47_stock"] = true,
+			["go_stock"] = true,
+			["go_stock_none"] = true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["cwep_ace32"] = {
+		--exclusive upgrade ideas: 
+		name = "ACE 32",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 4,
+		height = 2,
+		weight = 1,
+		class = "arccw_go_ace",
+		category = "Weapons (Rifles)",
+		type = "ws",
+		--flag = "",
+		defaultMods = {
+			["foregrip"] = "go_extras_boondoggle3",
+			["go_ace_mag"] = "go_ace_mag_30_762",
+		},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			["go_ace_barrel"] = true,
+			["go_ace_mag"] = true, --upgrade
+			["go_ak47_stock"] = true,
+			["go_stock"] = true,
+			["go_stock_none"] = true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--galil
+	["cwep_galil"] = {
+		--exclusive upgrade ideas: 
+		name = "IWI Galil AR",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 4,
+		height = 2,
+		weight = 1,
+		class = "arccw_go_galil_ar",
+		category = "Weapons (Rifles)",
+		type = "n",
+		--flag = "",
+		--defaultMods = {
+		--	["foregrip"] = "go_extras_boondoggle3",
+		--},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			["go_galil_ar_barrel"] = true,
 			["go_stock"] = true,
 			["go_stock_none"] = true,
 			["go_ammo"] = true, --upgrade
@@ -1785,7 +1822,7 @@ local weaponList = {
 		class = "arccw_go_ssg08",
 		category = "Weapons (Rifles)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["go_ssg08_mag"] = "go_ssg08_mag_10_762", --ehhh?
 		},
@@ -1824,7 +1861,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_toz34",
 		category = "Weapons (Shotguns)",
 		type = "shotgun",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -1861,7 +1898,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_toz34",
 		category = "Weapons (Shotguns)",
 		type = "shotgun",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["mifl_fas2_toz34_bar"] = "mifl_fas2_toz_bar_2x_s",
 			["mifl_fas2_ks23_stock"] = "mifl_fas2_ks23_stock_k",
@@ -1901,7 +1938,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_ks23",
 		category = "Weapons (Shotguns)",
 		type = "shotgun",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -1939,7 +1976,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_m1911",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -1978,7 +2015,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_p226",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -2017,7 +2054,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_m24",
 		category = "Weapons (Rifles)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -2054,7 +2091,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_sr25",
 		category = "Weapons (Rifles)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -2094,7 +2131,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_g3",
 		category = "Weapons (Rifles)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -2134,7 +2171,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_ak47",
 		category = "Weapons (ARs)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -2172,7 +2209,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_ak47",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_545"
 		},
@@ -2210,10 +2247,10 @@ local weaponList = {
 		class = "arccw_mifl_fas2_ak47",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_545",
-			["mifl_fas2_ak47_stock"] = "mifl_fas2_ak_stock_ske"
+			["go_stock"] = "mifl_fas2_ak_stock_ske"
 		},
 		--slots above should probably also be below
 		cantDetach = {
@@ -2249,11 +2286,11 @@ local weaponList = {
 		class = "arccw_mifl_fas2_ak47",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["mifl_fas2_ak_hg"] = "mifl_fas2_ak_hg_u",
 			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_545",
-			["mifl_fas2_ak47_stock"] = "mifl_fas2_ak_stock_ske"
+			["go_stock"] = "mifl_fas2_ak_stock_ske"
 		},
 		--slots above should probably also be below
 		cantDetach = {
@@ -2289,11 +2326,11 @@ local weaponList = {
 		class = "arccw_mifl_fas2_ak47",
 		category = "Weapons (ARs)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["mifl_fas2_ak_hg"] = "mifl_fas2_ak_hg_12u",
 			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_919_30",
-			["mifl_fas2_ak47_stock"] = "mifl_fas2_ak_stock_ske"
+			["go_stock"] = "mifl_fas2_ak_stock_ske"
 		},
 		--slots above should probably also be below
 		cantDetach = {
@@ -2329,11 +2366,11 @@ local weaponList = {
 		class = "arccw_mifl_fas2_ak47",
 		category = "Weapons (Rifles)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["mifl_fas2_ak_hg"] = "mifl_fas2_ak_hg_svd",
 			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_82",
-			["mifl_fas2_ak47_stock"] = "mifl_fas2_ak_stock_svd"
+			["go_stock"] = "mifl_fas2_ak_stock_svd"
 		},
 		--slots above should probably also be below
 		cantDetach = {
@@ -2369,11 +2406,11 @@ local weaponList = {
 		class = "arccw_mifl_fas2_ak47",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["mifl_fas2_ak_hg"] = "mifl_fas2_ak_hg_sd",
 			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_939_20",
-			["mifl_fas2_ak47_stock"] = "mifl_fas2_ak_stock_ske"
+			["go_stock"] = "mifl_fas2_ak_stock_ske"
 		},
 		--slots above should probably also be below
 		cantDetach = {
@@ -2409,11 +2446,11 @@ local weaponList = {
 		class = "arccw_mifl_fas2_ak47",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["mifl_fas2_ak_hg"] = "mifl_fas2_ak_hg_sd",
 			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_939_20", --unsure if should use 10 or 20 tbh
-			["mifl_fas2_ak47_stock"] = "mifl_fas2_ak_stock_svd"
+			["go_stock"] = "mifl_fas2_ak_stock_svd"
 		},
 		--slots above should probably also be below
 		cantDetach = {
@@ -2449,11 +2486,11 @@ local weaponList = {
 		class = "arccw_mifl_fas2_ak47",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["mifl_fas2_ak_hg"] = "mifl_fas2_ak_hg_an94",
 			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_545",
-			["mifl_fas2_ak47_stock"] = "mifl_fas2_ak_stock_fold"
+			["go_stock"] = "mifl_fas2_ak_stock_fold"
 		},
 		--slots above should probably also be below
 		cantDetach = {
@@ -2489,7 +2526,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_ak47",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["mifl_fas2_ak_hg"] = "mifl_fas2_ak_hg_12",
 			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_545",
@@ -2528,13 +2565,13 @@ local weaponList = {
 		height = 2,
 		weight = 1,
 		class = "arccw_mifl_fas2_ak47",
-		category = "Weapons (ARs)",
+		category = "Weapons (Shotguns)",
 		type = "shotgun",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["mifl_fas2_ak_hg"] = "mifl_fas2_ak_hg_saiga",
 			["mifl_fas2_ak_mag"] = "mifl_fas2_ak_mag_20g",
-			["mifl_fas2_ak47_stock"] = "mifl_fas2_ak_stock_skele"
+			["go_stock"] = "mifl_fas2_ak_stock_ske"
 		},
 		--slots above should probably also be below
 		cantDetach = {
@@ -2570,7 +2607,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_rpk",
 		category = "Weapons (MGs)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -2609,7 +2646,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_famas",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -2646,7 +2683,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_g36c",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			
 		--},
@@ -2685,7 +2722,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_g36c",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["mifl_fas2_g36c_hg"] = "mifl_fas2_g36_barrel_scope"
 		},
@@ -2725,7 +2762,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_sg55x",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			--["mifl_fas2_sg55x_mag"] = "mifl_fas2_g36_barrel_scope"
 		--},
@@ -2764,7 +2801,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_sg55x",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["mifl_fas2_sg55x_hg"] = "mifl_fas2_sg55x_barrel_551",
 			["mifl_fas2_sg55x_mag"] = "mifl_fas2_m4a1_mag_556_20",
@@ -2804,7 +2841,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_sg55x",
 		category = "Weapons (Rifles)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["mifl_fas2_sg55x_hg"] = "mifl_fas2_sg55x_barrel_550",
 			["mifl_fas2_sg55x_mag"] = "mifl_fas2_m4a1_mag_556_20",
@@ -2846,7 +2883,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_m4a1",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 			--["mifl_fas2_sg55x_mag"] = "mifl_fas2_g36_barrel_scope"
 		--},
@@ -2885,7 +2922,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_m4a1",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["mifl_fas2_m4a1_hg"] = "mifl_fas2_m4a1_barrel_a1",
 			["mifl_fas2_m4a1_stock"] = "mifl_fas2_m4a1_stock_a2",
@@ -2925,7 +2962,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_m4a1",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["mifl_fas2_m4a1_hg"] = "mifl_fas2_m4a1_barrel_a2",
 			["mifl_fas2_m4a1_stock"] = "mifl_fas2_m4a1_stock_a2",
@@ -2965,7 +3002,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_m4a1",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["mifl_fas2_m4a1_hg"] = "mifl_fas2_m4a1_barrel_a4",
 			["mifl_fas2_m4a1_stock"] = "mifl_fas2_m4a1_stock_a2",
@@ -3005,7 +3042,7 @@ local weaponList = {
 		class = "arccw_mifl_fas2_m79",
 		category = "Weapons (Misc)",
 		type = "shotgun",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
@@ -3042,7 +3079,7 @@ local weaponList = {
 		class = "arccw_eap_aek",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
@@ -3083,7 +3120,7 @@ local weaponList = {
 		class = "arccw_eap_groza",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			--["eap_groza_barrel"] = "",
 			["eap_groza_mag"] = "eap_groza_mag_939_20"
@@ -3121,7 +3158,7 @@ local weaponList = {
 		class = "arccw_eap_groza",
 		category = "Weapons (ARs)",
 		type = "n",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["eap_groza_barrel"] = "eap_groza_barrel_sd",
 			["eap_groza_mag"] = "eap_groza_mag_939_20"
@@ -3159,7 +3196,7 @@ local weaponList = {
 		class = "arccw_eap_groza",
 		category = "Weapons (ARs)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			--["eap_groza_barrel"] = "",
 			--["eap_groza_mag"] = "eap_groza_mag_939_20"
@@ -3197,7 +3234,7 @@ local weaponList = {
 		class = "arccw_eap_groza",
 		category = "Weapons (ARs)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["eap_groza_barrel"] = "eap_groza_barrel_sd",
 			--["eap_groza_mag"] = "eap_groza_mag_939_20"
@@ -3238,7 +3275,7 @@ local weaponList = {
 		class = "arccw_bo2_browninghp",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--	["eap_groza_barrel"] = "eap_groza_barrel_sd",
 			--["eap_groza_mag"] = "eap_groza_mag_939_20"
@@ -3274,7 +3311,7 @@ local weaponList = {
 		class = "arccw_waw_doublebarrel",
 		category = "Weapons (Shotguns)",
 		type = "shotgun",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["bo1_mp5stock"] = "bo1_solider_stock",
 			--["eap_groza_mag"] = "eap_groza_mag_939_20"
@@ -3311,7 +3348,7 @@ local weaponList = {
 		class = "arccw_waw_doublebarrel",
 		category = "Weapons (Shotguns)",
 		type = "shotgun",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["waw_dbs_barrel"] = "bo1_dbs_barrel_sawnoff",
 			--["eap_groza_mag"] = "eap_groza_mag_939_20"
@@ -3347,9 +3384,9 @@ local weaponList = {
 		height = 2,
 		weight = 1,
 		class = "arccw_bo1_uzi",
-		category = "Weapons (Shotguns)",
+		category = "Weapons (SMGs)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		defaultMods = {
 			["bo1_stock"] = "bo1_light_stock",
 			--["eap_groza_mag"] = "eap_groza_mag_939_20"
@@ -3386,7 +3423,7 @@ local weaponList = {
 		class = "arccw_waw_ppsh41",
 		category = "Weapons (SMGs)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--	["bo1_stock"] = "bo1_light_stock",
 			--["eap_groza_mag"] = "eap_groza_mag_939_20"
@@ -3422,7 +3459,7 @@ local weaponList = {
 		class = "arccw_bo1_m60",
 		category = "Weapons (MGs)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--	["bo1_stock"] = "bo1_light_stock",
 			--["eap_groza_mag"] = "eap_groza_mag_939_20"
@@ -3460,7 +3497,7 @@ local weaponList = {
 		class = "arccw_temp_makarov",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
@@ -3495,7 +3532,7 @@ local weaponList = {
 		class = "arccw_temp_tt33",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
@@ -3530,7 +3567,7 @@ local weaponList = {
 		class = "arccw_temp_skorpion",
 		category = "Weapons (Pistols)",
 		type = "pistol",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
@@ -3564,7 +3601,7 @@ local weaponList = {
 		class = "arccw_temp_mosin",
 		category = "Weapons (Rifles)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
@@ -3598,7 +3635,7 @@ local weaponList = {
 		class = "arccw_temp_svt40",
 		category = "Weapons (Rifles)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
@@ -3632,7 +3669,7 @@ local weaponList = {
 		class = "arccw_temp_sks",
 		category = "Weapons (Rifles)",
 		type = "ws",
-		flag = "",
+		--flag = "",
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
@@ -3693,7 +3730,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "tac", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -3714,7 +3751,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "tac", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -3735,7 +3772,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "tac", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -3756,7 +3793,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "tac", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -3777,7 +3814,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "tac", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -3799,7 +3836,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "foregrip", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -3820,7 +3857,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "foregrip", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -3841,7 +3878,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "foregrip", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -3862,7 +3899,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "foregrip", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -3883,8 +3920,10 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "foregrip", --attid should be id of item
+		--traitreq = {trait = "trait", val = 0},
+		--requireEnt = {class = "class", name = "a nicename", radius = 120},
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
@@ -3895,6 +3934,128 @@ local attList = {
 		--	["item"] = 1, --these are the results
 		--},
 	},
+	--stock
+	["go_stock_moe"] = {
+		name = "MOE Stock",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		--flag = "",
+		cat = "go_stock", --attid should be id of item
+		--traitreq = {trait = "trait", val = 0},
+		requireEnt = {class = "sky_craft_weapons", name = "a Weapon Crafting Bench", radius = 120},
+		techReq = 1,
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_stock_ergo"] = {
+		name = "Ergonomic Stock",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		--flag = "",
+		cat = "go_stock", --attid should be id of item
+		--traitreq = {trait = "trait", val = 0},
+		requireEnt = {class = "sky_craft_weapons", name = "a Weapon Crafting Bench", radius = 120},
+		techReq = 1,
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_stock_contractor"] = {
+		name = "Contractor Stock",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		--flag = "",
+		cat = "go_stock", --attid should be id of item
+		--traitreq = {trait = "trait", val = 0},
+		requireEnt = {class = "sky_craft_weapons", name = "a Weapon Crafting Bench", radius = 120},
+		techReq = 1,
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_stock_basilisk"] = {
+		name = "Basilisk Stock",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		--flag = "",
+		cat = "go_stock", --attid should be id of item
+		--traitreq = {trait = "trait", val = 0},
+		requireEnt = {class = "sky_craft_weapons", name = "a Weapon Crafting Bench", radius = 120},
+		techReq = 1,
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["go_nova_stock_sport"] = {
+		name = "SuperNova Sport-TAC Stock",
+		desc = "desc specifically for supernova",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		--flag = "",
+		cat = "go_nova_stock", --attid should be id of item
+		--traitreq = {trait = "trait", val = 0},
+		requireEnt = {class = "sky_craft_weapons", name = "a Weapon Crafting Bench", radius = 120},
+		techReq = 1,
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+
 	--ubgl
 	["mifl_fas2_ubw_m203"] = {
 		name = "Railed M203",
@@ -3905,7 +4066,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "foregrip", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -3926,7 +4087,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "foregrip", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -3949,7 +4110,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "muzzle", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -3970,7 +4131,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "muzzle", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -3991,7 +4152,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "muzzle", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4012,7 +4173,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "muzzle", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4026,14 +4187,14 @@ local attList = {
 	},
 	["go_supp_rotor43"] = {
 		name = "Rotor43 Suppressor",
-		desc = "desc 556, 762x39 aks",
+		desc = "desc 556, 762x39 aks, ace, svd",
 		price = 0,
 		model = "models/weapons/w_pistol.mdl",
 		width = 2,
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "muzzle", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4054,7 +4215,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "muzzle", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4075,7 +4236,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "muzzle", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4096,7 +4257,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "muzzle", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4119,7 +4280,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic_lp", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4140,7 +4301,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic_lp", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4161,7 +4322,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic_lp", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4182,7 +4343,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic_lp", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4203,7 +4364,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4224,7 +4385,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4245,7 +4406,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4266,7 +4427,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4287,7 +4448,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4308,7 +4469,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4329,7 +4490,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4350,7 +4511,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4371,7 +4532,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4392,7 +4553,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4413,7 +4574,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4434,7 +4595,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4455,7 +4616,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4476,7 +4637,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4497,7 +4658,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4518,7 +4679,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4539,7 +4700,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4560,7 +4721,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4581,7 +4742,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4602,7 +4763,7 @@ local attList = {
 		height = 1,
 		weight = 1,
 		category = "Attachments",
-		flag = "",
+		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
 		--iconCam = {}, --pretty icons
@@ -4630,7 +4791,7 @@ function PLUGIN:InitializedItems()
 		ITEM.class = data.class
 		ITEM.type = data.type
 		ITEM.flag = data.flag
-		ITEM.defaultMods = data.defaultMods
+		ITEM.defaultMods = table.Copy(data.defaultMods)
 		ITEM.defaultAmmo = data.defaultAmmo
 		ITEM.cantDetach = data.cantDetach
 		if(data.iconCam) then --prob wont be used for anything else so
@@ -4662,6 +4823,8 @@ function PLUGIN:InitializedItems()
 		ITEM.cat = data.cat
 		ITEM.attID = id--data.attID
 		ITEM.restrictWeps = data.restrictWeps
+		ITEM.requireEnt = data.requireEnt
+		ITEM.traitreq = data.traitreq
 		if(data.iconCam) then --prob wont be used for anything else so
 			ITEM.exRender = true
 			ITEM.iconCam = data.iconCam

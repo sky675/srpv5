@@ -8,6 +8,23 @@ nut.traits.list = {}--nut.traits.list or {}
 
 nut.util.include("sh_skilltree.lua")
 
+nut.command.add("chargivetechtrait", {
+    syntax = "<string name>",
+	desc = "use to give the target the trait for techs",
+    adminOnly = true,
+    onRun = function(client, arguments)
+        local target = nut.util.findPlayer(arguments[1])
+		if(!target) then return "invalid player" end
+		if(nut.traits.hasTrait(target, "crafting_spec")) then
+			return "already has tech trait"
+		end
+
+		nut.traits.setTrait(target, "crafting_spec", nil, 1)
+		nut.traits.addXp(target, "crafting_spec", 5)
+		return "ran"
+	end
+})
+
 function nut.traits.add(uid, tbl)
 	if(nut.traits.list[uid] != nil) then print("WARNING there are multiple traits with the uid of "..uid.."!") end
 	nut.traits.list[uid] = tbl

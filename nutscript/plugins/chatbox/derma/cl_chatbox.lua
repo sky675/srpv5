@@ -353,17 +353,23 @@ local PANEL = {}
 
 	function PANEL:addText(...)
 		local text = "<font=nutChatFont>"
-		if(NUT_CVAR_TIMESTAMP:GetBool()) then
-			text = "<color=255,255,255>["..os.date(
-				NUT_CVAR_TIMESTAMP24:GetBool() and "%H:%M:%S" or "%I:%M:%S %p"
-			).."] "
-		end
-
 		if (CHAT_CLASS) then
 			text = "<font="..(CHAT_CLASS.font or "nutChatFont")..">"
 		end
+
+		if(NUT_CVAR_TIMESTAMP:GetBool()) then
+			text = text.."<color=255,255,255>["..os.date(
+				NUT_CVAR_TIMESTAMP24:GetBool() and "%H:%M:%S" or "%I:%M:%S %p"
+			).."] "
+		end
 		
 		for k, v in ipairs({...}) do
+			local trans = hook.Run("TranslatePhrase", v)
+			if(trans) then 
+				text = text..trans 
+				continue 
+			end
+
 			if (type(v) == "IMaterial") then
 				local ttx = v:GetName()
 				text = text.."<img="..ttx..","..v:Width().."x"..v:Height()..">"

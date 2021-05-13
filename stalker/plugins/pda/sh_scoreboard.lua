@@ -90,7 +90,9 @@ else--client
 	hook.Add("ScoreboardShow", "aaashow", function() --function PLUGIN:ScoreboardShow()
 		local pd = LocalPlayer():GetPDA()
 		if(!pd) then return true end
+		print("showscoreboard")
 		if (IsValid(nut.gui.pda)) then
+			print("sb toggle")
 			--get active pda
 			--hopefully this makes it a toggle?
 			if(nut.gui.pda:IsVisible()) then
@@ -99,6 +101,7 @@ else--client
 				nut.gui.pda:Reset(pd)
 			end
 		else
+			print("sb new")
 			nut.gui.pda = vgui.Create("pdaPanel")
 			nut.gui.pda.pda = pd
 		end

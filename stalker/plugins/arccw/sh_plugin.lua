@@ -11,18 +11,13 @@ nut.util.include("sv_dura.lua")
 
 --notes:
 --[[todo:
-- recreate grenades using arccw
 - decide on melee base (arccw is prob fine)
-- finish weapons in general
-- finish weapon patches (ammo, etc)
-- finish atts
+- add support in armor (getbuff instead of getstat)
+- finish weapons+atts in general
 - add ammo items (put in a config?)
 ]]
 
 
---need to change ammo types of all the guns and relevant atts
---and the aug mag size
---also the ammo types to saveammo
 --test force show/showhealth off to make sure its good now
 
 --convars to change:
@@ -128,6 +123,10 @@ local suppAllow = {
 		["arccw_go_scar"] = {
 			["go_scar_mag"] = {["go_scar_mag_30_556"] = true, ["go_scar_mag_60_556"] = true}
 		},
+		["arccw_go_ace"] = {
+			["go_ace_mag"] = {["none"] = true}
+		},
+		["arccw_go_galil_ar"] = true,
 		["arccw_mifl_fas2_famas"] = true,
 		["arccw_mifl_fas2_g36c"] = true,
 		["arccw_mifl_fas2_sg55x"] = true,
@@ -144,6 +143,10 @@ local suppAllow = {
 		["arccw_go_scar"] = {
 			["go_scar_mag"] = {["go_scar_mag_30_556"] = true, ["go_scar_mag_60_556"] = true}
 		},
+		["arccw_go_ace"] = {
+			["go_ace_mag"] = {["none"] = true}
+		},
+		["arccw_go_galil_ar"] = true,
 		["arccw_mifl_fas2_famas"] = true,
 		["arccw_mifl_fas2_g36c"] = true,
 		["arccw_mifl_fas2_sg55x"] = true,
@@ -160,6 +163,8 @@ local suppAllow = {
 		["arccw_go_scar"] = {
 			["go_scar_mag"] = {["go_scar_mag_30_556"] = true, ["go_scar_mag_60_556"] = true}
 		},
+		["arccw_go_ace"] = true,
+		["arccw_go_galil_ar"] = true,
 		["arccw_mifl_fas2_famas"] = true,
 		["arccw_mifl_fas2_g36c"] = true,
 		["arccw_mifl_fas2_sg55x"] = true,
@@ -194,6 +199,58 @@ local suppAllow = {
 		["arccw_eap_aek"] =true,
 	},
 
+	["go_stock_moe"] = {
+		["arccw_go_bizon"] = true,
+		["arccw_go_m1014"] = true,
+		["arccw_go_870"] = true,
+		["arccw_go_nova"] = true,
+		["arccw_go_ace"] = true,
+		["arccw_mifl_fas2_m4a1"] = true,
+		["arccw_mifl_fas2_ak47"] = true,
+		["arccw_mifl_fas2_rpk"] = true,
+		["arccw_mifl_fas2_sr25"] = true,
+		["arccw_eap_aek"] = true,
+
+	},
+	["go_stock_ergo"] = {
+		["arccw_go_bizon"] = true,
+		["arccw_go_m1014"] = true,
+		["arccw_go_870"] = true,
+		["arccw_go_nova"] = true,
+		["arccw_go_ace"] = true,
+		["arccw_mifl_fas2_m4a1"] = true,
+		["arccw_mifl_fas2_ak47"] = true,
+		["arccw_mifl_fas2_rpk"] = true,
+		["arccw_mifl_fas2_sr25"] = true,
+		["arccw_eap_aek"] = true,
+		
+	},
+	["go_stock_contractor"] = {
+		["arccw_go_bizon"] = true,
+		["arccw_go_m1014"] = true,
+		["arccw_go_870"] = true,
+		["arccw_go_nova"] = true,
+		["arccw_go_ace"] = true,
+		["arccw_mifl_fas2_m4a1"] = true,
+		["arccw_mifl_fas2_ak47"] = true,
+		["arccw_mifl_fas2_rpk"] = true,
+		["arccw_mifl_fas2_sr25"] = true,
+		["arccw_eap_aek"] = true,
+		
+	},
+	["go_stock_basilisk"] = {
+		["arccw_go_bizon"] = true,
+		["arccw_go_m1014"] = true,
+		["arccw_go_870"] = true,
+		["arccw_go_nova"] = true,
+		["arccw_go_ace"] = true,
+		["arccw_mifl_fas2_m4a1"] = true,
+		["arccw_mifl_fas2_ak47"] = true,
+		["arccw_mifl_fas2_rpk"] = true,
+		["arccw_mifl_fas2_sr25"] = true,
+		["arccw_eap_aek"] = true,
+		
+	},
 }
 
 --can use this to prevent attaching specific atts onto guns (ex 1 type of supp per wep)
@@ -266,8 +323,11 @@ if(CLIENT) then
 end
 
 if(SERVER) then
-	hook.Add("Hook_PostFireBullets", "nutgren", function(weapon)
-		--print("hook works, can use this to destroy grenades")
+	hook.Add("Hook_PostFireRocket", "nutgren", function(weapon, grenade)
+		--this will only be used with grenades
+		if(weapon.nutItem) then
+			weapon.nutItem:remove()
+		end
 	end)
 
 	hook.Add("InitPostEntity", "DisableArcStuff", function()

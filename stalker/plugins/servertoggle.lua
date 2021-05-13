@@ -15,6 +15,7 @@ nut.command.add("servertoggle", {
 	onRun = function(client, arguments)
 		PLUGIN:ToggleServer()
 
+		nut.log.addRaw("server has been toggled "..(PLUGIN.curStatus and "closed" or "open").." by "..client:steamName().." ("..client:SteamID()..")")
 		return "server has been toggled "..(PLUGIN.curStatus and "closed" or "open")
  	end
 })
@@ -23,17 +24,26 @@ if(SERVER) then
 
 	PLUGIN.originalName = PLUGIN.originalName or string.Split(GetHostName(), closedStr)[1]
 
+	concommand.Add("nut_servertoggle", function(ply, cmd, args)
+		if(IsValid(ply) and !ply:IsAdmin()) then return end
+
+		PLUGIN:ToggleServer()
+		nut.log.addRaw("server has been toggled "..(PLUGIN.curStatus and "closed" or "open").." by "..(IsValid(ply) and (ply:steamName().." ("..ply:SteamID()..")") or "someone in rcon"))
+
+		print("done curStatus is now "..PLUGIN.curStatus)
+	end, nil, "console command (meant for rcon) to toggle server opening")
+
 	//if i understand this right, onloaded will run first, need to wait until data is loaded
 	function PLUGIN:PostLoadData()//OnLoaded()
 		if(self.curStatus) then
 			RunConsoleCommand("sv_password", pass)
 			if(GetHostName():find(closedStr)) then return end --uh ye
-			RunConsoleCommand("hostname", PLUGIN.originalName..closedStr)
+			RunConsoleCommand("hostname", self.originalName..closedStr)
 		else
 			--trying to fix
 			if(GetHostName():find(closedStr)) then 
 				RunConsoleCommand("sv_password", "")
-				RunConsoleCommand("hostname", PLUGIN.originalName)
+				RunConsoleCommand("hostname", self.originalName)
 			end
 			//RunConsoleCommand("sv_password", "")
 			//RunConsoleCommand("hostname", originalName)
@@ -44,10 +54,10 @@ if(SERVER) then
 		self.curStatus = !self.curStatus
 		if(self.curStatus) then
 			RunConsoleCommand("sv_password", pass)
-			RunConsoleCommand("hostname", PLUGIN.originalName..closedStr)
+			RunConsoleCommand("hostname", self.originalName..closedStr)
 		else
 			RunConsoleCommand("sv_password", "")
-			RunConsoleCommand("hostname", PLUGIN.originalName)
+			RunConsoleCommand("hostname", self.originalName)
 		end
 	end
 	

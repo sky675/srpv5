@@ -44,16 +44,39 @@ trait = {
 	desc = "Generic crafting level, used to determine what you can craft in a general sense.",
 	type = "pos", --can be pos or neg for listing on char creation, pos is left column, neg is right column, anything else will hide it from char creation
 	category = "Crafting", --shown in char creation and menu
-	cost = {[1] = 2, [2] = 4, [3] = 4}, --cost in char creation, can be table for levels
+	cost = {[1] = 3, [2] = 4, [3] = 4}, --cost in char creation, can be table for levels
 	max = 5, --max level for level trait
-	creationMax = 2,--3, --max for creation
+	creationMax = 1,--3, --max for creation
 	xp = {
-		[1] = 10,
-		[2] = 20,
-		[3] = 30,
+		[1] = 25,
+		--[2] = 45,
+		[3] = 60,
+		[4] = 75,
+	},
+	gate = "gate_craft",
+}--todo change when more used?
+nut.traits.add(uid, trait)
+uid = "crafting_spec"
+trait = {
+	name = "Tech",
+	getName = function(char) 
+		return "Tech Level "..(char:getTrait("crafting_spec") or "???")--Data("traits", {})["crafting_weapon"] or "???") 
+	end, --only called in trait list, gender specific or for levels
+	desc = "Tech crafting level, used to determine your ability to craft technician-exclusive recipes.",
+	type = "pos", --can be pos or neg for listing on char creation, pos is left column, neg is right column, anything else will hide it from char creation
+	category = "Crafting", --shown in char creation and menu
+	cost = {[1] = 2,}, --cost in char creation, can be table for levels
+	max = 5, --max level for level trait
+	hide = true,
+	creationMax = 0,--3, --max for creation
+	xp = {
+		[1] = 5,
+		[2] = 15,
+		[3] = 25,
 		[4] = 40,
 	},
 	gate = "gate_craft",
+	--require = "crafting_1", --the trait required to pick this
 }--todo change when more used?
 nut.traits.add(uid, trait)
 uid = "crafting_weapon"
@@ -175,8 +198,8 @@ trait = {
 	max = 3, --max level for level trait
 	creationMax = 1, --max for creation
 	xp = {
-		[1] = 15,
-		[2] = 20,
+		[1] = 25,
+		[2] = 60,
 	},
 	gate = "gate_repair"
 }

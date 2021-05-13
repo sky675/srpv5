@@ -130,7 +130,6 @@ nut.chat.register("pdabroad", {
     filter = "pda",
     prefix = {"/pdanotif"}
 })
-
 nut.chat.register("pdalocal", {
 	onCanSay = function(speaker, text)
         
@@ -157,13 +156,19 @@ nut.chat.register("pdalocal", {
 				name = "invalid"
 			end
 		end
+		--local testmat = Material("sky/faction_icons/stalker.png", "noclamp smooth")
 
         if(args[2]) then
-		chat.AddText(Color(100, 255, 50),"[PDA-LOCAL] ", Color(255, 255, 255), name..": "..args[2])
+			chat.AddText(testmat, Color(100, 255, 50),"[PDA-LOCAL] ", Color(255, 255, 255), name..": "..args[2])
         end
 	end,
     filter = "pda"
 })
+hook.Add("TranslatePhrase", "teste", function(phr)
+	if(phr == "phrnewlinephr") then
+		return "\n"
+	end
+end)
 
 local factionChans = {
 	[1] = "BAND",

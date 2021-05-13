@@ -22,29 +22,46 @@ local skills = {
 		}
 	},
 	]]
-	["crafting"] = {
+	["crafting_spec"] = {
 		levels = {  --levels to add a skill point at
-			[1] = true, --can be true or number
+			[1] = 6, --can be true or number
 			[2] = 3, 
+			[3] = 3, 
+			[4] = 3, 
+			[5] = 3, 
 		},
 		picks = { 
 			--picks available and the number of picks needed to choose each
 			--use . to denote level that should be given
 			--should technically be compatible with non-level ids too, as
 			--not including it should make it nil
-			["crafting_weapon.1"] = 2,
-			["crafting_armor.1"] = 2,
+			["crafting.3"] = 1,
+			["crafting_repair.1"] = 1,
+			["crafting_weapon.1"] = 3,
+			["crafting_armor.1"] = 3,
 			["crafting_tech.1"] = 1,
+			["crafting_repair.2"] = 3,
+			["crafting_repaira.1"] = 4,
+			["crafting_repairw.1"] = 4,
+			["crafting_tech.2"] = 4,
+			["crafting.5"] = 3,
 		},
 		picknames = { --friendlier names to display on buttons
-		["crafting_weapon.1"] = "Weapon Crafting",
-		["crafting_armor.1"] = "Armor Crafting",
-		["crafting_tech.1"] = "Basic Tech Crafting",
+		["crafting.3"] = "General Crafting Level 3",
+		["crafting.5"] = "General Crafting Level 5",
+		["crafting_weapon.1"] = "Weapon Crafting Level 1",
+		["crafting_armor.1"] = "Armor Crafting Level 1",
+		["crafting_tech.1"] = "Basic Tech Crafting Level 1",
+		["crafting_tech.2"] = "Basic Tech Crafting Level 2",
+		["crafting_repair.1"] = "Repair - Basic Level 1",
+		["crafting_repair.2"] = "Repair - Basic Level 2",
+		["crafting_repaira.1"] = "Repair - Armor Level 1",
+		["crafting_repairw.1"] = "Repair - Weapon Level 1",
 		}
 	},
 	["crafting_repair"] = {
 		levels = {  --levels to add a skill point at
-			[1] = true, --can be true or number
+			--[1] = true, --can be true or number
 			[2] = true,
 		},
 		picks = { 
