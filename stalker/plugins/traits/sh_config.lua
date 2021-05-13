@@ -49,7 +49,7 @@ trait = {
 	creationMax = 1,--3, --max for creation
 	xp = {
 		[1] = 25,
-		[2] = 45,
+		--[2] = 45,
 		[3] = 60,
 		[4] = 75,
 	},

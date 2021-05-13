@@ -36,15 +36,15 @@ local skills = {
 			--should technically be compatible with non-level ids too, as
 			--not including it should make it nil
 			["crafting.3"] = 1,
-			["crafting.5"] = 3,
-			["crafting_weapon.1"] = 2,
-			["crafting_armor.1"] = 2,
-			["crafting_tech.1"] = 2,
-			["crafting_tech.2"] = 4,
 			["crafting_repair.1"] = 1,
+			["crafting_weapon.1"] = 3,
+			["crafting_armor.1"] = 3,
+			["crafting_tech.1"] = 1,
 			["crafting_repair.2"] = 3,
-			["crafting_repaira.1"] = 3,
-			["crafting_repairw.1"] = 3,
+			["crafting_repaira.1"] = 4,
+			["crafting_repairw.1"] = 4,
+			["crafting_tech.2"] = 4,
+			["crafting.5"] = 3,
 		},
 		picknames = { --friendlier names to display on buttons
 		["crafting.3"] = "General Crafting Level 3",
