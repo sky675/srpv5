@@ -97,7 +97,7 @@ function PLUGIN:canCreate(ply, recipee)
 		end
 	end
 	local item, notif = nil, nil
-	if(char) then
+	if(char and recipe.handpick) then
 		item, notif = recipe.handpick(char:getInv():getItems())
 		if(!item) then 
 			ply:notify(notif or "Cannot find a valid item!", 3)
