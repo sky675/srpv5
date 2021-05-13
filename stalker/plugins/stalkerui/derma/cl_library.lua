@@ -82,7 +82,7 @@ if (CLIENT) then
 		
 
         --htmlBodyHeight = 620
-        local barPosX = popupX+(34*(scaledW/textW))
+        local barPosX = popupX+(26*(scaledW/textW))
         local barPosStartY = (popupY+(78*(scaledH/textH)))
         local i = 1
         local pages = table.Count(dictTabs)
