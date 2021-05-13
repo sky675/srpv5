@@ -367,7 +367,7 @@ CREATE TABLE IF NOT EXISTS `nut_characters` (
 	`_schema` VARCHAR(24) NOT NULL COLLATE 'utf8mb4_general_ci',
 	`_createTime` DATETIME NOT NULL,
 	`_lastJoinTime` DATETIME NOT NULL,
-	`_data` VARCHAR(1024) DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+	`_data` VARCHAR(2048) DEFAULT NULL COLLATE 'utf8mb4_general_ci',
 	`_money` INT(10) UNSIGNED NULL DEFAULT '0',
 	`_faction` VARCHAR(24) DEFAULT NULL COLLATE 'utf8mb4_general_ci',
 	PRIMARY KEY (`_id`)
@@ -384,7 +384,7 @@ CREATE TABLE IF NOT EXISTS `nut_items` (
 	`_itemID` INT(12) NOT NULL AUTO_INCREMENT,
 	`_invID` INT(12) NULL DEFAULT NULL,
 	`_uniqueID` VARCHAR(60) NOT NULL COLLATE 'utf8mb4_general_ci',
-	`_data` VARCHAR(512) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+	`_data` VARCHAR(1024) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
 	`_quantity` INT(16),
 	`_x` INT(4),
 	`_y` INT(4),
