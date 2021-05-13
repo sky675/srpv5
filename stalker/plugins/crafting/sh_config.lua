@@ -9,6 +9,244 @@ local armor_items = {
 	[ARMOR_IV] = "up_armor_4",
 	
 }
+--all have either mag in the name, or aug_9mm or go_ammo_556_60
+local ammoup = {
+	--[[
+	["wep"] = {
+		["none"] = "new",
+		["old"] = "new2"
+	},
+	]]
+	["arccw_go_cz75"] = {
+		["none"] = "go_cz75_mag_30",
+	},
+	["arccw_go_deagle"] = {
+		["none"] = "go_deagle_mag_9",
+	},
+	["arccw_go_fiveseven"] = {
+		["none"] = "go_fiveseven_mag_30",
+	},
+	["arccw_go_glock"] = {
+		["none"] = "go_glock_mag_28",
+		["go_glock_mag_13_45acp"] = "go_glock_mag_26_45acp",
+	},
+	["arccw_go_m9"] = {
+		["none"] = "go_m9_mag_24",
+	},
+	["arccw_go_p2000"] = {
+		["none"] = "go_p2000_mag_24",
+	},
+	["arccw_go_p250"] = {
+		["go_p250_mag_9_45acp"] = "go_p250_mag_15_45acp",
+		["go_p250_mag_15_9mm"] = "go_p250_mag_24_9mm",
+	},
+	["arccw_go_tec9"] = {
+		["none"] = "go_tec9_mag_32",
+	},
+	["arccw_go_usp"] = {
+		["none"] = "go_usp_mag_20",
+		["go_usp_mag_15_9"] = "go_usp_mag_25_9"
+	},
+	["arccw_go_mac10"] = {
+		["none"] = "go_mac10_mag_48",
+	},
+	["arccw_go_mp5"] = {
+		["none"] = "go_mp5_mag_40",
+	},
+	["arccw_go_mp7"] = {
+		["none"] = "go_mp7_mag_40",
+	},
+	["arccw_go_bizon"] = {
+		["none"] = "go_bizon_mag_82",
+	},
+	["arccw_go_aug"] = {
+		["none"] = "go_556_ammo_60round",
+	},
+	["arccw_go_awp"] = {
+		["none"] = "go_awp_mag_15",
+	},
+	["arccw_go_fnfal"] = {
+		["none"] = "go_fal_mag_30",
+	},
+	["arccw_go_scar"] = {
+		["none"] = "go_scar_mag_30",
+		["go_scar_mag_30_556"] = "go_scar_mag_60_556",
+	},
+	["arccw_go_m1014"] = {
+		["none"] = "go_m1014_mag_7",
+	},
+	["arccw_go_mag7"] = {
+		["none"] = "go_mag7_mag_7",
+	},
+	["arccw_go_870"] = {
+		["none"] = "go_870_mag_8",
+	},
+	["arccw_go_nova"] = {
+		["none"] = "go_nova_mag_8",
+	},
+	["arccw_go_ace"] = {
+		["none"] = "go_556_ammo_60round",
+		["go_ace_mag_30_762"] = "go_ace_mag_40_762",
+	},
+	["arccw_mifl_fas2_ak47"] = {
+		["none"] = "mifl_fas2_ak_mag_762_45",
+		["mifl_fas2_ak_mag_545"] = "mifl_fas2_ak_mag_545_45",
+		["mifl_fas2_ak_mag_939_20"] = "mifl_fas2_ak_mag_939_40",
+		["mifl_fas2_ak_mag_919_30"] = "mifl_fas2_ak_mag_919_50",
+	},
+	["arccw_mifl_fas2_famas"] = {
+		["none"] = "mifl_fas2_famas_mag_556_50",
+	},
+	["arccw_mifl_fas2_g36c"] = {
+		["none"] = "mifl_fas2_m4a1_mag_556_60",
+	},
+	["arccw_mifl_fas2_g3"] = {
+		["none"] = "mifl_fas2_g3_mag_762_30",
+	},
+	["arccw_mifl_fas2_ks23"] = {
+		["none"] = "mifl_fas2_ks23_tube_x",
+	},
+	["arccw_mifl_fas2_m4a1"] = {
+		["none"] = "mifl_fas2_m4a1_mag_556_60",
+		["mifl_fas2_m4a1_mag_9mm_32"] = "mifl_fas2_m4a1_mag_9mm_50",
+	},
+	["arccw_mifl_fas2_rpk"] = {
+		["none"] = "mifl_fas2_ak_mag_drum",
+	},
+	["arccw_mifl_fas2_sg55x"] = {
+		["mifl_fas2_m4a1_mag_556_20"] = "none",
+	},
+	["arccw_mifl_fas2_sr25"] = {
+		["none"] = "mifl_fas2_sr25_mag_762_20",
+	},
+}
+local ammoslots ={
+	["arccw_go_cz75"] = "go_cz75_mag",
+	["arccw_go_deagle"] = "go_deagle_mag",
+	["arccw_go_fiveseven"] = "go_fiveseven_mag",
+	["arccw_go_glock"] = "go_glock_mag",
+	["arccw_go_m9"] = "go_m9_mag",
+	["arccw_go_p2000"] = "go_p2000_mag",
+	["arccw_go_p250"] = "go_p250_mag",
+	["arccw_go_tec9"] = "go_tec9_mag",
+	["arccw_go_usp"] = "go_usp_mag",
+	["arccw_go_mac10"] = "go_mac10_mag",
+	["arccw_go_mp5"] = "go_mp5_mag",
+	["arccw_go_mp7"] = "go_mp7_mag",
+	["arccw_go_bizon"] = "go_bizon_mag",
+	["arccw_go_aug"] = "go_ammo_556_60",
+	["arccw_go_awp"] = "go_awp_mag",
+	["arccw_go_fnfal"] = "go_fal_mag",
+	["arccw_go_scar"] = "go_scar_mag",
+	["arccw_go_m1014"] = "go_m1014_mag",
+	["arccw_go_mag7"] = "go_mag7_mag",
+	["arccw_go_870"] = "go_870_mag",
+	["arccw_go_nova"] = "go_nova_mag",
+	["arccw_go_ace"] = "go_ace_mag",
+	["arccw_mifl_fas2_ak47"] = "mifl_fas2_ak_mag",
+	["arccw_mifl_fas2_famas"] = "mifl_fas2_famas_mag",
+	["arccw_mifl_fas2_g36c"] = "mifl_fas2_g36c_mag",
+	["arccw_mifl_fas2_g3"] = "mifl_fas2_g3_mag",
+	["arccw_mifl_fas2_ks23"] = "mifl_fas2_ks23_mag",
+	["arccw_mifl_fas2_m4a1"] = "mifl_fas2_m4a1_mag",
+	["arccw_mifl_fas2_rpk"] = "mifl_fas2_rpk_mag",
+	["arccw_mifl_fas2_sg55x"] = "mifl_fas2_sg55x_mag",
+	["arccw_mifl_fas2_sr25"] = "mifl_fas2_sr25_mag",
+}
+local shotguns = {
+	["arccw_go_870"] = true,
+	["arccw_go_nova"] = true,
+	["arccw_go_m1014"] = true,
+	["arccw_go_mag7"] = true,
+	["arccw_mifl_fas2_toz34"] = true,
+	["arccw_mifl_fas2_ks23"] = true,
+	["arccw_mifl_fas2_ak47"] = "mifl_fas2_ak_mag_20g",
+	["arccw_waw_doublebarrel"] = true,
+}
+//the item, the string to use to find the slot
+local function genericUpgradeValid(items, slotcheck, noshotgun, onlyshotgun)
+	for k,v in pairs(items) do
+		--get the first item thats a weapon and isnt equipped
+		if(v.base == "base_cweapon" and v:getData("equip") != true) then
+			if(slotcheck == "mag") then
+				if(ammoup[v.class]) then
+					local selmod = ammoslots[v.class]
+					if(selmod) then
+						local atts = v:getData("atts", {})
+						local val = (!atts[selmod] and ammoup[v.class]["none"]) or ammoup[v.class][atts[selmod]]
+						if(val) then
+							return {["id"] = k, ["slot"] = selmod, ["att"] = val}
+						end
+					end
+				end
+			else--go_ammo
+				local isshot = false
+				if(shotguns[v.class] == true) then 
+					isshot = true 
+				elseif(shotguns[v.class]) then
+					local selmod = ammoslots[v.class]
+					local atts = v:getData("atts", {})
+					if(selmod) then
+						if(atts[selmod] == shotguns[v.class]) then isshot = true end
+					end
+				end
+					
+				if(noshotgun and isshot) then return end
+				if(onlyshotgun and !isshot) then return end
+
+				return {["id"] = k}
+			end
+		end
+	end
+end
+local function genericUpgrade(ply, handpick, slotcheck)
+	local item = nut.item.instances[handpick.id]
+	local data = item:getData("atts", {})
+	print("upgr")
+	PrintTable(handpick)
+	if(slotcheck == "mag") then
+		if(handpick.att == "none") then
+			data[handpick.slot] = nil
+		else
+			data[handpick.slot] = handpick.att --apply the attachment
+		end
+	else--go_ammo
+		data["go_ammo"] = slotcheck
+	end
+	item:setData("atts", data)
+	nut.traits.addXp(ply, "crafting_spec", 1)
+end
+local function specificUpgradeValid(items, lookclass, upvalidtbl)
+	for k,v in pairs(items) do
+		--get the first item thats a weapon and isnt equipped
+		if(v.base == "base_cweapon" and v:getData("equip") != true) then
+			if(v.class == lookclass) then
+				local atts = v:getData("atts", {})
+				local val = true 
+				for slot,mod in pairs(upvalidtbl) do
+					--this is the best way i can comphrend writing this rn sry 2:13am
+					if((!atts[slot] and mod == "none") or atts[slot] == mod) then
+						--its good
+					else
+						val = false
+					end
+				end
+				if(val) then
+					return k--{["id"] = k}
+				end
+			end
+		end
+	end
+end
+local function specificUpgrade(ply, handpick, replacetbl)
+	local item = nut.item.instances[handpick]
+	local data = item:getData("atts", {})
+	for slot,mod in pairs(replacetbl) do
+		data[slot] = mod
+	end
+	item:setData("atts", data)
+	nut.traits.addXp(ply, "crafting_spec", 1)
+end
 
 PLUGIN.recipeList = {
 	--[[
@@ -613,7 +851,7 @@ Results: 1x Flashlight Attachment]],
 			["comp_duct_tape"] = 1,
 			["comp_wire1"] = 1,
 		},
-		result = "ins2_ub_light", --can also be table for multiple results
+		result = "go_flashlight", --can also be table for multiple results
 		--flag = "", --optional can be left out, flag to check for
 	},
 	
@@ -688,158 +926,142 @@ Results: 1x Switchblade]],
 	},
 
 	--weapon conversions
-	["wepconv_glocka"] = {
-		name = "G17 -> G17 Auto Conversion",
-		desc = [[Converts a Glock 17 to be automatic only.
-Data such as durability and atts will transfer.
-Trait Requirements: Weapon Crafting Level 2
-ingredients: 1x Glock 17, 2x Reinforced Mechanisms,
-results: 1x Glock 17 Auto]],
-		category = "Custom Conversions",
-		model = "models/weapons/tfa_ins2/w_glock17.mdl",
-		--skin = skin of model (not required),
-		workbench = {["weapons"]=true,},
-		traits = { --traits requirements
-			["crafting_weapon"] = 2,--min level needed or true for no level ones,
-		},
-		--[[
-		attribs = { --attrib requirements
-			["id"] = min needed,
-		},
-		traits = { --traits requirements
-			["id"] = min level needed or true for no level ones,
-		},
-		requirements = { --require for items that will not be taken
-			["requireuniqueid"] = true, --or # of needed,
-		},
-		]]
-		ingredients = { --items that will be taken
-			["wep_glock"] = true, --or # of needed,
-			["comp_mech2"] = 2,
-			--["jar_antiseptic"] = true,
-		},
-		result = "wep_glocka", --can also be table for multiple results
-		--flag = "", --optional can be left out, flag to check for
-		beforeCraft = function(ply, items)
-			--items are the items that will be taken, 
-			--return a table and it will reappear in oncreate as data
-			local data = {}
-			for k,v in pairs(items) do
-				if(v.uniqueID == "wep_glock") then
-					data = v:getData(true) --this apparently gets all data
-					break
-				end
-			end
-			if(data and table.Count(data) != 0) then
-				return data
-			end
-		end,
-		adddata = true,
-	},
-	["wepconv_glock"] = {
-		name = "G17 Auto -> G17 Conversion",
-		desc = [[Converts a Glock 17 Auto back to the normal version.
-Data such as durability and atts will transfer.
-Trait Requirements: Weapon Crafting Level 2
-Ingredients: 1x Glock 17,
-Result: 1x Glock 17 Auto]],
-		category = "Custom Reverts",
-		model = "models/weapons/tfa_ins2/w_glock17.mdl",
-		--skin = skin of model (not required),
-		workbench = {["weapons"]=true,},
-		traits = { --traits requirements
-			["crafting_weapon"] = 2,--min level needed or true for no level ones,
-		},
-		--[[
-		attribs = { --attrib requirements
-			["id"] = min needed,
-		},
-		traits = { --traits requirements
-			["id"] = min level needed or true for no level ones,
-		},
-		requirements = { --require for items that will not be taken
-			["requireuniqueid"] = true, --or # of needed,
-		},
-		]]
-		ingredients = { --items that will be taken
-			["wep_glocka"] = true, --or # of needed,
-			--["jar_antiseptic"] = true,
-		},
-		result = "wep_glock", --can also be table for multiple results
-		--flag = "", --optional can be left out, flag to check for
-		beforeCraft = function(ply, items)
-			--items are the items that will be taken, 
-			--return a table and it will reappear in oncreate as data
-			local data = {}
-			for k,v in pairs(items) do
-				if(v.uniqueID == "wep_glocka") then
-					data = v:getData(true) --this apparently gets all data
-					break
-				end
-			end
-			if(data and table.Count(data) != 0) then
-				return data
-			end
-		end,
-		adddata = true,
-	},
-	["wepconv_izhsawn"] = {
-		name = "IZH-43 Sawn-off",
-		desc = [[Converts a IZH-43 to be the sawn-off version. Not reversible.
-Data such as durability and atts will transfer.
+	--passive weapon upgrades
+	--generic weapon mag upgrade
+	["passiveadd_magup"] = {
+		name = "Magazine Upgrade",
+		desc = [[temp name maybe
+changes the magazine/tube you're using with your weapon. will not work with all weapons
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted
+
 Trait Requirements: Weapon Crafting Level 1
-ingredients: 1x Izh-43,
-results: 1x Izh-43 (Sawn-off)]],
-		category = "Custom Conversions",
-		model = "models/weapons/tfa_ins2/w_sawedoff.mdl",
+Ingredients: 1x any unequipped weapon, 1x Reinforced Mechanisms, 2x Scrap Metal, 1x Roll of Duct Tape
+Result: 1x that unequipped weapon, with the att applied]],
+		category = "Weapon Upgrades",
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
 		--skin = skin of model (not required),
 		workbench = {["weapons"]=true,},
 		traits = { --traits requirements
 			["crafting_weapon"] = 1,--min level needed or true for no level ones,
 		},
 		--[[
-		attribs = { --attrib requirements
-			["id"] = min needed,
-		},
-		traits = { --traits requirements
-			["id"] = min level needed or true for no level ones,
-		},
 		requirements = { --require for items that will not be taken
 			["requireuniqueid"] = true, --or # of needed,
 		},
 		]]
 		ingredients = { --items that will be taken
-			["wep_izh"] = true, --or # of needed,
-			--["comp_mech2"] = 2,
-			--["jar_antiseptic"] = true,
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 1,
+			--["comp_scrap_metal"] = 2,
+			--["comp_duct_tape"] = 1,
 		},
-		result = "wep_izhsawn", --can also be table for multiple results
 		--flag = "", --optional can be left out, flag to check for
-		beforeCraft = function(ply, items)
+		handpick = function(items) --pick an item 
+			return genericUpgradeValid(items, "mag")
+		end,
+		beforeCraft = function(ply, items, handpick)
 			--items are the items that will be taken, 
 			--return a table and it will reappear in oncreate as data
-			local data = {}
-			for k,v in pairs(items) do
-				if(v.uniqueID == "wep_izh") then
-					data = v:getData(true) --this apparently gets all data
-					break
-				end
-			end
-			if(data and table.Count(data) != 0) then
-				return data
-			end
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			genericUpgrade(ply, handpick, "mag")
 		end,
-		adddata = true,
-	},
+	}, 
+	--generic match ammo upgrade - not shotgun - go_ammo=go_ammo_match
+	--generic jhp ammo upgrade - not shotgun - go_ammo=go_ammo_jhp
 
-	--passive weapon upgrades
+	--generic tmj ammo upgrade - not shotgun - go_ammo=go_ammo_tmj
+	["passiveadd_ammo_ap"] = {
+		name = "Ammo Upgrade (TMJ)",
+		desc = [[temp name maybe
+changes the ammo type you're using with your weapon. will not work with shotguns.
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted
+
+Trait Requirements: Weapon Crafting Level 1
+Ingredients: 1x any unequipped weapon, 1x Reinforced Mechanisms, 2x Scrap Metal, 1x Roll of Duct Tape
+Result: 1x that unequipped weapon, with the att applied]],
+		category = "Weapon Upgrades",
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		--[[
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 1,
+			--["comp_scrap_metal"] = 2,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return genericUpgradeValid(items, "go_ammo_tmj", true)
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			genericUpgrade(ply, handpick, "go_ammo_tmj")
+		end,
+	}, 
+	--generic slug ammo upgrade - shotgun - go_ammo=go_ammo_sg_slug
+	["passiveadd_ammo_slug"] = {
+		name = "Ammo Upgrade (Slug)",
+		desc = [[temp name maybe
+changes the ammo type you're using with your weapon. will ONLY work with shotguns.
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted
+
+Trait Requirements: Weapon Crafting Level 1
+Ingredients: 1x any unequipped weapon, 1x Reinforced Mechanisms, 2x Scrap Metal, 1x Roll of Duct Tape
+Result: 1x that unequipped weapon, with the att applied]],
+		category = "Weapon Upgrades",
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		--[[
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 1,
+			--["comp_scrap_metal"] = 2,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return genericUpgradeValid(items, "go_ammo_sg_slug", false, true)
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			genericUpgrade(ply, handpick, "go_ammo_sg_slug")
+		end,
+	}, 
+	--generic scatter ammo upgrade - shotgun - go_ammo=go_ammo_sg_scatter
+	--generic sabot ammo upgrade - shotgun - go_ammo=go_ammo_sg_sabot
+	--generic magnum ammo upgrade - shotgun - go_ammo=go_ammo_sg_magnum
+	--generic flechette ammo upgrade - shotgun - go_ammo=go_ammo_sg_flechette
+	--generic dragons breath ammo upgrade - shotgun - go_ammo=eap_ammo_dragon
+	--todo id like to make this possible somehow but idk, maybe data on item
 	["passiveadd_dura"] = {
 		name = "Durability Increase",
 		desc = [[probably will be renamed eventually
-decreases durability taken on firing,
-but increases spread, recoil and decreases movespeed
+decreases durability taken on firing
 NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
-you CANNOT remove this once you apply it
+this upgrade is PERMANENT and cannot be reverted
 
 Trait Requirements: Weapon Crafting Level 1
 Ingredients: 1x any unequipped weapon, 1x Reinforced Mechanisms, 2x Scrap Metal, 1x Roll of Duct Tape
@@ -874,7 +1096,7 @@ Result: 1x that unequipped weapon, with the att applied]],
 		handpick = function(items) --pick an item 
 			for k,v in pairs(items) do
 				--get the first item thats a weapon and isnt equipped
-				if(v.base == "base_mweapons" and v:getData("equip") != true) then
+				if(v.base == "base_cweapon" and v:getData("equip") != true and !v:getData("duraMod")) then
 					return k
 				end
 			end
@@ -884,23 +1106,23 @@ Result: 1x that unequipped weapon, with the att applied]],
 			--return a table and it will reappear in oncreate as data
 			if(!handpick) then ply:notify("uh this should never happen") return end
 			local item = nut.item.instances[handpick]
-			local data = item:getData("atts", {})
-			data[10] = "sky_pass_dura" --apply the attachment
-			item:setData("atts", data)
+			item:setData("duraMod", true) --bool so it can be adjustable
 		end,
 		--adddata = true,
 	},
-	["passiveadd_hvbrl"] = {
-		name = "Heavy Barrel",
-		desc = [[reduces the vertical recoil of weapon but also increases its weight.
-needs to be a rifle (any 545, 556, 762 or 338 weapon), not usable on weapons that have a suppressor attached
+	--specific weapon upgrades
+	--cz75 auto - arccw_go_cz75 - go_cz75_slide=go_cz75_slide_auto
+	["weaponmod_cz75_auto"] = {
+		name = "CZ-75 Auto Slide Upgrade",
+		desc = [[temp name maybe
+adds the auto slide upgrade to a cz75
 NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
-you CANNOT remove this once you apply it
+this upgrade is PERMANENT and cannot be reverted
 
 Trait Requirements: Weapon Crafting Level 1
-Ingredients: 1x any unequipped applicable weapon, 1x Light Mechanisms, 3x Scrap Metal, 1x Wire Spool
+Ingredients: 1x any unequipped weapon, 1x Reinforced Mechanisms, 2x Scrap Metal, 1x Roll of Duct Tape
 Result: 1x that unequipped weapon, with the att applied]],
-		category = "Custom Upgrades",
+		category = "Weapon Upgrades",
 		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
 		--skin = skin of model (not required),
 		workbench = {["weapons"]=true,},
@@ -908,47 +1130,72 @@ Result: 1x that unequipped weapon, with the att applied]],
 			["crafting_weapon"] = 1,--min level needed or true for no level ones,
 		},
 		--[[
-		attribs = { --attrib requirements
-			["id"] = min needed,
-		},
-		traits = { --traits requirements
-			["id"] = min level needed or true for no level ones,
-		},
 		requirements = { --require for items that will not be taken
 			["requireuniqueid"] = true, --or # of needed,
 		},
 		]]
 		ingredients = { --items that will be taken
-			--["wep_glocka"] = true, --or # of needed,
-			--["jar_antiseptic"] = true,
-			["comp_mech1"] = 1,
-			["comp_scrap_metal"] = 3,
-			["comp_wire1"] = 1,
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 1,
+			--["comp_scrap_metal"] = 2,
+			--["comp_duct_tape"] = 1,
 		},
-		--result = "wep_glock", --can also be table for multiple results
 		--flag = "", --optional can be left out, flag to check for
 		handpick = function(items) --pick an item 
-			for k,v in pairs(items) do
-				--get the first item thats a weapon and isnt equipped
-				if(v.base == "base_mweapons" and v:getData("equip") != true) then
-					if(!(v.type == "n" or v.type =="ws") or v:getData("atts", {})[1]) then --if theres something in the barrel slot, whatever
-						continue
-					end
-					return k
-				end
-			end
+			return specificUpgradeValid(items, "arccw_go_cz75", {
+				["go_cz75_slide"] = "none",
+				["muzzle"] = "none"
+			})
 		end,
 		beforeCraft = function(ply, items, handpick)
 			--items are the items that will be taken, 
 			--return a table and it will reappear in oncreate as data
 			if(!handpick) then ply:notify("uh this should never happen") return end
-			local item = nut.item.instances[handpick]
-			local data = item:getData("atts", {})
-			data[11] = "ins2_br_heavy" --apply the attachment
-			item:setData("atts", data)
+			specificUpgrade(ply, handpick, {
+				["go_cz75_slide"] = "go_cz75_slide_auto"
+			})
 		end,
-		--adddata = true,
-	},
+	}, 
+	--fiveseven plus - arccw_go_fiveseven - go_fiveseven_slide=go_fiveseven_slide_long
+	--glock long - arccw_go_glock (in general) - go_glock_slide=go_glock_slide_long
+	--m92l - arccw_go_m9 - go_m9_slide=go_glock_slide_long
+	--p2000l - arccw_go_p2000 - go_p2000_slide=go_p2000_slide_long
+	--p250 full - arccw_go_p250 - go_p250_slide=go_p250_slide_long
+	--tec9 auto (could generic?) - arccw_go_tec9 - go_perk=go_homemade_auto
+	--usp elite - arccw_go_usp - go_usp_slide=go_usp_slide_long
+	--mac10 patrol barrel - arccw_go_mac10 - go_mac10_barrel=go_mac10_barrel_med
+	--mac10 carbine barrel - arccw_go_mac10 - go_mac10_barrel=go_mac10_barrel_long
+	--mp9 plus barrel - arccw_go_mp9 - go_mp9_barrel=go_mp9_barrel_med
+	--p90 ps90 barrel - arccw_go_p90 - go_p90_barrel=go_p90_barrel_med
+	--bizon gru barrel - arccw_go_bizon - go_bizon_barrel=go_bizon_barrel_long
+	--awm ext barrel - arccw_go_awp - go_awp_barrel=go_awp_barrel_long
+	--awm bull barrel - arccw_go_awp - go_awp_barrel=go_awp_barrel_bull
+	--fal nightstalker barrel - arccw_go_fnfal - go_fal_barrel=go_fal_barrel_sd
+	--fal cqc barrel - arccw_go_fnfal - go_fal_barrel=go_fal_barrel_short
+	--ssg08 long barrel - arccw_go_ssg08 - go_ssg08_barrel=go_ssg08_barrel_long
+	--sawn off m1014 - arccw_go_m1014 - go_m1014_barrel=go_m1014_barrel_short,go_m1014_mag=go_m1014_mag_4
+	--m1014 long barrel - arccw_go_m1014 - go_m1014_barrel=go_m1014_barrel_long
+	--m249 9mm conv - arccw_go_m249para - go_m249_mag=go_m249_mag_9_200
+	--m249 shotgun conv - arccw_go_m249para - go_m249_mag=go_m249_mag_12g_45
+	--870 long barrel - arccw_go_870 - go_870_barrel=go_870_barrel_long
+	--ace carbine barrel - arccw_go_ace - go_ace_barrel=go_ace_barrel_med
+	--famas valorise - arccw_mifl_fas2_famas - mifl_fas2_famas_hg=mifl_fas2_famas_barrel_felin
+	--famas whisper - arccw_mifl_fas2_famas - mifl_fas2_famas_hg=mifl_fas2_famas_barrel_sd
+	--g36c whisper - arccw_mifl_fas2_g36c - mifl_fas2_g36c_hg=mifl_fas2_g36_barrel_sd
+	--g3 whisper - arccw_mifl_fas2_g3 - mifl_fas2_g3_hg=mifl_fas2_g3_hg_sd
+	--ks23 colossal barrel - arccw_mifl_fas2_ks23 - mifl_fas2_ks23_barrel=mifl_fas2_ks23_barrel_b
+	--m24 m82 barrel - arccw_mifl_fas2_m24 - mifl_fas2_m24_hg=mifl_fas2_m24_hg_82
+	--m24 sd barrel - arccw_mifl_fas2_m24 - mifl_fas2_m24_hg=mifl_fas2_m24_hg_sd
+	--m24 jungle barrel - arccw_mifl_fas2_m24 - mifl_fas2_m24_hg=mifl_fas2_m24_hg_jungle
+	--m4a1 jungle barrel - arccw_mifl_fas2_m4a1 - mifl_fas2_m4a1_hg=mifl_fas2_m4a1_barrel_jungle
+	--m4a1 heat barrel - arccw_mifl_fas2_m4a1 - mifl_fas2_m4a1_hg=mifl_fas2_m4a1_barrel_heat
+	--m4a1 whisper barrel - arccw_mifl_fas2_m4a1 - mifl_fas2_m4a1_hg=mifl_fas2_m4a1_barrel_sd
+	--m4a1 commando barrel - arccw_mifl_fas2_m4a1 - mifl_fas2_m4a1_hg=mifl_fas2_m4a1_barrel_commando
+	--m4a1 9mm conv - arccw_mifl_fas2_m4a1 - mifl_fas2_m4a1_mag=mifl_fas2_m4a1_mag_9mm_32
+	--p226 long barrel - arccw_mifl_fas2_p226 - mifl_fas2_p226_slide=mifl_fas2_p226_slide_long
+	--sg552 whisper barrel - arccw_mifl_fas2_sg55x - mifl_fas2_sg55x_hg=mifl_fas2_sg55x_barrel_sd
+	--sr25 whisper barrel - arccw_mifl_fas2_sr25 - mifl_fas2_sr25_hg=mifl_fas2_sr25_barrel_sd
+
 
 	--melee mods
 	["melee_bat_nail"] = {
@@ -956,7 +1203,7 @@ Result: 1x that unequipped weapon, with the att applied]],
 		desc = [[adds nails to a wooden baseball bat
 needs a wooden baseball bat unequipped in the inventory
 NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
-you CANNOT remove this once you apply it
+this upgrade is PERMANENT and cannot be reverted
 
 Trait Requirements: General Crafting Level 1
 Ingredients: 1x any unequipped wooden baseball bat, 2x Light Mechanisms,
@@ -1013,7 +1260,7 @@ Result: 1x that bat, with the att applied]],
 		desc = [[adds a makeshift stunpack to the plastic baton, causing stamina damage.
 needs a plastic baton unequipped in the inventory
 NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
-you CANNOT remove this once you apply it
+this upgrade is PERMANENT and cannot be reverted
 
 Trait Requirements: Weapon Crafting Level 1, Basic Tech Crafting Level 1
 Ingredients: 1x any unequipped plastic baton, 1x Light Mechanisms, 2x Small Tech, 1x Duct Tape Roll
@@ -1073,7 +1320,7 @@ Result: 1x that baton, with the att applied]],
 		desc = [[adds some blades to brass knuckles
 needs brass knuckles unequipped in the inventory
 NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
-you CANNOT remove this once you apply it
+this upgrade is PERMANENT and cannot be reverted
 
 Trait Requirements: General Crafting Level 1
 Ingredients: 1x any unequipped brass knuckles, 1x Light Mechanisms, 3x Scrap Metal
@@ -1131,7 +1378,7 @@ Result: 1x those knuckles, with the att applied]],
 		desc = [[adds a large hatchet blade to a tire iron
 needs a tire iron unequipped in the inventory
 NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
-you CANNOT remove this once you apply it
+this upgrade is PERMANENT and cannot be reverted
 
 Trait Requirements: General Crafting Level 2
 Ingredients: 1x any unequipped tire iron, 1x Light Mechanisms, 4x Scrap Metal
@@ -1303,7 +1550,7 @@ Result: 1x that tire iron, with the att applied]],
 			local data = item:getData("armor", {})
 			
 			item.oldArmor = armor["chest"].level --old armor
-			armor["chest"].level = ARMOR_IIA --should be fine here
+			data["chest"].level = ARMOR_IIA --should be fine here
 			
 			item:setData("armor", data)
 
@@ -1397,7 +1644,7 @@ Result: 1x that tire iron, with the att applied]],
 			local data = item:getData("armor", {})
 			
 			item.oldArmor = armor["chest"].level --old armor
-			armor["chest"].level = ARMOR_II --should be fine here
+			data["chest"].level = ARMOR_II --should be fine here
 			
 			item:setData("armor", data)
 
@@ -1491,7 +1738,7 @@ Result: 1x that tire iron, with the att applied]],
 			local data = item:getData("armor", {})
 			
 			item.oldArmor = armor["chest"].level --old armor
-			armor["chest"].level = ARMOR_IIIA --should be fine here
+			data["chest"].level = ARMOR_IIIA --should be fine here
 			
 			item:setData("armor", data)
 
@@ -1585,7 +1832,7 @@ Result: 1x that tire iron, with the att applied]],
 			local data = item:getData("armor", {})
 			
 			item.oldArmor = armor["chest"].level --old armor
-			armor["chest"].level = ARMOR_III --should be fine here
+			data["chest"].level = ARMOR_III --should be fine here
 			
 			item:setData("armor", data)
 
@@ -1679,7 +1926,7 @@ Result: 1x that tire iron, with the att applied]],
 			local data = item:getData("armor", {})
 			
 			item.oldArmor = armor["chest"].level --old armor
-			armor["chest"].level = ARMOR_IV --should be fine here
+			data["chest"].level = ARMOR_IV --should be fine here
 			
 			item:setData("armor", data)
 
