@@ -177,7 +177,8 @@ if (CLIENT) then
 			return nutStorageBase:exitStorage()
 		end
 		self.storageInventoryPanel = storageInv:show()
-		self.storageInventoryPanel:SetPos(invPosX-(self.storageInventoryPanel:GetWide()), ScrH()*0.5-(self.storageInventoryPanel:GetTall()*0.5))
+		--self.storageInventoryPanel:SetPos(invPosX-(self.storageInventoryPanel:GetWide())-70, ScrH()*0.5-(self.storageInventoryPanel:GetTall()*0.5))
+		--self.storageInventoryPanel:SetPos(0,0)
 		self.storageInventoryPanel.Paint = function() end
 		self.storageInventoryPanel:SetPopupStayAtBack(true)
 
@@ -185,8 +186,9 @@ if (CLIENT) then
 		self.info = vgui.Create("nutCharInfo", self)
 		self.info:setup(self, true)
 		self.info.quickInventoryPanel:RequestFocus()
+
 		-- Number of pixels between the local inventory and storage inventory.
-		local PADDING = 4
+		local PADDING = 40
 
 		if (
 			not IsValid(storage) or
@@ -195,45 +197,22 @@ if (CLIENT) then
 			return
 		end
 
-		-- Get the inventory for the player and storage.
-		--local localInv =
-		--	LocalPlayer():getChar() and LocalPlayer():getChar():getInv()
+		sw = storage:getStorageInfo().invData.w
+		sh = storage:getStorageInfo().invData.h
+
+
+		local totalsW = (80*(invw/invTextureW) + ((52*(invw/invTextureW))*(sw-2)) + (85*(invw/invTextureW)))
+		local totalsH = (72*(invw/invTextureW) + ((52*(invw/invTextureW))*(sh-2)) + (92*(invw/invTextureW)))
+
+		local totalInvenW = self.storageInventoryPanel:GetWide()
+		local totalInvenH = self.storageInventoryPanel:GetTall()
+		local difX = (totalsW - totalInvenW)*0.5
+		local difY = (totalsH - totalInvenH)*0.5
 
 		
-		-- Show both the storage and inventory.
-		--local localInvPanel = localInv:show()
 
-
-		
-
-
-		--storageInvPanel:SetTitle(L(storage:getStorageInfo().name))
-
-		-- Allow the inventory panels to close.
-		--localInvPanel:ShowCloseButton(true)
-		--storageInvPanel:ShowCloseButton(true)
-
-		-- Put the two panels, side by side, in the middle.
-		--local extraWidth = (storageInvPanel:GetWide() + PADDING) / 2
-		--localInvPanel:Center()
-		--storageInv:Center()
-		--localInvPanel.x = localInvPanel.x + extraWidth
-		--storageInvPanel:MoveLeftOf(localInvPanel, PADDING)
-
-		-- Signal that the user left the inventory if either closes.
-		-- local firstToRemove = true
-		-- localInvPanel.oldOnRemove = localInvPanel.OnRemove
-		-- storageInvPanel.oldOnRemove = storageInvPanel.OnRemove
-		-- local function exitStorageOnRemove(panel)
-		-- 	if (firstToRemove) then
-		-- 		firstToRemove = false
-		-- 		nutStorageBase:exitStorage()
-		-- 		local otherPanel =
-		-- 			panel == localInvPanel and storageInvPanel or localInvPanel
-		-- 		if (IsValid(otherPanel)) then otherPanel:Remove() end
-		-- 	end
-		-- 	panel:oldOnRemove()
-		-- end
+		self.storageInventoryPanel:SetPos(((ScrW() - invw))-(totalsW), (ScrH()*0.5)-((totalsH*0.5)))
+		print("storage pos: " .. self.storageInventoryPanel:GetX() .. ", " .. self.storageInventoryPanel:GetY())
 
 		if (self:IsKeyboardInputEnabled()) then
 			--print("Ok you can do funny keyboard")
@@ -257,6 +236,116 @@ if (CLIENT) then
 			end
 		end
 
+		function self:Paint(w, h)
+
+
+
+			local startX, startY = self.storageInventoryPanel:GetPos()
+			startX = startX - difX
+			startY = startY - difY
+
+			local curX, curY = 0,0
+
+			local path = "sky/storages/"
+			local storText = "error"
+
+			local stw, sth = 0,0
+			local row = 0
+			local column = 0
+
+			for row=1,sh,row+1 do
+				if row == 1 then
+					curY = startY
+				end
+				for column=1,sw,column+1 do
+					--Corners
+					if column == 1 then
+						curX = startX
+					end
+					if row==1 and column==1 then
+						storText = "top_l.png"
+						stw, sth = 80, 72
+					elseif row==sh and column==1 then
+						storText = "bot_l.png"
+						stw, sth = 80, 92
+					elseif row==1 and column==sw then
+						storText = "top_r.png"
+						stw, sth = 85, 72
+					elseif row==sh and column==sw then
+						storText = "bot_r.png"
+						stw, sth = 73, 92
+					elseif row==1 then
+						storText = "top_"..column..".png"
+						stw, sth = 52, 72
+					elseif row==sh then
+						storText = "bot_"..column..".png"
+						stw, sth = 52, 92
+					elseif column==1 and row==sh-1 then
+						storText = "3_l.png"
+						stw, sth = 80, 52
+					elseif column==sw and row==sh-1 then
+						storText = "3_r.png"
+						stw, sth = 85, 52
+					elseif column==1 then
+						storText = "2_l.png"
+						stw, sth = 80, 52
+					elseif column==sw then
+						storText = "2_r.png"
+						stw, sth = 85, 52
+					else
+						storText = "3_"..column..".png"
+						stw, sth = 52, 52
+					end
+
+					finText = path..storText
+
+					surface.SetDrawColor(255,255,255,255)
+					surface.SetMaterial(Material(finText))
+
+					--print("totalsW = " .. totalsW .. " | totalInvenW = " .. totalInvenW)
+
+					scaleW, scaleH = stw*(invw/invTextureW), sth*(invh/invTextureH)
+
+					
+					-- if row==sh then
+					-- 	surface.DrawTexturedRect(curX+(13*invw/invTextureW), curY, scaleW, scaleH)
+					-- else
+					-- 	surface.DrawTexturedRect(curX, curY, scaleW, scaleH)
+					-- end
+					surface.DrawTexturedRect(curX, curY, scaleW, scaleH)
+					
+					curX = math.floor(curX+scaleW)
+
+					if sw == 1 then
+						if row == 1 then
+							storText = "top_r_cap.png"
+							stw, sth = 30, 72
+						elseif row == sh then
+							storText = "bot_r_cap.png"
+							stw, sth = 18, 92
+						elseif row == sh-1 then
+							storText = "3_r_cap.png"
+							stw, sth = 30, 52
+						else
+							storText = "2_r_cap.png"
+							stw, sth = 30, 52
+						end
+						finText = path..storText
+						surface.SetMaterial(Material(finText))
+						scaleW, scaleH = stw*(invw/invTextureW), sth*(invh/invTextureH)
+						surface.DrawTexturedRect(curX-1, curY-1, scaleW, scaleH)
+					end
+					--print("Drawing: " .. finText .. "| curX, curY = " .. curX .. ", " .. curY .. "row = "..row.." column = "..column)
+					--print("Total Storage UI Width: " .. totalsW)
+
+					--(invw/invTextureW)
+					--(invh/invTextureH)
+				end
+				curY = math.floor(curY+scaleH)
+			end
+					
+
+        end
 
 
 

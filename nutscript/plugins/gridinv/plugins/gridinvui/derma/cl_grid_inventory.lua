@@ -9,6 +9,9 @@ local HEADER_FIX = (22*(invh/invTextureH))
 local BORDER_FIX_H = (9*(invh/invTextureH))-- + PADDING
 
 local SHADOW_COLOR = Color(0, 0, 0, 100)
+local offset = 0
+
+
 
 function PANEL:Init()
 	self:MakePopup()
@@ -17,7 +20,7 @@ function PANEL:Init()
 	self.content:Dock(FILL)
 	self.content:setGridSize(1, 1)
 end
---((360*(invw/invTextureW)), (invPosY+(65*(invh/invTextureH)))
+
 function PANEL:setInventory(inventory)
 	self.gridW, self.gridH = inventory:getSize()
 	self:SetSize(
@@ -25,8 +28,8 @@ function PANEL:setInventory(inventory)
 		(self.gridW * (NS_ICON_SIZE)+ PADDING),
 		self.gridH * (NS_ICON_SIZE) + HEADER_FIX
 	)
-	--self:InvalidateLayout(true)
-	--self:SetTitle(L"inv".." | "..inventory:getWeight().."/"..inventory:getMaxWeight().."kg")
+	self:InvalidateLayout(true)
+
 
 	self.content:setGridSize(self.gridW, self.gridH)
 	self.content:setInventory(inventory)
@@ -40,6 +43,8 @@ end
 function PANEL:InventoryDeleted()
 	self:Remove()
 end
+
+
 
 function PANEL:Center()
 	local parent = self:GetParent()
