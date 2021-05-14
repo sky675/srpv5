@@ -659,6 +659,8 @@ function clothesnonply(ply, data, realply)
 				for k,v in pairs(data.custombgst) do
 					ply.bm.t:SetBodygroup(k, v)
 				end
+			else
+				ply.bm.t:SetBodyGroups("00000000")
 			end
 			if(data.customsubt) then
 				local mats = ply.bm.t:GetMaterials()
@@ -673,6 +675,8 @@ function clothesnonply(ply, data, realply)
 						ply.bm.t:SetSubMaterial(mat, v)
 					end
 				end
+			else
+				ply.bm.t:SetSubMaterial()
 			end
 		else
 			ply.bm.t:SetRenderMode(RENDERMODE_TRANSALPHA)
@@ -701,6 +705,8 @@ function clothesnonply(ply, data, realply)
 				for k,v in pairs(data.custombgsb) do
 					ply.bm.b:SetBodygroup(k, v)
 				end
+			else
+				ply.bm.b:SetBodyGroups("00000000")
 			end
 			if(data.customsubb) then
 				local mats = ply.bm.b:GetMaterials()
@@ -715,6 +721,8 @@ function clothesnonply(ply, data, realply)
 						ply.bm.b:SetSubMaterial(mat, v)
 					end
 				end
+			else
+				ply.bm.b:SetSubMaterial()
 			end
 		else
 			ply.bm.b:SetRenderMode(RENDERMODE_TRANSALPHA)
