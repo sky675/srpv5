@@ -81,32 +81,42 @@ else--client
 	hook.Add("ScoreboardHide", "aaahide", function()--function PLUGIN:ScoreboardHide()
 		--if (IsValid(nut.gui.pda)) then
 		--	nut.gui.pda:DisablePDA()
-			CloseDermaMenus()
+		--	CloseDermaMenus()
 		--end
+		--print("hide")
 
 		return true
 	end)
 
 	hook.Add("ScoreboardShow", "aaashow", function() --function PLUGIN:ScoreboardShow()
-		local pd = LocalPlayer():GetPDA()
-		if(!pd) then return true end
-		print("showscoreboard")
-		if (IsValid(nut.gui.pda)) then
-			print("sb toggle")
-			--get active pda
-			--hopefully this makes it a toggle?
-			if(nut.gui.pda:IsVisible()) then
-				nut.gui.pda:DisablePDA()
-			else
-				nut.gui.pda:Reset(pd)
-			end
-		else
-			print("sb new")
-			nut.gui.pda = vgui.Create("pdaPanel")
-			nut.gui.pda.pda = pd
-		end
-
 		return true
+
+	end)
+
+	local nxtTh = 0
+	hook.Add("Think", "aaatogglepls", function()
+		local ct = CurTime()
+		if(nxtTh > ct) then return end
+		
+		if(input.IsKeyDown(KEY_TAB)) then
+			local pd = LocalPlayer():GetPDA()
+			if(!pd) then nxtTh = ct + 0.5 return true end
+
+			if (IsValid(nut.gui.pda)) then
+				--get active pda
+				--hopefully this makes it a toggle?
+				if(nut.gui.pda:IsVisible()) then
+					nut.gui.pda:DisablePDA()
+				else
+					nut.gui.pda:Reset(pd)
+				end
+			else
+				nut.gui.pda = vgui.Create("pdaPanel")
+				nut.gui.pda.pda = pd
+			end
+
+			nxtTh = ct + 0.5
+		end
 	end)
 
 	function PLUGIN:OnReloaded()

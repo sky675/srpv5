@@ -96,7 +96,7 @@ ITEM:hook("drop", function(item)
 		end
 
 		if(EQTBL) then
-			local succ, res = equipTblRem(ply:getChar(), "weapon", item)
+			local succ, res = equipTblRem(ply:getChar(), item.equipTbl or "weapon", item)
 		end
 
 		local weapon = ply:GetWeapon(item.class)	
@@ -145,7 +145,7 @@ function ITEM:Equip(client, playSound)
 		return
 	end
 
-	local succ, res = equipTblAdd(char, "weapon", self)
+	local succ, res = equipTblAdd(char, self.equipTbl or "weapon", self)
 	if(succ == false) then
 		client:notify(res, 3)
 		return
@@ -189,7 +189,7 @@ function ITEM:Equip(client, playSound)
 	end
 end
 function ITEM:Unequip(client, playSound)
-	local succ, res = equipTblRem(client:getChar(), "weapon", self)
+	local succ, res = equipTblRem(client:getChar(), self.equipTbl or "weapon", self)
 	if(succ == false) then
 		client:notify(res, 3)
 		return false

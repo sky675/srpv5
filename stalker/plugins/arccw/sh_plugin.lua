@@ -11,10 +11,8 @@ nut.util.include("sv_dura.lua")
 
 --notes:
 --[[todo:
-- decide on melee base (arccw is prob fine)
-- add support in armor (getbuff instead of getstat)
 - finish weapons+atts in general
-- add ammo items (put in a config?)
+- add ammo items (put in a config?) - set up config to do items
 ]]
 
 

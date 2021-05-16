@@ -121,59 +121,83 @@ baseammotype = {
 	spec = {[ARMOR_NONE] = 1.5,},
 },
 ]]
-
+--new ammos =
+--shotgun = flechette
 local ammoProtect = {
+	--if the armor level is not in this list, it means the ammo type will pen
 	["sky9x18"] = {
+		jhp = {[ARMOR_NONE] = 1.3, [ARMOR_IIA] = 0.3,[ARMOR_II] = 0.2, [ARMOR_IIIA] = 0.15, [ARMOR_III] = 0.03, [ARMOR_IV] = 0.01},
 		normal = {[ARMOR_IIA] = 0.5,[ARMOR_II] = 0.35, [ARMOR_IIIA] = 0.2, [ARMOR_III] = 0.05, [ARMOR_IV] = 0.025},
 		ap = {[ARMOR_II] = 0.5, [ARMOR_IIIA] = 0.35, [ARMOR_III] = 0.2, [ARMOR_IV] = 0.05},
 	},
 	["sky9x19"] = {
+		jhp = {[ARMOR_NONE] = 1.3, [ARMOR_IIA] = 0.5,[ARMOR_II] = 0.4, [ARMOR_IIIA] = 0.3, [ARMOR_III] = 0.15, [ARMOR_IV] = 0.05},
 		normal = {[ARMOR_IIA] = 0.7,[ARMOR_II] = 0.55, [ARMOR_IIIA] = 0.4, [ARMOR_III] = 0.25, [ARMOR_IV] = 0.1},
 		ap = {[ARMOR_II] = 0.7, [ARMOR_IIIA] = 0.5, [ARMOR_III] = 0.3, [ARMOR_IV] = 0.15},
 	},
 	["sky45acp"] = {
+		jhp = {[ARMOR_NONE] = 1.3, [ARMOR_IIA] = 0.5,[ARMOR_II] = 0.375, [ARMOR_IIIA] = 0.3, [ARMOR_III] = 0.2, [ARMOR_IV] = 0.075},
 		normal = {[ARMOR_IIA] = 0.7,[ARMOR_II] = 0.525, [ARMOR_IIIA] = 0.375, [ARMOR_III] = 0.225, [ARMOR_IV] = 0.1},
 		ap = {[ARMOR_II] = 0.7, [ARMOR_IIIA] = 0.55, [ARMOR_III] = 0.35, [ARMOR_IV] = 0.15},
 	},
 	["buckshot"] = {
 		normal = {[ARMOR_IIIA] = 0.5, [ARMOR_III] = 0.35, [ARMOR_IV] = 0.1},
 		slug = {[ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.15},
+		sabot = {[ARMOR_III] = 0.65, [ARMOR_IV] = 0.4},
 	},
 	["357"] = {
+		jhp = {[ARMOR_NONE] = 1.3, [ARMOR_IIA] = 0.9,[ARMOR_II] = 0.6, [ARMOR_IIIA] = 0.35, [ARMOR_III] = 0.2, [ARMOR_IV] = 0.05},
 		normal = {[ARMOR_II] = 0.65, [ARMOR_IIIA] = 0.5, [ARMOR_III] = 0.3, [ARMOR_IV] = 0.1},
 		ap = {[ARMOR_IIIA] = 0.6, [ARMOR_III] = 0.4, [ARMOR_IV] = 0.15},
 	},
 	["sky762x39"] = {
+		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.3,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.4, [ARMOR_IV] = 0.2},
 		normal = {[ARMOR_III] = 0.5, [ARMOR_IV] = 0.25},
 		ap = { [ARMOR_IV] = 0.5},
 	},
 	["sky762x51"] = {
+		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.3,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.4, [ARMOR_IV] = 0.2},
 		normal = {[ARMOR_III] = 0.5, [ARMOR_IV] = 0.25},
 		ap = {[ARMOR_IV] = 0.5},
 	},
 	["sky556"] = {
+		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.3,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.4, [ARMOR_IV] = 0.2},
 		normal = {[ARMOR_III] = 0.5, [ARMOR_IV] = 0.25},
 		ap = {[ARMOR_IV] = 0.5},
 	},
 	["sky545"] = {
+		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.3,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.4, [ARMOR_IV] = 0.2},
 		normal = {[ARMOR_III] = 0.5, [ARMOR_IV] = 0.25},
 		ap = {[ARMOR_IV] = 0.5},
 	},
 	["sky50ae"] = {
+		jhp = {[ARMOR_NONE] = 1.3, [ARMOR_IIA] = 1.2,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.6, [ARMOR_III] = 0.3, [ARMOR_IV] = 0.1},
 		normal = {[ARMOR_III] = 0.4, [ARMOR_IV] = 0.2},
 		ap = {[ARMOR_IV] = 0.3},
 	},
 	["sky9x39"] = {
+		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.3,[ARMOR_II] = 1.15, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.5, [ARMOR_IV] = 0.35},
 		normal = {[ARMOR_III] = 0.65, [ARMOR_IV] = 0.3},
 		ap = {[ARMOR_IV] = 0.45},
 	},
 	["sky762x54"] = {
+		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.4,[ARMOR_II] = 1.3, [ARMOR_IIIA] = 1.2, [ARMOR_III] = 0.75, [ARMOR_IV] = 0.3},
 		normal = {[ARMOR_IV] = 0.4},
 		ap = {[ARMOR_IV] = 0.6},
 	},
 	["sky762x25"] = {
 		normal = {[ARMOR_IIIA] = 0.8, [ARMOR_III] = 0.6, [ARMOR_IV] = 0.4},
 		ap = {[ARMOR_III] = 0.7, [ARMOR_IV] = 0.5},
+	},
+	["sky46"] = {
+		jhp = {[ARMOR_NONE] = 1.4, [ARMOR_IIA] = 1.25,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.8, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.3},
+		normal = {[ARMOR_III] = 0.6, [ARMOR_IV] = 0.4},
+		ap = {[ARMOR_IV] = 0.6},
+	},
+	["sky57"] = {
+		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.4,[ARMOR_II] = 1.3, [ARMOR_IIIA] = 1.2, [ARMOR_III] = 0.75, [ARMOR_IV] = 0.3},
+		normal = {[ARMOR_IV] = 0.4},
+		ap = {[ARMOR_IV] = 0.6},
 	}
 	--23mm and 338 pens everything so not here
 }
@@ -209,8 +233,9 @@ function PLUGIN:IsCharProtected(levels, part, wep, durability)
     if(levels) then
 		if(levels[part] and (durability or 1) != 0) then
 			if(ammoProtect[wep.Primary.Ammo]) then			--uh just in case
-				if((wep.GetStat and wep:GetStat("SpecAmmo") or wep.SpecAmmo) and ammoProtect[wep.Primary.Ammo][wep.SpecAmmo]) then
-					return ammoProtect[wep.Primary.Ammo][wep.SpecAmmo][levels[part].level] or 1
+				local spec = (wep.GetStat and wep:GetStat("SpecAmmo")) or (wep.GetBuff and wep:GetBuff("SpecAmmo")) or wep.SpecAmmo
+				if(spec and ammoProtect[wep.Primary.Ammo][spec]) then
+					return ammoProtect[wep.Primary.Ammo][spec][levels[part].level] or 1
 				else
 					return ammoProtect[wep.Primary.Ammo]["normal"][levels[part].level] or 1
 				end

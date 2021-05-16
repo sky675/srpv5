@@ -15,6 +15,41 @@ local weaponEdits = {
 		}
 	},
 	]]
+	["arccw_go_870"] = {
+		mods = {
+			TwoHandedWep =true,
+		}, 
+		primarymods = {
+		}
+	},
+	["arccw_go_nova"] = {
+		mods = {
+			TwoHandedWep =true,
+		}, 
+		primarymods = {
+		}
+	},
+	["arccw_go_m1014"] = {
+		mods = {
+			TwoHandedWep =true,
+		}, 
+		primarymods = {
+		}
+	},
+	["arccw_go_mag7"] = {
+		mods = {
+			TwoHandedWep =true,
+		}, 
+		primarymods = {
+		}
+	},
+	["arccw_go_870"] = {
+		mods = {
+			TwoHandedWep =true,
+		}, 
+		primarymods = {
+		}
+	},
 	["arccw_go_glock"] = {
 		mods = {
 		}, 
@@ -59,6 +94,7 @@ local weaponEdits = {
 	},
 	["arccw_go_tec9"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky9x19"
@@ -73,6 +109,7 @@ local weaponEdits = {
 	},
 	["arccw_go_mp5"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky9x19"
@@ -80,6 +117,7 @@ local weaponEdits = {
 	},
 	["arccw_go_bizon"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky9x18"
@@ -87,6 +125,7 @@ local weaponEdits = {
 	},
 	["arccw_go_ump"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky45"
@@ -94,6 +133,7 @@ local weaponEdits = {
 	},
 	["arccw_go_mac10"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky45"
@@ -101,6 +141,7 @@ local weaponEdits = {
 	},
 	["arccw_go_mp9"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky9x19"
@@ -108,6 +149,7 @@ local weaponEdits = {
 	},
 	["arccw_go_p90"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky57"
@@ -115,6 +157,7 @@ local weaponEdits = {
 	},
 	["arccw_go_mp7"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky46"
@@ -122,6 +165,7 @@ local weaponEdits = {
 	},
 	["arccw_go_m249"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky556"
@@ -129,6 +173,7 @@ local weaponEdits = {
 	},
 	["arccw_go_negev"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky762x51"
@@ -136,6 +181,7 @@ local weaponEdits = {
 	},
 	["arccw_go_aug"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			ClipSize = 30, --why is this 36 wtf
@@ -144,6 +190,7 @@ local weaponEdits = {
 	},
 	["arccw_go_awp"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky338"
@@ -151,6 +198,7 @@ local weaponEdits = {
 	},
 	["arccw_go_fnfal"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky762x51"
@@ -158,6 +206,7 @@ local weaponEdits = {
 	},
 	["arccw_go_scar"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky762x51"
@@ -165,6 +214,7 @@ local weaponEdits = {
 	},
 	["arccw_go_ace"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky556"
@@ -172,6 +222,7 @@ local weaponEdits = {
 	},
 	["arccw_go_galil_ar"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky762x39"
@@ -179,6 +230,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_ks23"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky23mm"
@@ -200,6 +252,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_m24"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky762x51"
@@ -207,6 +260,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_sr25"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky762x51"
@@ -214,6 +268,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_g3"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky762x51"
@@ -221,6 +276,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_ak47"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky762x39"
@@ -228,6 +284,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_rpk"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky762x39"
@@ -235,6 +292,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_famas"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky556"
@@ -242,6 +300,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_g36c"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky556"
@@ -249,6 +308,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_sg55x"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky556"
@@ -256,13 +316,22 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_m4a1"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky556"
 		}
 	},
+	["arccw_mifl_fas2_toz34"] = {
+		mods = {
+			TwoHandedWep =true,
+		}, 
+		primarymods = {
+		}
+	},
 	["arccw_mifl_fas2_m79"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "skym203"
@@ -270,6 +339,7 @@ local weaponEdits = {
 	},
 	["arccw_eap_aek"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky545"
@@ -277,6 +347,7 @@ local weaponEdits = {
 	},
 	["arccw_eap_groza"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky762x39"
@@ -296,6 +367,7 @@ local weaponEdits = {
 	},
 	["arccw_waw_doublebarrel"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 		},
@@ -307,6 +379,7 @@ local weaponEdits = {
 	},
 	["arccw_bo1_uzi"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky9x19"
@@ -319,6 +392,7 @@ local weaponEdits = {
 	},
 	["arccw_waw_ppsh41"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky762x25"
@@ -330,6 +404,7 @@ local weaponEdits = {
 	},
 	["arccw_bo1_m60"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky762x51"
@@ -355,6 +430,7 @@ local weaponEdits = {
 	},
 	["arccw_temp_skorpion"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky9x18"
@@ -362,6 +438,7 @@ local weaponEdits = {
 	},
 	["arccw_temp_mosin"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky762x54"
@@ -369,6 +446,7 @@ local weaponEdits = {
 	},
 	["arccw_temp_svt40"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky762x54"
@@ -376,6 +454,7 @@ local weaponEdits = {
 	},
 	["arccw_temp_sks"] = {
 		mods = {
+			TwoHandedWep =true,
 		}, 
 		primarymods = {
 			Ammo = "sky762x39"

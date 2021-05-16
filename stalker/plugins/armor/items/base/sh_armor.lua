@@ -396,6 +396,13 @@ function ITEM:RemoveOutfit(client)
 		character:setData("exart")
 	end
 
+	--if this goes away on reconnection, 
+	--can always use initial spawn to check through everyone 
+	--and make sure this gets networked to the new player
+	if(self.fakeFaction or self:getData("fakeFaction")) then
+		character:setData("fakeFac", nil, nil, player.GetAll())
+	end
+
 	hook.Run("PlayerRemoveOutfitEnd", client, self)
 end
 
@@ -652,6 +659,10 @@ ITEM.functions.Equip = {
 			char:setData("exart", item:getData("artcnt"))
 		elseif(item.artifactCnt) then
 			char:setData("exart", item.artifactCnt)
+		end
+		
+		if(item.fakeFaction or item:getData("fakeFaction")) then
+			character:setData("fakeFac", item:getData("fakeFaction", item.fakeFaction), nil, player.GetAll())
 		end
 		
 		if(item.equipSound) then
