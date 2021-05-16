@@ -8,7 +8,7 @@ local WEIGHT_PANEL_HEIGHT = 32
 local BORDER_FIX_W = 8
 local BORDER_FIX_H = 14
 
-local SHADOW_COLOR = Color(0, 0, 0, 100)
+local SHADOW_COLOR = Color(0, 0, 0, 0)
 
 function PANEL:Init()
 	self:SetDrawBackground(false)
@@ -278,7 +278,7 @@ function PANEL:computeHeldPanel()
 end
 
 function PANEL:Paint(w, h)
-	surface.SetDrawColor(0, 0, 0, 100)
+	surface.SetDrawColor(0, 0, 0, 100) --NATE unoccupied space
 
 	local size = self.size
 	for y = 0, self.gridH - 1 do

@@ -27,7 +27,7 @@ function PANEL:centerIcon(w, h)
 end
 
 function PANEL:PaintBehind(w, h)
-	surface.SetDrawColor(0, 0, 0, 150)
+	surface.SetDrawColor(0, 0, 0, 50) --space is occupied, not challenged
 	surface.DrawRect(0, 0, w, h)
 	surface.DrawOutlinedRect(0, 0, w, h)
 end
