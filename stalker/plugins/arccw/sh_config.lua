@@ -3689,6 +3689,304 @@ local weaponList = {
 		--	["item"] = 1, --these are the results
 		--},
 	},
+	--melee
+	["cwep_m_axe"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "Axe",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 3,
+		height = 1,
+		weight = 1,
+		class = "arccw_melee_axe",
+		category = "Weapons (Melee)",
+		type = "knife",
+		--flag = "",
+		--defaultMods = {
+		--},
+		--slots above should probably also be below
+		equipTbl = "melee"
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["cwep_m_cleaver"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "Cleaver",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		class = "arccw_melee_cleaver",
+		category = "Weapons (Melee)",
+		type = "knife",
+		--flag = "",
+		--defaultMods = {
+		--},
+		--slots above should probably also be below
+		equipTbl = "melee"
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["cwep_m_crowbar"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "Crowbar",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 3,
+		height = 1,
+		weight = 1,
+		class = "arccw_melee_axe",
+		category = "Weapons (Melee)",
+		type = "knife",
+		--flag = "",
+		--defaultMods = {
+		--},
+		--slots above should probably also be below
+		equipTbl = "melee"
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["cwep_m_hatchet"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "Hatchet",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 3,
+		height = 1,
+		weight = 1,
+		class = "arccw_melee_hatchet",
+		category = "Weapons (Melee)",
+		type = "knife",
+		--flag = "",
+		--defaultMods = {
+		--},
+		--slots above should probably also be below
+		equipTbl = "melee"
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["cwep_m_knife"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "Knife",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		class = "arccw_melee_knife",
+		category = "Weapons (Melee)",
+		type = "knife",
+		--flag = "",
+		--defaultMods = {
+		--},
+		--slots above should probably also be below
+		equipTbl = "melee"
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["cwep_m_knifelarge"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "Large Knife",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		class = "arccw_melee_knifelarge",
+		category = "Weapons (Melee)",
+		type = "knife",
+		--flag = "",
+		--defaultMods = {
+		--},
+		--slots above should probably also be below
+		equipTbl = "melee"
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["cwep_m_pan"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "Pan",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		class = "arccw_melee_pan",
+		category = "Weapons (Melee)",
+		type = "knife",
+		--flag = "",
+		--defaultMods = {
+		--},
+		--slots above should probably also be below
+		equipTbl = "melee"
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["cwep_m_pipe"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "Lead Pipe",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 3,
+		height = 1,
+		weight = 1,
+		class = "arccw_melee_pipe",
+		category = "Weapons (Melee)",
+		type = "knife",
+		--flag = "",
+		--defaultMods = {
+		--},
+		--slots above should probably also be below
+		equipTbl = "melee"
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["cwep_m_shank"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "Shank",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		class = "arccw_melee_axe",
+		category = "Weapons (Melee)",
+		type = "knife",
+		--flag = "",
+		--defaultMods = {
+		--},
+		--slots above should probably also be below
+		equipTbl = "melee"
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["cwep_m_knife_t"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "Knife T (?)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		class = "arccw_melee_knife_t",
+		category = "Weapons (Melee)",
+		type = "knife",
+		--flag = "",
+		--defaultMods = {
+		--},
+		--slots above should probably also be below
+		equipTbl = "melee"
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["cwep_m_knife_falchion"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "Falchion Knife (?)",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 1,
+		height = 1,
+		weight = 1,
+		class = "arccw_melee_knife_fal",
+		category = "Weapons (Melee)",
+		type = "knife",
+		--flag = "",
+		--defaultMods = {
+		--},
+		--slots above should probably also be below
+		equipTbl = "melee"
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
 
 	--these are all of them i think, next is models and swep editing
 
@@ -4776,6 +5074,31 @@ local attList = {
 		--},
 	},
 }
+local ammoList = {
+	--[[[""] = {
+		name = "Barska Red Dot Sight (RDS)",
+		desc = "desc", --use %s for number
+		price = 0,
+		model = "models/weapons/w_pistol.mdl",
+		width = 2,
+		height = 1,
+		weight = 1,
+		category = "Attachments",
+		--flag = "",
+		ammo = "ammotype",
+		maxQuantity = 50,
+		defQuantity = 5,
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},]]
+}
 
 function PLUGIN:InitializedItems()
 	for id, data in pairs(weaponList) do
@@ -4803,6 +5126,7 @@ function PLUGIN:InitializedItems()
 		end
 		ITEM.icon = data.icon
 		ITEM.noBusiness = data.noBusiness
+		ITEM.equipTbl = data.equipTbl
 		ITEM.transferSound = data.transferSound or ammoSounds[data.type]
 		
 		if(data.destroyval) then
@@ -4837,5 +5161,35 @@ function PLUGIN:InitializedItems()
 		ITEM.noBusiness = data.noBusiness
 		ITEM.iconmodel = data.iconmodel
 		ITEM.useSound = data.useSound or "cw/attach.wav"
+	end
+	for id, data in pairs(ammoList) do
+		local ITEM = nut.item.register(id, "base_ammo", nil, nil, true)
+		ITEM.name = data.name
+		ITEM.desc = data.desc
+		ITEM.price = data.price or 0
+		ITEM.model = data.model
+		ITEM.width = data.width
+		ITEM.height = data.height
+		ITEM.weight = data.weight
+		ITEM.flag = data.flag
+		if(data.iconCam) then --prob wont be used for anything else so
+			ITEM.exRender = true
+			ITEM.iconCam = data.iconCam
+		end
+		if(data.destroyval) then
+			ITEM.destroyval = data.destroyval --in case i wanna add more
+			ITEM = EZADDDESTROYFUNC(ITEM)
+		end
+		ITEM.icon = data.icon
+		ITEM.noBusiness = data.noBusiness
+		ITEM.iconmodel = data.iconmodel
+		ITEM.useSound = data.useSound
+		ITEM.ammo = data.ammo
+		ITEM.maxQuantity = data.maxQuantity
+		ITEM.defQuantity = data.defQuantity
+
+		ITEM.getWeight = function(self)
+			return self.weight*self:getQuantity()
+		end
 	end
 end

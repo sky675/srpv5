@@ -6,7 +6,8 @@ EQTBL = true
 
 local maxes = { --maxes of each
 	["art"] = 1,
-	["weapon"] = 2
+	["weapon"] = 2,
+	["melee"] = 1
 }
 
 function equipTblGet(char, type, default)

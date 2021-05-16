@@ -48,6 +48,10 @@ function PLUGIN:PlayerSwitchFlashlight(client, state)
 		return true
 	end]]
 
+	if(wep and wep.GetHasFlashlights and wep:GetHasFlashlights()) then
+		return false
+	end
+	
 	local item = character:getInv():getFirstItemOfType("headlamp")
 	if (item and item:getData("equip")) then --change to false
 		return true --let them switch if they have a headlamp and its equipped
@@ -59,6 +63,7 @@ function PLUGIN:PlayerSwitchFlashlight(client, state)
 		return true
 	end
 
+
 	if(wep and ((wep.GetStat and wep:GetStat("HasFlashlight")) or wep.HasFlashlight)) then
 		return true --let them switch if the current weapon has a flashlight
 	end
@@ -66,6 +71,9 @@ function PLUGIN:PlayerSwitchFlashlight(client, state)
 end
 
 function PLUGIN:PlayerSwitchWeapon(client, old, new)
+	if(old and (old.GetHasFlashlights and old:GetHasFlashlights()) and new and (new.GetHasFlashlights and new:GetHasFlashlights())) then
+		return
+	end
 	if(old and ((old.GetStat and old:GetStat("HasFlashlight")) or old.HasFlashlight) and new and ((new.GetStat and new:GetStat("HasFlashlight")) or new.HasFlashlight)) then
 		return --dont worry about it if both the old and new wep has a flashlight
 	end

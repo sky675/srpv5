@@ -670,6 +670,7 @@ else --client
 		["sky22lr"] = "a .22 LR round",
 		["sky50ae"] = "a .50 AE round",
 		["sky57"] = "a 5.7x28mm round",
+		["sky46"] = "a 4.6x30mm round",
 		["sky44"] = "a .44 Magnum round",
 		["sky23mm"] = "a 23mm Barricade round",
 		["buckshot"] = "a 12 Gauge buckshot pellet",

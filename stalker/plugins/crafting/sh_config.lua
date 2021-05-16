@@ -1106,7 +1106,7 @@ Result: 1x that unequipped weapon, with the att applied]],
 			--return a table and it will reappear in oncreate as data
 			if(!handpick) then ply:notify("uh this should never happen") return end
 			local item = nut.item.instances[handpick]
-			item:setData("duraMod", true) --bool so it can be adjustable
+			item:setData("duraMulti", true) --bool so it can be adjustable
 		end,
 		--adddata = true,
 	},

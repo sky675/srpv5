@@ -78,3 +78,9 @@ ITEM.functions.use = { -- sorry, for name order.
 		return item:getQuantity() <= 0
 	end,
 }
+
+function ITEM:onInstanced()
+	if(item.defQuantity) then
+		item:setQuantity(item.defQuantity)
+	end
+end
