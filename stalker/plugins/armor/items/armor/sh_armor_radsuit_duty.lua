@@ -10,6 +10,7 @@ ITEM.height = 3
 ITEM.outfitCategory = "armor"
 ITEM.price = 105680
 ITEM.flag = "D"
+ITEM.fakeFaction = FACTION_DUTY
 
 --interface/inv_items_cloth_2.ogg super light (masks, addons)
 --interface/inv_items_cloth_3.ogg light (spd >= .7)

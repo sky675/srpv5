@@ -79,6 +79,17 @@ end
 
 local colorAlpha = ColorAlpha
 local teamGetColor = team.GetColor
+local function newteamGetColor(client)
+	local character = client:getChar()
+	local fake = character:getData("fakeFac")
+	local ourCharacter = LocalPlayer():getChar()
+
+	if (fake and ourCharacter and character and !ourCharacter:doesRecognize(character) and !hook.Run("IsPlayerRecognized", client)) then
+		return teamGetColor(fake)
+	end
+
+	return teamGetColor(entity.Team(entity))	
+end
 local drawText = nut.util.drawText
 
 function PLUGIN:DrawCharInfo(client, character, info)
@@ -122,7 +133,7 @@ function PLUGIN:DrawEntityInfo(entity, alpha, position)
 	charInfo = {}
 	charInfo[1] = {
 		hookRun("GetDisplayedName", entity) or character.getName(character),
-		teamGetColor(entity.Team(entity))
+		newteamGetColor(entity)--teamGetColor(entity.Team(entity))
 	}
 
 	local description = character.getDesc(character)
