@@ -199,10 +199,25 @@ if (CLIENT) then
 
 		sw = storage:getStorageInfo().invData.w
 		sh = storage:getStorageInfo().invData.h
+		
+		local NSuiHeight = (math.ceil(((300*(invw/invTextureW))/7)) + (7*(invw/invTextureW))) * sh
+
+		
+
+		if sh < 7 then
+			sh = sh+1
+		end
+
+		local SRuiHeight = ((52*(invh/invTextureH))*sh)
+		local uiMidOffset = math.floor((SRuiHeight - NSuiHeight)*0.5)
+
+		print("NSuiHeight: " .. NSuiHeight) 
+		print("SRuiHeight: " .. SRuiHeight) 
+		print("uiMidOffset: " .. uiMidOffset) 
 
 
 		local totalsW = (80*(invw/invTextureW) + ((52*(invw/invTextureW))*(sw-2)) + (85*(invw/invTextureW)))
-		local totalsH = (72*(invw/invTextureW) + ((52*(invw/invTextureW))*(sh-2)) + (92*(invw/invTextureW)))
+		local totalsH = ((52*(invw/invTextureW))*(sh))
 
 		local totalInvenW = self.storageInventoryPanel:GetWide()
 		local totalInvenH = self.storageInventoryPanel:GetTall()
@@ -236,13 +251,15 @@ if (CLIENT) then
 			end
 		end
 
+		
+
 		function self:Paint(w, h)
 
 
 
 			local startX, startY = self.storageInventoryPanel:GetPos()
-			startX = startX - difX
-			startY = startY - difY
+			startX = math.floor(startX - 30*(invw/invTextureW))
+			--startY = math.floor(startY + 37*(invw/invTextureW))
 
 			local curX, curY = 0,0
 
@@ -252,54 +269,83 @@ if (CLIENT) then
 			local stw, sth = 0,0
 			local row = 0
 			local column = 0
+			local hAdjust = 0
+
 
 			for row=1,sh,row+1 do
 				if row == 1 then
-					curY = startY
+					curY = math.floor(startY - uiMidOffset)
 				end
-				for column=1,sw,column+1 do
-					--Corners
+				for column=1,sw+2,column+1 do
+					local debugChecker = false  
+					if debugChecker then
+						if row % 2 != 0 then
+							if column % 2 == 0 then
+								surface.SetDrawColor(255,0,0,255)
+							else
+								surface.SetDrawColor(0,255,0,255)
+							end	
+						else
+							if column % 2 == 0 then
+								surface.SetDrawColor(0,255,0,255)
+							else
+								surface.SetDrawColor(255,0,0,255)
+							end		
+						end
+					else
+						surface.SetDrawColor(255,255,255,255)
+					end
+
 					if column == 1 then
 						curX = startX
 					end
-					if row==1 and column==1 then
-						storText = "top_l.png"
-						stw, sth = 80, 72
-					elseif row==sh and column==1 then
-						storText = "bot_l.png"
-						stw, sth = 80, 92
-					elseif row==1 and column==sw then
-						storText = "top_r.png"
-						stw, sth = 85, 72
-					elseif row==sh and column==sw then
-						storText = "bot_r.png"
-						stw, sth = 73, 92
-					elseif row==1 then
-						storText = "top_"..column..".png"
-						stw, sth = 52, 72
-					elseif row==sh then
-						storText = "bot_"..column..".png"
-						stw, sth = 52, 92
-					elseif column==1 and row==sh-1 then
-						storText = "3_l.png"
-						stw, sth = 80, 52
-					elseif column==sw and row==sh-1 then
-						storText = "3_r.png"
-						stw, sth = 85, 52
-					elseif column==1 then
-						storText = "2_l.png"
-						stw, sth = 80, 52
-					elseif column==sw then
-						storText = "2_r.png"
-						stw, sth = 85, 52
+
+					if column == 1 then
+						if row == 1 then
+							storText = "top_l_cap.png"
+							stw, sth = 30, 52
+						elseif row == sh then
+							storText = "bot_l_cap.png"
+							stw, sth = 30, 52
+						elseif row == sh-1 then
+							storText = "3_l_cap.png"
+							stw, sth = 30, 52
+						else
+							storText = "2_l_cap.png"
+							stw, sth = 30, 52
+						end
+					elseif column == sw+2 then
+						if row == 1 then
+							storText = "top_r_cap.png"
+							stw, sth = 30, 52
+						elseif row == sh then
+							storText = "bot_r_cap.png"
+							stw, sth = 18, 52
+						elseif row == sh-1 then
+							storText = "3_r_cap.png"
+							stw, sth = 30, 52
+						else
+							storText = "2_r_cap.png"
+							stw, sth = 30, 52
+						end
 					else
-						storText = "3_"..column..".png"
-						stw, sth = 52, 52
+						if row==1 then
+							storText = "top_"..column..".png"
+							stw, sth = 45, 52
+						elseif row==sh then
+							storText = "bot_"..column..".png"
+							stw, sth = 45, 52
+
+						else
+							storText = "3_"..column..".png"
+							stw, sth = 45, 52
+						end
 					end
+
 
 					finText = path..storText
 
-					surface.SetDrawColor(255,255,255,255)
+					--surface.SetDrawColor(255,255,255,255)
 					surface.SetMaterial(Material(finText))
 
 					--print("totalsW = " .. totalsW .. " | totalInvenW = " .. totalInvenW)
@@ -316,25 +362,6 @@ if (CLIENT) then
 					
 					curX = math.floor(curX+scaleW)
 
-					if sw == 1 then
-						if row == 1 then
-							storText = "top_r_cap.png"
-							stw, sth = 30, 72
-						elseif row == sh then
-							storText = "bot_r_cap.png"
-							stw, sth = 18, 92
-						elseif row == sh-1 then
-							storText = "3_r_cap.png"
-							stw, sth = 30, 52
-						else
-							storText = "2_r_cap.png"
-							stw, sth = 30, 52
-						end
-						finText = path..storText
-						surface.SetMaterial(Material(finText))
-						scaleW, scaleH = stw*(invw/invTextureW), sth*(invh/invTextureH)
-						surface.DrawTexturedRect(curX-1, curY-1, scaleW, scaleH)
-					end
 					--print("Drawing: " .. finText .. "| curX, curY = " .. curX .. ", " .. curY .. "row = "..row.." column = "..column)
 					--print("Total Storage UI Width: " .. totalsW)
 
