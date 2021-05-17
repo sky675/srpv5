@@ -1,7 +1,7 @@
 local PLUGIN = PLUGIN
 PLUGIN.name = "Dynamic Music"
 PLUGIN.author = "sky"
-PLUGIN.desc = "Adds dynamic music. also supports and autoadds nombat packs and dynamo :)"
+PLUGIN.desc = "Adds dynamic music. also supports and autodetects nombat packs and dynamo :)"
 
 M_STATE_DEAD = -1
 M_STATE_PASSIVE = 0
@@ -329,16 +329,10 @@ if CLIENT then
 		end
 	end)
 	
-	--this should fucking be accessible in stormfox
+	--this should fucking be accessible in stormfox -- it kinda is now?
 	local function timeToEnumeratedValue( flTime )
-		if flTime <= StormFox.Weather.TIME_SUNRISE - 60 then
-			return "night"
-		elseif flTime < StormFox.Weather.TIME_SUNRISE then
+		if(StormFox2.Time.IsDay(flTime)) then
 			return "day"
-		elseif flTime < StormFox.Weather.TIME_SUNSET then
-			return "day"
-		elseif flTime < StormFox.Weather.TIME_SUNSET + 60 then
-			return "night"
 		else
 			return "night"
 		end
@@ -378,10 +372,10 @@ if CLIENT then
 			if(!nut.music.types[MUSIC_TYPE]) then print("your current type, "..MUSIC_TYPE.." is not valid")return end --just in case
 			local mustbl
 			--if this is true, there should be M_STATE_PASSIVE.."day" and etc
-			if(StormFox and nut.music.types[MUSIC_TYPE].daynight) then
+			if(StormFox2 and nut.music.types[MUSIC_TYPE].daynight) then
 				--the base value, or passive if it doesnt exist
 				local ty = istable(nut.music.types[MUSIC_TYPE][typ]) and typ or M_STATE_PASSIVE
-				local time = StormFox.GetTime()
+				local time = StormFox2.Time.Get()
 				local d = timeToEnumeratedValue(time)
 				local cmb = ty..d
 				mustbl = nut.music.types[MUSIC_TYPE][cmb]
