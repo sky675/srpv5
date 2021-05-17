@@ -258,7 +258,7 @@ PLUGIN.stages = {
 				end
 				local al = 0
 				timer.Create("fading", 0.3, 200,function()
-					ticks = ticks + 0.5
+					ticks = ticks + 0.3
 					if(IsValid(bld)) then
 						al = Lerp(ticks/max, 0, 255)
 						bld:SetColor(Color(255,255,255,al))
