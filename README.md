@@ -14,7 +14,13 @@ Drop the repository in your `garrysmod/gamemodes/` folder and set your gamemode 
 ## Feature list
 
 - PDA system (messaging, leaderboard)
-- other
+- Stalker Themed UI
+- Custom Player Model System
+- Gear Ratings & Protections
+- Crafting
+- Trait Tree System
+- Languages
+- other things too
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
