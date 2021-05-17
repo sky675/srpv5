@@ -136,7 +136,7 @@ function SWEP:SecondaryAttack()
 		if (SERVER) then
 			timer.Simple( 0.9, function()
 				self:EmitSound( Sound("weapons/slam/throw.wav", 100, 100 ) )
-				local bolt = ents.Create( "ent_srpstalker_bolt" )	
+				local bolt = ents.Create( "ent_stalker_bolt" )	
 				bolt:SetPos(self.Owner:GetShootPos() + self.Owner:GetAimVector() * 10)
 				bolt:SetAngles(self.Owner:EyeAngles())
 				bolt:Spawn()
