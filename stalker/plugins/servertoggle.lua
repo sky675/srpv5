@@ -5,7 +5,7 @@ PLUGIN.desc = "quick thing for easy access to opening/closing a server"
 if(game.SinglePlayer()) then return end --dont want this setting up in sp
 
 local pass = "lmaooo" --pass to get in when closed
-local closedStr = " | Open on weekends" --string to add when closed
+local closedStr = " | Closed" --string to add when closed
 
 PLUGIN.curStatus = PLUGIN.curStatus or true --false = open
 
