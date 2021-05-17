@@ -444,7 +444,7 @@ local weaponEdits = {
 			Ammo = "sky762x54"
 		}
 	},
-	["arccw_temp_svt40"] = {
+	["arccw_temp_svt"] = {
 		mods = {
 			TwoHandedWep =true,
 		}, 
@@ -842,12 +842,14 @@ local attEdits = {
 local function PatchWeapon(weapon, name)
 	//weapon.Base = "sky_mag_base_ins2" --hopefully this works?
 	local tochange = weaponEdits[name] --easier
+	print("patching "..name)
 	for k,v in pairs(tochange.mods or {}) do
 		weapon[k] = v
 	end
 	for k,v in pairs(tochange.primarymods or {}) do
 		weapon.Primary[k] = v
 	end
+	print("done patching "..name)
 	if(!tochange.modatts) then return end --small opt
 	local slotids = {}
 	for key, value in ipairs(weapon.Attachments) do
@@ -885,10 +887,11 @@ hook.Add("InitPostEntity", "arcweps_patch", function()
         end
     end
 end)
-hook.Add("ArcCW_PostLoadAtts", "arcatts_patch", function()
-	for k,v in pairs(ArcCW.AttachmentTable) do
-		if(attEdits[k]) then
-			PatchAttachment(v, k)
-		end
+hook.Add("ArcCW_OnAttLoad", "arcatts_patch", function(v)
+	--for k,v in pairs(ArcCW.AttachmentTable) do
+	local k = v.ShortName
+	if(attEdits[k]) then
+		PatchAttachment(v, k)
 	end
+	--end
 end)
