@@ -29,6 +29,15 @@ local spawnPoints = {
 		done = -14335.96, --the x point to end at
 		wavemulti = 1220, --how fast it travels
 	},
+	["rp_crossroads_v1b"] = {
+		xory = "y",
+		pos = false, --if false, goes negative
+		spawn = 15359.96, --the x point to start at
+		add = 14335.96, --makes calculations always positive, should always be non neg of below
+		done = -14335.96, --the x point to end at
+		wavemulti = 1220, --how fast it travels
+		domeTbl = {pos = Vector(-4.8413376808167, 1806.0949707031, 4723.71484375), ang = Angle(0, -96.591796875, 0), scale = 2}
+	},
 	--crossroads: {pos = Vector(-4.8413376808167, 1806.0949707031, 4723.71484375), ang = Angle(0, -96.591796875, 0), scale = 2}
 	--domeTbl = {pos = Vector(), ang = Angle(), scale = 1} 
 }
@@ -226,15 +235,30 @@ PLUGIN.stages = {
 				local max = 200
 				local tbl = ents.FindByName("blowoutdome") or {}
 				local bld = tbl[1] or BLOWOUT_DOME
-				if(!bld and spawnPoints[game.GetMap()].domeTbl and !IsValid(BLOWOUT_DOME)) then
+				local tl = spawnPoints[game.GetMap()].domeTbl
+				if(!bld and tl and !IsValid(BLOWOUT_DOME)) then
 					--todo make one if is in cfg
+					local b = ents.Create("prop_physics")
 					--models/de_tulip/tulip_skysphere_l.mdl prop_physics
+					b:SetModel("models/de_tulip/tulip_skysphere_l.mdl")
 					--freeze, set trans+invis and prevent physing
+					b:SetPos(tl.pos)
+					b:SetAngles(tl.ang)
+					b:Spawn()
+					b:Activate()
+					b:SetModelScale(tl.scale)
+					b:SetRenderMode(RENDERMODE_TRANSCOLOR)
+					b:SetColor(Color(255,255,255,0))
+					if(IsValid(b:GetPhysicsObject())) then
+						b:GetPhysicsObject():EnableMotion(false)
+					end
 					--set to global var BLOWOUT_DOME
+					BLOWOUT_DOME = b
+					bld = b
 				end
 				local al = 0
 				timer.Create("fading", 0.3, 200,function()
-					ticks = ticks + 1
+					ticks = ticks + 0.5
 					if(IsValid(bld)) then
 						al = Lerp(ticks/max, 0, 255)
 						bld:SetColor(Color(255,255,255,al))
@@ -471,6 +495,11 @@ PLUGIN.stages = {
 						bld:SetColor(Color(255,255,255,al))
 					end
 				end)
+
+				timer.Simple(2, function() 
+				netstream.Start(player.GetAll(), "fakepdanote", "Connection reestablished...")
+				end)
+				PDA_AVAILABLE = true
 				
 				--start rain if can?
 				if(StormFox2) then
@@ -481,7 +510,7 @@ PLUGIN.stages = {
 							StormFox2.Thunder.SetEnabled(false)
 							timer.Simple(math.random(600,1200), function()
 								--reenable following the forecast
-								StormFox2.Setting.Set("auto_weather",false)
+								StormFox2.Setting.Set("auto_weather",true)
 								--hopefully will return it to the other weather
 								if(oldWeather) then
 									StormFox2.Weather.Set(oldWeather)
@@ -492,10 +521,6 @@ PLUGIN.stages = {
 				end
 			end,
 			serverEnd = function()
-				timer.Simple(2, function() 
-				netstream.Start(player.GetAll(), "fakepdanote", "Connection reestablished...")
-				end)
-				PDA_AVAILABLE = true
 			end,
 			onEnd = function()
 				hook.Remove("RenderScreenspaceEffects", "zzzzzzz")
