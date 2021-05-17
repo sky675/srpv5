@@ -1,5 +1,5 @@
 ITEM.name = "Artifact Application Container"
-ITEM.model = "models/weapons/w_defuser.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_aac.mdl"
 ITEM.desc = "A container that filters out a moderate amount of radiation from artifacts so its effects can be safely utilized. It negates up to 4 rads per min."
 --ITEM.category = "Miscellaneous"
 ITEM.flag = "N"

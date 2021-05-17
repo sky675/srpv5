@@ -1,5 +1,5 @@
 ITEM.name = "Potassium Iodide"
-ITEM.model = "models/warz/consumables/medicine.mdl"
+ITEM.model = "models/wick/wrbstalker/cop/newmodels/items/wick_vicasol.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.05

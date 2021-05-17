@@ -1,7 +1,7 @@
 ITEM.name = "Flesh Bacon"
 ITEM.desc = "Slices of fat and greasy bacon made from fleshes. Would not recommend eating."
 ITEM.price = 950
-ITEM.model = "models/kek1ch/raw_flesh.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_meat_flesh.mdl"
 ITEM.flag = "m"
 ITEM.width = 1
 ITEM.height = 1

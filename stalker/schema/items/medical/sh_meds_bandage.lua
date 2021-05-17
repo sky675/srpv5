@@ -1,5 +1,5 @@
 ITEM.name = "Bandage"
-ITEM.model = "models/sky/items/bandage.mdl"--stalker/item/medical/bandage.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_bandage.mdl"--stalker/item/medical/bandage.mdl"
 ITEM.skin = 0
 ITEM.width = 1
 ITEM.height = 1

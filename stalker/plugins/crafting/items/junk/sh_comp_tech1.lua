@@ -1,6 +1,6 @@
 ITEM.name = "Small Tech"
 ITEM.desc = "Some small bits of tech."
-ITEM.model = "models/items/materials_textolite.mdl"--models/fallout/components/box.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_materials_textolite.mdl"--models/fallout/components/box.mdl"
 ITEM.category = "Components"
 ITEM.weight = 0.09
 ITEM.price = 300

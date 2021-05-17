@@ -1,7 +1,7 @@
 ITEM.name = "Bloodsucker Meat"
 ITEM.desc = "A piece of a bloodsucker. Would not recommend eating."
 ITEM.price = 917
-ITEM.model = "models/kek1ch/raw_boar.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_raw_boar.mdl"
 ITEM.flag = "m"
 ITEM.width = 1
 ITEM.height = 1

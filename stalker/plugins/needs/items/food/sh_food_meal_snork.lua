@@ -1,7 +1,7 @@
 ITEM.name = "Grilled Snork Hand"
 ITEM.desc = "A grilled hand from a snork. Eating would be technically cannibalism. Would not recommend eating."
 ITEM.price = 866
-ITEM.model = "models/kek1ch/snork_food.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_snork_food.mdl"
 ITEM.flag = "m"
 ITEM.width = 1
 ITEM.height = 1

@@ -1,7 +1,7 @@
 ITEM.name = "Rat Skewers"
 ITEM.desc = "Two seasoned skewered tushkanos. Would not recommend eating."
 ITEM.price = 322
-ITEM.model = "models/kek1ch/meat_tushkano.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_meat_tushkano.mdl"
 ITEM.flag = "m"
 ITEM.width = 1
 ITEM.height = 1

@@ -1,6 +1,5 @@
 ITEM.name = "Scientific Medkit"
-ITEM.model = "models/sky/items/medkit1.mdl"--stalker/item/medical/medkit3.mdl"
-ITEM.skin = 2
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_aptechka_mid.mdl"--stalker/item/medical/medkit3.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.25

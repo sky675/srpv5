@@ -1,5 +1,5 @@
 ITEM.name = "Lead-lined Metal Container"
-ITEM.model = "models/kek1ch/lead_box_closed.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_lead_box_closed.mdl"
 ITEM.desc = "The lead-lined metal container (LLMC) is a thick metal box used for holding an artifact safely. It stops all radiation from leaking from the artifact. However, both positive and negative properties of the artifact won't apply."
 --ITEM.category = "Miscellaneous"
 ITEM.flag = "N"

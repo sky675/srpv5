@@ -1,5 +1,5 @@
 ITEM.name = "Headlamp"
-ITEM.model = "models/kek1ch/dev_torch_light.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_torch_light3.mdl"
 
 ITEM.width = 1 
 ITEM.height = 1

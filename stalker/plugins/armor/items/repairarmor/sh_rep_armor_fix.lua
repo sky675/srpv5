@@ -4,7 +4,7 @@ This kit repairs the body of a suit.
 Requires armor repair.
 It can only be used below 41 percent durability.
 It will repair it by 41 percent durability.]]
-ITEM.model = "models/items/repairpacks/instrument.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_instrument_1.mdl"
 ITEM.width = 2
 ITEM.height = 2
 ITEM.weight = 5

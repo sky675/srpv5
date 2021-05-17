@@ -1,7 +1,7 @@
 ITEM.name = "Chocolate Bar"
 ITEM.desc = "A bar of russian chocolate."
 ITEM.price = 1200
-ITEM.model = "models/kek1ch/dev_chocolate.mdl"--"models/warz/consumables/bar_chocolate.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_chocolate.mdl"--"models/warz/consumables/bar_chocolate.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.12

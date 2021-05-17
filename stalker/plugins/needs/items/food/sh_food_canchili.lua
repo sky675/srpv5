@@ -1,7 +1,7 @@
-ITEM.name = "Chili beans"
+ITEM.name = "Chili Beans"
 ITEM.desc = "A can of chili beans from the West."
 ITEM.price = 757
-ITEM.model = "models/kek1ch/dev_chili.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_chili.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.34

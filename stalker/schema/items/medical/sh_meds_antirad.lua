@@ -1,5 +1,5 @@
 ITEM.name = "Anti-Rad"
-ITEM.model = "models/stalker/item/medical/antirad.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_antibio_chlor_old.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.05

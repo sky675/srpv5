@@ -1,5 +1,5 @@
 ITEM.name = "Antidote"
-ITEM.model = "models/stalker/item/medical/antidote.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_drug_antidot.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.01

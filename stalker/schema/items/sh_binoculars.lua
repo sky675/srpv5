@@ -1,6 +1,6 @@
 ITEM.name = "Binoculars"
 ITEM.desc = "A pair of binoculars."
-ITEM.model = "models/props_junk/cardboard_box004a.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_binoculars.mdl"
 ITEM.category = "misc"
 ITEM.width = 1
 ITEM.height = 1

@@ -1,5 +1,5 @@
 ITEM.name = "Radio"
-ITEM.model = "models/stalker/item/handhelds/radio.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_fmradio.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.4

@@ -1,12 +1,13 @@
 ITEM.name = "Water Bottle" --what are bottles that come like this commercially called?"
 ITEM.desc = "A commercial water bottle."
 ITEM.price = 1200
-ITEM.model = "models/props/cs_office/water_bottle.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_mineral_water.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.75
 ITEM.hungerAmt = 0
 ITEM.thirstAmt = 30
+ITEM.uses = 3
 
 ITEM.useSound = "interface/inv_drink_flask.ogg"
 

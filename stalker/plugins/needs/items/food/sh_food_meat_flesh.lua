@@ -1,7 +1,7 @@
 ITEM.name = "Flesh Meat"
 ITEM.desc = "A popular zone meat. Would not recommend eating."
 ITEM.price = 504
-ITEM.model = "models/kek1ch/raw_flesh.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_raw_flesh.mdl"
 ITEM.flag = "m"
 ITEM.width = 1
 ITEM.height = 1

@@ -1,7 +1,7 @@
 ITEM.name = "Caffeine Tablets" --MOORE energy"
 ITEM.desc = "A package of caffeine tablets."
 ITEM.price = 2550
-ITEM.model = "models/kek1ch/dev_caffeine.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_caffeine.mdl"
 ITEM.uses = 5
 ITEM.width = 1
 ITEM.height = 1

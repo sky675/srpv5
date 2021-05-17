@@ -4,7 +4,7 @@ This kit repairs all of a suit.
 Doesn't require a trait to use.
 It can only be used above 85 percent durability.
 It will repair it by 5 percent durability.]]
-ITEM.model = "models/items/repairpacks/glue_b.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_glue_b.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.124

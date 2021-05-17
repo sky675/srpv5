@@ -1,5 +1,5 @@
 ITEM.name = "Radioprotectant"
-ITEM.model = "models/stalker/item/medical/rad_pills.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_drug_radioprotector.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.01

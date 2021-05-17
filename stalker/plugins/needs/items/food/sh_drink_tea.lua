@@ -1,7 +1,7 @@
 ITEM.name = "Bottle of Homemade Tea"
 ITEM.desc = "A bottle of warm tea."
 ITEM.price = 900
-ITEM.model = "models/items/tea_bottle.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_drink_tea.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.85--1.03 0.37

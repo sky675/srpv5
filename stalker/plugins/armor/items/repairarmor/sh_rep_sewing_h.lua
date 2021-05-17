@@ -4,7 +4,7 @@ This kit only repairs the body.
 Requires armor repair.
 It can only be used above 65 percent durability.
 It will repair it by 20 percent durability.]]
-ITEM.model = "models/items/repairpacks/sewing_kit_h.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_sewing_kit_h.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.586

@@ -1,5 +1,5 @@
-ITEM.name = "Painkillers"
-ITEM.model = "models/warz/consumables/painkillers.mdl"
+ITEM.name = "Akvatab"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_item_akvatab.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.exRender = true
@@ -15,7 +15,7 @@ ITEM.weight = 0.01
 ITEM.healAmount = 40
 ITEM.healSeconds = 100
 ITEM.price = 3800
-ITEM.desc = "A bottle of painkillers. Heals "..ITEM.healAmount.." in "..ITEM.healSeconds.." seconds."
+ITEM.desc = "A bottle of painkillers?. Heals "..ITEM.healAmount.." in "..ITEM.healSeconds.." seconds."
 ITEM.flag = "6"
 
 local function onUse(item)

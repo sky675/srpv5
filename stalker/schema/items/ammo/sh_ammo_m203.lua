@@ -1,5 +1,5 @@
 ITEM.name = "M406 Round"
-ITEM.model = "models/kek1ch/ammo_m209.mdl"
+ITEM.model = "models/spec45as/stalker/ammo/ammo_m209.mdl"
 ITEM.ammo = "skym203" // type of the ammo
 ITEM.maxQuantity = 1 // amount of the ammo
 ITEM.desc = "A single round for the M203."

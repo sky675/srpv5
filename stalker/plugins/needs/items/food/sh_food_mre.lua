@@ -1,7 +1,7 @@
 ITEM.name = "MRE"
 ITEM.desc = "A MRE."
 ITEM.price = 3200
-ITEM.model = "models/warz/consumables/bag_mre.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_ration_mre.mdl"
 ITEM.width = 2
 ITEM.height = 1
 ITEM.weight = 0.69

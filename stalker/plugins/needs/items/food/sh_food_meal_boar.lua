@@ -1,7 +1,7 @@
 ITEM.name = "Prepared Boar Chops"
 ITEM.desc = "A small portion of grilled and seasoned boar meat. Would not recommend eating."
 ITEM.price = 1034
-ITEM.model = "models/kek1ch/meat_boar.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_meat_boar.mdl"
 ITEM.flag = "m"
 ITEM.width = 1
 ITEM.height = 1

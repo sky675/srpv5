@@ -4,7 +4,7 @@ This kit repairs all of a suit.
 Requires armor repair.
 It can only be used above 40 percent durability.
 It will repair it by 35 percent durability.]]
-ITEM.model = "models/items/repairpacks/armor_repair_pro.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_armor_repair_pro.mdl"
 ITEM.width = 2
 ITEM.height = 1
 ITEM.weight = 3

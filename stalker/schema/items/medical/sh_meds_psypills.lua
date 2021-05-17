@@ -1,5 +1,5 @@
 ITEM.name = "Psy-Block"
-ITEM.model = "models/stalker/item/medical/psy_pills.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_drug_psy_blockade.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.01

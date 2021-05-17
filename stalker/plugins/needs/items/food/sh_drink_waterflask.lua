@@ -1,12 +1,13 @@
-ITEM.name = "Small Water Bottle"
-ITEM.desc = "A small water bottle."
+ITEM.name = "Purified Water Flask"
+ITEM.desc = "A water flask."
 ITEM.price = 1200
-ITEM.model = "models/warz/consumables/water_s.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_drink_flask.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 1
 ITEM.hungerAmt = 0
 ITEM.thirstAmt = 30
+ITEM.uses = 3
 
 ITEM.useSound = "interface/inv_drink_flask.ogg"
 

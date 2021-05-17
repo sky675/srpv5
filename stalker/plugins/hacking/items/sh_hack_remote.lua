@@ -1,6 +1,6 @@
 ITEM.name = "Hacking Remote"
 ITEM.desc = "todo better name, allows you to hack from far away"
-ITEM.model = "models/gibs/manhack_gib02.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_detector_8.mdl"
 ITEM.weight = 0.1
 ITEM.price = 1800
 ITEM.flag = "m"

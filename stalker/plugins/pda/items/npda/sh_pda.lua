@@ -1,6 +1,6 @@
 ITEM.name = "PDA"
 ITEM.desc = "A PDA. Allows you to access a local area chat and more."
-ITEM.model = "models/stalker/item/handhelds/pda.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_pda.mdl"
 ITEM.weight = 0.69
 ITEM.price = 2000
 ITEM.flag = "N"

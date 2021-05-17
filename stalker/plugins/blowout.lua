@@ -28,7 +28,9 @@ local spawnPoints = {
 		add = 14335.96, --makes calculations always positive, should always be non neg of below
 		done = -14335.96, --the x point to end at
 		wavemulti = 1220, --how fast it travels
-	}
+	},
+	--crossroads: {pos = Vector(-4.8413376808167, 1806.0949707031, 4723.71484375), ang = Angle(0, -96.591796875, 0), scale = 2}
+	--domeTbl = {pos = Vector(), ang = Angle(), scale = 1} 
 }
 util.PrecacheSound("blowout/blowout_siren.ogg")
 util.PrecacheSound("blowout/blowout_begin.ogg")
@@ -40,7 +42,6 @@ util.PrecacheSound("blowout/blowout_wave_04.ogg")
 util.PrecacheSound("blowout/blowout_wave_04.ogg")
 util.PrecacheSound("blowout/blowout_hit_03.ogg")
 util.PrecacheSound("blowout/blowout_rumble.wav") --todo make this loop
---https://wiki.facepunch.com/gmod/Creating_Looping_Sounds
 util.PrecacheSound("blowout/blowout_particle_wave.wav")
 
 local bbegins = {
@@ -224,7 +225,13 @@ PLUGIN.stages = {
 				local ticks = 0
 				local max = 200
 				local tbl = ents.FindByName("blowoutdome") or {}
-				local bld = tbl[1]
+				local bld = tbl[1] or BLOWOUT_DOME
+				if(!bld and spawnPoints[game.GetMap()].domeTbl and !IsValid(BLOWOUT_DOME)) then
+					--todo make one if is in cfg
+					--models/de_tulip/tulip_skysphere_l.mdl prop_physics
+					--freeze, set trans+invis and prevent physing
+					--set to global var BLOWOUT_DOME
+				end
 				local al = 0
 				timer.Create("fading", 0.3, 200,function()
 					ticks = ticks + 1
@@ -319,7 +326,7 @@ PLUGIN.stages = {
 					BLOWOUT_RUMBLE = CreateSound(game.GetWorld(), "blowout/blowout_rumble.wav")
 					BLOWOUT_RUMBLE:SetSoundLevel(0)
 					BLOWOUT_RUMBLE:ChangeVolume(0)
-					BLOWOUT_RUMBLE:ChangeVolume(0.75, 25)
+					BLOWOUT_RUMBLE:ChangeVolume(1, 25)
 					BLOWOUT_RUMBLE:Play()
 				end)
 			end,
@@ -454,7 +461,7 @@ PLUGIN.stages = {
 				local ticks = 0
 				local max = 60
 				local tbl = ents.FindByName("blowoutdome") or {}
-				local bld = tbl[1]
+				local bld = tbl[1] or BLOWOUT_DOME
 				local al = 0
 				--fading out
 				timer.Create("fading", 0.2, 300,function()

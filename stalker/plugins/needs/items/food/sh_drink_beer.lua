@@ -1,7 +1,7 @@
 ITEM.name = "Ukrainian Beer"
 ITEM.desc = "A foggy green bottle of alcohol."
 ITEM.price = 1349
-ITEM.model = "models/kek1ch/dev_beer.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_beer.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.71

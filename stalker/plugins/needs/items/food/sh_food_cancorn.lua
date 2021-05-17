@@ -1,7 +1,7 @@
 ITEM.name = "Canned Corn"
 ITEM.desc = "An imported can of sweet corn."
 ITEM.price = 650
-ITEM.model = "models/kek1ch/dev_corn.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_corn.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.34

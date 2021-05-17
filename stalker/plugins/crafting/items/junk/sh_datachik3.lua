@@ -1,6 +1,6 @@
 ITEM.name = "GPS"
 ITEM.desc = "A non-functional GPS. Can be disassembled for tech parts."
-ITEM.model = "models/stalker/item/handhelds/datachik3.mdl"
+ITEM.model = "models/spec45as/stalker/items/datchik3.mdl"
 ITEM.category = "Junk"
 ITEM.weight = 0.1
 ITEM.price = 1450

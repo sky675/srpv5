@@ -1,5 +1,5 @@
 ITEM.name = "VOG-25 Round"
-ITEM.model = "models/kek1ch/ammo_vog_25.mdl"
+ITEM.model = "models/spec45as/stalker/ammo/ammo_vog_25.mdl"
 ITEM.ammo = "skygp25" // type of the ammo
 ITEM.maxQuantity = 1 // amount of the ammo
 ITEM.desc = "A single GP-25 round."

@@ -1,6 +1,5 @@
 ITEM.name = "Antiseptic Bandage"
-ITEM.model = "models/sky/items/bandage.mdl"--stalker/item/medical/bandage.mdl"
-ITEM.skin = 1
+ITEM.model = "models/wick/wrbstalker/cop/newmodels/items/wick_bandage.mdl"--stalker/item/medical/bandage.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.06

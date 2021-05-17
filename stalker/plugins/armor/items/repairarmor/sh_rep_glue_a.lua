@@ -4,7 +4,7 @@ This kit repairs all of a suit.
 Requires basic repair level 1.
 It can only be used above 70 percent durability.
 It will repair it by 10 percent durability.]]
-ITEM.model = "models/items/repairpacks/glue_a.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_glue_a.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.167

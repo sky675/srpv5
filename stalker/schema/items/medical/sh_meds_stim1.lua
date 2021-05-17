@@ -1,5 +1,5 @@
 ITEM.name = "Improvised Stimpack"
-ITEM.model = "models/kek1ch/stim1.mdl"--stalker/item/medical/medkit1.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_stim1.mdl"--stalker/item/medical/medkit1.mdl"
 ITEM.skin = 0
 ITEM.width = 1
 ITEM.height = 1

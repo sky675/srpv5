@@ -1,7 +1,7 @@
-ITEM.name = "Baked beans"
+ITEM.name = "Baked Beans"
 ITEM.desc = "A can of baked beans from the West."
 ITEM.price = 895
-ITEM.model = "models/kek1ch/dev_beans.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_beans.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.34

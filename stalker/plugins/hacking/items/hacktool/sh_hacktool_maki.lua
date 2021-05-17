@@ -8,7 +8,7 @@ Standard hacking start bonus: 11
 First Game time increase: 8
 Max Programs: 2
 ]]
-ITEM.model = "models/stalker/item/handhelds/mini_pda.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_decoder.mdl"
 ITEM.price = 750--1200--18000
 ITEM.flag = "m" --high tier is j
 ITEM.noBusiness = true

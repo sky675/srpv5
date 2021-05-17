@@ -1,7 +1,7 @@
 ITEM.name = "Hercules" --MOORE energy"
 ITEM.desc = "A long lasting drug made with an artificial steroid, used for reducing muscle fatigue."
 ITEM.price = 2382
-ITEM.model = "models/kek1ch/drug_booster.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_drug_booster.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.18

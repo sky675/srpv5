@@ -1,7 +1,7 @@
 ITEM.name = "Pseudodog Meat"
 ITEM.desc = "A cheaper alternative to boar meat. Would not recommend eating."
 ITEM.price = 529
-ITEM.model = "models/kek1ch/raw_dog.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_raw_dog.mdl"
 ITEM.flag = "m"
 ITEM.width = 1
 ITEM.height = 1
