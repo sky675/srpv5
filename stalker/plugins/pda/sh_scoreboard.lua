@@ -100,7 +100,7 @@ else--client
 		
 		if(input.IsKeyDown(KEY_TAB)) then
 			local pd = LocalPlayer():GetPDA()
-			if(!pd) then nxtTh = ct + 0.5 return true end
+			if(!pd or LocalPlayer():getNetVar("typing")) then nxtTh = ct + 0.5 return true end
 
 			if (IsValid(nut.gui.pda)) then
 				--get active pda
