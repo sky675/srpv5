@@ -1,0 +1,43 @@
+on:
+  workflow_dispatch
+name: 🚀 Deploy server 🚀
+jobs:
+  server-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+    
+    - name: 📂 Sync Gamemode
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: 216.52.25.77
+        port: 8822
+        username: nathan6
+        password: ${{ secrets.ftp_password }}
+        server-dir: /216.52.25.77_27055/garrysmod/gamemodes/
+        exclude: .git*
+          - **.git*
+          - .git*/**
+          -  **/.git*/**
+          - assets/**
+          - .glualint.json
+          - addons/**
+
+    - name: 📂 Sync Addons
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: 216.52.25.77
+        port: 8822
+        username: nathan6
+        password: ${{ secrets.ftp_password }}
+        server-dir: /216.52.25.77_27055/garrysmod/addons/
+        exclude: .git*
+          - **.git*
+          - .git*/**
+          -  **/.git*/**
+          - assets/**
+          - .glualint.json
+          - nutscript/**
+          - stalker/**
