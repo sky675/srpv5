@@ -482,7 +482,7 @@ Trait Requirements: Cooking Level 1
 Ingredients: 1x Bloodsucker Meat
 Results: 1x Bloodsucker Goulash]],
 		category = "Cooking",
-		model = "models/kek1ch/meat_bloodsucker.mdl",
+		model = "models/wick/wrbstalker/anomaly/items/wick_meat_bloodsucker.mdl",
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
 		traits = { --traits requirements
@@ -510,7 +510,7 @@ Trait Requirements: Cooking Level 1
 Ingredients: 1x Boar Chops
 Results: 1x Prepared Boar Chops]],
 		category = "Cooking",
-		model = "models/kek1ch/meat_boar.mdl",
+		model = "models/wick/wrbstalker/anomaly/items/wick_meat_boar.mdl",
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
 		traits = { --traits requirements
@@ -538,7 +538,7 @@ Trait Requirements: Cooking Level 1
 Ingredients: 1x Dog Meat
 Results: 1x Dog Chops]],
 		category = "Cooking",
-		model = "models/kek1ch/meat_dog.mdl",
+		model = "models/wick/wrbstalker/anomaly/items/wick_meat_dog.mdl",
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
 		traits = { --traits requirements
@@ -559,6 +559,34 @@ Results: 1x Dog Chops]],
 		result = "food_meal_dog", --can also be table for multiple results
 		--flag = "", --optional can be left out, flag to check for
 	},
+	["cook_chimera"] = {
+		name = "Chimera Meat (Low Quality)",
+		desc = [[Use basic cooking knowledge to prepare some Chimera meat with assorted seasonings and other ingredients.
+Trait Requirements: Cooking Level 1
+Ingredients: 1x Chimera Meat
+Results: 1x Chimera Meal]],
+		category = "Cooking",
+		model = "models/wick/wrbstalker/anomaly/items/wick_chimera_food.mdl",
+		--skin = skin of model (not required),
+		workbench = {["cooking"]=true,},
+		traits = { --traits requirements
+			["crafting_cook"] = 1,--min level needed or true for no level ones,
+			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		ingredients = { --items that will be taken
+			["food_meat_chimera"] = 1, --or # of needed,
+		},
+		result = "food_meal_chimera", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
 	["cook_flesh"] = {
 		name = "Flesh Bacon (Low Quality)",
 		desc = [[Use basic cooking knowledge to turn some Flesh meat into some fat and greasy bacon.
@@ -566,7 +594,7 @@ Trait Requirements: Cooking Level 1
 Ingredients: 1x Flesh Meat
 Results: 1x Flesh Bacon]],
 		category = "Cooking",
-		model = "models/kek1ch/raw_flesh.mdl",
+		model = "models/wick/wrbstalker/anomaly/items/wick_meat_flesh.mdl",
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
 		traits = { --traits requirements
@@ -587,6 +615,34 @@ Results: 1x Flesh Bacon]],
 		result = "food_meal_flesh", --can also be table for multiple results
 		--flag = "", --optional can be left out, flag to check for
 	},
+	["cook_pseudodog"] = {
+		name = "Pseudodog Chops (Low Quality)",
+		desc = [[Use basic cooking knowledge to prepare some Pseudodog Chops with assorted seasonings and other ingredients.
+Trait Requirements: Cooking Level 1
+Ingredients: 1x Pseudodog Meat
+Results: 1x Pseudodog Chops]],
+		category = "Cooking",
+		model = "models/wick/wrbstalker/anomaly/items/wick_meat_pseudodog.mdl",
+		--skin = skin of model (not required),
+		workbench = {["cooking"]=true,},
+		traits = { --traits requirements
+			["crafting_cook"] = 1,--min level needed or true for no level ones,
+			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		ingredients = { --items that will be taken
+			["food_meat_pseudodog"] = 1, --or # of needed,
+		},
+		result = "food_meal_pseudodog", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
 	["cook_rat"] = {
 		name = "Rat Skewers (Low Quality)",
 		desc = [[Use basic cooking knowledge to prepare some Rat Skewers with assorted seasonings and other ingredients.
@@ -594,7 +650,7 @@ Trait Requirements: Cooking Level 1
 Ingredients: 1x Rat Meat
 Results: 1x Rat Skewers]],
 		category = "Cooking",
-		model = "models/kek1ch/meat_tushkano.mdl",
+		model = "models/wick/wrbstalker/anomaly/items/wick_meat_tushkano.mdl",
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
 		traits = { --traits requirements
@@ -794,7 +850,7 @@ Trait Requirements: Basic Tech Crafting Level 2
 Ingredients: 4x Scrap Metal, 1x Light Mechanisms, 3x Small Tech, 2x Wire Spool
 Results: 1x Radio]],
 		category = "Items",
-		model = "models/stalker/item/handhelds/radio.mdl",
+		model = "models/wick/wrbstalker/anomaly/items/wick_dev_fmradio.mdl",
 		skin = 0,
 		workbench = {["basic"]=true,},
 		traits = { --traits requirements
