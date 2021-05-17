@@ -84,14 +84,13 @@ local bot_trans = { --remember with the female trackpants, it starts going down 
 	[18] = {"legs_fem_bdpants",""},
 }
 local starters = {
-	"wep_pm", "mag_pm", "mag_pm", 
+	"cwep_pm", 
 	"pda", "ammo_9x18", "food_cantuna", 
 	"drink_waterbottle", "flashlight",
-	"wep_m_f4knife", "medkit", "meds_bandage"
+	"cwep_m_knife_t", "medkit", "meds_bandage"
 }
 local starterdata = {
-	["wep_pm"] = {ammo = 9},
-	["mag_pm"] = {mag = 8}
+	["wep_pm"] = {ammo = 9}
 }
 
 local function modelfem(model, client)
