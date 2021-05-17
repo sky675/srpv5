@@ -146,13 +146,15 @@ ITEM.functions.Equip = {
 			local ammoCount =  client:GetAmmoCount(weapon:GetPrimaryAmmoType())
 			if (
 				ammoCount == weapon:Clip1() and
-				item:getData("ammo", 0) == 0
+				item:getData("ammo", 0) == 0 and weapon:Clip1() != 1
 			) then
 				client:RemoveAmmo(weapon:Clip1(), weapon:GetPrimaryAmmoType())
 			end
 			item:setData("equip", true)
 
+			if(weapon:Clip1() != 1) then
 			weapon:SetClip1(item:getData("ammo", 0))
+			end
 			--again here
 			weapon.nutItem = item
 			
