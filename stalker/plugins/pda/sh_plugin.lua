@@ -159,7 +159,7 @@ nut.chat.register("pdalocal", {
 		--local testmat = Material("sky/faction_icons/stalker.png", "noclamp smooth")
 
         if(args[2]) then
-			chat.AddText(testmat, Color(100, 255, 50),"[PDA-LOCAL] ", Color(255, 255, 255), name..": "..args[2])
+			chat.AddText(Color(100, 255, 50),"[PDA-LOCAL] ", Color(255, 255, 255), name..": "..args[2])
         end
 	end,
     filter = "pda"
