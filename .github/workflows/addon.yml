@@ -1,7 +1,7 @@
 
 on:
   workflow_dispatch
-name: 🧳 Addon Deploy 🚀
+name: 🧳 Addon Deploy
 jobs:
   gamemode-deploy:
     name: 🎉 Addon Update 🎉
