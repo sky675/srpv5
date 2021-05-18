@@ -4,25 +4,24 @@ serverToggle = serverToggle or {}
 
 local pass = "lmaooo" --pass to get in when closed
 local closedStr = " | Closed" --string to add when closed
+local defName = "Kolobok | STALKER Roleplay"
 
 serverToggle.curStatus = serverToggle.curStatus or true --false = open
 
 if(SERVER) then
-hook.Add("Initialize", "testtoggle", function()
-	print("servertoggle: current name", GetHostName())
-	serverToggle.originalName = serverToggle.originalName or string.Split(GetHostName(), closedStr)[1]
+hook.Add("InitPostEntity", "testtoggle", function()
+	print("servertoggle: current name at init", GetHostName())
+	
+	serverToggle.originalName = defName
 	serverToggle.curStatus = tobool(cookie.GetNumber("serverTog", 1))
 	
 	if(serverToggle.curStatus) then
-		print("server toggle: true")
 		RunConsoleCommand("sv_password", pass)
 		if(GetHostName():find(closedStr)) then return end --uh ye
 		RunConsoleCommand("hostname", serverToggle.originalName..closedStr)
 	else
 		--trying to fix
-		print("server toggle: false")
 		if(GetHostName():find(closedStr)) then 
-			print("server toggle: false reset pass")
 			RunConsoleCommand("sv_password", "")
 			RunConsoleCommand("hostname", serverToggle.originalName)
 		end
