@@ -22,7 +22,9 @@ nut.command.add("servertoggle", {
 
 if(SERVER) then
 
-	PLUGIN.originalName = PLUGIN.originalName or string.Split(GetHostName(), closedStr)[1]
+	function PLUGIN:InitPostEntity()
+		PLUGIN.originalName = PLUGIN.originalName or string.Split(GetHostName(), closedStr)[1]
+	end
 
 	concommand.Add("nut_servertoggle", function(ply, cmd, args)
 		if(IsValid(ply) and !ply:IsAdmin()) then return end
@@ -30,7 +32,7 @@ if(SERVER) then
 		PLUGIN:ToggleServer()
 		nut.log.addRaw("server has been toggled "..(PLUGIN.curStatus and "closed" or "open").." by "..(IsValid(ply) and (ply:steamName().." ("..ply:SteamID()..")") or "someone in rcon"))
 
-		print("done curStatus is now "..PLUGIN.curStatus)
+		print("done curStatus is now ", PLUGIN.curStatus)
 	end, nil, "console command (meant for rcon) to toggle server opening")
 
 	//if i understand this right, onloaded will run first, need to wait until data is loaded
