@@ -22,7 +22,7 @@ jobs:
           - **.git*
           - .git*/**
           -  **/.git*/**
-          - assets/
+          - assets
           - assets/**
           - .glualint.json
           - nutscript/
