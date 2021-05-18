@@ -127,6 +127,11 @@ self:SetMaterial("models/monsters/act_pseudodog228")
 self:DrawShadow(false)
 self:SetMoveType(MOVETYPE_NOCLIP )
 
+	timer.Simple(120, function()
+		if(IsValid(self)) then
+			self:Remove()
+		end
+	end)
 
 			self.calleffect = EffectData()
 	self.calleffect:SetStart( self:GetPos() )

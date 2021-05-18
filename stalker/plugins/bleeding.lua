@@ -88,6 +88,7 @@ if(SERVER) then
 			or dmg:IsDamageType(DMG_BLAST))) then
 			return
 		end
+		if(!nut.config.get("bleed", false)) then return end
 
 		
 		if(target:IsPlayer()) then

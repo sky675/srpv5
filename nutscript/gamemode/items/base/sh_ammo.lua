@@ -15,7 +15,7 @@ end
 function ITEM:paintOver(item, w, h)
 	local quantity = item:getQuantity()
 	
-	nut.util.drawText(quantity, 8, 5, color_white, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP, "nutChatFont")
+	draw.SimpleText(quantity.."/"..item.maxQuantity, "DermaDefault", w - 5 , h - 5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_BOTTOM, 1, color_black)
 end
 
 local loadAmount = {
@@ -57,20 +57,22 @@ ITEM.functions.use = { -- sorry, for name order.
 	end,
 	onClick = function(item, data)
 		if (data == -1) then
-
+			print("click data is -1")
 			return false
 		end
 	end,
 	onRun = function(item, data)
 		data = data or 0
 
+		print("load", data, item.ammo)
 		if (data > 0) then
 			local num = tonumber(data)
 			item:addQuantity(-num)
-
+			print("above is not 0")
 			item.player:GiveAmmo(num, item.ammo)
 			item.player:EmitSound(item.useSound or "items/ammo_pickup.wav", 110)
 		elseif (data == 0) then
+			print("above is 0, all")
 			item.player:GiveAmmo(item:getQuantity(), item.ammo)
 			item.player:EmitSound(item.useSound or "items/ammo_pickup.wav", 110)
 			return true

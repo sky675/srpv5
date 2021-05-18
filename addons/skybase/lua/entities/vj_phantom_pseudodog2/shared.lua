@@ -15,10 +15,12 @@ if CLIENT then
 --striderbuster_shotdown_explosion_trail
 	end
 	function ENT:Think()
-	ParticleEffect("striderbuster_shotdown_explosion_trail",self:LocalToWorld(Vector(math.random(1,1),math.random(1,1))),Angle(0,0,0),nil)
+	--[[ParticleEffect("striderbuster_shotdown_explosion_trail",self:LocalToWorld(Vector(math.random(1,1),math.random(1,1))),Angle(0,0,0),nil)
 	timer.Simple(0.1,function()
-		self.particle = CreateParticleSystem( self, "striderbuster_shotdown_explosion_trail", PATTACH_ABSORIGIN_FOLLOW, 0, Vector(0,0,40) )
-end)
+		if(self) then
+			self.particle = CreateParticleSystem( self, "striderbuster_shotdown_explosion_trail", PATTACH_ABSORIGIN_FOLLOW, 0, Vector(0,0,40) )
+		end
+end)]]
 	end
 
 	

@@ -309,6 +309,8 @@ if(SERVER) then
 			
 			if(msgs) then
 				net.WriteFloat(dmgmulti)
+				net.WriteString(wep.Primary and wep.Primary.Ammo or "gren")
+
 
 				net.Send({ply, atk})
 			end
@@ -703,14 +705,14 @@ else --client
 		local prot = net.ReadFloat()
 		local protection = ""
 		
-		local ammo = ""
+		local ammo = net.ReadString()--[[""
 		if(wep.Secondary and wep.Secondary.Ammo != "") then
 			ammo = wep.Secondary.Ammo
 		elseif(wep.Primary) then
 			ammo = wep.Primary.Ammo
 		else
 			ammo = "gren"
-		end
+		end]]
 
 		--typing immunity
 		if(target:getNetVar("typing") and !target:getNutData("typeImm")) then
@@ -727,7 +729,7 @@ else --client
 		local pos = target:WorldToLocal(attacker:GetPos())
 		local bear = rad2deg*-math.atan2(pos.y, pos.x)
 
-		if(wep.ClassName == "weapon_frag") then
+		if(wep.ClassName == "weapon_frag" or weapon.ClassName == ammo) then
 			if(target == LocalPlayer()) then
 				chat.AddText("You were hit by the blast of a grenade!")
 			else
