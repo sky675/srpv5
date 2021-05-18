@@ -1,10 +1,10 @@
 
 on:
   workflow_dispatch
-name: 🚀 Deploy server (Addon) 🚀
+name: 🧳 Addon Deploy 🚀
 jobs:
   gamemode-deploy:
-    name: 🎉 Deploy to live  (Addon) 🎉
+    name: 🎉 Addon Update 🎉
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code  (Addon) 

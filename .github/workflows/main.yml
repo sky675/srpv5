@@ -1,9 +1,9 @@
 on:
   workflow_dispatch
-name: 🚀 Deploy server (Gamemode) 🚀
+name: 🧱 Gamemode Deploy
 jobs:
   gamemode-deploy:
-    name: 🎉 Deploy to live  (Gamemode) 🎉
+    name: 🎉 Gamemode Update 🎉
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code (Gamemode) 
@@ -14,7 +14,7 @@ jobs:
       with:
         server: 216.52.25.77
         port: 8822
-        username: nathan6
+        username: github
         password: ${{ secrets.ftp_password }}
         server-dir: /216.52.25.77_27055/garrysmod/gamemodes/
         exclude: .git*
