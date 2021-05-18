@@ -88,7 +88,7 @@ local function newteamGetColor(client)
 		return teamGetColor(fake)
 	end
 
-	return teamGetColor(entity.Team(entity))	
+	return teamGetColor(client.Team(client))	
 end
 local drawText = nut.util.drawText
 
