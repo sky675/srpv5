@@ -662,7 +662,7 @@ ITEM.functions.Equip = {
 		end
 		
 		if(item.fakeFaction or item:getData("fakeFaction")) then
-			character:setData("fakeFac", item:getData("fakeFaction", item.fakeFaction), nil, player.GetAll())
+			char:setData("fakeFac", item:getData("fakeFaction", item.fakeFaction), nil, player.GetAll())
 		end
 		
 		if(item.equipSound) then
