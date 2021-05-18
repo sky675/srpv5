@@ -22,7 +22,8 @@ jobs:
           - **.git*
           - .git*/**
           -  **/.git*/**
-          - assets/**
+          - assets/
           - .glualint.json
-          - nutscript/**
-          - stalker/**
+          - nutscript/
+          - stalker/
+          - README.md
