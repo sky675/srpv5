@@ -842,14 +842,12 @@ local attEdits = {
 local function PatchWeapon(weapon, name)
 	//weapon.Base = "sky_mag_base_ins2" --hopefully this works?
 	local tochange = weaponEdits[name] --easier
-	print("patching "..name)
 	for k,v in pairs(tochange.mods or {}) do
 		weapon[k] = v
 	end
 	for k,v in pairs(tochange.primarymods or {}) do
 		weapon.Primary[k] = v
 	end
-	print("done patching "..name)
 	if(!tochange.modatts) then return end --small opt
 	local slotids = {}
 	for key, value in ipairs(weapon.Attachments) do
