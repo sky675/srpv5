@@ -1,12 +1,12 @@
 on:
   workflow_dispatch
-name: 🚀 Deploy server 🚀
+name: 🚀 Deploy server (Gamemode) 🚀
 jobs:
   gamemode-deploy:
-    name: 🎉 Deploy to live 🎉
+    name: 🎉 Deploy to live  (Gamemode) 🎉
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
+    - name: 🚚 Get latest code (Gamemode) 
       uses: actions/checkout@v2
     
     - name: 📂 Sync Gamemode
@@ -25,6 +25,18 @@ jobs:
           - .glualint.json
           - addons/**
   
+
+on:
+  workflow_dispatch
+name: 🚀 Deploy server  (Gamemode) 🚀
+jobs:
+  gamemode-deploy:
+    name: 🎉 Deploy to live  (Gamemode) 🎉
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code (Gamemode) 
+      uses: actions/checkout@v2
+    
     - name: 📂 Sync Addons
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
