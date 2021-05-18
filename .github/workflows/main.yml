@@ -28,13 +28,13 @@ jobs:
 
 on:
   workflow_dispatch
-name: 🚀 Deploy server  (Gamemode) 🚀
+name: 🚀 Deploy server (Addon) 🚀
 jobs:
   gamemode-deploy:
-    name: 🎉 Deploy to live  (Gamemode) 🎉
+    name: 🎉 Deploy to live  (Addon) 🎉
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code (Gamemode) 
+    - name: 🚚 Get latest code  (Addon) 
       uses: actions/checkout@v2
     
     - name: 📂 Sync Addons
