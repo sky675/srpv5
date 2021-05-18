@@ -22,7 +22,7 @@ nut.command.add("servertoggle", {
 
 if(SERVER) then
 
-	function PLUGIN:InitPostEntity()
+	function PLUGIN:OnLoaded()
 		PLUGIN.originalName = PLUGIN.originalName or string.Split(GetHostName(), closedStr)[1]
 	end
 
@@ -38,12 +38,15 @@ if(SERVER) then
 	//if i understand this right, onloaded will run first, need to wait until data is loaded
 	function PLUGIN:PostLoadData()//OnLoaded()
 		if(self.curStatus) then
+			print("server toggle: true")
 			RunConsoleCommand("sv_password", pass)
 			if(GetHostName():find(closedStr)) then return end --uh ye
 			RunConsoleCommand("hostname", self.originalName..closedStr)
 		else
 			--trying to fix
+			print("server toggle: false")
 			if(GetHostName():find(closedStr)) then 
+				print("server toggle: false reset pass")
 				RunConsoleCommand("sv_password", "")
 				RunConsoleCommand("hostname", self.originalName)
 			end
