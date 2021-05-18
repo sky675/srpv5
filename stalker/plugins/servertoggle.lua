@@ -23,6 +23,7 @@ nut.command.add("servertoggle", {
 if(SERVER) then
 
 	function PLUGIN:OnLoaded()
+		print("servertoggle: current name", GetHostName())
 		PLUGIN.originalName = PLUGIN.originalName or string.Split(GetHostName(), closedStr)[1]
 	end
 

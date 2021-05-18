@@ -7,7 +7,7 @@ ENT.Spawnable = false
 
 if (SERVER) then
 	function ENT:Initialize()
-		self:SetModel("models/kek1ch/safe_container.mdl")
+		self:SetModel("models/wick/wrbstalker/anomaly/items/wick_dev_merger.mdl")
 		self:SetSolid(SOLID_VPHYSICS)
 		self:PhysicsInit(SOLID_VPHYSICS)
 		self:SetUseType(SIMPLE_USE)
