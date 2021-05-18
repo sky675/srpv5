@@ -2,8 +2,8 @@ on:
   workflow_dispatch
 name: 🚀 Deploy server 🚀
 jobs:
-  server-deploy:
-    name: 🎉 Deploy
+  gamemode-deploy:
+    name: 🎉 Deploy to live 🎉
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code
@@ -24,7 +24,7 @@ jobs:
           - assets/**
           - .glualint.json
           - addons/**
-
+  
     - name: 📂 Sync Addons
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
@@ -32,7 +32,7 @@ jobs:
         port: 8822
         username: nathan6
         password: ${{ secrets.ftp_password }}
-        server-dir: /216.52.25.77_27055/garrysmod/addons/
+        server-dir: /216.52.25.77_27055/garrysmod/
         exclude: .git*
           - **.git*
           - .git*/**
