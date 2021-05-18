@@ -38,7 +38,7 @@ ENT.AfterLeap = 0.6 -- How much time until it runs the leap damage code?
 ENT.UntilNextAttack_Leap = 0.3 -- How much time until it can use a attack again? | Counted in Seconds
 ENT.LeapAttackDamage = 85
 
-ENT.LeapAttackVelocityForward = 5000
+ENT.LeapAttackVelocityForward = 500
 ENT.LeapAttackDamageDistance = 140 
 ENT.LeapDamageType = DMG_SLASH -- Type of Damage
 ENT.HasFootStepSound = true -- Should the SNPC make a footstep sound when it's moving?
