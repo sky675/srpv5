@@ -25,5 +25,7 @@ jobs:
           - assets/
           - .glualint.json
           - nutscript/
+          - nutscript/**
           - stalker/
+          - stalker/**
           - README.md
