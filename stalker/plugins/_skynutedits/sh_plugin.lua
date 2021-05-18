@@ -148,15 +148,6 @@ hook.Add("PlayerInitialSpawn", "fukoffmusic", function(ply)
 	end
 end)
 
-hook.Add("InitPostEntity", "DisableTFAStuff", function()
-	timer.Simple(2, function()
-    local cmenu = GetConVar("sv_tfa_cmenu")
-	cmenu:SetInt(0) --lets try this instead?
-	end)
-   -- local bull = GetConVar("sv_tfa_bullet_penetration")
-	--bull:SetBool(false) --these dont work well with shoottorp, probably should mvoe it in there
-end)
-
 hook.Add("PlayerSpray", "DisablePlayerSpray", function(ply)
 	return true
 end)

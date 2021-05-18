@@ -249,6 +249,24 @@ function createRagdoll(ragdollData, vel, ply)
 end
 
 // Server/Client communication
+--[[
+function nut.item.restoreInv(invID, w, h, callback)
+	DEPRECATED()
+
+	nut.inventory.loadByID(invID)
+		:next(function(inventory)
+			if (not inventory) then return end
+
+			inventory:setData("w", w)
+			inventory:setData("h", h)
+
+			if (callback) then
+				callback(inventory)
+			end
+		end)
+end
+
+]]
 
 netstream.Hook("askOpenToServer", function(client, index, ownerName, ragdollEnt)
 	if !nut.item.inventories[index] then
