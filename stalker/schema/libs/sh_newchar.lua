@@ -800,11 +800,11 @@ hook.Add("OnCorpseCreated", "bmcorpse", function(rag, pl)
 		tbl.customsubb = subs.b
 	end
 
-	if(ply:getData("gcustomtop")) then
-		tbl.customt = ply:getData("gcustomtop")
+	if(ply:getData("gctop")) then
+		tbl.customt = ply:getData("gctop")
 	end
-	if(ply:getData("gcustombot")) then
-		tbl.customb = ply:getData("gcustombot")
+	if(ply:getData("gcbot")) then
+		tbl.customb = ply:getData("gcbot")
 	end
 
 	clothesnonply(rag, tbl, pl)
@@ -875,11 +875,11 @@ function nut.newchar.resetModels(pl)
 		tbl.customsubb = subs.b
 	end
 
-	if(ply:getData("gcustomtop")) then
-		tbl.customt = ply:getData("gcustomtop")
+	if(ply:getData("gctop")) then
+		tbl.customt = ply:getData("gctop")
 	end
-	if(ply:getData("gcustombot")) then
-		tbl.customb = ply:getData("gcustombot")
+	if(ply:getData("gcbot")) then
+		tbl.customb = ply:getData("gcbot")
 	end
 
 	tbl.reset = true
