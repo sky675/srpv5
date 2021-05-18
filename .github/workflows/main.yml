@@ -21,7 +21,8 @@ jobs:
           - **.git*
           - .git*/**
           -  **/.git*/**
-          - assets/**
+          - assets/
           - .glualint.json
-          - addons/**
+          - addons/
+          - README.md
   
