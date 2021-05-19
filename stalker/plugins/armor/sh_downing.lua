@@ -289,10 +289,6 @@ if(SERVER) then
 				return
 			end
 			
-			--shoooould disable penetration?
-			if(dmginfo:GetInflictor().MainBullet) then
-				dmginfo:GetInflictor().MainBullet.PenetrationCount = 99
-			end
 
 			ply:getChar():setVar("lastatk", atk)
 			atk:getChar():setVar("lastvic", ply)
@@ -331,7 +327,7 @@ if(SERVER) then
 				return true 
 			end
 
-			if(wep.TFA_NMRIH_MELEE) then
+			if(wep.PrimaryBash) then
 				atk:getChar():updateAttrib("str", dmginfo:GetDamage()*0.0001)
 			end
 
@@ -507,6 +503,41 @@ if(SERVER) then
 
 		--nut.log.addRaw
 		if(target:IsPlayer()) then
+			local atk = dmg:GetAttacker()
+			local wep = atk:GetActiveWeaon()
+			if(IsValid(atk) and atk:IsPlayer() and IsValid(wep) and wep.PrimaryBash) then
+				local ply = target
+				local on = nut.config.get("damage", true)
+				if(msgs) then
+					net.Start("PlayerGetDmg")
+					net.WriteEntity(ply)
+					net.WriteEntity(atk)
+					net.WriteEntity(wep)
+					net.WriteInt(0, 4)
+					net.WriteInt(math.Round(ply:GetPos():Distance(atk:GetPos())/52.49, 2), 32)
+				end
+				local dmgmulti = 1
+				if(msgs) then
+					net.WriteFloat(dmgmulti)
+					net.WriteString(wep.Primary and wep.Primary.Ammo or "gren")
+	
+	
+					net.Send({ply, atk})
+				end
+				local pl = ply
+				if(IsValid(atk)) then
+					nut.log.addRaw(atk:Name().." ("..atk:steamName()..") attacked "..pl:Name().." ("..pl:steamName()..") with "..((wep and (wep.ClassName or wep:GetClass())) or "a mine or something probably").." [melee/"..((pl:getNetVar("typing") and "void") or tostring(dmgmulti)).."]")
+				end
+				
+				if(wep.PrimaryBash) then
+					atk:getChar():updateAttrib("str", dmginfo:GetDamage()*0.0001)
+				end
+
+				if(!on) then 
+					dmg:ScaleDamage(0) //sadge
+					return true 
+				end
+			end
 			--print(dmg:GetAttacker():GetClass().." "..dmg:GetDamageType(), dmg:IsDamageType(2))
 			local res = target:GetArmorResists()
 			local levels = target:GetArmorLevels()
@@ -760,7 +791,7 @@ else --client
 		local pos = target:WorldToLocal(attacker:GetPos())
 		local bear = rad2deg*-math.atan2(pos.y, pos.x)
 
-		if(wep.ClassName == "weapon_frag" or weapon.ClassName == ammo) then
+		if(wep.ClassName == "weapon_frag" or wep.ClassName == ammo) then
 			if(target == LocalPlayer()) then
 				chat.AddText("You were hit by the blast of a grenade!")
 			else

@@ -78,7 +78,7 @@ function ITEM:attachTo(target, ply)
 		donthave = true
 	end]]
 	local ats = target:getData("atts", {})
-	if(ats[item.cat] != nil and ats[item.cat] != "") then
+	if(ats[item.cat] != nil and (ats[item.cat] != "" and !ats[item.cat]:find("go_extras_"))) then
 		ply:notify("Category already filled!", 3)
 		return false
 	end
