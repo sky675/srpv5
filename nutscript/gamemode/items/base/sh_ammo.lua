@@ -80,7 +80,7 @@ ITEM.functions.use = { -- sorry, for name order.
 }
 
 function ITEM:onInstanced()
-	if(item.defQuantity) then
-		item:setQuantity(item.defQuantity)
+	if(self.defQuantity) then
+		self:setQuantity(self.defQuantity)
 	end
 end

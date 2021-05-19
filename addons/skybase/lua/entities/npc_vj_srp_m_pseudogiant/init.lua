@@ -90,6 +90,13 @@ function ENT:CustomOnAlert()
 	end)
 
 end
+function ENT:CustomInitialize()
+	self:SetModelScale(2)
+	self:Activate()
+end
+function ENT:CustomOnDeath_AfterCorpseSpawned(dmginfo,hitgroup,ply) 
+	ply:SetModelScale(2) --just wanna make sure
+end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomOnMeleeAttack_BeforeChecks()
 	--need to look at mutants addon and take that ring code
