@@ -274,13 +274,13 @@ hook.Add("ArcCW_PlayerCanAttach", "pickyatts", function(ply, wep, attname, slot,
 				if(!slotids[k]) then return false end --uhhh
 				if(istable(v)) then
 					--if none exists, check for if its nil first, then stop this if it is
-					if(v["none"] and wep.Attachments[slotids[k]].Installed == nil) then break end
+					if(v["none"] and (wep.Attachments[slotids[k]].Installed == nil or wep.Attachments[slotids[k]].Installed:find("go_extras_"))) then break end
 					if(!v[wep.Attachments[slotids[k]].Installed]) then return false end
 				else
 					if(v != "none") then
 						if(wep.Attachments[slotids[k]].Installed != v) then return false end
 					else
-						if(wep.Attachments[slotids[k]].Installed != nil) then return false end
+						if(wep.Attachments[slotids[k]].Installed != nil and !wep.Attachments[slotids[k]].Installed:find("go_extras_")) then return false end
 					end
 				end
 			end
