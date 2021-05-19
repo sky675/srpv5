@@ -234,21 +234,30 @@ local weaponEdits = {
 		}, 
 		primarymods = {
 			Ammo = "sky23mm"
-		}
+		},
+		--lua_run weapons.GetStored("class").WorldModelOffset.scale = 1
+		wmmods = { --modifying WorldModelOffset
+			scale = 0.8,
+			pos = Vector(-14, 5, -5)
+		},
 	},
 	["arccw_mifl_fas2_m1911"] = {
 		mods = {
 		}, 
 		primarymods = {
 			Ammo = "sky45"
-		}
+		},
 	},
 	["arccw_mifl_fas2_p226"] = {
 		mods = {
 		}, 
 		primarymods = {
 			Ammo = "sky9x19"
-		}
+		},
+		wmmods = { --modifying WorldModelOffset
+			scale = 0.9,
+			pos = Vector(-15.5, 5.5, -2.5)
+		},
 	},
 	["arccw_mifl_fas2_m24"] = {
 		mods = {
@@ -256,7 +265,11 @@ local weaponEdits = {
 		}, 
 		primarymods = {
 			Ammo = "sky762x51"
-		}
+		},
+		wmmods = { --modifying WorldModelOffset
+			scale = 0.8,
+			pos = Vector(-15, 7, -6)
+		},
 	},
 	["arccw_mifl_fas2_sr25"] = {
 		mods = {
@@ -264,7 +277,11 @@ local weaponEdits = {
 		}, 
 		primarymods = {
 			Ammo = "sky762x51"
-		}
+		},
+		wmmods = { --modifying WorldModelOffset
+			scale = 0.9,
+			pos = Vector(-12, 5, -6)
+		},
 	},
 	["arccw_mifl_fas2_g3"] = {
 		mods = {
@@ -272,7 +289,11 @@ local weaponEdits = {
 		}, 
 		primarymods = {
 			Ammo = "sky762x51"
-		}
+		},
+		wmmods = { --modifying WorldModelOffset
+			scale = 0.8,
+			pos = Vector(-12, 5, -5)
+		},
 	},
 	["arccw_mifl_fas2_ak47"] = {
 		mods = {
@@ -280,6 +301,10 @@ local weaponEdits = {
 		}, 
 		primarymods = {
 			Ammo = "sky762x39"
+		},
+		wmmods = { --modifying WorldModelOffset
+			scale = 0.75,
+			pos = Vector(-12.5, 5, -5)
 		}
 	},
 	["arccw_mifl_fas2_rpk"] = {
@@ -288,6 +313,10 @@ local weaponEdits = {
 		}, 
 		primarymods = {
 			Ammo = "sky762x39"
+		},
+		wmmods = { --modifying WorldModelOffset
+			scale = 0.75,
+			pos = Vector(-9.5, 4.5, -5)
 		}
 	},
 	["arccw_mifl_fas2_famas"] = {
@@ -304,6 +333,10 @@ local weaponEdits = {
 		}, 
 		primarymods = {
 			Ammo = "sky556"
+		},
+		wmmods = {
+			scale = 0.8,
+			pos = Vector(-15, 5.5, -7)
 		}
 	},
 	["arccw_mifl_fas2_sg55x"] = {
@@ -312,6 +345,10 @@ local weaponEdits = {
 		}, 
 		primarymods = {
 			Ammo = "sky556"
+		},
+		wmmods = {
+			scale = 0.8,
+			pos = Vector(-6.5, 4, -6)
 		}
 	},
 	["arccw_mifl_fas2_m4a1"] = {
@@ -320,6 +357,10 @@ local weaponEdits = {
 		}, 
 		primarymods = {
 			Ammo = "sky556"
+		},
+		wmmods = {
+			scale = 0.75,
+			pos = Vector(-11, 4.5, -6)
 		}
 	},
 	["arccw_mifl_fas2_toz34"] = {
@@ -327,6 +368,31 @@ local weaponEdits = {
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
+		},
+		wmmods = {
+			scale = 0.7,
+			pos = Vector(-4, 5, -7.5)
+		}
+	},
+	["arccw_mifl_fas2_m3"] = {
+		mods = {
+			TwoHandedWep =true,
+		}, 
+		primarymods = {
+		},
+		wmmods = {
+			scale = 0.75,
+			pos = Vector(-12, 5.5, -7)
+		}
+	},
+	["arccw_mifl_fas2_ragingbull"] = {
+		mods = {
+		}, 
+		primarymods = {
+		},
+		wmmods = {
+			scale = 0.8,
+			pos = Vector(-15.5, 5.5, -5)
 		}
 	},
 	["arccw_mifl_fas2_m79"] = {
@@ -335,6 +401,10 @@ local weaponEdits = {
 		}, 
 		primarymods = {
 			Ammo = "skym203"
+		},
+		wmmods = {
+			scale = 0.7,
+			pos = Vector(-15, 8, -5)
 		}
 	},
 	["arccw_eap_aek"] = {
@@ -634,6 +704,11 @@ local attEdits = {
 			Override_Ammo = "sky9x39"
 		}
 	},
+	["mifl_fas2_ak_mag_20g"] = {
+		mods = {
+			Override_ClipSize = 5
+		}
+	},
 	["mifl_fas2_famas_mag_9mm_25"] = {
 		mods = {
 			--notable things:
@@ -847,6 +922,9 @@ local function PatchWeapon(weapon, name)
 	end
 	for k,v in pairs(tochange.primarymods or {}) do
 		weapon.Primary[k] = v
+	end
+	for k,v in pairs(tochange.wmmods or {}) do
+		weapon.WorldModelOffset[k] = v
 	end
 	if(!tochange.modatts) then return end --small opt
 	local slotids = {}

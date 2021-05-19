@@ -119,6 +119,9 @@ local ammoup = {
 	["arccw_mifl_fas2_sr25"] = {
 		["none"] = "mifl_fas2_sr25_mag_762_20",
 	},
+	["arccw_mifl_fas2_m3"] = {
+		["none"] = "mifl_fas2_m3_tube_x",
+	},
 }
 local ammoslots ={
 	["arccw_go_cz75"] = "go_cz75_mag",
@@ -152,6 +155,7 @@ local ammoslots ={
 	["arccw_mifl_fas2_rpk"] = "mifl_fas2_rpk_mag",
 	["arccw_mifl_fas2_sg55x"] = "mifl_fas2_sg55x_mag",
 	["arccw_mifl_fas2_sr25"] = "mifl_fas2_sr25_mag",
+	["arccw_mifl_fas2_m3"] = "mifl_fas2_m3_mag"
 }
 local shotguns = {
 	["arccw_go_870"] = true,
@@ -162,6 +166,7 @@ local shotguns = {
 	["arccw_mifl_fas2_ks23"] = true,
 	["arccw_mifl_fas2_ak47"] = "mifl_fas2_ak_mag_20g",
 	["arccw_waw_doublebarrel"] = true,
+	["arccw_mifl_fas2_m3"] = true
 }
 //the item, the string to use to find the slot
 local function genericUpgradeValid(items, slotcheck, noshotgun, onlyshotgun)

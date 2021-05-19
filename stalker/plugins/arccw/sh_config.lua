@@ -3161,6 +3161,42 @@ local weaponList = {
 		--	["item"] = 1, --these are the results
 		--},
 	},
+	["cwep_m3"] = {
+		--exclusive upgrade ideas: 
+		--?
+		name = "M3 Super 90",
+		desc = "desc",
+		price = 0,
+		model = "models/weapons/arccw/mifl/fas2/c_m3s90.mdl",
+		width = 4,
+		height = 1,
+		weight = 1,
+		class = "arccw_mifl_fas2_m3",
+		category = "Weapons - Shotguns",
+		type = "shotgun",
+		--flag = "",
+		--defaultMods = {
+		--},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			--["m249_bipod"] =true,
+			["mifl_fas2_m3_mag"] = true,
+			["mifl_fas2_m3_barrel"] = true, --upgrade
+			["mifl_fas2_m3_stock"] = true, --upgrade
+			["mifl_fas2_uni_stock"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+			["perk_fas2"] = true, --upgrade
+		},
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
 	--exotic
 	--aek
 	["cwep_aek"] = {
