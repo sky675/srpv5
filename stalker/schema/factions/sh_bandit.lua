@@ -2,7 +2,7 @@ FACTION.name = "Bandits"
 FACTION.desc = ""
 FACTION.color = Color(110, 110, 110)
 
-FACTION.isDefault = true
+FACTION.isDefault = false
 
 FACTION.hasanorak = true
 FACTION.anorak = 1 --setting this will force their anorak to be this skin

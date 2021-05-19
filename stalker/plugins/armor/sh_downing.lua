@@ -14,6 +14,13 @@ nut.config.add("downedRespawnTimer", 60, "The downed respawn length.", nil, {
 nut.config.add("shootMessages", true, "If on, chat messages are sent to the attacker and victim describing the type of bullet, range, direction, and tells you if you are protected from it or not.", nil, {
 	category = "Shoot to RP"
 })
+nut.config.add("durabilityPenalty", true, "If on, will remove a portion of all equipped items' durability, proportional to the current durability (less current == less lost), on death (when the player actually dies, post death)", nil, {
+	category = "Shoot to RP"
+})
+nut.config.add("durabilityPenaltyAmt", 5, "The maximum amount of durability lost (at 100 durability)", nil,{
+	data = {min = 0, max = 100},
+	category = "Shoot to RP"
+})
 
 
 nut.command.add("settypingimm", {
@@ -589,24 +596,48 @@ if(SERVER) then
 
 	hook.Add("PostPlayerDeath", "downedreset", function(ply)
 		local dw = nut.config.get("downing", false)
-		if (!dw) then return end
 		if(!IsValid(ply)) then return end
 
 		
 
 		if(ply:getChar()) then
+			local durOn = nut.config.get("durabilityPenalty", false)
+			local durAmt = nut.config.get("durabilityPenaltyAmt", 5)
+			if(durOn) then
+				for k,v in pairs(ply:getChar():getInv():getItems()) do
+					local dur = v:getData("durability")
+					if(dur) then
+						if(dur <= 1) then
+							--this is armor
+							durAmt = durAmt / 100
+							local amt = dur*durAmt
+							dur = dur - amt
+						else
+							--this is weps
+							local rat = dur / 100
+							local amt = durAmt*rat
+							dur = dur - amt
+						end
+						v:setData("durability", dur)
+					end
+				end
+			end
+
 			--if they somehow die some other way reset their hp
 			ply:getChar():setData("health", nil)
 
+			if (dw) then
 			ply:setNetVar("neardeath", nil)
 			ply:setNetVar("startdown", nil)
 			ply:setNetVar("canrevive", nil)
 			ply:setNetVar("canresp", nil)
 			ply:setNetVar("canscirevive", nil) 
 			ply:setNetVar("canplatrevive", nil) 
+			end
 			--ply:SetNoTarget(false) --so npcs stop attacking
+			if(nut.config.get("movementEffects", false)) then
 			ply:getChar():setData("leghit", nil, nil, player.GetAll())
-			
+			end
 		end
 	end)
 

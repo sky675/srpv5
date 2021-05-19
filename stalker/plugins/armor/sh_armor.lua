@@ -76,7 +76,7 @@ ARMOR_IIIA = 3
 ARMOR_III = 4
 ARMOR_IV = 5
 ARMOR_V = 6 --unsure if thisll be used but mebi lmao
-
+ARMOR_I = 7 --lol
 
 local blank = {
     ["chest"] = {level = ARMOR_NONE},
@@ -126,8 +126,8 @@ baseammotype = {
 local ammoProtect = {
 	--if the armor level is not in this list, it means the ammo type will pen
 	["sky9x18"] = {
-		jhp = {[ARMOR_NONE] = 1.3, [ARMOR_IIA] = 0.3,[ARMOR_II] = 0.2, [ARMOR_IIIA] = 0.15, [ARMOR_III] = 0.03, [ARMOR_IV] = 0.01},
-		normal = {[ARMOR_IIA] = 0.5,[ARMOR_II] = 0.35, [ARMOR_IIIA] = 0.2, [ARMOR_III] = 0.05, [ARMOR_IV] = 0.025},
+		jhp = {[ARMOR_NONE] = 1.3, [ARMOR_I] = 0.6, [ARMOR_IIA] = 0.3,[ARMOR_II] = 0.2, [ARMOR_IIIA] = 0.15, [ARMOR_III] = 0.03, [ARMOR_IV] = 0.01},
+		normal = {[ARMOR_I] = 0.75, [ARMOR_IIA] = 0.5,[ARMOR_II] = 0.35, [ARMOR_IIIA] = 0.2, [ARMOR_III] = 0.05, [ARMOR_IV] = 0.025},
 		ap = {[ARMOR_II] = 0.5, [ARMOR_IIIA] = 0.35, [ARMOR_III] = 0.2, [ARMOR_IV] = 0.05},
 	},
 	["sky9x19"] = {
@@ -250,6 +250,7 @@ end
 
 local stringtoenum = {
 	none = ARMOR_NONE,
+	I = ARMOR_I,
 	IIA = ARMOR_IIA,
 	II = ARMOR_II,
 	IIIA = ARMOR_IIIA,
