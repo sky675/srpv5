@@ -98,7 +98,7 @@ function ITEM:getCustomGS()
 	else
 		tbl.model = "models/sky/seperate/male_radsuit.mdl"
 	end
-
+	tbl.submat = {}
 	local exskin = self:getData("exskin")
 	if(exskin and TEXTURETABLE[exskin]) then
 		tbl.submat = TEXTURETABLE[exskin]

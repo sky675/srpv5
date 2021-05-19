@@ -98,7 +98,7 @@ function ITEM:getCustomGS()
 	else
 		tbl.model = "models/sky/seperate/male_skat.mdl"
 	end
-
+	tbl.submat = {}
 	local exskin = self:getData("exskin")
 	if(exskin and TEXTURETABLE[exskin]) then
 		tbl.submat = TEXTURETABLE[exskin]
@@ -117,7 +117,7 @@ end
 
 ITEM.upgradePath = "skat"
 ITEM.armor = {
-	chest = {level = ARMOR_IIIp},
+	chest = {level = ARMOR_IV},
 	larm = {level = ARMOR_IIIA},
 	rarm = {level = ARMOR_IIIA},
 	lleg = {level = ARMOR_IIIA},

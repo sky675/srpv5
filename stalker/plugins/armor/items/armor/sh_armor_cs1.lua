@@ -1,5 +1,5 @@
 ITEM.name = "CS-1 Suit" --3a/medium
-ITEM.desc = "Clear Sky's heavy armor."
+ITEM.desc = "Clear Sky's heavy armor without their colors."
 ITEM.model = "models/sky/seperate/male_cs1.mdl"
 ITEM.category = "Clothing"
 ITEM.skin = 0
@@ -98,7 +98,7 @@ function ITEM:getCustomGS()
 	else
 		tbl.model = "models/sky/seperate/male_cs1.mdl"
 	end
-
+	tbl.submat = {}
 	local exskin = self:getData("exskin")
 	if(exskin and TEXTURETABLE[exskin]) then
 		tbl.submat = TEXTURETABLE[exskin]

@@ -147,7 +147,7 @@ end
 
 ITEM.upgradePath = "skat"
 ITEM.armor = {
-	chest = {level = ARMOR_IIIp},
+	chest = {level = ARMOR_IV},
 	larm = {level = ARMOR_IIIA},
 	rarm = {level = ARMOR_IIIA},
 	lleg = {level = ARMOR_IIIA},

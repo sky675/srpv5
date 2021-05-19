@@ -318,7 +318,7 @@ ITEM.overlaytype = "tact"
 
 ITEM.upgradePath = "helmskat"
 ITEM.armor = {
-	head = {level = ARMOR_III},
+	head = {level = ARMOR_IV},
 }
 ITEM.resists = {
 	--burn
