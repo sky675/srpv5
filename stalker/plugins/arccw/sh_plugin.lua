@@ -8,6 +8,7 @@ nut.util.include("sh_config.lua")
 nut.util.include("sh_patch.lua")
 nut.util.include("sv_dura.lua")
 
+--it hurts
 nut.config.add("weaponDurability", false, "enables weapon durability", nil, {
 	category = "server"
 })

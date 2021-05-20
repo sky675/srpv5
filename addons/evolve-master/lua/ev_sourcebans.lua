@@ -3,7 +3,7 @@
 	true OR false
 ]]--
 
-local SourceBansEnabled = false
+local SourceBansEnabled = true
 
 --[[
 	STOP EDITING AGAIN HERE
@@ -17,10 +17,10 @@ require( "sourcebans" )
 	EDIT THE FOLLOWING INFO
 ]]--
 
-sourcebans.SetConfig( "hostname", "127.0.0.1" )
-sourcebans.SetConfig( "username", "root" )
-sourcebans.SetConfig( "password", "" )
-sourcebans.SetConfig( "database", "sourcebans" )
+sourcebans.SetConfig( "hostname", "gspdb-chi.hosthavoc.com" )
+sourcebans.SetConfig( "username", "db99993" )
+sourcebans.SetConfig( "password", "23diFRrlRL" )
+sourcebans.SetConfig( "database", "db99993" )
 sourcebans.SetConfig( "dbprefix", "sb" )
 sourcebans.SetConfig( "portnumb", 3306 )
 sourcebans.SetConfig( "serverid", 1 )
