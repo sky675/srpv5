@@ -112,15 +112,6 @@ local blankres = {
 }
 
 
-
---[[TODO REDO: should be ammo based like so:
---the actual ammo type
-baseammotype = {
-	--special ammo type(or default is normal) and then a table of the armor levels with a protection % to multi dmg by, default is 0 (completely protected)
-	normal = {[ARMOR_IIA] = 0.9,},
-	spec = {[ARMOR_NONE] = 1.5,},
-},
-]]
 --new ammos =
 --shotgun = flechette
 local ammoProtect = {

@@ -67,6 +67,7 @@ hook.Add("PostLootMutant", "dura", function(ply, weapon)
 end)
 hook.Add("Hook_PostBash", "dura", function(weapon, data)
 	if(weapon.PrimaryBash and IsValid(data.tr.Entity) and weapon.nutItem) then
+		if(!nut.config.get("weaponDurability", false)) then return end
 		local item = weapon.nutItem
 		local dura = item:getData("durability", 100)
 		local newDura = dura or 100
@@ -96,6 +97,7 @@ end)
 hook.Add("Hook_PostFireBullets", "dura", function(weapon)
 	//this hook is only ran after the bullet has fired
 	if(!weapon:GetInUBGL() && weapon.nutItem) then
+		if(!nut.config.get("weaponDurability", false)) then return end
 		local item = weapon.nutItem
 		local dura = item:getData("durability", 100)
 		local newDura = dura or 100

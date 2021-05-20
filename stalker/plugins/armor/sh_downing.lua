@@ -645,6 +645,7 @@ if(SERVER) then
 							dur = dur - amt
 						else
 							--this is weps
+							if(!nut.config.get("weaponDurability", true)) then continue end
 							local rat = dur / 100
 							local amt = durAmt*rat
 							dur = dur - amt
