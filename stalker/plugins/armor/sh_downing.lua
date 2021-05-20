@@ -832,7 +832,7 @@ else --client
 		end
 		
 		if(target == LocalPlayer()) then --incoming damage
-			if(prot == 1) then
+			if(prot >= 1) then --this can be above 1 now lol
 				protection = "You are not protected from the bullet."
 			else
 				protection = "Your armor protects you from the bullet."
@@ -840,7 +840,7 @@ else --client
 
 			chat.AddText("You were hit by "..(ammoStrings[ammo] or ammo).." in "..(hitStrings[hitgroup] or "an unknown place").." from "..dist.." meters away! "..protection.." Bearing: "..math.Round(bear, 0))
 		else --confirmation
-			if(prot == 1) then
+			if(prot >= 1) then
 				protection = "They do not appear to be protected from the bullet."
 			else
 				protection = "They appear to be protected from the bullet."
