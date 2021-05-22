@@ -18,6 +18,7 @@ local weaponEdits = {
 	["arccw_go_870"] = {
 		mods = {
 			TwoHandedWep =true,
+			Type = "shotgun", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
 		}
@@ -25,6 +26,7 @@ local weaponEdits = {
 	["arccw_go_nova"] = {
 		mods = {
 			TwoHandedWep =true,
+			Type = "shotgun", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
 		}
@@ -32,6 +34,7 @@ local weaponEdits = {
 	["arccw_go_m1014"] = {
 		mods = {
 			TwoHandedWep =true,
+			Type = "shotgun", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
 		}
@@ -39,6 +42,7 @@ local weaponEdits = {
 	["arccw_go_mag7"] = {
 		mods = {
 			TwoHandedWep =true,
+			Type = "shotgun", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
 		}
@@ -46,12 +50,14 @@ local weaponEdits = {
 	["arccw_go_870"] = {
 		mods = {
 			TwoHandedWep =true,
+			Type = "shotgun", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
 		}
 	},
 	["arccw_go_glock"] = {
 		mods = {
+			Type = "pistol", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
 			Ammo = "sky9x19"
@@ -59,6 +65,7 @@ local weaponEdits = {
 	},
 	["arccw_go_m9"] = {
 		mods = {
+			Type = "pistol", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
 			Ammo = "sky9x19"
@@ -66,6 +73,7 @@ local weaponEdits = {
 	},
 	["arccw_go_usp"] = {
 		mods = {
+			Type = "pistol", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
 			Ammo = "sky45"
@@ -73,6 +81,7 @@ local weaponEdits = {
 	},
 	["arccw_go_cz75"] = {
 		mods = {
+			Type = "pistol", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
 			Ammo = "sky9x19"
@@ -80,6 +89,7 @@ local weaponEdits = {
 	},
 	["arccw_go_p2000"] = {
 		mods = {
+			Type = "pistol", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
 			Ammo = "sky9x19"
@@ -87,6 +97,7 @@ local weaponEdits = {
 	},
 	["arccw_go_deagle"] = {
 		mods = {
+			Type = "pistol", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
 			Ammo = "sky50ae"
@@ -94,6 +105,7 @@ local weaponEdits = {
 	},
 	["arccw_go_tec9"] = {
 		mods = {
+			Type = "pistol", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -102,6 +114,7 @@ local weaponEdits = {
 	},
 	["arccw_go_fiveseven"] = {
 		mods = {
+			Type = "pistol", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
 			Ammo = "sky57"
@@ -109,6 +122,7 @@ local weaponEdits = {
 	},
 	["arccw_go_mp5"] = {
 		mods = {
+			Type = "smg", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -117,6 +131,7 @@ local weaponEdits = {
 	},
 	["arccw_go_bizon"] = {
 		mods = {
+			Type = "smg", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -125,6 +140,7 @@ local weaponEdits = {
 	},
 	["arccw_go_ump"] = {
 		mods = {
+			Type = "smg", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -133,6 +149,7 @@ local weaponEdits = {
 	},
 	["arccw_go_mac10"] = {
 		mods = {
+			Type = "smg", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -141,6 +158,7 @@ local weaponEdits = {
 	},
 	["arccw_go_mp9"] = {
 		mods = {
+			Type = "smg", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -149,6 +167,7 @@ local weaponEdits = {
 	},
 	["arccw_go_p90"] = {
 		mods = {
+			Type = "smg", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -157,6 +176,7 @@ local weaponEdits = {
 	},
 	["arccw_go_mp7"] = {
 		mods = {
+			Type = "smg", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -181,6 +201,7 @@ local weaponEdits = {
 	},
 	["arccw_go_aug"] = {
 		mods = {
+			Type = "ar", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -190,6 +211,7 @@ local weaponEdits = {
 	},
 	["arccw_go_awp"] = {
 		mods = {
+			Type = "sniper", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -198,6 +220,7 @@ local weaponEdits = {
 	},
 	["arccw_go_fnfal"] = {
 		mods = {
+			Type = "ar", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -206,6 +229,7 @@ local weaponEdits = {
 	},
 	["arccw_go_scar"] = {
 		mods = {
+			Type = "ar", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -214,6 +238,7 @@ local weaponEdits = {
 	},
 	["arccw_go_ace"] = {
 		mods = {
+			Type = "ar", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -222,6 +247,7 @@ local weaponEdits = {
 	},
 	["arccw_go_galil_ar"] = {
 		mods = {
+			Type = "ar", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -230,6 +256,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_ks23"] = {
 		mods = {
+			Type = "shotgun", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -243,6 +270,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_m1911"] = {
 		mods = {
+			Type = "pistol", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
 			Ammo = "sky45"
@@ -250,6 +278,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_p226"] = {
 		mods = {
+			Type = "pistol", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
 			Ammo = "sky9x19"
@@ -261,6 +290,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_m24"] = {
 		mods = {
+			Type = "sniper", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -273,6 +303,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_sr25"] = {
 		mods = {
+			Type = "sniper", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -285,6 +316,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_g3"] = {
 		mods = {
+			Type = "ar", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -297,6 +329,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_ak47"] = {
 		mods = {
+			Type = "ar", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -321,6 +354,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_famas"] = {
 		mods = {
+			Type = "ar", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -329,6 +363,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_g36c"] = {
 		mods = {
+			Type = "ar", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -341,6 +376,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_sg55x"] = {
 		mods = {
+			Type = "ar", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -353,6 +389,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_m4a1"] = {
 		mods = {
+			Type = "ar", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -365,6 +402,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_toz34"] = {
 		mods = {
+			Type = "shotgun", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -376,6 +414,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_m3"] = {
 		mods = {
+			Type = "shotgun", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -387,6 +426,7 @@ local weaponEdits = {
 	},
 	["arccw_mifl_fas2_ragingbull"] = {
 		mods = {
+			Type = "pistol", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
 		},
@@ -409,6 +449,7 @@ local weaponEdits = {
 	},
 	["arccw_eap_aek"] = {
 		mods = {
+			Type = "ar", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -417,6 +458,7 @@ local weaponEdits = {
 	},
 	["arccw_eap_groza"] = {
 		mods = {
+			Type = "ar", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -425,6 +467,7 @@ local weaponEdits = {
 	},
 	["arccw_bo2_browninghp"] = {
 		mods = {
+			Type = "pistol", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
 			Ammo = "sky9x19"
@@ -437,6 +480,7 @@ local weaponEdits = {
 	},
 	["arccw_waw_doublebarrel"] = {
 		mods = {
+			Type = "shotgun", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -449,6 +493,7 @@ local weaponEdits = {
 	},
 	["arccw_bo1_uzi"] = {
 		mods = {
+			Type = "smg", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -462,6 +507,7 @@ local weaponEdits = {
 	},
 	["arccw_waw_ppsh41"] = {
 		mods = {
+			Type = "smg", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -486,6 +532,7 @@ local weaponEdits = {
 	},
 	["arccw_temp_makarov"] = {
 		mods = {
+			Type = "pistol", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
 			Ammo = "sky9x18"
@@ -493,6 +540,7 @@ local weaponEdits = {
 	},
 	["arccw_temp_tt33"] = {
 		mods = {
+			Type = "pistol", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
 			Ammo = "sky762x25"
@@ -500,6 +548,7 @@ local weaponEdits = {
 	},
 	["arccw_temp_skorpion"] = {
 		mods = {
+			Type = "pistol", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -508,6 +557,7 @@ local weaponEdits = {
 	},
 	["arccw_temp_mosin"] = {
 		mods = {
+			Type = "sniper", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -516,6 +566,7 @@ local weaponEdits = {
 	},
 	["arccw_temp_svt"] = {
 		mods = {
+			Type = "sniper", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
@@ -524,6 +575,7 @@ local weaponEdits = {
 	},
 	["arccw_temp_sks"] = {
 		mods = {
+			Type = "sniper", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
