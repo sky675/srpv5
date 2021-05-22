@@ -47,7 +47,7 @@ local weaponList = {
 		--long slide go_glock_slide_long, 
 		--ext mag go_glock_mag_28
 		name = "Glock 17",
-		desc = "desc",
+		desc = "A popular pistol chambered in 9x19mm.",
 		price = 10960,
 		model = "models/weapons/arccw_go/v_pist_glock.mdl",
 		width = 2,
@@ -82,7 +82,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--ext mag go_glock_mag_28
 		name = "Glock 26",
-		desc = "desc",
+		desc = "A compact pistol chambered in 9x19mm.",
 		price = 9200,
 		model = "models/weapons/arccw_go/v_pist_glock.mdl",
 		groups = {
@@ -90,7 +90,7 @@ local weaponList = {
 			[1] = 1,
 			[2] = 1
 		},
-		width = 2,
+		width = 1,
 		height = 1,
 		weight = 0.56,
 		class = "arccw_go_glock",
@@ -122,7 +122,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--ext mag go_glock_mag_28
 		name = "Glock 18",
-		desc = "desc",
+		desc = "A machine pistol chambered in 9x19mm.",
 		price = 14040,
 		model = "models/weapons/arccw_go/v_pist_glock.mdl",
 		groups = {
@@ -161,7 +161,7 @@ local weaponList = {
 		--long slide go_glock_slide_long, 
 		--ext mag go_glock_mag_26_45acp
 		name = "Glock 21",
-		desc = "desc",
+		desc = "A pistol chambered in .45 ACP.",
 		price = 11010,
 		model = "models/weapons/arccw_go/v_pist_glock.mdl",
 		width = 2,
@@ -196,7 +196,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--ext mag go_glock_mag_26_45acp
 		name = "Glock 30",
-		desc = "desc",
+		desc = "A compact pistol chambered in .45 ACP.",
 		price = 8900,
 		model = "models/weapons/arccw_go/v_pist_glock.mdl",
 		groups = {
@@ -204,7 +204,7 @@ local weaponList = {
 			[1] = 1,
 			[2] = 1
 		},
-		width = 2,
+		width = 1,
 		height = 1,
 		weight = 0.68,
 		class = "arccw_go_glock",
@@ -239,7 +239,7 @@ local weaponList = {
 		--unsure if should have different slides as upgrades or as other guns
 		--ext mag go_m9_mag_24
 		name = "M92FS",
-		desc = "desc",
+		desc = "A pistol chambered in 9x19mm.",
 		price = 7120,
 		model = "models/weapons/arccw_go/v_pist_m9.mdl",
 		width = 2,
@@ -275,7 +275,7 @@ local weaponList = {
 		--unsure if should have different slides as upgrades or as other guns
 		--ext mag go_m9_mag_24
 		name = "M93R",
-		desc = "desc",
+		desc = "A machine pistol that can fire in 3 round bursts chambered in 9x19mm.",
 		price = 13500,
 		model = "models/weapons/arccw_go/v_pist_m9.mdl",
 		groups = {
@@ -315,7 +315,7 @@ local weaponList = {
 		--unsure if should have different slides as upgrades or as other guns
 		--ext mag go_usp_mag_20 go_usp_mag_30
 		name = "USP-45",
-		desc = "desc",
+		desc = "A pistol chambered in .45 ACP.",
 		price = 10960,
 		model = "models/weapons/arccw_go/v_pist_usp.mdl",
 		width = 2,
@@ -352,7 +352,7 @@ local weaponList = {
 		--unsure if should have different slides as upgrades or as other guns
 		--ext mag go_usp_mag_25_9 go_usp_mag_40_9 
 		name = "USP-9",
-		desc = "desc",
+		desc = "A pistol chambered in 9x19mm.",
 		price = 11050,
 		model = "models/weapons/arccw_go/v_pist_usp.mdl",
 		width = 2,
@@ -389,7 +389,7 @@ local weaponList = {
 		--unsure if should have different slides as upgrades or as other guns
 		--ext mag go_usp_mag_25_9 go_usp_mag_40_9 
 		name = "USP Match",
-		desc = "desc",
+		desc = "A pistol with a match compensator chambered in 9x19mm.",
 		price = 15360,
 		model = "models/weapons/arccw_go/v_pist_usp.mdl", --extras phys is fucked
 		width = 2,
@@ -428,7 +428,7 @@ local weaponList = {
 		--unsure if should have different slides as upgrades or as other guns
 		--ext mag go_cz75_mag_30
 		name = "CZ-75",
-		desc = "desc",
+		desc = "A pistol chambered in 9x19mm.",
 		price = 9850,
 		model = "models/weapons/arccw_go/v_pist_cz75.mdl",
 		width = 2,
@@ -505,7 +505,7 @@ local weaponList = {
 		--unsure if should have different slides as upgrades or as other guns
 		--ext mag go_p2000_mag_24
 		name = "P2000",
-		desc = "desc",
+		desc = "A pistol chambered in 9x19mm.",
 		price = 10600,
 		model = "models/weapons/arccw_go/v_pist_p2000.mdl",
 		width = 2,
@@ -542,7 +542,7 @@ local weaponList = {
 		--unsure if should have different slides as upgrades or as other guns
 		--ext mag go_p250_mag_24_9mm
 		name = "P250",
-		desc = "desc",
+		desc = "A pistol chambered in 9x19mm.",
 		price = 10900,
 		model = "models/weapons/arccw_go/v_pist_p250.mdl",
 		width = 2,
@@ -578,7 +578,7 @@ local weaponList = {
 		--unsure if should have different slides as upgrades or as other guns
 		--ext mag go_p250_mag_15_45acp
 		name = "P250 .45",
-		desc = "desc",
+		desc = "A pistol chambered in .45 ACP.",
 		price = 11900,
 		model = "models/weapons/arccw_go/v_pist_p250.mdl",
 		width = 2,
@@ -615,7 +615,7 @@ local weaponList = {
 		--unsure if should have different slides as upgrades or as other guns
 		--ext mag go_deagle_mag_9
 		name = "Desert Eagle",
-		desc = "desc",
+		desc = "A pistol chambered in .50 Action Express.",
 		price = 19680,
 		model = "models/weapons/arccw_go/v_pist_deagle.mdl",
 		width = 2,
@@ -653,7 +653,7 @@ local weaponList = {
 		--ext mag go_tec9_mag_32
 		--auto go_homemade_auto - tbh could do the auto elsewhere, tho this one is exclusive to this and ar15
 		name = "TEC-9",
-		desc = "desc",
+		desc = "A pistol chambered in 9x19mm.",
 		price = 13600,
 		model = "models/weapons/arccw_go/v_pist_tec9.mdl",
 		width = 2,
@@ -691,7 +691,7 @@ local weaponList = {
 		--unsure if should have different slides as upgrades or as other guns
 		--ext mag go_fiveseven_mag_30
 		name = "Five-seveN",
-		desc = "desc",
+		desc = "A pistol chambered in 5.7x28mm.",
 		price = 15280,
 		model = "models/weapons/arccw_go/v_pist_fiveseven.mdl",
 		width = 2,
@@ -727,7 +727,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--ext mag go_mp5_mag_40
 		name = "MP5A3",
-		desc = "desc",
+		desc = "A SMG chambered in 9x19mm.",
 		price = 20380,
 		model = "models/weapons/arccw_go/v_smg_mp5.mdl",
 		width = 3,
@@ -764,7 +764,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--ext mag go_mp5_mag_40
 		name = "MP5SD3",
-		desc = "desc",
+		desc = "An internally suppressed SMG chambered in 9x19mm.",
 		price = 21880,
 		model = "models/weapons/arccw_go/v_smg_mp5.mdl",
 		groups = {
@@ -806,7 +806,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "PP-19 Bizon",
-		desc = "desc",
+		desc = "A SMG chambered in 9x18mm.",
 		price = 18560,
 		model = "models/weapons/arccw_go/v_smg_bizon.mdl",
 		width = 3,
@@ -844,7 +844,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "UMP-45",
-		desc = "desc",
+		desc = "A SMG chambered in .45 ACP.",
 		price = 28980,
 		model = "models/weapons/arccw_go/v_smg_ump45.mdl",
 		width = 3,
@@ -881,7 +881,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "UMP-9",
-		desc = "desc",
+		desc = "A SMG chambered in 9x19mm.",
 		price = 28620,
 		model = "models/weapons/arccw_go/v_smg_ump45.mdl",
 		groups = {
@@ -924,7 +924,7 @@ local weaponList = {
 		--ext mag go_mac10_mag_48
 		--heavy stock go_mac10_stock_heavy
 		name = "MAC-10",
-		desc = "desc",
+		desc = "A SMG chambered in .45 ACP.",
 		price = 29450,
 		model = "models/weapons/arccw_go/v_smg_mac10.mdl",
 		width = 3,
@@ -962,7 +962,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "MP9",
-		desc = "desc",
+		desc = "A SMG chambered in 9x19mm.",
 		price = 30650,
 		model = "models/weapons/arccw_go/v_smg_mp9.mdl",
 		width = 3,
@@ -1000,7 +1000,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "P90",
-		desc = "desc",
+		desc = "A SMG chambered in 5.7x28mm.",
 		price = 39880,
 		model = "models/weapons/arccw_go/v_smg_p90.mdl",
 		width = 3,
@@ -1035,7 +1035,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--ext mag go_mp7_mag_40
 		name = "MP7",
-		desc = "desc",
+		desc = "A SMG chambered in 4.6x30mm.",
 		price = 23300,
 		model = "models/weapons/arccw_go/v_smg_mp7.mdl",
 		width = 3,
@@ -1073,7 +1073,7 @@ local weaponList = {
 		--long barrel go_870_barrel_long
 		--tube stocks
 		name = "Remington Model 870",
-		desc = "desc",
+		desc = "A pump-action shotgun chambered in 12 gauge.",
 		price = 23600,
 		model = "models/weapons/arccw_go/v_shot_870.mdl",
 		width = 4,
@@ -1109,7 +1109,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--idk
 		name = "Remington Model 870 Sawn-off",
-		desc = "desc",
+		desc = "A sawn-off pump-action shotgun chambered in 12 gauge.",
 		price = 21600,
 		model = "models/weapons/arccw_go/v_shot_870.mdl",
 		groups = {
@@ -1156,7 +1156,7 @@ local weaponList = {
 		--long barrel go_nova_barrel_long
 		--sport stock go_nova_stock_sport + tube stocks
 		name = "SuperNova",
-		desc = "desc",
+		desc = "A pump-action shotgun chambered in 12 gauge.",
 		price = 25600,
 		model = "models/weapons/arccw_go/v_shot_nova.mdl",
 		width = 4,
@@ -1195,7 +1195,7 @@ local weaponList = {
 		--long barrel go_m1014_barrel_long
 		--tube stocks
 		name = "M1014",
-		desc = "desc",
+		desc = "A semi-auto shotgun chambered in 12 gauge.",
 		price = 34600,
 		model = "models/weapons/arccw_go/v_shot_m1014.mdl",
 		width = 4,
@@ -1232,7 +1232,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--eh
 		name = "MAG-7",
-		desc = "desc",
+		desc = "A mag-fed pump-action shotgun chambered in 12 gauge.",
 		price = 36800,
 		model = "models/weapons/arccw_go/v_shot_mag7.mdl",
 		width = 3,
@@ -1269,7 +1269,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--9mm go_m249_mag_9_200 shotgun go_m249_mag_12g_45
 		name = "M249 SAW",
-		desc = "desc",
+		desc = "A light machinegun chambered in 5.56x45mm.",
 		price = 56580,
 		model = "models/weapons/arccw_go/v_mach_m249para.mdl",
 		width = 5,
@@ -1307,7 +1307,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "IWI Negev",
-		desc = "desc",
+		desc = "A light machine gun chambered in 7.62x51mm.",
 		price = 57560,
 		model = "models/weapons/arccw_go/v_mach_negev.mdl",
 		width = 5,
@@ -1347,7 +1347,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "AUG A3",
-		desc = "desc",
+		desc = "A bullpup assault rifle chambered in 5.56x45mm.",
 		price = 43600,
 		model = "models/weapons/arccw_go/v_rif_aug.mdl",
 		width = 4,
@@ -1383,7 +1383,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "AUG Para",
-		desc = "desc",
+		desc = "A bullpup SMG chambered in 9x19mm.",
 		price = 39650,
 		model = "models/weapons/arccw_go/v_rif_aug.mdl",
 		groups = {
@@ -1426,7 +1426,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--obrez lol go_awp_barrel_short go_awp_stock_obrez
 		name = "AWM",
-		desc = "desc",
+		desc = "A bolt-action rifle chambered in .338 Lapua.",
 		price = 76580,
 		model = "models/weapons/arccw_go/v_snip_awp.mdl",
 		width = 5,
@@ -1464,7 +1464,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "FN FAL",
-		desc = "desc",
+		desc = "A battle rifle chambered by 7.62x51mm NATO.",
 		price = 31300,
 		model = "models/weapons/arccw_go/v_rif_fnfal.mdl",
 		groups = {
@@ -1508,7 +1508,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "FN FAL Para",
-		desc = "desc",
+		desc = "A battle rifle chambered in 7.62x51mm NATO.",
 		price = 31600,
 		model = "models/weapons/arccw_go/v_rif_fnfal.mdl",
 		groups = {
@@ -1552,7 +1552,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--sniper cfg: go_scar_barrel_long go_scar_stock_sniper
 		name = "FN SCAR-H",
-		desc = "desc",
+		desc = "A battle rifle in 7.62x51mm NATO.",
 		price = 55880,
 		model = "models/weapons/arccw_go/v_rif_scar.mdl",
 		width = 5,
@@ -1589,7 +1589,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "FN SCAR-L",
-		desc = "desc",
+		desc = "An assault rifle chambered in 5.56x45mm.",
 		price = 35600,
 		model = "models/weapons/arccw_go/v_rif_scar.mdl",
 		groups = {
@@ -1632,14 +1632,14 @@ local weaponList = {
 	["cwep_ace22"] = {
 		--exclusive upgrade ideas: 
 		name = "ACE 22",
-		desc = "desc",
+		desc = "An assault rifle in 5.56x45mm.",
 		price = 31580,
 		model = "models/weapons/arccw_go/v_rif_ace.mdl",
 		width = 4,
 		height = 2,
 		weight = 3.4,
 		class = "arccw_go_ace",
-		category = "Weapons - Rifles",
+		category = "Weapons - ARs",
 		type = "n",
 		--flag = "",
 		defaultMods = {
@@ -1668,7 +1668,7 @@ local weaponList = {
 	["cwep_ace32"] = {
 		--exclusive upgrade ideas: 
 		name = "ACE 32",
-		desc = "desc",
+		desc = "An assault rifle chambered in 7.62x39mm.",
 		price = 36530,
 		model = "models/weapons/arccw_go/v_rif_ace.mdl",
 		groups = {
@@ -1678,7 +1678,7 @@ local weaponList = {
 		height = 2,
 		weight = 3.5,
 		class = "arccw_go_ace",
-		category = "Weapons - Rifles",
+		category = "Weapons - ARs",
 		type = "ws",
 		--flag = "",
 		defaultMods = {
@@ -1709,7 +1709,7 @@ local weaponList = {
 	["cwep_galil"] = {
 		--exclusive upgrade ideas: 
 		name = "IWI Galil AR",
-		desc = "desc",
+		desc = "An assault rifle chambered in 7.62x39mm.",
 		price = 38580,
 		model = "models/weapons/arccw_go/v_rif_galil_ar.mdl",
 		width = 4,
@@ -1746,7 +1746,7 @@ local weaponList = {
 		--obrez go_ssg08_barrel_short go_stock_none
 		--ehhhh maybe an upgrade to change it back to 308?
 		name = "SSG08",
-		desc = "desc modified to take 762x51",
+		desc = "A bolt-action rifle modified to take 7.62x51mm NATO.",
 		price = 70400,
 		model = "models/weapons/w_snip_scout.mdl",
 		width = 5,
@@ -1785,7 +1785,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "TOZ-34",
-		desc = "desc",
+		desc = "An over/under double barrel shotgun.",
 		price = 14800,
 		model = "models/weapons/arccw/mifl/fas2/c_toz34.mdl",
 		width = 4,
@@ -1821,8 +1821,8 @@ local weaponList = {
 	["cwep_toz34sawn"] = {
 		--exclusive upgrade ideas: 
 		--?
-		name = "TOZ-34 Sawnoff",
-		desc = "desc",
+		name = "TOZ-34 Sawn-off",
+		desc = "A sawn-off over/under double barrel shotgun.",
 		price = 9860,
 		model = "models/weapons/arccw/mifl/fas2/c_toz34.mdl",
 		groups = {
@@ -1867,7 +1867,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "KS-23",
-		desc = "desc",
+		desc = "A shotgun chambered in 23mm shells.",
 		price = 72150,
 		model = "models/weapons/arccw/mifl/fas2/c_ks23.mdl",
 		width = 4,
@@ -1905,7 +1905,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "M1911",
-		desc = "desc",
+		desc = "A pistol chambered in .45 ACP.",
 		price = 8560,
 		model = "models/weapons/arccw/mifl/fas2/c_m1911.mdl",
 		width = 4,
@@ -1944,7 +1944,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "P226",
-		desc = "desc",
+		desc = "A pistol chambered in 9x19mm.",
 		price = 12480,
 		model = "models/weapons/arccw/mifl/fas2/c_p226.mdl",
 		width = 4,
@@ -1983,7 +1983,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "M24",
-		desc = "desc",
+		desc = "A bolt-action rifle chambered in 7.62x51mm NATO.",
 		price = 76680,
 		model = "models/weapons/arccw/mifl/fas2/c_m24.mdl",
 		width = 5,
@@ -2020,7 +2020,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "SR-25",
-		desc = "desc",
+		desc = "A semi-auto rifle chambered in 7.62x51mm NATO.",
 		price = 70780, --50780
 		model = "models/weapons/arccw/mifl/fas2/c_sr25.mdl",
 		width = 5,
@@ -2060,7 +2060,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "G3A3",
-		desc = "desc",
+		desc = "A battle rifle chambered in 7.62x51mm NATO.",
 		price = 39880,
 		model = "models/weapons/arccw/mifl/fas2/c_g3.mdl",
 		width = 5,
@@ -2100,7 +2100,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "AKM",
-		desc = "desc",
+		desc = "An assault rifle chambered in 7.62x39mm.",
 		price = 28780,
 		model = "models/weapons/arccw/mifl/fas2/c_ak47.mdl",
 		width = 4,
@@ -2138,7 +2138,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "AK74",
-		desc = "desc",
+		desc = "An assault rifle with a wooden stock chambered in 5.45x39mm.",
 		price = 26950,
 		model = "models/weapons/arccw/mifl/fas2/c_ak47.mdl",
 		groups = {
@@ -2179,7 +2179,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "AKS74",
-		desc = "desc",
+		desc = "An assault rifle with a folding stock chambered in 5.45x39mm.",
 		price = 25860,
 		model = "models/weapons/arccw/mifl/fas2/c_ak47.mdl",
 		groups = {
@@ -2222,7 +2222,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "AKS74U",
-		desc = "desc",
+		desc = "A carbine with a folding stock chambered in 5.45x39mm.",
 		price = 20870,
 		model = "models/weapons/arccw/mifl/fas2/c_ak47.mdl",
 		groups = {
@@ -2268,7 +2268,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "Dragunov SVD",
-		desc = "desc kinda bootleg",
+		desc = "A kinda bootleg version of a semi-auto rifle chambered in 7.62x54mmR.",
 		price = 40550,
 		model = "models/weapons/arccw/mifl/fas2/c_ak47.mdl",
 		groups = {
@@ -2314,7 +2314,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "AS Val",
-		desc = "desc kinda bootleg",
+		desc = "A kinda bootleg version of an assault rifle chambered in 9x39mm.",
 		price = 38860,
 		model = "models/weapons/arccw/mifl/fas2/c_ak47.mdl",
 		groups = {
@@ -2359,7 +2359,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "VSS Vintorez",
-		desc = "desc kinda bootleg",
+		desc = "A kinda bootleg version of a rifle chambered in 9x39mm.",
 		price = 40560,
 		model = "models/weapons/arccw/mifl/fas2/c_ak47.mdl",
 		groups = {
@@ -2405,7 +2405,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "AN94",
-		desc = "desc kinda bootleg",
+		desc = "A kinda bootleg version of an assault rifle chambered in 5.45x39mm. Does not have the 2 round burst, sorry.",
 		price = 35850,
 		model = "models/weapons/arccw/mifl/fas2/c_ak47.mdl",
 		groups = {
@@ -2450,7 +2450,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "AK12",
-		desc = "desc kinda bootleg",
+		desc = "A kinda bootleg version of an assault rifle chambered in 5.45x39mm.",
 		price = 36880,
 		model = "models/weapons/arccw/mifl/fas2/c_ak47.mdl",
 		groups = {
@@ -2496,7 +2496,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "Saiga-12",
-		desc = "desc kinda bootleg",
+		desc = "A kinda bootleg version of a mag-fed semi-auto shotgun chambered in 12 gauge.",
 		price = 31680,
 		model = "models/weapons/arccw/mifl/fas2/c_ak47.mdl",
 		groups = {
@@ -2541,7 +2541,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "RPK",
-		desc = "desc",
+		desc = "A light machine gun chambered in 7.62x39mm.",
 		price = 35860,
 		model = "models/weapons/arccw/mifl/fas2/c_rpk.mdl",
 		width = 5,
@@ -2580,7 +2580,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "FAMAS F1",
-		desc = "desc",
+		desc = "An assault rifle chambered in 5.56x45mm.",
 		price = 44900,
 		model = "models/weapons/arccw/mifl/fas2/c_famas.mdl",
 		width = 4,
@@ -2617,7 +2617,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "G36C",
-		desc = "desc",
+		desc = "An assault rifle chambered in 5.56x45mm.",
 		price = 42880,
 		model = "models/weapons/arccw/mifl/fas2/c_g36c.mdl",
 		width = 4,
@@ -2656,7 +2656,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "G36",
-		desc = "desc a little bootleg",
+		desc = "An assault rifle that's a little bootleg that is chambered in 5.56x45mm.",
 		price = 0,
 		model = "models/weapons/arccw/mifl/fas2/c_g36c.mdl",
 		groups = {
@@ -2699,7 +2699,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "SG552",
-		desc = "desc",
+		desc = "An assault rifle chambered by 5.56x45mm.",
 		price = 32580,
 		model = "models/weapons/arccw/mifl/fas2/c_sg552.mdl",
 		width = 4,
@@ -2738,7 +2738,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "SG550",
-		desc = "desc",
+		desc = "A rifle chambered in 5.56x45mm.",
 		price = 43580,
 		model = "models/weapons/arccw/mifl/fas2/c_sg552.mdl",
 		groups = {
@@ -2782,7 +2782,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "SG550-1",
-		desc = "desc",
+		desc = "A rifle chambered in 5.56x45mm.",
 		price = 49560,
 		model = "models/weapons/arccw/mifl/fas2/c_sg552.mdl",
 		groups = {
@@ -2829,7 +2829,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "M4A1",
-		desc = "desc",
+		desc = "An assault rifle chambered in 5.56x45mm.",
 		price = 29560,
 		model = "models/weapons/arccw/mifl/fas2/c_m4a1.mdl",
 		width = 4,
@@ -2868,7 +2868,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "M16A1",
-		desc = "desc",
+		desc = "An assault rifle chambered in 5.56x45mm.",
 		price = 35690,
 		model = "models/weapons/arccw/mifl/fas2/c_m4a1.mdl",
 		groups = {
@@ -2913,7 +2913,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "M16A2",
-		desc = "desc",
+		desc = "A 3 round burst assault rifle chambered by 5.56x45mm.",
 		price = 35880,
 		model = "models/weapons/arccw/mifl/fas2/c_m4a1.mdl",
 		groups = {
@@ -2958,7 +2958,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "M16A4",
-		desc = "desc",
+		desc = "A 3 round burst assault rifle chambered in 5.56x45mm.",
 		price = 37500,
 		model = "models/weapons/arccw/mifl/fas2/c_m4a1.mdl",
 		groups = {
@@ -3003,7 +3003,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "M79",
-		desc = "desc",
+		desc = "A grenade launcher using M203 rounds.",
 		price = 36840,--26840,
 		model = "models/weapons/arccw/mifl/fas2/c_m79.mdl",
 		width = 3,
@@ -3038,7 +3038,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "M3 Super 90",
-		desc = "desc",
+		desc = "A semi-auto shotgun chambered in 12 gauge.",
 		price = 34150,
 		model = "models/weapons/arccw/mifl/fas2/c_m3s90.mdl",
 		width = 4,
@@ -3076,7 +3076,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "AEK-971",
-		desc = "desc",
+		desc = "An assault rifle chambered in 5.45x39mm.",
 		price = 38950,
 		model = "models/weapons/arccw/eap/c_aek971.mdl",
 		width = 4,
@@ -3117,7 +3117,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "OTs-14-4A-01 Groza",
-		desc = "desc",
+		desc = "An assault rifle with an integrated foregrip chambered in 9x39mm.",
 		price = 36860,
 		model = "models/weapons/arccw/eap/c_groza.mdl",
 		groups = {
@@ -3158,7 +3158,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "OTs-14-4A-02 Groza",
-		desc = "desc",
+		desc = "An assault rifle with an integrated suppressor chambered in 9x39mm.",
 		price = 39650,
 		model = "models/weapons/arccw/eap/c_groza.mdl",
 		groups = {
@@ -3200,7 +3200,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "OTs-14-1A-01 Groza",
-		desc = "desc",
+		desc = "An assault rifle with an integrated foregrip chambered in 7.62x39mm.",
 		price = 35600,
 		model = "models/weapons/arccw/eap/c_groza.mdl",
 		width = 3,
@@ -3238,7 +3238,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "OTs-14-1A-02 Groza",
-		desc = "desc",
+		desc = "An assault rifle with an integrated suppressor chambered in 7.62x39mm.",
 		price = 37500,
 		model = "models/weapons/arccw/eap/c_groza.mdl",
 		groups = {
@@ -3282,7 +3282,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "Browning HP",
-		desc = "desc",
+		desc = "A pistol chambered in 9x19.",
 		price = 8650,
 		model = "models/weapons/arccw/c_bo2_bhp.mdl",
 		width = 2,
@@ -3318,7 +3318,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "Double Barrel",
-		desc = "desc",
+		desc = "A double barreled shotgun in chambered in 12 gauge.",
 		price = 15480,
 		model = "models/weapons/arccw/c_waw_doublebarrel.mdl",
 		width = 4,
@@ -3354,8 +3354,8 @@ local weaponList = {
 	["cwep_doublebarrelsawn"] = {
 		--exclusive upgrade ideas: 
 		--?
-		name = "Double Barrel Sawnoff",
-		desc = "desc",
+		name = "Double Barrel Sawn-off",
+		desc = "A sawn-off double barreled shotgun chambered in 12 gauge.",
 		price = 10650,
 		model = "models/weapons/arccw/c_waw_doublebarrel.mdl",
 		groups = {
@@ -3397,7 +3397,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "IWI Uzi",
-		desc = "desc",
+		desc = "A SMG chambered in 9x19mm.",
 		price = 21100,
 		model = "models/weapons/arccw/c_bo1_uzi.mdl",
 		groups = {
@@ -3437,7 +3437,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "PPSh-41",
-		desc = "desc",
+		desc = "A SMG chambered in 7.62x25mm.",
 		price = 15840,
 		model = "models/weapons/arccw/c_waw_ppsh41.mdl",
 		width = 3,
@@ -3473,7 +3473,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "M60",
-		desc = "desc",
+		desc = "A light machine gun chambered in 7.62x51mm NATO.",
 		price = 67000,
 		model = "models/weapons/arccw/c_bo1_m60.mdl",
 		width = 5,
@@ -3511,7 +3511,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "Makarov",
-		desc = "desc",
+		desc = "A pistol chambered in 9x18mm.",
 		price = 4890,
 		model = "models/weapons/w_bo1_makarov.mdl",
 		width = 2,
@@ -3546,7 +3546,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "TT-33",
-		desc = "desc",
+		desc = "A pistol chambered in 7.62x25mm.",
 		price = 9860,
 		model = "models/weapons/w_waw_tokarev.mdl",
 		width = 2,
@@ -3581,7 +3581,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "Skorpion vz.82",
-		desc = "desc",
+		desc = "A machine pistol chambered in 9x18mm.",
 		price = 15680,
 		model = "models/weapons/w_bo1_skorpion.mdl",
 		width = 2,
@@ -3615,7 +3615,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "Mosin Nagant",
-		desc = "desc i dont know what model mosin this is sry",
+		desc = "A bolt-action rifle chambered in 7.62x54mmR. I don't know what model mosin this is sorry.",
 		price = 21560,
 		model = "models/weapons/w_waw_mosin_irons.mdl",
 		width = 5,
@@ -3649,7 +3649,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "SVT40",
-		desc = "desc",
+		desc = "A semi-auto rifle chambered in 7.62x54mmR.",
 		price = 24850,
 		model = "models/weapons/w_waw_svt40.mdl",
 		width = 4,
@@ -3683,7 +3683,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "SKS",
-		desc = "desc",
+		desc = "A semi-auto rifle with an internal magazine chambered in 7.62x39mm.",
 		price = 19580,
 		model = "models/weapons/fas2wm/rifles/w_sks.mdl",
 		width = 4,
@@ -3717,7 +3717,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "Axe",
-		desc = "desc",
+		desc = "An axe.",
 		price = 10550,
 		model = "models/weapons/hl2meleepack/w_axe.mdl",
 		width = 3,
@@ -3744,7 +3744,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "Cleaver",
-		desc = "desc",
+		desc = "A kitchen cleaver.",
 		price = 8500,
 		model = "models/danguyen/cleaver.mdl",
 		width = 2,
@@ -3771,7 +3771,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "Crowbar",
-		desc = "desc",
+		desc = "A crowbar.",
 		price = 9500,
 		model = "models/weapons/w_crowbar.mdl",
 		width = 3,
@@ -3798,7 +3798,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "Hatchet",
-		desc = "desc",
+		desc = "A hand hatchet.",
 		price = 10050,
 		model = "models/danguyen/hatchet.mdl",
 		width = 3,
@@ -3824,8 +3824,8 @@ local weaponList = {
 	["cwep_m_knife"] = {
 		--exclusive upgrade ideas: 
 		--?
-		name = "Knife",
-		desc = "desc",
+		name = "Combat Knife",
+		desc = "A combat knife.",
 		price = 2085,
 		model = "models/weapons/w_knife_t.mdl",
 		width = 2,
@@ -3852,7 +3852,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "Large Knife",
-		desc = "desc",
+		desc = "A huge knife (possibly M9 bayonet but idk thats why its large knife)",
 		price = 12050,
 		model = "models/danguyen/commandoknife.mdl",
 		width = 2,
@@ -3879,7 +3879,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "Pan",
-		desc = "desc",
+		desc = "A frying pan.",
 		price = 6500,
 		model = "models/weapons/hl2meleepack/w_pan.mdl",
 		width = 2,
@@ -3906,7 +3906,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "Lead Pipe",
-		desc = "desc",
+		desc = "A lead pipe.",
 		price = 3500,
 		model = "models/props_canal/mattpipe.mdl",
 		width = 3,
@@ -3933,7 +3933,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "Shank",
-		desc = "desc",
+		desc = "An assembled knife.",
 		price = 1250,
 		model = "models/danguyen/knife_shank.mdl",
 		width = 2,
@@ -3959,8 +3959,8 @@ local weaponList = {
 	["cwep_m_knife_t"] = {
 		--exclusive upgrade ideas: 
 		--?
-		name = "Knife T (?)",
-		desc = "desc",
+		name = "Knife",
+		desc = "A knife.",
 		price = 3850,
 		model = "models/weapons/w_csgo_default_t.mdl",
 		width = 2,
@@ -3986,8 +3986,8 @@ local weaponList = {
 	["cwep_m_knife_falchion"] = {
 		--exclusive upgrade ideas: 
 		--?
-		name = "Falchion Knife (?)",
-		desc = "desc",
+		name = "Folding Knife",
+		desc = "A folding knife.",
 		price = 8950,
 		model = "models/weapons/w_csgo_falchion.mdl",
 		width = 1,
@@ -4044,7 +4044,7 @@ local attList = {
 	--tac
 	["go_flashlight"] = {
 		name = "Rail Flashlight",
-		desc = "desc bind a key to toggleatt to easily toggle",
+		desc = "A flashlight that can be attached to a weapon. bind a key to toggleatt to easily toggle",
 		price = 3200,
 		model = "models/weapons/arccw_go/atts/flashlight.mdl",
 		width = 1,
@@ -4065,7 +4065,7 @@ local attList = {
 	},
 	["go_flashlight_combo"] = {
 		name = "Combo Flashlight",
-		desc = "desc bind a key to toggleatt to easily toggle",
+		desc = "A laser/flashlight combo to be attached to a weapon. bind a key to toggleatt to easily toggle",
 		price = 5500,
 		model = "models/weapons/arccw_go/atts/laser_surefire.mdl",
 		width = 1,
@@ -4086,7 +4086,7 @@ local attList = {
 	},
 	["go_laser_peq"] = {
 		name = "PEQ Laser Sight",
-		desc = "desc bind a key to toggleatt to easily toggle",
+		desc = "A high power laser sight. bind a key to toggleatt to easily toggle",
 		price = 15000,
 		model = "models/weapons/arccw_go/atts/laser_peq.mdl",
 		width = 1,
@@ -4107,7 +4107,7 @@ local attList = {
 	},
 	["go_laser"] = {
 		name = "Laser Sight",
-		desc = "desc bind a key to toggleatt to easily toggle",
+		desc = "A laser sight. bind a key to toggleatt to easily toggle",
 		price = 5500,
 		model = "models/weapons/arccw_go/atts/laser.mdl",
 		width = 1,
@@ -4129,7 +4129,7 @@ local attList = {
 	--foregrip
 	["go_foregrip_stubby"] = {
 		name = "Stubby Foregrip",
-		desc = "desc",
+		desc = "A foregrip.",
 		price = 3850,
 		model = "models/items/boxmrounds.mdl",
 		width = 1,
@@ -4150,7 +4150,7 @@ local attList = {
 	},
 	["go_foregrip_snatch"] = {
 		name = "Snatch Foregrip",
-		desc = "desc",
+		desc = "A canted foregrip.",
 		price = 7000,
 		model = "models/items/boxmrounds.mdl",
 		width = 1,
@@ -4171,7 +4171,7 @@ local attList = {
 	},
 	["go_foregrip_ergo"] = {
 		name = "Ergo Foregrip",
-		desc = "desc",
+		desc = "A foregrip.",
 		price = 3400,
 		model = "models/items/boxmrounds.mdl",
 		width = 1,
@@ -4192,7 +4192,7 @@ local attList = {
 	},
 	["go_fore_bipod"] = {
 		name = "Rail Bipod",
-		desc = "desc",
+		desc = "An attachable bipod.",
 		price = 4500,
 		model = "models/items/boxmrounds.mdl",
 		width = 1,
@@ -4213,7 +4213,7 @@ local attList = {
 	},
 	["go_foregrip_angled"] = {
 		name = "Angled Foregrip",
-		desc = "desc",
+		desc = "An angled foregrip.",
 		price = 2850,
 		model = "models/items/boxmrounds.mdl",
 		width = 1,
@@ -4237,7 +4237,7 @@ local attList = {
 	--stock
 	["go_stock_moe"] = {
 		name = "MOE Stock",
-		desc = "desc",
+		desc = "A custom stock attachable to certain weapons.",
 		price = 4000,
 		model = "models/weapons/arccw_go/atts/stock_moe.mdl",
 		width = 1,
@@ -4261,7 +4261,7 @@ local attList = {
 	},
 	["go_stock_ergo"] = {
 		name = "Ergonomic Stock",
-		desc = "desc",
+		desc = "A custom stock attachable to certain weapons.",
 		price = 2600,
 		model = "models/weapons/arccw_go/atts/stock_ergo.mdl",
 		width = 1,
@@ -4285,7 +4285,7 @@ local attList = {
 	},
 	["go_stock_contractor"] = {
 		name = "Contractor Stock",
-		desc = "desc",
+		desc = "A custom stock attachable to certain weapons.",
 		price = 4500,
 		model = "models/weapons/arccw_go/atts/stock_contractor.mdl",
 		width = 1,
@@ -4309,7 +4309,7 @@ local attList = {
 	},
 	["go_stock_basilisk"] = {
 		name = "Basilisk Stock",
-		desc = "desc",
+		desc = "A custom stock attachable to certain weapons.",
 		price = 2750,
 		model = "models/weapons/arccw_go/atts/stock_basilisk.mdl",
 		width = 1,
@@ -4333,7 +4333,7 @@ local attList = {
 	},
 	["go_nova_stock_sport"] = {
 		name = "SuperNova Sport-TAC Stock",
-		desc = "desc specifically for supernova",
+		desc = "A custom stock specifically for the SuperNova.",
 		price = 3950,
 		model = "models/items/boxmrounds.mdl",
 		width = 1,
@@ -4359,7 +4359,7 @@ local attList = {
 	--ubgl
 	["mifl_fas2_ubw_m203"] = {
 		name = "Railed M203",
-		desc = "desc",
+		desc = "A railed underbarrel grenade launcher.",
 		price = 25000,
 		model = "models/items/boxmrounds.mdl",
 		width = 1,
@@ -4380,7 +4380,7 @@ local attList = {
 	},
 	["mifl_fas2_ubw_gp25"] = {
 		name = "Railed GP25",
-		desc = "desc",
+		desc = "A railed underbarrel grenade launcher.",
 		price = 25000,
 		model = "models/items/boxmrounds.mdl",
 		width = 1,
@@ -4403,7 +4403,7 @@ local attList = {
 	--muzzle
 	["go_supp_ssq"] = {
 		name = "SSQ Suppressor",
-		desc = "desc 45, 57, 762x51",
+		desc = "A suppressor used for weapons chambered in: .45 ACP, 5.7x28mm, 7.62x51mm NATO.",
 		price = 13500,
 		model = "models/items/boxmrounds.mdl",
 		width = 2,
@@ -4424,7 +4424,7 @@ local attList = {
 	},
 	["go_supp_osprey"] = {
 		name = "Osprey Suppressor",
-		desc = "desc 9x19",
+		desc = "A suppressor used for weapons chambered in: 9x19mm.",
 		price = 15500,
 		model = "models/weapons/arccw_go/atts/supp_osprey.mdl",
 		width = 2,
@@ -4445,7 +4445,7 @@ local attList = {
 	},
 	["go_supp_monster"] = {
 		name = "Monster Suppressor",
-		desc = "desc 46 556",
+		desc = "A suppressor used for weapons chambered in: 4.6x30mm, 5.56x45mm.",
 		price = 15000,
 		model = "models/weapons/arccw_go/atts/supp_monster.mdl",
 		width = 2,
@@ -4466,7 +4466,7 @@ local attList = {
 	},
 	["go_supp_nt4"] = {
 		name = "NT4 Suppressor",
-		desc = "desc 556",
+		desc = "A suppressor used for weapons chambered in: 5.56x45mm.",
 		price = 13500,
 		model = "models/weapons/arccw_go/atts/supp_ntr.mdl",
 		width = 2,
@@ -4487,7 +4487,7 @@ local attList = {
 	},
 	["go_supp_rotor43"] = {
 		name = "Rotor43 Suppressor",
-		desc = "desc 556, 762x39 aks, ace, svd",
+		desc = "A suppressor used for weapons chambered in: 5.56x45mm, also accepts 7.62x39mm AK and ACE models, and the SVD",
 		price = 17500,
 		model = "models/weapons/arccw_go/atts/supp_large.mdl",
 		width = 2,
@@ -4508,7 +4508,7 @@ local attList = {
 	},
 	["go_supp_pbs1"] = {
 		name = "PBS1 Suppressor",
-		desc = "desc 762x39 aks",
+		desc = "A suppressor used for 7.62x39mm AK models.",
 		price = 14500,
 		model = "models/weapons/arccw_go/atts/supp_pbs1.mdl",
 		width = 2,
@@ -4529,7 +4529,7 @@ local attList = {
 	},
 	["go_supp_tgpa"] = {
 		name = "TGP-A Suppressor",
-		desc = "desc 545 aks, mosin",
+		desc = "A suppressor used for 5.45x39mm AK models, and the mosin.",
 		price = 15000,
 		model = "models/weapons/arccw_go/atts/supp_tgpa.mdl",
 		width = 2,
@@ -4550,7 +4550,7 @@ local attList = {
 	},
 	["go_supp_pbs4"] = {
 		name = "PBS4 Suppressor",
-		desc = "desc 545 aks",
+		desc = "A suppressor used for 5.45x39mm AK models.",
 		price = 14500,
 		model = "models/weapons/arccw_go/atts/supp_pbs4.mdl",
 		width = 2,
@@ -4573,7 +4573,7 @@ local attList = {
 	--sights
 	["go_optic_lp_t1"] = {
 		name = "Micro T1 Sight",
-		desc = "desc",
+		desc = "A small optic that can be attached on almost any weapon.",
 		price = 10000,
 		model = "models/weapons/arccw_go/atts/t1lp.mdl",
 		width = 1,
@@ -4594,7 +4594,7 @@ local attList = {
 	},
 	["go_optic_lp_rmr"] = {
 		name = "Trijicon RMR Sight",
-		desc = "desc",
+		desc = "A small optic that can be attached on almost any weapon.",
 		price = 10000,
 		model = "models/weapons/arccw_go/atts/rmr.mdl",
 		width = 1,
@@ -4657,7 +4657,7 @@ local attList = {
 	},]]
 	["go_optic_pvs4"] = {
 		name = "PVS-4 Scope (2xIR)",
-		desc = "desc",
+		desc = "A scope with IR capabilities.",
 		price = 55000,
 		model = "models/weapons/arccw_go/atts/pvs4.mdl",
 		width = 2,
@@ -4699,7 +4699,7 @@ local attList = {
 	},]]
 	["mifl_fas2_optic_felin"] = {
 		name = "FRF2 Scope (3-12xIR)",
-		desc = "desc makeshift",
+		desc = "A huge scope with variable zoom, nightvision and thermal capabilities, with a backup holographic sight.",
 		price = 450000,
 		model = "models/weapons/arccw/mifl_atts/fas2/felin_scope.mdl",
 		width = 2,
@@ -4720,7 +4720,7 @@ local attList = {
 	},
 	["go_optic_awp"] = {
 		name = "Arctic Warfare Scope (10x)",
-		desc = "desc commonly found on the awm",
+		desc = "A scope commonly found on the AWM.",
 		price = 15000,
 		model = "models/weapons/arccw_go/atts/awp.mdl",
 		width = 2,
@@ -4741,7 +4741,7 @@ local attList = {
 	},
 	["mifl_fas2_optic_lmk4"] = {
 		name = "Leupold Mk.4 Scope (3.5-8x)",
-		desc = "desc",
+		desc = "A variable zoom scope.",
 		price = 15500,
 		model = "models/weapons/arccw/mifl_atts/fas2_optic_lmk4.mdl",
 		width = 2,
@@ -4762,7 +4762,7 @@ local attList = {
 	},--skipped ssr
 	["go_optic_schmidt"] = {
 		name = "PM-II Scope (7x)",
-		desc = "desc",
+		desc = "A scope.",
 		price = 15000,
 		model = "models/weapons/arccw_go/atts/schmidt.mdl",
 		width = 2,
@@ -4783,7 +4783,7 @@ local attList = {
 	},
 	["mifl_fas2_optic_xm25"] = {
 		name = "Xleris Scope (6xIR)",
-		desc = "desc",
+		desc = "A scope with thermal capabilities.",
 		price = 400000,
 		model = "models/weapons/arccw/mifl_atts/fas2_optic_xm25.mdl",
 		width = 2,
@@ -4804,7 +4804,7 @@ local attList = {
 	},
 	["mifl_fas2_optic_551"] = {
 		name = "MRCS Scope (6x)",
-		desc = "desc",
+		desc = "A scope.",
 		price = 15000,
 		model = "models/weapons/arccw/mifl_atts/fas2_optic_551.mdl",
 		width = 2,
@@ -4825,7 +4825,7 @@ local attList = {
 	},
 	["mifl_fas2_optic_pso1"] = {
 		name = "PSO-1 Scope (4x)",
-		desc = "desc",
+		desc = "A scope.",
 		price = 14500,
 		model = "models/weapons/arccw/mifl_atts/fas2_optic_pso1.mdl",
 		width = 2,
@@ -4846,7 +4846,7 @@ local attList = {
 	},
 	["mifl_fas2_optic_acog"] = {
 		name = "ACOG Scope (4x)",
-		desc = "desc",
+		desc = "A scope with backup ironsights.",
 		price = 14500,
 		model = "models/weapons/arccw/mifl_atts/fas2_optic_acog.mdl",
 		width = 2,
@@ -4867,7 +4867,7 @@ local attList = {
 	},
 	["go_optic_elcan"] = {
 		name = "Elcan C79 Scope (3.5x)",
-		desc = "desc",
+		desc = "A scope with backup ironsights.",
 		price = 14500,
 		model = "models/weapons/arccw_go/atts/elcan.mdl",
 		width = 2,
@@ -4888,7 +4888,7 @@ local attList = {
 	},
 	["go_optic_hamr"] = {
 		name = "Leupold HAMR Scope (4xHYBR)",
-		desc = "desc",
+		desc = "A hybrid scope.",
 		price = 16000,
 		model = "models/weapons/arccw_go/atts/hamr.mdl",
 		width = 2,
@@ -4909,7 +4909,7 @@ local attList = {
 	},
 	["mifl_fas2_optic_g36"] = {
 		name = "N43 High Sight (RDS)",
-		desc = "desc",
+		desc = "A red dot sight.",
 		price = 12000,
 		model = "models/weapons/arccw/mifl_atts/fas2_optic_g36.mdl",
 		width = 1,
@@ -4930,7 +4930,7 @@ local attList = {
 	},
 	["go_optic_t1"] = {
 		name = "Micro T1 Riser Sight (RDS)",
-		desc = "desc",
+		desc = "A red dot sight.",
 		price = 12000,
 		model = "models/weapons/arccw_go/atts/t1.mdl",
 		width = 1,
@@ -4951,7 +4951,7 @@ local attList = {
 	},
 	["go_optic_eotech"] = {
 		name = "EoTech 553 Sight (RDS)",
-		desc = "desc",
+		desc = "A holographic sight.",
 		price = 16000,
 		model = "models/weapons/arccw_go/atts/eotech.mdl",
 		width = 1,
@@ -4972,7 +4972,7 @@ local attList = {
 	},
 	["go_optic_kobra"] = {
 		name = "EKP-8-18 Kobra Sight (RDS)",
-		desc = "desc",
+		desc = "An optic.",
 		price = 12000,
 		model = "models/weapons/arccw_go/atts/kobra.mdl",
 		width = 1,
@@ -4993,7 +4993,7 @@ local attList = {
 	},
 	["go_optic_compm4"] = {
 		name = "CompM4 Sight (RDS)",
-		desc = "desc",
+		desc = "A red dot sight.",
 		price = 14000,
 		model = "models/weapons/arccw_go/atts/compm4.mdl",
 		width = 2,
@@ -5014,7 +5014,7 @@ local attList = {
 	},
 	["go_optic_cmore"] = {
 		name = "C-More Sight (RDS)",
-		desc = "desc",
+		desc = "An optic.",
 		price = 14000,
 		model = "models/weapons/arccw_go/atts/cmore.mdl",
 		width = 2,
@@ -5035,7 +5035,7 @@ local attList = {
 	},
 	["go_optic_barska"] = {
 		name = "Barska Red Dot Sight (RDS)",
-		desc = "desc",
+		desc = "A red dot sight.",
 		price = 14000,
 		model = "models/weapons/arccw_go/atts/barska.mdl",
 		width = 2,
@@ -5081,7 +5081,7 @@ local ammoList = {
 	},]]
 	["ammo_9x19"] = {
 		name = "9x19mm Ammo Box",
-		desc = "desc", --use %s for number
+		desc = "A box of ammo currently containing %s rounds.", --use %s for number
 		price = 2150, --43ea
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_9x19_fmj.mdl",
 		width = 1,
@@ -5104,7 +5104,7 @@ local ammoList = {
 	},
 	["ammo_9x18"] = {
 		name = "9x18 Ammo Box",
-		desc = "desc", --use %s for number
+		desc = "A box of ammo currently containing %s rounds.", --use %s for number
 		price = 1750, --35ea
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_9x18_fmj.mdl",
 		width = 1,
@@ -5127,7 +5127,7 @@ local ammoList = {
 	},
 	["ammo_9x39"] = {
 		name = "9x39mm Ammo Box",
-		desc = "desc", --use %s for number
+		desc = "A box of ammo currently containing %s rounds.", --use %s for number
 		price = 3330,--166.67ea
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_9x39_pab9.mdl",
 		width = 2,
@@ -5150,7 +5150,7 @@ local ammoList = {
 	},
 	["ammo_46"] = {
 		name = "4.6x30mm Ammo Box",
-		desc = "desc", --use %s for number
+		desc = "A box of ammo currently containing %s rounds.", --use %s for number
 		price = 2130,--106.67ea
 		model = "models/items/boxmrounds.mdl",
 		width = 2,
@@ -5173,7 +5173,7 @@ local ammoList = {
 	},
 	["ammo_57"] = {
 		name = "5.7x28mm Ammo Box",
-		desc = "desc", --use %s for number
+		desc = "A box of ammo currently containing %s rounds.", --use %s for number
 		price = 2130,
 		model = "models/items/boxmrounds.mdl",
 		width = 2,
@@ -5196,7 +5196,7 @@ local ammoList = {
 	},
 	["ammo_45acp"] = {
 		name = "45 ACP Ammo Box",
-		desc = "desc", --use %s for number
+		desc = "A box of ammo currently containing %s rounds.", --use %s for number
 		price = 3250,--65ea
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_1143x23_fmj.mdl",
 		width = 2,
@@ -5219,7 +5219,7 @@ local ammoList = {
 	},
 	["ammo_50ae"] = {
 		name = "50 AE Ammo Box",
-		desc = "desc", --use %s for number
+		desc = "A box of ammo currently containing %s rounds.", --use %s for number
 		price = 3750,
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_50_ae.mdl",
 		width = 2,
@@ -5242,7 +5242,7 @@ local ammoList = {
 	},
 	["ammo_762x25"] = {
 		name = "7.62x25mm Ammo Box",
-		desc = "desc", --use %s for number
+		desc = "A box of ammo currently containing %s rounds.", --use %s for number
 		price = 2340,--46.875ea
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x25_p.mdl",
 		width = 2,
@@ -5265,7 +5265,7 @@ local ammoList = {
 	},
 	["ammo_762x39"] = {
 		name = "7.62x39mm Ammo Box",
-		desc = "desc", --use %s for number
+		desc = "A box of ammo currently containing %s rounds.", --use %s for number
 		price = 2040,--102ea
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x39_fmj.mdl",
 		width = 2,
@@ -5288,7 +5288,7 @@ local ammoList = {
 	},
 	["ammo_762x51"] = {
 		name = "7.62x51mm NATO Ammo Box",
-		desc = "desc", --use %s for number
+		desc = "A box of ammo currently containing %s rounds.", --use %s for number
 		price = 3000,--150ea
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x51_fmj.mdl",
 		width = 2,
@@ -5311,7 +5311,7 @@ local ammoList = {
 	},
 	["ammo_762x54"] = {
 		name = "7.62x54mmR Ammo Box",
-		desc = "desc", --use %s for number
+		desc = "A box of ammo currently containing %s rounds.", --use %s for number
 		price = 2800,--140ea
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x54_7h1.mdl",
 		width = 2,
@@ -5334,7 +5334,7 @@ local ammoList = {
 	},
 	["ammo_556"] = {
 		name = "5.56x45mm Ammo Box",
-		desc = "desc hey change model to fmj or remove this if it dont exist", --use %s for number
+		desc = "A box of ammo currently containing %s rounds. hey reminder to change model to fmj or remove this if it dont exist", --use %s for number
 		price = 3000,--100ea
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_556x45_ss190.mdl",
 		width = 2,
@@ -5357,7 +5357,7 @@ local ammoList = {
 	},
 	["ammo_545"] = {
 		name = "5.45x39mm Ammo Box",
-		desc = "desc", --use %s for number
+		desc = "A box of ammo currently containing %s rounds.", --use %s for number
 		price = 1800,--90ea
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_545x39_fmj.mdl",
 		width = 2,
@@ -5380,7 +5380,7 @@ local ammoList = {
 	},
 	["ammo_338"] = {
 		name = "338 Lapua Ammo Box",
-		desc = "desc", --use %s for number
+		desc = "A box of ammo currently containing %s rounds.", --use %s for number
 		price = 8500,--425
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x54_ap.mdl",
 		width = 2,
@@ -5403,7 +5403,7 @@ local ammoList = {
 	},
 	["ammo_23mm"] = {
 		name = "23mm Ammo Box",
-		desc = "desc", --use %s for number
+		desc = "A box of ammo currently containing %s shells.", --use %s for number
 		price = 3000,
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_12x70_buck.mdl",
 		width = 2,
@@ -5426,7 +5426,7 @@ local ammoList = {
 	},
 	["ammo_buckshot"] = {
 		name = "12 Gauge Ammo Box",
-		desc = "desc", --use %s for number
+		desc = "A box of ammo currently containing %s shells.", --use %s for number
 		price = 1500,--75ea
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_12x70_buck_2.mdl",
 		width = 2,
