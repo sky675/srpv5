@@ -69,7 +69,14 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["go_perk_pistol"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(17.6, 12.5, -4.08),
+			ang = Angle(0,270,0),
+			entAng = Angle(0,0,0),
+			fov = 45,
+			--drawHook = function(ent)
+			--end
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -109,7 +116,17 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["go_perk_pistol"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(17.0, 10.95, -3.19),
+			ang = Angle(0,270,45),
+			entAng = Angle(0,0,0),
+			fov = 45,
+			drawHook = function(ent)
+				ent:SetBodygroup(0, 1)
+				ent:SetBodygroup(1, 1)
+				ent:SetBodygroup(2, 1)
+			end
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -147,7 +164,15 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["go_perk_pistol"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(17.6, 12.5, -4.08),
+			ang = Angle(0,270,0),
+			entAng = Angle(0,0,0),
+			fov = 45,
+			drawHook = function(ent)
+				ent:SetBodygroup(1,2)
+			end
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -183,7 +208,14 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["go_perk_pistol"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(17.6, 12.5, -4.08),
+			ang = Angle(0,270,0),
+			entAng = Angle(0,0,0),
+			fov = 45,
+			--drawHook = function(ent)
+			--end
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -224,7 +256,17 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["go_perk_pistol"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(17.0, 10.95, -3.19),
+			ang = Angle(0,270,45),
+			entAng = Angle(0,0,0),
+			fov = 45,
+			drawHook = function(ent)
+				ent:SetBodygroup(0, 1)
+				ent:SetBodygroup(1, 1)
+				ent:SetBodygroup(2, 1)
+			end
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -261,7 +303,12 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["go_perk_pistol"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(18.731195449829, 16.043054580688, -3.9337403774261),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -300,7 +347,15 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["go_perk_pistol"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(18.731195449829, 16.043054580688, -3.9337403774261),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 3)
+			end
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -338,7 +393,12 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["go_perk_pistol"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(18.384498596191, 15.392320632935, -4.8282413482666),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -375,7 +435,12 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["go_perk_pistol"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(18.384498596191, 15.392320632935, -4.8282413482666),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -413,7 +478,16 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["go_perk_pistol"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconmodel = "models/weapons/arccw_go/v_pist_usp_extras.mdl",
+		iconCam = {
+			pos = Vector(18.384498596191, 15.392320632935, -4.8282413482666),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+			drawHook = function(ent)
+				ent:SetBodygroup(3, 1)
+			end
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -450,7 +524,12 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["go_perk_pistol"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(18.384498596191, 13.933465957642, -4.123233795166),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -527,7 +606,12 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["go_perk_pistol"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(17.618604660034, 12.443369865417, -3.809428691864),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -564,7 +648,12 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["go_perk_pistol"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(17.618604660034, 12.443369865417, -3.809428691864),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -600,7 +689,12 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["go_perk_pistol"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(17.618604660034, 12.443369865417, -3.809428691864),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -637,7 +731,12 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["go_perk_pistol"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(18.515466690063, 12.443369865417, -3.7277569770813),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -676,7 +775,12 @@ local weaponList = {
 			["go_perk_pistol"] = true, --upgrade
 			["go_homemade_auto"] = true,
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(21.25661277771, 13.784277915955, -6.1245994567871),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -713,7 +817,12 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["go_perk_pistol"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(18.289180755615, 12.501372337341, -3.7187769412994),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -751,7 +860,12 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(19.445014953613, 31.309049606323, -7.4937539100647),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -792,7 +906,15 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(19.445014953613, 31.309049606323, -7.4937539100647),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,	
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 3)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -830,7 +952,12 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(17.950517654419, 32.369216918945, -5.3891682624817),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -868,7 +995,12 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(19.620599746704, 32.029941558838, -7.9073195457458),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -909,7 +1041,15 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(19.620599746704, 32.029941558838, -7.9073195457458),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+			drawHook = function(ent)
+				ent:SetBodygroup(2, 2)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -948,7 +1088,12 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(16.69352722168, 24.55179977417, -7.2232813835144),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -986,7 +1131,12 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(11.692200660706, 23.636199951172, -6.1238646507263),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1021,7 +1171,12 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(13.691186904907, 19.518894195557, -4.0268001556396),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1057,7 +1212,12 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(16.001016616821, 22.399394989014, -6.3756237030029),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1096,7 +1256,13 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(20.654806137085, 42.598125457764, -5.3670082092285),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1140,7 +1306,18 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(22.765592575073, 28.758544921875, -4.4122796058655),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 1)
+				ent:SetBodygroup(2, 1)
+				ent:SetBodygroup(3, 2)
+				ent:SetBodygroup(4, 1)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1179,7 +1356,12 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(21.861333847046, 45.979419708252, -6.5863227844238),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1218,7 +1400,12 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(22.170606613159, 42.621028900146, -6.5863227844238),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1255,7 +1442,12 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(26.740421295166, 25.044569015503, -8.5014142990112),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1293,7 +1485,13 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(29.290349960327, 52.037742614746, -6.8791856765747),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1332,7 +1530,13 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(26.384387969971, 44.935997009277, -6.8791856765747),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1370,7 +1574,13 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(15.424696922302, 35.443309783936, -6.5571432113647),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1412,7 +1622,17 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(12.733955383301, 28.472164154053, -6.5571432113647),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(2, 2)
+				ent:SetBodygroup(3, 1)
+				ent:SetBodygroup(4, 1)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1450,7 +1670,13 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(23.336740493774, 50.801338195801, -6.238438129425),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1495,7 +1721,13 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(20.506650924683, 44.188327789307, -6.238438129425),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1538,7 +1770,15 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(19.208177566528, 40.9814453125, -6.238438129425),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(5, 2)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1576,7 +1816,13 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(21.765264511108, 41.110202789307, -6.238438129425),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1619,7 +1865,16 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(19.629592895508, 36.714275360107, -6.238438129425),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 2)
+				ent:SetBodygroup(5, 4)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1656,7 +1911,13 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(18.263643264771, 31.99076461792, -6.5646567344666),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1696,7 +1957,15 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(18.263643264771, 31.99076461792, -6.5646567344666),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(3, 4)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1731,7 +2000,13 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(21.256837844849, 42.912899017334, -6.5646567344666),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1770,7 +2045,14 @@ local weaponList = {
 			["go_ammo"] = true, --upgrade
 			["go_perk"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		itemmodel = "models/weapons/arccw_go/v_snip_ssg08.mdl",
+		iconCam = {
+			pos = Vector(20.614532470703, 51.960647583008, -6.5646567344666),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1809,7 +2091,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(21.654796600342, 81.147842407227, -8.4564208984375),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1853,7 +2141,17 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(20.453935623169, 46.046485900879, -7.5933661460876),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 1)
+				ent:SetBodygroup(2, 1)
+				ent:SetBodygroup(3, 1)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1891,7 +2189,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(25.555322647095, 59.775932312012, -7.5933661460876),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1908,7 +2212,7 @@ local weaponList = {
 		desc = "A pistol chambered in .45 ACP.",
 		price = 8560,
 		model = "models/weapons/arccw/mifl/fas2/c_m1911.mdl",
-		width = 4,
+		width = 2,
 		height = 1,
 		weight = 1.1,
 		class = "arccw_mifl_fas2_m1911",
@@ -1930,7 +2234,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(19.392942428589, 18.443452835083, -5.4884171485901),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -1969,7 +2279,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(21.521520614624, 18.443452835083, -5.4884171485901),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2006,7 +2322,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(31.261442184448, 76.990692138672, -6.3477101325989),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2046,7 +2368,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(23.677639007568, 56.603218078613, -6.3477101325989),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2086,7 +2414,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(25.763973236084, 63.631862640381, -6.3477101325989),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2125,7 +2459,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(24.862462997437, 54.968238830566, -7.2976293563843),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2166,7 +2506,15 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(24.862462997437, 54.968238830566, -7.2976293563843),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 5)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2209,7 +2557,16 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(24.862462997437, 54.968238830566, -7.2976293563843),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 5)
+				ent:SetBodygroup(5, 3)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2254,7 +2611,17 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(24.862462997437, 54.968238830566, -7.2976293563843),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 5)
+				ent:SetBodygroup(2, 13)
+				ent:SetBodygroup(5, 3)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2301,7 +2668,18 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(29.304014205933, 65.462059020996, -7.7976293563843),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 11)
+				ent:SetBodygroup(2, 7)
+				ent:SetBodygroup(5, 4)
+				ent:SetBodygroup(7, 1)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2346,7 +2724,17 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(24.862462997437, 54.968238830566, -7.2976293563843),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 4)
+				ent:SetBodygroup(2, 1)
+				ent:SetBodygroup(5, 3)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2392,7 +2780,18 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(24.862462997437, 54.968238830566, -7.2976293563843),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 4)
+				ent:SetBodygroup(2, 1)
+				ent:SetBodygroup(5, 4)
+				ent:SetBodygroup(7, 1)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2437,7 +2836,17 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(24.862462997437, 54.968238830566, -7.2976293563843),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 5)
+				ent:SetBodygroup(2, 12)
+				ent:SetBodygroup(5, 7)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2482,7 +2891,17 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(24.862462997437, 54.968238830566, -7.2976293563843),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 5)
+				ent:SetBodygroup(2, 10)
+				ent:SetBodygroup(5, 7)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2528,7 +2947,17 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(24.862462997437, 54.968238830566, -7.2976293563843),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 13)
+				ent:SetBodygroup(2, 9)
+				ent:SetBodygroup(5, 3)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2566,7 +2995,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(26.815870285034, 63.40096282959, -8.2976293563843),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2603,7 +3038,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(20.887014389038, 38.760242462158, -6.7976293563843),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2643,7 +3084,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(21.866317749023, 42.128940582275, -8.7621984481812),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2685,7 +3132,15 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(23.730588912964, 49.291538238525, -8.7621984481812),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(3, 4)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2725,7 +3180,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(14.476577758789, 44.496852874756, -6.7977514266968),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2769,7 +3230,17 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(19.705701828003, 57.514347076416, -6.7977514266968),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 1)
+				ent:SetBodygroup(2, 2)
+			end	
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2815,7 +3286,18 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(19.705701828003, 57.514347076416, -6.7977514266968),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 1)
+				ent:SetBodygroup(2, 1)
+				ent:SetBodygroup(3, 7)
+			end	
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2855,7 +3337,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(21.874122619629, 50.13890838623, -6.7977514266968),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2900,7 +3388,18 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(21.874122619629, 50.13890838623, -6.7977514266968),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 4)
+				ent:SetBodygroup(2, 4)
+				ent:SetBodygroup(5, 1)
+			end	
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2945,7 +3444,18 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(21.874122619629, 50.13890838623, -6.7977514266968),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 1)
+				ent:SetBodygroup(2, 1)
+				ent:SetBodygroup(5, 1)
+			end	
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -2990,7 +3500,18 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(21.874122619629, 50.13890838623, -6.7977514266968),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 13)
+				ent:SetBodygroup(2, 12)
+				ent:SetBodygroup(5, 1)
+			end	
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3025,7 +3546,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(25.772714614868, 57.741764068604, -5.8444123268127),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3061,7 +3588,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(27.938598632813, 74.700958251953, -9.6152772903442),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3103,7 +3636,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(18.796047210693, 39.669815063477, -4.0912389755249),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3145,7 +3684,15 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(17.287338256836, 25.372138977051, -5.9090309143066),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 9)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3187,7 +3734,16 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(17.287338256836, 25.372138977051, -5.9090309143066),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 9)
+				ent:SetBodygroup(3, 2)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3225,7 +3781,12 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(17.287338256836, 25.372138977051, -5.9090309143066),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3266,7 +3827,15 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(17.287338256836, 25.372138977051, -5.9090309143066),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(3, 2)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3304,7 +3873,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(15.588308334351, 14.237869262695, -3.9141964912415),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3342,7 +3917,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(25.427587509155, 65.175735473633, -5.5245261192322),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3383,7 +3964,16 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(23.791379928589, 37.242267608643, -5.5245261192322),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 1)
+				ent:SetBodygroup(2, 1)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3423,7 +4013,15 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(15.572422027588, 22.063659667969, -5.5245261192322),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+			drawHook = function(ent)
+				ent:SetBodygroup(3, 2)
+			end	
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3459,7 +4057,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(15.62401676178, 42.472026824951, -5.5245261192322),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3495,7 +4099,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(19.850973129272, 48.772769927979, -5.5245261192322),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3532,7 +4142,13 @@ local weaponList = {
 			["perk_fas2"] = true, --upgrade
 			["go_perk_pistol"] = true, 
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(3.6481177806854, 21.607614517212, 1.229171872139),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3567,7 +4183,13 @@ local weaponList = {
 			["perk_fas2"] = true, --upgrade
 			["go_perk_pistol"] = true, 
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(3.6481177806854, 21.607614517212, 1.229171872139),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3601,7 +4223,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(5.1284055709839, 23.483392715454, 1.8043434619904),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3635,7 +4263,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(11.684871673584, 68.756477355957, -0.21930034458637),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3652,7 +4286,7 @@ local weaponList = {
 		desc = "A semi-auto rifle chambered in 7.62x54mmR.",
 		price = 24850,
 		model = "models/weapons/w_waw_svt40.mdl",
-		width = 4,
+		width = 5,
 		height = 1,
 		weight = 3.85,
 		class = "arccw_temp_svt",
@@ -3669,7 +4303,13 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(15.213098526001, 73.322257995605, 1.4752556085587),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3703,8 +4343,14 @@ local weaponList = {
 			["go_perk"] = true, --upgrade
 			["perk_fas2"] = true, --upgrade
 		},
-		--iconCam = {}, --pretty icons
-		--exRender = false, --overriding for old icon way if above exists
+		iconCam = {
+			pos = Vector(-2.8815112113953, 54.744823455811, -0.35844379663467),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 45,
+		
+		}, --pretty icons
+		exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
 		--transferSound = "", --i think this is transferring between invs
@@ -3730,8 +4376,14 @@ local weaponList = {
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
-		equipTbl = "melee"
-		--iconCam = {}, --pretty icons
+		equipTbl = "melee",
+		iconCam = {
+			pos = Vector(0.34593138098717, 43.341918945313, -0.98572045564651),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 90),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3757,8 +4409,14 @@ local weaponList = {
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
-		equipTbl = "melee"
-		--iconCam = {}, --pretty icons
+		equipTbl = "melee",
+		iconCam = {
+			pos = Vector(-1.4736837148666, 22.459537506104, 0.30920764803886),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3784,8 +4442,14 @@ local weaponList = {
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
-		equipTbl = "melee"
-		--iconCam = {}, --pretty icons
+		equipTbl = "melee",
+		iconCam = {
+			pos = Vector(-1.1131901741028, 43.019058227539, 0.82128018140793),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3811,8 +4475,14 @@ local weaponList = {
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
-		equipTbl = "melee"
-		--iconCam = {}, --pretty icons
+		equipTbl = "melee",
+		iconCam = {
+			pos = Vector(-2.5722432136536, 44.778411865234, 0.82128018140793),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3838,8 +4508,14 @@ local weaponList = {
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
-		equipTbl = "melee"
-		--iconCam = {}, --pretty icons
+		equipTbl = "melee",
+		iconCam = {
+			pos = Vector(-8.123480796814, 20.5305519104, -0.9744987487793),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(90, -180, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3865,8 +4541,14 @@ local weaponList = {
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
-		equipTbl = "melee"
-		--iconCam = {}, --pretty icons
+		equipTbl = "melee",
+		iconCam = {
+			pos = Vector(-5.8045196533203, 17.255588531494, -0.56233596801758),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(90, -180, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3883,7 +4565,7 @@ local weaponList = {
 		price = 6500,
 		model = "models/weapons/hl2meleepack/w_pan.mdl",
 		width = 2,
-		height = 1,
+		height = 2,
 		weight = 1.4,
 		class = "arccw_melee_pan",
 		category = "Weapons - Melee",
@@ -3892,8 +4574,14 @@ local weaponList = {
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
-		equipTbl = "melee"
-		--iconCam = {}, --pretty icons
+		equipTbl = "melee",
+		iconCam = {
+			pos = Vector(-4.2881336212158, 23.521097183228, -0.23260572552681),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-90, 90, 180),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3919,8 +4607,14 @@ local weaponList = {
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
-		equipTbl = "melee"
-		--iconCam = {}, --pretty icons
+		equipTbl = "melee",
+		iconCam = {
+			pos = Vector(-2.3319249153137, 43.068500518799, 0.92968988418579),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-90, 0, 180),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3946,8 +4640,14 @@ local weaponList = {
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
-		equipTbl = "melee"
-		--iconCam = {}, --pretty icons
+		equipTbl = "melee",
+		iconCam = {
+			pos = Vector(-1.0130589008331, 16.523653030396, 0.0088834837079048),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, -90, -90),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -3973,8 +4673,14 @@ local weaponList = {
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
-		equipTbl = "melee"
-		--iconCam = {}, --pretty icons
+		equipTbl = "melee",
+		iconCam = {
+			pos = Vector(-4.0175848007202, 18.242444992065, -3.5360536575317),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(57.446681976318, -180, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -4000,8 +4706,14 @@ local weaponList = {
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
-		equipTbl = "melee"
-		--iconCam = {}, --pretty icons
+		equipTbl = "melee",
+		iconCam = {
+			pos = Vector(-2.4932010173798, 18.827472686768, -4.4148588180542),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(57.446681976318, -180, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -4054,7 +4766,13 @@ local attList = {
 		--flag = "",
 		cat = "tac", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.69938111305237, 6.7560019493103, -1.0573437213898),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4075,7 +4793,13 @@ local attList = {
 		--flag = "",
 		cat = "tac", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.32967588305473, 6.7560019493103, -1.0573437213898),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4096,7 +4820,13 @@ local attList = {
 		--flag = "",
 		cat = "tac", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.20668679475784, 6.4379873275757, -0.10934870690107),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 90),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4117,7 +4847,13 @@ local attList = {
 		--flag = "",
 		cat = "tac", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.4563392996788, 5.8034429550171, -0.65434861183167),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4139,7 +4875,13 @@ local attList = {
 		--flag = "",
 		cat = "foregrip", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.063020892441273, 6.4136052131653, -1.7118104696274),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		iconmodel = "models/weapons/arccw_go/atts/foregrip.mdl", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4160,7 +4902,13 @@ local attList = {
 		--flag = "",
 		cat = "foregrip", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.97416949272156, 7.9860305786133, -1.7118104696274),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, -90, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		iconmodel = "models/weapons/arccw_go/atts/foregrip_snatch.mdl", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4181,7 +4929,13 @@ local attList = {
 		--flag = "",
 		cat = "foregrip", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.053027264773846, 6.422972202301, -1.8839550018311),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		iconmodel = "models/weapons/arccw_go/atts/foregrip_ergo.mdl", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4202,7 +4956,13 @@ local attList = {
 		--flag = "",
 		cat = "foregrip", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.053027264773846, 11.307095527649, -2.5871560573578),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 90, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		iconmodel = "models/weapons/arccw_go/atts/bipod.mdl", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4225,7 +4985,13 @@ local attList = {
 		--traitreq = {trait = "trait", val = 0},
 		--requireEnt = {class = "class", name = "a nicename", radius = 120},
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-1.6912804841995, 10.018113136292, -0.53828299045563),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		iconmodel = "models/weapons/arccw_go/atts/foregrip_angled.mdl", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4250,7 +5016,13 @@ local attList = {
 		requireEnt = {class = "sky_craft_weapons", name = "a Weapon Crafting Bench", radius = 120},
 		techReq = 1,
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-6.806037902832, 12.231944084167, -1.9609030485153),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4274,7 +5046,13 @@ local attList = {
 		requireEnt = {class = "sky_craft_weapons", name = "a Weapon Crafting Bench", radius = 120},
 		techReq = 1,
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-6.3262267112732, 12.231944084167, -1.9609030485153),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4298,7 +5076,13 @@ local attList = {
 		requireEnt = {class = "sky_craft_weapons", name = "a Weapon Crafting Bench", radius = 120},
 		techReq = 1,
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-6.9452791213989, 12.231944084167, -1.9609030485153),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4322,7 +5106,13 @@ local attList = {
 		requireEnt = {class = "sky_craft_weapons", name = "a Weapon Crafting Bench", radius = 120},
 		techReq = 1,
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-6.3657789230347, 12.231944084167, -1.9609030485153),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4369,7 +5159,13 @@ local attList = {
 		--flag = "",
 		cat = "foregrip", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.35838401317596, 20.193195343018, -1.9609030485153),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		iconmodel = "models/weapons/arccw/mifl_atts/fas2/ubgl_m203.mdl", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4390,7 +5186,13 @@ local attList = {
 		--flag = "",
 		cat = "foregrip", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.24589762091637, 19.577030181885, -2.3785078525543),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		iconmodel = "models/weapons/arccw/mifl_atts/fas2/ubgl_kastet.mdl", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4413,7 +5215,13 @@ local attList = {
 		--flag = "",
 		cat = "muzzle", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(4.0337090492249, 11.854196548462, -0.18307828903198),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		iconmodel = "models/weapons/arccw_go/atts/supp_ssq.mdl", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4434,7 +5242,13 @@ local attList = {
 		--flag = "",
 		cat = "muzzle", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(4.5077776908875, 11.854196548462, -0.18307828903198),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4455,7 +5269,13 @@ local attList = {
 		--flag = "",
 		cat = "muzzle", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(4.21653175354, 11.854196548462, -0.18307828903198),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4476,7 +5296,13 @@ local attList = {
 		--flag = "",
 		cat = "muzzle", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(3.240923166275, 9.0263833999634, -0.15374037623405),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4497,7 +5323,13 @@ local attList = {
 		--flag = "",
 		cat = "muzzle", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(5.2156047821045, 15.173662185669, -0.15374037623405),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4518,7 +5350,13 @@ local attList = {
 		--flag = "",
 		cat = "muzzle", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(5.3737602233887, 15.173662185669, -0.15374037623405),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4539,7 +5377,13 @@ local attList = {
 		--flag = "",
 		cat = "muzzle", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(4.7715792655945, 13.874286651611, -0.15374037623405),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4560,7 +5404,13 @@ local attList = {
 		--flag = "",
 		cat = "muzzle", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(5.7794923782349, 17.331748962402, -0.15374037623405),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4583,7 +5433,13 @@ local attList = {
 		--flag = "",
 		cat = "optic_lp", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.10706943273544, 7.3452558517456, 0.65953516960144),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 24.145461174843,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4604,7 +5460,13 @@ local attList = {
 		--flag = "",
 		cat = "optic_lp", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.10725029557943, 7.3452558517456, 0.65953516960144),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 24.145461174843,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4667,7 +5529,13 @@ local attList = {
 		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-2.8022437095642, 15.686842918396, 1.6358258724213),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4704,13 +5572,19 @@ local attList = {
 		model = "models/weapons/arccw/mifl_atts/fas2/felin_scope.mdl",
 		width = 2,
 		height = 1,
-		weight = 2.7,
+		weight = 3.7,
 		category = "Attachments",
 		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
-		--exRender = false, --overriding for old icon way if above exists
+		iconCam = {
+			pos = Vector(-1.214580655098, 19.681219100952, 2.5284895896912),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
+		exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
 		--noBusiness = true, --doesnt appear in business menu
@@ -4730,7 +5604,13 @@ local attList = {
 		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.26167789101601, 18.769844055176, 1.4121470451355),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4751,7 +5631,13 @@ local attList = {
 		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(2.4083116054535, 18.769844055176, 1.4121470451355),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4772,7 +5658,13 @@ local attList = {
 		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.071127727627754, 18.769844055176, 1.4121470451355),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4793,7 +5685,13 @@ local attList = {
 		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.69015091657639, 14.86914730072, 1.5661097764969),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4814,7 +5712,13 @@ local attList = {
 		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(2.4212951660156, 19.203254699707, 1.5661097764969),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4835,7 +5739,13 @@ local attList = {
 		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.81472390890121, 12.751099586487, 1.3503861427307),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4856,7 +5766,13 @@ local attList = {
 		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.51205009222031, 9.7812957763672, 1.0817892551422),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4877,7 +5793,13 @@ local attList = {
 		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.2184629291296, 9.7812957763672, 1.0817892551422),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4898,7 +5820,13 @@ local attList = {
 		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.80923044681549, 10.660333633423, 1.5862311124802),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4919,7 +5847,13 @@ local attList = {
 		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.25165918469429, 6.773983001709, 0.57720476388931),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 21.139198571605,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4940,7 +5874,13 @@ local attList = {
 		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.17056550085545, 8.8402919769287, 0.8173451423645),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 21.139198571605,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4961,7 +5901,13 @@ local attList = {
 		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.33277961611748, 10.087456703186, 0.69176882505417),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 21.139198571605,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -4982,7 +5928,13 @@ local attList = {
 		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.13747149705887, 12.129191398621, 0.69176882505417),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 21.139198571605,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -5003,7 +5955,13 @@ local attList = {
 		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.22412826120853, 11.376020431519, 0.93893367052078),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 21.139198571605,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -5024,7 +5982,13 @@ local attList = {
 		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.03400830924511, 12.579445838928, 0.93893367052078),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 21.139198571605,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -5045,7 +6009,13 @@ local attList = {
 		--flag = "",
 		cat = "optic", --attid should be id of item
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.51285761594772, 8.9643268585205, 0.7454177737236),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 21.139198571605,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -5093,7 +6063,13 @@ local ammoList = {
 		maxQuantity = 50,
 		--defQuantity = 50,
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.16811694204807, 11.062747955322, 0.25030392408371),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-43.543315887451, -40.780067443848, -35.422058105469),
+			fov = 39.071077276148,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -5116,7 +6092,13 @@ local ammoList = {
 		maxQuantity = 50,
 		--defQuantity = 50,
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.16811694204807, 11.062747955322, 0.25030392408371),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-43.543315887451, -40.780067443848, -35.422058105469),
+			fov = 39.071077276148,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -5139,7 +6121,13 @@ local ammoList = {
 		maxQuantity = 20,
 		--defQuantity = 50,
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.2997687458992, 16.542030334473, 0.6551451086998),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-30.724361419678, -46.184467315674, -23.122215270996),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -5208,7 +6196,13 @@ local ammoList = {
 		maxQuantity = 50,
 		--defQuantity = 50,
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.2997687458992, 16.542030334473, 0.6551451086998),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-30.724361419678, -46.184467315674, -23.122215270996),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -5231,7 +6225,13 @@ local ammoList = {
 		maxQuantity = 50,
 		--defQuantity = 50,
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.2997687458992, 16.542030334473, 0.31425142288208),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -5245,7 +6245,7 @@ local ammoList = {
 		desc = "A box of ammo currently containing %s rounds.", --use %s for number
 		price = 2340,--46.875ea
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x25_p.mdl",
-		width = 2,
+		width = 1,
 		height = 1,
 		weight = 0.01,
 		--category = "Attachments",
@@ -5254,7 +6254,13 @@ local ammoList = {
 		maxQuantity = 50,
 		--defQuantity = 50,
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.26382744312286, 11.425048828125, 0.25030392408371),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-43.543315887451, -40.780067443848, -35.422058105469),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -5277,7 +6283,13 @@ local ammoList = {
 		maxQuantity = 20,
 		--defQuantity = 50,
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.33957388997078, 20.552410125732, 1.3846484422684),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -5300,7 +6312,13 @@ local ammoList = {
 		maxQuantity = 20,
 		--defQuantity = 50,
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.33957388997078, 20.552410125732, 1.3846484422684),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -5323,7 +6341,13 @@ local ammoList = {
 		maxQuantity = 20,
 		--defQuantity = 50,
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.17477670311928, 14.309669494629, 0.59221971035004),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -5334,7 +6358,7 @@ local ammoList = {
 	},
 	["ammo_556"] = {
 		name = "5.56x45mm Ammo Box",
-		desc = "A box of ammo currently containing %s rounds. hey reminder to change model to fmj or remove this if it dont exist", --use %s for number
+		desc = "A box of ammo currently containing %s rounds.", --use %s for number
 		price = 3000,--100ea
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_556x45_ss190.mdl",
 		width = 2,
@@ -5346,7 +6370,13 @@ local ammoList = {
 		maxQuantity = 20,
 		--defQuantity = 50,
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.62745332717896, 19.62232208252, 0.95279800891876),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -5369,7 +6399,13 @@ local ammoList = {
 		maxQuantity = 20,
 		--defQuantity = 50,
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.62745332717896, 19.62232208252, 0.95279800891876),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -5392,7 +6428,13 @@ local ammoList = {
 		maxQuantity = 20,
 		--defQuantity = 50,
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(0.17477670311928, 14.309669494629, 0.59221971035004),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -5415,7 +6457,13 @@ local ammoList = {
 		maxQuantity = 20,
 		--defQuantity = 50,
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.026200776919723, 14.994012832642, 0.82984000444412),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -5438,7 +6486,13 @@ local ammoList = {
 		maxQuantity = 20,
 		--defQuantity = 50,
 		--useSound = "", --sound to use instead of atts own
-		--iconCam = {}, --pretty icons
+		iconCam = {
+			pos = Vector(-0.026200776919723, 14.994012832642, 0.82984000444412),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
 		--exRender = false, --overriding for old icon way if above exists
 		--iconmodel = "", --will use this model for icon making instead of normal model
 		--icon = "", --premade icons
@@ -5475,6 +6529,7 @@ function PLUGIN:InitializedItems()
 			ITEM.exRender = data.exRender
 		end
 		ITEM.icon = data.icon
+		ITEM.iconmodel = data.iconmodel
 		ITEM.noBusiness = data.noBusiness
 		ITEM.equipTbl = data.equipTbl
 		ITEM.transferSound = data.transferSound or ammoSounds[data.type]
@@ -5503,6 +6558,9 @@ function PLUGIN:InitializedItems()
 			ITEM.exRender = true
 			ITEM.iconCam = data.iconCam
 		end
+		if(data.exRender != nil) then
+			ITEM.exRender = data.exRender
+		end
 		if(data.destroyval) then
 			ITEM.destroyval = data.destroyval --in case i wanna add more
 			ITEM = EZADDDESTROYFUNC(ITEM)
@@ -5525,6 +6583,9 @@ function PLUGIN:InitializedItems()
 		if(data.iconCam) then --prob wont be used for anything else so
 			ITEM.exRender = true
 			ITEM.iconCam = data.iconCam
+		end
+		if(data.exRender != nil) then
+			ITEM.exRender = data.exRender
 		end
 		if(data.destroyval) then
 			ITEM.destroyval = data.destroyval --in case i wanna add more
