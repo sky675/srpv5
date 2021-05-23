@@ -504,38 +504,41 @@ if(SERVER) then
 		--nut.log.addRaw
 		if(target:IsPlayer()) then
 			local atk = dmg:GetAttacker()
-			local wep = atk:GetActiveWeaon()
-			if(IsValid(atk) and atk:IsPlayer() and IsValid(wep) and wep.PrimaryBash) then
-				local ply = target
-				local on = nut.config.get("damage", true)
-				if(msgs) then
-					net.Start("PlayerGetDmg")
-					net.WriteEntity(ply)
-					net.WriteEntity(atk)
-					net.WriteEntity(wep)
-					net.WriteInt(0, 4)
-					net.WriteInt(math.Round(ply:GetPos():Distance(atk:GetPos())/52.49, 2), 32)
-				end
-				local dmgmulti = 1
-				if(msgs) then
-					net.WriteFloat(dmgmulti)
-					net.WriteString(wep.Primary and wep.Primary.Ammo or "gren")
+			if(IsValid(atk) and atk:IsPlayer()) then
+				local wep = atk:GetActiveWeapon()
+				if(IsValid(wep) and wep.PrimaryBash) then
+					local msgs = nut.config.get("shootMessages", true)
+					local ply = target
+					local on = nut.config.get("damage", true)
+					if(msgs) then
+						net.Start("PlayerGetDmg")
+						net.WriteEntity(ply)
+						net.WriteEntity(atk)
+						net.WriteEntity(wep)
+						net.WriteInt(0, 4)
+						net.WriteInt(math.Round(ply:GetPos():Distance(atk:GetPos())/52.49, 2), 32)
+					end
+					local dmgmulti = 1
+					if(msgs) then
+						net.WriteFloat(dmgmulti)
+						net.WriteString(wep.Primary and wep.Primary.Ammo or "gren")
 	
 	
-					net.Send({ply, atk})
-				end
-				local pl = ply
-				if(IsValid(atk)) then
-					nut.log.addRaw(atk:Name().." ("..atk:steamName()..") attacked "..pl:Name().." ("..pl:steamName()..") with "..((wep and (wep.ClassName or wep:GetClass())) or "a mine or something probably").." [melee/"..((pl:getNetVar("typing") and "void") or tostring(dmgmulti)).."]")
-				end
+						net.Send({ply, atk})
+					end
+					local pl = ply
+					if(IsValid(atk)) then
+						nut.log.addRaw(atk:Name().." ("..atk:steamName()..") attacked "..pl:Name().." ("..pl:steamName()..") with "..((wep and (wep.ClassName or wep:GetClass())) or "a mine or something probably").." [melee/"..((pl:getNetVar("typing") and "void") or tostring(dmgmulti)).."]")
+					end
 				
-				if(wep.PrimaryBash) then
-					atk:getChar():updateAttrib("str", dmginfo:GetDamage()*0.0001)
-				end
+					if(wep.PrimaryBash) then
+						atk:getChar():updateAttrib("str", dmg:GetDamage()*0.0001)
+					end
 
-				if(!on) then 
-					dmg:ScaleDamage(0) //sadge
-					return true 
+					if(!on) then 
+						dmg:ScaleDamage(0) //sadge
+						return true 
+					end
 				end
 			end
 			--print(dmg:GetAttacker():GetClass().." "..dmg:GetDamageType(), dmg:IsDamageType(2))
@@ -822,7 +825,7 @@ else --client
 			return --no need for the rest
 		end
 		
-		if(ammo and ammo == "none") then
+		if(ammo and (ammo == "none" or ammo == "")) then
 			if(target == LocalPlayer()) then
 				chat.AddText("You were hit with a(n) "..wep.PrintName.." in "..(hitStrings[hitgroup] or "an unknown place").."!")
 			else
