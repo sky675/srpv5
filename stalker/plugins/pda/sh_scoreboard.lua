@@ -116,7 +116,6 @@ else--client
 			end
 
 			nxtTh = ct + 0.5
-			print("test ", pnlMainMenu, pnlMainMenu:IsVisible())
 		end
 	end)
 
