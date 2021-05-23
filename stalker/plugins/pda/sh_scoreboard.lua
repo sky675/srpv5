@@ -98,7 +98,7 @@ else--client
 		local ct = CurTime()
 		if(nxtTh > ct) then return end
 		
-		if(input.IsKeyDown(KEY_TAB)) then
+		if(input.IsKeyDown(KEY_TAB) and (!nut.gui.menu or !nut.gui.menu:IsVisible())) then
 			local pd = LocalPlayer():GetPDA()
 			if(!pd or LocalPlayer():getNetVar("typing")) then nxtTh = ct + 0.5 return true end
 
@@ -116,6 +116,7 @@ else--client
 			end
 
 			nxtTh = ct + 0.5
+			print("test ", pnlMainMenu, pnlMainMenu:IsVisible())
 		end
 	end)
 
