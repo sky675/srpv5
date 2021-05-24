@@ -35,14 +35,14 @@ SWEP.Purpose = ""
 SWEP.Instructions = "Right click for throw a bolt. left click works too idk"	
 SWEP.Base	= "detector_base"
 SWEP.HoldType = "pistol"
-SWEP.ViewModelFOV = 70
-SWEP.ViewModelFlip = true
-SWEP.UseHands = false
-SWEP.ViewModel = "models/weapons/v_cw_fraggrenade.mdl"
+SWEP.ViewModelFOV = 61
+SWEP.ViewModelFlip = false
+SWEP.UseHands = true
+SWEP.ViewModel = "models/weapons/c_slam.mdl"
 --SWEP.WorldModel = "models/tnb/weapons/w_detector_echo.mdl"
 SWEP.WorldModel = "models/kali/miscstuff/stalker/detector_echo.mdl"
 SWEP.ShowViewModel = true
-SWEP.ShowWorldModel = true
+SWEP.ShowWorldModel = false
 SWEP.Spawnable	= true
 SWEP.AdminSpawnable	= true
 
@@ -71,95 +71,49 @@ SWEP.Secondary.Automatic   		= false
 SWEP.Secondary.Ammo         	= "none"
 
 SWEP.ViewModelBoneMods = {
-	["l-ring-low"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(-3.333, 10, -16.667) },
-	["l-thumb-low"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(-10, 18.888, -3.333) },
-	["l-pinky-low"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(-38.889, 21.111, -10) },
-	["l-middle-low"] = { scale = Vector(1, 1, 1), pos = Vector(0, -0.186, 0), angle = Angle(14.444, 1.11, -18.889) },
-	["l-index-low"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(14.444, 0, 0) },
-	["lwrist"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0, 0, -87.778) },
-	["r-index-low"] = { scale = Vector(1, 1, 1), pos = Vector(-0.186, 0, 0), angle = Angle(-1.111, -1.111, 16.666) },
-	["r-thumb-low"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(10, -14.445, 16.666) },
-	["r-middle-low"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(36.666, 0, 0) },
-	["r-pinky-low"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(36.666, 0, 0) },
-	["Base"] = { scale = Vector(0.009, 0.009, 0.009), pos = Vector(0, 0, 0), angle = Angle(0, 0, 0) },
-	["r-ring-low"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(34.444, 0, 0) },
-	["Dummy01"] = { scale = Vector(0.009, 0.009, 0.009), pos = Vector(0, 0, 0), angle = Angle(0, 0, 0) }
+	["ValveBiped.Bip01_L_Finger31"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0, -9.969, 0) },
+	["ValveBiped.Bip01_L_Finger0"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(-19.997, 7.368, 0) },
+	["ValveBiped.Bip01_L_Finger02"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0.847, -23.803, 0) },
+	["ValveBiped.Bip01_L_Forearm"] = { scale = Vector(1, 1, 1), pos = Vector(-2.1, 2.605, -0.06), angle = Angle(-3.211, -1.39, -79.242) },
+	["ValveBiped.Bip01_L_Finger3"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(3.266, 0.855, 0.841) },
+	["Detonator"] = { scale = Vector(0.009, 0.009, 0.009), pos = Vector(0, 0, 0), angle = Angle(0, 0, 0) },
+	["ValveBiped.Bip01_L_Finger01"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(-4.672, -25.209, 0) },
+	["ValveBiped.Bip01_R_Finger42"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0, 39.986, 0) },
+	["ValveBiped.Bip01_L_Finger2"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(-0.908, -6.158, -6.349) },
+	["ValveBiped.Bip01_L_Finger22"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(-4.692, 15.583, 0) },
+	["Slam_base"] = { scale = Vector(0.009, 0.009, 0.009), pos = Vector(0, 0, 0), angle = Angle(0, 0, 0) },
+	["ValveBiped.Bip01_L_Hand"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0, -18.889, 0) },
+	["ValveBiped.Bip01_R_Finger41"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0, 0.898, 1.899) },
+	["ValveBiped.Bip01_L_Finger1"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(5.875, 16.205, 0) },
+	["ValveBiped.Bip01_L_Finger21"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(4.118, 19.423, 0) },
+	["ValveBiped.Bip01_L_Finger41"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0, 56.792, 0) },
+	["ValveBiped.Bip01_R_Finger1"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(25.115, -88.232, 0) },
+	["ValveBiped.Bip01_L_Finger4"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0, -30.184, 0) },
+	["ValveBiped.Bip01_R_Finger2"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(18.989, -64.88, 0) },
+	["ValveBiped.Bip01_R_Finger4"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(4.327, -45.591, -13.356) },
+	["ValveBiped.Bip01_L_Finger42"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0, 59.638, 0) },
+	["ValveBiped.Bip01_R_Finger31"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0.537, -8.941, 0) },
+	["ValveBiped.Bip01_R_Finger32"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0, 30.1, 0) },
+	["ValveBiped.Bip01_L_Finger32"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0, 81.625, 0) },
+	["ValveBiped.Bip01_R_Hand"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(11.39, -0.225, 0.365) },
+	["ValveBiped.Bip01_R_Finger3"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(6.951, -60.103, -2.806) },
+	["ValveBiped.Bip01_R_Finger0"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(2.674, -20.901, 0) }
 }
+
 
 SWEP.IronSightsPos = Vector(0, 0, 0)
 SWEP.IronSightsAng = Vector(0, 0, 0)
 
 SWEP.VElements = {
-	["echo"] = { type = "Model", model = "models/kali/miscstuff/stalker/detector_echo.mdl", bone = "lwrist", rel = "", pos = Vector(3.635, 1.557, -0.9), angle = Angle(-50.26, 15.194, 139.091), size = Vector(0.55, 0.55, 0.55), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 1, bodygroup = {[1] = 1} },
+	["echo"] = { type = "Model", model = "models/kali/miscstuff/stalker/detector_echo.mdl", bone = "ValveBiped.Bip01_L_Hand", rel = "", pos = Vector(4.032, 1.725, 1.968), angle = Angle(36.025, 16.77, 56.62), size = Vector(0.911, 0.911, 0.911), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 1, bodygroup = {[1] = 1, [2] = 1} },
 	--["detector"] = { type = "Model", model = "models/kali/miscstuff/stalker/detector_bear.mdl", bone = "l-upperarm", rel = "", pos = Vector(8.831, 0.518, -2.5), angle = Angle(33.895, 68.96, 17.531), size = Vector(0.5, 0.5, 0.5), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {[1] = 1} },
-	["element_name"] = { type = "Model", model = "models/kali/miscstuff/stalker/bolt.mdl", bone = "Base", rel = "", pos = Vector(0, 0, 0), angle = Angle(12.857, -29.222, 180), size = Vector(0.755, 0.755, 0.755), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} },
+	["bolt"] = { type = "Model", model = "models/kali/miscstuff/stalker/bolt.mdl", bone = "Slam_base", rel = "", pos = Vector(-2.962, -64.35, 19.85), angle = Angle(-1.163, 18.54, 108.359), size = Vector(0.856, 0.856, 0.856), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} },
 }
 
 SWEP.WElements = {
 	["Bear"] = { type = "Model", model = "models/kali/miscstuff/stalker/detector_echo.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "", pos = Vector(4.675, 1.557, -2.597), angle = Angle(-106.364, -167.144, 12.857), size = Vector(1, 1, 1), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {[1] = 1} }
 }
 
-function SWEP:PrimaryAttack()
-	if (self.UseDel < CurTime() and self:Ammo1() > 0) then
-		self.UseDel = CurTime() + 3
-		self.Owner:DoAttackEvent( )	
-		self.Weapon:SendWeaponAnim(ACT_VM_PULLPIN)
-		self.Owner:ViewPunch( Angle( 10, -10, 0 ) )
-		if (SERVER) then
-			timer.Simple( 0.9, function()
-				self:EmitSound( Sound("weapons/slam/throw.wav", 100, 100 ) )
-				local bolt = ents.Create( "ent_stalker_bolt" )	
-				bolt:SetPos(self.Owner:GetShootPos() + self.Owner:GetAimVector() * 10)
-				bolt:SetAngles(self.Owner:EyeAngles())
-				bolt:Spawn()
-				bolt:SetOwner( self.Owner )
-				bolt:Fire("kill", "", 12)
-				bolt:GetPhysicsObject():ApplyForceCenter( self.Owner:GetVelocity() + self.Owner:GetAimVector() * 5000)
-				bolt:GetPhysicsObject():AddAngleVelocity(Vector(math.random(-500,500),math.random(-500,500),math.random(-500,500)))		
-				bolt:GetPhysicsObject():SetMass(1)
-			end)
-			--if GetConVarNumber("vnt_stalker_bolt_ammo") != 0 then	self:TakePrimaryAmmo(1)	end
-		end
-		timer.Simple( 0.75, function()	
-		self.Weapon:SendWeaponAnim(ACT_VM_DRAW)
-		end)
-	end
-end
-
-function SWEP:SecondaryAttack()
-	if (self.UseDel < CurTime() and self:Ammo1() > 0) then
-		self.UseDel = CurTime() + 3
-		self.Owner:DoAttackEvent( )	
-		self.Weapon:SendWeaponAnim(ACT_VM_PULLPIN)
-		self.Owner:ViewPunch( Angle( -2, 0, 0 ) )
-		if (SERVER) then
-			timer.Simple( 0.9, function()
-				self:EmitSound( Sound("weapons/slam/throw.wav", 100, 100 ) )
-				local bolt = ents.Create( "ent_stalker_bolt" )	
-				bolt:SetPos(self.Owner:GetShootPos() + self.Owner:GetAimVector() * 10)
-				bolt:SetAngles(self.Owner:EyeAngles())
-				bolt:Spawn()
-				bolt:SetOwner( self.Owner )
-				bolt:Fire("kill", "", 12)
-				bolt:GetPhysicsObject():ApplyForceCenter( self.Owner:GetVelocity() + self.Owner:GetAimVector() * 2500)
-				bolt:GetPhysicsObject():AddAngleVelocity(Vector(math.random(-500,500),math.random(-500,500),math.random(-500,500)))		
-				bolt:GetPhysicsObject():SetMass(1)
-			end)
-			--[[if GetConVarNumber("vnt_stalker_bolt_ammo") != 0 then
-				self:TakePrimaryAmmo(1)
-			end]]
-		end
-		timer.Simple( 0.75, function()	
-		self.Weapon:SendWeaponAnim(ACT_VM_DRAW)
-		end)
-	end
-end
-
-function SWEP:Deploy()
-	timer.Simple( 0.75, function()	
-	end)
-	return true
-end
 
 local anomalies = {
 	--list of ["uniqueid"] = true that this detects
@@ -243,7 +197,7 @@ function SWEP:Think()
 				self.LastBeep = CurTime()
 				self.VElements["echo"].skin = 2
 				timer.Simple(0.1, function()
-					if IsValid(self) and IsValid(self.Weapon) then
+					if IsValid(self) then
 						self.VElements["echo"].skin = 1
 					end
 				end)
