@@ -267,12 +267,13 @@ function SWEP:Think()
 				end
 			end
 		end
-		local anoms = {}
+		--veles dont make sounds
+		--[[local anoms = {}
 		for k,v in pairs(ents.FindInSphere(self:GetOwner():GetPos(), detectionRange)) do
 			--[[ --old way for backup
 			if anomalies[string.lower(v:GetClass())] then
 				table.insert(anoms, v)
-			end]]
+			end]
 			if(v.getItemID and anomalies[v:getItemID()]) then
 				table.insert(anoms, v)
 			end
@@ -289,5 +290,6 @@ function SWEP:Think()
 			self.LastBeep = CurTime()
 			self.Owner:EmitSound(Sound("stalkerdetectors/echo.wav"), 100, 100)//math.Clamp(250-dist/2,50,250))
 		end
+		]]
 	end
 end
