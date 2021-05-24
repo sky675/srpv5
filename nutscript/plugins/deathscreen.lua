@@ -38,7 +38,7 @@ if (CLIENT) then
 		if (aprg > 0.01) then
 			surface.SetDrawColor(0, 0, 0, ceil((aprg^.5) * 255))
 			surface.DrawRect(-1, -1, w+2, h+2)
-			local tx, ty = nut.util.drawText(L"youreDead", w/2, h/2, ColorAlpha(color_white, aprg2 * 255), 1, 1, "nutDynFontMedium", aprg2 * 255)
+			local tx, ty = nut.util.drawText(L"youreDead", w/2, h/2, ColorAlpha(Color(241,151,27,255), aprg2 * 255), 1, 1, "nutDynFontMedium", aprg2 * 255)
 		end
 	end
 end
