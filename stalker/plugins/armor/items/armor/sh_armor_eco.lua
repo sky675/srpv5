@@ -129,8 +129,9 @@ ITEM.getBodyGroups = function(item, ply)
 	return {["arms"] = ply:isFemale() and 3 or 4,["hands"] = 3,["head"] = mx}
 end
 ]]
+ITEM.wipebgs = true
 ITEM.getBodygroupsKeep = function(item, ply)
-	return {keep = true, ["arms"] = ply:isFemale() and 3 or 4,["hands"] = 3}
+	return {keep = true, ["head"] = 0, ["beanie"] = 0, ["arms"] = ply:isFemale() and 3 or 4,["hands"] = 3}
 end
 
 ITEM.overlaytype = "sci"
