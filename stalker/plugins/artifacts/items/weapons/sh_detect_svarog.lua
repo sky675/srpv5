@@ -1,0 +1,19 @@
+ITEM.name = "Svarog Detector";
+ITEM.desc = "A prototype of an expanded functionality anomalous frequency scanner. This device comes with a program used to identify static areas of anomalous activity stored in its database, while retaining the ability to locate artefacts. The position of anomalous areas and artefacts is displayed on a special screen. The artefact search mode, which can be activated by opening the front LED display, has been modified to detect anomalous formations currently unknown to science. Also includes a somehow unlimited supply of bolts."
+ITEM.model = "models/kali/miscstuff/stalker/detector_veles.mdl";
+ITEM.skin = 2
+ITEM.class = "detector_svarog"
+ITEM.category = "Detectors"
+ITEM.weaponCategory = "detector"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.weight = 0.28
+ITEM.price = 98680
+ITEM.flag = "E"
+ITEM.exRender = true
+ITEM.iconCam = {
+	pos = Vector(111.2872543335, 93.227920532227, 68.163940429688),
+	ang = Angle(25, 220, 0),
+	entAng = Angle(0, -127.68507385254, 0),
+	fov = 2.1130716442623,
+}
