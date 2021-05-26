@@ -20,7 +20,7 @@ ITEM.useTime = 0.75
 --ITEM.bleedStop = 1
 ITEM.price = 5000
 ITEM.desc = "A standard-issue soldier equipment. Heals 50 in 15 seconds."
-ITEM.flag = "6"
+ITEM.flag = "u"
 ITEM.permit = "med"
 
 local function onUse(item)

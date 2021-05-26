@@ -16,7 +16,7 @@ ITEM.healAmount = 40
 ITEM.healSeconds = 100
 ITEM.price = 3800
 ITEM.desc = "A bottle of painkillers?. Heals "..ITEM.healAmount.." in "..ITEM.healSeconds.." seconds."
-ITEM.flag = "6"
+ITEM.flag = "u"
 
 local function onUse(item)
 	item.player:EmitSound("player/items/pain_pills/pills_deploy_2.wav", 60)

@@ -15,7 +15,7 @@ ITEM.uses = 5
 ITEM.useTime = 1
 ITEM.price = 4450
 ITEM.desc = "A drug used to counteract psy-fields. Induces short-term loss of all emotion. Effective for approximately 20 minutes."
-ITEM.flag = "6"
+ITEM.flag = "u"
 ITEM.hungerAmt = -8
 ITEM.thirstAmt = -5
 

@@ -16,7 +16,7 @@ ITEM.healSeconds = 20
 ITEM.bleedStop = 9
 ITEM.price = 5200
 ITEM.desc = "A higher quality roll of bandages. Heals "..ITEM.healAmount.." in "..ITEM.healSeconds.." seconds. Also applies "..ITEM.bleedStop.." bleed reduction."
-ITEM.flag = "6"
+ITEM.flag = "u"
 ITEM.noBusiness = true --crafting only
 
 local function onUse(item)

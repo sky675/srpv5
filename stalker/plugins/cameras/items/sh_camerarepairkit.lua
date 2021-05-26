@@ -1,5 +1,5 @@
 ITEM.name = "Camera Repair Kit"
-ITEM.model = "models/props_junk/PopCan01a.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_instrument_1.mdl"
 ITEM.desc = "special repair kit with stuff to repair remote cameras (todo)"
 ITEM.category = "misc"
 ITEM.flag = "m"
@@ -10,7 +10,7 @@ ITEM.height = 1
 
 // On player uneqipped the item, Removes a weapon from the player and keep the ammo in the item.
 ITEM.functions.usef = { -- sorry, for name order.
-	name = "Give",
+	name = "Repair Camera",
 	tip = "useTip",
 	icon = "icon16/arrow_up.png",
 	onRun = function(item)

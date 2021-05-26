@@ -1,5 +1,5 @@
 ITEM.name = "Camera Controller"
-ITEM.model = "models/props_junk/PopCan01a.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_decoder.mdl"
 ITEM.desc = "view placed special ent cameras (todo)"
 ITEM.category = "misc"
 ITEM.flag = "m"
