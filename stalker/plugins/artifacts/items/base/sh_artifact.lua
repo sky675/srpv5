@@ -19,6 +19,7 @@ function ITEM:drawEntity(ent)
 	end
 end
 function ITEM:think(ent)
+	if(self.junkArt) then return end
 	local nearby = ents.FindInSphere(ent:GetPos(), 200)
 	local set = true
 	for k,v in ipairs(nearby) do

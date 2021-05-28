@@ -15,7 +15,7 @@ ITEM.uses = 3
 ITEM.useTime = 1
 ITEM.price = 3360
 ITEM.desc = "A package of IP2 antitoxin. Gives extra chemical resistance for around 5 minutes."
-ITEM.flag = "6"
+ITEM.flag = "u"
 ITEM.hungerAmt = -4
 ITEM.thirstAmt = -9
 

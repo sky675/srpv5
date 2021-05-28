@@ -412,7 +412,7 @@ if (CLIENT) then
 
 		if(GetConVar("nutDisablePdaSound") and GetConVar("nutDisablePdaSound"):GetBool()) then
 		else --simple
-			surface.PlaySound("pda/pda.wav", 50) 
+			surface.PlaySound("pda/pda_news.ogg", 50) 
 		end
 		chat.AddText(Color(37,65,206),"[PDA-NOTIF] ", Color(255, 255, 255), text)
 		
@@ -422,6 +422,19 @@ else
 	util.AddNetworkString("ChangePDAHandle")
 	util.AddNetworkString("ChangePDATitle")
 	util.AddNetworkString("ChangePDAParty")
+
+	hook.Add("PlayerLoadedChar", "pdaintromsg", function(ply, char, lastChar)
+		if(!char:getData("pn")) then
+			char:setData("pn", true) --i wanted as little data use as possible, couldve done 0/1 but eh
+
+			timer.Simple(math.random(6, 13), function()
+			netstream.Start(ply, "Welcome to the Unified STALKER Local Area Network.", "phrnewlinephr",
+			--"Based on internal data, there are ".."(todo)".." individuals in the zone.", "phrnewlinephr",
+			"You may want to set your PDA handle for use on the network, this can be done via TAB>Settings", "phrnewlinephr",
+			"PDA initialization is complete! Welcome to the Chernobyl Exclusion Zone.")
+			end)
+		end
+	end)
 	
 	net.Receive("ChangePDAHandle", function(len, ply)
 		local change = net.ReadString()

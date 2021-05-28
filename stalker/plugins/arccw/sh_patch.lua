@@ -1025,9 +1025,15 @@ hook.Add("ArcCW_OnAttLoad", "arcatts_patch", function(v)
 end)
 
 --PLEASE MAKE ArcCW_LoadAtts() A GLOBAL FUNCTION
+if(SERVER) then
+STUPIDATTSRELOADED = STUPIDATTSRELOADED or false
+
+if(STUPIDATTSRELOADED) then return end
 local thestupidfunc = hook.GetTable()["PostCleanupMap"]["ArcCW_ReloadAttsDebug"]
 if(thestupidfunc) then
+	STUPIDATTSRELOADED = true
 	GetConVar("arccw_reloadatts_mapcleanup"):SetBool(true)
 	thestupidfunc()
 	GetConVar("arccw_reloadatts_mapcleanup"):SetBool(false)
+end
 end

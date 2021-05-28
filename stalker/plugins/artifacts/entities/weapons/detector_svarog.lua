@@ -5,7 +5,7 @@ sound.Add({	name		= "V92_Uni_QuickMove",
 	pitch		= { 95, 105 },
 	sound		= "jessev92/weapons/univ/throw_gren.wav",
 })
-
+ 
 sound.Add({	name		= "V92_Uni_Draw",
 	channel		= CHAN_BODY,
 	level		= 75,
@@ -21,14 +21,13 @@ sound.Add({	name		= "V92_Uni_Holster",
 	pitch		= { 95, 105 },
 	sound		= "jessev92/weapons/univ/holster1.wav",
 })
-
 if(SERVER) then
 AddCSLuaFile();
 end
 
-SWEP.PrintName			= "Bear Detector"			
+SWEP.PrintName			= "Svarog Detector"			
 SWEP.Slot				= 3
-SWEP.SlotPos			= 1
+SWEP.SlotPos			= 5
 SWEP.Category = "srp detectors"
 SWEP.Author	= "Subleader and AirBlack with edits by sky"
 SWEP.Contact = ""
@@ -40,10 +39,9 @@ SWEP.ViewModelFOV = 61
 SWEP.ViewModelFlip = false
 SWEP.UseHands = true
 SWEP.ViewModel = "models/weapons/c_slam.mdl"
---SWEP.WorldModel = "models/tnb/weapons/w_detector_bear.mdl"
-SWEP.WorldModel = "models/kali/miscstuff/stalker/detector_bear.mdl"
+SWEP.WorldModel = "models/kali/miscstuff/stalker/detector_veles.mdl"--models/tnb/weapons/w_detector_veles.mdl"
 SWEP.ShowViewModel = true
-SWEP.ShowWorldModel = true
+SWEP.ShowWorldModel = false
 SWEP.Spawnable	= true
 SWEP.AdminSpawnable	= true
 
@@ -71,6 +69,8 @@ SWEP.Secondary.DefaultClip		= -1
 SWEP.Secondary.Automatic   		= false
 SWEP.Secondary.Ammo         	= "none"
 
+SWEP.IronSightsPos = Vector(0, 0, 0)
+SWEP.IronSightsAng = Vector(0, 0, 0)
 SWEP.ViewModelBoneMods = {
 	["ValveBiped.Bip01_L_Finger31"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0, -9.969, 0) },
 	["ValveBiped.Bip01_L_Finger02"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(0.848, -23.802, 0) },
@@ -101,16 +101,15 @@ SWEP.ViewModelBoneMods = {
 	["ValveBiped.Bip01_L_Finger0"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(-19.997, 7.368, 0) }
 }
 
-SWEP.IronSightsPos = Vector(0, 0, 0)
-SWEP.IronSightsAng = Vector(0, 0, 0)
-
-SWEP.WElements = {
-	["Bear"] = { type = "Model", model = "models/kali/miscstuff/stalker/detector_bear.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "", pos = Vector(4.675, 1.557, -2.597), angle = Angle(-106.364, -167.144, 12.857), size = Vector(1, 1, 1), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {[1] = 1} }
+SWEP.VElements = {
+	["veles"] = { type = "Model", model = "models/kali/miscstuff/stalker/detector_veles.mdl", bone = "ValveBiped.Bip01_L_Hand", rel = "", pos = Vector(3.394, 1.174, 0.809), angle = Angle(35.681, 13.017, 54.263), size = Vector(0.945, 0.945, 0.945), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 3, bodygroup = {[1] = 1} },
+	["screen"] = { type = "Quad", bone = "ValveBiped.Bip01_Spine4", rel = "veles", pos = Vector(2.94, 0.125, 0.959), angle = Angle(0, -90, 0), size = 0.05, draw_func = nil},
+	["bolt"] = { type = "Model", model = "models/kali/miscstuff/stalker/bolt.mdl", bone = "Slam_base", rel = "", pos = Vector(-2.962, -64.35, 19.85), angle = Angle(-1.163, 18.54, 108.359), size = Vector(0.856, 0.856, 0.856), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} }
 }
 
-SWEP.VElements = {
-	["veles"] = { type = "Model", model = "models/kali/miscstuff/stalker/detector_bear.mdl", bone = "ValveBiped.Bip01_L_Hand", rel = "", pos = Vector(3.365, 1.164, 0.809), angle = Angle(35.68, 13.017, 54.263), size = Vector(0.944, 0.944, 0.944), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 1, bodygroup = {[1] = 1, [2] = 1, [3] = 1} },
-	["bolt"] = { type = "Model", model = "models/kali/miscstuff/stalker/bolt.mdl", bone = "Slam_base", rel = "", pos = Vector(-2.962, -64.35, 19.85), angle = Angle(-1.163, 18.54, 108.359), size = Vector(0.856, 0.856, 0.856), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} }
+
+SWEP.WElements = {
+	["Bear"] = { type = "Model", model = "models/kali/miscstuff/stalker/detector_veles.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "", pos = Vector(4.675, 1.557, -2.597), angle = Angle(-106.364, -167.144, 12.857), size = Vector(1, 1, 1), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 3, bodygroup = {[1] = 1} }
 }
 
 
@@ -160,86 +159,96 @@ local anomalies = {
 	["art_eye"] = true,
 	["art_kolobok"] = true,
 	["art_shell"] = true,
+
+	["art_fireball"] = true,
+	["art_bubble"] = true,
+	["art_goldfish"] = true,
+	["art_flame"] = true,
+	["art_snowflake"] = true,
+
+	--anomalies
+	["maysorubka_anomaly"] = true,
+	["jarka"] = true,
+	["electra_anomaly"] = true,
+	["gazirovka_anomaly"] = true,
 }
-local detectionRange = 500
+--sky/detector/svarog_burn/chem/elec/grav.png
+local anomTrans = {
+	["maysorubka_anomaly"] = "sky/detector/svarog_grav.png",
+	["jarka"] = "sky/detector/svarog_burn.png",
+	["electra_anomaly"] = "sky/detector/svarog_elec.png",
+	["gazirovka_anomaly"] = "sky/detector/svarog_chem.png"
+}
+local imageScale = {
+	["sky/detector/svarog_burn.png"] = 2,
+	["sky/detector/svarog_chem.png"] = 2,
+	["sky/detector/svarog_elec.png"] = 2,
+	["sky/detector/svarog_grav.png"] = 2,
+
+}
+local detectionRange = 700
 
 if CLIENT then
-	--[[
-	local matScreen = Material("models/kali/miscstuff/stalker/detectors/detector_bear_c"); // ��������, ������� ����
-	local RTTexture = GetRenderTarget("DTC_BEAR", 512, 512); // ����� ��������
 
-	local dot = surface.GetTextureID("models/kali/miscstuff/stalker/detectors/detector_bear_segment_copy");
-	local bg = surface.GetTextureID("models/kali/miscstuff/stalker/detectors/detector_bear_copy");
+		/*self.VElements["screen"].draw_func = function( weapon )
+			//surface.SetDrawColor(quadInnerColor)
+			draw.SimpleText(weapon:Clip1(), "QuadFont", 0, 0, Color(0,255,0,255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+		end*/
 
-	function SWEP:RenderScreen()
-
-		local NewRT = RTTexture;
-		local oldW = ScrW();
-		local oldH = ScrH();
-		local ply = LocalPlayer();
-
-		matScreen:SetTexture( "$basetexture", NewRT);
-	
-		local OldRT = render.GetRenderTarget();
-		render.SetRenderTarget(NewRT);
-		render.SetViewPort( 0, 0, 512, 512);
-
-		cam.Start2D();
-
-			render.Clear( 50, 50, 100, 0 );
-
-			surface.SetDrawColor( 255, 255, 255, 255 );
-			surface.SetTexture( bg );
-			surface.DrawTexturedRect( 0, 0, 512, 512);
-
-			surface.SetTexture(dot);
-		
-		
-			local anoms = {}
-			for k,v in pairs(ents.FindInSphere(self:GetOwner():GetPos(), detectionRange)) do
-				if(v.getItemID and anomalies[v:getItemID()]) then
-					table.insert(anoms, v)
-				end
-				--im not entirely sure what else it should beep at so
-			end
-			local dist = 501
-			local ent = nil
-			for k,v in pairs(anoms) do
-				if v:GetPos():Distance(LocalPlayer():GetPos()) < dist then
-					dist = v:GetPos():Distance(LocalPlayer():GetPos())
-					ent = v --im psure it detects more than one but idk
-				end
-			end
-			if dist < 500 then
-				local ang = ply:GetAngles();
-				local pos = ent:GetPos() - ply:GetShootPos()
-				surface.SetDrawColor(255, 255, 255, 255)
-				pos:Rotate(Angle(0, -1*ang.Yaw, 0));
-				if (math.abs(pos.z)<2000) then
-					surface.DrawTexturedRectRotated( 131, 118, 150, 150, ((pos:Angle().y % 15) / 15 < 0.5 and pos:Angle().y - (pos:Angle().y % 15) or (pos:Angle().y % 15) / 15 >= 0.5 and pos:Angle().y - (pos:Angle().y % 15)  + 15) + 30  )//�������. �� ������� ������� ������� ���� �� 15(� ��������� 24 �������. 360/24 = 15) � ���� ������� ������ �������� 15, �� �� ���� �������� �������, � ���� ������� ������ �������� 15, �� �� ���� �������� ������� � ���������� 15. ��� ����� ������. ����� ������� �� �������� ����, ������� 15. ������� 'Black Pheonix'� �� �����.
-				end
-			end
-
-		cam.End2D();
-
-		render.SetRenderTarget(OldRT);
-		render.SetViewPort( 0, 0, oldW, oldH )
-
-	end]]
 end
 SWEP.LastBeep = 0
+
+function PointOnCircle( ang, radius, offX, offY )
+	ang = math.rad( ang )
+	local x = math.cos( ang ) * -radius + offX
+	local y = math.sin( ang ) * radius + offY
+	return x, y
+end
+
 function SWEP:Think()
 	if CLIENT then
-		local anoms = {}
+		self.VElements["screen"].draw_func = function( weapon )
+			
+			local function DrawPointOnThatShit(material, x, y, ang, size )
+				surface.SetMaterial(Material(material))
+				surface.DrawTexturedRectRotated(x, y, size, size, ang )
+			end
+			
+			local plypos = self.Owner:GetPos()
+			--i dont like looping through it twice but eh
+			for k,v in pairs(ents.FindInSphere(plypos, detectionRange)) do
+						
+				if ( v:IsValid() ) then
+						
+					local tstdeg = ( (v:GetPos() - self.Owner:GetPos()):Angle().yaw - self.Owner:EyeAngles().yaw ) - 90
+					local dest = self.Owner:GetPos():Distance(v:GetPos())-- plypos.x - v:GetPos().x, plypos.y - v:GetPos().y
+					local x, y = PointOnCircle( tstdeg, dest/30, -3, 21 )
+						
+					if dest < 700 then
+						if (v.getItemID and anomalies[v:getItemID()]) then
+							--print(v:GetClass())
+							surface.SetDrawColor( 255, 255, 255, 255 )
+							DrawPointOnThatShit("sky/detector/svarog_arti.png", x, y, v:GetAngles().yaw, 2 )
+							--draw.SimpleText(".", "QuadFont", 0, 0, Color(0,255,0,255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+						elseif(anomalies[v:GetClass()]) then
+							surface.SetDrawColor( 255, 255, 255, 255 )
+							local t = anomTrans[v:GetClass()]
+							DrawPointOnThatShit(t or "icon16/control_play.png", x, y, v:GetAngles().yaw, imageScale[t] )
+						end
+					end					
+				end
+			end
+		end
+		--veles dont make sounds
+		--[[local anoms = {}
 		for k,v in pairs(ents.FindInSphere(self:GetOwner():GetPos(), detectionRange)) do
 			--[[ --old way for backup
 			if anomalies[string.lower(v:GetClass())] then
 				table.insert(anoms, v)
-			end]]
+			end]
 			if(v.getItemID and anomalies[v:getItemID()]) then
 				table.insert(anoms, v)
 			end
-			--im not entirely sure what else it should beep at so
 		end
 		local dist = 501
 		local ent = nil
@@ -249,31 +258,10 @@ function SWEP:Think()
 				ent = v
 			end
 		end
-		--still bad at angles and math, taken from a thread on facepunch i found
-		--this V wouldnt go negative so wasnt useful
-		--[[local tarpos = ent:GetPos()
-		tarpos.z = 0
-		local plypos = LocalPlayer():GetPos()
-		plypos.z = 0
-		local eyeToMonster = (tarpos - plypos):GetNormalized() -- Normalized direction to the monster
-		local dotProduct = eyeToMonster:Dot(LocalPlayer():GetAngles():Forward()) -- How similar is the player's aim direction to the direction of the monster?
-		local aimDegree = math.deg(math.acos(dotProduct))]] -- Convert similarity to degrees
-		-- If the degree difference in similarity is bigger than the player's FOV, then most likely it isn't being rendered
-		--print("pos ", eyeToMonster, dotProduct, math.acos(dotProduct), aimDegree)
-		local md = self.VElements["veles"].modelEnt
-		if(IsValid(md)) then
-			local ply = LocalPlayer()
-			local ang = ply:GetAngles();
-			local pos = ent:GetPos() - ply:GetShootPos()
-			pos:Rotate(Angle(0, -1*ang.Yaw, 0));
-
-			local ange = Angle(0, 0, -pos:Angle().y)
-			md:ManipulateBoneAngles(4, ange)
-		end
-
 		if dist < 500 and self.LastBeep + dist/300 - CurTime() <= 0 then
 			self.LastBeep = CurTime()
 			self.Owner:EmitSound(Sound("stalkerdetectors/echo.wav"), 100, 100)//math.Clamp(250-dist/2,50,250))
 		end
+		]]
 	end
 end

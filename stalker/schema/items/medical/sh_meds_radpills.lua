@@ -15,7 +15,7 @@ ITEM.uses = 2
 ITEM.useTime = 1
 ITEM.price = 1720
 ITEM.desc = "B190 Indraline radioprotectant, reduces the effects of radiation for around 5 minutes."
-ITEM.flag = "6"
+ITEM.flag = "u"
 ITEM.hungerAmt = -5
 ITEM.thirstAmt = -6
 

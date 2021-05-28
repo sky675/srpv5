@@ -27,7 +27,7 @@ ITEM.canRevive = false
 ITEM.bleedStop = 3
 ITEM.price = 4500
 ITEM.desc = "Includes medicine for faster blood coagulation, as well as painkillers, antibiotics, immunity stimulators, and more. Heals "..ITEM.healAmount.." in "..ITEM.healSeconds.." seconds. Also applies "..ITEM.bleedStop.." bleed reduction."
-ITEM.flag = "6"
+ITEM.flag = "u"
 
 local function onUse(item)
 	item.player:EmitSound("interface/inv_medkit_short.ogg", 60)
