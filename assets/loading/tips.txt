@@ -1,0 +1,20 @@
+Technicians in Stalker Camps can upgrade your weapons, suits, and helmets.
+You need a detector to search for artifacts. The best detectors make searching easier and may even detect more valuable artifacts.
+One of the most common threats in The Zone is radiation. Serious exposure will harm your health and can be terminal if not treated adequately.
+A detector is the only reliable way of checking anomalous areas for artifacts.
+Artifacts are not usually static: they tend to move within an anomalous area. Gun ho attempts to chase down an artifact will lead you into an anomaly in no time.
+New artifacts may appear in anomalous areas that you’ve already explored after an emission.
+You can leave your things in a personal box at Loner Town to avoid dragging around unnecessary stuff.
+Your PDA is your lifeline. Not only is it your communication device, but it is your link to the entire zone. Keep it safe.
+To look in your backpack, press "F1".
+If you have weapon attachments, simply drag them ontop of an appropriate weapon to attach them.
+The Zone has a life of its own, which means that there’s always a chance of bumping into mutants or enemy stalkers in areas that you thought were safe.
+Weapons and protective suits will wear out quickly in the harsh conditions of the Zone. Visit a technician to ensure their longevity.
+Don't underestimate pistols. They provide considerable stopping power and can be very effective against poorly armored targets.
+Shotguns are close-combat weapons. The further your enemy is from you, the less effective they are.
+The rich aren't the only ones making jobs. If you need something done, someone will be desperate enough to do it - for enough rubles.
+Your knife is ineffective against enemies armed with firearms. Use it in close combat or for a stealthy kill.
+In addition to their useful effects, most artifacts are also radioactive. This can be compensated for by using artifacts that absorb radiation.
+You can bring up the context menu for items in your backpack by placing your mouse over the required item and pressing the right mouse button.
+Some medical products increase the body's resistance to harmful effects. Using such products can save your life during missions into anomalous areas.
+Low endurance can make you immobile and vulnerable to enemy attacks at crucial moments.

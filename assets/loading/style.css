@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+body {
+  background-image: url('load_table.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: 1920px 1080px;
+  overflow: hidden;
+  
+}
+
+#progressInfo {
+  font-family: 'Roboto Mono', monospace;
+  color: white;
+  position: absolute;
+  font-size: 15px;
+  bottom: 20px;  
+}
+
+#progressbar {
+  filter: blur(1px);
+  position: absolute;
+  bottom: 0;
+  background-color: grey;
+
+  width: 99%;
+  /* (height of inner div) / 2 + padding */
+  padding: 3px;
+}
+
+#progressbar>div {
+  filter: blur(0px);
+  background-color: rgb(201, 132, 4);
+  width: 40%;
+  /* Adjust with JavaScript */
+  height: 20px;
+}
+
+.pdaContainer {
+  position: relative;
+}
+
+.container {
+  top: 110px;
+  left: 390px;
+  position: absolute;
+  width: 683px;
+  height: 467px;
+  opacity: 80%;
+  transform: rotate(8.2deg);
+
+
+}
+
+.name {
+  font-family: 'Roboto Mono', monospace;
+  color: white;
+  position: absolute;
+  top: 10px;
+  left: 230px;
+}
+
+
+.pdaAvatarP {
+  opacity: 50%;
+  position: absolute;
+  top: 10px;
+  left: 22px;
+}
+
+.pdaAvatarR {
+  opacity: 50%;
+  position: absolute;
+  top: 12px;
+  left: 22px;
+  filter: hue-rotate(180deg) blur(5px);
+}
+
+.pdaAvatarG {
+  opacity: 50%;
+  position: absolute;
+  top: 8px;
+  left: 24px;
+  filter: hue-rotate(90deg) blur(5px);
+}
+
+.pdaAvatarB {
+  opacity: 50%;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  filter: hue-rotate(300deg) blur(5px);
+}
+
