@@ -392,6 +392,7 @@ function GM:CalcView(client, origin, angles, fov)
 		(not LocalPlayer():Alive() and IsValid(ragdoll))
 	) then
 	 	local ent = LocalPlayer():Alive() and entity or ragdoll
+		if(!IsValid(ent)) then return view or {["origin"] = origins, ["angles"] = angles} end
 		local index = ent:LookupAttachment("eyes")
 
 		if (index) then
@@ -484,6 +485,8 @@ function GM:ItemShowEntityMenu(entity)
 			table.remove(nut.menu.list, k)
 		end
 	end
+
+	if(!IsValid(entity)) then return end --need to do this i guess
 
 	local options = {}
 	local itemTable = entity:getItemTable()
