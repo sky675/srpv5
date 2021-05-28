@@ -94,7 +94,7 @@ function PANEL:loadBackground()
 			self.background:SetHTML(url)
 		end
 		self.background.OnDocumentReady = function(background)
-			self.bgLoader:AlphaTo(0, 2, 1, function()
+			self.bgLoader:AlphaTo(0, 1, 1, function()
 				self.bgLoader:Remove()
 			end)
 		end
