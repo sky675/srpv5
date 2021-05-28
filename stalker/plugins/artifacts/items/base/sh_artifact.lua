@@ -20,6 +20,25 @@ function ITEM:drawEntity(ent)
 end
 function ITEM:think(ent)
 	if(self.junkArt) then return end
+	local active = false
+	for k,v in pairs( player.GetAll() ) do
+		if v:GetPos():Distance( ent:GetPos() ) < 2000 then
+			active = true
+			break
+		end
+	end
+	
+	ent.Active = active
+	
+	if active == false then
+		ent.ReActivate = true
+	else
+		local phys = ent:GetPhysicsObject()
+		if IsValid( phys ) then
+			phys:Wake()
+		end
+	end
+
 	local nearby = ents.FindInSphere(ent:GetPos(), 200)
 	local set = true
 	for k,v in ipairs(nearby) do
@@ -31,6 +50,33 @@ function ITEM:think(ent)
 		end
 	end
 	ent:setNetVar("dontinteract", set) 
+end
+function ITEM:onEntityCreated(ent)
+	if(self.junkArt) then return end
+	ent:StartMotionController()
+
+	ent.PhysicsSimulate = function(self, phys, delta)
+		if not self.Active then return SIM_NOTHING end
+		
+		if self.ReActivate then
+			self.ReActivate = false
+			phys:ApplyForceCenter( Vector( 0, 0, 1 ) * ( phys:GetMass() * 15 ) )
+		end
+		
+		local trace = {}
+		trace.start = self:GetPos()
+		trace.endpos = trace.start + Vector( 0, 0, -1000 )
+		trace.filter = self
+		
+		local tr = util.TraceLine( trace )
+		
+		local dist = tr.HitPos:Distance( tr.StartPos )
+		local scale = math.Clamp( 150 - dist, 0.25, 150 ) / 150
+		
+		if tr.Hit then
+			phys:ApplyForceCenter( tr.HitNormal * ( phys:GetMass() * ( scale * 15 ) ) )
+		end
+	end
 end
 
 function ITEM:getDesc()
