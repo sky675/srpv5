@@ -11,6 +11,7 @@ ITEM.outfitCategory = "armor"
 ITEM.price = 66900
 ITEM.flag = "D"
 ITEM.fakeFaction = FACTION_DUTY
+ITEM.size = "heavy" --helm, light, medium, heavy, exo, mask, vest, sci, seva
 
 --interface/inv_items_cloth_2.ogg super light (masks, addons)
 --interface/inv_items_cloth_3.ogg light (spd >= .7)

@@ -1,5 +1,5 @@
 ITEM.name = "Black Gas Mask"
-ITEM.desc = "A rugged black gas mask. Unfortunately, it's non-functional."
+ITEM.desc = "A rugged black gas mask."
 ITEM.model = "models/sky/dropped/gasmask.mdl"
 ITEM.category = "Clothing"
 ITEM.skin = 1
@@ -19,6 +19,7 @@ ITEM.iconCam = {
 		ent:SetSkin(1)
 	end,
 }
+ITEM.size = "mask" --helm, light, medium, heavy, exo, mask, vest, sci, seva
 
 --interface/inv_items_cloth_2.ogg masks
 --interface/inv_items_cloth_3.ogg helms works i guess?
@@ -117,3 +118,27 @@ function ITEM:canWear(ply)
 		return false, "Your model cannot wear this item!"
 	end
 end
+
+ITEM.resists = {
+	--burn
+	[DMG_BURN] = 0.01,
+	--electric --less
+	[DMG_SHOCK] = 0.05,
+	--ext rad
+	[DMG_RADIATION] = 0.011,
+	--chem
+	[DMG_ACID] = 0.033,
+	--psy
+	[DMG_SONIC] = 0.001,
+	["psy"] = 0.001,
+	--explosion
+	[DMG_BLAST] = 0.12,
+	--phys
+	[DMG_SLASH] = 0.012,
+	[DMG_CLUB] = 0.012,
+	[DMG_CRUSH] = 0.012,
+	--bullet fire wound
+	[DMG_BULLET] = 0.012,
+
+	spd = 0.99,
+}

@@ -11,6 +11,7 @@ ITEM.height = 1
 ITEM.outfitCategory = "head;mask;eyes"
 ITEM.price = 25000
 ITEM.flag = "3"
+ITEM.size = "helm" --helm, light, medium, heavy, exo, mask, vest, sci, seva
 
 --interface/inv_items_cloth_2.ogg masks
 --interface/inv_items_cloth_3.ogg helms works i guess?

@@ -1,5 +1,5 @@
 ITEM.name = "Monolith CS-1 Suit" --3a/medium
-ITEM.desc = "Clear Sky's heavy armor."
+ITEM.desc = "Clear Sky's heavy armor but monolith."
 ITEM.model = "models/sky/seperate/male_cs1.mdl"
 ITEM.category = "Clothing"
 ITEM.skin = 0
@@ -10,6 +10,7 @@ ITEM.height = 3
 ITEM.outfitCategory = "armor"
 ITEM.price = 55120
 ITEM.flag = "O"
+ITEM.size = "medium" --helm, light, medium, heavy, mask, vest
 ITEM.fakeFaction = FACTION_MONOLITH
 
 --interface/inv_items_cloth_2.ogg super light (masks, addons)

@@ -45,13 +45,13 @@ ITEM.replacements = {
 }
 --can use this too
 function ITEM:onGetReplacement()
-    local model = self.player:getChar():getModel()
+	local model = self.player:getChar():getModel()
 
-    if(self.player:isFemale()) then
-        return "models/tnb/stalker/female_sunrise_balaclava.mdl"
-    end
+	if(self.player:isFemale()) then
+		return "models/tnb/stalker/female_sunrise_balaclava.mdl"
+	end
 
-    return "models/tnb/stalker/male_sunrise_balaclava.mdl"
+	return "models/tnb/stalker/male_sunrise_balaclava.mdl"
 end
 --can also be blank to not replace model
 
@@ -166,58 +166,74 @@ function ITEM:getName()
 end
 
 function ITEM:getDesc()
-    local str = self.desc
+	local str = self.desc
 	str = str.."\n"
 	
 
-    --list parts and resists
-    local lvls = self:getData("armor")
-    if(lvls) then
+	--list parts and resists
+	local lvls = self:getData("armor")
+	if(lvls) then
 		str = str.."Durability: "..math.floor(self:getData("durability", 1)*100).."%\n"
 
 		for k,v in pairs(lvls) do
 			if(type(v) == "string") then print(k.." is string woops") continue end
 			if(v.level == ARMOR_NONE) then continue end
-            str = str..k:upper()..": "..StringToArmorEnum(v.level).."\n"-- ("..(math.Round((v.durability or 1)*100) or 100).."%)\n"
-        end
+			str = str..k:upper()..": "..StringToArmorEnum(v.level).."\n"-- ("..(math.Round((v.durability or 1)*100) or 100).."%)\n"
+		end
 		str = str.."\n"
 	elseif(self.armor) then
 		for k,v in pairs(self.armor) do
 			if(type(v) == "string") then print(k.." is string woops") continue end
 			if(v.level == ARMOR_NONE) then continue end
-            str = str..k:upper()..": "..StringToArmorEnum(v.level).."\n"
-        end
+			str = str..k:upper()..": "..StringToArmorEnum(v.level).."\n"
+		end
 		str = str.."\n"
 
 	end
 	
 
-    local res = self:getData("resists")
-    if(res) then
+	local res = self:getData("resists")
+	if(res) then
 		for k,v in pairs(res) do
 			if(!ARTIFACT_TRANS[k] or ARTIFACT_TRANS[k].hidden) then continue end
-            str = str..(ARTIFACT_TRANS[k] and ARTIFACT_TRANS[k].name or "???")..": "..math.Round(v*100).."%\n"
-        end
-        str = str.."\n"
-    end
-
-    if(table.Count(self:getData("upgrades", {})) != 0) then
-        --list upgrades, table should look like: ["id"] = "display name"
-        str = str.."Includes the following upgrades: "
-        for k,v in pairs(self:getData("upgrades")) do
-            str = str..v..", "
-        end
-        
-        str = str:sub(1, -3)
-        str = str.."."
+			str = str..(ARTIFACT_TRANS[k] and ARTIFACT_TRANS[k].name or "???")..": "..math.Round(v*100).."%\n"
+		end
+		str = str.."\n"
 	end
+
+	local ar = self:getData("artcnt", self.artifactCnt or 0) 
+	if(ar != 0) then
+		str = str.."The suit can equip "..(ar+1).." artifacts."
+	end
+
+	if(self.size) then
+		str = str.."Armor size (for upgrades): "..self.size.."\n"
+	end
+		--list upgrades, table should look like: ["id"] = "display name"
+	str = str.."Includes the following upgrades: "
+	if(table.Count(self:getData("upgrades", {})) != 0) then
+		for k,v in pairs(self:getData("upgrades")) do
+			str = str..suit_getUpgradeName(k)..", "
+		end
+	  
+		str = str:sub(1, -3)
+		str = str.."."
+	else
+		str = str.."None."
+	end
+
+	str = str.."\nSlots Used: "..suit_getUpgradeMaxes(self)
 	
 	--old thing, might as well keep it i guess
 	if(self:getData("flavor")) then
 		str = str.."\n\n<font=nutItemDescItalicFont>"..self:getData("flavor").."</font>"
 	end
 
-    return str
+	return str
+end
+
+function ITEM:getWeight()
+	return self:getData("weight", self.weight)
 end
 
 function ITEM:RemoveOutfit(client)
@@ -433,7 +449,7 @@ ITEM.functions.EquipUn = { -- sorry, for name order.
 		end
 		
 		if((item:getData("artcnt") or item.artifactCnt)
-			and equipTblIsMax(item.player:getChar(), "art")) then
+			and equipTblCount(item.player:getChar(), "art", 0) > 1) then
 			item.player:notify("Cannot unequip due to artifact containers.", 3)
 			return false
 		end
@@ -813,14 +829,14 @@ ITEM.invWidth = 2
 ITEM.invHeight = 2
 
 function ITEM:onInstanced()
-    if(!self:getData("armor")) then
-        self:setData("armor", self.armor)
-    end
-    if(!self:getData("resists")) then
-        self:setData("resists", self.resists)
-    end
-    if(!self:getData("upgrades")) then
-        self:setData("upgrades", {})
+	if(!self:getData("armor")) then
+		self:setData("armor", self.armor)
+	end
+	if(!self:getData("resists")) then
+		self:setData("resists", self.resists)
+	end
+	if(!self:getData("upgrades")) then
+		self:setData("upgrades", {})
 	end
 	
 	if(self.isBag) then
@@ -973,32 +989,32 @@ ITEM.functions.View = {
 --upgrade paths list
 
 --[[
-    returns table like:
-    {
-        chest = {level=ARMOR_II, durability=100},
-    }
+	returns table like:
+	{
+		chest = {level=ARMOR_II, durability=100},
+	}
 ]]
 function ITEM:GetArmor()
-    return self:getData("armor", {})
+	return self:getData("armor", {})
 end
 
 --[[
-    returns table like:
-    {
-        ["phys"] = 0, --1 = no damage taken, 0 = ignored
-    }
+	returns table like:
+	{
+		["phys"] = 0, --1 = no damage taken, 0 = ignored
+	}
 ]]
 
 function ITEM:GetResists()
-    return self:getData("resists", {})
+	return self:getData("resists", {})
 end
 
 --[[
-    returns table like this:
-    {
-        ["uniqueid"] = "display name",
-    }
+	returns table like this:
+	{
+		["uniqueid"] = "display name",
+	}
 ]]
 function ITEM:GetUpgrades()
-    return self:getData("upgrades", {})
+	return self:getData("upgrades", {})
 end
