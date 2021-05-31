@@ -177,5 +177,5 @@ ITEM.resists = {
 	[DMG_SONIC] = 0,
 	["psy"] = 0,
 
-	spd = 0.71,
+	spd = 0.81,
 }

@@ -175,5 +175,5 @@ ITEM.resists = {
 	[DMG_CLUB] = 0.46,
 	[DMG_CRUSH] = 0.46,
 
-	spd = 0.62,
+	spd = 0.75,
 }

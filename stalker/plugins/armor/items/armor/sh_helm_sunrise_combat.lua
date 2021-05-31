@@ -344,5 +344,5 @@ ITEM.resists = {
 	--bullet fire wound
 	[DMG_BULLET] = 0.08,
 
-	spd = 0.88,
+	spd = 0.91,
 }
