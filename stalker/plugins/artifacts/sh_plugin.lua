@@ -59,7 +59,11 @@ hook.Add("CustomArmorResists", "artifacts", function(client, levels)
 					end
 				elseif(k2:find("-m")) then
 					local real = string.Split(k2, "-")[1]
-					levels[k2] = (levels[k2] or 0.01) * v2
+					local atm = tonumber(real)
+					if(atm) then
+						real = atm
+					end
+					levels[real] = (levels[real] or 0.01) * v2
 				else
 					levels[k2] = math.max((levels[k2] or 0) + v2, 0)
 				end
