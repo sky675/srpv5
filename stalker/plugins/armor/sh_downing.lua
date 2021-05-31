@@ -495,7 +495,7 @@ if(SERVER) then
 			if(wep and wep.GetStat and wep:GetStat("NPCDamageMulti")) then
 				dmg:ScaleDamage(wep:GetStat("NPCDamageMulti"))
 			end
-			if(wep.TFA_NMRIH_MELEE) then
+			if(wep.TFA_NMRIH_MELEE or wep.PrimaryBash) then
 				dmg:GetAttacker():getChar():updateAttrib("str", dmg:GetDamage()*0.0001)
 			end
 		end
