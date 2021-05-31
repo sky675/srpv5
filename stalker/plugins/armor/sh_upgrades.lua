@@ -602,10 +602,10 @@ local upgrades = {
 			["lining"] = 1,
 		},
 	},
-	["core_chest"] = {
+	["core_chest2"] = {
 		name = "Possibility for a larger armor plate",
 		--item variables
-		desc = "desc for item",
+		desc = "desc for item use this or the other armor core, not both",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
 		price = 0, --price for item
 		width = 2,
@@ -635,7 +635,7 @@ local upgrades = {
 	["core_chest"] = {
 		name = "Possibility for a better armor plate",
 		--item variables
-		desc = "desc for item",
+		desc = "desc for item use this or the other armor core, not both",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
 		price = 0, --price for item
 		width = 2,
