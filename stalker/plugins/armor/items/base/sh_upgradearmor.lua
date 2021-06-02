@@ -34,8 +34,26 @@ function ITEM:onCombineTo(target)
 	end
 
 	--check for armor workbench
+	local check = ents.FindInSphere(ply:GetPos(), 120)
+
+	local rdy = false
+	for k,v in pairs(check) do
+		if(v:GetClass() == "sky_craft_armor") then
+			rdy = true 
+			break
+		end
+	end
+	if(!rdy) then
+		ply:notify("Suit upgrades require an armor workbench nearby to install!", 3)
+		return false
+	end
 
 	--check for requirement tools?
+	local up = suit_getUpgradeReq(item.upid)
+	if(!ply:hasItem("junk_toolkit"..up)) then
+		local it = nut.item.get("junk_toolkit"..up)
+		ply:notify("A "..it:getName().." is required to install this upgrade!")
+	end
 
 	local lvls = applySuitUpgrade(ply, target, self)
 

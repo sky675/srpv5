@@ -113,17 +113,459 @@ local upgrades = {
 		maxWeightMod = 1.1, --optional multiplier to modify max weight
 		duraMod = 1.1, --unused, optional multiplier to modify durability loss (more == lose more)
 	},]]
-	--linings, doubles/advanced
-	--linings, basic
-	["lining_chemsimple"] = {
-		name = "Chemical generic lining",
+	--masks, rad, chem, psy, stm, burn
+	["mask_stm"] = {
+		name = "Steam purification and respiration filters",
 		--item variables
-		desc = "desc for item",
+		desc = "A set of filters used in contaminated air or critical air temperature conditions. It increases the wearer's stamina.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 16000, --price for item
 		width = 2,
 		height = 1,
-		weight = 0.1,
+		weight = 0.8,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "mask",
+		slotspace = 1, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["helm"] = true,
+			["mask"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			["stmres"] = 1.4,
+		},
+		itemWeightMod = 1.15, --optional multiplier to modify item weight
+	},
+	["mask_psy"] = {
+		name = "Psy-Dome band",
+		--item variables
+		desc = "A high-tech psy-protection that was supposedly invented by a scientist called Sakharov.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 12000, --price for item
+		width = 2,
+		height = 1,
+		weight = 1.4,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "mask",
+		slotspace = 1, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["helm"] = true,
+			["mask"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			[DMG_SONIC.."-m"] = 1.25,
+			["psy-m"] = 1.25
+		},
+		itemWeightMod = 1.1, --optional multiplier to modify item weight
+	},
+	["mask_rad"] = {
+		name = "Plexiglass coating",
+		--item variables
+		desc = "A coat of plexiglass that can provide partial protection from radiation.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 10200, --price for item
+		width = 2,
+		height = 1,
+		weight = 0.7,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "mask",
+		slotspace = 1, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["helm"] = true,
+			["mask"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			[DMG_RADIATION.."-m"] = 1.5,
+		},
+		itemWeightMod = 1.13, --optional multiplier to modify item weight
+	},
+	["mask_chem"] = {
+		name = "Filter for work in contaminated areas",
+		--item variables
+		desc = "A filter with a reinforced anti-corrosive coating with an additional preventative layer for removal of poisons. Adds chemical resistance.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 10400, --price for item
+		width = 2,
+		height = 1,
+		weight = 0.7,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "mask",
+		slotspace = 1, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["helm"] = true,
+			["mask"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			[DMG_ACID.."-m"] = 1.3,
+		},
+		itemWeightMod = 1.1, --optional multiplier to modify item weight
+	},
+	--eyes
+	["eyes_nv"] = {
+		name = "Integrated nightvision",
+		--item variables
+		desc = "A nightvision device. Can be used via /togglenightvision.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 30000, --price for item
+		width = 2,
+		height = 1,
+		weight = 1.4,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "eyes",
+		slotspace = 1, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["helm"] = true,
+			["mask"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			["nv"] = 1,
+		},
+		itemWeightMod = 1.25, --optional multiplier to modify item weight
+	},
+	--linings, exp
+	["lining_burnexp"] = {
+		name = "Fire-resistant lining with nickel inserts",
+		--item variables
+		desc = "Nickel is sufficiently fire-resistant to be used for body armor inserts.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 15200, --price for item
+		width = 2,
+		height = 1,
+		weight = 2,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "lining",
+		slotspace = 3, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["vest"] = true,
+			["light"] = true,
+			["medium"] = true,
+			["heavy"] = true,
+			["exo"] = true,
+			["sci"] = true,
+			["seva"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			[DMG_BURN.."-m"] = 1.55,
+		},
+		itemWeightMod = 1.07, --optional multiplier to modify item weight
+	},
+	["lining_radexp"] = {
+		name = "Plexiglass inner lining",
+		--item variables
+		desc = "Plexiglass absorbs two types of radiation while being a lot lighter than lead.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 13800, --price for item
+		width = 2,
+		height = 1,
+		weight = 2,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "lining",
+		slotspace = 3, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["vest"] = true,
+			["light"] = true,
+			["medium"] = true,
+			["heavy"] = true,
+			["exo"] = true,
+			["sci"] = true,
+			["seva"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			[DMG_RADIATION.."-m"] = 1.55,
+		},
+		itemWeightMod = 1.07, --optional multiplier to modify item weight
+	},
+	["lining_chemexp"] = {
+		name = "Flexible lead mesh lining",
+		--item variables
+		desc = "The lead mesh creates unbreachable chemical protection without sacrificing mobility.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 11400, --price for item
+		width = 2,
+		height = 1,
+		weight = 2.2,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "lining",
+		slotspace = 3, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["vest"] = true,
+			["light"] = true,
+			["medium"] = true,
+			["heavy"] = true,
+			["exo"] = true,
+			["sci"] = true,
+			["seva"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			[DMG_ACID.."-m"] = 1.55,
+		},
+		itemWeightMod = 1.07, --optional multiplier to modify item weight
+	},
+	["lining_elecexp"] = {
+		name = "An isolation bodysuit with manganin inserts",
+		--item variables
+		desc = "This nickel and magnesium alloy is used in armor to prevent electric shocks.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 12000, --price for item
+		width = 2,
+		height = 1,
+		weight = 1.7,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "lining",
+		slotspace = 3, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["vest"] = true,
+			["light"] = true,
+			["medium"] = true,
+			["heavy"] = true,
+			["exo"] = true,
+			["sci"] = true,
+			["seva"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			[DMG_SHOCK.."-m"] = 1.55,
+		},
+		itemWeightMod = 1.07, --optional multiplier to modify item weight
+	},
+	--linings, advanced
+	["lining_psyadv"] = {
+		name = "Advanced psy-protection band",
+		--item variables
+		desc = "A closed band that provides partial protection against direct psy-emission.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 12000, --price for item
+		width = 2,
+		height = 1,
+		weight = 1.1,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "lining",
+		slotspace = 2, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["vest"] = true,
+			["light"] = true,
+			["medium"] = true,
+			["heavy"] = true,
+			["exo"] = true,
+			["sci"] = true,
+			["seva"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			[DMG_SONIC.."-m"] = 1.3,
+			["psy-m"] = 1.3
+		},
+		itemWeightMod = 1.05, --optional multiplier to modify item weight
+	},
+	["lining_burnadv"] = {
+		name = "Advanced magnesium plate inserts",
+		--item variables
+		desc = "Magnseium inserts protect the wearer from thermal dangers.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 13200, --price for item
+		width = 2,
+		height = 1,
+		weight = 1.2,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "lining",
+		slotspace = 2, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["vest"] = true,
+			["light"] = true,
+			["medium"] = true,
+			["heavy"] = true,
+			["exo"] = true,
+			["sci"] = true,
+			["seva"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			[DMG_BURN.."-m"] = 1.3,
+		},
+		itemWeightMod = 1.05, --optional multiplier to modify item weight
+	},
+	["lining_radadv"] = {
+		name = "Advanced rubberized bodysuit lining",
+		--item variables
+		desc = "Rubber is a simple way of protecting yourself from brief radiation exposure. This uses a somewhat better source of rubber than the basic variant.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 10800, --price for item
+		width = 2,
+		height = 1,
+		weight = 1.1,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "lining",
+		slotspace = 2, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["vest"] = true,
+			["light"] = true,
+			["medium"] = true,
+			["heavy"] = true,
+			["exo"] = true,
+			["sci"] = true,
+			["seva"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			[DMG_RADIATION.."-m"] = 1.3,
+		},
+		itemWeightMod = 1.05, --optional multiplier to modify item weight
+	},
+	["lining_chemadv"] = {
+		name = "Advanced canvas bodysuit lining",
+		--item variables
+		desc = "Protection against caustic substances coming into contact with the skin. Adds chemical resistance.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 8600, --price for item
+		width = 2,
+		height = 1,
+		weight = 1.2,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "lining",
+		slotspace = 2, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["vest"] = true,
+			["light"] = true,
+			["medium"] = true,
+			["heavy"] = true,
+			["exo"] = true,
+			["sci"] = true,
+			["seva"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			[DMG_ACID.."-m"] = 1.3,
+		},
+		itemWeightMod = 1.05, --optional multiplier to modify item weight
+	},
+	["lining_elecadv"] = {
+		name = "Advanced constantan-based inner lining",
+		--item variables
+		desc = "A thin layer of canstantan is capable of isolating against electricity.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 8000, --price for item
+		width = 2,
+		height = 1,
+		weight = 0.9,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "lining",
+		slotspace = 2, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["vest"] = true,
+			["light"] = true,
+			["medium"] = true,
+			["heavy"] = true,
+			["exo"] = true,
+			["sci"] = true,
+			["seva"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			[DMG_SHOCK.."-m"] = 1.3,
+		},
+		itemWeightMod = 1.05, --optional multiplier to modify item weight
+	},
+	--linings, basic
+	["lining_psysimple"] = {
+		name = "Basic psy-protection band",
+		--item variables
+		desc = "A closed band made of paired steel grills that provides partial protection against direct psy-emission.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 7200, --price for item
+		width = 2,
+		height = 1,
+		weight = 0.7,
 		--flag = "",
 		traitreq = { --optional trait requirement
 			trait = "crafting_armor",
@@ -144,19 +586,119 @@ local upgrades = {
 		},
 		resist = { --optional resist table, -m functionality like artifacts, 
 			--however also can be normal to be added on
-			[DMG_ACID.."-m"] = 1.2,
+			[DMG_SONIC.."-m"] = 1.1,
+			["psy-m"] = 1.1
+		},
+		itemWeightMod = 1.02, --optional multiplier to modify item weight
+	},
+	["lining_burnsimple"] = {
+		name = "Basic magnesium plate inserts",
+		--item variables
+		desc = "Magnseium inserts protect the wearer from thermal dangers.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 8200, --price for item
+		width = 2,
+		height = 1,
+		weight = 1.1,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "lining",
+		slotspace = 1, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["vest"] = true,
+			["light"] = true,
+			["medium"] = true,
+			["heavy"] = true,
+			["exo"] = true,
+			["sci"] = true,
+			["seva"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			[DMG_BURN.."-m"] = 1.1,
+		},
+		itemWeightMod = 1.02, --optional multiplier to modify item weight
+	},
+	["lining_radsimple"] = {
+		name = "Basic rubberized bodysuit lining",
+		--item variables
+		desc = "Rubber is a basic way of protecting yourself from brief radiation exposure.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 6800, --price for item
+		width = 2,
+		height = 1,
+		weight = 1,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "lining",
+		slotspace = 1, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["vest"] = true,
+			["light"] = true,
+			["medium"] = true,
+			["heavy"] = true,
+			["exo"] = true,
+			["sci"] = true,
+			["seva"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			[DMG_RADIATION.."-m"] = 1.1,
+		},
+		itemWeightMod = 1.02, --optional multiplier to modify item weight
+	},
+	["lining_chemsimple"] = {
+		name = "Basic canvas bodysuit lining",
+		--item variables
+		desc = "Protection against caustic substances coming into contact with the skin. Adds chemical resistance.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 5400, --price for item
+		width = 2,
+		height = 1,
+		weight = 1.2,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "lining",
+		slotspace = 1, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["vest"] = true,
+			["light"] = true,
+			["medium"] = true,
+			["heavy"] = true,
+			["exo"] = true,
+			["sci"] = true,
+			["seva"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			[DMG_ACID.."-m"] = 1.1,
 		},
 		itemWeightMod = 1.02, --optional multiplier to modify item weight
 	},
 	["lining_elecsimple"] = {
-		name = "Electro generic lining",
+		name = "Basic constantan-based inner lining",
 		--item variables
-		desc = "desc for item",
+		desc = "A thin layer of canstantan is capable of isolating against electricity.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 5000, --price for item
 		width = 2,
 		height = 1,
-		weight = 0.1,
+		weight = 0.8,
 		--flag = "",
 		traitreq = { --optional trait requirement
 			trait = "crafting_armor",
@@ -177,16 +719,16 @@ local upgrades = {
 		},
 		resist = { --optional resist table, -m functionality like artifacts, 
 			--however also can be normal to be added on
-			[DMG_SHOCK.."-m"] = 1.2,
+			[DMG_SHOCK.."-m"] = 1.1,
 		},
 		itemWeightMod = 1.02, --optional multiplier to modify item weight
 	},
 	["chest_resist"] = {
 		name = "More resistant materials",
 		--item variables
-		desc = "desc for item",
+		desc = "Replaces materials of the suit with more durable ones to increase various physical resistances.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 9000, --price for item
 		width = 2,
 		height = 1,
 		weight = 0.1,
@@ -209,13 +751,13 @@ local upgrades = {
 		},
 		resist = { --optional resist table, -m functionality like artifacts, 
 			--however also can be normal to be added on
-			[DMG_BLAST.."-m"] = 1.2,
+			[DMG_BLAST.."-m"] = 1.1,
 			--phys
-			[DMG_SLASH.."-m"] = 1.4,
-			[DMG_CLUB.."-m"] = 1.4,
-			[DMG_CRUSH.."-m"] = 1.4,
+			[DMG_SLASH.."-m"] = 1.3,
+			[DMG_CLUB.."-m"] = 1.3,
+			[DMG_CRUSH.."-m"] = 1.3,
 			--bullet fire wound
-			[DMG_BULLET.."-m"] = 1.2,
+			[DMG_BULLET.."-m"] = 1.15,
 		},
 		itemWeightMod = 1.15, --optional multiplier to modify item weight
 	},
@@ -223,12 +765,12 @@ local upgrades = {
 	["chest_armor4"] = {
 		name = "Armor plate for vest (IV)",
 		--item variables
-		desc = "desc for item",
+		desc = "A *larger* plate for a suit. Cannot downgrade to a lower armor level.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 40000, --price for item
 		width = 2,
 		height = 1,
-		weight = 0.1,
+		weight = 1.8,
 		--flag = "",
 		traitreq = { --optional trait requirement
 			trait = "crafting_armor",
@@ -255,17 +797,17 @@ local upgrades = {
 		levels = { --optional overwrite an armor level
 			chest = {level = ARMOR_IV},
 		},
-		itemWeightMod = 1.65, --optional multiplier to modify item weight
+		itemWeightMod = 1.4, --optional multiplier to modify item weight
 	},
 	["chest_armor3"] = {
-		name = "Armor plate for vest (III)",
+		name = "Armor plate (III)",
 		--item variables
-		desc = "desc for item",
+		desc = "A *better* plate for a suit. Cannot downgrade to a lower armor level.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 25000, --price for item
 		width = 2,
 		height = 1,
-		weight = 0.1,
+		weight = 1.2,
 		--flag = "",
 		traitreq = { --optional trait requirement
 			trait = "crafting_armor",
@@ -294,17 +836,17 @@ local upgrades = {
 		levels = { --optional overwrite an armor level
 			chest = {level = ARMOR_III},
 		},
-		itemWeightMod = 1.25, --optional multiplier to modify item weight
+		itemWeightMod = 1.2, --optional multiplier to modify item weight
 	},
 	["chest_armor3a"] = {
-		name = "Armor plate for vest (IIIA)",
+		name = "Armor plate (IIIA)",
 		--item variables
-		desc = "desc for item",
+		desc = "A new plate for a suit. Cannot downgrade to a lower armor level.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 13000, --price for item
 		width = 2,
 		height = 1,
-		weight = 0.1,
+		weight = 0.75,
 		--flag = "",
 		traitreq = { --optional trait requirement
 			trait = "crafting_armor",
@@ -338,12 +880,12 @@ local upgrades = {
 	["chest_armor2a"] = {
 		name = "Armor plate for vest (IIA)",
 		--item variables
-		desc = "desc for item",
+		desc = "A better plate used for vests.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 6600, --price for item
 		width = 2,
 		height = 1,
-		weight = 0.1,
+		weight = 0.4,
 		--flag = "",
 		traitreq = { --optional trait requirement
 			trait = "crafting_armor",
@@ -374,14 +916,14 @@ local upgrades = {
 	},
 	--core, movement
 	["core_exospr"] = {
-		name = "Exo sprint lmao",
+		name = "Hydraulic boosters for an exoskeleton",
 		--item variables
-		desc = "desc for item",
+		desc = "A set of hydraulic boosters for exoskeletons. Allows sprinting while wearing one.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 42000, --price for item
 		width = 2,
 		height = 1,
-		weight = 0.1,
+		weight = 2.5,
 		--flag = "",
 		traitreq = { --optional trait requirement
 			trait = "crafting_armor",
@@ -400,14 +942,14 @@ local upgrades = {
 		},
 	},
 	["core_stmfull"] = {
-		name = "Stamina full core to fill lmao",
+		name = "Internal thermal regulation system",
 		--item variables
-		desc = "desc for item",
+		desc = "A set of ergonomic mounts for armor that increases stamina.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 8000, --price for item
 		width = 2,
 		height = 1,
-		weight = 0.1,
+		weight = 2,
 		--flag = "",
 		traitreq = { --optional trait requirement
 			trait = "crafting_armor",
@@ -433,14 +975,14 @@ local upgrades = {
 		},
 	},
 	["core_stmlight"] = {
-		name = "Stamina Core To Fill lmao",
+		name = "Internal thermal regulation vest system",
 		--item variables
-		desc = "desc for item",
+		desc = "A set of ergonomic mounts for vests and light armors. Increases stamina.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 4000, --price for item
 		width = 2,
 		height = 1,
-		weight = 0.1,
+		weight = 1.8,
 		--flag = "",
 		traitreq = { --optional trait requirement
 			trait = "crafting_armor",
@@ -464,12 +1006,12 @@ local upgrades = {
 	["core_artifactvest"] = {
 		name = "Additional Artifact Vest Slot",
 		--item variables
-		desc = "desc for item",
+		desc = "Adds an additional artifact attachment slot for the vest.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 4500, --price for item
 		width = 2,
 		height = 1,
-		weight = 0.1,
+		weight = 0.25,
 		--flag = "",
 		traitreq = { --optional trait requirement
 			trait = "crafting_armor",
@@ -487,12 +1029,12 @@ local upgrades = {
 	["core_artifactfull"] = {
 		name = "Additional Artifact Slots",
 		--item variables
-		desc = "desc for item",
+		desc = "Allows for the use of two more attached artifacts.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 10000, --price for item
 		width = 2,
 		height = 1,
-		weight = 0.1,
+		weight = 0.5,
 		--flag = "",
 		traitreq = { --optional trait requirement
 			trait = "crafting_armor",
@@ -516,12 +1058,12 @@ local upgrades = {
 	["core_spacevest"] = {
 		name = "Lightening of the vest",
 		--item variables
-		desc = "desc for item",
+		desc = "Exchanges some parts with lighter parts for a lighter overall weight.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 4500, --price for item
 		width = 2,
 		height = 1,
-		weight = 0.1,
+		weight = 0.5,
 		--flag = "",
 		traitreq = { --optional trait requirement
 			trait = "crafting_armor",
@@ -541,12 +1083,12 @@ local upgrades = {
 	["core_spacefull"] = {
 		name = "Lightening of the suit and new added space",
 		--item variables
-		desc = "desc for item",
+		desc = "An assorted set of systems and materials that allow for a higher weight capacity and a lighter suit weight overall at the same time. Also includes an additional artifact attachment slot.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 9000, --price for item
 		width = 2,
 		height = 1,
-		weight = 0.1,
+		weight = 1.4,
 		--flag = "",
 		traitreq = { --optional trait requirement
 			trait = "crafting_armor",
@@ -573,12 +1115,12 @@ local upgrades = {
 	["core_lining"] = {
 		name = "Additional possibility for lining",
 		--item variables
-		desc = "desc for item",
+		desc = "Adds the potential for another lining modification.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 2500, --price for item
 		width = 2,
 		height = 1,
-		weight = 0.1,
+		weight = 0.3,
 		--flag = "",
 		traitreq = { --optional trait requirement
 			trait = "crafting_armor",
@@ -605,12 +1147,12 @@ local upgrades = {
 	["core_chest2"] = {
 		name = "Possibility for a larger armor plate",
 		--item variables
-		desc = "desc for item use this or the other armor core, not both",
+		desc = "Allows for a larger armor plate to be used with the suit (+ 2 slots). Use this or the other armor core, not both.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 7500, --price for item
 		width = 2,
 		height = 1,
-		weight = 0.1,
+		weight = 0.8,
 		--flag = "",
 		traitreq = { --optional trait requirement
 			trait = "crafting_armor",
@@ -619,6 +1161,7 @@ local upgrades = {
 		--upgrade specific variables
 		slot = "core",
 		slotspace = 2, --number of space itll take up in the slot
+		reqOverride = 3,
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
 			["light"] = true,
@@ -635,12 +1178,12 @@ local upgrades = {
 	["core_chest"] = {
 		name = "Possibility for a better armor plate",
 		--item variables
-		desc = "desc for item use this or the other armor core, not both",
+		desc = "Allows for a better armor plate to be used with the suit (+ 1 slot). Use this or the other armor core, not both.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 4000, --price for item
 		width = 2,
 		height = 1,
-		weight = 0.1,
+		weight = 0.6,
 		--flag = "",
 		traitreq = { --optional trait requirement
 			trait = "crafting_armor",
@@ -691,12 +1234,12 @@ local upgrades = {
 	["core_eyes"] = {
 		name = "Possibility for integrated nightvision",
 		--item variables
-		desc = "desc for item",
+		desc = "Adds the infrastructure for some form of integrated nightvision.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 2500, --price for item
 		width = 2,
 		height = 1,
-		weight = 0.1,
+		weight = 0.3,
 		--flag = "",
 		traitreq = { --optional trait requirement
 			trait = "crafting_armor",
@@ -710,6 +1253,7 @@ local upgrades = {
 			["helm"] = true,
 			["mask"] = true,
 		},
+		reqOverride = 2,
 		--extra slots add
 		slotadd = { --optional slots add, comment if not adding new slots
 			["eyes"] = 1,
@@ -718,12 +1262,12 @@ local upgrades = {
 	["core_mask"] = {
 		name = "Possibility for more mask modifications",
 		--item variables
-		desc = "desc for item",
+		desc = "Provides the capacity for one more modification in the mask slot.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 0, --price for item
+		price = 5000, --price for item
 		width = 2,
 		height = 1,
-		weight = 0.1,
+		weight = 0.4,
 		--flag = "",
 		traitreq = { --optional trait requirement
 			trait = "crafting_armor",
@@ -749,6 +1293,12 @@ local function getMaxSlot(item, slot)
 	local slotcnt = mx[slot] or 0
 	slotcnt = slotcnt + (item:getData("ex", {})[slot] or 0)
 	return slotcnt
+end
+
+function suit_getUpgradeReq(id)
+	local up = upgrades[id]
+	if(!up) then return 1 end
+	return up.reqOverride or up.slotspace
 end
 
 function suit_getUpgradeMaxes(item)
@@ -912,6 +1462,12 @@ function applySuitUpgrade(ply, item, upitem)
 	return true
 end
 
+local upkits = {
+	[1] = "Basic Toolkit",
+	[2] = "Advanced Toolkit",
+	[3] = "Expert Toolkit"
+}
+
 --todo create items for upgrades in upgrades table, like arccw config
 function PLUGIN:InitializedItems()
 	for id, data in pairs(upgrades) do
@@ -921,7 +1477,8 @@ function PLUGIN:InitializedItems()
 		for k,v in pairs(upgrades[id].size) do
 			ex = ex..k..", "
 		end
-        ex = ex:sub(1, -3).."\nSlot Used: "..slotShow[upgrades[id].slot].."\nSpace Used: "..upgrades[id].slotspace
+		local up = suit_getUpgradeReq(item.upid)
+        ex = ex:sub(1, -3).."\nSlot Used: "..slotShow[upgrades[id].slot].."\nSpace Used: "..upgrades[id].slotspace.."\nToolkit Needed: "..(upkits[up] or "invalid toolkit? "..tostring(up))
 
 		ITEM.desc = ex.."\n"..data.desc.."\nPlease note that suit upgrades are *PERMANENT* and *IRREVERSIBLE*. Make sure you want this upgrade on the suit before applying it."
 		ITEM.price = data.price or 0
