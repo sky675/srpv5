@@ -1477,7 +1477,7 @@ function PLUGIN:InitializedItems()
 		for k,v in pairs(upgrades[id].size) do
 			ex = ex..k..", "
 		end
-		local up = suit_getUpgradeReq(item.upid)
+		local up = suit_getUpgradeReq(id)
         ex = ex:sub(1, -3).."\nSlot Used: "..slotShow[upgrades[id].slot].."\nSpace Used: "..upgrades[id].slotspace.."\nToolkit Needed: "..(upkits[up] or "invalid toolkit? "..tostring(up))
 
 		ITEM.desc = ex.."\n"..data.desc.."\nPlease note that suit upgrades are *PERMANENT* and *IRREVERSIBLE*. Make sure you want this upgrade on the suit before applying it."
