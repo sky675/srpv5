@@ -10,6 +10,31 @@ end
 
 --apply to item looking at function
 
+// On player uneqipped the item, Removes a weapon from the player and keep the ammo in the item.
+ITEM.functions.usef = { -- sorry, for name order.
+	name = "Apply to Looking At",
+	tip = "useTip",
+	icon = "icon16/arrow_up.png",
+	onRun = function(item)
+		local client = item.player
+		local trace = client:GetEyeTraceNoCursor() -- We don't need cursors.
+		local realtarget = trace.Entity
+
+		if(realtarget:GetClass() == "nut_item") then
+			local target = realtarget:getItemTable()
+			if(target) then
+				item:onCombineTo(target)
+			end
+		else
+			client:notify("You need to be looking at an armor item for this!", 3)
+		end
+
+		return false
+	end,
+	onCanRun = function(item)
+		return (!IsValid(item.entity))
+	end
+}
 
 function ITEM:onCombineTo(target)
 	if(target.base != "base_armor" or target:getData("equip") == true) then return end
@@ -50,7 +75,7 @@ function ITEM:onCombineTo(target)
 
 	--check for requirement tools?
 	local up = suit_getUpgradeReq(item.upid)
-	if(!ply:hasItem("junk_toolkit"..up)) then
+	if(!ply:getChar():getInv():hasItem("junk_toolkit"..up)) then
 		local it = nut.item.get("junk_toolkit"..up)
 		ply:notify("A "..it:getName().." is required to install this upgrade!")
 	end
