@@ -78,6 +78,7 @@ function ITEM:onCombineTo(target)
 	if(!ply:getChar():getInv():hasItem("junk_toolkit"..up)) then
 		local it = nut.item.get("junk_toolkit"..up)
 		ply:notify("A "..it:getName().." is required to install this upgrade!")
+		return false
 	end
 
 	local lvls = applySuitUpgrade(ply, target, self)
