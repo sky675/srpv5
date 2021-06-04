@@ -77,7 +77,7 @@ function ITEM:onCombineTo(target)
 	local up = suit_getUpgradeReq(item.upid)
 	if(!ply:getChar():getInv():hasItem("junk_toolkit"..up)) then
 		local it = nut.item.get("junk_toolkit"..up)
-		ply:notify("A "..it:getName().." is required to install this upgrade!")
+		ply:notify("A "..it:getName().." is required to install this upgrade!", 3)
 		return false
 	end
 
