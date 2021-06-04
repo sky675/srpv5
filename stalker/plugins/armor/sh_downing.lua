@@ -289,6 +289,8 @@ if(SERVER) then
 				return
 			end
 			
+			--test
+			PrintTable(dmginfo)
 
 			ply:getChar():setVar("lastatk", atk)
 			atk:getChar():setVar("lastvic", ply)
@@ -816,10 +818,18 @@ else --client
 		end
 		
 		if(wep.ClassName == "nut_hands") then
-			if(target == LocalPlayer()) then
-				chat.AddText("You were punched in "..(hitStrings[hitgroup] or "an unknown place").."!")
+			if(ammo != "") then
+				if(target == LocalPlayer()) then
+					chat.AddText("You were hit by the blast of a grenade!")
+				else
+					chat.AddText("You hit someone with the blast of a grenade!")
+				end
 			else
-				chat.AddText("You punched someone in "..(hitStrings[hitgroup] or "an unknown place").."!")
+				if(target == LocalPlayer()) then
+					chat.AddText("You were punched in "..(hitStrings[hitgroup] or "an unknown place").."!")
+				else
+					chat.AddText("You punched someone in "..(hitStrings[hitgroup] or "an unknown place").."!")
+				end
 			end
 		
 			return --no need for the rest
