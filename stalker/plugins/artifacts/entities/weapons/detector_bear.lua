@@ -260,20 +260,29 @@ function SWEP:Think()
 		local aimDegree = math.deg(math.acos(dotProduct))]] -- Convert similarity to degrees
 		-- If the degree difference in similarity is bigger than the player's FOV, then most likely it isn't being rendered
 		--print("pos ", eyeToMonster, dotProduct, math.acos(dotProduct), aimDegree)
-		local md = self.VElements["veles"].modelEnt
-		if(IsValid(md)) then
-			local ply = LocalPlayer()
-			local ang = ply:GetAngles();
-			local pos = ent:GetPos() - ply:GetShootPos()
-			pos:Rotate(Angle(0, -1*ang.Yaw, 0));
 
-			local ange = Angle(0, 0, -pos:Angle().y)
-			md:ManipulateBoneAngles(4, ange)
-		end
+		if(IsValid(ent)) then
+			local md = self.VElements["veles"].modelEnt
+			if(IsValid(md)) then
+				md:SetBodygroup(2, 1)
+				local ply = LocalPlayer()
+				local ang = ply:GetAngles();
+				local pos = ent:GetPos() - ply:GetShootPos()
+				pos:Rotate(Angle(0, -1*ang.Yaw, 0));
 
-		if dist < 500 and self.LastBeep + dist/300 - CurTime() <= 0 then
-			self.LastBeep = CurTime()
-			self.Owner:EmitSound(Sound("stalkerdetectors/echo.wav"), 100, 100)//math.Clamp(250-dist/2,50,250))
+				local ange = Angle(0, 0, -pos:Angle().y)
+				md:ManipulateBoneAngles(4, ange)
+			end
+
+			if dist < 500 and self.LastBeep + dist/300 - CurTime() <= 0 then
+				self.LastBeep = CurTime()
+				self.Owner:EmitSound(Sound("stalkerdetectors/echo.wav"), 100, 100)//math.Clamp(250-dist/2,50,250))
+			end
+		else
+			local md = self.VElements["veles"].modelEnt
+			if(IsValid(md)) then
+				md:SetBodygroup(2, 0)
+			end
 		end
 	end
 end
