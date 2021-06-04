@@ -72,6 +72,7 @@ nut.command.add("charsetanorakskin", {
 		if(!ANORAKTEXTURES[tonumber(arguments[2])]) then return "no texture for that number" end
 
 		nut.newchar.setBodygroups(target, "t", nil, {["anorak_lone"] = ANORAKTEXTURES[tonumber(arguments[2])]})
+		target:getChar():setData("anorak", tonumber(arguments[2]))
 		--should be it
 		return "should be changed"
 	end,

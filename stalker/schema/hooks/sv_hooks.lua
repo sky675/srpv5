@@ -140,6 +140,13 @@ end
 
 --this should force the arms being hidden with no item equipped
 hook.Add("PlayerRemoveOutfitEnd", "resetbg", function(ply, item)
+	--reapplying anorak just in case it wipes submats
+	timer.Simple(0, function() --i dont believe that it exists at this point
+	if(char:getData("anorak")) then
+		nut.newchar.setBodygroups(ply, "t", nil, {["anorak_lone"] = ANORAKTEXTURES[char:getData("anorak")]})
+		--char:setData("anorak") --dont need anymore
+	end
+	end)
 	if(ply.bm and ply.bm.t) then	
 		--if(string.find(ply.bm.t:GetModel(), "citizen")) then
 			local character = ply:getChar()
@@ -229,7 +236,7 @@ hook.Add("PlayerLoadedChar", "eyegive", function(ply, char, lastChar)
 	timer.Simple(0, function() --i dont believe that it exists at this point
 	if(char:getData("anorak")) then
 		nut.newchar.setBodygroups(ply, "t", nil, {["anorak_lone"] = ANORAKTEXTURES[char:getData("anorak")]})
-		char:setData("anorak") --dont need anymore
+		--char:setData("anorak") --dont need anymore
 	end
 	end)
 
