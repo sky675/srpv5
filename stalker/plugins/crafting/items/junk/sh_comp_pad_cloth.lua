@@ -1,6 +1,6 @@
 ITEM.name = "Padded Cloth"
 ITEM.desc = "A bit of padded cloth for crafting."
-ITEM.model = "models/items/repairpacks/textile_patch_m.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_prt_o_fabrics_2.mdl"
 ITEM.category = "Components"
 ITEM.weight = 0.08
 ITEM.price = 350
