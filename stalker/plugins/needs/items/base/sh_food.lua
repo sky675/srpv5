@@ -80,6 +80,11 @@ ITEM.functions.use = {
     onRun = function(item)
 		local char = item.player:getChar()
 
+		if(item.healthPerc) then
+			local hp = item.player:Health()*item.healthPerc
+			item.player:TakeDamage(hp, item.player, item.player)
+		end
+
         if(item.hungerAmt) then
 		char:SetHunger(math.Clamp(char:GetHunger()+item.hungerAmt, 0, 100))
 		end

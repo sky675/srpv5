@@ -1,13 +1,13 @@
-ITEM.name = "MRE"
-ITEM.desc = "A MRE."
-ITEM.price = 3200
-ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_ration_mre.mdl"
+ITEM.name = "Russian IRP-B Combat Ration"
+ITEM.desc = "Various food items and cooking equipment."
+ITEM.price = 8000
+ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_ration_ru.mdl"
 ITEM.width = 2
 ITEM.height = 1
-ITEM.weight = 0.23
-ITEM.hungerAmt = 50
+ITEM.weight = 0.2
+ITEM.hungerAmt = 53
 ITEM.thirstAmt = -20
-ITEM.uses = 3
+ITEM.uses = 7
 
 
 ITEM.useSound = "interface/inv_eat_ration1.ogg"

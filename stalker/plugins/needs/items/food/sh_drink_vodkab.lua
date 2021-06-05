@@ -1,15 +1,15 @@
-ITEM.name = "Cossack's Vodka"
-ITEM.desc = "An imported glass of vodka."
-ITEM.price = 946
-ITEM.model = "models/kali/miscstuff/stalker/food/cossacks vodka.mdl"
+ITEM.name = "Stolichnaya Vodka"
+ITEM.desc = "An imported and popular bottle of vodka."
+ITEM.price = 2663
+ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_drink_vodka.mdl"
 ITEM.width = 1
 ITEM.height = 1
-ITEM.weight = 0.36
+ITEM.weight = 0.37
 ITEM.uses = 3
-ITEM.radGive = -8
+ITEM.radGive = -11
 ITEM.radGiveTime = 10
-ITEM.hungerAmt = 2
-ITEM.thirstAmt = 9
+ITEM.hungerAmt = 3
+ITEM.thirstAmt = 8
 ITEM.alcrem = 3
 
 ITEM.useSound = "interface/inv_drink_flask.ogg"

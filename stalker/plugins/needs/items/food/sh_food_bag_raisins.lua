@@ -1,12 +1,12 @@
-ITEM.name = "Alyonka"
-ITEM.desc = "A russian chocolate bar."
-ITEM.price = 600
-ITEM.model = "models/illusion/eftcontainers/alyonka.mdl"
+ITEM.name = "Raisins Bag"
+ITEM.desc = "Small pack of raisins."
+ITEM.price = 520
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_raisins.mdl"
 ITEM.width = 1
 ITEM.height = 1
-ITEM.weight = 0.19
-ITEM.hungerAmt = 13
-ITEM.thirstAmt = -4
+ITEM.weight = 0.05
+ITEM.hungerAmt = 15
+ITEM.thirstAmt = -5
 
 ITEM.useSound = "interface/inv_eat_paperwrap.ogg"
 
