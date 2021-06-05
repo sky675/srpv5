@@ -86,7 +86,7 @@ local bot_trans = { --remember with the female trackpants, it starts going down 
 local starters = {
 	"cwep_makarov", 
 	"pda", "ammo_9x18", "food_cantuna", 
-	"drink_waterbottle", "flashlight",
+	"drink_waterflask", "flashlight",
 	"cwep_m_knife_t", "medkit", "meds_bandage"
 }
 local starterdata = {

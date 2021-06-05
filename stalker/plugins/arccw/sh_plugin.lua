@@ -316,6 +316,17 @@ if(CLIENT) then
 		--this doesnt work..
 		if(weapon.ArcCW) then return false end --maybe pls?
 	end)
+	--this is kinda disgusting but it should work lmao
+	ArcCW.HUDElementConVars["CHudHealth"] = {
+		["GetBool"] = function()
+			return false
+		end
+	}
+	ArcCW.HUDElementConVars["CHudBattery"] = {
+		["GetBool"] = function()
+			return false
+		end
+	}
 	--let it go through without forceshow
 	hook.Add("HUDShouldDraw", "overrideforce", function(ele)
 		if(ArcCW and ele == "CHudAmmo" and ArcCW.PollingDefaultHUDElements) then return true end
