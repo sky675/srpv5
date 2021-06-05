@@ -75,7 +75,7 @@ if(SERVER) then
 end
 if(CLIENT) then
 	function SCHEMA:ConfigureCharacterCreationSteps(panel)
-		panel:addStep(vgui.Create("nutSkinStuff"), 99)
+		panel:addStep(vgui.Create("nutSkinStuff"), 200)
 	end
 end
 

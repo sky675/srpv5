@@ -36,11 +36,11 @@ function PANEL:updateModel()
 		entity:SetBodyGroups(groups)
 	end
 
-	print("updateModel", model)
+	--print("updateModel", model)
 	
 	if(nut.newchar.isBM(model)) then
 		local fem = hook.Run("CustomFemaleModel", model, LocalPlayer(), nil, true) or model:find("female") or model:find("metroll/f")
-		print(fem)
+		--print(fem)
 
 		--hardcoding becuz im fucking lazy
 		entity:SetBodyGroups("00034")

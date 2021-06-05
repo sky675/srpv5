@@ -722,8 +722,8 @@ if(CLIENT) then
 		posscroll:Dock(LEFT)
 		
 		local negscroll = main:Add("DCategoryList")
-		negscroll:SetWidth(main:GetWide()/2)--, 292)
-		negscroll:SetPos(main:GetWide()/2, 0)
+		negscroll:SetWidth(main:GetWide()/2.1)--, 292)
+		negscroll:SetPos(main:GetWide()/2.1, 0)
 		negscroll:Dock(RIGHT)
 	
 		posscroll:Clear()

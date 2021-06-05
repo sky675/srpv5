@@ -1,95 +1,76 @@
 local PANEL = {}
 
 function PANEL:Init()
---	self:Dock(FILL)
-	self:SetBackgroundColor(Color(255,255,255,255))
-	--self:SetDrawBackground(false)
+	
+	self:SetTall(300)
 
-	print("initial wh ", self:GetWide(), self:GetTall())
+	self:SetBackgroundColor(Color(255,255,255,255))
+
 
 	self.posscroll = self:Add("DCategoryList")--DScrollPanel")
 	local posscroll = self.posscroll
-	--posscroll:SetSize(self:GetWide()/2, 262)
 	posscroll:Dock(LEFT)
+	posscroll:SetZPos(412)
+
 
 	self.negscroll = self:Add("DCategoryList")--DScrollPanel")
 	local negscroll = self.negscroll
---	negscroll:SetSize(self:GetWide()/2, 262)
---	negscroll:SetPos(self:GetWide()/2, 0)
 	negscroll:Dock(RIGHT)
-	
+	negscroll:SetZPos(413)
+
 	self.notiftext = self:Add("DLabel")
 	self.notiftext:Dock(BOTTOM)
 	self.notiftext:SetHeight(32) --self:addLabel("")
+	--self.notiftext:SetZPos(414)
+
 end
 
 function PANEL:onDisplay()
 	traitmain = self
-	--self:SetSize(ScrW()*0.3, 322)--292)
 	local panel = self
 
-	print("display wh ", self:GetWide(), self:GetTall())
 	
 	local main = self
 	timer.Simple(0, function()
-	--[[local main = panel:Add("DPanel")
-	traitpanel = main
-
-	main:SetSize(panel:GetWide(), 326)--292)
-	main:SetPos(0, y)
-	main:SetBackgroundColor(Color(255,255,255,0))]]
 	self.cost = 0--main.cost = 0
 	self.negtraits = 0 --main.negtraits = 0
 	self.langtraits = 1 --main.langtraits = 1
 	
 	--needs to be up here
 	--below this a label to display trait points left
-	local lab = self.notiftext--main:Add("DLabel")
-	--[[lab:Dock(BOTTOM)
-	lab:SetHeight(32)]]
+
+	local lab = self.notiftext
 	lab:SetText("You have "..nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining. If it's not visible, you can do it later via /dotraits.")
 
-	local posscroll = self.posscroll --main:Add("DScrollPanel")
-	--[[posscroll:SetSize(main:GetWide()/2, 292)
-
-	posscroll:Dock(LEFT)]]
+	local posscroll = self.posscroll
 	posscroll:SetSize(self:GetWide()/2, 262)
 	
-	local negscroll = self.negscroll --main:Add("DScrollPanel")
-	--[[negscroll:SetSize(main:GetWide()/2, 292)
-	negscroll:SetPos(main:GetWide()/2, 0)
-	negscroll:Dock(RIGHT)]]
+	local negscroll = self.negscroll 
 	negscroll:SetSize(self:GetWide()/2, 262)
 	negscroll:SetPos(self:GetWide()/2, 0)
-
+	
 	posscroll:Clear()
 	negscroll:Clear()
 
 	posscroll:InvalidateLayout(true)
 	negscroll:InvalidateLayout(true)
 
-	local poscat = posscroll--[[:GetCanvas():Add("DCategoryList")
-	--poscat:SetSize(main:GetWide()/2, 260)
-	poscat:Dock(FILL)
-	poscat:DockMargin( 0, 0, 0, 0 )]]
+	local poscat = posscroll
 	poscat.cats = {}
-	poscat:SetZPos(1)
 
-	local negcat = negscroll--[[:GetCanvas():Add("DCategoryList")
-	--negcat:SetSize(main:GetWide()/2, 260)
-	--negcat:SetPos(main:GetWide()/2, 0)
-	negcat:Dock(FILL)
-	negcat:DockMargin( 0, 0, 0, 0 )]]
+	local negcat = negscroll
 	negcat.cats = {}
-	negcat:SetZPos(2)
 
 
 	local buttons = {}
 
 	--this probably could be done better but whatever i guess
 	for k,v in pairs(nut.traits.list) do
+
 		if(v.hide) then continue end
+
 		if(v.faction and !v.faction[self:getContext("faction")]) then continue end
+
 		if(v.type == "pos") then --add to poscat
 			if(!poscat.cats[v.category]) then --add the category if it doesnt exist
 				poscat.cats[v.category] = poscat:Add(v.category)
@@ -106,12 +87,12 @@ function PANEL:onDisplay()
 					--panel.payload.traits = panel.payload.traits or {}
 					--panel.payload.data = panel.payload.data or {}
 					--panel.payload.data.traits = panel.payload.data.traits or {}
-					print(main.langtraits.." now")
+					--###print(main.langtraits.." now")
 					if(buttons[k].picked) then
 						if(main.cost-v.cost > nut.config.get("traitPoints")) then
 							return
 						end
-						print("removal? "..(main.langtraits-1).." "..nut.config.get("langTraits"))
+						--###print("removal? "..(main.langtraits-1).." "..nut.config.get("langTraits"))
 						if(v.category == "Languages" and main.langtraits-1 > nut.config.get("langTraits")) then
 							return
 						end
@@ -200,9 +181,10 @@ function PANEL:onDisplay()
 							end
 						end
 					end
-					print(main.langtraits.." after")
+					--###print(main.langtraits.." after")
 				end
 			elseif(v.creationMax != 0) then --level traits
+
 				for i=1, v.creationMax do
 					buttons[k.."_"..i] = poscat.cats[v.category]:Add(v.name.." - Level "..i.." | "..v.cost[i].." cost")
 					buttons[k.."_"..i]:Dock(TOP)
@@ -289,12 +271,14 @@ function PANEL:onDisplay()
 					end
 				end
 			end
-		elseif(v.type == "neg") then --add to negcat
+		elseif(v.type == "neg") then --add to negcat+
 			if(!negcat.cats[v.category]) then --add the category if it doesnt exist
+
 				negcat.cats[v.category] = negcat:Add(v.category)
 			end
 
 			if(!v.max and v.cost) then
+				
 				buttons[k] = negcat.cats[v.category]:Add(v.name.." | "..v.cost.." cost")
 				buttons[k]:Dock(TOP)
 				buttons[k]:SetPaintBackgroundEnabled(true)
@@ -470,8 +454,11 @@ function PANEL:onDisplay()
 
 	poscat:InvalidateLayout()--true)
 	negcat:InvalidateLayout()--true)
+	self:SetTall(300)
 
-	end)
+
+end)
+	self:SetTall(300)
 end
 
 
