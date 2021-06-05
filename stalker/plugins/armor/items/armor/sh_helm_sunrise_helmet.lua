@@ -11,6 +11,7 @@ ITEM.height = 1
 ITEM.outfitCategory = "head;mask;eyes"
 ITEM.price = 25400
 ITEM.flag = "3"
+ITEM.size = "helm" --helm, light, medium, heavy, exo, mask, vest, sci, seva
 
 --interface/inv_items_cloth_2.ogg masks
 --interface/inv_items_cloth_3.ogg helms works i guess?
@@ -343,5 +344,5 @@ ITEM.resists = {
 	--bullet fire wound
 	[DMG_BULLET] = 0.038,
 
-	spd = 0.92,
+	spd = 0.94,
 }

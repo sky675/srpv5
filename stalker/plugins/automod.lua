@@ -4,6 +4,25 @@ PLUGIN.name = "Automod"
 PLUGIN.author = "sky"
 PLUGIN.desc = "just gives donator stuff automatically rn"
 
+--prop collision vs players
+if(SERVER) then
+	hook.Add("OnPhysgunPickup", "stoppropkill", function(ply, ent)
+		--should only get normal props, so this doesnt happen if theyre nocollide and reset it
+		if(ent:GetClass() == "prop_physics" and ent:GetCollisionGroup() == COLLISION_GROUP_NONE) then
+			ent:SetCollisionGroup(COLLISION_GROUP_PASSABLE_DOOR)
+		end
+	end)
+	hook.Add("PhysgunDrop", "stoppropkill", function(ply, ent)
+		if(ent:GetClass() != "prop_physics") then return end
+		--should only get normal props, so this doesnt happen if theyre nocollide and reset it
+		timer.Simple(5, function() --little bit of a delay to prevent flinging at ppl
+			if(IsValid(ent) and ent:GetCollisionGroup() == COLLISION_GROUP_PASSABLE_DOOR) then
+				ent:SetCollisionGroup(COLLISION_GROUP_NONE)
+			end
+		end)
+	end)
+end
+
 --ill do dono stuff under here i guess
 	if(SERVER) then
 		hook.Add("OnCharCreated", "givedono", function(ply, char)

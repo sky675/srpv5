@@ -13,5 +13,7 @@ nut.util.include("sh_movement.lua")
 nut.util.include("sh_itemconfig.lua")
 --overlay
 nut.util.include("sh_overlay.lua")
+--suit upgrade system
+nut.util.include("sh_upgrades.lua")
 
 --todo: figure out modifications i had to make to base ns?

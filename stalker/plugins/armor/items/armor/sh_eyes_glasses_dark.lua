@@ -17,6 +17,7 @@ ITEM.iconCam = {
 	entAng = Angle(0, 0.47858771681786, 0),
 	fov = 5.6258075811277,
 }
+ITEM.size = "nonelol" --helm, light, medium, heavy, exo, mask, vest, sci, seva
 
 ITEM.bodyGroups = {
     ["glasses"] = 1

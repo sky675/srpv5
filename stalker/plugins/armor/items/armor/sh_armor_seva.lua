@@ -10,6 +10,8 @@ ITEM.height = 3
 ITEM.outfitCategory = "armor;head;mask;eyes"
 ITEM.price = 70400
 ITEM.flag = "4"
+ITEM.size = "seva" --helm, light, medium, heavy, exo, mask, vest, sci, seva
+ITEM.artifactCnt = 1
 
 --interface/inv_items_cloth_2.ogg super light (masks, addons)
 --interface/inv_items_cloth_3.ogg light (spd >= .7)
@@ -158,5 +160,5 @@ ITEM.resists = {
 	[DMG_CLUB] = 0.36,
 	[DMG_CRUSH] = 0.36,
 
-	spd = 0.9,
+	spd = 0.94,
 }

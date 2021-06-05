@@ -20,7 +20,7 @@ function ITEM:getDesc()
 end
 
 function ITEM:onCombineTo(target)
-	if(target.base != "base_suit" or target:getData("equip") == true) then return end
+	if(target.base != "base_armor" or target:getData("equip") == true) then return end
 
 	
 	local ply = self.player
@@ -43,14 +43,14 @@ function ITEM:onCombineTo(target)
 
 
 	local lvls = target:getData("durability")
-	ply:notify("on combine to "..lvls)
+	--ply:notify("on combine to "..lvls)
 	if(lvls) then
 		if(lvls < (item.minDurability/100)) then
 			ply:notify("The armor is too damaged for this!", 3)
 			return
 		end
 		
-		ply:notify("adding")
+		--ply:notify("adding")
 
 		target:setData("durability", math.Clamp(lvls + (item.baseRepair/100), 0, 1))
 		

@@ -10,7 +10,9 @@ ITEM.height = 3
 ITEM.outfitCategory = "armor"
 ITEM.price = 40300
 ITEM.flag = "F"
+ITEM.size = "medium" --helm, light, medium, heavy, mask, vest
 ITEM.fakeFaction = FACTION_FREEDOM
+ITEM.artifactCnt = 1
 
 --interface/inv_items_cloth_2.ogg super light (masks, addons)
 --interface/inv_items_cloth_3.ogg light (spd >= .7)
@@ -175,5 +177,5 @@ ITEM.resists = {
 	[DMG_SONIC] = 0,
 	["psy"] = 0,
 
-	spd = 0.71,
+	spd = 0.81,
 }

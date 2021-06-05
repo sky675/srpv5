@@ -20,7 +20,7 @@ if (SERVER) then
 	end
 
 	function ENT:Initialize()
-		self:SetModel("models/props_c17/Lockers001a.mdl")
+		self:SetModel("models/wick/wrbstalker/anomaly/items/wick_blue_box.mdl")
 		self:PhysicsInit(SOLID_VPHYSICS)
 		self:SetMoveType(MOVETYPE_VPHYSICS)
 		self:SetUseType(SIMPLE_USE)

@@ -128,9 +128,9 @@ TEXTURETABLE = {
 --global textures of anorak skins, easier to be stored as number
 ANORAKTEXTURES = {
 	--[numid] = "texturepath", --desc
-	[0] = "models/sky/stalker/anorak_lone", --alt just in case
+	[0] = "models/sky/stalker/anorak_lone", --just in case
 
-	[1] = "models/sky/stalker/anorak_band", --bandit black
+	[1] = "models/sky/stalker/anorak_band", --bandit black (used as bandits anorak)
 	[2] = "models/sky/stalker/anorak_blak", --all black
 	[3] = "models/sky/stalker/anorak_brun", --brown plaid
 	[4] = "models/sky/stalker/anorak_chav", --white

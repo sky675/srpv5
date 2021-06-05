@@ -31,7 +31,7 @@ function ITEM:attachTo(target, ply)
 			end
 		end
 		if(!rdy) then
-			ply:notify("This attachment requires "..(self.requireEnt.name or "an entity").." nearby to attach")
+			ply:notify("This attachment requires "..(self.requireEnt.name or "an entity").." nearby to attach", 3)
 			return false
 		end
 	end

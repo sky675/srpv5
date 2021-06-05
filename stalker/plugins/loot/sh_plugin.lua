@@ -878,7 +878,7 @@ function PLUGIN:SpawnRound()
 				return
 			end
 
-			local actualPos = v.pos + Vector(0,0,8) --make it a little higher
+			local actualPos = v.pos + Vector(0,0,28) --make it a little higher
 
 			local it = table.Random(realB[v.table])
 			if(it == "none") then continue end --dont spawn anything
@@ -1017,7 +1017,7 @@ if(SERVER) then
 	hook.Add("OnNPCKilled", "dropstuff", function(npc, atk, inf)
 		local class = npc:GetClass()
 		if(PLUGIN.dropTables[class]) then
-			local pos = npc:GetPos() + Vector(0,0,8)
+			local pos = npc:GetPos() + Vector(0,0,28)
 			local it = table.Random(realDropTab[class])
 
 			if(it == "none") then return end

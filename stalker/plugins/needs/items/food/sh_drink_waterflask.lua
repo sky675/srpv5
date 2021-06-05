@@ -1,12 +1,14 @@
 ITEM.name = "Purified Water Flask"
 ITEM.desc = "A water flask."
-ITEM.price = 1200
+ITEM.price = 1000
 ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_drink_flask.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 1
+ITEM.radGive = -2
+ITEM.radGiveTime = 10
 ITEM.hungerAmt = 0
-ITEM.thirstAmt = 30
+ITEM.thirstAmt = 20
 ITEM.uses = 3
 
 ITEM.useSound = "interface/inv_drink_flask.ogg"

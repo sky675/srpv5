@@ -206,7 +206,7 @@ do
 			data.filter = {}
 		trace = util.TraceLine(data)
 
-		return trace.HitPos
+		return trace.HitPos+Vector(0,0,32)
 	end
 
 	if (SERVER) then

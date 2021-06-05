@@ -387,6 +387,27 @@ ARTIFACT_DESCS = {
 			run = function(ply) end
 		},*/
 	},
+	["moonlight"] = {
+		name = "Moonlight",
+		itemid = "art_moonlight", --the item uniqueid this corresponds to
+		levels = { --this is what gets added in resist calcs
+		--use val-m to multiply a value instead of add onto it
+			[DMG_BURN.."-m"] = 0.7,
+			[DMG_SHOCK.."-m"] = 1.1,
+			[DMG_SONIC.."-m"] = 1.5,
+			["psy-m"] = 1.5,
+
+		},
+		radGive = 3, --the amt this gives/removes per min
+		--onAdd = function(item, ply) end, --adding extra stuff when equipping it in a belt
+		--onAddLoadout = function(item, ply) end, --used for adding when loadout is ran
+		--onRem = function(item, ply) end, --removing that extra stuff
+		--used for adding active abilities
+		/*active = {
+			--canRun = function(ply) end, --if true or doesnt exist, runs below
+			run = function(ply) end
+		},*/
+	},
 	["battery"] = {
 		name = "Battery",
 		itemid = "art_battery", --the item uniqueid this corresponds to
@@ -421,6 +442,29 @@ ARTIFACT_DESCS = {
 
 		},
 		radGive = 1, --the amt this gives/removes per min
+		--onAdd = function(item, ply) end, --adding extra stuff when equipping it in a belt
+		--onAddLoadout = function(item, ply) end, --used for adding when loadout is ran
+		--onRem = function(item, ply) end, --removing that extra stuff
+		--used for adding active abilities
+		/*active = {
+			--canRun = function(ply) end, --if true or doesnt exist, runs below
+			run = function(ply) end
+		},*/
+	},
+	["flash"] = {
+		name = "Flash",
+		itemid = "art_flash", --the item uniqueid this corresponds to
+		levels = { --this is what gets added in resist calcs
+		--use val-m to multiply a value instead of add onto it
+			[DMG_SONIC.."-m"] = 1.1,
+			["psy-m"] = 1.1,
+			[DMG_SHOCK.."-m"] = 2.2,
+			[DMG_SLASH.."-m"] = 0.93,
+			[DMG_CLUB.."-m"] = 0.93,
+			[DMG_CRUSH.."-m"] = 0.93,
+			[DMG_BULLET.."-m"] = 0.93,
+		},
+		radGive = 5, --the amt this gives/removes per min
 		--onAdd = function(item, ply) end, --adding extra stuff when equipping it in a belt
 		--onAddLoadout = function(item, ply) end, --used for adding when loadout is ran
 		--onRem = function(item, ply) end, --removing that extra stuff
@@ -622,6 +666,29 @@ ARTIFACT_DESCS = {
 			run = function(ply) end
 		},*/
 	},
+	["empty"] = {
+		name = "Empty",
+		itemid = "art_empty", --the item uniqueid this corresponds to
+		levels = { --this is what gets added in resist calcs
+		--use val-m to multiply a value instead of add onto it
+			[DMG_SHOCK.."-m"] = 1.1,
+			[DMG_SLASH.."-m"] = 1.6,
+			[DMG_CLUB.."-m"] = 1.6,
+			[DMG_CRUSH.."-m"] = 1.6,
+			[DMG_BULLET.."-m"] = 1.6,
+			["stmres"] = 0.8,
+
+		},
+		radGive = 5, -- this should be 3 but since no full empty doing this for balance, otherwise its just a straight upgrade from wrenched --the amt this gives/removes per min
+		--onAdd = function(item, ply) end, --adding extra stuff when equipping it in a belt
+		--onAddLoadout = function(item, ply) end, --used for adding when loadout is ran
+		--onRem = function(item, ply) end, --removing that extra stuff
+		--used for adding active abilities
+		/*active = {
+			--canRun = function(ply) end, --if true or doesnt exist, runs below
+			run = function(ply) end
+		},*/
+	},
 	["jellyfish"] = {
 		name = "Jellyfish",
 		itemid = "art_jellyfish", --the item uniqueid this corresponds to
@@ -670,7 +737,7 @@ ARTIFACT_DESCS = {
 		},*/
 	},
 
-	--[[["firefly"] = {--i dont seem to have a model for this but i did it anyway
+	["firefly"] = {
 		name = "Firefly",
 		itemid = "art_firefly", --the item uniqueid this corresponds to
 		levels = { --this is what gets added in resist calcs
@@ -704,7 +771,7 @@ ARTIFACT_DESCS = {
 				end)
 			end
 		},
-	},]]
+	},
 }
 --and a mass item table
 PLUGIN.artItems = {
@@ -727,7 +794,7 @@ PLUGIN.artItems = {
     ["art_flame"] = {
 		name = "Flame",
 		desc = "",--A thermal artifact is known for it's strong wound healing emissions.",
-		model = "models/kali/miscstuff/stalker/artifacts/flame.mdl",
+		model = "models/spec45as/stalker/artefacts/af_fire.mdl",
 		--skin = 0,
 		price = 46925,
 		width = 1,
@@ -769,7 +836,7 @@ PLUGIN.artItems = {
     ["art_mamasbeads"] = {
 		name = "Mama's Beads",
 		desc = "",
-		model = "models/kali/miscstuff/stalker/artifacts/mama's beads.mdl",
+		model = "models/spec45as/stalker/artefacts/af_dummy_glassbeads.mdl",
 		--skin = 0,
 		price = 24800,
 		width = 1,
@@ -783,7 +850,7 @@ PLUGIN.artItems = {
     ["art_kolobok"] = {
 		name = "Kolobok",
 		desc = "",
-		model = "models/kali/miscstuff/stalker/artifacts/kolobok.mdl",
+		model = "models/spec45as/stalker/artefacts/af_fuzz_kolobok.mdl",
 		--skin = 0,
 		price = 40600,
 		width = 1,
@@ -791,6 +858,20 @@ PLUGIN.artItems = {
 		weight = 1.4,
 		--flag = "",
 		artid = "kolobok",
+		junkArt = false,
+		hasUse = true, --true if has an active in desc
+	},
+    ["art_firefly"] = {
+		name = "Firefly",
+		desc = "",
+		model = "models/spec45as/stalker/artefacts/af_glass.mdl",
+		--skin = 0,
+		price = 54400,
+		width = 1,
+		height = 1,
+		weight = 1.49,
+		--flag = "",
+		artid = "firefly",
 		junkArt = false,
 		hasUse = true, --true if has an active in desc
 	},
@@ -811,7 +892,7 @@ PLUGIN.artItems = {
     ["art_nightstar"] = {
 		name = "Nightstar",
 		desc = "",
-		model = "models/kali/miscstuff/stalker/artifacts/night star.mdl",
+		model = "models/spec45as/stalker/artefacts/af_night_star.mdl",
 		--skin = 0,
 		price = 33200,
 		width = 1,
@@ -825,7 +906,7 @@ PLUGIN.artItems = {
     ["art_stoneflower"] = {
 		name = "Stone Flower",
 		desc = "",
-		model = "models/kali/miscstuff/stalker/artifacts/stone flower.mdl",
+		model = "models/spec45as/stalker/artefacts/af_cristall_flower.mdl",
 		--skin = 0,
 		price = 22800,
 		width = 1,
@@ -833,6 +914,20 @@ PLUGIN.artItems = {
 		weight = 5.08,
 		--flag = "",
 		artid = "stoneflower",
+		junkArt = false,
+		hasUse = false, --true if has an active in desc
+	},
+    ["art_moonlight"] = {
+		name = "Moonlight",
+		desc = "",
+		model = "models/spec45as/stalker/artefacts/af_electra_moonlight.mdl",
+		--skin = 0,
+		price = 43600,
+		width = 1,
+		height = 1,
+		weight = 0.19,
+		--flag = "",
+		artid = "moonlight",
 		junkArt = false,
 		hasUse = false, --true if has an active in desc
 	},
@@ -853,7 +948,7 @@ PLUGIN.artItems = {
     ["art_sparkler"] = {
 		name = "Sparkler",
 		desc = "",
-		model = "models/kali/miscstuff/stalker/artifacts/sparkler.mdl",
+		model = "models/spec45as/stalker/artefacts/af_electra_sparkler.mdl",
 		--skin = 0,
 		price = 21600,
 		width = 1,
@@ -864,10 +959,24 @@ PLUGIN.artItems = {
 		junkArt = false,
 		hasUse = false, --true if has an active in desc
 	},
+    ["art_flash"] = {
+		name = "Flash",
+		desc = "",
+		model = "models/spec45as/stalker/artefacts/af_electra_flash.mdl",
+		--skin = 0,
+		price = 48900,
+		width = 1,
+		height = 1,
+		weight = 0.17,
+		--flag = "",
+		artid = "flash",
+		junkArt = false,
+		hasUse = false, --true if has an active in desc
+	},
     ["art_meatchunk"] = {
 		name = "Meat Chunk",
 		desc = "",
-		model = "models/kali/miscstuff/stalker/artifacts/meat chunk.mdl",
+		model = "models/spec45as/stalker/artefacts/af_mincer_meat.mdl",
 		--skin = 0,
 		price = 31300,
 		width = 1,
@@ -881,7 +990,7 @@ PLUGIN.artItems = {
     ["art_bubble"] = {
 		name = "Bubble",
 		desc = "",
-		model = "models/kali/miscstuff/stalker/artifacts/bubble.mdl",
+		model = "models/spec45as/stalker/artefacts/af_baloon.mdl",
 		--skin = 0,
 		price = 47400,
 		width = 1,
@@ -895,7 +1004,7 @@ PLUGIN.artItems = {
     ["art_fireball"] = {
 		name = "Fireball",
 		desc = "",
-		model = "models/kali/miscstuff/stalker/artifacts/fireball.mdl",
+		model = "models/spec45as/stalker/artefacts/af_fireball.mdl",
 		--skin = 0,
 		price = 46800,
 		width = 1,
@@ -909,7 +1018,7 @@ PLUGIN.artItems = {
     ["art_stoneblood"] = {
 		name = "Stone Blood",
 		desc = "",
-		model = "models/kali/miscstuff/stalker/artifacts/stone blood.mdl",
+		model = "models/spec45as/stalker/artefacts/af_blood.mdl",
 		--skin = 0,
 		price = 22200,
 		width = 1,
@@ -923,7 +1032,7 @@ PLUGIN.artItems = {
     ["art_soul"] = {
 		name = "Soul",
 		desc = "",
-		model = "models/kali/miscstuff/stalker/artifacts/soul.mdl",
+		model = "models/spec45as/stalker/artefacts/af_soul.mdl",
 		--skin = 0,
 		price = 26200,
 		width = 1,
@@ -937,7 +1046,7 @@ PLUGIN.artItems = {
     ["art_goldfish"] = {
 		name = "Goldfish",
 		desc = "",
-		model = "models/kali/miscstuff/stalker/artifacts/goldfish.mdl",
+		model = "models/spec45as/stalker/artefacts/af_gold_fish.mdl",
 		--skin = 0,
 		price = 66200,
 		width = 1,
@@ -951,7 +1060,7 @@ PLUGIN.artItems = {
     ["art_gravi"] = {
 		name = "Gravi",
 		desc = "",
-		model = "models/kali/miscstuff/stalker/artifacts/gravi.mdl",
+		model = "models/spec45as/stalker/artefacts/af_gravi.mdl",
 		--skin = 0,
 		price = 47500,
 		width = 1,
@@ -965,7 +1074,7 @@ PLUGIN.artItems = {
     ["art_wrenched"] = {
 		name = "Wrenched",
 		desc = "",
-		model = "models/kali/miscstuff/stalker/artifacts/wrenched.mdl",
+		model = "models/spec45as/stalker/artefacts/af_vyvert.mdl",
 		--skin = 0,
 		price = 35500,
 		width = 1,
@@ -976,10 +1085,24 @@ PLUGIN.artItems = {
 		junkArt = false,
 		hasUse = false, --true if has an active in desc
 	},
+    ["art_empty"] = {
+		name = "Empty",
+		desc = "",
+		model = "models/spec45as/stalker/artefacts/af_dummy_dummy.mdl",
+		--skin = 0,
+		price = 35500,
+		width = 1,
+		height = 1,
+		weight = 5.07,
+		--flag = "",
+		artid = "empty",
+		junkArt = false,
+		hasUse = false, --true if has an active in desc
+	},
     ["art_jellyfish"] = {
 		name = "Jellyfish",
 		desc = "",
-		model = "models/kali/miscstuff/stalker/artifacts/jellyfish.mdl",
+		model = "models/spec45as/stalker/artefacts/af_medusa.mdl",
 		--skin = 0,
 		price = 24900,
 		width = 1,
@@ -993,7 +1116,7 @@ PLUGIN.artItems = {
     ["art_crystal"] = {
 		name = "Crystal",
 		desc = "",
-		model = "models/kali/miscstuff/stalker/artifacts/crystal.mdl",
+		model = "models/spec45as/stalker/artefacts/af_cristall.mdl",
 		--skin = 0,
 		price = 31800,
 		width = 1,
@@ -1367,6 +1490,20 @@ PLUGIN.artItems = {
 		weight = 0.6,
 		--flag = "",
 		artid = "seraphim",
+		junkArt = true,
+		hasUse = false, --true if has an active in desc
+	},
+    ["art_signet"] = {
+		name = "Signet",
+		desc = "",
+		model = "models/artefacts/signet.mdl",
+		--skin = 0,
+		price = 11800,
+		width = 1,
+		height = 1,
+		weight = 0.6,
+		--flag = "",
+		artid = "signet",
 		junkArt = true,
 		hasUse = false, --true if has an active in desc
 	},

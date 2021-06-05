@@ -18,14 +18,22 @@ if(StormFox2) then
 				print("time set to nutscript date time")
 				--id like to believe that the time offset was fixed, but
 				--its here anyway, uncomment if it is
-				timer.Create("fixrealtime", 1200, 0, function()
+				--it was and this causes periodic lag
+				--[[timer.Create("fixrealtime", 1200, 0, function()
 					--run every 20 mins to fix the time, adjust later to determine exactly when it starts getting offset
 					local dt = string.Explode(":", os.date("%H:%M:%S", nut.date.get()))
 					StormFox2.Time.Set(dt[1] * 60 + dt[2] + (dt[3] / 60))	
-				end)
-				
+				end)]]
 			end)
 		end
+
+		hook.Add("PlayerConnect", "sffix", function(ply)
+			if(#player.GetAll() == 1) then
+				print("it worked! syncing")
+				local dt = string.Explode(":", os.date("%H:%M:%S", nut.date.get()))
+				StormFox2.Time.Set(dt[1] * 60 + dt[2] + (dt[3] / 60))
+			end
+		end)
 	end
 
 	return

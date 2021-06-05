@@ -10,6 +10,8 @@ ITEM.height = 3
 ITEM.outfitCategory = "armor;head;mask;eyes" --idk for now
 ITEM.price = 143500
 ITEM.flag = "4"
+ITEM.size = "sci" --helm, light, medium, heavy, mask, vest, sci
+ITEM.artifactCnt = 2
 
 --interface/inv_items_cloth_2.ogg super light (masks, addons)
 --interface/inv_items_cloth_3.ogg light (spd >= .7)
@@ -165,5 +167,5 @@ ITEM.resists = {
 	[DMG_CLUB] = 0.16,
 	[DMG_CRUSH] = 0.16,
 
-	spd = 0.92,
+	spd = 0.94,
 }

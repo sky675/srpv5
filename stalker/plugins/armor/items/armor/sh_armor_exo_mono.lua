@@ -11,6 +11,8 @@ ITEM.outfitCategory = "armor"
 ITEM.price = 136680
 ITEM.flag = "5"
 ITEM.fakeFaction = FACTION_MONOLITH
+ITEM.size = "exo" --helm, light, medium, heavy, exo, mask, vest, sci
+ITEM.artifactCnt = 1
 
 --interface/inv_items_cloth_2.ogg super light (masks, addons)
 --interface/inv_items_cloth_3.ogg light (spd >= .7)
@@ -179,6 +181,6 @@ ITEM.resists = {
 	[DMG_CLUB] = 0.64,
 	[DMG_CRUSH] = 0.64,
 
-	spd = 0.5,
+	spd = 0.8,
 	nospr = true,
 }
