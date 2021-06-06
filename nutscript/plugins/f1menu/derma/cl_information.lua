@@ -344,7 +344,8 @@ local PANEL = {}
 									end
 								end
 							end
-
+							
+							scroll:InvalidateLayout(true)
 						end
 						}
 				end

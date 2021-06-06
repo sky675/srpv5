@@ -138,11 +138,11 @@ else
 	local toScreen = FindMetaTable("Vector").ToScreen
 	local colorAlpha = ColorAlpha
 
-	function ENT:computeDescMarkup(description)
+	function ENT:computeDescMarkup(description, name)
 		if (self.desc ~= description) then
 			self.desc = description
 			self.markup = nut.markup.parse(
-				"<font=nutItemDescFont>"..description.."</font>",
+				"<font=nutItemBoldFont>"..name.."</font>\n".."<font=nutItemDescFont>"..description.."</font>",
 				ScrW() * 0.5
 			)
 		end
@@ -164,21 +164,47 @@ else
 		local x, y = position.x, position.y
 
 		local description = itemTable:getDesc()
-		self:computeDescMarkup(description)
+		self:computeDescMarkup(description, L(itemTable.getName and itemTable:getName() or itemTable.name))
 
-		nut.util.drawText(
-			L(itemTable.getName and itemTable:getName() or itemTable.name),
-			x, y,
-			colorAlpha(nut.config.get("color"), alpha),
-			1, 1,
-			nil,
-			alpha * 0.65
-		)
-		y = y + 12
+
+		local w = self.markup.totalWidth
+		local h = self.markup.totalHeight
+		
+		surface.SetDrawColor(21, 23, 21, math.Clamp(alpha, 0, 180))
+		surface.DrawRect(x-(w*0.5)-4, y-4, w+4, h+4)
+		
+		surface.SetDrawColor( 255, 255, 255, alpha)
+
+		--top/bottom
+
+		surface.SetMaterial(Material('sky/tp/tops.png'))
+		surface.DrawTexturedRect(x-(w*0.5)-4, y-4, w+4, 4)
+		surface.DrawTexturedRectRotated(x-(w*0.5)+w*0.5, y+h+2, w+8, 4, 180)
+		
+
+		--left/right caps
+	 	surface.SetMaterial(Material('sky/tp/lcap.png'))
+		surface.DrawTexturedRect(x-(w*0.5)-4, y-4, 4, h+4)
+		surface.DrawTexturedRectRotated(x-(w*0.5)+4+w-2, y-2+h*0.5, 4, h+4, 180)
 
 		if (self.markup) then
 			self.markup:draw(x, y, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, alpha)
+			--self.markup:draw(x, y, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, alpha)
 		end
+
+		-- nut.util.drawText(
+		-- 	L(itemTable.getName and itemTable:getName() or itemTable.name),
+		-- 	x, y,
+		-- 	colorAlpha(nut.config.get("color"), alpha),
+		-- 	1, 1,
+		-- 	nil,
+		-- 	alpha * 0.65
+		-- )
+		-- y = y + 12
+
+		-- if (self.markup) then
+		-- 	self.markup:draw(x, y, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, alpha)
+		-- end
 
 		hook.Run(
 			"DrawItemDescription",

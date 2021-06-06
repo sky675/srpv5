@@ -1,7 +1,7 @@
 if (CLIENT) then
     function stalkerDisplayStats(char)
 
-
+        
         local transtype = {
             ["pos"] = "Positive",
             ["neg"] = "Negative",
@@ -13,7 +13,7 @@ if (CLIENT) then
 
         --Window is Main Trait Window container, background image
         local Window = vgui.Create( "DFrame" )
-
+       
         local statsText = (Material("sky/srp_stats.png"))
         local textH = 607
         local textW = 505
@@ -52,6 +52,7 @@ if (CLIENT) then
 
         --Table for traits
         local traitsTable = vgui.Create( "DListView", InnerPanel )
+        traitsTable:SetSkin("stalker")
         traitsTable:UpdateColours(nutscript)
         traitsTable:DisableScrollbar()
         traitsTable:SetPaintBackground( false )
@@ -207,7 +208,6 @@ if (CLIENT) then
                 label:SetWrap( false )
                 label:SetTextColor(Color(255, 255 ,255))
                 --label:SetBackgroundColor(highlightColor)
-                if (label:GetParent():IsLineSelected())  then return label:SetTextStyleColor( highlightColor ) end
                 label:SetPaintBorderEnabled( false )
                 label:SetFont("nutScaledInvenLight")
 

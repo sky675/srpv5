@@ -23,7 +23,7 @@ local PANEL = {}
 		self.panel:SetSize(ScrW() * 0.6, ScrH() * 0.65)
 		self.panel:Center()
 		self.panel:SetPos(self.panel.x, self.panel.y + 72)
-		self.panel:SetAlpha(0)
+		self.panel:SetAlpha(255)
 
 		self.title = self:Add("DLabel")
 		self.title:SetPos(self.panel.x, self.panel.y - 80)

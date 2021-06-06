@@ -69,6 +69,7 @@ function PANEL:Init()
 	self.category = vgui.Create("DCategoryList", self.scroll)
 	self.category:SetSize(self:GetWide(), self:GetTall()-22)
 	self.category:Dock(FILL)
+
 	self.category:SetPaintBackgroundEnabled(false)
 	self.category:SetPaintBackground(false)
 	self.category:SetBGColor(Color(0,0,0,0))
@@ -87,6 +88,8 @@ function PANEL:addCat(name)
 	local list = vgui.Create("DIconLayout", main)
 	main:SetContents(list)
 	main:Dock(TOP)
+	main:DockPadding(10, 0, 10, 10)
+
 	self.cats[name] = list
 
 	list:Dock(FILL)

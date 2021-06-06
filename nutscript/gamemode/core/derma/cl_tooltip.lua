@@ -17,9 +17,25 @@ end)
 
 hook.Add("TooltipPaint", "nutItemTooltip", function(self, w, h)
 	if (self.isItemTooltip) then
-		nut.util.drawBlur(self, 2, 2)
-		surface.SetDrawColor(0, 0, 0, 230)
+		--nut.util.drawBlur(self, 2, 2)
+		--surface.SetDrawColor(0, 0, 0, 230)
+		--surface.DrawRect(0, 0, w, h)
+		--background
+		surface.SetDrawColor(21, 23, 21, 255)
 		surface.DrawRect(0, 0, w, h)
+
+		surface.SetDrawColor( 255, 255, 255, 255 )
+
+		--top/bottom
+		surface.SetMaterial(Material('sky/tp/tops.png'))
+		surface.DrawTexturedRect(0, 0, w, 4)
+		surface.DrawTexturedRectRotated(w*0.5, h-2, w, 4, 180)
+		
+
+		--left/right caps
+	 	surface.SetMaterial(Material('sky/tp/lcap.png'))
+		surface.DrawTexturedRect(0, 0, 4, h)
+		surface.DrawTexturedRectRotated(w-2, h*0.5, 4, h, 180)
 
 		if (self.markupObject) then
 			self.markupObject:draw(PADDING_HALF, PADDING_HALF + 2)
@@ -35,7 +51,7 @@ hook.Add("TooltipLayout", "nutItemTooltip", function(self)
 	end
 end)
 
-local tooltip_delay = 0.01
+local tooltip_delay = 0.5
 
 local PANEL = {}
 
@@ -88,15 +104,12 @@ function PANEL:PositionTooltip()
 	local x, y = input.GetCursorPos()
 	local w, h = self:GetSize()
 
-	local lx, ly = self.TargetPanel:LocalToScreen(0, 0)
 
-	y = y - 50
 
-	y = math.min(y, ly - h * 1.5)
 	if (y < 2) then y = 2 end
 
 	-- Fixes being able to be drawn off screen
-	self:SetPos(math.Clamp(x - w * 0.5, 0, ScrW() - self:GetWide()), math.Clamp(y, 0, ScrH() - self:GetTall()))
+	self:SetPos(math.Clamp(x - w-10, 0, ScrW() - self:GetWide()-10), math.Clamp(y, 0, ScrH() - self:GetTall()))
 end
 
 function PANEL:Paint( w, h )

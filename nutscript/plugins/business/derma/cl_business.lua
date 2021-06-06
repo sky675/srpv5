@@ -52,7 +52,7 @@ PANEL = {}
 
 function PANEL:Init()
 	nut.gui.business = self
-
+	
 	self:SetSize(self:GetParent():GetSize())
 
 	if (not self:canPlayerUseBusiness()) then
@@ -66,13 +66,16 @@ function PANEL:Init()
 		self.error:SetContentAlignment(5)
 		return
 	end
-
+	
 	self.categories = self:Add("DScrollPanel")
 	self.categories:Dock(LEFT)
 	self.categories:SetWide(260)
-	self.categories.Paint = function(this, w, h)
-		surface.SetDrawColor(0, 0, 0, 150)
-		surface.DrawRect(0, 0, w, h)
+	self.Paint = function(this, w, h)
+		local old = DisableClipping( true )
+		surface.SetDrawColor(255, 255, 255, 255)
+		surface.SetMaterial(Material('sky/panel_bg.png'))
+		surface.DrawTexturedRect(-10, -10, w+20, h+20)
+		DisableClipping( old )
 	end
 	self.categories:DockPadding(5, 5, 5, 5)
 	self.categories:DockMargin(0, 46, 0, 0)
@@ -246,10 +249,10 @@ PANEL = {}
 
 		self.items = self:Add("DScrollPanel")
 		self.items:Dock(FILL)
-		self.items.Paint = function(this, w, h)
-			surface.SetDrawColor(0, 0, 0, 100)
-			surface.DrawRect(0, 0, w, h)
-		end
+		-- self.items.Paint = function(this, w, h)
+		-- 	surface.SetDrawColor(0, 0, 0, 100)
+		-- 	surface.DrawRect(0, 0, w, h)
+		-- end
 		self.items:DockMargin(0, 0, 0, 4)
 
 		self.buy = self:Add("DButton")
