@@ -21,7 +21,98 @@ PLUGIN.lootTables = {
 	},
 	]]
 
-
+	["common_eft"] = {
+		loot = {
+			{"junk_aa", 3},
+			{"junk_cap", 3},
+			{"junk_chain", 3},
+			{"junk_circuitboard", 1},
+			{"junk_coffee", 1},
+			{"junk_mcontrol", 1},
+			{"junk_drill", 1},
+			{"junk_gasa", 1},
+			{"junk_geiger", 1},
+			{"junk_gpblue", 2},
+			{"junk_gpgreen", 1},
+			{"junk_gphone", 2},
+			{"junk_gphonex", 1},
+			{"junk_gyroscope", 1},
+			{"junk_hdd", 1},
+			{"junk_helix", 1},
+			{"junk_horse", 2},
+			{"junk_hose", 1},
+			{"junk_itape", 3},
+			{"junk_lcdc", 1},
+			{"junk_lcdd", 2},
+			{"junk_lightbulb", 3},
+			{"junk_magnet", 1},
+			{"junk_matches", 3},
+			{"junk_meds", 2},
+			{"junk_syringe", 5},
+			{"junk_nailpack", 3},
+			{"junk_nixxor", 1},
+			{"junk_nuts", 3},
+			{"junk_screws", 4},
+			{"junk_relay", 3},
+			{"junk_plexiglass", 2},
+			{"junk_pliers", 4},
+			{"junk_powerbank", 1},
+			{"junk_powercord", 2},
+			{"junk_psu", 1},
+			{"junk_propane", 1},
+			{"junk_screwdriver", 4},
+			{"junk_bolts", 3},
+			{"junk_silicontube", 2},
+			{"junk_sparkplug", 2},
+			{"junk_toolset", 1},
+			{"junk_toothpaste", 6},
+			{"junk_waterfilter", 1},
+			{"junk_weaponparts", 1},
+			{"junk_wires", 2},
+			{"junk_wrench", 5},
+		},
+		durability = {100, 100}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0,
+	},
+	["uncommon_eft"] = {
+		loot = {
+			{"junk_cat", 1},
+			{"junk_ofz", 2},
+			{"junk_dryfuel", 1},
+			{"junk_motor", 2},
+			{"junk_gchain", 2},
+			{"junk_gpred", 2},
+			{"junk_gyrotachometer", 1},
+			{"junk_militaryboard", 1},
+			{"junk_militarycable", 1},
+			{"junk_paracord", 1},
+			{"junk_powerfilter", 2},
+			{"junk_pressuregauge", 1},
+			{"junk_rfid", 1},
+			{"junk_roler", 1},
+			{"junk_thermometer", 1},
+		},
+		durability = {100, 100}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0,
+	},
+	["rare_eft"] = {
+		loot = {
+			{"junk_defib", 1},
+			{"junk_diagset", 1},
+			{"junk_vpx", 1},
+			{"junk_fcond", 1},
+			{"junk_graphicscard", 1},
+			{"junk_lion", 1},
+			{"junk_militarybattery", 1},
+			{"junk_asea", 1},
+			{"junk_tetriz", 1},
+			{"junk_thermalmodule", 1},
+			{"junk_virtex", 1},
+			{"junk_transmitter", 1},
+		},
+		durability = {100, 100}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0,
+	},
 	["common_junk"] = { --junk, melee, misc stuff
 		loot = {
 			{"lockpick", 2},
@@ -36,23 +127,17 @@ PLUGIN.lootTables = {
 			{"doll", 5},
 			{"shoe", 7},
 			{"bleach", 5},
-			{"flashlight", 5},
-			{"wep_m_cleaver", 1},
-			{"wep_m_hammer", 1},
-			{"wep_m_hatchet", 1},
-			{"wep_m_kknife", 1},
-			{"wep_m_tknife", 1},
-			{"wep_m_pipe", 1},
-			{"wep_m_f4knife", 1},
-			{"wep_m_f4knuckles", 1},
-			{"wep_m_f4pipe", 1},
-			{"wep_m_f4switchblade", 1},
-			{"wep_m_f4tireiron", 1},
-			{"wep_m_crowbar", 1},
-			{"wep_m_machete", 1},
-			{"wep_m_f4baton", 1},
-			{"wep_m_wrench", 1},
-			{"wep_m_f4bat", 1},
+			{"junk_detector", 3},
+			{"junk_grease", 3},
+			{"flashlight", 7},
+			{"cwep_m_cleaver", 1},
+			{"cwep_m_crowbar", 1},
+			{"cwep_m_hatchet", 1},
+			{"cwep_m_knife", 1},
+			{"cwep_m_pan", 2},
+			{"cwep_m_pipe", 2},
+			{"cwep_m_shank", 3},
+			{"cwep_m_knife_t", 1},
 			{"eyes_glasses", 7},
 			--{"eyes_glasses_dark", 8},
 			--{"hands_bgloves", 6},
@@ -73,31 +158,29 @@ PLUGIN.lootTables = {
 		loot = {
 			{"drink_beer", 3},
 			{"drink_energy", 4},
-			{"drink_gatorade", 1},
-			{"drink_juice", 1},
 			{"drink_largesoda", 1},
-			{"drink_largewater", 2},
 			{"drink_milkcarton", 1},
 			{"drink_milkjug", 1},
-			{"drink_smallwater", 3},
+			{"drink_waterflask", 2},
 			{"drink_sodacan", 3},
 			{"drink_tea", 2},
-			{"drink_vodka1", 5},
+			{"drink_vodka1", 2},
+			{"drink_vodkaz", 2},
+			{"drink_vodkab", 1},
 			{"drink_waterbottle", 4},
 			{"drink_whiskey", 2},
-			{"food_mre", 1}, --rare
-			{"food_bagchips", 4},
-			{"food_bagoats", 1},
+			{"food_ration_ukr", 1}, --rare
+			{"food_bag_nuts", 3},
+			{"food_bag_raisins", 2},
 			{"food_barchoc", 4},
-			{"food_bargran", 3},
-			{"food_canpasta", 2},
-			{"food_cansoup", 1},
-			{"food_canspam", 2},
+			{"food_canbeans", 2},
+			{"food_cancorn", 1},
+			{"food_cantushonka", 2},
 			{"food_cantuna", 4},
 			{"food_bread", 4},
 			{"food_breadstale", 2},
-			{"food_canbeans", 3},
-			{"food_chili", 2},
+			{"food_choc_alyonka", 2},
+			{"food_ration_ru", 1},
 			{"food_sausage", 4},
 			
 		},
@@ -112,14 +195,10 @@ PLUGIN.lootTables = {
 			{"datachik2", 2},
 			{"datachik3", 1},
 			{"radio", 4},
-			{"wep_m_bat", 3},
-			{"wep_m_etool", 2},
-			{"wep_m_fireaxe", 2},
-			{"wep_m_fubar", 1},
-			{"wep_m_pickaxe", 1},
-			{"wep_m_sledge", 2},
-			{"wep_m_spade", 2},
-			{"wep_m_f4bat", 1},
+			{"cwep_m_axe", 1},
+			{"cwep_m_cleaver", 1},
+			{"cwep_m_crowbar", 1},
+			{"cwep_m_hatchet", 1},
 			{"headlamp", 2},
 			{"rep_gunoil", 2},
 			{"rep_gunoilru", 3},
@@ -149,7 +228,7 @@ PLUGIN.lootTables = {
 			--{"ammo_45acp_ap", 1},
 			{"ammo_buckshot", 2},
 			{"ammo_slug", 1}, 
-			{"generic_mag", 3}, 
+			--{"generic_mag", 3}, 
 			--{"ammo_dragon", 1},
 			--{"ammo_frag", 1},
 			--[[{"ammo_545", 1},
@@ -180,13 +259,13 @@ PLUGIN.lootTables = {
 	["rare_ammo"] = { --other rarer ammo
 		loot = {
 			--{"ammo_338", 1},
-			{"generic_mag", 5}, 
+			--{"generic_mag", 5}, 
 			{"ammo_45acp", 5},
 			--{"ammo_45acp_large", 1},
-			{"ammo_45acp_hp", 1},
+			--{"ammo_45acp_hp", 1},
 			--{"ammo_45acp_ap", 1},
-			{"ammo_buckshot", 4},
-			{"ammo_slug", 2}, 
+			{"ammo_buckshot", 5},
+			--{"ammo_slug", 2}, 
 			--{"ammo_dragon", 1},
 			--{"ammo_frag", 1},
 			{"ammo_545", 2},
@@ -206,7 +285,7 @@ PLUGIN.lootTables = {
 			--{"ammo_762x54_hp", 1},
 			{"ammo_9x19", 5},
 			--{"ammo_9x19_large", 1},
-			{"ammo_9x19_hp", 1},
+			--{"ammo_9x19_hp", 1},
 			{"ammo_9x18", 4},
 			--{"ammo_9x19_ap", 1},
 			
@@ -251,16 +330,16 @@ PLUGIN.lootTables = {
 		--	{"wep_uspm", 1},
 		--	{"wep_izh", 3},
 		--	{"wep_izhsawn", 5},
-			{"wep_m1911", 3},
+			{"cwep_m1911", 3},
 		--	{"wep_m590", 1},
-			{"wep_m9", 4},
+			{"cwep_m9", 4},
 		--	{"wep_mp5", 1},
 		--	{"wep_mp5k", 1},
 		--	{"wep_mp5sd", 1},
-			{"wep_mp443", 6},
+			{"cwep_cz75", 6},
 		--	{"wep_mosin", 1},
 		--	{"wep_knw", 2},
-			{"wep_p226", 4},
+			{"cwep_p226", 4},
 		--	{"wep_sks", 1},
 		},
 		durability = {40, 65}, --durability when spawned if weapon or suit (for watever reason)
@@ -268,20 +347,27 @@ PLUGIN.lootTables = {
 	},
 	["rare_atts"] = { --some atts
 		loot = {
-			{"ins2_br_supp_45", 1},
+			{"go_supp_ssq", 4},
 			--{"ins2_br_supp_545", 1},
 			--{"ins2_br_supp_556", 1},
 			--{"ins2_br_supp_762x39", 1},
 			--{"ins2_br_supp_762x54", 1},
-			{"ins2_br_supp_9mm", 2},
-			{"ins2_br_supp_9x18", 2},
-			{"ins2_si_rds", 1},
+			{"go_supp_osprey", 6},
+			--{"ins2_br_supp_9x18", 2},
+			{"go_optic_lp_t1", 1},
+			{"go_optic_lp_rmr", 1},
 			--{"ins2_si_2xrds", 1},
-			{"ins2_si_eotech", 1},
-			{"ins2_fg_grip", 2},
-			{"ins2_si_kobra", 1},
-			{"ins2_ub_light", 2},
-			{"ins2_ub_laser", 1},
+			{"go_optic_t1", 1},
+			{"go_optic_eotech", 1},
+			{"go_optic_kobra", 1},
+			{"go_optic_compm4", 1},
+			{"go_optic_cmore", 1},
+			{"go_optic_barska", 1},
+			{"go_foregrip_stubby", 1},
+			{"go_foregrip_ergo", 1},
+			{"go_foregrip_angled", 1},
+			{"go_flashlight", 7},
+			{"go_laser", 5},
 			
 		},
 		durability = {100, 100}, --durability when spawned if weapon or suit (for watever reason)
@@ -292,22 +378,24 @@ PLUGIN.lootTables = {
 		--	{"wep_ak74", 1},
 		--	{"wep_akm", 1},
 		--	{"wep_aks", 1},
-			{"wep_glock", 3},
-			{"wep_usp", 1},
-			{"wep_usp9", 2},
+			{"cwep_g17", 2},
+			{"cwep_g26", 2},
+			{"cwep_usp", 1},
+			{"cwep_usp9", 2},
 		--	{"wep_uspm", 1},
 		--	{"wep_izh", 3},
 		--	{"wep_izhsawn", 3},
-			{"wep_m1911", 2},
+			{"cwep_m1911", 2},
 		--	{"wep_m590", 1},
-			{"wep_m9", 4},
+			{"cwep_m9", 4},
 		--	{"wep_mp5", 2},
 		--	{"wep_mp5k", 4},
 		--	{"wep_mp5sd", 1},
-			{"wep_mp443", 5},
+			{"cwep_cz75", 5},
 		--	{"wep_mosin", 2},
-			{"wep_knw", 2},
-			{"wep_p226", 3},
+			{"cwep_g21", 1},
+			{"cwep_g30", 2},
+			{"cwep_p226", 3},
 		--	{"wep_sks", 1},
 			
 		},
@@ -316,20 +404,38 @@ PLUGIN.lootTables = {
 	},
 	["epic_atts"] = { --all atts
 		loot = {
-			{"ins2_br_supp_45", 2},
-			{"ins2_br_supp_545", 1},
-			{"ins2_br_supp_556", 1},
-			{"ins2_br_supp_762x39", 1},
-			{"ins2_br_supp_762x54", 1},
-			{"ins2_br_supp_9mm", 2},
-			{"ins2_br_supp_9x18", 2},
-			{"ins2_si_rds", 2},
-			{"ins2_si_2xrds", 1},
-			{"ins2_si_eotech", 2},
-			{"ins2_fg_grip", 3},
-			{"ins2_si_kobra", 1},
-			{"ins2_ub_light", 3},
-			{"ins2_ub_laser", 2},
+			{"go_supp_ssq", 2},
+			{"go_supp_tgpa", 1},
+			{"go_supp_nt4", 1},
+			{"go_supp_rotor43", 1},
+			{"go_supp_pbs4", 1},
+			{"go_supp_osprey", 2},
+			{"go_supp_pbs1", 2},
+			{"go_supp_osprey", 6},
+			{"go_optic_lp_t1", 1},
+			{"go_optic_lp_rmr", 1},
+			--{"ins2_si_2xrds", 1},
+			{"go_optic_t1", 2},
+			{"go_optic_eotech", 2},
+			{"go_optic_kobra", 2},
+			{"go_optic_compm4", 2},
+			{"go_optic_cmore", 2},
+			{"go_optic_barska", 2},
+			{"mifl_fas2_optic_lmk4", 1},
+			{"go_optic_schmidt", 1},
+			{"mifl_fas2_optic_pso1", 1},
+			{"go_optic_hamr", 1},
+			{"go_foregrip_stubby", 2},
+			{"go_foregrip_ergo", 2},
+			{"go_foregrip_angled", 2},
+			{"go_fore_bipod", 1},
+			{"go_stock_moe", 2},
+			{"go_stock_ergo", 2},
+			{"go_stock_contractor", 2},
+			{"go_stock_basilisk", 2},
+			{"go_flashlight", 4},
+			{"go_flashlight_combo", 2},
+			{"go_laser", 5},
 			
 		},
 		durability = {100, 100}, --durability when spawned if weapon or suit (for watever reason)
@@ -337,26 +443,27 @@ PLUGIN.lootTables = {
 	},
 	["legend_wep"] = { --super rare weps
 		loot = {
-				{"wep_ak74", 1},
-				{"wep_akm", 1},
-				{"wep_aks", 3},
+				{"cwep_ak74", 1},
+				{"cwep_akm", 1},
+				{"cwep_aks74", 2},
+				{"cwep_aks74u", 3},
 			--	{"wep_glock", 3},
 			--	{"wep_usp", 1},
 			--	{"wep_usp9", 2},
-				{"wep_uspm", 5},
+				{"cwep_uspm", 5},
 			--	{"wep_izh", 3},
 			--	{"wep_izhsawn", 3},
 			--	{"wep_m1911", 2},
-				{"wep_m590", 4},
+				{"cwep_870", 4},
 			--	{"wep_m9", 4},
-				{"wep_mp5", 6},
+				{"cwep_mp5", 6},
 			--	{"wep_mp5k", 4},
-				{"wep_mp5sd", 3},
+				{"cwep_mp5sd", 3},
 			--	{"wep_mp443", 5},
-				{"wep_mosin", 6},
+				{"cwep_mosin", 6},
 			--	{"wep_knw", 2},
 			--	{"wep_p226", 3},
-				{"wep_sks", 7},
+				{"cwep_sks", 7},
 			
 		},
 		durability = {25, 55}, --durability when spawned if weapon or suit (for watever reason)
@@ -366,11 +473,13 @@ PLUGIN.lootTables = {
 	["trash"] = {
 		istableloot = true,
 		loot = {
-			{"none",9},
+			{"none",15},
+			["common_eft"] = 3,
+			["uncommon_eft"] = 1,
 			{"common_junk",4},
-			{"common_food",2},
+			{"common_food",3},
 			{"uncomm_junk",1},
-			{"rare_meds",1},
+			{"rare_meds",2},
 		},
 		durability = {100, 100}, --durability when spawned if weapon or suit (for watever reason)
 		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
@@ -378,13 +487,15 @@ PLUGIN.lootTables = {
 	["trashrare"] = {
 		istableloot = true,
 		loot = {
-			{"none",16},
+			{"none",24},
+			["common_eft"] = 6,
+			["uncommon_eft"] = 3,
 			{"common_junk",6},
-			{"common_food",2},
+			{"common_food",4},
 			{"uncomm_junk",4},
-			{"uncomm_ammo",2},
-			{"rare_ammo",1},
-			{"rare_meds",3},
+			{"uncomm_ammo",4},
+			{"rare_ammo",2},
+			{"rare_meds",6},
 		},
 		durability = {100, 100}, --durability when spawned if weapon or suit (for watever reason)
 		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
@@ -392,7 +503,9 @@ PLUGIN.lootTables = {
 	["tier1"] = {
 		istableloot = true,
 		loot = {
-			{"none",19},
+			{"none",24},
+			["uncommon_eft"] = 6,
+			["rare_eft"] = 1,
 			{"uncomm_junk",5},
 			{"uncomm_ammo",7},
 			{"rare_ammo",4},
@@ -406,7 +519,9 @@ PLUGIN.lootTables = {
 	["tier2"] = {
 		istableloot = true,
 		loot = {
-			{"none",17},
+			{"none",23},
+			["uncommon_eft"] = 6,
+			["rare_eft"] = 2,
 			{"rare_ammo",7},
 			{"rare_wep",2},
 			{"rare_atts",1},
@@ -419,7 +534,8 @@ PLUGIN.lootTables = {
 	["tier3"] = { --expert only
 		istableloot = true,
 		loot = {
-			{"none",15},
+			{"none",19},
+			["rare_eft"] = 3,
 			{"rare_ammo",6},
 			{"epic_atts",1},
 			{"epic_meds",3},
@@ -505,11 +621,12 @@ PLUGIN.dropTables = {
 		loot = {
 			{"ammo_45acp", 3},
 			{"ammo_9x19", 3},
+			{"ammo_9x18", 2},
 			{"ammo_buckshot", 2},
 			{"meds_bandage", 3},
 			{"medkit", 5},
 			{"meds_painkillers", 1},
-			{"generic_mag", 1}, 
+			--{"generic_mag", 1}, 
 			{"patch_bandit", 10}, 
 			{"none", 20},
 		},
@@ -551,6 +668,7 @@ PLUGIN.dropTables = {
 			{"part_zombie", 5},
 			{"ammo_45acp", 2},
 			{"ammo_9x19", 2},
+			{"ammo_9x18", 2},
 			{"ammo_buckshot", 1},
 			{"none", 5},
 		},
@@ -605,90 +723,6 @@ PLUGIN.dropTables = {
 			{"part_snork_mask", 5},
 			{"food_meat_snork", 5},
 			{"none", 10},
-		},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-
-	["nz_sky_synth"] = {
-		loot = {
-			{"comp_mech1", 11},
-			{"comp_mech2", 4},
-			{"comp_scrap_metal", 20},
-			{"comp_wire1", 14},
-			{"comp_duct_tape", 7},
-			{"comp_tech1", 16},
-			{"none", 54},
-		},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-
-	["npc_vj_sky_citizen"] = {
-		loot = {
-			{"ammo_45acp", 3},
-			{"ammo_9x19", 3},
-			{"ammo_buckshot", 2},
-			{"meds_bandage", 3},
-			{"medkit", 3},
-			--{"generic_mag", 2}, 
-			{"none", 21},
-		},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_sky_rebel"] = {
-		loot = {
-			{"ammo_45acp", 3},
-			{"ammo_9x19", 3},
-			{"ammo_buckshot", 2},
-			{"meds_bandage", 3},
-			{"medkit", 5},
-			{"meds_painkillers", 1},
-			{"generic_mag", 1}, 
-			{"none", 20},
-		},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_sky_mp"] = {
-		loot = {
-			{"ammo_45acp", 2},
-			{"ammo_9x19", 3},
-			--{"ammo_buckshot", 1},
-			{"meds_bandage", 2},
-			{"medkit", 1},
-			--{"meds_painkillers", 1},
-			{"generic_mag", 1}, 
-			{"none", 14},
-		},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_sky_mp_helix"] = {
-		loot = {
-			{"ammo_45acp", 1},
-			{"ammo_9x19", 2},
-			--{"ammo_buckshot", 1},
-			{"meds_bandage", 3},
-			{"medkit", 2},
-			{"meds_painkillers", 1},
-			{"generic_mag", 1}, 
-			{"none", 14},
-		},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_sky_mp_storm"] = {
-		loot = {
-			{"ammo_45acp", 2},
-			{"ammo_9x19", 3},
-			{"ammo_buckshot", 1},
-			--{"meds_bandage", 2},
-			{"medkit", 2},
-			{"meds_painkillers", 1},
-			{"generic_mag", 1}, 
-			{"none", 15},
 		},
 		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
 		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
@@ -768,7 +802,7 @@ end
 	--if the table is indexed by numbers, can change it to x[math.random(#x)] yakno
 function PLUGIN:SpawnAtPos(tabl, pos, callback, printtable)
 
-	local actualPos = pos + Vector(0,0,8) --make it a little higher
+	local actualPos = pos + Vector(0,0,28) --make it a little higher
 	
 	local it = "none"
 	if(type(tabl) != "table") then
@@ -945,6 +979,14 @@ function PLUGIN:SpawnRound()
 				if(item.base == "base_junk") then
 					item:setQuantity(1)
 				end
+				if(item.base == "base_ammo") then
+					if(PLUGIN.dropTables[class].randomAmmo != 2) then
+						--~33% chance to be max
+						if(math.random(0, 2) != 0) then 
+							item:setQuantity(math.random(1, item.maxQuantity))
+						end
+					end
+				end
 
 				local ent = entity
 				timer.Simple(10800, function()
@@ -1055,6 +1097,14 @@ if(SERVER) then
 				--its likely never going to be above 1 anyway
 				if(item.base == "base_junk") then
 					item:setQuantity(1)
+				end
+				if(item.base == "base_ammo") then
+					if(PLUGIN.dropTables[class].randomAmmo != 2) then
+						--~33% chance to be max
+						if(math.random(0, 2) != 0) then 
+							item:setQuantity(math.random(1, item.maxQuantity))
+						end
+					end
 				end
 				--remove after hour
 				timer.Simple(1800, function()

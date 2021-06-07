@@ -296,6 +296,12 @@ local function SpawnLoot(loottable, run, amt, minamt)
 			if(item.base == "base_junk") then
 				item:setQuantity(1)
 			end
+			if(item.base == "base_ammo") then
+				--~33% chance to be max
+				if(math.random(0, 2) != 0) then 
+					item:setQuantity(math.random(1, item.maxQuantity))
+				end
+			end
 			
 			local ent = entity
 			timer.Simple(10800, function()
