@@ -65,8 +65,8 @@ function PLUGIN:canCreate(ply, recipee)
 		end
 	end
 	if(recipe.traits and char and nut.traits) then
-		local traits = char:getTrait()--Data("traits", {})
-		for k,v in pairs(traits) do
+		--local traits = char:getTrait()--Data("traits", {})
+		for k,v in pairs(recipe.traits) do
 			local res = nut.traits.hasTrait(ply, k)
 			if((type(res) == "number" and res < v) or (type(res) != "number" and res != true)) then
 				ply:notify("You do not have the minimum trait requirements for this recipe!", 3)
@@ -89,7 +89,7 @@ function PLUGIN:canCreate(ply, recipee)
 				end
 			end
 			for k,v in pairs(req) do
-				if(tobool(req[v.uniqueID])) then
+				if(tobool(v)) then
 					ply:notify("You are missing requirements!", 3)
 					return false
 				end
