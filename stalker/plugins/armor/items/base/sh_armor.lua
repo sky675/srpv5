@@ -447,6 +447,33 @@ ITEM:hook("drop", function(item)
 	end
 end)
 
+ITEM.functions.UpDisplay = { -- sorry, for name order.
+	name = "Display Upgrade List",
+	tip = "equipTip",
+	icon = "icon16/cross.png",
+	sound = "interface/inv_properties.ogg",
+	onClick = function(item)
+		if(table.Count(item:getData("upgrades", {})) != 0) then
+			local str = "Upgrade List: "
+			for k,v in pairs(item:getData("upgrades")) do
+				str = str..suit_getUpgradeName(k)..", "
+			end
+		  
+			str = str:sub(1, -3)
+			print(str)
+		else
+			print("The suit has no upgrades.")
+		end
+	end,
+	onRun = function(item)
+		item.player:notify("The list of upgrades was printed into console")
+		
+		return false
+	end,
+	onCanRun = function(item)
+		return (!IsValid(item.entity))
+	end
+}
 -- On player uneqipped the item, Removes a weapon from the player and keep the ammo in the item.
 ITEM.functions.EquipUn = { -- sorry, for name order.
 	name = "Unequip",
