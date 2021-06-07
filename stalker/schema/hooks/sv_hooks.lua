@@ -142,6 +142,7 @@ end
 hook.Add("PlayerRemoveOutfitEnd", "resetbg", function(ply, item)
 	--reapplying anorak just in case it wipes submats
 	timer.Simple(0, function() --i dont believe that it exists at this point
+		local char = ply:getChar()
 	if(char:getData("anorak")) then
 		nut.newchar.setBodygroups(ply, "t", nil, {["anorak_lone"] = ANORAKTEXTURES[char:getData("anorak")]})
 		--char:setData("anorak") --dont need anymore
