@@ -1414,6 +1414,63 @@ local weaponList = {
 		--	["item"] = 1, --these are the results
 		--},
 	},
+	["cwep_m1014sawn"] = {
+		--exclusive upgrade ideas: 
+		--ext mag go_m1014_mag_7
+		--long barrel go_m1014_barrel_long
+		--tube stocks
+		name = "M1014 Sawn-off",
+		desc = "A sawn-off semi-auto shotgun chambered in 12 gauge.",
+		price = 34600,
+		model = "models/weapons/arccw_go/v_shot_m1014.mdl",
+		groups = {
+			[1] = 1,
+			[2] = 2,
+			[3] = 1,
+			[4] = 1
+		},
+		width = 3,
+		height = 1,
+		weight = 2.1,
+		class = "arccw_go_m1014",
+		category = "Weapons - Shotguns",
+		type = "shotgun",
+		--flag = "4",--any flag in this will make it return true
+		defaultMods = {
+			["go_m1014_barrel"] = "go_m1014_barrel_short",
+			["go_m1014_mag"] = "go_m1014_mag_4",
+			["go_stock_none"] = "go_stock_none"
+		},
+		--slots above should probably also be below
+		cantDetach = {
+			--["slot"] = true,
+			["go_m1014_barrel"] = true,
+			["go_m1014_mag"] = true, --upgrade
+			["go_stock_none"] = true,
+			["go_stock"] = true,
+			["go_ammo"] = true, --upgrade
+			["go_perk"] = true, --upgrade
+		},
+		iconCam = {
+			pos = Vector(23.25, 25.620000839233, -6.5),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 45.096441351889,		
+			drawHook = function(ent)
+				ent:SetBodygroup(1, 1)
+				ent:SetBodygroup(2, 2)
+				ent:SetBodygroup(3, 1)
+				ent:SetBodygroup(4, 1)
+			end	
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--transferSound = "", --i think this is transferring between invs
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
 	--mag7
 	["cwep_mag7"] = {
 		--exclusive upgrade ideas: 

@@ -43,6 +43,13 @@ end
 
 local PANEL = {}
 
+function PANEL:forceIcon(icon)
+	self.Icon:SetVisible(false)
+	self.ExtraPaint = function(self, w, h)
+		drawIcon(icon, self, w, h)
+	end
+end
+
 function PANEL:setItemType(itemTypeOrID)
 	local item = nut.item.list[itemTypeOrID]
 	if (type(itemTypeOrID) == "number") then

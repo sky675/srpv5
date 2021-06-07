@@ -8,6 +8,79 @@ function PANEL:Init()
 	self:SetSize(size, size*1.15)
 end
 
+local function getRepDesc(tbl)
+	local str = (tbl.desc or "").."\n"
+
+	if(tbl.traits) then
+		local traits = {}
+		for k,v in pairs(tbl.traits) do
+			local trbl = nut.traits.list[k]
+			if(v == true) then
+				traits[#traits+1] = trbl.name
+			else
+				traits[#traits+1] = trbl.name.." Level "..tostring(v)
+			end
+		end
+		str = str.."\nTrait Requirements: "..table.concat(traits, ", ")
+	end
+
+	if(tbl.requirements) then
+		local traits = {}
+		for k,v in pairs(tbl.requirements) do
+			local trbl = nut.item.get(k)
+			if(v == true) then
+				traits[#traits+1] = trbl.name
+			else
+				traits[#traits+1] = tostring(v).."x "..trbl.name
+			end
+		end
+		str = str.."\nItem Requirements: "..table.concat(traits, ", ")
+	end
+
+	if(tbl.ingredients) then
+		local traits = {}
+		if(tbl.customIng) then
+			traits[1] = tbl.customIng
+		end
+		for k,v in pairs(tbl.ingredients) do
+			local trbl = nut.item.get(k)
+			if(v == true) then
+				traits[#traits+1] = (trbl and trbl.name or k.."(invalid item)")
+			else
+				traits[#traits+1] = tostring(v).."x "..(trbl and trbl.name or k.."(invalid item)")
+			end
+		end
+		str = str.."\nIngredients: "..table.concat(traits, ", ")
+	elseif(tbl.customIng) then
+		str = str.."\nIngredients: "..tbl.customIng
+	end
+
+	if(tbl.result) then
+		local traits = {}
+		if(tbl.customRes) then
+			traits[1] = tbl.customRes
+		end
+		if(isstring(tbl.result)) then
+			local trbl = nut.item.get(tbl.result)
+			traits[#traits+1] = (trbl and trbl.name or tbl.result.."(invalid item)")
+		else
+			for k,v in pairs(tbl.result) do
+				local trbl = nut.item.get(k)
+				if(v == true) then
+					traits[#traits+1] = (trbl and trbl.name or k.."(invalid item)")
+				else
+					traits[#traits+1] = tostring(v).."x "..(trbl and trbl.name or k.."(invalid item)")
+				end
+			end
+		end
+		str = str.."\nResult: "..table.concat(traits, ", ")
+	elseif(tbl.customRes) then
+		str = str.."\nResult: "..tbl.customRes
+	end
+
+	return str
+end
+
 function PANEL:setItem(itemTable, uniqueID)
 	self.name = self:Add("DLabel")
 	self.name:Dock(TOP)
@@ -30,8 +103,12 @@ function PANEL:setItem(itemTable, uniqueID)
 	self.icon:SetModel(itemTable.model, itemTable.skin or 0)
 
 	if(itemTable.render) then
-		self.icon:setItemType(itemTable.render.uniqueID)
-		self.icon.PaintBehind = function() end
+		if(itemTable.render.icon) then
+			self.icon:forceIcon(Material(itemTable.render.icon))
+		else
+			self.icon:setItemType(itemTable.render.uniqueID)
+			self.icon.PaintBehind = function() end
+		end
 	end
 
 
@@ -39,7 +116,7 @@ function PANEL:setItem(itemTable, uniqueID)
 	self.icon.itemID = true
 	self.icon:SetToolTip(
 		Format(nut.config.itemFormat,
-		itemTable.name, itemTable.desc or "")
+		itemTable.name, getRepDesc(itemTable) or "")
 	)
 	self.icon.DoClick = function(this)
 		net.Start("StartCraft")
@@ -61,13 +138,13 @@ function PANEL:Init()
 	self:MakePopup()
 	self:SetDraggable(true)
 
-	self.scroll = vgui.Create("DScrollPanel", self)
-	self.scroll:SetSize(self:GetWide(), self:GetTall()-6)
-	self.scroll:Dock(FILL)
-	self.scroll:SetPaintBackground(false)
+	--self.scroll = vgui.Create("DScrollPanel", self)
+	--self.scroll:SetSize(self:GetWide(), self:GetTall()-6)
+	--self.scroll:Dock(FILL)
+	--self.scroll:SetPaintBackground(false)
 	
-	self.category = vgui.Create("DCategoryList", self.scroll)
-	self.category:SetSize(self:GetWide(), self:GetTall()-22)
+	self.category = vgui.Create("DCategoryList", self)--.scroll)
+	self.category:SetSize(self:GetWide(), self:GetTall()-6)--22)
 	self.category:Dock(FILL)
 
 	self.category:SetPaintBackgroundEnabled(false)

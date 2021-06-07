@@ -243,6 +243,52 @@ local function specificUpgrade(ply, handpick, replacetbl)
 	item:setData("atts", data)
 	nut.traits.addXp(ply, "crafting_spec", 1)
 end
+local sawnOffAtts = {
+	["cwep_870"] = {
+		["go_870_barrel"] = "go_870_barrel_short",
+		["go_870_mag"] = "go_870_mag_4",
+		["go_870_stock"] = "go_870_stock_sawnoff"
+	},
+	["cwep_toz34"] = {
+		["mifl_fas2_toz34_bar"] = "mifl_fas2_toz_bar_2x_s",
+		["mifl_fas2_ks23_stock"] = "mifl_fas2_ks23_stock_k",
+	},
+	["cwep_doublebarrel"] = {
+		["waw_dbs_barrel"] = "bo1_dbs_barrel_sawnoff",
+		["bo1_mp5stock"] = "bo1_solider_stock", --will remove it if existing
+	},
+	["cwep_m1014"] = {
+		["go_m1014_barrel"] = "go_m1014_barrel_short",
+		["go_m1014_mag"] = "go_m1014_mag_4",
+		["go_stock_none"] = "go_stock_none"
+	},
+}
+local minSawn = {
+	["cwep_m1014"] = 2, --2 atts need to have been changed to be good
+	["cwep_870"] = 2,
+	--the 2 double barrels wont ever need this imo, even if the toz's other barrels are added
+}
+local function setSawnAtts(src, name)
+	local at = src or {}
+	local appl = 0
+	for k,v in pairs(sawnOffAtts[name]) do
+		--want to keep the capability for like a long barreled 870 or m1014 with a custom stock lmao
+		if(at[k] == v) then atk[k] = nil continue end
+		if(at[k] != nil and at[k] != "none") then continue end
+		at[k] = v
+		appl = appl + 1
+	end
+	--tripping the minimum count, if the amount applied meets or is less than whats defined
+	--it will force change all of them, this is to prevent abuse (ex having a 3 width m1014 that has 7 rounds, a long barrel, and a custom stock. having one of these in the newly created sawnoff version is fine, having multiple is not imo)
+	if(minSawn[name] and minSawn[name] >= appl) then
+		nut.log.addRaw("whoever just used a sawnoff recipe lost existing conflicting atts becuz too few were changed initially! this is an intentional feature to prevent abuse")
+		for k,v in pairs(sawnOffAtts[name]) do --fuckem, apply them all
+			at[k] = v
+		end
+	end
+	nut.traits.addXp(ply, "crafting_spec", 1)
+	return at
+end
 
 PLUGIN.recipeList = {
 	--[[
@@ -290,9 +336,7 @@ PLUGIN.recipeList = {
 	--basic stuff
 	["basic_bandage"] = {
 		name = "Bandage",
-		desc = [[A simple bandage.
-Ingredients: 3x Patch of Cloth
-Results: 1x Bandage]],
+		desc = [[A simple bandage.]],
 		category = "Medical",
 		model = "models/sky/items/bandage.mdl",
 		--skin = skin of model (not required),
@@ -317,10 +361,7 @@ Results: 1x Bandage]],
 	},
 	["basic_upbandage"] = {
 		name = "Upgrade Bandage",
-		desc = [[Increase the quality of a bandage by using a jar of antiseptics.
-Trait Requirements: General Crafting Level 1
-Ingredients: 1x Bandage, 1x Jar of Antiseptic
-Results: 1x Antiseptic Bandage]],
+		desc = [[Increase the quality of a bandage by using a jar of antiseptics.]],
 		category = "Medical",
 		model = "models/sky/items/bandage.mdl",
 		--skin = skin of model (not required),
@@ -347,10 +388,7 @@ Results: 1x Antiseptic Bandage]],
 	
 	["basic_medkit"] = {
 		name = "Medkit",
-		desc = [[Combine various things to make a basic medkit.
-Trait Requirements: General Crafting Level 1
-Ingredients: 2x Bandage, 1x Jar of Antiseptic, 3x Patch of Cloth
-Results: 1x Basic Medkit]],
+		desc = [[Combine various things to make a basic medkit.]],
 		category = "Medical",
 		model = "models/sky/items/medkit1.mdl",
 		--skin = skin of model (not required),
@@ -372,17 +410,14 @@ Results: 1x Basic Medkit]],
 			["comp_jar_antiseptic"] = 1,
 			["comp_scrap_cloth"] = 3,
 		},
-		result = "medkit1", --can also be table for multiple results
+		result = "medkit", --can also be table for multiple results
 		--flag = "", --optional can be left out, flag to check for
 	},
 
 	--crafting
 	["comp_mech1"] = {
 		name = "Craft Light Mechanisms",
-		desc = [[Fashions the scrap into some various springs and mechanisms.
-Trait Requirements: General Crafting Level 2
-Ingredients: 2x Scrap Metal, 1x Wire Spool
-Results: 1x Light Mechanisms]],
+		desc = [[Fashions the scrap into some various springs and mechanisms.]],
 		category = "Components",
 		model = "models/fallout/components/box.mdl",
 		skin = 5,
@@ -410,10 +445,7 @@ Results: 1x Light Mechanisms]],
 	},
 	["comp_mech2"] = {
 		name = "Reinforce Mechanisms",
-		desc = [[Does some stuff to make the assorted mechanisms sturdier.
-Trait Requirements: General Crafting Level 1
-Ingredients: 2x Light Mechanisms, 1x Scrap Metal
-Results: 1x Reinforced Mechanisms]],
+		desc = [[Does some stuff to make the assorted mechanisms sturdier.]],
 		category = "Components",
 		model = "models/fallout/components/box.mdl",
 		skin = 3,
@@ -441,10 +473,7 @@ Results: 1x Reinforced Mechanisms]],
 	},
 	["comp_padcloth"] = {
 		name = "Padded Cloth",
-		desc = [[Does some stuff to make a more thick cloth.
-Trait Requirements: General Crafting Level 1
-Ingredients: 2x Scrap of Cloth
-Results: 1x Padded Cloth]],
+		desc = [[Does some stuff to make a more thick cloth.]],
 		category = "Components",
 		model = "models/fallout/components/box.mdl",
 		skin = 0,
@@ -473,10 +502,7 @@ Results: 1x Padded Cloth]],
 	--cooking
 	["cook_blood"] = {
 		name = "Bloodsucker Goulash (Low Quality)",
-		desc = [[Use basic cooking knowledge to create a Bloodsucker Goulash out of Bloodsucker meat and assorted spices and other ingredients.
-Trait Requirements: Cooking Level 1
-Ingredients: 1x Bloodsucker Meat
-Results: 1x Bloodsucker Goulash]],
+		desc = [[Use basic cooking knowledge to create a Bloodsucker Goulash out of Bloodsucker meat and assorted spices and other ingredients.]],
 		category = "Cooking",
 		model = "models/wick/wrbstalker/anomaly/items/wick_meat_bloodsucker.mdl",
 		--skin = skin of model (not required),
@@ -501,10 +527,7 @@ Results: 1x Bloodsucker Goulash]],
 	},
 	["cook_boar"] = {
 		name = "Boar Chops (Low Quality)",
-		desc = [[Use basic cooking knowledge to prepare some Boar Chops with assorted seasonings and other ingredients.
-Trait Requirements: Cooking Level 1
-Ingredients: 1x Boar Chops
-Results: 1x Prepared Boar Chops]],
+		desc = [[Use basic cooking knowledge to prepare some Boar Chops with assorted seasonings and other ingredients.]],
 		category = "Cooking",
 		model = "models/wick/wrbstalker/anomaly/items/wick_meat_boar.mdl",
 		--skin = skin of model (not required),
@@ -529,10 +552,7 @@ Results: 1x Prepared Boar Chops]],
 	},
 	["cook_dog"] = {
 		name = "Dog Chops (Low Quality)",
-		desc = [[Use basic cooking knowledge to prepare some Dog meat with assorted seasonings and other ingredients.
-Trait Requirements: Cooking Level 1
-Ingredients: 1x Dog Meat
-Results: 1x Dog Chops]],
+		desc = [[Use basic cooking knowledge to prepare some Dog meat with assorted seasonings and other ingredients.]],
 		category = "Cooking",
 		model = "models/wick/wrbstalker/anomaly/items/wick_meat_dog.mdl",
 		--skin = skin of model (not required),
@@ -557,10 +577,7 @@ Results: 1x Dog Chops]],
 	},
 	["cook_chimera"] = {
 		name = "Chimera Meat (Low Quality)",
-		desc = [[Use basic cooking knowledge to prepare some Chimera meat with assorted seasonings and other ingredients.
-Trait Requirements: Cooking Level 1
-Ingredients: 1x Chimera Meat
-Results: 1x Chimera Meal]],
+		desc = [[Use basic cooking knowledge to prepare some Chimera meat with assorted seasonings and other ingredients.]],
 		category = "Cooking",
 		model = "models/wick/wrbstalker/anomaly/items/wick_chimera_food.mdl",
 		--skin = skin of model (not required),
@@ -585,10 +602,7 @@ Results: 1x Chimera Meal]],
 	},
 	["cook_flesh"] = {
 		name = "Flesh Bacon (Low Quality)",
-		desc = [[Use basic cooking knowledge to turn some Flesh meat into some fat and greasy bacon.
-Trait Requirements: Cooking Level 1
-Ingredients: 1x Flesh Meat
-Results: 1x Flesh Bacon]],
+		desc = [[Use basic cooking knowledge to turn some Flesh meat into some fat and greasy bacon.]],
 		category = "Cooking",
 		model = "models/wick/wrbstalker/anomaly/items/wick_meat_flesh.mdl",
 		--skin = skin of model (not required),
@@ -613,10 +627,7 @@ Results: 1x Flesh Bacon]],
 	},
 	["cook_pseudodog"] = {
 		name = "Pseudodog Chops (Low Quality)",
-		desc = [[Use basic cooking knowledge to prepare some Pseudodog Chops with assorted seasonings and other ingredients.
-Trait Requirements: Cooking Level 1
-Ingredients: 1x Pseudodog Meat
-Results: 1x Pseudodog Chops]],
+		desc = [[Use basic cooking knowledge to prepare some Pseudodog Chops with assorted seasonings and other ingredients.]],
 		category = "Cooking",
 		model = "models/wick/wrbstalker/anomaly/items/wick_meat_pseudodog.mdl",
 		--skin = skin of model (not required),
@@ -641,10 +652,7 @@ Results: 1x Pseudodog Chops]],
 	},
 	["cook_rat"] = {
 		name = "Rat Skewers (Low Quality)",
-		desc = [[Use basic cooking knowledge to prepare some Rat Skewers with assorted seasonings and other ingredients.
-Trait Requirements: Cooking Level 1
-Ingredients: 1x Rat Meat
-Results: 1x Rat Skewers]],
+		desc = [[Use basic cooking knowledge to prepare some Rat Skewers with assorted seasonings and other ingredients.]],
 		category = "Cooking",
 		model = "models/wick/wrbstalker/anomaly/items/wick_meat_tushkano.mdl",
 		--skin = skin of model (not required),
@@ -669,10 +677,7 @@ Results: 1x Rat Skewers]],
 	},
 	["cook_snork"] = {
 		name = "Snork Hand (Low Quality)",
-		desc = [[Use basic cooking knowledge to prepare a Grilled Snork Hand.
-Trait Requirements: Cooking Level 1
-Ingredients: 1x Snork Hand
-Results: 1x Grilled Snork Hand]],
+		desc = [[Use basic cooking knowledge to prepare a Grilled Snork Hand.]],
 		category = "Cooking",
 		model = "models/kek1ch/snork_food.mdl",
 		--skin = skin of model (not required),
@@ -695,14 +700,11 @@ Results: 1x Grilled Snork Hand]],
 		result = "food_meal_snork", --can also be table for multiple results
 		--flag = "", --optional can be left out, flag to check for
 	},
-	
+	--6x Scrap Metal, 5x Wire Spool, 6x Basic Tech, 
 	--special yes
 	["maki_special"] = {
 		name = "Craft KAMI",
-		desc = [[Creates a specialized hack tool.
-Trait Requirements: None
-Ingredients: 6x Scrap Metal, 5x Wire Spool, 6x Basic Tech, 1x Data Reader, 1x Data Recorder, 1x GPS
-Results: 1x KAMI Interface]],
+		desc = [[Creates a specialized hack tool.]],
 		category = "Special",
 		model = "models/fallout/components/box.mdl",
 		skin = 0,
@@ -723,23 +725,21 @@ Results: 1x KAMI Interface]],
 		},
 		]]
 		ingredients = { --items that will be taken
-			["comp_scrap_metal"] = 6,
-			["comp_wire1"] = 5, --or # of needed,
-			["comp_tech1"] = 6,
+			--["comp_scrap_metal"] = 6,
+			--["comp_wire1"] = 5, --or # of needed,
+			--["comp_tech1"] = 6,
 			--["comp_duct_tape"] = 2, --removing this, replacing with higher requirements elsewhere
 			["datachik1"] = 1,
 			["datachik2"] = 1,
 			["datachik3"] = 1,
+			["junk_vpx"] = 1,
 		},
 		result = "hacktool_maki", --can also be table for multiple results
 		--flag = "", --optional can be left out, flag to check for
 	},
 	["maki_remote"] = {
 		name = "Craft Hack Remote",
-		desc = [[Creates an experimental hack remote.
-Trait Requirements: None
-Ingredients: 3x Scrap Metal, 3x Wire Spool, 4x Basic Tech, 1x GPS
-Results: 1x Hack Remote]],
+		desc = [[Creates an experimental remote hack source.]],
 		category = "Special",
 		model = "models/fallout/components/box.mdl",
 		skin = 0,
@@ -760,9 +760,9 @@ Results: 1x Hack Remote]],
 		},
 		]]
 		ingredients = { --items that will be taken
-			["comp_scrap_metal"] = 3,
-			["comp_wire1"] = 3, --or # of needed,
-			["comp_tech1"] = 4,
+			["comp_scrap_metal"] = 2,
+			["comp_wire1"] = 1, --or # of needed,
+			["comp_tech1"] = 3,
 			--["comp_duct_tape"] = 2, --removing this, replacing with higher requirements elsewhere
 			--["datachik1"] = 1,
 			--["datachik2"] = 1,
@@ -771,7 +771,7 @@ Results: 1x Hack Remote]],
 		result = "hack_remote", --can also be table for multiple results
 		--flag = "", --optional can be left out, flag to check for
 	},
-
+	/*
 	["craft_flashlight"] = {
 		name = "Craft Flashlight (Tape)",
 		desc = [[Create a flashlight out of various bits. Lightbulb? Don't worry about it.
@@ -785,17 +785,6 @@ Results: 1x Flashlight]],
 		traits = { --traits requirements
 			["crafting_tech"] = 1,--min level needed or true for no level ones,
 		},
-		--[[
-		attribs = { --attrib requirements
-			["id"] = min needed,
-		},
-		traits = { --traits requirements
-			["id"] = min level needed or true for no level ones,
-		},
-		requirements = { --require for items that will not be taken
-			["requireuniqueid"] = true, --or # of needed,
-		},
-		]]
 		ingredients = { --items that will be taken
 			["comp_scrap_metal"] = 3, --or # of needed,
 			["comp_mech1"] = 1,
@@ -805,13 +794,10 @@ Results: 1x Flashlight]],
 		},
 		result = "flashlight", --can also be table for multiple results
 		--flag = "", --optional can be left out, flag to check for
-	},
-	["craft_flashlight2"] = {
-		name = "Craft Flashlight (Wire)",
-		desc = [[Create a flashlight out of various bits. Lightbulb? Don't worry about it.
-Trait Requirements: Basic Tech Crafting Level 1
-Ingredients: 3x Scrap Metal, 1x Light Mechanisms, 2x Small Tech, 4x Wire Spool
-Results: 1x Flashlight]],
+	},*/
+	["craft_flashlight"] = {
+		name = "Craft Flashlight",
+		desc = [[Create a flashlight out of various bits.]],
 		category = "Items",
 		model = "models/props_junk/cardboard_box004a.mdl",
 		skin = 0,
@@ -841,10 +827,7 @@ Results: 1x Flashlight]],
 	},
 	["craft_radio"] = {
 		name = "Craft Radio",
-		desc = [[Create a makeshift radio out of various bits.
-Trait Requirements: Basic Tech Crafting Level 2
-Ingredients: 4x Scrap Metal, 1x Light Mechanisms, 3x Small Tech, 2x Wire Spool
-Results: 1x Radio]],
+		desc = [[Create a makeshift radio out of various bits.]],
 		category = "Items",
 		model = "models/wick/wrbstalker/anomaly/items/wick_dev_fmradio.mdl",
 		skin = 0,
@@ -867,7 +850,7 @@ Results: 1x Radio]],
 			["comp_scrap_metal"] = 4, --or # of needed,
 			["comp_mech1"] = 1,
 			["comp_tech1"] = 3,
-			["comp_wire_spool"] = 2,
+			["comp_wire1"] = 2,
 		},
 		result = "radio", --can also be table for multiple results
 		--flag = "", --optional can be left out, flag to check for
@@ -875,10 +858,7 @@ Results: 1x Radio]],
 	
 	["craft_flashlightatt"] = {
 		name = "Flashlight -> Flashlight Attachment",
-		desc = [[Turn a flashlight into a kind that you can mount on a gun.
-Trait Requirements: Basic Tech Crafting Level 1
-Ingredients: 1x Flashlight, 1x Scrap Metal, 1x Duct Tape, 1x Wire Spool
-Results: 1x Flashlight Attachment]],
+		desc = [[Turn a flashlight into a kind that you can mount on a gun.]],
 		category = "Items",
 		model = "models/Items/BoxMRounds.mdl",
 		skin = 0,
@@ -911,16 +891,13 @@ Results: 1x Flashlight Attachment]],
 
 	["craft_ied"] = {
 		name = "IED",
-		desc = [[Create a remotely triggered IED.
-Trait Requirements: General Crafting Level 3
-Ingredients: 1x Explosive Block, 2x Scrap Metal, 3x Duct Tape, 1x Wire Spool, 3x Basic Tech
-Results: 1x IED]],
+		desc = [[Create a remotely triggered IED.]],
 		category = "Items",
 		model = "models/Items/BoxMRounds.mdl",
 		skin = 0,
 		workbench = {["basic"]=true,["weapons"] = true},
 		traits = { --traits requirements
-			["crafting"] = 3,--min level needed or true for no level ones,
+			["crafting_tech"] = 3,--min level needed or true for no level ones,
 		},
 		--[[
 		attribs = { --attrib requirements
@@ -937,7 +914,7 @@ Results: 1x IED]],
 			["comp_explosive"] = 1,
 			["comp_scrap_metal"] = 2, --or # of needed,
 			["comp_duct_tape"] = 3,
-			["comp_wire1"] = 1,
+			--["comp_wire1"] = 1,
 			["comp_tech1"] = 3,
 		},
 		result = "ied", --can also be table for multiple results
@@ -945,37 +922,6 @@ Results: 1x IED]],
 	},
 	
 	--craft weps
-	["wep_switchblade"] = {
-		name = "Switchblade",
-		desc = [[Assemble some scrap and assorted parts into a makeshift switchblade.
-Trait Requirements: General Crafting Level 2
-Ingredients: 2x Scrap Metal, 1x Light Mechanisms
-Results: 1x Switchblade]],
-		category = "Weapons",
-		model = "models/mosi/fallout4/props/weapons/melee/switchblade.mdl",
-		skin = 0,
-		workbench = {["basic"]=true,["weapons"]=true},
-		traits = { --traits requirements
-			["crafting"] = 2,--min level needed or true for no level ones,
-		},
-		--[[
-		attribs = { --attrib requirements
-			["id"] = min needed,
-		},
-		traits = { --traits requirements
-			["id"] = min level needed or true for no level ones,
-		},
-		requirements = { --require for items that will not be taken
-			["requireuniqueid"] = true, --or # of needed,
-		},
-		]]
-		ingredients = { --items that will be taken
-			["comp_scrap_metal"] = 2, --or # of needed,
-			["comp_mech1"] = 1,
-		},
-		result = "wep_m_f4switchblade", --can also be table for multiple results
-		--flag = "", --optional can be left out, flag to check for
-	},
 
 	--weapon conversions
 	--passive weapon upgrades
@@ -983,25 +929,19 @@ Results: 1x Switchblade]],
 	["passiveadd_magup"] = {
 		name = "Magazine Upgrade",
 		desc = [[temp name maybe
-changes the magazine/tube you're using with your weapon. will not work with all weapons
+changes the magazine/tube you're using with your weapon. will not work with all weapons. if it does not find the weapon it has already been upgraded or cannot be upgraded
 NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
-this upgrade is PERMANENT and cannot be reverted
-
-Trait Requirements: Weapon Crafting Level 1
-Ingredients: 1x any unequipped weapon, 1x Reinforced Mechanisms, 2x Scrap Metal, 1x Roll of Duct Tape
-Result: 1x that unequipped weapon, with the att applied]],
-		category = "Weapon Upgrades",
-		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Generic Weapon Upgrades",
+		model = "models/Items/BoxMRounds.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
 		--skin = skin of model (not required),
 		workbench = {["weapons"]=true,},
 		traits = { --traits requirements
 			["crafting_weapon"] = 1,--min level needed or true for no level ones,
 		},
-		--[[
-		requirements = { --require for items that will not be taken
-			["requireuniqueid"] = true, --or # of needed,
-		},
-		]]
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped weapon",
+		customRes = "1x that unequipped weapon with the upgrade applied",
 		ingredients = { --items that will be taken
 			--temp removed ingredients for testing
 			--["comp_mech2"] = 1,
@@ -1019,32 +959,95 @@ Result: 1x that unequipped weapon, with the att applied]],
 			genericUpgrade(ply, handpick, "mag")
 		end,
 	}, 
+	--Trait Requirements: Weapon Crafting Level 1 - just in case removing trait requirements for spec ammo is a bad idea
 	--generic match ammo upgrade - not shotgun - go_ammo=go_ammo_match
+	["passiveadd_ammo_match"] = {
+		name = "Ammo Upgrade (Match)",
+		desc = [[temp name maybe
+changes the ammo type you're using with your weapon. will not work with shotguns.
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_ammo_match.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["basic"]=true,},
+		--traits = { --traits requirements
+		--	["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		--},
+		customIng = "1x any unequipped applicable weapon",
+		customRes = "1x that unequipped weapon with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 1,
+			--["comp_scrap_metal"] = 2,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return genericUpgradeValid(items, "go_ammo_match", true)
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			genericUpgrade(ply, handpick, "go_ammo_match")
+		end,
+	}, 
 	--generic jhp ammo upgrade - not shotgun - go_ammo=go_ammo_jhp
-
+	["passiveadd_ammo_jhp"] = {
+		name = "Ammo Upgrade (JHP)",
+		desc = [[temp name maybe
+changes the ammo type you're using with your weapon. will not work with shotguns.
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory]],
+		category = "Generic Weapon Upgrades",
+		workbench = {["basic"]=true,["weapons"]=true,},
+		render = {
+			icon = "entities/acwatt_go_ammo_jhp.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		--traits = { --traits requirements
+		--	["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		--},
+		customIng = "1x any unequipped applicable weapon",
+		customRes = "1x that unequipped weapon with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 1,
+			--["comp_scrap_metal"] = 2,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return genericUpgradeValid(items, "go_ammo_jhp", true)
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			genericUpgrade(ply, handpick, "go_ammo_jhp")
+		end,
+	}, 
 	--generic tmj ammo upgrade - not shotgun - go_ammo=go_ammo_tmj
 	["passiveadd_ammo_ap"] = {
 		name = "Ammo Upgrade (TMJ)",
 		desc = [[temp name maybe
 changes the ammo type you're using with your weapon. will not work with shotguns.
-NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
-this upgrade is PERMANENT and cannot be reverted
-
-Trait Requirements: Weapon Crafting Level 1
-Ingredients: 1x any unequipped weapon, 1x Reinforced Mechanisms, 2x Scrap Metal, 1x Roll of Duct Tape
-Result: 1x that unequipped weapon, with the att applied]],
-		category = "Weapon Upgrades",
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory]],
+		category = "Generic Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_ammo_tmj.png"
+		},
 		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
 		--skin = skin of model (not required),
-		workbench = {["weapons"]=true,},
-		traits = { --traits requirements
-			["crafting_weapon"] = 1,--min level needed or true for no level ones,
-		},
-		--[[
-		requirements = { --require for items that will not be taken
-			["requireuniqueid"] = true, --or # of needed,
-		},
-		]]
+		workbench = {["basic"]=true,["weapons"]=true,},
+		--traits = { --traits requirements
+		--	["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		--},
+		customIng = "1x any unequipped applicable weapon",
+		customRes = "1x that unequipped weapon with the upgrade applied",
 		ingredients = { --items that will be taken
 			--temp removed ingredients for testing
 			--["comp_mech2"] = 1,
@@ -1062,29 +1065,59 @@ Result: 1x that unequipped weapon, with the att applied]],
 			genericUpgrade(ply, handpick, "go_ammo_tmj")
 		end,
 	}, 
+	["passiveadd_ammo_remove"] = {
+		name = "Ammo Upgrade (Remove)",
+		desc = [[temp name maybe
+removes the special ammo type you're using with your weapon.
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory]],
+		category = "Generic Weapon Upgrades",
+		render = {
+			icon = "arccw/hud/atts/default.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["basic"]=true,["weapons"]=true,},
+		--traits = { --traits requirements
+		--	["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		--},
+		customIng = "1x any unequipped applicable weapon",
+		customRes = "1x that unequipped weapon with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 1,
+			--["comp_scrap_metal"] = 2,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return genericUpgradeValid(items, nil, false, false)
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			genericUpgrade(ply, handpick)
+		end,
+	}, 
 	--generic slug ammo upgrade - shotgun - go_ammo=go_ammo_sg_slug
+	--, 1x Reinforced Mechanisms, 2x Scrap Metal, 1x Roll of Duct Tape
 	["passiveadd_ammo_slug"] = {
 		name = "Ammo Upgrade (Slug)",
 		desc = [[temp name maybe
 changes the ammo type you're using with your weapon. will ONLY work with shotguns.
-NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
-this upgrade is PERMANENT and cannot be reverted
-
-Trait Requirements: Weapon Crafting Level 1
-Ingredients: 1x any unequipped weapon, 1x Reinforced Mechanisms, 2x Scrap Metal, 1x Roll of Duct Tape
-Result: 1x that unequipped weapon, with the att applied]],
-		category = "Weapon Upgrades",
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory]],
+		category = "Generic Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_ammo_sg_slug.png"
+		},
 		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
 		--skin = skin of model (not required),
-		workbench = {["weapons"]=true,},
-		traits = { --traits requirements
-			["crafting_weapon"] = 1,--min level needed or true for no level ones,
-		},
-		--[[
-		requirements = { --require for items that will not be taken
-			["requireuniqueid"] = true, --or # of needed,
-		},
-		]]
+		workbench = {["basic"]=true,["weapons"]=true,},
+		--traits = { --traits requirements
+		--	["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		--},
+		customIng = "1x any unequipped applicable weapon",
+		customRes = "1x that unequipped weapon with the upgrade applied",
 		ingredients = { --items that will be taken
 			--temp removed ingredients for testing
 			--["comp_mech2"] = 1,
@@ -1113,34 +1146,22 @@ Result: 1x that unequipped weapon, with the att applied]],
 		desc = [[probably will be renamed eventually
 decreases durability taken on firing
 NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
-this upgrade is PERMANENT and cannot be reverted
-
-Trait Requirements: Weapon Crafting Level 1
-Ingredients: 1x any unequipped weapon, 1x Reinforced Mechanisms, 2x Scrap Metal, 1x Roll of Duct Tape
-Result: 1x that unequipped weapon, with the att applied]],
-		category = "Custom Upgrades",
-		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Generic Weapon Upgrades",
+		model = "models/Items/BoxMRounds.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
 		--skin = skin of model (not required),
 		workbench = {["weapons"]=true,},
 		traits = { --traits requirements
 			["crafting_weapon"] = 1,--min level needed or true for no level ones,
 		},
-		--[[
-		attribs = { --attrib requirements
-			["id"] = min needed,
-		},
-		traits = { --traits requirements
-			["id"] = min level needed or true for no level ones,
-		},
-		requirements = { --require for items that will not be taken
-			["requireuniqueid"] = true, --or # of needed,
-		},
-		]]
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped applicable weapon",
+		customRes = "1x that unequipped weapon with the upgrade applied",
 		ingredients = { --items that will be taken
 			--["wep_glocka"] = true, --or # of needed,
 			--["jar_antiseptic"] = true,
 			["comp_mech2"] = 1,
-			["comp_scrap_metal"] = 2,
+			["comp_scrap_metal"] = 3,
 			["comp_duct_tape"] = 1,
 		},
 		--result = "wep_glock", --can also be table for multiple results
@@ -1169,27 +1190,24 @@ Result: 1x that unequipped weapon, with the att applied]],
 		desc = [[temp name maybe
 adds the auto slide upgrade to a cz75
 NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
-this upgrade is PERMANENT and cannot be reverted
-
-Trait Requirements: Weapon Crafting Level 1
-Ingredients: 1x any unequipped weapon, 1x Reinforced Mechanisms, 2x Scrap Metal, 1x Roll of Duct Tape
-Result: 1x that unequipped weapon, with the att applied]],
+this upgrade is PERMANENT and cannot be reverted]],
 		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_cz75_slide_auto.png"
+		},
 		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
 		--skin = skin of model (not required),
 		workbench = {["weapons"]=true,},
 		traits = { --traits requirements
 			["crafting_weapon"] = 1,--min level needed or true for no level ones,
 		},
-		--[[
-		requirements = { --require for items that will not be taken
-			["requireuniqueid"] = true, --or # of needed,
-		},
-		]]
+		requirements = { ["junk_toolkit2"] = true, },
+		customIng = "1x any unequipped CZ75",
+		customRes = "1x that unequipped CZ75 with the upgrade applied",
 		ingredients = { --items that will be taken
 			--temp removed ingredients for testing
-			--["comp_mech2"] = 1,
-			--["comp_scrap_metal"] = 2,
+			["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 2,
 			--["comp_duct_tape"] = 1,
 		},
 		--flag = "", --optional can be left out, flag to check for
@@ -1209,333 +1227,1590 @@ Result: 1x that unequipped weapon, with the att applied]],
 		end,
 	}, 
 	--fiveseven plus - arccw_go_fiveseven - go_fiveseven_slide=go_fiveseven_slide_long
+	["weaponmod_fiveseven_long"] = {
+		name = "Five-seveN Plus Slide Upgrade",
+		desc = [[temp name maybe
+adds the long plus slide to a fiveseven
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_fiveseven_slide_long.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped Five-seveN",
+		customRes = "1x that unequipped Five-seveN with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 3,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_fiveseven", {
+				["go_fiveseven_slide"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_fiveseven_slide"] = "go_fiveseven_slide_long",
+			})
+		end,
+	}, 
 	--glock long - arccw_go_glock (in general) - go_glock_slide=go_glock_slide_long
-	--m92l - arccw_go_m9 - go_m9_slide=go_glock_slide_long
+	["weaponmod_glock_long"] = {
+		name = "Glock Long Slide Upgrade",
+		desc = [[temp name maybe
+adds the long slide upgrade to any normal length glock (17, 21)
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_glock_slide_long.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped applicable Glock",
+		customRes = "1x that unequipped applicable Glock with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 3,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_glock", {
+				["go_glock_slide"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_glock_slide"] = "go_glock_slide_long"
+			})
+		end,
+	}, 
+	--m92l - arccw_go_m9 - go_m9_slide=go_m9_slide_long
+	["weaponmod_m9_long"] = {
+		name = "M92FS Long Slide Upgrade",
+		desc = [[temp name maybe
+adds the long slide upgrade to a M92FS
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_m9_slide_long.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped M92FS",
+		customRes = "1x that unequipped M92FS with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 3,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_m9", {
+				["go_m9_slide"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_m9_slide"] = "go_m9_slide_long"
+			})
+		end,
+	}, 
 	--p2000l - arccw_go_p2000 - go_p2000_slide=go_p2000_slide_long
+	["weaponmod_p2000_long"] = {
+		name = "P2000 Long Slide Upgrade",
+		desc = [[temp name maybe
+adds the long slide upgrade to a P2000
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_p2000_slide_long.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped P2000",
+		customRes = "1x that unequipped P2000 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 3,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_p2000", {
+				["go_p2000_slide"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_p2000_slide"] = "go_p2000_slide_long"
+			})
+		end,
+	}, 
 	--p250 full - arccw_go_p250 - go_p250_slide=go_p250_slide_long
+	["weaponmod_p250_long"] = {
+		name = "P250 Full Slide Upgrade",
+		desc = [[temp name maybe
+adds the full slide upgrade to a P250
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_p250_slide_long.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped P250",
+		customRes = "1x that unequipped P250 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 3,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_p250", {
+				["go_p250_slide"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_p250_slide"] = "go_p250_slide_long"
+			})
+		end,
+	}, 
 	--tec9 auto (could generic?) - arccw_go_tec9 - go_perk=go_homemade_auto
+	["weaponmod_tec9_auto"] = {
+		name = "TEC-9 Automatic Upgrade",
+		desc = [[temp name maybe
+makes the TEC-9 automatic, *slightly* illegal
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_homemade_auto.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 2,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit2"] = true, },
+		customIng = "1x any unequipped TEC-9",
+		customRes = "1x that unequipped TEC-9 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			["comp_mech2"] = 3,
+			["comp_scrap_metal"] = 3,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			--thisll fuck shit up if i decide to implement some of the perks but eh
+			return specificUpgradeValid(items, "arccw_go_tec9", {
+				["go_perk"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_perk"] = "go_homemade_auto"
+			})
+		end,
+	}, 
 	--usp elite - arccw_go_usp - go_usp_slide=go_usp_slide_long
+	["weaponmod_usp_long"] = {
+		name = "USP Elite Slide Upgrade",
+		desc = [[temp name maybe
+adds the full slide upgrade to any non-match USP
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_usp_slide_long.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped USP",
+		customRes = "1x that unequipped USP with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 3,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_usp", {
+				["go_usp_slide"] = "none",
+				["go_muzzle_usp"] = "none"
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_usp_slide"] = "go_usp_slide_long"
+			})
+		end,
+	}, 
 	--mac10 patrol barrel - arccw_go_mac10 - go_mac10_barrel=go_mac10_barrel_med
+	["weaponmod_mac10_med"] = {
+		name = "MAC-10 Patrol Barrel Upgrade",
+		desc = [[temp name maybe
+adds the medium-length patrol barrel upgrade to a MAC-10
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_mac10_barrel_med.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped MAC-10",
+		customRes = "1x that unequipped MAC-10 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 2,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_mac10", {
+				["go_mac10_barrel"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_mac10_barrel"] = "go_mac10_barrel_med"
+			})
+		end,
+	}, 
 	--mac10 carbine barrel - arccw_go_mac10 - go_mac10_barrel=go_mac10_barrel_long
+	["weaponmod_mac10_long"] = {
+		name = "MAC-10 Carbine Barrel Upgrade",
+		desc = [[temp name maybe
+adds the long carbine barrel upgrade to a MAC-10
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_mac10_barrel_long.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped MAC-10",
+		customRes = "1x that unequipped MAC-10 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 5,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_mac10", {
+				["go_mac10_barrel"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_mac10_barrel"] = "go_mac10_barrel_long"
+			})
+		end,
+	}, 
 	--mp9 plus barrel - arccw_go_mp9 - go_mp9_barrel=go_mp9_barrel_med
+	["weaponmod_mp9_med"] = {
+		name = "MP9 Plus Barrel Upgrade",
+		desc = [[temp name maybe
+adds the plus barrel upgrade to a MP9
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_mp9_barrel_med.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped MP9",
+		customRes = "1x that unequipped MP9 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 2,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_mp9", {
+				["go_mp9_barrel"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_mp9_barrel"] = "go_mp9_barrel_med"
+			})
+		end,
+	}, 
 	--p90 ps90 barrel - arccw_go_p90 - go_p90_barrel=go_p90_barrel_med
+	["weaponmod_p90_med"] = {
+		name = "P90 PS Barrel Upgrade",
+		desc = [[temp name maybe
+adds the PS90 barrel upgrade to a P90
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_p90_barrel_med.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped P90",
+		customRes = "1x that unequipped P90 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 2,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_p90", {
+				["go_p90_barrel"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_p90_barrel"] = "go_p90_barrel_med"
+			})
+		end,
+	}, 
 	--bizon gru barrel - arccw_go_bizon - go_bizon_barrel=go_bizon_barrel_long
+	["weaponmod_bizon_long"] = {
+		name = "Bizon GRU Barrel Upgrade",
+		desc = [[temp name maybe
+adds the GRU long barrel upgrade to a Bizon
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_bizon_barrel_long.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped Bizon",
+		customRes = "1x that unequipped Bizon with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 6,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_bizon", {
+				["go_bizon_barrel"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_bizon_barrel"] = "go_bizon_barrel_long"
+			})
+		end,
+	}, 
 	--awm ext barrel - arccw_go_awp - go_awp_barrel=go_awp_barrel_long
+	["weaponmod_awp_long"] = {
+		name = "AWM Extended Barrel Upgrade",
+		desc = [[temp name maybe
+adds the long barrel upgrade to an AWM
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_awp_barrel_long.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit2"] = true, },
+		customIng = "1x any unequipped AWM",
+		customRes = "1x that unequipped AWM with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 5,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_awp", {
+				["go_awp_barrel"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_awp_barrel"] = "go_awp_barrel_long"
+			})
+		end,
+	}, 
 	--awm bull barrel - arccw_go_awp - go_awp_barrel=go_awp_barrel_bull
+	["weaponmod_awp_bull"] = {
+		name = "AWM Bull Barrel Upgrade",
+		desc = [[temp name maybe
+adds a custom shorter barrel upgrade to an AWM
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_awp_barrel_bull.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit2"] = true, },
+		customIng = "1x any unequipped AWM",
+		customRes = "1x that unequipped AWM with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 6,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_awp", {
+				["go_awp_barrel"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_awp_barrel"] = "go_awp_barrel_bull"
+			})
+		end,
+	}, 
 	--fal nightstalker barrel - arccw_go_fnfal - go_fal_barrel=go_fal_barrel_sd
+	["weaponmod_fal_sd"] = {
+		name = "Fal Nightstalker Barrel Upgrade",
+		desc = [[temp name maybe
+adds a custom made internal suppressor upgrade to a FN Fal Para
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_fal_barrel_sd.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 2,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit3"] = true, },
+		customIng = "1x any unequipped Fal",
+		customRes = "1x that unequipped Fal with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 12,
+			["comp_pad_cloth"] = 5,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_fnfal", {
+				["go_fal_barrel"] = "none",
+				["muzzle"] = "none"
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_fal_barrel"] = "go_fal_barrel_sd"
+			})
+		end,
+	}, 
 	--fal cqc barrel - arccw_go_fnfal - go_fal_barrel=go_fal_barrel_short
+	["weaponmod_fal_cqc"] = {
+		name = "Fal CQC Barrel Upgrade",
+		desc = [[temp name maybe
+adds the CQC short barrel upgrade to a FN Fal Para
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_fal_barrel_short.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped Fal",
+		customRes = "1x that unequipped Fal with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 7,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_fnfal", {
+				["go_fal_barrel"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_fal_barrel"] = "go_fal_barrel_short"
+			})
+		end,
+	}, 
 	--ssg08 long barrel - arccw_go_ssg08 - go_ssg08_barrel=go_ssg08_barrel_long
+	["weaponmod_ssg08_long"] = {
+		name = "SSG08 Long Barrel Upgrade",
+		desc = [[temp name maybe
+adds the long barrel upgrade to a SSG08
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_ssg08_barrel_long.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped SSG08",
+		customRes = "1x that unequipped SSG08 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 4,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_ssg08", {
+				["go_ssg08_barrel"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_ssg08_barrel"] = "go_ssg08_barrel_long"
+			})
+		end,
+	}, 
 	--sawn off m1014 - arccw_go_m1014 - go_m1014_barrel=go_m1014_barrel_short,go_m1014_mag=go_m1014_mag_4
+	["weaponmod_m1014_sawn"] = {
+		name = "M1014 Sawn-off Conversion",
+		desc = [[temp name maybe
+removes the stock and saws off most of the barrel of a M1014, also reduces its tube size to 4 shells. will retain any atts and etc the source weapon has (existing atts in the same slot take priority)
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Conversions",
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["cwep_m1014"] = true,
+			--["comp_scrap_metal"] = 3,
+			--["comp_duct_tape"] = 1,
+		},
+		result = "cwep_m1014sawn",
+		--flag = "", --optional can be left out, flag to check for
+		beforeCraft = function(ply, items)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			local data = {}
+			for k,v in pairs(items) do
+				if(v.uniqueID == "cwep_m1014") then
+					data = v:getData(true) --this apparently gets all data
+					break
+				end
+			end
+			if(data and table.Count(data) != 0) then
+				data.atts = setSawnAtts(data.atts, "cwep_m1014")
+				--data["ammo"] = nil --actually shouldnt need to worry about this tbh, it doesnt let it get over the mag size unlike a certain other base lmao
+				return data
+			end
+		end,
+		adddata = true,
+	}, 
 	--m1014 long barrel - arccw_go_m1014 - go_m1014_barrel=go_m1014_barrel_long
+	["weaponmod_m1014_long"] = {
+		name = "M1014 Long Barrel Upgrade",
+		desc = [[temp name maybe
+adds the long barrel upgrade to a M1014
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_m1014_barrel_long.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped M1014",
+		customRes = "1x that unequipped M1014 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 3,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_m1014", {
+				["go_m1014_barrel"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_m1014_barrel"] = "go_m1014_barrel_long"
+			})
+		end,
+	}, 
+	--comebackto
 	--m249 9mm conv - arccw_go_m249para - go_m249_mag=go_m249_mag_9_200
 	--m249 shotgun conv - arccw_go_m249para - go_m249_mag=go_m249_mag_12g_45
+	--870 conversion to sawn off
+	["weaponmod_870_sawn"] = {
+		name = "Remington Model 870 Sawn-off Conversion",
+		desc = [[temp name maybe
+saws off stock and most of the barrel of a 870, also reduces its tube size to 4 shells. will retain any atts and etc the source weapon has (existing atts in the same slot take priority)
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Conversions",
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["cwep_870"] = true,
+			--["comp_scrap_metal"] = 3,
+			--["comp_duct_tape"] = 1,
+		},
+		result = "cwep_870sawn",
+		--flag = "", --optional can be left out, flag to check for
+		beforeCraft = function(ply, items)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			local data = {}
+			for k,v in pairs(items) do
+				if(v.uniqueID == "cwep_870") then
+					data = v:getData(true) --this apparently gets all data
+					break
+				end
+			end
+			if(data and table.Count(data) != 0) then
+				data.atts = setSawnAtts(data.atts, "cwep_870")
+				return data
+			end
+		end,
+		adddata = true,
+	}, 
 	--870 long barrel - arccw_go_870 - go_870_barrel=go_870_barrel_long
+	["weaponmod_870_long"] = {
+		name = "Remington Model 870 Long Barrel Upgrade",
+		desc = [[temp name maybe
+adds the long barrel upgrade to a full M870
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_870_barrel_long.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped M870",
+		customRes = "1x that unequipped M870 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 4,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_870", {
+				["go_870_barrel"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_870_barrel"] = "go_870_barrel_long"
+			})
+		end,
+	}, 
 	--ace carbine barrel - arccw_go_ace - go_ace_barrel=go_ace_barrel_med
+	["weaponmod_ace_med"] = {
+		name = "ACE Series Carbine Barrel Upgrade",
+		desc = [[temp name maybe
+adds the medium-length carbine barrel upgrade to an ACE
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_ace_barrel_med.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped ACE",
+		customRes = "1x that unequipped ACE with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 2,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_ace", {
+				["go_ace_barrel"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_ace_barrel"] = "go_ace_barrel_med"
+			})
+		end,
+	}, 
 	--famas valorise - arccw_mifl_fas2_famas - mifl_fas2_famas_hg=mifl_fas2_famas_barrel_felin
+	["weaponmod_famas_felin"] = {
+		name = "FAMAS Valorise Frame Upgrade",
+		desc = [[temp name maybe very temp
+adds the custom Valorise frame upgrade to a FAMAS
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/arccw_mifl_fas2_famas_hg_felin.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 2,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit3"] = true, },
+		customIng = "1x any unequipped FAMAS",
+		customRes = "1x that unequipped FAMAS with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 15,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_mifl_fas2_famas", {
+				["mifl_fas2_famas_hg"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["mifl_fas2_famas_hg"] = "mifl_fas2_famas_barrel_felin"
+			})
+		end,
+	}, 
 	--famas whisper - arccw_mifl_fas2_famas - mifl_fas2_famas_hg=mifl_fas2_famas_barrel_sd
+	["weaponmod_famas_whisper"] = {
+		name = "FAMAS Whsiper Frame Upgrade",
+		desc = [[temp name maybe very temp
+adds the custom internally suppressed frame upgrade to a FAMAS
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/arccw_mifl_fas2_famas_hg_sd.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 2,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit3"] = true, },
+		customIng = "1x any unequipped FAMAS",
+		customRes = "1x that unequipped FAMAS with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 12,
+			["comp_pad_cloth"] = 5,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_mifl_fas2_famas", {
+				["mifl_fas2_famas_hg"] = "none",
+				["muzzle"] = "none"
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["mifl_fas2_famas_hg"] = "mifl_fas2_famas_barrel_sd"
+			})
+		end,
+	}, 
 	--g36c whisper - arccw_mifl_fas2_g36c - mifl_fas2_g36c_hg=mifl_fas2_g36_barrel_sd
+	["weaponmod_g36c_whisper"] = {
+		name = "G36C Whsiper Handguard Upgrade",
+		desc = [[temp name maybe very temp
+adds the custom internally suppressed handguard upgrade to a G36C
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/arccw_mifl_fas2_g36_hg_sd.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 2,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit3"] = true, },
+		customIng = "1x any unequipped G36C",
+		customRes = "1x that unequipped G36C with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 10,
+			["comp_pad_cloth"] = 4,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_mifl_fas2_g36c", {
+				["mifl_fas2_g36c_hg"] = "none",
+				["muzzle"] = "none"
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["mifl_fas2_g36c_hg"] = "mifl_fas2_g36_barrel_sd"
+			})
+		end,
+	}, 
 	--g3 whisper - arccw_mifl_fas2_g3 - mifl_fas2_g3_hg=mifl_fas2_g3_hg_sd
+	["weaponmod_g3_whisper"] = {
+		name = "G3A3 Whsiper Handguard Upgrade",
+		desc = [[temp name maybe very temp
+adds the custom internally suppressed handguard upgrade to a G3A3
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/arccw_mifl_fas2_g3_hg_sd.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 2,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit3"] = true, },
+		customIng = "1x any unequipped G3A3",
+		customRes = "1x that unequipped G3A3 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 10,
+			["comp_pad_cloth"] = 5,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_mifl_fas2_g3", {
+				["mifl_fas2_g3_hg"] = "none",
+				["muzzle"] = "none"
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["mifl_fas2_g3_hg"] = "mifl_fas2_g3_hg_sd"
+			})
+		end,
+	}, 
 	--ks23 colossal barrel - arccw_mifl_fas2_ks23 - mifl_fas2_ks23_barrel=mifl_fas2_ks23_barrel_b
 	--m24 m82 barrel - arccw_mifl_fas2_m24 - mifl_fas2_m24_hg=mifl_fas2_m24_hg_82
 	--m24 sd barrel - arccw_mifl_fas2_m24 - mifl_fas2_m24_hg=mifl_fas2_m24_hg_sd
-	--m24 jungle barrel - arccw_mifl_fas2_m24 - mifl_fas2_m24_hg=mifl_fas2_m24_hg_jungle
-	--m4a1 jungle barrel - arccw_mifl_fas2_m4a1 - mifl_fas2_m4a1_hg=mifl_fas2_m4a1_barrel_jungle
-	--m4a1 heat barrel - arccw_mifl_fas2_m4a1 - mifl_fas2_m4a1_hg=mifl_fas2_m4a1_barrel_heat
-	--m4a1 whisper barrel - arccw_mifl_fas2_m4a1 - mifl_fas2_m4a1_hg=mifl_fas2_m4a1_barrel_sd
-	--m4a1 commando barrel - arccw_mifl_fas2_m4a1 - mifl_fas2_m4a1_hg=mifl_fas2_m4a1_barrel_commando
-	--m4a1 9mm conv - arccw_mifl_fas2_m4a1 - mifl_fas2_m4a1_mag=mifl_fas2_m4a1_mag_9mm_32
-	--p226 long barrel - arccw_mifl_fas2_p226 - mifl_fas2_p226_slide=mifl_fas2_p226_slide_long
-	--sg552 whisper barrel - arccw_mifl_fas2_sg55x - mifl_fas2_sg55x_hg=mifl_fas2_sg55x_barrel_sd
-	--sr25 whisper barrel - arccw_mifl_fas2_sr25 - mifl_fas2_sr25_hg=mifl_fas2_sr25_barrel_sd
-
-
-	--melee mods
-	["melee_bat_nail"] = {
-		name = "Add nails to wooden baseball bat",
-		desc = [[adds nails to a wooden baseball bat
-needs a wooden baseball bat unequipped in the inventory
+	["weaponmod_m24_sd"] = {
+		name = "M24 SD Barrel Upgrade",
+		desc = [[temp name maybe very temp
+adds the custom internally suppressed barrel upgrade to a M24
 NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
-this upgrade is PERMANENT and cannot be reverted
-
-Trait Requirements: General Crafting Level 1
-Ingredients: 1x any unequipped wooden baseball bat, 2x Light Mechanisms,
-Result: 1x that bat, with the att applied]],
-		category = "Custom Upgrades",
-		model = "models/mosi/fallout4/props/weapons/melee/baseballbat.mdl",
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/arccw_mifl_fas2_m24_br_sd.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
 		--skin = skin of model (not required),
-		workbench = {["basic"]=true,["weapons"]=true,},
+		workbench = {["weapons"]=true,},
 		traits = { --traits requirements
-			["crafting"] = 1,--min level needed or true for no level ones,
+			["crafting_weapon"] = 2,--min level needed or true for no level ones,
 		},
-		--[[
-		attribs = { --attrib requirements
-			["id"] = min needed,
-		},
-		traits = { --traits requirements
-			["id"] = min level needed or true for no level ones,
-		},
-		requirements = { --require for items that will not be taken
-			["requireuniqueid"] = true, --or # of needed,
-		},
-		]]
+		requirements = { ["junk_toolkit3"] = true, },
+		customIng = "1x any unequipped M24",
+		customRes = "1x that unequipped M24 with the upgrade applied",
 		ingredients = { --items that will be taken
-			--["wep_glocka"] = true, --or # of needed,
-			--["jar_antiseptic"] = true,
-			["comp_mech1"] = 2,
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 12,
+			["comp_pad_cloth"] = 5,
+			--["comp_duct_tape"] = 1,
 		},
-		--result = "wep_glock", --can also be table for multiple results
 		--flag = "", --optional can be left out, flag to check for
 		handpick = function(items) --pick an item 
-			for k,v in pairs(items) do
-				--get the first item thats a weapon and isnt equipped
-				if(v.uniqueID == "wep_m_f4bat" and v:getData("equip") != true) then
-					if(v:getData("atts", {})[4]) then --if theres something in the barrel slot, whatever
-						continue
-					end
-					return k
-				end
-			end
+			return specificUpgradeValid(items, "arccw_mifl_fas2_m24", {
+				["mifl_fas2_m24_hg"] = "none",
+				["muzzle"] = "none"
+			})
 		end,
 		beforeCraft = function(ply, items, handpick)
 			--items are the items that will be taken, 
 			--return a table and it will reappear in oncreate as data
 			if(!handpick) then ply:notify("uh this should never happen") return end
-			local item = nut.item.instances[handpick]
-			local data = item:getData("atts", {})
-			data[4] = "sky_batnail" --apply the attachment
-			item:setData("atts", data)
+			specificUpgrade(ply, handpick, {
+				["mifl_fas2_m24_hg"] = "mifl_fas2_m24_hg_sd"
+			})
 		end,
-		--adddata = true,
-	},
-	["melee_baton_stun"] = {
-		name = "Add stunpack to plastic baton",
-		desc = [[adds a makeshift stunpack to the plastic baton, causing stamina damage.
-needs a plastic baton unequipped in the inventory
+	}, 
+	--m24 jungle barrel - arccw_mifl_fas2_m24 - mifl_fas2_m24_hg=mifl_fas2_m24_hg_jungle
+	["weaponmod_m24_jungle"] = {
+		name = "M24 Jungle Barrel Upgrade",
+		desc = [[temp name maybe very temp
+adds the custom internally suppressed barrel upgrade to a M24
 NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
-this upgrade is PERMANENT and cannot be reverted
-
-Trait Requirements: Weapon Crafting Level 1, Basic Tech Crafting Level 1
-Ingredients: 1x any unequipped plastic baton, 1x Light Mechanisms, 2x Small Tech, 1x Duct Tape Roll
-Result: 1x that baton, with the att applied]],
-		category = "Custom Upgrades",
-		model = "models/mosi/fallout4/props/weapons/melee/baton.mdl",
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/arccw_mifl_fas2_m24_br_jungle.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
 		--skin = skin of model (not required),
-		workbench = {["basic"]=true,["weapons"]=true,},
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 2,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit3"] = true, },
+		customIng = "1x any unequipped M24",
+		customRes = "1x that unequipped M24 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 12,
+			["comp_pad_cloth"] = 6,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_mifl_fas2_m24", {
+				["mifl_fas2_m24_hg"] = "none",
+				["muzzle"] = "none"
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["mifl_fas2_m24_hg"] = "mifl_fas2_m24_hg_jungle"
+			})
+		end,
+	}, 
+	--m4a1 jungle barrel - arccw_mifl_fas2_m4a1 - mifl_fas2_m4a1_hg=mifl_fas2_m4a1_barrel_jungle
+	["weaponmod_m4a1_jungle"] = {
+		name = "M4A1 Jungle Handguard Upgrade",
+		desc = [[temp name maybe very temp
+adds the custom internally suppressed handguard upgrade to a M4A1
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/arccw_mifl_fas2_m4a1_hg_jungle.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 2,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit3"] = true, },
+		customIng = "1x any unequipped M4A1",
+		customRes = "1x that unequipped M4A1 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 12,
+			["comp_pad_cloth"] = 6,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_mifl_fas2_m4a1", {
+				["mifl_fas2_m4a1_hg"] = "none",
+				["muzzle"] = "none"
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["mifl_fas2_m4a1_hg"] = "mifl_fas2_m4a1_barrel_jungle"
+			})
+		end,
+	}, 
+	--m4a1 heat barrel - arccw_mifl_fas2_m4a1 - mifl_fas2_m4a1_hg=mifl_fas2_m4a1_barrel_heat
+	["weaponmod_m4_heat"] = {
+		name = "M4A1 HEAT Handguard Upgrade",
+		desc = [[temp name maybe
+adds the HEAT handguard upgrade to a M4A1
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/arccw_mifl_fas2_m4a1_hg_heat.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
 		traits = { --traits requirements
 			["crafting_weapon"] = 1,--min level needed or true for no level ones,
-			["crafting_tech"] = 1,
 		},
-		--[[
-		attribs = { --attrib requirements
-			["id"] = min needed,
-		},
-		traits = { --traits requirements
-			["id"] = min level needed or true for no level ones,
-		},
-		requirements = { --require for items that will not be taken
-			["requireuniqueid"] = true, --or # of needed,
-		},
-		]]
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped M4A1",
+		customRes = "1x that unequipped M4A1 with the upgrade applied",
 		ingredients = { --items that will be taken
-			--["wep_glocka"] = true, --or # of needed,
-			--["jar_antiseptic"] = true,
-			["comp_mech1"] = 1,
-			["comp_tech1"] = 2,
-			["comp_duct_tape"] = 1,
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 12,
+			--["comp_duct_tape"] = 1,
 		},
-		--result = "wep_glock", --can also be table for multiple results
 		--flag = "", --optional can be left out, flag to check for
 		handpick = function(items) --pick an item 
-			for k,v in pairs(items) do
-				--get the first item thats a weapon and isnt equipped
-				if(v.uniqueID == "wep_m_f4baton" and v:getData("equip") != true) then
-					if(v:getData("atts", {})[4]) then --if theres something in the barrel slot, whatever
-						continue
-					end
-					return k
-				end
-			end
+			return specificUpgradeValid(items, "arccw_mifl_fas2_m4a1", {
+				["mifl_fas2_m4a1_hg"] = "none",
+			})
 		end,
 		beforeCraft = function(ply, items, handpick)
 			--items are the items that will be taken, 
 			--return a table and it will reappear in oncreate as data
 			if(!handpick) then ply:notify("uh this should never happen") return end
-			local item = nut.item.instances[handpick]
-			local data = item:getData("atts", {})
-			data[4] = "sky_batonzap" --apply the attachment
-			item:setData("atts", data)
+			specificUpgrade(ply, handpick, {
+				["mifl_fas2_m4a1_hg"] = "mifl_fas2_m4a1_barrel_heat"
+			})
 		end,
-		--adddata = true,
-	},
-	["melee_knuckles_blades"] = {
-		name = "Add blades to brass knuckles",
-		desc = [[adds some blades to brass knuckles
-needs brass knuckles unequipped in the inventory
+	}, 
+	--m4a1 whisper barrel - arccw_mifl_fas2_m4a1 - mifl_fas2_m4a1_hg=mifl_fas2_m4a1_barrel_sd
+	["weaponmod_m4a1_whisper"] = {
+		name = "M4A1 Whisper Handguard Upgrade",
+		desc = [[temp name maybe very temp may not be supp need to check
+adds the custom internally suppressed handguard upgrade to a M4A1
 NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
-this upgrade is PERMANENT and cannot be reverted
-
-Trait Requirements: General Crafting Level 1
-Ingredients: 1x any unequipped brass knuckles, 1x Light Mechanisms, 3x Scrap Metal
-Result: 1x those knuckles, with the att applied]],
-		category = "Custom Upgrades",
-		model = "models/mosi/fallout4/props/weapons/melee/knuckles.mdl",
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/arccw_mifl_fas2_m4a1_hg_sd.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
 		--skin = skin of model (not required),
-		workbench = {["basic"]=true,["weapons"]=true,},
+		workbench = {["weapons"]=true,},
 		traits = { --traits requirements
-			["crafting"] = 1,--min level needed or true for no level ones,
+			["crafting_weapon"] = 2,--min level needed or true for no level ones,
 		},
-		--[[
-		attribs = { --attrib requirements
-			["id"] = min needed,
-		},
-		traits = { --traits requirements
-			["id"] = min level needed or true for no level ones,
-		},
-		requirements = { --require for items that will not be taken
-			["requireuniqueid"] = true, --or # of needed,
-		},
-		]]
+		requirements = { ["junk_toolkit3"] = true, },
+		customIng = "1x any unequipped M4A1",
+		customRes = "1x that unequipped M4A1 with the upgrade applied",
 		ingredients = { --items that will be taken
-			--["wep_glocka"] = true, --or # of needed,
-			--["jar_antiseptic"] = true,
-			["comp_mech1"] = 1,
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 10,
+			["comp_pad_cloth"] = 5,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_mifl_fas2_m4a1", {
+				["mifl_fas2_m4a1_hg"] = "none",
+				["muzzle"] = "none"
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["mifl_fas2_m4a1_hg"] = "mifl_fas2_m4a1_barrel_sd"
+			})
+		end,
+	}, 
+	--m4a1 commando barrel - arccw_mifl_fas2_m4a1 - mifl_fas2_m4a1_hg=mifl_fas2_m4a1_barrel_commando
+	["weaponmod_m4_commando"] = {
+		name = "M4A1 Commando Handguard Upgrade",
+		desc = [[temp name maybe
+adds the Commando handguard upgrade to a M4A1
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/arccw_mifl_fas2_m4a1_hg_cmd.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped M4A1",
+		customRes = "1x that unequipped M4A1 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 9,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_mifl_fas2_m4a1", {
+				["mifl_fas2_m4a1_hg"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["mifl_fas2_m4a1_hg"] = "mifl_fas2_m4a1_barrel_commando"
+			})
+		end,
+	}, 
+	--m4a1 9mm conv - arccw_mifl_fas2_m4a1 - mifl_fas2_m4a1_mag=mifl_fas2_m4a1_mag_9mm_32
+	["weaponmod_m4a1_9mmconv"] = {
+		name = "M4A1 9x19mm Conversion Upgrade",
+		desc = [[temp name maybe
+changes the ammo type to 9x19 with 32 round mags
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/arccw_mifl_fas2_m4a1_ammo_32.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 2,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit2"] = true, },
+		customIng = "1x any unequipped M4A1",
+		customRes = "1x that unequipped M4A1 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			["comp_mech2"] = 3,
+			["comp_scrap_metal"] = 5,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_mifl_fas2_m4a1", {
+				["mifl_fas2_m4a1_mag"] = "none",
+				["go_ammo"] = "none"
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["mifl_fas2_m4a1_mag"] = "mifl_fas2_m4a1_mag_9mm_32"
+			})
+		end,
+	}, 
+	--p226 long barrel - arccw_mifl_fas2_p226 - mifl_fas2_p226_slide=mifl_fas2_p226_slide_long
+	["weaponmod_p226_long"] = {
+		name = "P226 Long Barrel Upgrade",
+		desc = [[temp name maybe
+adds the long barrel upgrade to a P226
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/arccw_mifl_fas2_p226_slide_x.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped P226",
+		customRes = "1x that unequipped P226 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
 			["comp_scrap_metal"] = 3,
+			--["comp_duct_tape"] = 1,
 		},
-		--result = "wep_glock", --can also be table for multiple results
 		--flag = "", --optional can be left out, flag to check for
 		handpick = function(items) --pick an item 
-			for k,v in pairs(items) do
-				--get the first item thats a weapon and isnt equipped
-				if(v.uniqueID == "wep_m_f4knuckles" and v:getData("equip") != true) then
-					if(v:getData("atts", {})[4]) then --if theres something in the barrel slot, whatever
-						continue
-					end
-					return k
-				end
-			end
+			return specificUpgradeValid(items, "arccw_mifl_fas2_p226", {
+				["mifl_fas2_p226_slide"] = "none",
+			})
 		end,
 		beforeCraft = function(ply, items, handpick)
 			--items are the items that will be taken, 
 			--return a table and it will reappear in oncreate as data
 			if(!handpick) then ply:notify("uh this should never happen") return end
-			local item = nut.item.instances[handpick]
-			local data = item:getData("atts", {})
-			data[4] = "sky_knucklesblade" --apply the attachment
-			item:setData("atts", data)
+			specificUpgrade(ply, handpick, {
+				["mifl_fas2_p226_slide"] = "mifl_fas2_p226_slide_long"
+			})
 		end,
-		--adddata = true,
-	},
-	["melee_tireiron_hatchet"] = {
-		name = "Adds a hatchet blade to tire iron",
-		desc = [[adds a large hatchet blade to a tire iron
-needs a tire iron unequipped in the inventory
+	}, 
+	--sg552 whisper barrel - arccw_mifl_fas2_sg55x - mifl_fas2_sg55x_hg=mifl_fas2_sg55x_barrel_sd
+	["weaponmod_sg552_whisper"] = {
+		name = "SG552 Whisper Handguard Upgrade",
+		desc = [[temp name maybe very temp
+adds the custom internally suppressed handguard upgrade to a SG552
 NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
-this upgrade is PERMANENT and cannot be reverted
-
-Trait Requirements: General Crafting Level 2
-Ingredients: 1x any unequipped tire iron, 1x Light Mechanisms, 4x Scrap Metal
-Result: 1x that tire iron, with the att applied]],
-		category = "Custom Upgrades",
-		model = "models/mosi/fallout4/props/weapons/melee/tireiron.mdl",
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/arccw_mifl_fas2_sg55x_sd.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
 		--skin = skin of model (not required),
-		workbench = {["basic"]=true,["weapons"]=true,},
+		workbench = {["weapons"]=true,},
 		traits = { --traits requirements
-			["crafting"] = 2,--min level needed or true for no level ones,
+			["crafting_weapon"] = 2,--min level needed or true for no level ones,
 		},
-		--[[
-		attribs = { --attrib requirements
-			["id"] = min needed,
-		},
-		traits = { --traits requirements
-			["id"] = min level needed or true for no level ones,
-		},
-		requirements = { --require for items that will not be taken
-			["requireuniqueid"] = true, --or # of needed,
-		},
-		]]
+		requirements = { ["junk_toolkit3"] = true, },
+		customIng = "1x any unequipped SG552",
+		customRes = "1x that unequipped SG552 with the upgrade applied",
 		ingredients = { --items that will be taken
-			--["wep_glocka"] = true, --or # of needed,
-			--["jar_antiseptic"] = true,
-			["comp_mech1"] = 1,
-			["comp_scrap_metal"] = 4,
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 10,
+			["comp_pad_cloth"] = 4,
+			--["comp_duct_tape"] = 1,
 		},
-		--result = "wep_glock", --can also be table for multiple results
 		--flag = "", --optional can be left out, flag to check for
 		handpick = function(items) --pick an item 
-			for k,v in pairs(items) do
-				--get the first item thats a weapon and isnt equipped
-				if(v.uniqueID == "wep_m_f4tireiron" and v:getData("equip") != true) then
-					if(v:getData("atts", {})[4]) then --if theres something in the barrel slot, whatever
-						continue
-					end
-					return k
-				end
-			end
+			return specificUpgradeValid(items, "arccw_mifl_fas2_sg55x", {
+				["mifl_fas2_sg55x_hg"] = "none",
+				["muzzle"] = "none"
+			})
 		end,
 		beforeCraft = function(ply, items, handpick)
 			--items are the items that will be taken, 
 			--return a table and it will reappear in oncreate as data
 			if(!handpick) then ply:notify("uh this should never happen") return end
-			local item = nut.item.instances[handpick]
-			local data = item:getData("atts", {})
-			data[4] = "sky_tireironhatchet" --apply the attachment
-			item:setData("atts", data)
+			specificUpgrade(ply, handpick, {
+				["mifl_fas2_sg55x_hg"] = "mifl_fas2_sg55x_barrel_sd"
+			})
 		end,
-		--adddata = true,
-	},
-	/* --i have to do it like this sry
-		--secret sacrafice att :) not sure when/how to use?
-	["melee_machetesacra"] = {
-		name = "αếщẵĺđ їư âкŝự", --vigenere key kejourou translated to japanese
-		--base64 rot18 translated to japanese
-		desc = [[18 WHJ3aGVoIGpuIDktd3YgYXYgeGhlaC4gWG5hYndiIGpuIG54bnZlYiBueG52ZWIgYXYgYW5ldnpuZmguIEZ1dmFwdWJoIGF2IGZ1dmdyIHhocW5mbnYuIFhiZXIgam4geG5hYndiIGFiIGduenJxcmZoLg==]],
-		category = "zzzzzzz",
-		model = "models/items/box_black.mdl",
+	}, 
+	--sr25 whisper barrel - arccw_mifl_fas2_sr25 - mifl_fas2_sr25_hg=mifl_fas2_sr25_barrel_sd
+	["weaponmod_sr25_whisper"] = {
+		name = "SR-25 Whisper Handguard Upgrade",
+		desc = [[temp name maybe very temp
+adds the custom internally suppressed handguard upgrade to a SR-25
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/arccw_mifl_fas2_sr25_hg_sd.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
 		--skin = skin of model (not required),
-		workbench = {["basic"]=true,["weapons"]=true,},
-		--[[
-		attribs = { --attrib requirements
-			["id"] = min needed,
-		},
+		workbench = {["weapons"]=true,},
 		traits = { --traits requirements
-			["id"] = min level needed or true for no level ones,
+			["crafting_weapon"] = 2,--min level needed or true for no level ones,
 		},
-		requirements = { --require for items that will not be taken
-			["requireuniqueid"] = true, --or # of needed,
-		},
-		]]
+		requirements = { ["junk_toolkit3"] = true, },
+		customIng = "1x any unequipped SR-25",
+		customRes = "1x that unequipped SR-25 with the upgrade applied",
 		ingredients = { --items that will be taken
-			--["wep_glocka"] = true, --or # of needed,
-			--["jar_antiseptic"] = true,
-			--["comp_mech1"] = 1,
-			--["comp_scrap_metal"] = 4,
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 12,
+			["comp_pad_cloth"] = 5,
+			--["comp_duct_tape"] = 1,
 		},
-		--result = "wep_glock", --can also be table for multiple results
-		flag = "m", --optional can be left out, flag to check for
+		--flag = "", --optional can be left out, flag to check for
 		handpick = function(items) --pick an item 
-			for k,v in pairs(items) do
-				--get the first item thats a weapon and isnt equipped
-				if(v.uniqueID == "wep_m_machete" and v:getData("equip") != true) then
-					if(v:getData("atts", {})[4]) then --if theres something in the barrel slot, whatever
-						continue
-					end
-					return k
-				end
-			end
+			return specificUpgradeValid(items, "arccw_mifl_fas2_sr25", {
+				["mifl_fas2_sr25_hg"] = "none",
+				["muzzle"] = "none"
+			})
 		end,
 		beforeCraft = function(ply, items, handpick)
 			--items are the items that will be taken, 
 			--return a table and it will reappear in oncreate as data
 			if(!handpick) then ply:notify("uh this should never happen") return end
-			local item = nut.item.instances[handpick]
-			local data = item:getData("atts", {})
-			data[4] = "sky_machetesacrafice" --apply the attachment
-			item:setData("atts", data)
+			specificUpgrade(ply, handpick, {
+				["mifl_fas2_sr25_hg"] = "mifl_fas2_sr25_barrel_sd"
+			})
 		end,
-		--adddata = true,
-	},
-	*/
-
-	
-	
+	}, 
+	--db conversion to sawn off
+	["weaponmod_db_sawn"] = {
+		name = "Double Barrel Sawn-off Conversion",
+		desc = [[temp name maybe
+saws off the stock and most of the barrel of a double barrel, will retain any atts and etc the source weapon has (existing atts in the same slot take priority)
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Conversions",
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["cwep_doublebarrel"] = true,
+			--["comp_scrap_metal"] = 3,
+			--["comp_duct_tape"] = 1,
+		},
+		result = "cwep_doublebarrelsawn",
+		--flag = "", --optional can be left out, flag to check for
+		beforeCraft = function(ply, items)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			local data = {}
+			for k,v in pairs(items) do
+				if(v.uniqueID == "cwep_doublebarrel") then
+					data = v:getData(true) --this apparently gets all data
+					break
+				end
+			end
+			if(data and table.Count(data) != 0) then
+				data.atts = setSawnAtts(data.atts, "cwep_doublebarrel")
+				return data
+			end
+		end,
+		adddata = true,
+	}, 
+	--toz conversion to sawn off
+	["weaponmod_toz_sawn"] = {
+		name = "TOZ-34 Sawn-off Conversion",
+		desc = [[temp name maybe
+saws off the stock and most of the barrel of a TOZ-34, will retain any atts and etc the source weapon has (existing atts in the same slot take priority)
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Conversions",
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["cwep_toz34"] = true,
+			--["comp_scrap_metal"] = 3,
+			--["comp_duct_tape"] = 1,
+		},
+		result = "cwep_toz34sawn",
+		--flag = "", --optional can be left out, flag to check for
+		beforeCraft = function(ply, items)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			local data = {}
+			for k,v in pairs(items) do
+				if(v.uniqueID == "cwep_toz34") then
+					data = v:getData(true) --this apparently gets all data
+					break
+				end
+			end
+			if(data and table.Count(data) != 0) then
+				data.atts = setSawnAtts(data.atts, "cwep_toz34")
+				return data
+			end
+		end,
+		adddata = true,
+	}, 
 }
