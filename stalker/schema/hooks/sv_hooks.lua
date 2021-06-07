@@ -92,6 +92,33 @@ local starters = {
 local starterdata = {
 	["wep_pm"] = {ammo = 9}
 }
+local starterreplacements = {
+	[FACTION_MONOLITH] = {
+		["cwep_makarov"] = "cwep_cz75",
+		["ammo_9x18"] = "ammo_9x19",
+		["pda"] = "pda_mono"
+	},
+	[FACTION_CLEARSKY] = {
+		["cwep_makarov"] = "cwep_browninghp",
+		["ammo_9x18"] = "ammo_9x19"
+	},
+	[FACTION_DUTY] = {
+		["cwep_makarov"] = "cwep_cz75",
+		["ammo_9x18"] = "ammo_9x19"
+	},
+	[FACTION_FREEDOM] = {
+		["cwep_makarov"] = "cwep_browninghp",
+		["ammo_9x18"] = "ammo_9x19"
+	},
+	[FACTION_MERC] = {
+		["cwep_makarov"] = "cwep_g17",
+		["ammo_9x18"] = "ammo_9x19"
+	},
+	[FACTION_ECO] = {
+		["cwep_makarov"] = "cwep_g17",
+		["ammo_9x18"] = "ammo_9x19"
+	},
+}
 
 local function modelfem(model, client)
 	return hook.Run("CustomFemaleModel", model, client, nil, true) or model:find("female") or model:find("metroll/f")
@@ -129,10 +156,11 @@ function SCHEMA:OnCharCreated(client, character)
 			end
 		end
 
+		if(character:getFaction() == FACTION_MUTANT) then return end --no starting items
 
-
+		local rep = starterreplacements[character:getFaction()]
 		for k,v in pairs(starters) do
-			inventory:add(v, 1, starterdata[v] or {})
+			inventory:add(rep and rep[v] or v, 1, starterdata[v] or {})
 		end
 		
     end
