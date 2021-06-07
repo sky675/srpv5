@@ -64,96 +64,114 @@ ARTIFACT_TRANS = {
 	]]
 	[DMG_RADIATION.."-m"] = {
 		name = "Ext Rad Multiplier",
-		func = function(val) return ((val*100).."%") end
+		func = function(val) return ((val*100).."%") end,
+		icon = Material("sky/markup_icons/id/radiation.png")
 	},
 	[DMG_SONIC.."-m"] = {hidden = true},
 	["psy-m"] = {
 		name = "Psy Multiplier",
-		func = function(val) return ((val*100).."%") end
+		func = function(val) return ((val*100).."%") end,
+		icon = Material("sky/markup_icons/id/psy.png")
 	},
 	[DMG_SLASH.."-m"] = {
 		name = "Physical Multiplier",
-		func = function(val) return ((val*100).."%") end
+		func = function(val) return ((val*100).."%") end,
+		icon = Material("sky/markup_icons/id/rupture.png")
 	},
 	[DMG_CLUB.."-m"] = {hidden = true},
 	[DMG_CRUSH.."-m"] = {hidden = true},
 	[DMG_BULLET.."-m"] = {
 		name = "Ballistic Multiplier",
-		func = function(val) return ((val*100).."%") end
+		func = function(val) return ((val*100).."%") end,
+		icon = Material("sky/markup_icons/id/ballistic.png")
 	},
 	--burn
 	[DMG_BURN.."-m"] = {
 		name = "Thermal Multiplier",
-		func = function(val) return ((val*100).."%") end
+		func = function(val) return ((val*100).."%") end,
+		icon = Material("sky/markup_icons/id/burn.png")
 	},
 	--explosion
 	[DMG_BLAST.."-m"] = {
 		name = "Explosion Multiplier",
-		func = function(val) return ((val*100).."%") end
+		func = function(val) return ((val*100).."%") end,
+		icon = Material("sky/markup_icons/id/explsoive.png")
 	},
 	--electric
 	[DMG_SHOCK.."-m"] = {
 		name = "Electrical Multiplier",
-		func = function(val) return ((val*100).."%") end
+		func = function(val) return ((val*100).."%") end,
+		icon = Material("sky/markup_icons/id/electrical.png")
 	},
 	--chem
 	[DMG_ACID.."-m"] = {
 		name = "Chemical Multiplier",
-		func = function(val) return ((val*100).."%") end
+		func = function(val) return ((val*100).."%") end,
+		icon = Material("sky/markup_icons/id/chemical.png")
 	},
 
 	["stmres"] = {
 		name = "Stamina Recovery",
-		func = function(val) return ((val*100).."%") end
+		func = function(val) return ((val*100).."%") end,
+		icon = Material("sky/markup_icons/id/sprint.png")
 	},
 
 	
 	--bullet half of wound
 	[DMG_BULLET] = {
-		name = "Ballistic Resist",
-		func = function(val) return ((val*100).."%") end
+		name = "Ballistic Resistance",
+		func = function(val) return ((val*100).."%") end,
+		icon = Material("sky/markup_icons/id/ballistic.png")
 	},
 	--phys
 	[DMG_SLASH] = {
-		name = "Physical Resist",
-		func = function(val) return ((val*100).."%") end
+		name = "Physical Resistance",
+		func = function(val) return ((val*100).."%") end,
+		icon = Material("sky/markup_icons/id/rupture.png")
 	},
 	[DMG_CLUB] = {hidden = true},
 	[DMG_CRUSH] = {hidden = true},
 	--burn
 	[DMG_BURN] = {
-		name = "Thermal Resist",
-		func = function(val) return ((val*100).."%") end
+		name = "Burn Resistance",
+		func = function(val) return ((val*100).."%") end,
+		icon = Material("sky/markup_icons/id/burn.png")
 	},
 	--explosion
 	[DMG_BLAST] = {
-		name = "Explosion Resist",
-		func = function(val) return ((val*100).."%") end
+		name = "Explosive Resistance",
+		func = function(val) return ((val*100).."%") end,
+		icon = Material("sky/markup_icons/id/explosive.png")
 	},
 	--electric
 	[DMG_SHOCK] = {
-		name = "Electrical Resist",
-		func = function(val) return ((val*100).."%") end
+		name = "Electrical Resistance",
+		func = function(val) return ((val*100).."%") end,
+		icon = Material("sky/markup_icons/id/electrical.png")
 	},
 	--ext rad
 	[DMG_RADIATION] = {
-		name = "Ext Rad Resist",
-		func = function(val) return ((val*100).."%") end
+		name = "Ext. Radiation Resistance",
+		func = function(val) return ((val*100).."%") end,
+		icon = Material("sky/markup_icons/id/radiation.png")
 	},
 	--chem
 	[DMG_ACID] = {
-		name = "Chemical Resist",
-		func = function(val) return ((val*100).."%") end
+		name = "Chemical Resistance",
+		func = function(val) return ((val*100).."%") end,
+		icon = Material("sky/markup_icons/id/chemical.png")
 	},
 	--psy
 	[DMG_SONIC] = {
-		name = "Psy Resist",
-		func = function(val) return ((val*100).."%") end
+		name = "Psychic Resistance",
+		func = function(val) return ((val*100).."%") end,
+		icon = Material("sky/markup_icons/id/psy.png")
 	},
 	["psy"] = {hidden = true},
 	spd = {
 		name = "Speed Multiplier",
-		func = function(val) return ((val*100).."%") end
+		func = function(val) return ((val*100).."%") end,
+		icon = Material("sky/markup_icons/id/sprint.png")
 	},
 
 	["flame"] = "Reduces bleeding significantly. Has a 5 minute wait between each use.",

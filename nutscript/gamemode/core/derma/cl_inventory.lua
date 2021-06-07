@@ -92,9 +92,11 @@ end
 
 function PANEL:updateTooltip()
 	self:SetTooltip(
-		"<font=nutItemDescFont>Item ID "..self.itemTable:getID().." - "..(self.itemTable.getWeight and self.itemTable:getWeight() or self.itemTable.weight or 1).."kg</font>\n"..
+		
 		"<font=nutItemBoldFont>"..self.itemTable:getName().."</font>\n"..
-		"<font=nutItemDescFont>"..self.itemTable:getDesc()
+		"<font=nutItemDescFont>"..(self.itemTable.getWeight and self.itemTable:getWeight() or self.itemTable.weight or 1).."kg</font> - <font=nutItemItalicFont>ID: "..self.itemTable:getID().."\n\n"..
+		"<font=nutItemDescFont>"..self.itemTable:getDesc().."\n\n"
+		
 	)
 end
 

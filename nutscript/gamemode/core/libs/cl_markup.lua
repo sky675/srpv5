@@ -232,7 +232,7 @@ function MarkupObject:draw(xOffset, yOffset, halign, valign, alphaoverride)
 
 			surface.SetDrawColor(blk.colour.r, blk.colour.g, blk.colour.b, alphaoverride or blk.colour.a or 255)
 			surface.SetMaterial(blk.texture)
-			surface.DrawTexturedRect(x, y, blk.w, blk.h)
+			surface.DrawTexturedRect(x, y-(blk.h*0.15), blk.w, blk.h)
 		else
 			local y = yOffset + (blk.height - blk.thisY) + blk.offset.y
 			local x = xOffset

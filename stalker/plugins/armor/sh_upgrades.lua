@@ -1312,7 +1312,7 @@ function suit_getUpgradeMaxes(item)
 		if(!mx[k]) then continue end
 		local slotcnt = mx[k] or 0
 		slotcnt = slotcnt + (ex[k] or 0)
-		str = str.."\n"..v..": "..(slot[k] or 0).."/"..slotcnt
+		str = str.."\n    •"..v..": "..(slot[k] or 0).."/"..slotcnt
 	end
 	return str
 end

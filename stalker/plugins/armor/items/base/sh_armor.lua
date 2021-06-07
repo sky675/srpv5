@@ -166,64 +166,79 @@ function ITEM:getName()
 end
 
 function ITEM:getDesc()
-	local str = self.desc
-	str = str.."\n"
-	
 
+	local str = self.desc
+	str = str.."\n\n"
+	
 	--list parts and resists
 	local lvls = self:getData("armor")
 	if(lvls) then
-		str = str.."Durability: "..math.floor(self:getData("durability", 1)*100).."%\n"
-
+		--str = str.."Durability: "..math.floor(self:getData("durability", 1)*100).."%\n"
+		str = str.."ARMOR LEVELS:\n"
 		for k,v in pairs(lvls) do
 			if(type(v) == "string") then print(k.." is string woops") continue end
 			if(v.level == ARMOR_NONE) then continue end
-			str = str..k:upper()..": "..StringToArmorEnum(v.level).."\n"-- ("..(math.Round((v.durability or 1)*100) or 100).."%)\n"
+			str = str.."    •"..k:upper()..": "..StringToArmorEnum(v.level).."\n"-- ("..(math.Round((v.durability or 1)*100) or 100).."%)\n"
 		end
-		str = str.."\n"
+		--str = str.."\n"
+
 	elseif(self.armor) then
+		str = str.."ARMOR LEVELS:\n"
 		for k,v in pairs(self.armor) do
 			if(type(v) == "string") then print(k.." is string woops") continue end
 			if(v.level == ARMOR_NONE) then continue end
-			str = str..k:upper()..": "..StringToArmorEnum(v.level).."\n"
+			str = str.."    "..k:upper()..": "..StringToArmorEnum(v.level).."\n"
 		end
-		str = str.."\n"
+		--str = str.."\n"
 
 	end
-	
+	str = str.."\nSLOTS USED: "..suit_getUpgradeMaxes(self).."\n\n"
 
+
+	local ar = self:getData("artcnt", self.artifactCnt or 0) 
+
+	str = str.."PROPERTIES:\n    •Condition: "..math.floor(self:getData("durability", 1)*100).."%\n"
+	if(self.size) then
+		str=str.."    •Armor Size: "..self.size.."\n"
+	end
+	if(ar != 0) then
+		str=str.."    •Artifact Storage: Max of "..(ar+1).." artifacts.</font>\n"
+	end
+	str = str.."\n"
+
+
+
+		--list upgrades, table should look like: ["id"] = "display name"
+
+	-- if(table.Count(self:getData("upgrades", {})) != 0) then
+	-- 	str = str.."Upgrades: \n    "
+	-- 	for k,v in pairs(self:getData("upgrades")) do
+	-- 		str = str..suit_getUpgradeName(k)..", "
+	-- 	end
+	  
+	-- 	str = str:sub(1, -3)
+	-- 	str = str.."\n"
+
+	-- end
+
+
+	--
+	
 	local res = self:getData("resists")
 	if(res) then
 		for k,v in pairs(res) do
 			if(!ARTIFACT_TRANS[k] or ARTIFACT_TRANS[k].hidden) then continue end
-			str = str..(ARTIFACT_TRANS[k] and ARTIFACT_TRANS[k].name or "???")..": "..math.Round(v*100).."%\n"
+			local ttx = ARTIFACT_TRANS[k].icon:GetName()
+			str = str.. " <img="..ttx..","..ARTIFACT_TRANS[k].icon:Width().."x"..ARTIFACT_TRANS[k].icon:Height().."> "..(ARTIFACT_TRANS[k] and ARTIFACT_TRANS[k].name or "???")..": "..math.Round(v*100).."%\n"
 		end
-		str = str.."\n"
+		--str = str.."\n"
 	end
 
-	local ar = self:getData("artcnt", self.artifactCnt or 0) 
-	if(ar != 0) then
-		str = str.."The suit can equip "..(ar+1).." artifacts."
-	end
 
-	if(self.size) then
-		str = str.."Armor size (for upgrades): "..self.size.."\n"
-	end
-		--list upgrades, table should look like: ["id"] = "display name"
-	str = str.."Includes the following upgrades: "
-	if(table.Count(self:getData("upgrades", {})) != 0) then
-		for k,v in pairs(self:getData("upgrades")) do
-			str = str..suit_getUpgradeName(k)..", "
-		end
-	  
-		str = str:sub(1, -3)
-		str = str.."."
-	else
-		str = str.."None."
-	end
 
-	str = str.."\nSlots Used: "..suit_getUpgradeMaxes(self)
+
 	
+
 	--old thing, might as well keep it i guess
 	if(self:getData("flavor")) then
 		str = str.."\n\n<font=nutItemDescItalicFont>"..self:getData("flavor").."</font>"
