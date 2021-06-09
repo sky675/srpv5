@@ -221,7 +221,7 @@ end
 ITEM.functions.zDetach = {
 	name = "Detach",
 	tip = "unload",
-	icon = "icon16/cross.png",
+	icon = "icon16/wrench.png",
 	isMulti = true,
 	multiOptions = function(item, ply)
 		local options = {}

@@ -117,7 +117,7 @@ end
 ITEM.functions.Use = { --i hate this lol
 	name = "Use Active",
 	tip = "equipTip",
-	icon = "icon16/cross.png",
+	icon = "icon16/add.png",
 	onRun = function(item)
 		local desc = ARTIFACT_DESCS[item.artid]
 		if(desc and desc.active) then

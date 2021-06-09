@@ -13,7 +13,7 @@ ITEM.height = 1
 ITEM.functions.toggle = {
     name = "Activate",
     tip = "turn off/on",
-    icon = "icon16/drive_edit.png",
+    icon = "icon16/webcam.png",
 	onRun = function(item)
 		netstream.Start(item.player, "camsStart")
 

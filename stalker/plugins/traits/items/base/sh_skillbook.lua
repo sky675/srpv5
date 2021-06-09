@@ -15,7 +15,7 @@ ITEM.skillreq = {["skill"] = true} --requirements for using the book, value woul
 ITEM.functions.read = {
 	name = "Use",
     tip = "use book",
-    icon = "icon16/add.png",
+    icon = "icon16/book.png",
     onRun = function(item)
 		local char = item.player:getChar()
 		if(nut.traits.hasTrait(item.player, "big_illit")) then

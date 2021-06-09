@@ -45,7 +45,7 @@ function EZADDDESTROYFUNC(item)
 		item.functions.zdestroy = {	
 			name = "Deconstruct",
 		    tip = "deconstruct item for parts",
-			icon = "icon16/cup.png",
+			icon = "icon16/cancel.png",
 			isMulti = true,
 			multiOptions = {
 				{name = "Confirm", data = true},
@@ -64,7 +64,7 @@ hook.Add("OnItemRegistered", "destroyfunction", function(item)
 		item.functions.zdestroy = {	
 			name = "Deconstruct",
 		    tip = "deconstruct item for parts",
-			icon = "icon16/cup.png",
+			icon = "icon16/cancel.png",
 			isMulti = true,
 			multiOptions = {
 				{name = "Confirm", data = true},

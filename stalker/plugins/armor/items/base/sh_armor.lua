@@ -450,7 +450,7 @@ end)
 ITEM.functions.UpDisplay = { -- sorry, for name order.
 	name = "Display Upgrade List",
 	tip = "equipTip",
-	icon = "icon16/cross.png",
+	icon = "icon16/report.png",
 	sound = "interface/inv_properties.ogg",
 	onClick = function(item)
 		if(table.Count(item:getData("upgrades", {})) != 0) then

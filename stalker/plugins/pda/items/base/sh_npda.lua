@@ -148,7 +148,7 @@ ITEM.functions.open = {
 ITEM.functions.toggle = {
     name = "Toggle Power",
     tip = "turn off/on",
-    icon = "icon16/drive_edit.png",
+    icon = "icon16/lightning.png",
     onRun = function(item)
         local val = !item:getData("isoff", false)
         item:setData("isoff", val)
@@ -193,7 +193,7 @@ ITEM.functions.setactive = {
 ITEM.functions.zfindid = {
     name = "Find ID",
     tip = "Find ID of PDA",
-    icon = "icon16/drive_edit.png",
+    icon = "icon16/bug.png",
     onRun = function(item)
         item.player:notify("ID of pda: "..tostring(item:getData("simid")))
         return false

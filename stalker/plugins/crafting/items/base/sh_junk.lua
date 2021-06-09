@@ -48,7 +48,7 @@ end
 ITEM.functions.dropone = {
 	name = "Drop 1",
 	tip = "takeTip",
-	icon = "icon16/box.png",
+	icon = "icon16/world.png",
 	onRun = function(item)
 		local client = item.player
 		local pos = client:getItemDropPos()

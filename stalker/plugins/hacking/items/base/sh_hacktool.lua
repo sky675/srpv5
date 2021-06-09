@@ -80,7 +80,7 @@ end
 ITEM.functions.detachremote = {
 	name = "Detach Remote",
 	tip = "unequip the hacktool, where does this even display btw tell me pls",
-	icon = "icon16/cross.png",
+	icon = "icon16/disconnect.png",
 	sound = "labs/ding_off.wav",
 	onRun = function(item)
 		local target = nut.item.instances[item:getData("remote")]
