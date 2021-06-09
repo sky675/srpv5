@@ -2,10 +2,13 @@ timer.Create("nutLifeGuard", 1, 0, function()
 	if (not nut.config.get("drownEnabled")) then return end
 	for k, v in ipairs(player.GetAll()) do
 		if (not v:getChar() or not v:Alive()) then continue end
-		if (hook.Run("ShouldPlayerDrown", v) == false) then continue end
+		if (v:GetMoveType() == MOVETYPE_NOCLIP) then continue end
 		local damage = nut.config.get("drownDamage")
 
 		if (v:WaterLevel() >= 3) then
+			--moving this here becuz only needed to check if drowning
+			--need test
+			if (hook.Run("ShouldPlayerDrown", v) == false) then continue end
 			if (!v.drowningTime) then
 				v.drowningTime = CurTime() + nut.config.get("drownTime")
 				v.nextDrowning = CurTime()

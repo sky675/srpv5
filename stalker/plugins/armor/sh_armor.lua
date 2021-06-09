@@ -320,7 +320,7 @@ do
 						if(!levels[k2] or levels[k2] < v2) then --this should never be false but ya
 							levels[k2] = v2
 						end
-					elseif(k2 == "nospr") then
+					elseif(k2 == "nospr" or k2 == "nodrn") then
 						--this should be correct?
 						if(levels[k2] == nil or (levels[k2] == true and v2 == true)) then
 							levels[k2] = v2
@@ -443,6 +443,14 @@ if(SERVER) then
 	util.AddNetworkString("PlayerOffNV")
 	
 	util.AddNetworkString("toggleHeartbeat")
+
+	hook.Add("ShouldPlayerDrown", "res", function(ply)
+		local res = ply:GetArmorResists()
+
+		if(res["nodrn"]) then
+			return false
+		end
+	end)
 
 else
 

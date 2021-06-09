@@ -289,7 +289,7 @@ if(SERVER) then
 				return
 			end
 			
-			--test
+			--test, inflictor gets set so thats prob the key
 			PrintTable(dmginfo)
 
 			ply:getChar():setVar("lastatk", atk)

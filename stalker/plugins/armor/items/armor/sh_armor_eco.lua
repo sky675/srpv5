@@ -168,4 +168,5 @@ ITEM.resists = {
 	[DMG_CRUSH] = 0.16,
 
 	spd = 0.94,
+	nodrn = true,
 }
