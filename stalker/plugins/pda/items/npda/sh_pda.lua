@@ -5,6 +5,13 @@ ITEM.weight = 0.69
 ITEM.price = 2000
 ITEM.flag = "N"
 ITEM.permit = "elec"
+ITEM.exRender = true
+ITEM.iconCam = {
+	pos = Vector(76.037658691406, 63.742408752441, 46.228000640869),
+	ang = Angle(25, 220, 0),
+	entAng = Angle(17.922626495361, -3.0586762428284, -13.620416641235),
+	fov = 4.2910702951575,
+}
 
 ITEM.destroyval = {
 	["comp_tech1"] = 2,
