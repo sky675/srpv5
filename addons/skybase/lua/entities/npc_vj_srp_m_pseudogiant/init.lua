@@ -91,11 +91,14 @@ function ENT:CustomOnAlert()
 
 end
 function ENT:CustomInitialize()
-	self:SetModelScale(2)
+	self:SetModelScale(1.35)
 	self:Activate()
 end
 function ENT:CustomOnDeath_AfterCorpseSpawned(dmginfo,hitgroup,ply) 
-	ply:SetModelScale(2) --just wanna make sure
+	if(IsValid(self)) then
+		self:SetModelScale(1.35)
+	end
+	ply:SetModelScale(1.35) --just wanna make sure
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomOnMeleeAttack_BeforeChecks()

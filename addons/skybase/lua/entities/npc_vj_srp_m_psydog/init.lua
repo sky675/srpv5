@@ -43,7 +43,7 @@ ENT.AnimTbl_IdleStand = {"stand_idle_0","stand_idle_1","stand_idle_2","stand_che
 ENT.FindEnemy_UseSphere = true
 
 
-ENT.HasLeapAttack = false -- Should the SNPC have a leap attack?
+ENT.HasLeapAttack = true -- Should the SNPC have a leap attack?
 ENT.SightDistance = 6000 -- How far it can see
 ENT.ShootDistance = 6000
 ENT.LeapAttackAnimationDelay = 0 -- It will wait certain amount of time before playing the animation
