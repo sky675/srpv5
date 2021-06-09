@@ -92,6 +92,10 @@ local starters = {
 local starterdata = {
 	["wep_pm"] = {ammo = 9}
 }
+local starterquant = {
+	["ammo_9x18"] = 50,
+	["ammo_9x19"] = 50,
+}
 local starterreplacements = {
 	[FACTION_MONOLITH] = {
 		["cwep_makarov"] = "cwep_cz75",
@@ -160,7 +164,7 @@ function SCHEMA:OnCharCreated(client, character)
 
 		local rep = starterreplacements[character:getFaction()]
 		for k,v in pairs(starters) do
-			inventory:add(rep and rep[v] or v, 1, starterdata[v] or {})
+			inventory:add(rep and rep[v] or v, starterquant[v] or 1, starterdata[v] or {})
 		end
 		
     end
