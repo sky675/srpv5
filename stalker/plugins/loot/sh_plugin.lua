@@ -474,8 +474,8 @@ PLUGIN.lootTables = {
 		istableloot = true,
 		loot = {
 			{"none",15},
-			["common_eft"] = 3,
-			["uncommon_eft"] = 1,
+			{"common_eft", 3},
+			{"uncommon_eft", 1},
 			{"common_junk",4},
 			{"common_food",3},
 			{"uncomm_junk",1},
@@ -488,8 +488,8 @@ PLUGIN.lootTables = {
 		istableloot = true,
 		loot = {
 			{"none",24},
-			["common_eft"] = 6,
-			["uncommon_eft"] = 3,
+			{"common_eft", 6},
+			{"uncommon_eft", 3},
 			{"common_junk",6},
 			{"common_food",4},
 			{"uncomm_junk",4},
@@ -504,8 +504,8 @@ PLUGIN.lootTables = {
 		istableloot = true,
 		loot = {
 			{"none",24},
-			["uncommon_eft"] = 6,
-			["rare_eft"] = 1,
+			{"uncommon_eft", 6},
+			{"rare_eft", 1},
 			{"uncomm_junk",5},
 			{"uncomm_ammo",7},
 			{"rare_ammo",4},
@@ -520,8 +520,8 @@ PLUGIN.lootTables = {
 		istableloot = true,
 		loot = {
 			{"none",23},
-			["uncommon_eft"] = 6,
-			["rare_eft"] = 2,
+			{"uncommon_eft", 6},
+			{"rare_eft", 2},
 			{"rare_ammo",7},
 			{"rare_wep",2},
 			{"rare_atts",1},
@@ -535,7 +535,7 @@ PLUGIN.lootTables = {
 		istableloot = true,
 		loot = {
 			{"none",19},
-			["rare_eft"] = 3,
+			{"rare_eft", 3},
 			{"rare_ammo",6},
 			{"epic_atts",1},
 			{"epic_meds",3},
