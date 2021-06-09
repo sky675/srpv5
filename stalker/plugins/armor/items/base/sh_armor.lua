@@ -202,7 +202,7 @@ function ITEM:getDesc()
 		str=str.."    •Armor Size: "..self.size.."\n"
 	end
 	if(ar != 0) then
-		str=str.."    •Artifact Storage: Max of "..(ar+1).." artifacts.</font>\n"
+		str=str.."    •Artifact Storage: Max of "..(ar+1).." artifacts.\n"
 	end
 	str = str.."\n"
 
