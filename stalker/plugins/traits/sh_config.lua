@@ -655,7 +655,7 @@ trait = {
 	category = "General", --shown in char creation and menu
 	cost = 1, --cost in char creation, can be table for levels
 	conflicting = {},--"gen_bleedinc"}, --table of conflicting traits
-	faction = {[2] = true}, --this is citizen, for some reason the enum doesnt count at this time
+	--faction = {[2] = true}, --this is citizen, for some reason the enum doesnt count at this time
 	onLoad = function(ply, char)
 		ply:SetCrouchedWalkSpeed(0.8)
 	end,
