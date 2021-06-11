@@ -1,5 +1,5 @@
 FACTION.name = "Duty"
-FACTION.desc = "duty"
+FACTION.desc = "Duty was founded by former military expedition survivors and Stalkers concerned about the looming horrors of the Zone. They are one of the largest Stalker clans in the Zone. They have a strict military code (such as no smoking, maintaining one's weapons, etc...) and operate in a military fashion, using ranks like Sergeant, Major, Captain, and General. Their goal is to contain and destroy the Zone, fearing that it will spread to the outside world."
 FACTION.color = Color(122, 0, 0)
 
 FACTION.isDefault = false

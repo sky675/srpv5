@@ -1,5 +1,5 @@
 FACTION.name = "Ecologists"
-FACTION.desc = "ecologist"
+FACTION.desc = "The Ecologists are Ukrainian scientists sent into the Zone on behalf of the government, but seem to be affiliated with outside organizations. Their main purpose is the study of all aspects of the Zone, using scientific methods to further explain what the Zone is, and its purpose."
 FACTION.color = Color(51, 204, 255)
 
 FACTION.isDefault = false

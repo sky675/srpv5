@@ -1,5 +1,5 @@
 FACTION.name = "Freedom"
-FACTION.desc = "freedom"
+FACTION.desc = "Freedom is a clan of stalkers who fight for free access to the Zone, and their views are somewhat anarchistic, believing nobody can own the Zone and seeing it both as a scientific marvel and as a free life inside the Zone's borders. In contrast to the regimented, highly disciplined atmosphere of Duty, the members of Freedom have a much more relaxed, informal attitude."
 FACTION.color = Color(18, 99, 0)
 
 FACTION.isDefault = false

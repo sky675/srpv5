@@ -1,5 +1,5 @@
 FACTION.name = "Monolith"
-FACTION.desc = "monolith"
+FACTION.desc = "The Monolith were originally ordinary Stalkers who believed in the power of the Wish Granter. The Monolith are the front line soldiers of the C-Consciousness, and would rather die than let any Stalker reach the sacred crystal. Although capable of higher reasoning and emotion, they nevertheless carry out orders with fanatic effectiveness. The Monolith faction has no allies, and actively attacks all other factions."
 FACTION.color = Color(204, 204, 204)
 
 FACTION.isDefault = false

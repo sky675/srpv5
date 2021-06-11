@@ -1,5 +1,5 @@
 FACTION.name = "Clear Sky"
-FACTION.desc = "clear sky"
+FACTION.desc = "Clear Sky is the most secretive faction within the Zone. The Clear Sky faction was originally composed of former researchers of the C-Consciousness who broke away from them in order to conduct their own research on how to either destroy or contain the zone. The other members of the faction were ordinary stalkers who joined their cause for their own reasons."
 FACTION.color = Color(148, 189, 255)
 
 FACTION.isDefault = false

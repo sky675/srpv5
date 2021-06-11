@@ -1,5 +1,5 @@
 FACTION.name = "Bandits"
-FACTION.desc = ""
+FACTION.desc = "Members of the criminal underworld who came to the Zone for different reasons: to make money by selling artifacts, hide from the law or trade in weapons. The Zone is full of bandits, ranging from common thugs to serious criminals, most of whom are members of one gang or another. Although the Zone gangs frequently fight among themselves, the criminal element still poses a serious problem for normal stalkers."
 FACTION.color = Color(110, 110, 110)
 
 FACTION.isDefault = false

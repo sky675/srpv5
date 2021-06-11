@@ -1,5 +1,5 @@
 FACTION.name = "Military"
-FACTION.desc = "military"
+FACTION.desc = "The Ukrainian military supposedly has the Zone contained in order to prevent the looting of dangerous, radioactive materials and to prevent the unauthorized entering of any individuals. They allegedly enforce this rule with a \"Shoot-on-sight\" declaration. In an ironic twist, because of major corruption within their ranks, they themselves are the reason why Stalkers can continue to operate, and why radioactive materials from the Zone keep flowing to the outside world. Overtly, the Military are hostile to all Stalkers, to keep up appearances; but they also make shady dealings with them at the same time."
 FACTION.color = Color(102, 102, 51)
 
 FACTION.isDefault = false

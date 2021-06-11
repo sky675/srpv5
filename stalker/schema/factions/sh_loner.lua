@@ -1,5 +1,5 @@
 FACTION.name = "Loners"
-FACTION.desc = ""
+FACTION.desc = "Loners are a nomadic semi-unified group of Stalkers who simply live off the Zone in order to earn some coin for their daily lives. Most Loners are only concerned with the riches of the Zone, and do not pay attention to the other factions' hatred for each other - provided, of course, they do not threaten them. Because of this, Loners are often recruited by various factions as mercenaries."
 FACTION.color = Color(150, 125, 100)
 
 FACTION.isDefault = true

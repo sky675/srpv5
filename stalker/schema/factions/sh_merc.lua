@@ -1,5 +1,5 @@
 FACTION.name = "Mercenary"
-FACTION.desc = "merc"
+FACTION.desc = "The Mercenaries are a private military force operating within the Zone. They are professional soldiers who will do just about anything in the Zone, ranging from retrieval, assassinations, body-guarding, etc. Though, of course, it must be for the right price. Mercenaries are usually neutral toward other factions, as they are a source of income, unless they interfere with their operations."
 FACTION.color = Color(0, 18, 110)
 
 FACTION.isDefault = false
