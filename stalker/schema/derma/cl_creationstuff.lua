@@ -1,9 +1,13 @@
 local PANEL = {}
 
+function PANEL:Init()
+	self.title = self:addLabel("Appearance Options")
+end
+
 function PANEL:onDisplay()
 	self:SetSize(ScrW()*0.3, 292)
 	local panel = nut.gui.charCreate
-	local y = 0
+	local y = 40
 	local faction = nut.faction.indices[self:getContext("faction")]
 	local modelinfo = faction.models[self:getContext("model") or 1]
 	local model, b, c
@@ -118,8 +122,8 @@ function PANEL:onDisplay()
 		local one = self:Add("DLabel")
 		self.noSkins = one
 		one:SetSize(panel:GetWide()*0.6, 30)
-		one:SetPos(5, y)
-		one:SetText("Your model has one skin or one allowed skin!")
+		one:Dock(TOP)
+		one:SetText("Your model only has one skin or one allowed skin!")
 		
 	end	
 
@@ -127,9 +131,17 @@ function PANEL:onDisplay()
 	--do a dropdown of all the skins i guess?
 	local combo = self:Add("DComboBox")
 	self.comboSkins = combo
-	combo:SetSize(self:GetWide()*0.2, 25)
+	combo:SetSize(self:GetWide(), 25)
+	combo:SetFont("stalkerTraitLabelFont")
+	combo:SetTextColor(color_white)
 	combo:SetPos(0, y)
 	combo:SetValue("Select Skin")
+
+	combo.Paint = function(combo, w, h)
+		nut.util.drawBlur(combo)
+		surface.SetDrawColor(0, 0, 0, 100)
+		surface.DrawRect(0, 0, w, h)
+	end
 
 	for k,v in pairs(skins) do
 		combo:AddChoice("Skin #"..tostring(v))
@@ -149,13 +161,20 @@ function PANEL:onDisplay()
 	
 	local combo = self:Add("DComboBox")
 	self.eyesSkins = combo
-	combo:SetSize(self:GetWide()*0.2, 25)
+	combo:SetSize(self:GetWide(), 25)
+	combo:SetFont("stalkerTraitLabelFont")
+	combo:SetTextColor(color_white)
 	combo:SetPos(0, y)
 	combo:SetValue("Select Eye Color")
 
 	combo:AddChoice("Eyecolor: Hazel")
 	combo:AddChoice("Eyecolor: Blue")
 	combo:AddChoice("Eyecolor: Green")
+	combo.Paint = function(combo, w, h)
+		nut.util.drawBlur(combo)
+		surface.SetDrawColor(0, 0, 0, 100)
+		surface.DrawRect(0, 0, w, h)
+	end
 
 	combo.OnSelect = function(pane, index, value)
 		local num = string.Split(value, ": ")[2]:lower() --idk
@@ -208,10 +227,17 @@ function PANEL:onDisplay()
 			if(curbg == -1) then continue end
 			--create dropdown side by side for each one
 			local dp = bgpan:Add("DComboBox")
-			dp:SetSize(panel:GetWide()*0.2, 25)
+			dp:SetSize(self:GetWide(), 25)
+			dp:SetFont("stalkerTraitLabelFont")
+			dp:SetTextColor(color_white)
 			dp:SetPos(x, 0)
 			x = x + panel:GetWide()*0.2 + 12
 			--dp:SetValue("Select Bodygroup")
+			dp.Paint = function(dp, w, h)
+				nut.util.drawBlur(dp)
+				surface.SetDrawColor(0, 0, 0, 100)
+				surface.DrawRect(0, 0, w, h)
+			end
 			for k2,v2 in pairs(v) do
 				dp:AddChoice(k.." #"..tostring(v2))
 			end
@@ -262,9 +288,16 @@ function PANEL:onDisplay()
 	else
 		local combo = self:Add("DComboBox")
 		self.anorakSkins = combo
-		combo:SetSize(self:GetWide()*0.2, 25)
+		combo:SetSize(self:GetWide(), 25)
+		combo:SetFont("stalkerTraitLabelFont")
+		combo:SetTextColor(color_white)
 		combo:SetPos(0, y)
 		combo:SetValue("Select Anorak Skin")
+		combo.Paint = function(combo, w, h)
+			nut.util.drawBlur(combo)
+			surface.SetDrawColor(0, 0, 0, 100)
+			surface.DrawRect(0, 0, w, h)
+		end
 
 		local defaultanorak = {
 			--[1] = "Bandit Black", --bandit black
@@ -344,10 +377,17 @@ function PANEL:onDisplay()
 
 		--top
 		local dp = bgpan:Add("DComboBox")
-		dp:SetSize(self:GetWide()*0.2, 25)
+		dp:SetSize(self:GetWide(), 25)
+		dp:SetFont("stalkerTraitLabelFont")
+		dp:SetTextColor(color_white)
 		dp:SetPos(x, 0)
 		dp:SetTooltip("Disclaimer: Preview may not be 100% accurate (clipping with arms, heads and hooded tops only happen in the preview)")
 		x = x + self:GetWide()*0.2 + 12
+		dp.Paint = function(dp, w, h)
+			nut.util.drawBlur(dp)
+			surface.SetDrawColor(0, 0, 0, 100)
+			surface.DrawRect(0, 0, w, h)
+		end
 
 		for k,v in pairs(topm) do
 			dp:AddChoice(v.name, v.data)
@@ -375,11 +415,17 @@ function PANEL:onDisplay()
 
 		--bot
 		dp = bgpan:Add("DComboBox")
-		dp:SetSize(self:GetWide()*0.2, 25)
+		dp:SetSize(self:GetWide(), 25)
+		dp:SetFont("stalkerTraitLabelFont")
+		dp:SetTextColor(color_white)
 		dp:SetPos(x, 0)
 		dp:SetTooltip("Disclaimer: Preview may not be 100% accurate (clipping with arms, heads and hooded tops only happen in the previews)")
 		x = x + self:GetWide()*0.2 + 12
-
+		dp.Paint = function(dp, w, h)
+			nut.util.drawBlur(dp)
+			surface.SetDrawColor(0, 0, 0, 100)
+			surface.DrawRect(0, 0, w, h)
+		end
 		for k,v in pairs(botm) do
 			dp:AddChoice(v.name, v.data)
 		end

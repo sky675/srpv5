@@ -44,8 +44,8 @@ function PANEL:Paint(w, h)
 	if (self.isSelected or self:IsHovered()) then
 		surface.SetDrawColor(
 			self.isSelected
-			and nut.gui.character.WHITE
-			or nut.gui.character.HOVERED
+			and Color(206, 143, 54, 255) --selected
+			or Color(206, 143, 54, 100) --hover
 		)
 		surface.DrawRect(0, h - 4, w, 4)
 	end

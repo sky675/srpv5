@@ -26,7 +26,8 @@ function PANEL:onDisplay()
 
 	for k, v in SortedPairs(faction.models) do
 		local icon = self.models:Add("SpawnIcon")
-		icon:SetSize(64, 128)
+		icon:SetTooltip(false)
+		icon:SetSize(64, 64)
 		icon:InvalidateLayout(true)
 		icon.DoClick = function(icon)
 			self:onModelSelected(icon)

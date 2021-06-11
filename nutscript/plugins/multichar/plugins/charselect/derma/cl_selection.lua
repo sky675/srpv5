@@ -27,14 +27,18 @@ function PANEL:Init()
 		surface.DrawRect(0, 0, w, h)
 	end
 
+	--self:InvalidateLayout(true)
+
 	self:createCharacterSlots()
 	hook.Add("CharacterListUpdated", self, function()
 		self:createCharacterSlots()
 	end)
+	
 end
 
 -- Creates a nutCharacterSlot for each of the local player's characters.
 function PANEL:createCharacterSlots()
+	self.scroll:InvalidateParent()
 	self.scroll:Clear()
 	if (#nut.characters == 0) then
 		return nut.gui.character:showContent()
@@ -43,9 +47,27 @@ function PANEL:createCharacterSlots()
 		local character = nut.char.loaded[id]
 		if (not character) then continue end
 
-		local panel = self.scroll:Add("nutCharacterSlot")
-		panel:Dock(LEFT)
-		panel:DockMargin(0, 0, 8, 8)
+
+
+
+		local container = self.scroll:Add("DPanel")
+		local panel = container:Add("nutCharacterSlot")
+
+		local HEIGHT = (ScrH() - 400)
+		local hRatio = HEIGHT/516
+		local WIDTH = 217*hRatio
+				
+		container:Dock(LEFT)
+		container:SetDrawBackground(false)
+		container:DockMargin(0, 0, 8, 8)
+
+		container:SetWide(WIDTH)
+		container:SetTall(HEIGHT)
+		--print("----Container: ".. container:GetX() .. ", " .. container:GetY())
+		panel:SetWide(WIDTH)
+		panel:SetTall(HEIGHT)
+		--print("----Panel: ".. panel:GetX() .. ", " .. panel:GetY())
+
 		panel:setCharacter(character)
 		panel.onSelected = function(panel)
 			self:onCharacterSelected(character)

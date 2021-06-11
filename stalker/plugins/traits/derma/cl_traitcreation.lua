@@ -2,10 +2,25 @@ local PANEL = {}
 
 function PANEL:Init()
 	
-	self:SetTall(300)
-
+	self:SetTall(ScrH() - 380)
 	self:SetBackgroundColor(Color(255,255,255,255))
 
+	self.scorebox = self:Add("DPanel")
+	self.scorebox:Dock(TOP)
+	self.scorebox:SetHeight(20)
+	self.scorebox:SetDrawBackground(false)
+
+	self.scorebox.pos = self.scorebox:Add("DLabel")
+	self.scorebox.pos:Dock(LEFT)
+	self.scorebox.pos:DockMargin(10,0,0,0)
+	self.scorebox.pos:SetFont("stalkerTraitLabelFont")
+	self.scorebox.pos:SetColor(Color(15,168,84))
+
+	self.scorebox.neg = self.scorebox:Add("DLabel")
+	self.scorebox.neg:Dock(RIGHT)
+	self.scorebox.neg:DockMargin(0,0,10,0)
+	self.scorebox.neg:SetFont("stalkerTraitLabelFont")
+	self.scorebox.neg:SetColor(Color(219,163,60))
 
 	self.posscroll = self:Add("DCategoryList")--DScrollPanel")
 	local posscroll = self.posscroll
@@ -18,9 +33,10 @@ function PANEL:Init()
 	negscroll:Dock(RIGHT)
 	negscroll:SetZPos(413)
 
-	self.notiftext = self:Add("DLabel")
-	self.notiftext:Dock(BOTTOM)
-	self.notiftext:SetHeight(32) --self:addLabel("")
+	-- self.notiftext = self:Add("DLabel")
+	-- self.notiftext:Dock(TOP)
+	-- self.notiftext:SetFont("stalkerCharButtonFont")
+	-- self.notiftext:SetHeight(32) --self:addLabel("")
 	--self.notiftext:SetZPos(414)
 
 end
@@ -39,14 +55,21 @@ function PANEL:onDisplay()
 	--needs to be up here
 	--below this a label to display trait points left
 
-	local lab = self.notiftext
-	lab:SetText("You have "..nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining. If it's not visible, you can do it later via /dotraits.")
+	local labpos = self.scorebox.pos
+	local labneg = self.scorebox.neg
+
+	labpos:SetText(nut.config.get("traitPoints")-main.cost.." Trait Point(s), "..nut.config.get("langTraits")-main.langtraits.." Language(s)")
+	labneg:SetText(nut.config.get("negTraits")-main.negtraits.." Negative Trait Choice(s)")
+	labneg:SizeToContentsX()
+	labpos:SizeToContentsX()
+
+	--lab:SetText(nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining. If it's not visible, you can do it later via /dotraits.")
 
 	local posscroll = self.posscroll
-	posscroll:SetSize(self:GetWide()/2, 262)
+	posscroll:SetSize(self:GetWide()/2, ScrH() - 380)
 	
 	local negscroll = self.negscroll 
-	negscroll:SetSize(self:GetWide()/2, 262)
+	negscroll:SetSize(self:GetWide()/2, ScrH() - 380)
 	negscroll:SetPos(self:GetWide()/2, 0)
 	
 	posscroll:Clear()
@@ -123,7 +146,10 @@ function PANEL:onDisplay()
 								main.langtraits = main.langtraits + 1
 							end
 						end
-						lab:SetText("You have "..nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining")
+						labpos:SetText(nut.config.get("traitPoints")-main.cost.." Trait Point(s), "..nut.config.get("langTraits")-main.langtraits.." Language(s)")
+						labneg:SetText(nut.config.get("negTraits")-main.negtraits.." Negative Trait Choice(s)")						labneg:SizeToContentsX()
+						labpos:SizeToContentsX()
+											--lab:SetText("You have "..nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining")
 						--panel.payload.traits[k] = nil
 						--panel.payload.data.traits[k] = nil
 						local tr = panel:getContext("traits", {})
@@ -163,7 +189,10 @@ function PANEL:onDisplay()
 						if(k == "big_trilingual") then --remove one if nonenglish is chosen
 							main.langtraits = main.langtraits - 1
 						end
-						lab:SetText("You have "..nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining")
+						labpos:SetText(nut.config.get("traitPoints")-main.cost.." Trait Point(s), "..nut.config.get("langTraits")-main.langtraits.." Language(s)")
+						labneg:SetText(nut.config.get("negTraits")-main.negtraits.." Negative Trait Choice(s)")						labneg:SizeToContentsX()
+						labpos:SizeToContentsX()
+											--lab:SetText("You have "..nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining")
 						--panel.payload.traits[k] = true
 						--panel.payload.data.traits[k] = true
 						local tr = panel:getContext("traits", {})
@@ -209,7 +238,10 @@ function PANEL:onDisplay()
 							end
 
 							main.cost = main.cost - v.cost[i]
-							lab:SetText("You have "..nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining")
+							labpos:SetText(nut.config.get("traitPoints")-main.cost.." Trait Point(s), "..nut.config.get("langTraits")-main.langtraits.." Language(s)")
+							labneg:SetText(nut.config.get("negTraits")-main.negtraits.." Negative Trait Choice(s)")							labneg:SizeToContentsX()
+							labpos:SizeToContentsX()
+													--lab:SetText("You have "..nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining")
 							--panel.payload.data.traits[k] = nil
 							--panel.payload.traits[k] = nil
 							local tr = panel:getContext("traits", {})
@@ -244,7 +276,10 @@ function PANEL:onDisplay()
 	
 
 							main.cost = main.cost + v.cost[i]
-							lab:SetText("You have "..nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining")
+							labpos:SetText(nut.config.get("traitPoints")-main.cost.." Trait Point(s), "..nut.config.get("langTraits")-main.langtraits.." Language(s)")
+							labneg:SetText(nut.config.get("negTraits")-main.negtraits.." Negative Trait Choice(s)")							labneg:SizeToContentsX()
+							labpos:SizeToContentsX()
+													--lab:SetText("You have "..nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining")
 							--panel.payload.traits[k] = i
 							--panel.payload.data.traits[k] = i
 							local tr = panel:getContext("traits", {})
@@ -306,7 +341,10 @@ function PANEL:onDisplay()
 						if(k == "big_nonenglish") then --add one if nonenglish was unpicked
 							main.langtraits = main.langtraits + 1
 						end
-						lab:SetText("You have "..nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining")
+						labpos:SetText(nut.config.get("traitPoints")-main.cost.." Trait Point(s), "..nut.config.get("langTraits")-main.langtraits.." Language(s)")
+						labneg:SetText(nut.config.get("negTraits")-main.negtraits.." Negative Trait Choice(s)")						labneg:SizeToContentsX()
+						labpos:SizeToContentsX()
+											--lab:SetText("You have "..nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining")
 						--panel.payload.traits[k] = nil
 						--panel.payload.data.traits[k] = nil
 						local tr = panel:getContext("traits", {})
@@ -343,7 +381,10 @@ function PANEL:onDisplay()
 						if(k == "big_nonenglish") then --remove one if nonenglish is chosen
 							main.langtraits = main.langtraits - 1
 						end
-						lab:SetText("You have "..nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining")
+						labpos:SetText(nut.config.get("traitPoints")-main.cost.." Trait Point(s), "..nut.config.get("langTraits")-main.langtraits.." Language(s)")
+						labneg:SetText(nut.config.get("negTraits")-main.negtraits.." Negative Trait Choice(s)")						labneg:SizeToContentsX()
+						labpos:SizeToContentsX()
+											--lab:SetText("You have "..nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining")
 						--panel.payload.traits[k] = true
 						--panel.payload.data.traits[k] = true
 						local tr = panel:getContext("traits", {})
@@ -386,7 +427,10 @@ function PANEL:onDisplay()
 							end
 
 							main.cost = main.cost - v.cost[i]
-							lab:SetText("You have "..nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining")
+							labpos:SetText(nut.config.get("traitPoints")-main.cost.." Trait Point(s), "..nut.config.get("langTraits")-main.langtraits.." Language(s)")
+							labneg:SetText(nut.config.get("negTraits")-main.negtraits.." Negative Trait Choice(s)")							labneg:SizeToContentsX()
+							labpos:SizeToContentsX()
+													--lab:SetText("You have "..nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining")
 							--panel.payload.traits[k] = nil
 							--panel.payload.data.traits[k] = nil
 							local tr = panel:getContext("traits", {})
@@ -421,7 +465,10 @@ function PANEL:onDisplay()
 							end
 	
 							main.cost = main.cost + v.cost[i]
-							lab:SetText("You have "..nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining")
+							labpos:SetText(nut.config.get("traitPoints")-main.cost.." Trait Point(s), "..nut.config.get("langTraits")-main.langtraits.." Language(s)")
+							labneg:SetText(nut.config.get("negTraits")-main.negtraits.." Negative Trait Choice(s)")							labneg:SizeToContentsX()
+							labpos:SizeToContentsX()
+													--lab:SetText("You have "..nut.config.get("traitPoints")-main.cost.." trait points, "..nut.config.get("negTraits")-main.negtraits.." negative trait choices, and "..nut.config.get("langTraits")-main.langtraits.." language trait choices remaining")
 							--panel.payload.traits[k] = i
 							--panel.payload.data.traits[k] = i
 							local tr = panel:getContext("traits", {})
@@ -454,11 +501,10 @@ function PANEL:onDisplay()
 
 	poscat:InvalidateLayout()--true)
 	negcat:InvalidateLayout()--true)
-	self:SetTall(300)
-
+	self:SetTall(ScrH() - 380)
 
 end)
-	self:SetTall(300)
+	self:SetTall(ScrH() - 380)
 end
 
 

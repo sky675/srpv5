@@ -3,8 +3,12 @@ local PANEL = {}
 local STRIP_HEIGHT = 4
 
 function PANEL:isCursorWithinBounds()
+	local HEIGHT = (ScrH() - 400)
+	local hRatio = HEIGHT/516
+	local WIDTH = 217*hRatio
+
 	local x, y = self:LocalCursorPos()
-	return x >= 0 and x <= self:GetWide() and y >= 0 and y < self:GetTall()
+	return x >= 0 and x <= WIDTH and y >= 0 and y < HEIGHT
 end
 
 function PANEL:confirmDelete()
@@ -17,31 +21,63 @@ function PANEL:confirmDelete()
 end
 
 function PANEL:Init()
-	local WIDTH = 240
+	local HEIGHT = (ScrH() - 400) --the number is the sum of all the dock margin and heights of the tab and title above as well as the contents dock margin bottom
+	local hRatio = HEIGHT/516
+	local WIDTH = 217*hRatio
 
 	self:SetWide(WIDTH)
+	self:SetHeight(HEIGHT)
 	self:SetDrawBackground(false)
+	
+	self.faction = self:Add("DLabel")
+	self.faction:SetPos(12*hRatio, 382*hRatio)
+	self.faction:SetTall(21*hRatio)
+	self.faction:SetWide(202*hRatio)
+	self.faction:SetFont("nutChatFontBold")
+	self.faction:SetContentAlignment(7)
 
-	self.faction = self:Add("DPanel")
-	self.faction:Dock(TOP)
-	self.faction:SetTall(STRIP_HEIGHT)
-	self.faction:SetSkin("Default")
-	self.faction:SetAlpha(100)
-	self.faction.Paint = function(faction, w, h)
-		surface.SetDrawColor(faction:GetBackgroundColor())
-		surface.DrawRect(0, 0, w, h)
-	end
+	self.money = self:Add("DLabel")
+	self.money:SetPos(12*hRatio, 403*hRatio)
+	self.money:SetTall(21*hRatio)
+	self.money:SetWide(202*hRatio)
+	self.money:SetFont("nutChatFontBold")
+	self.money:SetContentAlignment(7)
+
+
+	self.desc = self:Add("DLabel")
+	self.desc:SetPos(12*hRatio, 424*hRatio)
+	self.desc:SetTall(44*hRatio)
+	self.desc:SetWide(198*hRatio)
+	self.desc:SetFont("nutChatFontBold")
+	self.desc:SetContentAlignment(7)
+
+	
+	-- self.faction = self:Add("DPanel")
+	-- self.faction:Dock(TOP)
+	-- self.faction:SetTall(STRIP_HEIGHT)
+	-- self.faction:SetSkin("Default")
+	-- self.faction:SetAlpha(100)
+	-- self.faction.Paint = function(faction, w, h)
+	-- 	--surface.SetDrawColor(faction:GetBackgroundColor())
+	-- 	--surface.DrawRect(0, 0, w, h)
+	-- end
 
 	self.name = self:Add("DLabel")
-	self.name:Dock(TOP)
-	self.name:DockMargin(0, 16, 0, 0)
-	self.name:SetContentAlignment(5)
-	self.name:SetFont("nutCharSmallButtonFont")
-	self.name:SetTextColor(nut.gui.character.WHITE)
+	--self.name:Dock(TOP)
+	--self.name:DockMargin(0, 16, 0, 0)
+	self.name:SetPos(21*hRatio, 6*hRatio)
+	self.name:SetTall(21*hRatio)
+	self.name:SetWide(145*hRatio)
+	self.name:SetFont("nutChatFontBold")
+	self.name:SetTextColor(Color(255,255,255,255))
 	self.name:SizeToContentsY()
+	
 
 	self.model = self:Add("nutModelPanel")
-	self.model:Dock(FILL)
+	self.model:SetPos(7*hRatio, 31*hRatio)
+	self.model:SetTall(342*hRatio)
+	self.model:SetWide(202*hRatio)
+	--self.model:Dock(FILL)
 	self.model:SetFOV(37)
 	self.model.PaintOver = function(model, w, h)
 		if (self.banned) then
@@ -59,33 +95,51 @@ function PANEL:Init()
 		end
 	end
 
-	self.button = self:Add("DButton")
-	self.button:SetSize(WIDTH, ScrH())
-	self.button:SetDrawBackground(false)
-	self.button:SetText("")
-	self.button.OnCursorEntered = function(button) self:OnCursorEntered() end
-	self.button.DoClick = function(button)
+	--self.button = self:Add("DButton")
+	--self.button:SetSize(WIDTH, ScrH())
+	--self.button:SetDrawBackground(false)
+	--self.button:SetText("")
+	--self.OnCursorEntered = function(button) self:OnCursorEntered() end
+
+
+	self.playbut = self:Add("DImageButton")
+	self.playbut:SetPos(100*hRatio, 457*hRatio)
+	self.playbut:SetImage("sky/buttons/play.png")
+	self.playbut:SetSize(18*hRatio, 22*hRatio)
+	self.playbut.DoClick = function(button)
 		nut.gui.character:clickSound()
 		if (not self.banned) then
 			self:onSelected()
 		end
 	end
 
-	self.delete = self:Add("DButton")
-	self.delete:SetTall(30)
-	self.delete:SetFont("nutCharSubTitleFont")
-	self.delete:SetText("✕ "..L("delete"):upper())
-	self.delete:SetWide(self:GetWide())
-	self.delete.Paint = function(delete, w, h)
-		surface.SetDrawColor(255, 0, 0, 50)
-		surface.DrawRect(0, 0, w, h)
+	self.copybut = self:Add("DImageButton")
+	self.copybut:SetPos(173*hRatio, 457*hRatio)
+	self.copybut:SetImage("sky/buttons/copy.png")
+	self.copybut:SetSize(18*hRatio, 22*hRatio)
+	self.copybut.DoClick = function(delete)
+		nut.gui.character:clickSound()
+		SetClipboardText(self.name:GetText() .. ": " .. self.desc:GetText())
 	end
-	self.delete.DoClick = function(delete)
+
+
+	self.delbut = self:Add("DImageButton")
+	self.delbut:SetPos(28*hRatio, 457*hRatio)
+	self.delbut:SetImage("sky/buttons/delete.png")
+	self.delbut:SetSize(18*hRatio, 22*hRatio)
+	self.delbut.DoClick = function(delete)
 		nut.gui.character:clickSound()
 		self:confirmDelete()
 	end
-	self.delete.y = ScrH()
-	self.delete.showY = self.delete.y - self.delete:GetTall()
+
+	self.Paint = function()
+		local w, h = self:GetSize()
+		surface.SetDrawColor(255,255,255,255)
+		surface.SetMaterial(Material('sky/charmenu/charshow.png'))
+		surface.DrawTexturedRect(0, 0, w, h)
+	end
+	--panel:SetWide(WIDTH)
+	--panel:SetTall(HEIGHT)
 end
 
 function PANEL:onSelected()
@@ -96,7 +150,14 @@ function PANEL:setCharacter(character)
 
 	self.name:SetText(character:getName():gsub("#", "\226\128\139#"):upper())
 	self.model:SetModel(character:getModel())
-	self.faction:SetBackgroundColor(team.GetColor(character:getFaction()))
+	
+	self.faction:SetColor(team.GetColor(character:getFaction()))
+	self.faction:SetText(string.upper(team.GetName(character:getFaction())))
+	
+	self.money:SetText(character:getMoney() .. " RU")
+
+	self.desc:SetText(character:getDesc())
+	
 	self:setBanned(character:getData("banned"))
 
 	local entity = self.model.Entity
@@ -251,22 +312,16 @@ function PANEL:setBanned(banned)
 	self.banned = banned
 end
 
-function PANEL:onHoverChanged(isHovered)
-	local ANIM_SPEED = nut.gui.character.ANIM_SPEED
-	if (self.isHovered == isHovered) then return end
-	self.isHovered = isHovered
+-- function PANEL:onHoverChanged(isHovered)
+-- 	--print("isHovered: " .. tostring(isHovered))
+-- 	local ANIM_SPEED = nut.gui.character.ANIM_SPEED
+-- 	--if (self.isHovered == isHovered) then return end
+-- 	self.isHovered = isHovered
 
-	local tall = self:GetTall()
-	if (isHovered) then
-		self.delete.y = tall
-		self.delete:MoveTo(0, tall - self.delete:GetTall(), ANIM_SPEED)
-		nut.gui.character:hoverSound()
-	else
-		self.delete:MoveTo(0, tall, ANIM_SPEED)
-	end
+-- 	nut.gui.character:hoverSound()
+	
 
-	self.faction:AlphaTo(isHovered and 250 or 100, ANIM_SPEED)
-end
+-- end
 
 function PANEL:Paint(w, h)
 	nut.util.drawBlur(self)
@@ -274,12 +329,12 @@ function PANEL:Paint(w, h)
 	surface.DrawRect(0, STRIP_HEIGHT, w, h)
 
 	if (not self:isCursorWithinBounds() and self.isHovered) then
-		self:onHoverChanged(false)
+		--self:onHoverChanged(false)
 	end
 end
 
 function PANEL:OnCursorEntered()
-	self:onHoverChanged(true)
+	--self:onHoverChanged(true)
 end
 
 vgui.Register("nutCharacterSlot", PANEL, "DPanel")

@@ -95,7 +95,7 @@ end
 -- Helper function to add a label that is docked at the top of the step.
 function PANEL:addLabel(text)
 	local label = self:Add("DLabel")
-	label:SetFont("nutCharButtonFont")
+	label:SetFont("stalkerTraitLabelFont")
 	label:SetText(L(text):upper())
 	label:SizeToContents()
 	label:Dock(TOP)

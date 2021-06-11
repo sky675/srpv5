@@ -305,7 +305,7 @@ end
 function PANEL:onStepChanged(oldStep, newStep)
 	local ANIM_SPEED = nut.gui.character.ANIM_SPEED
 	local shouldFinish = self.curStep == #self.steps
-	local nextStepText = L(shouldFinish and "finish" or "next"):upper()
+	local nextStepText = L(shouldFinish and "finish ✔" or "next ▶"):upper()
 	local shouldSwitchNextText = nextStepText ~= self.next:GetText()
 
 	-- Change visibility for prev/next if they should not be shown.
@@ -390,14 +390,15 @@ function PANEL:Init()
 	self.buttons:SetDrawBackground(false)
 
 	self.prev = self.buttons:Add("nutCharButton")
-	self.prev:SetText(L("back"):upper())
+	self.prev:SetText("◀ Back")--..L("back"):upper())
 	self.prev:Dock(LEFT)
 	self.prev:SetWide(96)
 	self.prev.DoClick = function(prev) self:previousStep() end
 	self.prev:SetAlpha(0)
 
 	self.next = self.buttons:Add("nutCharButton")
-	self.next:SetText(L("next"):upper())
+	--local nextText = (L("next"):upper())
+	self.next:SetText("Next ▶" )
 	self.next:Dock(RIGHT)
 	self.next:SetWide(96)
 	self.next.DoClick = function(next) self:nextStep() end

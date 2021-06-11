@@ -69,10 +69,28 @@ function PLUGIN:LoadFonts(font)
 		size = ScreenScale(24),
 		additive = true
 	})
+	surface.CreateFont("nutCharSuperSmallButtonFont", {
+		font = font,
+		weight = 200,
+		size = ScreenScale(15),
+		additive = true
+	})
 	surface.CreateFont("nutCharSmallButtonFont", {
 		font = font,
 		weight = 200,
 		size = ScreenScale(22),
+		additive = true
+	})
+	surface.CreateFont("stalkerCharButtonFont", {
+		font = "Dirty Headline",
+		weight = 200,
+		size = ScreenScale(24),
+		additive = true
+	})
+	surface.CreateFont("stalkerTraitLabelFont", {
+		font = "Dirty Headline",
+		weight = 200,
+		size = ScreenScale(15),
 		additive = true
 	})
 end

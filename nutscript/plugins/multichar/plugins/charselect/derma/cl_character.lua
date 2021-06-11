@@ -58,19 +58,23 @@ function PANEL:createTabs()
 end
 
 function PANEL:createTitle()
-	self.title = self:Add("DLabel")
-	self.title:Dock(TOP)
-	self.title:DockMargin(64, 48, 0, 0)
-	self.title:SetContentAlignment(1)
-	self.title:SetTall(96)
-	self.title:SetFont("nutCharTitleFont")
-	self.title:SetText(L(SCHEMA and SCHEMA.name or "Unknown"):upper())
-	self.title:SetTextColor(WHITE)
+	self.logobox = self:Add("DPanel")
+	self.logobox:Dock(TOP)
+	self.logobox:DockMargin(64, 48, 0, 0)
+	self.logobox:SetTall(128)
+	self.logobox:SetWide(402)
+	self.logobox:SetPaintBackground(false)
+
+	self.logobox.Paint = function(w, h)
+		surface.SetDrawColor(255, 255, 255, 255)
+		surface.SetMaterial(Material("sky/stalkerlogo.png"))
+		surface.DrawTexturedRect(0, 0, 402, 128)
+	end
 
 	self.desc = self:Add("DLabel")
 	self.desc:Dock(TOP)
 	self.desc:DockMargin(64, 0, 0, 0)
-	self.desc:SetTall(32)
+	self.desc:SetTall(0)
 	self.desc:SetContentAlignment(7)
 	self.desc:SetText(L(SCHEMA and SCHEMA.desc or ""):upper())
 	self.desc:SetFont("nutCharDescFont")
@@ -126,9 +130,9 @@ function PANEL:paintBackground(w, h)
 		surface.DrawRect(0, 0, w, h)
 	end
 
-	surface.SetMaterial(gradient)
-	surface.SetDrawColor(0, 0, 0, 250)
-	surface.DrawTexturedRect(0, 0, w, h * 1.5)
+	surface.SetMaterial(Material("sky/menu.png"))
+	surface.SetDrawColor(255, 255, 255, 255)
+	surface.DrawTexturedRect(0, 0, w, h)
 end
 
 function PANEL:addTab(name, callback, justClick)
@@ -191,13 +195,13 @@ function PANEL:Init()
 
 	self.tabs = self:Add("DPanel")
 	self.tabs:Dock(TOP)
-	self.tabs:DockMargin(64, 32, 64, 0)
+	self.tabs:DockMargin(64, 0, 64, 0)
 	self.tabs:SetTall(48)
 	self.tabs:SetDrawBackground(false)
 	
 	self.content = self:Add("DPanel")
 	self.content:Dock(FILL)
-	self.content:DockMargin(64, 0, 64, 64)
+	self.content:DockMargin(64, 0, 64, 0)
 	self.content:SetDrawBackground(false)
 
 	self.music = self:Add("nutCharBGMusic")

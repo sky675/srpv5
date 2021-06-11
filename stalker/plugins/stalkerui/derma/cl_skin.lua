@@ -500,7 +500,7 @@ local SKIN = {}
 			-- TL TR BL BR (roundedboxex)
 
 			--closed button
-			draw.RoundedBoxEx(8, 0, 0, w, h, Color(100, 100, 100, 50), true, true, true, true )
+			draw.RoundedBoxEx(8, 0, 0, w, h, Color(100, 100, 100, 180), true, true, true, true )
 	
 			-- Little hack, draw the ComboBox's dropdown arrow to tell the player the category is collapsed and not empty
 			if ( !panel:GetExpanded() ) then self.tex.Input.ComboBox.Button.Down( w - 18, h / 2 - 8, 15, 15 ) end
@@ -508,7 +508,7 @@ local SKIN = {}
 		end
 	
 		--open buttons
-		draw.RoundedBoxEx(8, 0, 0, w, h, Color(100, 100, 100, 50), true, true, false, false )
+		draw.RoundedBoxEx(8, 0, 0, w, h, Color(100, 100, 100, 180), true, true, false, false )
 		--draw.RoundedBoxEx(8, 0, panel:GetHeaderHeight(), w, h - panel:GetHeaderHeight(), Color(200, 100, 100, 100), true, true, true, true )
 		--self.tex.CategoryList.Inner( 0, panel:GetHeaderHeight(), w, h - panel:GetHeaderHeight() )
 	
