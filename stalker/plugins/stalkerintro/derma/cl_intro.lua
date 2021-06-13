@@ -83,7 +83,7 @@ local PANEL = {}
 
 		timer.Simple(20, function()
 			if (IsValid(self)) then
-				self:addContinue()
+				--self:addContinue()
 			end
 		end)
 	end
