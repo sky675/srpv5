@@ -28,7 +28,7 @@ FACTION.skins = {
 		{0,6}
 	},
 	["models/sky/heads/male_04.mdl"] = {
-		{0,7}
+		{0,6}
 	},
 	["models/sky/heads/male_05.mdl"] = {
 		{0,6}
@@ -43,7 +43,7 @@ FACTION.skins = {
 		{0,7}
 	},
 	["models/sky/heads/male_09.mdl"] = {
-		{0,7}
+		{0,6}
 	},
 	["models/sky/heads/male_11.mdl"] = {
 		{0,3}
@@ -76,7 +76,7 @@ FACTION.skins = {
 		{0,5}
 	},
 	["models/sky/heads/female_03.mdl"] = {
-		{0,6}
+		{0,5}
 	},
 	["models/sky/heads/female_04.mdl"] = {
 		{0,4}
