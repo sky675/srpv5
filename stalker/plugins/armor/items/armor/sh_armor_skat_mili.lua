@@ -18,7 +18,8 @@ ITEM.size = "heavy" --helm, light, medium, heavy, exo, mask, vest, sci, seva
 ITEM.equipSound = "interface/inv_items_cloth_1.ogg"
 ITEM.unequipSound = "interface/inv_items_cloth_1.ogg"
 --it is, so could be used yes
---print("does this exist at item gen? ", TEXTURETABLE)
+--had to test this again, it 100% does it can be used
+--print("...........................does this exist at item gen? ", TEXTURETABLE, (TEXTURETABLE or {})["mili"])
 --the materials to be replaced on the model
 local matreplace = {	
 	["beri_lone"] = "models/sky/stalker/beri_mili",

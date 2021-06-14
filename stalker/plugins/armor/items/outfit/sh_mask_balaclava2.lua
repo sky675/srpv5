@@ -1,11 +1,11 @@
-ITEM.name = "Blue Beanie"
-ITEM.desc = "A blue beanie. May have clipping with some masks."
-ITEM.model = "models/sky/dropped/beanie.mdl"
+ITEM.name = "Three Hole Balaclava"
+ITEM.desc = "A balaclava with three holes. May have clipping issues with some headgear."
+ITEM.model = "models/sky/dropped/mask_balaclava2.mdl"
 ITEM.category = "Clothing"
 ITEM.skin = 0
 ITEM.width = 1
 ITEM.height = 1
-ITEM.outfitCategory = "head"
+ITEM.outfitCategory = "head;mask"
 ITEM.price = 580
 ITEM.flag = "0"
 ITEM.permit = "cloth"
@@ -24,19 +24,32 @@ ITEM.destroyval = {
 	["comp_scrap_cloth"] = 2,
 }
 
+local validBgs = {
+	--[[
+	["models/sky/heads/female_01.mdl"] = {
+		["head"] = 1,
+	},
+	]]
+}
+
 function ITEM:getBodyGroups(ply)
-	local bg = {["beanie"] = 1}
-	if(!ply:isFemale()) then
-		bg = {["beanies"] = 1}
-	end
-	if(ply:GetBodygroupCount(1) >= 3 and !ply:GetModel():find("neo")) then --if theres 2 heads and a blank
+	local bg = {["masks"] = 6}
+	
+	if(ply:GetBodygroupCount(1) >= 3) then-- and !ply:GetModel():find("neo")) then --if theres 2 heads and a blank
 		bg["head"] = 1 --get the 2nd head, otherwise its fine, the heads wont clip
 	end 
-	local hair = ply:FindBodygroupByName("hair")
-	if(hair != -1 and ply:GetBodygroupCount(hair) == 3) then --hide hair too
-		bg["hair"] = 2
-	elseif(hair != -1) then
-		bg["hair"] = 1
+	local val = validBgs[ply:GetModel()]
+	if(val) then
+		for k,v in pairs(val) do
+			bg[k] = v
+		end
+	else
+		local hair = ply:FindBodygroupByName("hair")
+		if(hair != -1 and ply:GetBodygroupCount(hair) == 3) then --hide hair too
+			bg["hair"] = 2
+		elseif(hair != -1) then
+			bg["hair"] = 1
+		end
 	end
 	return bg
 end

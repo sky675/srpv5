@@ -29,7 +29,7 @@ function ITEM:getBodyGroups(ply)
 	if(!ply:isFemale()) then
 		bg = {["beanies"] = 2}
 	end
-	if(ply:GetBodygroupCount(1) == 3 and !ply:GetModel():find("neo")) then --if theres 2 heads and a blank
+	if(ply:GetBodygroupCount(1) >= 3 and !ply:GetModel():find("neo")) then --if theres 2 heads and a blank
 		bg["head"] = 1 --get the 2nd head, otherwise its fine, the heads wont clip
 	end 
 	local hair = ply:FindBodygroupByName("hair")

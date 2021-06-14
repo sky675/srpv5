@@ -23,6 +23,8 @@ ITEM.unequipSound = "interface/inv_items_cloth_3.ogg"
 ITEM.canWear = function(self, ply)
 	local model = ply:GetModel()
 	if(nut.newchar.isBM(model)) then
+		local model = self.player.bm.t:GetModel()
+		if(model:find("cs3")) then return false, "Helmets can not be worn with the CS3!" end
 		return true
 	else
 		return false, "Your model cannot wear this item!"
