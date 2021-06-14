@@ -22,54 +22,62 @@ local PANEL = {}
 		self.info:SetAlpha(0)
 		self.info:SetTall(36)
 		self.info:DockMargin(0, 0, 0, 5)
-		self.info:SetText("Developed by SKY & NATE")
+		self.info:SetText("Loading...")
 		self.info:SetFont("stalkerCharButtonFont")
 		self.info:SizeToContents()
 		self.info:Center()
 		self.info:AlphaTo(255, 2, 0)
-
+		timer.Simple(2, function()
+			self.info:SetText("Developed by SKY & NATE")
+			self.info:SizeToContents()
+			self.info:Center()
+		end)
 		timer.Simple(6, function()
-			--self.info:AlphaTo(0, 2, 0)
-			self.info2 = self:Add("DLabel")
-			self.info2:SetAlpha(0)
-			self.info2:SetTall(36)
-			self.info2:DockMargin(0, 0, 0, 5)
-			self.info2:SetText("Nutscript created by Chessnut & Black Tea")
-			self.info2:SetFont("stalkerCharButtonFont")
-			self.info2:SizeToContents()
-			self.info2:CenterHorizontal()
-			self.info2:SetY((ScrH()*0.5)+40)
-			self.info2:AlphaTo(255, 2, 0)
+			if(IsValid(self)) then
+				--self.info:AlphaTo(0, 2, 0)
+				self.info2 = self:Add("DLabel")
+				self.info2:SetAlpha(0)
+				self.info2:SetTall(36)
+				self.info2:DockMargin(0, 0, 0, 5)
+				self.info2:SetText("Nutscript created by Chessnut & Black Tea")
+				self.info2:SetFont("stalkerCharButtonFont")
+				self.info2:SizeToContents()
+				self.info2:CenterHorizontal()
+				self.info2:SetY((ScrH()*0.5)+40)
+				self.info2:AlphaTo(255, 2, 0)
+			end
 		end)
 		timer.Simple(11, function()
 
-
-			self.background = self:Add("HTML")
-			
-			self.background:SetSize(ScrW(), ScrH())
-			self.background:OpenURL(url)
-			self.background.OnDocumentReady = function(background)
+			if(IsValid(self)) then
+				self.background = self:Add("HTML")
 				
-				self.info:Remove()
-				self.info2:Remove()
-	
-				self.background:SetAlpha(255)
-				timer.Simple(0.1, function()
-					self.background:SetSize(ScrW(), ScrH())
-					--print("screen size: " .. ScrW() ..", " .. ScrH() .. " dhtml size: " .. self.background:GetWide() .. ", " .. self.background:GetTall())
-					if (!IsValid(self)) then
-						return
-					end
+				self.background:SetSize(ScrW(), ScrH())
+				self.background:OpenURL(url)
+				self.background.OnDocumentReady = function(background)
+					
+					self.info:Remove()
+					self.info2:Remove()
+		
+					self.background:SetAlpha(255)
+					timer.Simple(0.1, function()
+						self.background:SetSize(ScrW(), ScrH())
+						--print("screen size: " .. ScrW() ..", " .. ScrH() .. " dhtml size: " .. self.background:GetWide() .. ", " .. self.background:GetTall())
+						if (!IsValid(self)) then
+							return
+						end
 
-					--self.sound:ChangePitch(80, 0)
-				end)
-				timer.Simple(67, function()
+						--self.sound:ChangePitch(80, 0)
+					end)
+					timer.Simple(67, function()
 
-					if(IsValid(self)) then
-						self.closing = true
-						self:Remove()
-					end
-				end)
+						if(IsValid(self)) then
+							
+							self.closing = true
+							self:Remove()
+						end
+					end)
+				end
 			end
 		end)
 
@@ -83,7 +91,7 @@ local PANEL = {}
 
 		timer.Simple(20, function()
 			if (IsValid(self)) then
-				--self:addContinue()
+				self:addContinue()
 			end
 		end)
 	end
@@ -102,12 +110,12 @@ local PANEL = {}
 		self.info:SetExpensiveShadow(1, color_black)
 	end
 
-	-- function PANEL:Think()
-	-- 	if (IsValid(self.info) and input.IsKeyDown(KEY_SPACE) and !self.closing) then
-	-- 		self.closing = true
-	-- 		self:Remove()
-	-- 	end
-	-- end
+	function PANEL:Think()
+		if (IsValid(self.info) and input.IsKeyDown(KEY_SPACE) and !self.closing) then
+			self.closing = true
+			self:Remove()
+		end
+	end
 
 	function PANEL:OnRemove()
 		if (self.sound) then
