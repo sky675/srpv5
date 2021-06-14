@@ -13,10 +13,12 @@ local handstbl = {
 	["_berill"] = "models/sky/hands/berill.mdl",
 	["_cs1"] = "models/sky/hands/cs1.mdl",
 	["_cs2"] = "models/sky/hands/cs2.mdl",
+	["_cs3"] = "models/sky/hands/sunrise.mdl",
 	["_io7a"] = "models/sky/hands/io7a.mdl",
 	["_radsuit"] = "models/sky/hands/radsuit.mdl",
 	["_seva"] = "models/sky/hands/seva.mdl",
 	["_skat"] = "models/sky/hands/skat.mdl",
+	["_trenchcoat"] = "models/sky/hands/anorak.mdl",
 	["_eco"] = "models/sky/hands/sunrise.mdl",
 }
 

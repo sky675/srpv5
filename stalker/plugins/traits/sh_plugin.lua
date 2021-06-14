@@ -44,9 +44,13 @@ end
 function nut.traits.setTrait(ply, uid, take, level)
 	if(!ply.getChar or !ply:getChar()) then return end
 	if(!nut.traits.list[uid]) then 
-		print("hey uh this trait "..uid.." doesnt actually exist, its going to try to add/take it anyway, but you should probably add it in the config") 
+		print("hey uh this trait "..uid.." doesnt actually exist") 
+		return
 	end
-
+	--force woopsie fix
+	if(nut.traits.list[uid].max and !level) then
+		level = 1
+	end
 	--local traits = ply:getChar():getTrait()--Data("traits", {})
 	if(ply:getChar():getTrait(uid)) then
 		print("player already has trait, just letting ya know, if youre taking it or upgrading a level dw about it")

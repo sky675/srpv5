@@ -742,6 +742,7 @@ else
 		list:SetSize(left:GetWide(), left:GetTall())
 		list:Dock(FILL)
 		list:SetSortable(true)
+		list:SetPaintBackground(false)
 		--probably will be changed
 		list:AddColumn("ID")
 		list:AddColumn("Name")

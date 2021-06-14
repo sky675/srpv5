@@ -233,7 +233,7 @@ function PANEL:onDisplay()
 							end
 							--should untoggle that too
 							if(buttons[k.."_"..i].required) then
-								print("wtf is this ", buttons[k.."_"..i].required)
+								PrintTable(buttons[k.."_"..i].required)
 								buttons[k.."_"..i].required:DoClick()
 							end
 

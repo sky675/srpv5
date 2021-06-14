@@ -79,12 +79,11 @@ nut.command.add("charsetanorakskin", {
 })
 
 local whitelistArmors = {
-	"_sunrise", "_io7a", "_eco"
-	--todo make sure of rest
+	"_sunrise", "_io7a", "_eco", "_trenchcoat"
 }
---need to fix to change seperate model instead
+--todo need to prevent/reset this depending on headgear
 nut.command.add("togglehood", {
-	desc = "Take the hood on/off if you're wearing a model with a hood.",
+	desc = "Take the hood on/off if you're wearing a model with a hood. Probably will have clipping issues with headgear.",
 	onRun = function(client, arguments)
 		if(!client.bm or !IsValid(client.bm.t)) then return end
 		if(client:GetModel():find("_mask")) then return "You cannot toggle hood while wearing a helmet!" end
