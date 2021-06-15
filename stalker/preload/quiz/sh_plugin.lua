@@ -33,7 +33,7 @@ if(SERVER) then
 	end)	
 
 else --client
-	hook.Add("CreateIntroduction", "quizintro", function()
+	hook.Add("CreateQuiz", "quizintro", function()
 		return vgui.Create("nut_newquiz")
 	end)
 
