@@ -1,52 +1,63 @@
 local gradient = nut.util.getMaterial("vgui/gradient-r.vtf")
 local glow = surface.GetTextureID("particle/Particle_Glow_04_Additive")
 
+
+netstream.Hook("langDisclaimer", function(discTable)
+	local disclaimersTbl = discTable
+	print("disclaimer table exists...")
+	PrintTable(disclaimersTbl)
+	local self = nut.gui.intro
+
+	self.disclaimers = {}
+	for k, v in ipairs(disclaimersTbl) do
+		self.disclaimers[k] = self:Add("DLabel")
+		self.disclaimers[k]:SetFont("nutCharButtonFont")
+		self.disclaimers[k]:SetColor(Color(235, 100, 52, 255))
+		self.disclaimers[k]:SetText(v)
+		self.disclaimers[k]:SetTall(36)
+		self.disclaimers[k]:SizeToContents()
+		self.disclaimers[k]:CenterHorizontal()
+		self.disclaimers[k]:SetY(36+36*k)
+	end
+
+
+end)
+
+
 local PANEL = {}
+
 	function PANEL:Init()
 
 		if (IsValid(nut.gui.intro)) then
 			nut.gui.intro:Remove()
 		end
 
+		netstream.Start("ipgive")
+
 		nut.gui.intro = self
 
 		self:SetSize(ScrW(), ScrH())
 		self:SetZPos(9997)
 
-
 		local url = "http://stalker-kolobok.com/intro/intro.html"
 		self.sound = CreateSound(LocalPlayer(), "intro/intro_audio.mp3")
-					
 		self.sound:Play()
 		self.info = self:Add("DLabel")
-		self.info:SetAlpha(0)
 		self.info:SetTall(36)
 		self.info:DockMargin(0, 0, 0, 5)
-		self.info:SetText("Loading...")
+		self.info:SetText("Developed by SKY & NATE")
 		self.info:SetFont("stalkerCharButtonFont")
 		self.info:SizeToContents()
 		self.info:Center()
-		self.info:AlphaTo(255, 2, 0)
-		timer.Simple(2, function()
-			self.info:SetText("Developed by SKY & NATE")
-			self.info:SizeToContents()
-			self.info:Center()
-		end)
-		timer.Simple(6, function()
+		timer.Simple(4, function()
 			if(IsValid(self)) then
-				--self.info:AlphaTo(0, 2, 0)
-				self.info2 = self:Add("DLabel")
-				self.info2:SetAlpha(0)
-				self.info2:SetTall(36)
-				self.info2:DockMargin(0, 0, 0, 5)
-				self.info2:SetText("Nutscript created by Chessnut & Black Tea")
-				self.info2:SetFont("stalkerCharButtonFont")
-				self.info2:SizeToContents()
-				self.info2:CenterHorizontal()
-				self.info2:SetY((ScrH()*0.5)+40)
-				self.info2:AlphaTo(255, 2, 0)
+				self.info:SetText("Nutscript created by Chessnut & Black Tea")
+				self.info:SizeToContents()
+				self.info:Center()
+		
 			end
 		end)
+
 		timer.Simple(11, function()
 
 			if(IsValid(self)) then
@@ -57,7 +68,6 @@ local PANEL = {}
 				self.background.OnDocumentReady = function(background)
 					
 					self.info:Remove()
-					self.info2:Remove()
 		
 					self.background:SetAlpha(255)
 					timer.Simple(0.1, function()
@@ -89,7 +99,7 @@ local PANEL = {}
 		-- 	surface.DrawRect(0, 0, w, h)
 		-- end
 
-		timer.Simple(20, function()
+		timer.Simple(13, function()
 			if (IsValid(self)) then
 				self:addContinue()
 			end

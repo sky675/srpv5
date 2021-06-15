@@ -363,14 +363,23 @@ function GM:CharacterListLoaded()
 			nut.gui.loading:Remove()
 		end
 
-		-- Show the intro if needed, then show the character menu.
+		-- Show the intro if needed, then show the character menu, then load quiz.
 		local intro =
 			hasNotSeenIntro and hook.Run("CreateIntroduction") or nil
 		if (IsValid(intro)) then
 			intro.nutLoadOldRemove = intro.OnRemove
 			intro.OnRemove = function(panel)
 				panel:nutLoadOldRemove()
-				hook.Run("NutScriptLoaded")
+				
+				local quiz = 
+				hasNotSeenIntro and hook.Run("CreateQuiz") or nill
+
+				quiz.nutLoadOldRemove = quiz.OnRemove
+				quiz.OnRemove = function(panel)
+					panel:nutLoadOldRemove()
+					hook.Run("NutScriptLoaded")
+				end
+				
 			end
 			nut.gui.intro = intro
 		else
