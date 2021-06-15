@@ -326,7 +326,7 @@ local SKIN = {}
 		local old = DisableClipping( true )
 		surface.SetMaterial(Material('sky/panel_bg.png'))
 		surface.DrawTexturedRect(0, -5, w, h+5)
-		DisableClipping( old )
+		
 		--surface.SetDrawColor(Color(107, 85, 66))
 		--surface.DrawOutlinedRect(0, 0, panel:GetWide(), panel:GetTall(), 2)
 		--top/bottom
@@ -339,6 +339,7 @@ local SKIN = {}
 	 	surface.SetMaterial(Material('sky/tp/lcap.png'))
 		surface.DrawTexturedRect(0, 0, 4, h)
 		surface.DrawTexturedRectRotated(w-2, h*0.5, 4, h, 180)
+		DisableClipping( old )
 
 
 	end
