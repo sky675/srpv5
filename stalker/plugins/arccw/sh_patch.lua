@@ -583,6 +583,21 @@ local weaponEdits = {
 		}
 	},
 }
+local ammoAtt = function(wep, data, amm)
+	if(data.current and data.current:find(amm)) then
+		return data
+	end
+	if(wep.Primary.Ammo:find(amm)) then
+		return data
+	end
+	data.current = (data.current or wep.Primary.Ammo)..amm
+	if(SERVER) then
+		print("applying ", data.current)
+		--this fucking shit doesnt update clientside
+		--netstream.Start(wep:GetOwner(), "updateammopls", data.current, wep:GetClass())
+	end
+	return data
+end
 --lua_run PrintTable(ArcCW.AttachmentTable["fillinat"])
 local attEdits = {
 	--[[
@@ -936,21 +951,40 @@ local attEdits = {
 	},
 	["go_ammo_tmj"] = {
 		mods = {
+			--wont need to worry about getting a new mag type overriding shit
+			--O_Hook_Override_Ammo(wep, data) - modify data.current, return data
+			O_Hook_Override_Ammo = function(wep, data)
+				return ammoAtt(wep, data, "_ap")
+			end,
 			SpecAmmo = "ap"
 		}
 	},
 	["go_ammo_jhp"] = {
 		mods = {
+			O_Hook_Override_Ammo = function(wep, data)
+				return ammoAtt(wep, data, "_jhp")
+			end,
 			SpecAmmo = "jhp"
+		}
+	},
+	["go_ammo_match"] = {
+		mods = {
+			O_Hook_Override_Ammo = function(wep, data)
+				return ammoAtt(wep, data, "_match")
+			end,
 		}
 	},
 	["go_ammo_sg_slug"] = {
 		mods = {
+			O_Hook_Override_Ammo = function(wep, data)
+				return ammoAtt(wep, data, "_slug")
+			end,
 			SpecAmmo = "slug"
 		}
 	},
 	["go_ammo_sg_flechette"] = {
 		mods = {
+			--while these 2 could be set, theyre unimplemented so dont rly want to
 			SpecAmmo = "flechette"
 		}
 	},
@@ -961,10 +995,26 @@ local attEdits = {
 	},
 	["go_ammo_sg_sabot"] = {
 		mods = {
+			O_Hook_Override_Ammo = function(wep, data)
+				return ammoAtt(wep, data, "_sabot")
+			end,
 			SpecAmmo = "sabot"
 		}
 	},
 }
+--have to do this shit my fucking self smh
+if(CLIENT) then
+	netstream.Hook("updateammopls", function(newammo, class)
+		print("recieved ", newammo,class)
+		--timer.Simple(1, function()
+			local wep = LocalPlayer():GetWeapon(class)
+			if(IsValid(wep)) then
+				wep.Primary.Ammo = newammo
+				print("done", wep.Primary.Ammo)
+			end
+		--end)
+	end)
+end
 
 local function PatchWeapon(weapon, name)
 	//weapon.Base = "sky_mag_base_ins2" --hopefully this works?
@@ -1004,7 +1054,35 @@ local function PatchAttachment(att, name)
 	end
 end
 
+STUPIDDEPLOYOVERRIDE = STUPIDDEPLOYOVERRIDE or false
+
+
+
 hook.Add("InitPostEntity", "arcweps_patch", function()
+	if(!STUPIDDEPLOYOVERRIDE) then
+		STUPIDDEPLOYOVERRIDE = true
+		--print("........................doing the dumb deploy override")
+		local bwep = weapons.GetStored("arccw_base")
+		if(bwep) then
+			local olddeploy = bwep.Deploy
+			function bwep:Deploy()
+				local val = olddeploy(self)
+
+				if(SERVER) then
+					timer.Simple(0.2, function()
+						local ov = self.Primary.Ammo--self:GetBuff_Override("Override_Ammo")
+						--print("override deploy", ov, self.Primary.Ammo)
+						if(ov) then
+							netstream.Start(self:GetOwner(), "updateammopls", ov, self:GetClass())
+						end
+					end)
+				end
+
+				return val
+			end
+		end
+	end
+
     local wepTable = weapons.GetList()
     for k,v in pairs(wepTable) do
         if(weaponEdits[v.ClassName]) then

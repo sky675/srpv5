@@ -175,11 +175,14 @@ function ITEM:Equip(client, playSound)
 		end
 		item:setData("equip", true)
 
-		weapon:SetClip1(item:getData("ammo", 0))
 		
 		weapon.nutItem = item
 
 		item:doAttach(weapon)
+		
+		timer.Simple(0.5, function() 
+			weapon:SetClip1(item:getData("ammo", 0))
+		end)
 		
 		if (item.onEquipWeapon) then
 			item:onEquipWeapon(client, weapon)
@@ -361,9 +364,15 @@ function ITEM:onLoadout()
 			client:RemoveAmmo(weapon:Clip1(), weapon:GetPrimaryAmmoType())
 
 			weapon.nutItem = self
-			weapon:SetClip1(self:getData("ammo", 0))
 			
 			self:doAttach(weapon) //uh? wasnt here before
+			
+			timer.Simple(0.5, function()
+				if(!IsValid(weapon)) then
+					weapon = client:GetWeapon(self.class)
+				end
+				weapon:SetClip1(self:getData("ammo", 0))
+			end)
 			--[[local ups = self:getData("atts")
 			--apply current atts
 			]]

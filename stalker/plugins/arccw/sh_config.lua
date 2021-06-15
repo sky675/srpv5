@@ -6497,6 +6497,1192 @@ local ammoList = {
 		--	["item"] = 1, --these are the results
 		--},
 	},
+	--none of the eas here are correct
+	--+200
+	["ammo_9x19_jhp"] = {
+		name = "9x19mm JHP Ammo Box",
+		desc = "A box of JHP ammo currently containing %s rounds.", --use %s for number
+		price = 2350, --43ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_9x19_fmj.mdl",
+		width = 1,
+		height = 1,
+		weight = 0.012,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky9x19_jhp",
+		maxQuantity = 50,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.16811694204807, 11.062747955322, 0.25030392408371),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-43.543315887451, -40.780067443848, -35.422058105469),
+			fov = 39.071077276148,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_9x18_jhp"] = {
+		name = "9x18 JHP Ammo Box",
+		desc = "A box of JHP ammo currently containing %s rounds.", --use %s for number
+		price = 1950, --35ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_9x18_fmj.mdl",
+		width = 1,
+		height = 1,
+		weight = 0.01,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky9x18_jhp",
+		maxQuantity = 50,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.16811694204807, 11.062747955322, 0.25030392408371),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-43.543315887451, -40.780067443848, -35.422058105469),
+			fov = 39.071077276148,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_9x39_jhp"] = {
+		name = "9x39mm JHP Ammo Box",
+		desc = "A box of JHP ammo currently containing %s rounds.", --use %s for number
+		price = 3530,--166.67ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_9x39_pab9.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.025,
+		--category = "Attachments",
+		flag = "3",--any flag in this will make it return true
+		ammo = "sky9x39_jhp",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.2997687458992, 16.542030334473, 0.6551451086998),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-30.724361419678, -46.184467315674, -23.122215270996),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_46_jhp"] = {
+		name = "4.6x30mm JHP Ammo Box",
+		desc = "A box of JHP ammo currently containing %s rounds.", --use %s for number
+		price = 2330,--106.67ea
+		model = "models/items/boxmrounds.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.006,
+		--category = "Attachments",
+		flag = "5",--any flag in this will make it return true
+		ammo = "sky46_jhp",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_57_jhp"] = {
+		name = "5.7x28mm JHP Ammo Box",
+		desc = "A box of JHP ammo currently containing %s rounds.", --use %s for number
+		price = 2330,
+		model = "models/items/boxmrounds.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.006,
+		--category = "Attachments",
+		flag = "4",--any flag in this will make it return true
+		ammo = "sky57_jhp",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_45acp_jhp"] = {
+		name = "45 ACP JHP Ammo Box",
+		desc = "A box of JHP ammo currently containing %s rounds.", --use %s for number
+		price = 3450,--65ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_1143x23_hydro.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.02,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky45acp_jhp",
+		maxQuantity = 50,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.2997687458992, 16.542030334473, 0.6551451086998),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-30.724361419678, -46.184467315674, -23.122215270996),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_50ae_jhp"] = {
+		name = "50 AE JHP Ammo Box",
+		desc = "A box of JHP ammo currently containing %s rounds.", --use %s for number
+		price = 3950,
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_50_ae.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.02,
+		--category = "Attachments",
+		flag = "2",--any flag in this will make it return true
+		ammo = "sky50ae_jhp",
+		maxQuantity = 50,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.2997687458992, 16.542030334473, 0.31425142288208),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_762x25_jhp"] = {
+		name = "7.62x25mm JHP Ammo Box",
+		desc = "A box of JHP ammo currently containing %s rounds.", --use %s for number
+		price = 2540,--46.875ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x25_p.mdl",
+		width = 1,
+		height = 1,
+		weight = 0.01,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky762x25_jhp",
+		maxQuantity = 50,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(0.26382744312286, 11.425048828125, 0.25030392408371),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-43.543315887451, -40.780067443848, -35.422058105469),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_762x39_jhp"] = {
+		name = "7.62x39mm JHP Ammo Box",
+		desc = "A box of JHP ammo currently containing %s rounds.", --use %s for number
+		price = 2240,--102ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x39_fmj.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.016,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky762x39_jhp",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.33957388997078, 20.552410125732, 1.3846484422684),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_762x51_jhp"] = {
+		name = "7.62x51mm NATO JHP Ammo Box",
+		desc = "A box of JHP ammo currently containing %s rounds.", --use %s for number
+		price = 3200,--150ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x51_fmj.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.025,
+		--category = "Attachments",
+		flag = "3",--any flag in this will make it return true
+		ammo = "sky762x51_jhp",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.33957388997078, 20.552410125732, 1.3846484422684),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_762x54_jhp"] = {
+		name = "7.62x54mmR JHP Ammo Box",
+		desc = "A box of JHP ammo currently containing %s rounds.", --use %s for number
+		price = 3000,--140ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x54_7h1.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.022,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky762x54_jhp",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(0.17477670311928, 14.309669494629, 0.59221971035004),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_556_jhp"] = {
+		name = "5.56x45mm JHP Ammo Box",
+		desc = "A box of JHP ammo currently containing %s rounds.", --use %s for number
+		price = 3200,--100ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_556x45_ss190.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.011,
+		--category = "Attachments",
+		flag = "2",--any flag in this will make it return true
+		ammo = "sky556_jhp",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(0.62745332717896, 19.62232208252, 0.95279800891876),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_545_jhp"] = {
+		name = "5.45x39mm JHP Ammo Box",
+		desc = "A box of JHP ammo currently containing %s rounds.", --use %s for number
+		price = 2000,--90ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_545x39_fmj.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.01,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky545_jhp",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(0.62745332717896, 19.62232208252, 0.95279800891876),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_338_jhp"] = {
+		name = "338 Lapua JHP Ammo Box",
+		desc = "A box of JHP ammo currently containing %s rounds.", --use %s for number
+		price = 8700,--425
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x54_ap.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.044,
+		--category = "Attachments",
+		flag = "5",--any flag in this will make it return true
+		ammo = "sky338_jhp",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(0.17477670311928, 14.309669494629, 0.59221971035004),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--+100
+	["ammo_9x19_match"] = {
+		name = "9x19mm MATCH Ammo Box",
+		desc = "A box of MATCH ammo currently containing %s rounds.", --use %s for number
+		price = 2550, --not correct43ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_9x19_fmj.mdl",
+		width = 1,
+		height = 1,
+		weight = 0.012,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky9x19_match",
+		maxQuantity = 50,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.16811694204807, 11.062747955322, 0.25030392408371),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-43.543315887451, -40.780067443848, -35.422058105469),
+			fov = 39.071077276148,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_9x18_match"] = {
+		name = "9x18 MATCH Ammo Box",
+		desc = "A box of MATCH ammo currently containing %s rounds.", --use %s for number
+		price = 1850, --35ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_9x18_fmj.mdl",
+		width = 1,
+		height = 1,
+		weight = 0.01,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky9x18_match",
+		maxQuantity = 50,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.16811694204807, 11.062747955322, 0.25030392408371),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-43.543315887451, -40.780067443848, -35.422058105469),
+			fov = 39.071077276148,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_9x39_match"] = {
+		name = "9x39mm MATCH Ammo Box",
+		desc = "A box of MATCH ammo currently containing %s rounds.", --use %s for number
+		price = 3430,--166.67ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_9x39_pab9.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.025,
+		--category = "Attachments",
+		flag = "3",--any flag in this will make it return true
+		ammo = "sky9x39_match",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.2997687458992, 16.542030334473, 0.6551451086998),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-30.724361419678, -46.184467315674, -23.122215270996),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_46_match"] = {
+		name = "4.6x30mm MATCH Ammo Box",
+		desc = "A box of MATCH ammo currently containing %s rounds.", --use %s for number
+		price = 2230,--106.67ea
+		model = "models/items/boxmrounds.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.006,
+		--category = "Attachments",
+		flag = "5",--any flag in this will make it return true
+		ammo = "sky46_match",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_57_match"] = {
+		name = "5.7x28mm MATCH Ammo Box",
+		desc = "A box of MATCH ammo currently containing %s rounds.", --use %s for number
+		price = 2230,
+		model = "models/items/boxmrounds.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.006,
+		--category = "Attachments",
+		flag = "4",--any flag in this will make it return true
+		ammo = "sky57_match",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_45acp_match"] = {
+		name = "45 ACP MATCH Ammo Box",
+		desc = "A box of MATCH ammo currently containing %s rounds.", --use %s for number
+		price = 3350,--65ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_1143x23_hydro.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.02,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky45acp_match",
+		maxQuantity = 50,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.2997687458992, 16.542030334473, 0.6551451086998),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-30.724361419678, -46.184467315674, -23.122215270996),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_50ae_match"] = {
+		name = "50 AE MATCH Ammo Box",
+		desc = "A box of MATCH ammo currently containing %s rounds.", --use %s for number
+		price = 3850,
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_50_ae.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.02,
+		--category = "Attachments",
+		flag = "2",--any flag in this will make it return true
+		ammo = "sky50ae_match",
+		maxQuantity = 50,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.2997687458992, 16.542030334473, 0.31425142288208),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_762x25_match"] = {
+		name = "7.62x25mm MATCH Ammo Box",
+		desc = "A box of MATCH ammo currently containing %s rounds.", --use %s for number
+		price = 2440,--46.875ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x25_p.mdl",
+		width = 1,
+		height = 1,
+		weight = 0.01,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky762x25_match",
+		maxQuantity = 50,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(0.26382744312286, 11.425048828125, 0.25030392408371),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-43.543315887451, -40.780067443848, -35.422058105469),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_762x39_match"] = {
+		name = "7.62x39mm MATCH Ammo Box",
+		desc = "A box of MATCH ammo currently containing %s rounds.", --use %s for number
+		price = 2140,--102ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x39_fmj.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.016,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky762x39_match",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.33957388997078, 20.552410125732, 1.3846484422684),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_762x51_match"] = {
+		name = "7.62x51mm NATO MATCH Ammo Box",
+		desc = "A box of MATCH ammo currently containing %s rounds.", --use %s for number
+		price = 3100,--150ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x51_fmj.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.025,
+		--category = "Attachments",
+		flag = "3",--any flag in this will make it return true
+		ammo = "sky762x51_match",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.33957388997078, 20.552410125732, 1.3846484422684),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_762x54_match"] = {
+		name = "7.62x54mmR MATCH Ammo Box",
+		desc = "A box of MATCH ammo currently containing %s rounds.", --use %s for number
+		price = 2900,--140ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x54_7h1.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.022,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky762x54_match",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(0.17477670311928, 14.309669494629, 0.59221971035004),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_556_match"] = {
+		name = "5.56x45mm MATCH Ammo Box",
+		desc = "A box of MATCH ammo currently containing %s rounds.", --use %s for number
+		price = 3100,--100ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_556x45_ss190.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.011,
+		--category = "Attachments",
+		flag = "2",--any flag in this will make it return true
+		ammo = "sky556_match",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(0.62745332717896, 19.62232208252, 0.95279800891876),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_545_match"] = {
+		name = "5.45x39mm MATCH Ammo Box",
+		desc = "A box of MATCH ammo currently containing %s rounds.", --use %s for number
+		price = 1900,--90ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_545x39_fmj.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.01,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky545_match",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(0.62745332717896, 19.62232208252, 0.95279800891876),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_338_match"] = {
+		name = "338 Lapua MATCH Ammo Box",
+		desc = "A box of MATCH ammo currently containing %s rounds.", --use %s for number
+		price = 8600,--425
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x54_ap.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.044,
+		--category = "Attachments",
+		flag = "5",--any flag in this will make it return true
+		ammo = "sky338_match",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(0.17477670311928, 14.309669494629, 0.59221971035004),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--500
+	["ammo_9x19_ap"] = {
+		name = "9x19mm AP Ammo Box",
+		desc = "A box of AP ammo currently containing %s rounds.", --use %s for number
+		price = 2950, --not correct43ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_9x19_pbp.mdl",
+		width = 1,
+		height = 1,
+		weight = 0.012,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky9x19_ap",
+		maxQuantity = 50,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.16811694204807, 11.062747955322, 0.25030392408371),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-43.543315887451, -40.780067443848, -35.422058105469),
+			fov = 39.071077276148,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_9x18_ap"] = {
+		name = "9x18 AP Ammo Box",
+		desc = "A box of AP ammo currently containing %s rounds.", --use %s for number
+		price = 2250, --35ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_9x18_pmm.mdl",
+		width = 1,
+		height = 1,
+		weight = 0.01,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky9x18_ap",
+		maxQuantity = 50,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.16811694204807, 11.062747955322, 0.25030392408371),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-43.543315887451, -40.780067443848, -35.422058105469),
+			fov = 39.071077276148,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_9x39_ap"] = {
+		name = "9x39mm AP Ammo Box",
+		desc = "A box of AP ammo currently containing %s rounds.", --use %s for number
+		price = 3830,--166.67ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_9x39_ap.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.025,
+		--category = "Attachments",
+		flag = "3",--any flag in this will make it return true
+		ammo = "sky9x39_ap",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.2997687458992, 16.542030334473, 0.6551451086998),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-30.724361419678, -46.184467315674, -23.122215270996),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_46_ap"] = {
+		name = "4.6x30mm AP Ammo Box",
+		desc = "A box of AP ammo currently containing %s rounds.", --use %s for number
+		price = 2630,--106.67ea
+		model = "models/items/boxmrounds.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.006,
+		--category = "Attachments",
+		flag = "5",--any flag in this will make it return true
+		ammo = "sky46_ap",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_57_ap"] = {
+		name = "5.7x28mm AP Ammo Box",
+		desc = "A box of AP ammo currently containing %s rounds.", --use %s for number
+		price = 2630,
+		model = "models/items/boxmrounds.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.006,
+		--category = "Attachments",
+		flag = "4",--any flag in this will make it return true
+		ammo = "sky57_ap",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		--iconCam = {}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_45acp_ap"] = {
+		name = "45 ACP AP Ammo Box",
+		desc = "A box of AP ammo currently containing %s rounds.", --use %s for number
+		price = 3750,--65ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_1143x23_fmj.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.02,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky45acp_ap",
+		maxQuantity = 50,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.2997687458992, 16.542030334473, 0.6551451086998),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-30.724361419678, -46.184467315674, -23.122215270996),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_50ae_ap"] = {
+		name = "50 AE AP Ammo Box",
+		desc = "A box of AP ammo currently containing %s rounds.", --use %s for number
+		price = 4250,
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_50_ae.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.02,
+		--category = "Attachments",
+		flag = "2",--any flag in this will make it return true
+		ammo = "sky50ae_ap",
+		maxQuantity = 50,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.2997687458992, 16.542030334473, 0.31425142288208),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_762x25_ap"] = {
+		name = "7.62x25mm AP Ammo Box",
+		desc = "A box of AP ammo currently containing %s rounds.", --use %s for number
+		price = 2840,--46.875ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x25_ps.mdl",
+		width = 1,
+		height = 1,
+		weight = 0.01,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky762x25_ap",
+		maxQuantity = 50,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(0.26382744312286, 11.425048828125, 0.25030392408371),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-43.543315887451, -40.780067443848, -35.422058105469),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_762x39_ap"] = {
+		name = "7.62x39mm AP Ammo Box",
+		desc = "A box of AP ammo currently containing %s rounds.", --use %s for number
+		price = 2540,--102ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x39_ap.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.016,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky762x39_ap",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.33957388997078, 20.552410125732, 1.3846484422684),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_762x51_ap"] = {
+		name = "7.62x51mm NATO AP Ammo Box",
+		desc = "A box of AP ammo currently containing %s rounds.", --use %s for number
+		price = 3500,--150ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x51_ap.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.025,
+		--category = "Attachments",
+		flag = "3",--any flag in this will make it return true
+		ammo = "sky762x51_ap",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.33957388997078, 20.552410125732, 1.3846484422684),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_762x54_ap"] = {
+		name = "7.62x54mmR AP Ammo Box",
+		desc = "A box of AP ammo currently containing %s rounds.", --use %s for number
+		price = 3300,--140ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x54_ap.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.022,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky762x54_ap",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(0.17477670311928, 14.309669494629, 0.59221971035004),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_556_ap"] = {
+		name = "5.56x45mm AP Ammo Box",
+		desc = "A box of AP ammo currently containing %s rounds.", --use %s for number
+		price = 3500,--100ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_556x45_ap.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.011,
+		--category = "Attachments",
+		flag = "2",--any flag in this will make it return true
+		ammo = "sky556_ap",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(0.62745332717896, 19.62232208252, 0.95279800891876),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_545_ap"] = {
+		name = "5.45x39mm AP Ammo Box",
+		desc = "A box of AP ammo currently containing %s rounds.", --use %s for number
+		price = 2300,--90ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_545x39_ap.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.01,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "sky545_ap",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(0.62745332717896, 19.62232208252, 0.95279800891876),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_338_ap"] = {
+		name = "338 Lapua AP Ammo Box",
+		desc = "A box of AP ammo currently containing %s rounds.", --use %s for number
+		price = 9000,--425
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x54_ap.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.044,
+		--category = "Attachments",
+		flag = "5",--any flag in this will make it return true
+		ammo = "sky338_ap",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(0.17477670311928, 14.309669494629, 0.59221971035004),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
 	["ammo_23mm"] = {
 		name = "23mm Ammo Box",
 		desc = "A box of ammo currently containing %s shells.", --use %s for number
@@ -6537,6 +7723,124 @@ local ammoList = {
 		--category = "Attachments",
 		flag = "1",--any flag in this will make it return true
 		ammo = "buckshot",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.026200776919723, 14.994012832642, 0.82984000444412),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--200
+	["ammo_23mm_slug"] = {
+		name = "23mm Slug Ammo Box",
+		desc = "A box of Slug ammo currently containing %s shells.", --use %s for number
+		price = 3200,
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_12x76_zhekan.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.065,
+		--category = "Attachments",
+		flag = "5",--any flag in this will make it return true
+		ammo = "sky23mm_slug",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.026200776919723, 14.994012832642, 0.82984000444412),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_buckshot_slug"] = {
+		name = "12 Gauge Slug Ammo Box",
+		desc = "A box of Slug ammo currently containing %s shells.", --use %s for number
+		price = 1700,--75ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_12x76_zhekan_2.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.045,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "buckshot_slug",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.026200776919723, 14.994012832642, 0.82984000444412),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--500
+	["ammo_23mm_sabot"] = {
+		name = "23mm Sabot Ammo Box",
+		desc = "A box of Sabot ammo currently containing %s shells.", --use %s for number
+		price = 3500,
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_12x76_zhekan_2.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.065,
+		--category = "Attachments",
+		flag = "5",--any flag in this will make it return true
+		ammo = "sky23mm_sabot",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.026200776919723, 14.994012832642, 0.82984000444412),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_buckshot_sabot"] = {
+		name = "12 Gauge Sabot Ammo Box",
+		desc = "A box of Sabot ammo currently containing %s shells.", --use %s for number
+		price = 2000,--75ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_12x70_buck_2.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.045,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "buckshot_sabot",
 		maxQuantity = 20,
 		--defQuantity = 50,
 		--useSound = "", --sound to use instead of atts own

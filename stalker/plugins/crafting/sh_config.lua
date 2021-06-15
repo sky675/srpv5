@@ -148,6 +148,9 @@ local ammoslots ={
 	["arccw_mifl_fas2_sr25"] = "mifl_fas2_sr25_mag",
 	["arccw_mifl_fas2_m3"] = "mifl_fas2_m3_mag"
 }
+local ammoCheck = {
+	["go_ammo"] = true,
+}
 local shotguns = {
 	["arccw_go_870"] = true,
 	["arccw_go_nova"] = true,
@@ -169,6 +172,13 @@ local function genericUpgradeValid(items, slotcheck, noshotgun, onlyshotgun)
 					local selmod = ammoslots[v.class]
 					if(selmod) then
 						local atts = v:getData("atts", {})
+						--prevent upgrading mags while having an ammo upgrade
+						--i dont think this is actually necessary anymore but keeping for now
+						--[[for k,v in pairs(ammoCheck) do
+							if(atts[k]) then
+								return
+							end
+						end]]
 						local val = (!atts[selmod] and ammoup[v.class]["none"]) or ammoup[v.class][atts[selmod]]
 						if(val) then
 							return {["id"] = k, ["slot"] = selmod, ["att"] = val}

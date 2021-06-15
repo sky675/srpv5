@@ -19,8 +19,44 @@ nut.config.add("weaponDurability", false, "enables weapon durability", nil, {
 - add ammo items (put in a config?) - set up config to do items
 ]]
 
+--dynamically creating new ammo types
+local newAmmo = {
+	{
+		"sky9x19","sky9x18","sky9x39",
+		"sky45acp","sky46","sky57",
+		"sky50ae","sky762x25","sky762x39",
+		"sky762x51","sky762x54","sky556",
+		"sky545","sky338"
+	},
+	{
+		"_ap","_jhp","_match"
+	},
+	{
+		"buckshot","sky23mm"
+	},
+	{
+		"_slug","_sabot"
+	}
+}
+for k,v in pairs(newAmmo[1]) do
+	for l,m in pairs(newAmmo[2]) do
+		game.AddAmmoType({
+			name = v..m,
+			tracer = TRACER_LINE_AND_WHIZ
+		})
+		nut.ammo.register(v..m)
+	end
+end
+for k,v in pairs(newAmmo[3]) do
+	for l,m in pairs(newAmmo[4]) do
+		game.AddAmmoType({
+			name = v..m,
+			tracer = TRACER_LINE_AND_WHIZ
+		})
+		nut.ammo.register(v..m)
+	end
+end
 
---test force show/showhealth off to make sure its good now
 
 --convars to change:
 --arccw_truenames 1
