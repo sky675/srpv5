@@ -34,7 +34,7 @@ local function CanNotAddItemIfNoSpace(inventory, action, context)
 	local weight = inventory:getWeight()
 	local maxWeight = inventory:getMaxWeight()*inventory:getData("maxover", 2)
 	if (weight + (context.item.weight or 1) > maxWeight) then
-		return false, "noFit"
+		return false, "You're too encumbered to carry this."
 	end
 
 	return true
