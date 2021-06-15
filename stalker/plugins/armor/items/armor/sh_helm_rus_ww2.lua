@@ -27,7 +27,6 @@ local modelsgoodfor1 = {
 
 }
 ]]
-ITEM.overlaytype = "gas"
 
 local validBgs = {
 	["models/sky/heads/female_02.mdl"] = {
