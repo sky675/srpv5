@@ -26,7 +26,7 @@ if (SERVER) then
 
 		local ipaddress = ply:IPAddress() --regex to remove port
 		if (ipaddress == "loopback") then
-			ipaddress = "2.135.255.255"
+			print("Loopback detected!")
 		end
 
 		local ipstackURL = "http://api.ipstack.com/"..ipaddress.."?access_key="..ipstackKey.."&fields=country_code,location.languages&format=1"
