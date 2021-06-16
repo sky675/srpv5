@@ -1,5 +1,4 @@
-local gradient = nut.util.getMaterial("vgui/gradient-r.vtf")
-local glow = surface.GetTextureID("particle/Particle_Glow_04_Additive")
+--TODO: Refactor this and it make it cleaner and easier to understand. Ok :)
 
 
 netstream.Hook("langDisclaimer", function(discTable)
@@ -40,37 +39,23 @@ local PANEL = {}
 		self:SetZPos(9997)
 
 		local url = "http://stalker-kolobok.com/intro/intro.html"
-		self.sound = CreateSound(LocalPlayer(), "intro/intro_audio.mp3")
-		self.sound:Play()
-		self.info = self:Add("DLabel")
-		self.info:SetTall(36)
-		self.info:DockMargin(0, 0, 0, 5)
-		self.info:SetText("Developed by SKY & NATE")
-		self.info:SetFont("stalkerCharButtonFont")
-		self.info:SizeToContents()
-		self.info:Center()
-		if (IsValid(nut.gui.intro)) then
-		timer.Simple(16, function()
-			if(IsValid(self)) then
-				self.info:SetText("Nutscript created by Chessnut & Black Tea")
-				self.info:SizeToContents()
-				self.info:Center()
 		
-			end
-		end)
-		end
-		
-		timer.Simple(22, function()
-
 			if(IsValid(self)) then
+		
 				self.background = self:Add("HTML")
 				
 				self.background:SetSize(ScrW(), ScrH())
 				self.background:OpenURL(url)
 				self.background.OnDocumentReady = function(background)
-					
-					self.info:Remove()
-		
+					timer.Simple(10, function()
+						if (IsValid(self)) then
+							self:addContinue()
+						end
+					end)
+
+					self.sound = CreateSound(LocalPlayer(), "intro/intro_audio.mp3")
+					self.sound:Play()
+			
 					self.background:SetAlpha(255)
 					timer.Simple(0.1, function()
 						self.background:SetSize(ScrW(), ScrH())
@@ -82,30 +67,37 @@ local PANEL = {}
 						--self.sound:ChangePitch(80, 0)
 					end)
 					timer.Simple(67, function()
-
 						if(IsValid(self)) then
-							
-							self.closing = true
-							self:Remove()
-						end
+							self.background:AlphaTo(0, 2, 0, function()
+
+								self.info = self:Add("DLabel")
+								self.info:SetTall(36)
+								self.info:DockMargin(0, 0, 0, 5)
+								self.info:SetText("Developed by SKY & NATE")
+								self.info:SetFont("stalkerCharButtonFont")
+								self.info:SizeToContents()
+								self.info:Center()
+								if (IsValid(nut.gui.intro)) then
+								timer.Simple(3, function()
+									if(IsValid(self)) then
+										self.info:SetText("Nutscript created by Chessnut & Black Tea")
+										self.info:SizeToContents()
+										self.info:Center()
+										timer.Simple(3, function()
+											if(IsValid(self)) then
+								
+												self.closing = true
+												self:Remove()
+											end
+										end)
+									end
+								end)
+							end
+						end)
+						end					
 					end)
 				end
 			end
-		end)
-
-		-- self.bgLoader = self:Add("DPanel")
-		-- self.bgLoader:SetSize(ScrW(), ScrH())
-		-- self.bgLoader:SetZPos(9997)
-		-- self.bgLoader.Paint = function(loader, w, h)
-		-- 	surface.SetDrawColor(20, 20, 20)
-		-- 	surface.DrawRect(0, 0, w, h)
-		-- end
-
-		timer.Simple(13, function()
-			if (IsValid(self)) then
-				self:addContinue()
-			end
-		end)
 	end
 
 
