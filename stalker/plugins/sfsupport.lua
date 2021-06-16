@@ -28,7 +28,7 @@ if(StormFox2) then
 		end
 
 		hook.Add("PlayerConnect", "sffix", function(ply)
-			if(#player.GetAll() == 1) then
+			if(#player.GetAll() == 0) then
 				print("it worked! syncing")
 				local dt = string.Explode(":", os.date("%H:%M:%S", nut.date.get()))
 				StormFox2.Time.Set(dt[1] * 60 + dt[2] + (dt[3] / 60))
