@@ -77,6 +77,9 @@ ITEM.functions.use = { -- sorry, for name order.
 		end
 		return item:getQuantity() <= 0
 	end,
+	onCanRun = function(item) 
+		return !IsValid(item.entity)
+	end
 }
 
 function ITEM:onInstanced()
