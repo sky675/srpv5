@@ -76,7 +76,7 @@ local weaponEdits = {
 			Type = "pistol", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
-			Ammo = "sky45"
+			Ammo = "sky45acp"
 		}
 	},
 	["arccw_go_cz75"] = {
@@ -144,7 +144,7 @@ local weaponEdits = {
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
-			Ammo = "sky45"
+			Ammo = "sky45acp"
 		}
 	},
 	["arccw_go_mac10"] = {
@@ -153,7 +153,7 @@ local weaponEdits = {
 			TwoHandedWep =true,
 		}, 
 		primarymods = {
-			Ammo = "sky45"
+			Ammo = "sky45acp"
 		}
 	},
 	["arccw_go_mp9"] = {
@@ -273,7 +273,7 @@ local weaponEdits = {
 			Type = "pistol", --pistol, smg, shotgun, ar, sniper
 		}, 
 		primarymods = {
-			Ammo = "sky45"
+			Ammo = "sky45acp"
 		},
 	},
 	["arccw_mifl_fas2_p226"] = {
@@ -618,7 +618,7 @@ local attEdits = {
 	["go_glock_mag_13_45acp"] = {
 		mods = {
 			--notable things:
-			Override_Ammo = "sky45"
+			Override_Ammo = "sky45acp"
 		}
 	},
 	["go_usp_mag_15_9"] = {
@@ -642,13 +642,13 @@ local attEdits = {
 	["go_usp_mag_20"] = {
 		mods = {
 			--notable things:
-			Override_Ammo = "sky45"
+			Override_Ammo = "sky45acp"
 		}
 	},
 	["go_usp_mag_30"] = {
 		mods = {
 			--notable things:
-			Override_Ammo = "sky45"
+			Override_Ammo = "sky45acp"
 		}
 	},
 	["go_p250_mag_15_9mm"] = {
@@ -666,13 +666,13 @@ local attEdits = {
 	["go_p250_mag_9_45acp"] = {
 		mods = {
 			--notable things:
-			Override_Ammo = "sky45"
+			Override_Ammo = "sky45acp"
 		}
 	},
 	["go_p250_mag_15_45acp"] = {
 		mods = {
 			--notable things:
-			Override_Ammo = "sky45"
+			Override_Ammo = "sky45acp"
 		}
 	},
 	["go_ump_mag_30_9mm"] = {
@@ -1006,13 +1006,13 @@ local attEdits = {
 if(CLIENT) then
 	netstream.Hook("updateammopls", function(newammo, class)
 		print("recieved ", newammo,class)
-		--timer.Simple(1, function()
+		timer.Simple(0.5, function()
 			local wep = LocalPlayer():GetWeapon(class)
 			if(IsValid(wep)) then
 				wep.Primary.Ammo = newammo
 				print("done", wep.Primary.Ammo)
 			end
-		--end)
+		end)
 	end)
 end
 
@@ -1069,10 +1069,16 @@ hook.Add("InitPostEntity", "arcweps_patch", function()
 				local val = olddeploy(self)
 
 				if(SERVER) then
-					timer.Simple(0.2, function()
-						local ov = self.Primary.Ammo--self:GetBuff_Override("Override_Ammo")
-						--print("override deploy", ov, self.Primary.Ammo)
+					timer.Simple(0.5, function()
+						local ov = self:GetBuff_Override("SpecAmmo")
+						print("override deploy", ov)
 						if(ov) then
+							if(!self.Primary.Ammo:find("_"..ov)) then
+								ov = self.Primary.Ammo.."_"..ov
+								self.Primary.Ammo = ov --just wanna make sure
+							else
+								ov = self.Primary.Ammo
+							end
 							netstream.Start(self:GetOwner(), "updateammopls", ov, self:GetClass())
 						end
 					end)

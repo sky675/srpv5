@@ -2972,7 +2972,7 @@ local weaponList = {
 		--exclusive upgrade ideas: 
 		--?
 		name = "Saiga-12",
-		desc = "A kinda bootleg version of a mag-fed semi-auto shotgun chambered in 12 gauge.",
+		desc = "A kinda bootleg version of a mag-fed semi-auto shotgun chambered in 12 gauge. Please note: this fucks up hard sometimes just reequip when it does sorry",
 		price = 31680,
 		model = "models/weapons/arccw/mifl/fas2/c_ak47.mdl",
 		groups = {
