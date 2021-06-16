@@ -27,6 +27,7 @@ end)
 local PANEL = {}
 
 	function PANEL:Init()
+		local isLoading = true
 
 		if (IsValid(nut.gui.intro)) then
 			nut.gui.intro:Remove()
@@ -49,15 +50,23 @@ local PANEL = {}
 		self.info:SetFont("stalkerCharButtonFont")
 		self.info:SizeToContents()
 		self.info:Center()
-		timer.Simple(4, function()
-			if(IsValid(self)) then
-				self.info:SetText("Nutscript created by Chessnut & Black Tea")
-				self.info:SizeToContents()
-				self.info:Center()
-		
-			end
-		end)
 
+	end
+
+
+	function PANEL:StartIntro()
+		print("Start intro!")
+		if (IsValid(nut.gui.intro)) then
+			timer.Simple(4, function()
+				if(IsValid(self)) then
+					self.info:SetText("Nutscript created by Chessnut & Black Tea")
+					self.info:SizeToContents()
+					self.info:Center()
+			
+				end
+			end)
+		end
+	
 		timer.Simple(11, function()
 
 			if(IsValid(self)) then
@@ -104,6 +113,7 @@ local PANEL = {}
 				self:addContinue()
 			end
 		end)
+		
 	end
 
 	function PANEL:addContinue()
@@ -121,6 +131,11 @@ local PANEL = {}
 	end
 
 	function PANEL:Think()
+		if (isLoading and !IsValid(nut.gui.loading)) then
+			isLoading = false
+			print("starting intro....")
+			self:StartIntro()
+		end
 		if (IsValid(self.info) and input.IsKeyDown(KEY_SPACE) and !self.closing) then
 			self.closing = true
 			self:Remove()
