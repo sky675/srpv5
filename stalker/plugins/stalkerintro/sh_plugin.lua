@@ -41,6 +41,7 @@ if (SERVER) then
 		local ipResults = {}
 		local localgame = false
 		local ipaddress = ply:IPAddress() --regex to remove port
+		ipaddress = string.Split(ipaddress, ":")[1]
 		if (ipaddress == "loopback") then
 			print("Loopback detected!")
 			localgame = true
