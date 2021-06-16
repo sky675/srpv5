@@ -7,8 +7,24 @@ nut.config.add("introEnabled", true, "Whether or not intro is enabled.", nil, {
 	category = PLUGIN.name
 })
 
-nut.config.add("playIntroOnlyOnce", true, "Whether the intro, if enabled, should play every time, or only on first join", nil, {
+nut.config.add("playIntroOnlyOnce", true, "Whether the intro, if enabled, should play every time, or only on first join.", nil, {
 	category = PLUGIN.name
+})
+
+nut.config.add("canResetIntro", true, "Whether a play can reset their intro with the /resetintro command.", nil, {
+	category = PLUGIN.name
+})
+
+nut.command.add("resetintro", {
+	desc = "Using this command will play the intro & quiz the next time you join.",
+	onRun = function(client)
+		if (nut.config.get("canResetIntro")) then
+			client:setNutData("intro", false)
+			nut.util.notify("Youw will see the intro & quiz next time you join.", client, 1)
+		else
+			nut.util.notify("You are not allowed to do this.", client, 2)
+		end
+	end
 })
 
 if (SERVER) then
