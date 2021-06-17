@@ -101,7 +101,7 @@ local quiztbl = {
         self.logo:SetY(10)
 
         self.main = self:Add("DScrollPanel")
-        self.main:SetSize(ScrW()*0.4, ScrH()*0.9)
+        self.main:SetSize(ScrW()*0.6, ScrH()*0.6)
         self.main:SetY(145)
         self.main:CenterHorizontal()
 		self.main:SetZPos(1001)
