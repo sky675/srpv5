@@ -24,6 +24,27 @@ end)
 
 
 local PANEL = {}
+	resTbl = {
+		["1920x1080"] = true,
+		["1680x1050"] = true,
+		["1600x1024"] = true,
+		["1600x900"] = true,
+		["1440x900"] = true,
+		["1366x768"] = true,
+		["1360x768"] = true,
+		["1280x1024"] = true,
+		["1280x960"] = true,
+		["1280x800"] = true,
+		["1280x768"] = true,
+		["1280x720"] = true,
+		["1176x664"] = true,
+		["1024x768"] = true,
+		["800x600"] = true,
+		["720x576"] = true,
+		["720x480"] = true,
+		["640x480"] = true
+	}
+
 
 	function PANEL:Init()
 
@@ -37,8 +58,17 @@ local PANEL = {}
 
 		self:SetSize(ScrW(), ScrH())
 		self:SetZPos(9997)
-
-		local url = "http://stalker-kolobok.com/intro/intro.html"
+		local res = ScrW() .. "x" .. ScrH()
+		local url
+		if (resTbl[res] == true) then
+			--print("Res table: true!!!! :)")
+			url = "http://stalker-kolobok.com/intro/"..res.."/intro.html"
+		else
+			print(res .. " not accounted for, defaulting.")
+			url = "https://stalker-kolobok.com/intro/old/intro.html"
+		end
+		
+		print("Picked intro: " .. url)
 		
 			if(IsValid(self)) then
 		
@@ -47,6 +77,7 @@ local PANEL = {}
 				self.background:SetSize(ScrW(), ScrH())
 				self.background:OpenURL(url)
 				self.background.OnDocumentReady = function(background)
+					
 					timer.Simple(10, function()
 						if (IsValid(self)) then
 							self:addContinue()
