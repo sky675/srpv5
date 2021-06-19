@@ -220,6 +220,68 @@ function ITEM:Unequip(client, playSound)
 	end
 end
 
+ITEM.functions.zSwap = {
+	name = "Switch Special Ammo",
+	icon = "icon16/wrench.png",
+	isMulti = true,
+	multiOptions = function(item, ply)
+		local options = {}
+		local atts = item:getData("atts", {})
+		local did
+		--get the current one at the top
+		if(atts["go_ammo"] and glob_switchClass[item.type][atts["go_ammo"]]) then
+			did = atts["go_ammo"]
+			options[#options+1] = {
+				name = glob_switchClass[item.type][atts["go_ammo"]].." (Current)",
+				data = atts["go_ammo"]
+			}
+		end
+
+		--then list the rest
+		for k,v in pairs(glob_switchClass[item.type] or {}) do
+			if(k == did) then continue end
+			options[#options+1] = {
+				name = v,
+				data = k
+			}
+		end
+
+		if(table.Count(options) == 0) then --just in case
+			options[1] = {
+				name = "None Available",
+				data = "notav"
+			}
+		end
+
+		return options
+	end,
+	onRun = function(item, sub)
+		if(sub == "notav" or sub == "" or sub == nil) then return false end
+
+		--[[local ply = item.player
+		local wep
+		if(ply:GetActiveWeapon().nutItem == item) then
+			wep = ply:GetActiveWeapon()
+		else
+			wep = ply:GetWeapon(item.class)
+		end]]
+		local ats = item:getData("atts", {})
+
+		if(sub == "none") then
+			ats["go_ammo"] = nil
+		else
+			ats["go_ammo"] = sub
+		end
+		
+		item:setData("atts", ats)
+
+		return false
+	end,
+	onCanRun = function(item, sub)		--i dont feel like doing equipped for now
+		return (!IsValid(item.entity) and !item:getData("equip") and !item.disableSpecial and glob_switchClass[item.type])
+	end
+}
+
 --detach atts
 ITEM.functions.zDetach = {
 	name = "Detach",

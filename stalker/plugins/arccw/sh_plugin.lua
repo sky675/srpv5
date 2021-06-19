@@ -19,6 +19,32 @@ nut.config.add("weaponDurability", false, "enables weapon durability", nil, {
 - add ammo items (put in a config?) - set up config to do items
 ]]
 
+glob_switchClass = {
+	["pistol"] = {
+		["none"] = "No Special Ammo",
+		["go_ammo_tmj"] = "AP Ammo",
+		["go_ammo_jhp"] = "JHP Ammo",
+		["go_ammo_match"] = "Match Ammo"
+	},
+	["shotgun"] = {
+		["none"] = "No Special Ammo",
+		["go_ammo_sg_slug"] = "Slug Ammo",
+		["go_ammo_sg_sabot"] = "Sabot Ammo",
+	},
+	["n"] = {
+		["none"] = "No Special Ammo",
+		["go_ammo_tmj"] = "AP Ammo",
+		["go_ammo_jhp"] = "JHP Ammo",
+		["go_ammo_match"] = "Match Ammo"
+	},
+	["ws"] = {
+		["none"] = "No Special Ammo",
+		["go_ammo_tmj"] = "AP Ammo",
+		["go_ammo_jhp"] = "JHP Ammo",
+		["go_ammo_match"] = "Match Ammo"
+	}
+}
+
 --dynamically creating new ammo types
 local newAmmo = {
 	{
