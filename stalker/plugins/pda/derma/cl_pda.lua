@@ -70,6 +70,8 @@ end
 
 --[[
 	Forces a tab to be opened, should be passed the "priority" of the tab set in addTab()
+
+	This doesn't check if shouldShow() is true, so do with that what you will
 --]]
 function PANEL:SetTab(newTab)
 	self.Scroll.tab[self.curTab]:SetTextColor(Color(255,255,255,150)) --Unselected tab color
@@ -82,7 +84,7 @@ function PANEL:SetTab(newTab)
 end
 
 --[[
-	These two functions remove all tabs from the tab lists and all panels from the content window (respectively)
+	These two functions remove all tabs from the tab list and all panels from the content window (respectively)
 	(You better have a backup plan, buddy!)
 --]]
 function PANEL:NukeTabs()
@@ -103,13 +105,13 @@ end
 		If you're rebuilding both at the same time, rebuild pages first.
 --]]
 function PANEL:RebuildTabs()
-	assert(#self.Scroll.tab > 0, "Trying to rebuild PDA, but some of the tab list still exists")
+	assert(#self.Scroll.tab > 0, "Trying to rebuild PDA tabs list, but some of the tab list still exists")
 	self.Scroll.tab = {}
 	self:AddTabsToList(self.tabs)
 end
 
 function PANEL:RebuildPages()
-	assert(#self.tabs > 0, "Trying to rebuild PDA, but some pages still exist.")
+	assert(#self.tabs > 0, "Trying to rebuild PDA pages, but some pages still exist.")
 	self.tabs = {}
 	self.curTab = 1
 	self:ConfigureTabs()
