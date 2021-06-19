@@ -109,6 +109,11 @@ function ITEM:attachTo(target, ply)
 		end
 	end
 
+	if(!slotids[item.cat] or !wep.Attachments[slotids[item.cat]]) then
+		ply:notify("this weapon does not appear to have the slot for this attachment", 3)
+		return false
+	end
+
 	--if(IsValid(wep)) then    
 		--apply attachment to wep
 		ply.isattaching = true
