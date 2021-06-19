@@ -233,8 +233,12 @@ function PANEL:onDisplay()
 							end
 							--should untoggle that too
 							if(buttons[k.."_"..i].required) then
-								PrintTable(buttons[k.."_"..i].required)
-								buttons[k.."_"..i].required:DoClick()
+								--im stupid
+								--PrintTable(buttons[k.."_"..i].required)
+								--buttons[k.."_"..i].required:DoClick()
+								for _,boot in pairs(buttons[k.."_"..i].required) do
+									boot:DoClick()
+								end
 							end
 
 							main.cost = main.cost - v.cost[i]
@@ -333,7 +337,10 @@ function PANEL:onDisplay()
 						end
 						--should untoggle that too
 						if(buttons[k].required) then
-							buttons[k].required:DoClick()
+							--buttons[k].required:DoClick()
+							for _,boot in pairs(buttons[k].required) do
+								boot:DoClick()
+							end
 						end
 
 						main.cost = main.cost - v.cost
@@ -423,7 +430,10 @@ function PANEL:onDisplay()
 							--not adding the negative trait stuff here becuz there will never be a level negative trait
 							--should untoggle that too
 							if(buttons[k.."_"..i].required) then
-								buttons[k.."_"..i].required:DoClick()
+								--buttons[k.."_"..i].required:DoClick()
+								for _,boot in pairs(buttons[k.."_"..i].required) do
+									boot:DoClick()
+								end
 							end
 
 							main.cost = main.cost - v.cost[i]
