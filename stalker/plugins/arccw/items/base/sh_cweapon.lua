@@ -446,7 +446,7 @@ end
 
 function ITEM:onInstanced()
 	if(self.defaultMods) then
-		self:setData("atts", self.defaultMods)
+		self:setData("atts", table.Copy(self.defaultMods))
 	end
 
 	--default ammo for nonrefillable guns ie ar3
