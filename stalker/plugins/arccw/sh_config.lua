@@ -3591,6 +3591,7 @@ local weaponList = {
 		category = "Weapons - Misc",
 		type = "shotgun",
 		flag = "5",--any flag in this will make it return true
+		disableSpecial = true,
 		--defaultMods = {
 		--},
 		--slots above should probably also be below
@@ -7879,6 +7880,7 @@ function PLUGIN:InitializedItems()
 		ITEM.defaultMods = table.Copy(data.defaultMods)
 		ITEM.defaultAmmo = data.defaultAmmo
 		ITEM.cantDetach = data.cantDetach
+		ITEM.disableSpecial = data.disableSpecial
 		if(data.iconCam) then --prob wont be used for anything else so
 			ITEM.exRender = true
 			ITEM.iconCam = data.iconCam
