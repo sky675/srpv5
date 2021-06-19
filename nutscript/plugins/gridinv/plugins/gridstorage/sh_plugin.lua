@@ -177,9 +177,10 @@ if (CLIENT) then
 			return nutStorageBase:exitStorage()
 		end
 		self.storageInventoryPanel = storageInv:show()
-		--self.storageInventoryPanel:SetPos(invPosX-(self.storageInventoryPanel:GetWide())-70, ScrH()*0.5-(self.storageInventoryPanel:GetTall()*0.5))
-		--self.storageInventoryPanel:SetPos(0,0)
-		self.storageInventoryPanel.Paint = function() end
+		
+		--self.storageInventoryPanel:SetPaintBackground(true)
+
+		--self.storageInventoryPanel.Paint = function() end
 		self.storageInventoryPanel:SetPopupStayAtBack(true)
 
 		
@@ -211,9 +212,9 @@ if (CLIENT) then
 		local SRuiHeight = ((52*(invh/invTextureH))*sh)
 		local uiMidOffset = math.floor((SRuiHeight - NSuiHeight)*0.5)
 
-		print("NSuiHeight: " .. NSuiHeight) 
-		print("SRuiHeight: " .. SRuiHeight) 
-		print("uiMidOffset: " .. uiMidOffset) 
+		--print("NSuiHeight: " .. NSuiHeight) 
+		--print("SRuiHeight: " .. SRuiHeight) 
+		--print("uiMidOffset: " .. uiMidOffset) 
 
 
 		local totalsW = (80*(invw/invTextureW) + ((52*(invw/invTextureW))*(sw-2)) + (85*(invw/invTextureW)))
@@ -227,7 +228,7 @@ if (CLIENT) then
 		
 
 		self.storageInventoryPanel:SetPos(((ScrW() - invw))-(totalsW), (ScrH()*0.5)-((totalsH*0.5)))
-		print("storage pos: " .. self.storageInventoryPanel:GetX() .. ", " .. self.storageInventoryPanel:GetY())
+		--print("storage pos: " .. self.storageInventoryPanel:GetX() .. ", " .. self.storageInventoryPanel:GetY())
 
 		if (self:IsKeyboardInputEnabled()) then
 			--print("Ok you can do funny keyboard")
@@ -250,129 +251,163 @@ if (CLIENT) then
 				self:Remove()
 			end
 		end
-
-		
-
 		function self:Paint(w, h)
 
+			local iw, ih = 611, 382
+			local w, h = self.storageInventoryPanel:GetWide(), self.storageInventoryPanel:GetTall()
+			local sx, sy = self.storageInventoryPanel:GetX(), self.storageInventoryPanel:GetY()
+			local iratio = w/iw
+			local titlePos = 38 * iratio
+			sx = sx - 2
+			--nut.util.drawBlur(panel, 10)
+	
+			--surface.SetDrawColor(45, 45, 45, 200)
+			--surface.DrawRect(0, 0, panel:GetWide(), panel:GetTall())
+	
+			--surface.SetDrawColor(nut.config.get("color"))
+			--surface.DrawRect(0, 0, panel:GetWide(), 24)
+			surface.SetDrawColor(255,255,255,255)
+			local old = DisableClipping( true )
+			surface.SetMaterial(Material('sky/panel_bg.png'))
+			surface.DrawTexturedRect(sx + 0, -5 + sy, w, h+5)
+			
+			--surface.SetDrawColor(Color(107, 85, 66))
+			--surface.DrawOutlinedRect(0, 0, panel:GetWide(), panel:GetTall(), 2)
+			--top/bottom
+			surface.SetMaterial(Material('sky/tp/tops.png'))
+			surface.DrawTexturedRect(sx + 0, -5 + sy, w, 4)
+			surface.DrawTexturedRectRotated(w*0.5 + sx, h-2 + sy, w, 4, 180)
+			
+	
+			--left/right caps
+			 surface.SetMaterial(Material('sky/tp/lcap.png'))
+			surface.DrawTexturedRect(sx + 0, 0 + sy, 4, h)
+			surface.DrawTexturedRectRotated(w-2 + sx, h*0.5 + sy, 4, h, 180)
+			DisableClipping( old )
+
+		end
+		
+
+		-- function self:Paint(w, h)
 
 
-			local startX, startY = self.storageInventoryPanel:GetPos()
-			startX = math.floor(startX - 30*(invw/invTextureW))
-			--startY = math.floor(startY + 37*(invw/invTextureW))
 
-			local curX, curY = 0,0
+		-- 	local startX, startY = self.storageInventoryPanel:GetPos()
+		-- 	startX = math.floor(startX - 30*(invw/invTextureW))
+		-- 	--startY = math.floor(startY + 37*(invw/invTextureW))
 
-			local path = "sky/storages/"
-			local storText = "error"
+		-- 	local curX, curY = 0,0
 
-			local stw, sth = 0,0
-			local row = 0
-			local column = 0
-			local hAdjust = 0
+		-- 	local path = "sky/storages/"
+		-- 	local storText = "error"
 
-
-			for row=1,sh,row+1 do
-				if row == 1 then
-					curY = math.floor(startY - uiMidOffset)
-				end
-				for column=1,sw+2,column+1 do
-					local debugChecker = false  
-					if debugChecker then
-						if row % 2 != 0 then
-							if column % 2 == 0 then
-								surface.SetDrawColor(255,0,0,255)
-							else
-								surface.SetDrawColor(0,255,0,255)
-							end	
-						else
-							if column % 2 == 0 then
-								surface.SetDrawColor(0,255,0,255)
-							else
-								surface.SetDrawColor(255,0,0,255)
-							end		
-						end
-					else
-						surface.SetDrawColor(255,255,255,255)
-					end
-
-					if column == 1 then
-						curX = startX
-					end
-
-					if column == 1 then
-						if row == 1 then
-							storText = "top_l_cap.png"
-							stw, sth = 30, 52
-						elseif row == sh then
-							storText = "bot_l_cap.png"
-							stw, sth = 30, 52
-						elseif row == sh-1 then
-							storText = "3_l_cap.png"
-							stw, sth = 30, 52
-						else
-							storText = "2_l_cap.png"
-							stw, sth = 30, 52
-						end
-					elseif column == sw+2 then
-						if row == 1 then
-							storText = "top_r_cap.png"
-							stw, sth = 30, 52
-						elseif row == sh then
-							storText = "bot_r_cap.png"
-							stw, sth = 18, 52
-						elseif row == sh-1 then
-							storText = "3_r_cap.png"
-							stw, sth = 30, 52
-						else
-							storText = "2_r_cap.png"
-							stw, sth = 30, 52
-						end
-					else
-						if row==1 then
-							storText = "top_"..column..".png"
-							stw, sth = 45, 52
-						elseif row==sh then
-							storText = "bot_"..column..".png"
-							stw, sth = 45, 52
-
-						else
-							storText = "3_"..column..".png"
-							stw, sth = 45, 52
-						end
-					end
+		-- 	local stw, sth = 0,0
+		-- 	local row = 0
+		-- 	local column = 0
+		-- 	local hAdjust = 0
 
 
-					finText = path..storText
+		-- 	for row=1,sh,row+1 do
+		-- 		if row == 1 then
+		-- 			curY = math.floor(startY - uiMidOffset)
+		-- 		end
+		-- 		for column=1,sw+2,column+1 do
+		-- 			local debugChecker = false  
+		-- 			if debugChecker then
+		-- 				if row % 2 != 0 then
+		-- 					if column % 2 == 0 then
+		-- 						surface.SetDrawColor(255,0,0,255)
+		-- 					else
+		-- 						surface.SetDrawColor(0,255,0,255)
+		-- 					end	
+		-- 				else
+		-- 					if column % 2 == 0 then
+		-- 						surface.SetDrawColor(0,255,0,255)
+		-- 					else
+		-- 						surface.SetDrawColor(255,0,0,255)
+		-- 					end		
+		-- 				end
+		-- 			else
+		-- 				surface.SetDrawColor(255,255,255,255)
+		-- 			end
 
-					--surface.SetDrawColor(255,255,255,255)
-					surface.SetMaterial(Material(finText))
+		-- 			if column == 1 then
+		-- 				curX = startX
+		-- 			end
 
-					--print("totalsW = " .. totalsW .. " | totalInvenW = " .. totalInvenW)
+		-- 			if column == 1 then
+		-- 				if row == 1 then
+		-- 					storText = "top_l_cap.png"
+		-- 					stw, sth = 30, 52
+		-- 				elseif row == sh then
+		-- 					storText = "bot_l_cap.png"
+		-- 					stw, sth = 30, 52
+		-- 				elseif row == sh-1 then
+		-- 					storText = "3_l_cap.png"
+		-- 					stw, sth = 30, 52
+		-- 				else
+		-- 					storText = "2_l_cap.png"
+		-- 					stw, sth = 30, 52
+		-- 				end
+		-- 			elseif column == sw+2 then
+		-- 				if row == 1 then
+		-- 					storText = "top_r_cap.png"
+		-- 					stw, sth = 30, 52
+		-- 				elseif row == sh then
+		-- 					storText = "bot_r_cap.png"
+		-- 					stw, sth = 18, 52
+		-- 				elseif row == sh-1 then
+		-- 					storText = "3_r_cap.png"
+		-- 					stw, sth = 30, 52
+		-- 				else
+		-- 					storText = "2_r_cap.png"
+		-- 					stw, sth = 30, 52
+		-- 				end
+		-- 			else
+		-- 				if row==1 then
+		-- 					storText = "top_"..column..".png"
+		-- 					stw, sth = 45, 52
+		-- 				elseif row==sh then
+		-- 					storText = "bot_"..column..".png"
+		-- 					stw, sth = 45, 52
 
-					scaleW, scaleH = stw*(invw/invTextureW), sth*(invh/invTextureH)
+		-- 				else
+		-- 					storText = "3_"..column..".png"
+		-- 					stw, sth = 45, 52
+		-- 				end
+		-- 			end
+
+
+		-- 			finText = path..storText
+
+		-- 			--surface.SetDrawColor(255,255,255,255)
+		-- 			surface.SetMaterial(Material(finText))
+
+		-- 			--print("totalsW = " .. totalsW .. " | totalInvenW = " .. totalInvenW)
+
+		-- 			scaleW, scaleH = stw*(invw/invTextureW), sth*(invh/invTextureH)
 
 					
-					-- if row==sh then
-					-- 	surface.DrawTexturedRect(curX+(13*invw/invTextureW), curY, scaleW, scaleH)
-					-- else
-					-- 	surface.DrawTexturedRect(curX, curY, scaleW, scaleH)
-					-- end
-					surface.DrawTexturedRect(curX, curY, scaleW, scaleH)
+		-- 			-- if row==sh then
+		-- 			-- 	surface.DrawTexturedRect(curX+(13*invw/invTextureW), curY, scaleW, scaleH)
+		-- 			-- else
+		-- 			-- 	surface.DrawTexturedRect(curX, curY, scaleW, scaleH)
+		-- 			-- end
+		-- 			surface.DrawTexturedRect(curX, curY, scaleW, scaleH)
 					
-					curX = math.floor(curX+scaleW)
+		-- 			curX = math.floor(curX+scaleW)
 
-					--print("Drawing: " .. finText .. "| curX, curY = " .. curX .. ", " .. curY .. "row = "..row.." column = "..column)
-					--print("Total Storage UI Width: " .. totalsW)
+		-- 			--print("Drawing: " .. finText .. "| curX, curY = " .. curX .. ", " .. curY .. "row = "..row.." column = "..column)
+		-- 			--print("Total Storage UI Width: " .. totalsW)
 
-					--(invw/invTextureW)
-					--(invh/invTextureH)
-				end
-				curY = math.floor(curY+scaleH)
-			end
+		-- 			--(invw/invTextureW)
+		-- 			--(invh/invTextureH)
+		-- 		end
+		-- 		curY = math.floor(curY+scaleH)
+		-- 	end
 					
 
-        end
+        -- end
 
 
 

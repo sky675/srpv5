@@ -78,7 +78,7 @@ local PANEL = {}
 				self.background:OpenURL(url)
 				self.background.OnDocumentReady = function(background)
 					
-					timer.Simple(10, function()
+					timer.Simple(2, function()
 						if (IsValid(self)) then
 							self:addContinue()
 						end

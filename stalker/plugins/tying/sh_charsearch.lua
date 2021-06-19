@@ -180,6 +180,43 @@ else
 			--targetInvPanel:SetTitle(target:Name())
 
 			self.targetInvPanel:SetPos(invPosX-(self.targetInvPanel:GetWide()), ScrH()*0.5-(self.targetInvPanel:GetTall()*0.5))
+
+			function self:Paint(w, h)
+
+				local iw, ih = 611, 382
+				local w, h = self.targetInvPanel:GetWide(), self.targetInvPanel:GetTall()
+				local sx, sy = self.targetInvPanel:GetX(), self.targetInvPanel:GetY()
+				local iratio = w/iw
+				local titlePos = 38 * iratio
+				sx = sx - 2
+				--nut.util.drawBlur(panel, 10)
+		
+				--surface.SetDrawColor(45, 45, 45, 200)
+				--surface.DrawRect(0, 0, panel:GetWide(), panel:GetTall())
+		
+				--surface.SetDrawColor(nut.config.get("color"))
+				--surface.DrawRect(0, 0, panel:GetWide(), 24)
+				surface.SetDrawColor(255,255,255,255)
+				local old = DisableClipping( true )
+				surface.SetMaterial(Material('sky/panel_bg.png'))
+				surface.DrawTexturedRect(sx + 0, -5 + sy, w, h+5)
+				
+				--surface.SetDrawColor(Color(107, 85, 66))
+				--surface.DrawOutlinedRect(0, 0, panel:GetWide(), panel:GetTall(), 2)
+				--top/bottom
+				surface.SetMaterial(Material('sky/tp/tops.png'))
+				surface.DrawTexturedRect(sx + 0, -5 + sy, w, 4)
+				surface.DrawTexturedRectRotated(w*0.5 + sx, h-2 + sy, w, 4, 180)
+				
+		
+				--left/right caps
+				 surface.SetMaterial(Material('sky/tp/lcap.png'))
+				surface.DrawTexturedRect(sx + 0, 0 + sy, 4, h)
+				surface.DrawTexturedRectRotated(w-2 + sx, h*0.5 + sy, 4, h, 180)
+				DisableClipping( old )
+	
+			end
+	
 		end)
 	else
 
