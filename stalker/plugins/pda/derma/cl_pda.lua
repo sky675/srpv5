@@ -1,10 +1,10 @@
 
 local PANEL = {}
 --[[
-	Just wanted to change up the way the PDA system handles the different tabs so that it'd be easier to implement tabs in the future
-		& so that it would function consistantly
-			Also the code for settings & the online list is practically the same as when you made it sky, just fitted for the new format,
-				so if you need to change that it shouldn't be foreign looking
+	Just wanted to change up the way the PDA system handles the different tabs so that it'd be easier to implement new tabs in the future
+		& also that it would function consistantly
+			Also the code for the original tabs is practically the same as when you made it sky, just fitted for the new format,
+				so if you need to change any of that it shouldn't be foreign looking
 
 	Hopefully this wasn't completely horribly done <3 <3 <3 <3 <3 <3 <3 <3 
 --]]
@@ -62,7 +62,7 @@ end
 
 
 --[[
-	Used to get PDA data from within a tab
+	Used to get PDA data from within a tabs content panel
 --]]
 function PANEL:getPDA()
 	return self.pda
@@ -99,7 +99,7 @@ end
 
 
 --[[
-	From the ashes - a phoenix! These two function rebuilds the tab & page collection respectively, assuming you've nuked them, or something.
+	From the ashes - a phoenix! These two functions rebuild the tab & page collection respectively, assuming you've nuked them, or something.
 		If you're rebuilding both at the same time, rebuild pages first.
 --]]
 function PANEL:RebuildTabs()

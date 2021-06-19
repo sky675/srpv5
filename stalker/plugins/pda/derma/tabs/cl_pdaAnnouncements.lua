@@ -19,7 +19,8 @@ end
 function PANEL:onDisplay()
     self.announcements:OpenURL(announcementURL)
 
-    --a little trick i learned so that you can use the garrysmod scrollbar instead of the HTML scrollbar :)
+    --a little trick i learned so that you can use the garrysmod scrollbar instead of the HTML scrollbar :) 
+        --just whatever html page you create, wrap everything in a div with the id "content"
     self.announcements.OnDocumentReady = function(announcements)
         announcements:AddFunction("returnvar", "gettall", function(str)
             announcements:SetTall(tonumber(str) + 10)
