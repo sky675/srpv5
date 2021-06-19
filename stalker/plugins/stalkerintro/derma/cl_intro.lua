@@ -1,5 +1,4 @@
-local gradient = nut.util.getMaterial("vgui/gradient-r.vtf")
-local glow = surface.GetTextureID("particle/Particle_Glow_04_Additive")
+--TODO: Refactor this and it make it cleaner and easier to understand. Ok :)
 
 
 netstream.Hook("langDisclaimer", function(discTable)
@@ -25,9 +24,29 @@ end)
 
 
 local PANEL = {}
+	resTbl = {
+		["1920x1080"] = true,
+		["1680x1050"] = true,
+		["1600x1024"] = true,
+		["1600x900"] = true,
+		["1440x900"] = true,
+		["1366x768"] = true,
+		["1360x768"] = true,
+		["1280x1024"] = true,
+		["1280x960"] = true,
+		["1280x800"] = true,
+		["1280x768"] = true,
+		["1280x720"] = true,
+		["1176x664"] = true,
+		["1024x768"] = true,
+		["800x600"] = true,
+		["720x576"] = true,
+		["720x480"] = true,
+		["640x480"] = true
+	}
+
 
 	function PANEL:Init()
-		local isLoading = true
 
 		if (IsValid(nut.gui.intro)) then
 			nut.gui.intro:Remove()
@@ -39,45 +58,35 @@ local PANEL = {}
 
 		self:SetSize(ScrW(), ScrH())
 		self:SetZPos(9997)
-
-		local url = "http://stalker-kolobok.com/intro/intro.html"
-		self.sound = CreateSound(LocalPlayer(), "intro/intro_audio.mp3")
-		self.sound:Play()
-		self.info = self:Add("DLabel")
-		self.info:SetTall(36)
-		self.info:DockMargin(0, 0, 0, 5)
-		self.info:SetText("Developed by SKY & NATE")
-		self.info:SetFont("stalkerCharButtonFont")
-		self.info:SizeToContents()
-		self.info:Center()
-
-	end
-
-
-	function PANEL:StartIntro()
-		print("Start intro!")
-		if (IsValid(nut.gui.intro)) then
-			timer.Simple(4, function()
-				if(IsValid(self)) then
-					self.info:SetText("Nutscript created by Chessnut & Black Tea")
-					self.info:SizeToContents()
-					self.info:Center()
-			
-				end
-			end)
+		local res = ScrW() .. "x" .. ScrH()
+		local url
+		if (resTbl[res] == true) then
+			--print("Res table: true!!!! :)")
+			url = "http://stalker-kolobok.com/intro/"..res.."/intro.html"
+		else
+			print(res .. " not accounted for, defaulting.")
+			url = "https://stalker-kolobok.com/intro/old/intro.html"
 		end
-	
-		timer.Simple(11, function()
-
+		
+		print("Picked intro: " .. url)
+		
 			if(IsValid(self)) then
+		
 				self.background = self:Add("HTML")
 				
 				self.background:SetSize(ScrW(), ScrH())
 				self.background:OpenURL(url)
 				self.background.OnDocumentReady = function(background)
 					
-					self.info:Remove()
-		
+					timer.Simple(10, function()
+						if (IsValid(self)) then
+							self:addContinue()
+						end
+					end)
+
+					self.sound = CreateSound(LocalPlayer(), "intro/intro_audio.mp3")
+					self.sound:Play()
+			
 					self.background:SetAlpha(255)
 					timer.Simple(0.1, function()
 						self.background:SetSize(ScrW(), ScrH())
@@ -89,32 +98,41 @@ local PANEL = {}
 						--self.sound:ChangePitch(80, 0)
 					end)
 					timer.Simple(67, function()
-
 						if(IsValid(self)) then
-							
-							self.closing = true
-							self:Remove()
-						end
+							self.background:AlphaTo(0, 2, 0, function()
+
+								self.info = self:Add("DLabel")
+								self.info:SetTall(36)
+								self.info:DockMargin(0, 0, 0, 5)
+								self.info:SetText("Developed by SKY & NATE")
+								self.info:SetFont("stalkerCharButtonFont")
+								self.info:SizeToContents()
+								self.info:Center()
+								if (IsValid(nut.gui.intro)) then
+								timer.Simple(3, function()
+									if(IsValid(self)) then
+										self.info:SetText("Nutscript created by Chessnut & Black Tea")
+										self.info:SizeToContents()
+										self.info:Center()
+										timer.Simple(3, function()
+											if(IsValid(self)) then
+								
+												self.closing = true
+												self:Remove()
+											end
+										end)
+									end
+								end)
+							end
+						end)
+						end					
 					end)
 				end
 			end
-		end)
-
-		-- self.bgLoader = self:Add("DPanel")
-		-- self.bgLoader:SetSize(ScrW(), ScrH())
-		-- self.bgLoader:SetZPos(9997)
-		-- self.bgLoader.Paint = function(loader, w, h)
-		-- 	surface.SetDrawColor(20, 20, 20)
-		-- 	surface.DrawRect(0, 0, w, h)
-		-- end
-
-		timer.Simple(13, function()
-			if (IsValid(self)) then
-				self:addContinue()
-			end
-		end)
-		
 	end
+
+
+	
 
 	function PANEL:addContinue()
 		self.info = self:Add("DLabel")
@@ -131,11 +149,6 @@ local PANEL = {}
 	end
 
 	function PANEL:Think()
-		if (isLoading and !IsValid(nut.gui.loading)) then
-			isLoading = false
-			print("starting intro....")
-			self:StartIntro()
-		end
 		if (IsValid(self.info) and input.IsKeyDown(KEY_SPACE) and !self.closing) then
 			self.closing = true
 			self:Remove()
