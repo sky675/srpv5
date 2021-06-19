@@ -813,6 +813,7 @@ Results: 1x Flashlight]],
 		skin = 0,
 		workbench = {["basic"]=true,},
 		traits = { --traits requirements
+			["crafting"] = 1,
 			["crafting_tech"] = 1,--min level needed or true for no level ones,
 		},
 		--[[
@@ -843,6 +844,7 @@ Results: 1x Flashlight]],
 		skin = 0,
 		workbench = {["basic"]=true,},
 		traits = { --traits requirements
+			["crafting"] = 1,
 			["crafting_tech"] = 2,--min level needed or true for no level ones,
 		},
 		--[[
@@ -874,6 +876,7 @@ Results: 1x Flashlight]],
 		skin = 0,
 		workbench = {["basic"]=true,},
 		traits = { --traits requirements
+			["crafting"] = 1,
 			["crafting_tech"] = 1,--min level needed or true for no level ones,
 		},
 		--[[
@@ -907,6 +910,7 @@ Results: 1x Flashlight]],
 		skin = 0,
 		workbench = {["basic"]=true,["weapons"] = true},
 		traits = { --traits requirements
+			["crafting"] = 1,
 			["crafting_tech"] = 3,--min level needed or true for no level ones,
 		},
 		--[[

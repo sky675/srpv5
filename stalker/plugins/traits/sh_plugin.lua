@@ -562,7 +562,15 @@ nut.command.add("checkalcohlevel", {
         return "Alcoholic Level: "..cur
 	end
 })
-
+if(CLIENT) then
+function PLUGIN:PlayerFootstep(ply, pos, foot, sound, volume, rf)
+	if(ply:getChar()) then
+		if(ply:Crouching()) then
+		return true
+		end
+	end
+end
+end
 if(SERVER) then
 function PLUGIN:PlayerFootstep(ply, pos, foot, sound, volume, rf)
 	if(ply:getChar()) then
