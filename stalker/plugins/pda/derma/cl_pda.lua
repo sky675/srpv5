@@ -19,7 +19,7 @@ function PANEL:ConfigureTabs()
 	self:addTab(vgui.Create("pdaScoreboard"), 2)
 	self:addTab(vgui.Create("pdaMap"), 3)
 	self:addTab(vgui.Create("pdaSettings"), 4)
-	--self:addTab(vgui.Create("pdaAnnouncements"), 5)  --(Re-implemented your announcements system if you want to do anything with it :] - take a look at it if you want )
+	--self:addTab(vgui.Create("pdaAnnouncements"), 5)  --(Re-implemented your announcements system if you want to do anything with it :])
 	self:addTab(vgui.Create("pdaClose"), 9999)
 
 	hook.Run("pdaConfigureTabs", self)
