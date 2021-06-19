@@ -13,6 +13,7 @@ local PANEL = {}
 --[[
 	Gathers all the different pages of the PDA to be added to the collection, use the hook to add pda tabs from another plugin. 
 	*Use a unique priority identifier* - ideally increments of 100, ya know
+	Priority determines order of appearance, lowest number being higher on the list.
 --]]
 function PANEL:ConfigureTabs()
 	self:addTab(vgui.Create("pdaHome"), 1)
@@ -20,7 +21,7 @@ function PANEL:ConfigureTabs()
 	self:addTab(vgui.Create("pdaMap"), 3)
 	self:addTab(vgui.Create("pdaSettings"), 4)
 	--self:addTab(vgui.Create("pdaAnnouncements"), 5)  --(Re-implemented your announcements system if you want to do anything with it :])
-	self:addTab(vgui.Create("pdaClose"), 9999)
+	self:addTab(vgui.Create("pdaClose"), 9999) --This has a ShouldShow() parameter matching the nut.config option for pdaInternalCloseButton
 
 	hook.Run("pdaConfigureTabs", self)
 end
@@ -242,8 +243,8 @@ function PANEL:Init()
 
 	--[[
 		MAIN PDA SCREEN CONTAINER
-		width, height is *0.405, *0.498 --775, 537
-		x, y is ScrX*0.0525, *0.075 --102, 80
+			width, height is *0.405, *0.498 --775, 537
+			x, y is ScrX*0.0525, *0.075 --102, 80
 	--]]
 	local screenW, screenH = ScrW()*0.405, ScrH()*0.498
 	local screenX, screenY = ScrW()*0.0525, ScrH()*0.075
@@ -260,7 +261,7 @@ function PANEL:Init()
 
 	--[[
 		TABLIST SCROLL WINDOW (ON LEFT)
-		width is ScrW() * 0.114 = 219
+			width is ScrW() * 0.114 = 219
 	--]]
 	local tabScrollW = ScrW()*0.114
 
@@ -283,8 +284,8 @@ function PANEL:Init()
 
 	--[[
 		CONTENT DISPLAY (ON RIGHT)
-		width is ScrW() * 0.289 = 555
-		x position is ScrW() * 0.115 = 220 
+			width is ScrW() * 0.289 = 555
+			x position is ScrW() * 0.115 = 220 
 	--]]	
 	self.Content = vgui.Create("Panel", self.Main)
 	local contW = ScrW()*0.289
@@ -301,7 +302,7 @@ function PANEL:Init()
 	self.context = {}
 	self:ConfigureTabs()
 	self:AddTabsToList(self.tabs)
-	self:SetTab(1)
+	self:SetTab(1) --Go to home page but also set the tab as selected
 end
 
 vgui.Register("pdaPanel", PANEL, "DFrame")
