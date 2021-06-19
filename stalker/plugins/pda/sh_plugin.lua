@@ -1,7 +1,7 @@
 local PLUGIN = PLUGIN
 PLUGIN.name = "PDA System"
 PLUGIN.author = "sky"
-PLUGIN.desc = "stalker PDAs and gui"
+PLUGIN.desc = "Stalker PDAs and GUI"
 
 PDA_AVAILABLE = true
 
@@ -10,7 +10,23 @@ PLUGIN.tradeBan = PLUGIN.tradeBan or {}
 PLUGIN.dataList = PLUGIN.dataList or {}
 PLUGIN.dataComList = PLUGIN.dataComList or {} --comments
 
+nut.util.includeDir(PLUGIN.path.."/derma/tabs", true)
+
+nut.config.add("pdaExternalCloseButton", false, "Whether or not to show a close button below the pda.", nil, {
+	category = PLUGIN.name
+})
+nut.config.add("pdaInternalCloseButton", true, "Whether or not to show a close button in the pda gui.", nil, {
+	category = PLUGIN.name
+})
+
+nut.config.add("pdaAnnouncementsURL", "http://nutscript.com", "The URL to be loaded for the PDA announcements tab", nil, {
+	category = PLUGIN.name
+})
+
 nut.flag.add("Z", "PDA sysadmin. Allows use of special commands.")
+
+
+
 
 local split = string.Split
 

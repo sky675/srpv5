@@ -74,7 +74,8 @@ if(SERVER) then
 else--client
 	netstream.Hook("addlist", function(tbl)
 		if(IsValid(nut.gui.pda) && nut.gui.pda:IsVisible()) then
-			nut.gui.pda:UpdateScoreboard(tbl)
+			local pda = nut.gui.pda
+			pda.tabs[2]:UpdateScoreboard(tbl)
 		end
 	end)
 	--unhide/create pda
