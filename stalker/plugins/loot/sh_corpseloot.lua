@@ -46,6 +46,9 @@ PLUGIN.dropTables = {
 			{"patch_bandit", 10}, 
 			{"none", 20},
 		},
+		singleOnly = {
+			["patch_bandit"] = true,
+		},
 		lootAmt = {1,3},
 		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
 		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
@@ -306,11 +309,16 @@ if(SERVER) then
 				--no loot yet, generate table
 				local amt = math.random(drop.lootAmt[1], drop.lootAmt[2])
 				ent.items = {}
+				local sngl = {}
 				if(amt != 0) then
 					for i = 1, amt do
 						local it = table.Random(realDropTab[ent.npcClass])
 						if(it == "none") then continue end --dont spawn anything
 						if(!nut.item.get(it)) then continue end --invalid
+						if(drop.singleOnly and drop.singleOnly[it]) then
+							if(sngl[it]) then continue end --prevent multiples
+							sngl[it] = true
+						end
 
 						if(ent.items[it]) then
 							ent.items[it] = ent.items[it] + 1
