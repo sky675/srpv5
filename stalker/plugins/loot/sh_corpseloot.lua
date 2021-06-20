@@ -33,7 +33,7 @@ PLUGIN.dropTables = {
 		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
 	},
 	]]
-	["npc_vj_srp_anorak_rogue"] = {
+	["npc_vj_srp_anorak_bandit"] = {
 		loot = {
 			{"ammo_45acp", 3},
 			{"ammo_9x19", 3},
@@ -48,6 +48,126 @@ PLUGIN.dropTables = {
 		},
 		singleOnly = {
 			["patch_bandit"] = true,
+		},
+		lootAmt = {1,3},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},
+	["npc_vj_srp_anorak_rogue"] = {
+		loot = {
+			{"ammo_45acp", 3},
+			{"ammo_9x19", 3},
+			{"ammo_9x18", 2},
+			{"ammo_buckshot", 2},
+			{"meds_bandage", 3},
+			{"medkit", 5},
+			{"meds_painkillers", 1},
+			--{"generic_mag", 1}, 
+			{"patch_loner", 10}, 
+			{"none", 20},
+		},
+		singleOnly = {
+			["patch_loner"] = true,
+		},
+		lootAmt = {1,3},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},
+	["npc_vj_srp_anorak_duty"] = {
+		loot = {
+			{"ammo_45acp", 3},
+			{"ammo_9x19", 3},
+			{"ammo_9x18", 2},
+			{"ammo_buckshot", 2},
+			{"meds_bandage", 3},
+			{"medkit", 5},
+			{"meds_painkillers", 1},
+			--{"generic_mag", 1}, 
+			{"patch_duty", 10}, 
+			{"none", 20},
+		},
+		singleOnly = {
+			["patch_duty"] = true,
+		},
+		lootAmt = {1,3},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},
+	["npc_vj_srp_anorak_freedom"] = {
+		loot = {
+			{"ammo_45acp", 3},
+			{"ammo_9x19", 3},
+			{"ammo_9x18", 2},
+			{"ammo_buckshot", 2},
+			{"meds_bandage", 3},
+			{"medkit", 5},
+			{"meds_painkillers", 1},
+			--{"generic_mag", 1}, 
+			{"patch_freedom", 10}, 
+			{"none", 20},
+		},
+		singleOnly = {
+			["patch_freedom"] = true,
+		},
+		lootAmt = {1,3},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},
+	["npc_vj_srp_anorak_merc"] = {
+		loot = {
+			{"ammo_45acp", 3},
+			{"ammo_9x19", 3},
+			{"ammo_9x18", 2},
+			{"ammo_buckshot", 2},
+			{"meds_bandage", 3},
+			{"medkit", 5},
+			{"meds_painkillers", 1},
+			--{"generic_mag", 1}, 
+			{"patch_merc", 10}, 
+			{"none", 20},
+		},
+		singleOnly = {
+			["patch_merc"] = true,
+		},
+		lootAmt = {1,3},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},
+	["npc_vj_srp_anorak_mili"] = {
+		loot = {
+			{"ammo_45acp", 3},
+			{"ammo_9x19", 3},
+			{"ammo_9x18", 2},
+			{"ammo_buckshot", 2},
+			{"meds_bandage", 3},
+			{"medkit", 5},
+			{"meds_painkillers", 1},
+			--{"generic_mag", 1}, 
+			{"patch_military", 10}, 
+			{"none", 20},
+		},
+		singleOnly = {
+			["patch_military"] = true,
+		},
+		lootAmt = {1,3},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},
+	["npc_vj_srp_anorak_mono"] = {
+		loot = {
+			{"ammo_45acp", 3},
+			{"ammo_9x19", 3},
+			{"ammo_9x18", 2},
+			{"ammo_buckshot", 2},
+			{"meds_bandage", 3},
+			{"medkit", 5},
+			{"meds_painkillers", 1},
+			--{"generic_mag", 1}, 
+			{"patch_mono", 10}, 
+			{"none", 20},
+		},
+		singleOnly = {
+			["patch_mono"] = true,
 		},
 		lootAmt = {1,3},
 		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
