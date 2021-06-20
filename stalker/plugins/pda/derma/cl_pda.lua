@@ -77,10 +77,12 @@ end
 function PANEL:SetTab(newTab)
 	self.Scroll.tab[self.curTab]:SetTextColor(Color(255,255,255,150)) --Unselected tab color
 	self.tabs[self.curTab]:onHide()
+	self.tabs[self.curTab]:KillFocus()
 	self.tabs[self.curTab]:SetVisible(false)
 	self.curTab = newTab
 	self.Scroll.tab[self.curTab]:SetTextColor(Color(100,255,100,190)) --Selected tab highlight color
 	self.tabs[self.curTab]:SetVisible(true)
+	self.tabs[self.curTab]:RequestFocus()
 	self.tabs[self.curTab]:onDisplay()
 end
 
