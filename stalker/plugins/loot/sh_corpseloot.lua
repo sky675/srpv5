@@ -33,6 +33,131 @@ PLUGIN.dropTables = {
 		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
 	},
 	]]
+
+	["npc_vj_srp_m_boar"] = {
+		loot = {
+			{"hide_boar", 5},
+			{"part_boar", 5},
+			{"food_meat_boar", 5},
+			{"none", 10},
+		},
+		knife = 2,
+		lootAmt = {1,3},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},
+	["npc_vj_srp_m_flesh"] = {
+		loot = {
+			{"hide_flesh", 5},
+			{"part_flesh", 5},
+			{"food_meat_flesh", 5},
+			{"none", 10},
+		},
+		knife = 1,
+		lootAmt = {1,3},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},
+	["npc_vj_srp_m_rat"] = {
+		loot = {
+			{"part_rat", 5},
+			{"food_meat_rat", 5},
+			{"none", 5},
+		},
+		knife = 1,
+		lootAmt = {1,3},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},
+	["npc_vj_srp_m_zombie"] = {
+		loot = {
+			{"part_zombie", 5},
+			{"ammo_45acp", 2},
+			{"ammo_9x19", 2},
+			{"ammo_9x18", 2},
+			{"ammo_buckshot", 1},
+			{"none", 5},
+		},
+		knife = 1,
+		lootAmt = {1,3},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},
+	["npc_vj_srp_m_bloodsucker"] = {
+		loot = {
+			{"hide_bloodsucker", 5},
+			{"part_bloodsucker", 5},
+			{"food_meat_bloodsucker", 5},
+			{"none", 10},
+		},
+		knife = 1,
+		lootAmt = {1,3},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},
+	["npc_vj_srp_m_dog"] = {
+		loot = {
+			{"part_dog", 5},
+			{"food_meat_dog", 5},
+			{"none", 5},
+		},
+		knife = 1,
+		lootAmt = {1,3},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},
+	["npc_vj_srp_m_pseudodog"] = {
+		loot = {
+			{"hide_pseudodog", 5},
+			{"food_meat_pseudodog", 5},
+			{"part_pseudofang", 5},
+			{"part_pseudotail", 5},
+			{"none", 5},
+		},
+		knife = 1,
+		lootAmt = {1,3},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},
+	["npc_vj_srp_m_psydog"] = {
+		loot = {
+			{"hide_psydog", 5},
+			{"food_meat_pseudodog", 5},
+			{"part_pseudofang", 5},
+			{"part_pseudotail", 5},
+			{"part_controller_brain", 3},
+			{"none", 5},
+		},
+		knife = 1,
+		lootAmt = {1,3},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},
+	["npc_vj_srp_m_snork"] = {
+		loot = {
+			{"part_snork_leg", 5},
+			{"part_snork_mask", 5},
+			{"food_meat_snork", 5},
+			{"none", 10},
+		},
+		knife = 1,
+		lootAmt = {1,3},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},
+	["npc_vj_srp_m_chimera"] = {
+		loot = {
+			{"part_chimera", 5}, --theres definitely an item missing
+			{"hide_chimera", 5},
+			{"food_meat_chimera", 5},
+			{"none", 10},
+		},
+		knife = 2,
+		lootAmt = {1,3},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},--need pseudogiant items lol
+	
 	["npc_vj_srp_anorak_bandit"] = {
 		loot = {
 			{"ammo_45acp", 3},
@@ -169,118 +294,6 @@ PLUGIN.dropTables = {
 		singleOnly = {
 			["patch_mono"] = true,
 		},
-		lootAmt = {1,3},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-
-	["npc_vj_srp_m_boar"] = {
-		loot = {
-			{"hide_boar", 5},
-			{"part_boar", 5},
-			{"food_meat_boar", 5},
-			{"none", 10},
-		},
-		knife = 2,
-		lootAmt = {1,3},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_srp_m_flesh"] = {
-		loot = {
-			{"hide_flesh", 5},
-			{"part_flesh", 5},
-			{"food_meat_flesh", 5},
-			{"none", 10},
-		},
-		knife = 1,
-		lootAmt = {1,3},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_srp_m_rat"] = {
-		loot = {
-			{"part_rat", 5},
-			{"food_meat_rat", 5},
-			{"none", 5},
-		},
-		knife = 1,
-		lootAmt = {1,3},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_srp_m_zombie"] = {
-		loot = {
-			{"part_zombie", 5},
-			{"ammo_45acp", 2},
-			{"ammo_9x19", 2},
-			{"ammo_9x18", 2},
-			{"ammo_buckshot", 1},
-			{"none", 5},
-		},
-		knife = 1,
-		lootAmt = {1,3},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_srp_m_bloodsucker"] = {
-		loot = {
-			{"hide_bloodsucker", 5},
-			{"part_bloodsucker", 5},
-			{"food_meat_bloodsucker", 5},
-			{"none", 10},
-		},
-		knife = 1,
-		lootAmt = {1,3},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_srp_m_dog"] = {
-		loot = {
-			{"part_dog", 5},
-			{"food_meat_dog", 5},
-			{"none", 5},
-		},
-		knife = 1,
-		lootAmt = {1,3},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_srp_m_pseudodog"] = {
-		loot = {
-			{"hide_pseudodog", 5},
-			{"food_meat_pseudodog", 5},
-			{"part_pseudofang", 5},
-			{"part_pseudotail", 5},
-			{"none", 5},
-		},
-		knife = 1,
-		lootAmt = {1,3},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_srp_m_psydog"] = {
-		loot = {
-			{"hide_psydog", 5},
-			{"food_meat_pseudodog", 5},
-			{"part_pseudofang", 5},
-			{"part_pseudotail", 5},
-			{"part_controller_brain", 3},
-			{"none", 5},
-		},
-		knife = 1,
-		lootAmt = {1,3},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_srp_m_snork"] = {
-		loot = {
-			{"part_snork_leg", 5},
-			{"part_snork_mask", 5},
-			{"food_meat_snork", 5},
-			{"none", 10},
-		},
-		knife = 1,
 		lootAmt = {1,3},
 		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
 		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
