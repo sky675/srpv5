@@ -19,7 +19,8 @@ function PANEL:ConfigureTabs()
 	self:addTab(vgui.Create("pdaHome"), 1)
 	self:addTab(vgui.Create("pdaScoreboard"), 2)
 	self:addTab(vgui.Create("pdaMap"), 3)
-	self:addTab(vgui.Create("pdaSettings"), 4)
+	self:addTab(vgui.Create("pdaNotes"), 4)
+	self:addTab(vgui.Create("pdaSettings"), 9998)
 	--self:addTab(vgui.Create("pdaAnnouncements"), 5)  --(Re-implemented your announcements system if you want to do anything with it :])
 	self:addTab(vgui.Create("pdaClose"), 9999) --This has a ShouldShow() parameter matching the nut.config option for pdaInternalCloseButton
 
@@ -124,6 +125,7 @@ end
 	Disables (hides) the pda
 --]]
 function PANEL:DisablePDA()
+	self.tabs[self.curTab]:onHide()
 	self:SetVisible(false)
 	self.CloseB:SetVisible(false)
 end

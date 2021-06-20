@@ -236,6 +236,7 @@ function ITEM:onInstanced()
 
     self:setData("pdahandle", handle)
     self:setData("pdablocked", "")
+    self:setData("pdanotes", "")
 end
 
 function ITEM:GetPDAData()
