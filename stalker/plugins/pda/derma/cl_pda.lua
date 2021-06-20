@@ -21,7 +21,7 @@ function PANEL:ConfigureTabs()
 	self:addTab(vgui.Create("pdaMap"), 3)
 	self:addTab(vgui.Create("pdaSettings"), 4)
 	--self:addTab(vgui.Create("pdaAnnouncements"), 5)  --(Re-implemented your announcements system if you want to do anything with it :])
-	self:addTab(vgui.Create("pdaInternalCloseButton"), 9999) --This has a ShouldShow() parameter matching the nut.config option for pdaInternalCloseButton
+	self:addTab(vgui.Create("pdaClose"), 9999) --This has a ShouldShow() parameter matching the nut.config option for pdaInternalCloseButton
 
 	hook.Run("pdaConfigureTabs", self)
 end
@@ -143,7 +143,7 @@ function PANEL:Reset(newid)
 	self:SetTab(1) --Go to home page
 
 	self:SetVisible(true)
-	if (nut.config.get("pdaCloseButton")) then
+	if (nut.config.get("pdaExternalCloseButton")) then
 		self.CloseB:SetVisible(true)
 		self.CloseB:SetMouseInputEnabled(true)
 	end
@@ -235,7 +235,7 @@ function PANEL:Init()
 		self:DisablePDA()
 	end
 
-	if (nut.config.get("pdaCloseButton")) then
+	if (nut.config.get("pdaExternalCloseButton")) then
 		self.CloseB:SetVisible(true)
 		self.CloseB:SetMouseInputEnabled(true)
 	end
