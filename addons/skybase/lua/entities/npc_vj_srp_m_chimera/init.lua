@@ -62,6 +62,10 @@ function ENT:LeapForceCode()
 	jumpyaw = jumpcode:Angle().y
 	self:SetLocalVelocity(jumpcode)
 end
+
+function ENT:CustomOnDeath_AfterCorpseSpawned(dmginfo,hitgroup,ply) 
+	ply.npcClass = self:GetClass()
+end
 /*-----------------------------------------------
 	*** Copyright (c) 2012-2015 by DrVrej, All rights reserved. ***
 	No parts of this code or any of its contents may be reproduced, copied, modified or adapted,

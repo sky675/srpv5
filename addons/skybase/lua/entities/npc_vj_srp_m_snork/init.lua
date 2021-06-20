@@ -75,4 +75,8 @@ function ENT:CustomInitialize()
 	elseif randomstartbg_body  == 5 then self:SetSkin( 5 ) 
 	end
 end
+
+function ENT:CustomOnDeath_AfterCorpseSpawned(dmginfo,hitgroup,ply) 
+	ply.npcClass = self:GetClass()
+end
 --are u fucking insane

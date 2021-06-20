@@ -182,6 +182,10 @@ function ENT:CustomInitialize()
 
 end
 
+function ENT:CustomOnDeath_AfterCorpseSpawned(dmginfo,hitgroup,ply) 
+	ply.npcClass = self:GetClass()
+end
+
 ENT.FootStepSoundLevel = 60
 
 /*-----------------------------------------------

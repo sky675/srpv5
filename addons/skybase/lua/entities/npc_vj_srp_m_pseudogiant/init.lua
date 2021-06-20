@@ -95,6 +95,7 @@ function ENT:CustomInitialize()
 	self:Activate()
 end
 function ENT:CustomOnDeath_AfterCorpseSpawned(dmginfo,hitgroup,ply) 
+	ply.npcClass = self:GetClass()
 	if(IsValid(self)) then
 		self:SetModelScale(1.35)
 	end
