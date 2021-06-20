@@ -106,7 +106,7 @@ PLUGIN.dropTables = {
 	},
 	["npc_vj_srp_m_dog"] = {
 		loot = {
-			{"part_dog", 5},
+			{"part_dog", 10},
 			{"food_meat_dog", 10},
 			{"none", 5},
 		},
@@ -165,7 +165,8 @@ PLUGIN.dropTables = {
 	},
 	["npc_vj_srp_m_chimera"] = {
 		loot = {
-			{"part_chimera", 10}, --theres definitely an item missing, ok model wise its the same so whatever
+			{"part_chimera", 2}, 
+			{"part_chimera_claw", 5}, 
 			{"hide_chimera", 5},
 			{"food_meat_chimera", 5},
 			{"none", 10},
@@ -177,7 +178,22 @@ PLUGIN.dropTables = {
 		lootAmt = {1,3},
 		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
 		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},--need pseudogiant items lol
+	},
+	["npc_vj_srp_m_pseudogiant"] = {
+		loot = {
+			{"part_pseudogiant_eye", 5}, 
+			{"hide_pseudogiant", 5},
+			{"part_pseudogiant_hand", 5},
+			{"none", 10},
+		},
+		singleOnly = {
+			["hide_pseudogiant"] = true,
+		},
+		knife = 2,
+		lootAmt = {1,3},
+		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
+	},
 	
 	["npc_vj_srp_anorak_bandit"] = {
 		loot = {
