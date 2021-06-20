@@ -216,3 +216,7 @@ function ENT:CustomOnRemove()
 	if IsValid(self.Phantom5) then self.Phantom5:Remove() end
 	timer.Remove( "psyattack" )
 end
+
+function ENT:CustomOnDeath_AfterCorpseSpawned(dmginfo,hitgroup,ply) 
+	ply.npcClass = self:GetClass()
+end

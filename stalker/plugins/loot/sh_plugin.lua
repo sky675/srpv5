@@ -606,128 +606,6 @@ PLUGIN.lootTables = {
 	]]
 }
 
-PLUGIN.dropTables = {
-	--[[
-	["npc_class"] = {
-		loot = {
-			{"id", 1},
-			{"none", 1}
-		},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	]]
-	["npc_vj_srp_anorak_rogue"] = {
-		loot = {
-			{"ammo_45acp", 3},
-			{"ammo_9x19", 3},
-			{"ammo_9x18", 2},
-			{"ammo_buckshot", 2},
-			{"meds_bandage", 3},
-			{"medkit", 5},
-			{"meds_painkillers", 1},
-			--{"generic_mag", 1}, 
-			{"patch_bandit", 10}, 
-			{"none", 20},
-		},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-
-	["npc_vj_srp_m_boar"] = {
-		loot = {
-			{"hide_boar", 5},
-			{"part_boar", 5},
-			{"food_meat_boar", 5},
-			{"none", 10},
-		},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_srp_m_flesh"] = {
-		loot = {
-			{"hide_flesh", 5},
-			{"part_flesh", 5},
-			{"food_meat_flesh", 5},
-			{"none", 10},
-		},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_srp_m_rat"] = {
-		loot = {
-			{"part_rat", 5},
-			{"food_meat_rat", 5},
-			{"none", 5},
-		},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_srp_m_zombie"] = {
-		loot = {
-			{"part_zombie", 5},
-			{"ammo_45acp", 2},
-			{"ammo_9x19", 2},
-			{"ammo_9x18", 2},
-			{"ammo_buckshot", 1},
-			{"none", 5},
-		},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_srp_m_bloodsucker"] = {
-		loot = {
-			{"hide_bloodsucker", 5},
-			{"part_bloodsucker", 5},
-			{"food_meat_bloodsucker", 5},
-			{"none", 10},
-		},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_srp_m_dog"] = {
-		loot = {
-			{"part_dog", 5},
-			{"food_meat_dog", 5},
-			{"none", 5},
-		},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_srp_m_pseudodog"] = {
-		loot = {
-			{"hide_pseudodog", 5},
-			{"food_meat_pseudodog", 5},
-			{"part_pseudofang", 5},
-			{"part_pseudotail", 5},
-			{"none", 5},
-		},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_srp_m_psydog"] = {
-		loot = {
-			{"hide_psydog", 5},
-			{"food_meat_pseudodog", 5},
-			{"part_pseudofang", 5},
-			{"part_pseudotail", 5},
-			{"part_controller_brain", 3},
-			{"none", 5},
-		},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-	["npc_vj_srp_m_snork"] = {
-		loot = {
-			{"part_snork_leg", 5},
-			{"part_snork_mask", 5},
-			{"food_meat_snork", 5},
-			{"none", 10},
-		},
-		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
-		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
-	},
-}
 
 --config (should move this to the actual config but this works for now)
 PLUGIN.maxItems = 40			--this V is not correct anymore
@@ -748,8 +626,9 @@ PLUGIN.spawnPos = PLUGIN.spawnPos or {} --spawn positions
 ]]
 
 --nut.util.include("sh_director.lua")
-nut.util.include("sh_commands.lua")
 nut.util.include("sh_scenes.lua")
+nut.util.include("sh_commands.lua")
+nut.util.include("sh_corpseloot.lua")
 --nut.util.include("sh_tempstorage.lua")
 
 --returns true if there is a player not in noclip/observer near the point, 
@@ -930,10 +809,10 @@ function PLUGIN:SpawnRound()
 			local data = {}
 			local durabilityMin, durabilityMax = self.lootTables[v.table].durability[1], self.lootTables[v.table].durability[2]
 			-- random mag amt if ammo, random durability if wep
-			if(item.base == "base_mweapons") then
-				data["durability"] = math.random(durabilityMin, durabilityMax)
+			--[[if(item.base == "base_cweapons") then
+				--data["durability"] = math.random(durabilityMin, durabilityMax)
 
-				local maxclip = weapons.GetStored(item.class).Primary.ClipSize
+				--local maxclip = weapons.GetStored(item.class).Primary.ClipSize
 				if(self.lootTables[v.table].randomAmmo != 2) then
 					data["ammo"] = math.random(0, maxclip)
 				else
@@ -970,7 +849,7 @@ function PLUGIN:SpawnRound()
 					data["money"] = item.moneymax
 				end
 			end
-
+			]]
 			nut.item.spawn(it, actualPos, function(item, entity)
 				self.curItems[k] = entity 
 
@@ -980,7 +859,7 @@ function PLUGIN:SpawnRound()
 					item:setQuantity(1)
 				end
 				if(item.base == "base_ammo") then
-					if(PLUGIN.dropTables[class].randomAmmo != 2) then
+					if(self.lootTables[v.table].randomAmmo != 2) then
 						--~33% chance to be max
 						if(math.random(0, 2) != 0) then 
 							item:setQuantity(math.random(1, item.maxQuantity))
@@ -1046,16 +925,7 @@ if(SERVER) then
 			PLUGIN:SpawnRound() --do eeeet
 		end)
 	end)--)
-	local realDropTab = {}
-	for k,v in pairs(PLUGIN.dropTables) do
-		realDropTab[k] = {}
-		for k2, v2 in pairs(v.loot) do
-			for i=1, v2[2] do
-				table.insert(realDropTab[k], v2[1])
-			end
-		end
-	end
-
+--[[
 	hook.Add("OnNPCKilled", "dropstuff", function(npc, atk, inf)
 		local class = npc:GetClass()
 		if(PLUGIN.dropTables[class]) then
@@ -1115,7 +985,7 @@ if(SERVER) then
 			end, nil, data)
 		end
 	end)
-
+]]
 	function PLUGIN:LoadData()
 		if(!self.spawnPos or #self.spawnPos == 0) then
 			local data = self:getData() or {scenes = {}, spawns = {}}

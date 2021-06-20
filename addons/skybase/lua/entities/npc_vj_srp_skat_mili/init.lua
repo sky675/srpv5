@@ -608,6 +608,7 @@ function ENT:CheckFemale()
 end
 
 function ENT:CustomOnDeath_AfterCorpseSpawned(dmginfo,hitgroup,ply) 
+	ply.npcClass = self:GetClass()
 	if(ply:GetModel():find("_mask")) then return end --nope
  
 	local topmodel = "models/sky/seperate/male_skat.mdl"

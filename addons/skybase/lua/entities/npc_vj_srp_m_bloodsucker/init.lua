@@ -81,6 +81,10 @@ ENT.MeleeAttackSoundPitch2 = 100
 ENT.AlertSoundPitch1 = 100
 ENT.AlertSoundPitch2 = 100
 
+function ENT:CustomOnDeath_AfterCorpseSpawned(dmginfo,hitgroup,ply) 
+	ply.npcClass = self:GetClass()
+end
+
 function ENT:CustomInitialize()
 	self:SetSkin(math.random(0,1))
 end

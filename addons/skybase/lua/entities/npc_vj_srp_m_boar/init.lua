@@ -115,6 +115,10 @@ function ENT:CustomInitialize()
 	self:SetCollisionBounds(Vector(15, 30, 28), Vector(-13, -13, 0))
 end
 
+function ENT:CustomOnDeath_AfterCorpseSpawned(dmginfo,hitgroup,ply) 
+	ply.npcClass = self:GetClass()
+end
+
 ENT.FootStepSoundLevel = 60
 /*-----------------------------------------------
 	*** Copyright (c) 2012-2015 by DrVrej, All rights reserved. ***
