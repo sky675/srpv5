@@ -438,6 +438,7 @@ else
 	util.AddNetworkString("ChangePDAHandle")
 	util.AddNetworkString("ChangePDATitle")
 	util.AddNetworkString("ChangePDAParty")
+	util.AddNetworkString("ChangePDANotes")
 
 	hook.Add("PlayerLoadedChar", "pdaintromsg", function(ply, char, lastChar)
 		if(!char:getData("pn")) then
@@ -479,6 +480,13 @@ else
 
         nut.item.instances[idd]:setData("partych", change, player.GetAll())
     end)
+
+	net.Receive("ChangePDANotes", function(len, ply)
+        local change = net.ReadString()
+        local idd = net.ReadInt(32)
+
+        nut.item.instances[idd]:setData("pdanotes", change, player.GetAll())
+	end)
 	
 	util.AddNetworkString("RecPDAData")
 	util.AddNetworkString("GivePDAData")
