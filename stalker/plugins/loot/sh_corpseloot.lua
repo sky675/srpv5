@@ -41,6 +41,9 @@ PLUGIN.dropTables = {
 			{"food_meat_boar", 5},
 			{"none", 10},
 		},
+		singleOnly = {
+			["hide_boar"] = true,
+		},
 		knife = 2,
 		lootAmt = {1,3},
 		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
@@ -52,6 +55,9 @@ PLUGIN.dropTables = {
 			{"part_flesh", 5},
 			{"food_meat_flesh", 5},
 			{"none", 10},
+		},
+		singleOnly = {
+			["hide_flesh"] = true,
 		},
 		knife = 1,
 		lootAmt = {1,3},
@@ -90,6 +96,9 @@ PLUGIN.dropTables = {
 			{"food_meat_bloodsucker", 5},
 			{"none", 10},
 		},
+		singleOnly = {
+			["hide_bloodsucker"] = true,
+		},
 		knife = 1,
 		lootAmt = {1,3},
 		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
@@ -98,11 +107,11 @@ PLUGIN.dropTables = {
 	["npc_vj_srp_m_dog"] = {
 		loot = {
 			{"part_dog", 5},
-			{"food_meat_dog", 5},
+			{"food_meat_dog", 10},
 			{"none", 5},
 		},
 		knife = 1,
-		lootAmt = {1,3},
+		lootAmt = {1,2},
 		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
 		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
 	},
@@ -113,6 +122,9 @@ PLUGIN.dropTables = {
 			{"part_pseudofang", 5},
 			{"part_pseudotail", 5},
 			{"none", 5},
+		},
+		singleOnly = {
+			["hide_pseudodog"] = true,
 		},
 		knife = 1,
 		lootAmt = {1,3},
@@ -128,6 +140,9 @@ PLUGIN.dropTables = {
 			{"part_controller_brain", 3},
 			{"none", 5},
 		},
+		singleOnly = {
+			["hide_psydog"] = true,
+		},
 		knife = 1,
 		lootAmt = {1,3},
 		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
@@ -140,6 +155,9 @@ PLUGIN.dropTables = {
 			{"food_meat_snork", 5},
 			{"none", 10},
 		},
+		singleOnly = {
+			["part_snork_mask"] = true,
+		},
 		knife = 1,
 		lootAmt = {1,3},
 		durability = {5, 30}, --durability when spawned if weapon or suit (for watever reason)
@@ -147,10 +165,13 @@ PLUGIN.dropTables = {
 	},
 	["npc_vj_srp_m_chimera"] = {
 		loot = {
-			{"part_chimera", 5}, --theres definitely an item missing
+			{"part_chimera", 10}, --theres definitely an item missing, ok model wise its the same so whatever
 			{"hide_chimera", 5},
 			{"food_meat_chimera", 5},
 			{"none", 10},
+		},
+		singleOnly = {
+			["hide_chimera"] = true,
 		},
 		knife = 2,
 		lootAmt = {1,3},
