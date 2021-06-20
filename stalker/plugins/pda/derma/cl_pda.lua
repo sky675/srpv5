@@ -143,7 +143,7 @@ function PANEL:Reset(newid)
 	self:SetTab(1) --Go to home page
 
 	self:SetVisible(true)
-	if (nut.config.get("pdaCloseButton")) then
+	if (nut.config.get("pdaExternalCloseButton")) then
 		self.CloseB:SetVisible(true)
 		self.CloseB:SetMouseInputEnabled(true)
 	end
@@ -235,7 +235,7 @@ function PANEL:Init()
 		self:DisablePDA()
 	end
 
-	if (nut.config.get("pdaCloseButton")) then
+	if (nut.config.get("pdaExternalCloseButton")) then
 		self.CloseB:SetVisible(true)
 		self.CloseB:SetMouseInputEnabled(true)
 	end
