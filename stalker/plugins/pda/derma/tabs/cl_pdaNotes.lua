@@ -4,7 +4,7 @@ PANEL.tabLabel = "Notes"
 
 local contW, contH = ScrW()*0.289, ScrH()*0.498
 local textLength = 0
-local maxText = 1000
+local maxText = 250
 local allowedText
 
 function PANEL:Init()
@@ -38,12 +38,12 @@ function PANEL:Init()
     self.textentry:SetPos(0, 0)
     self.textentry:SetSize(self.TextEntryContainer:GetSize())
     self.textentry.OnValueChange = function(panel, value)
-        allowedText = string.sub( value, 1, 1000 )
+        allowedText = string.sub( value, 1, maxText )
         textLength = string.len(value)
         self.length:SetText(textLength .. "/" .. maxText)
         self.length:SizeToContentsX()
         self.length:CenterHorizontal()
-        if textLength > 1000 then
+        if textLength > maxText then
             self.textentry:SetText(allowedText)
             textLength = string.len(value)
             self.length:SetText(textLength .. "/" .. maxText)
@@ -53,7 +53,7 @@ function PANEL:Init()
     end
 
     self.save.DoClick = function(but)
-        local submittedText = string.sub(self.textentry:GetValue(), 1, 1000)
+        local submittedText = string.sub(self.textentry:GetValue(), 1, maxText)
 
         net.Start("ChangePDANotes")
         net.WriteString(submittedText)
