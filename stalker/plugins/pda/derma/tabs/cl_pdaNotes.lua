@@ -51,7 +51,7 @@ function PANEL:Init()
             self.length:CenterHorizontal()
         end
     end
-
+    
     self.save.DoClick = function(but)
         local submittedText = string.sub(self.textentry:GetValue(), 1, maxText)
 
