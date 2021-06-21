@@ -75,7 +75,12 @@ function PANEL:onDisplay()
 end
 
 function PANEL:onHide()
-    
+        local submittedText = string.sub(self.textentry:GetValue(), 1, maxText)
+
+        net.Start("ChangePDANotes")
+        net.WriteString(submittedText)
+        net.WriteInt(self.pda.id, 32)
+        net.SendToServer()
 end
 
 vgui.Register("pdaNotes", PANEL, "stalkerPdaTab")
