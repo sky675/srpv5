@@ -50,8 +50,8 @@ trait = {
 	xp = {
 		[1] = 25,
 		--[2] = 45,
-		[3] = 60,
-		[4] = 75,
+		[3] = 20,
+		[4] = 45,
 	},
 	gate = "gate_craft",
 }--todo change when more used?
@@ -150,7 +150,7 @@ trait = {
 	getName = function(char) 
 		return "Cooking Level "..(char:getTrait("crafting_cook") or "???")--Data("traits", {})["crafting_tech"] or "???") 
 	end, --only called in trait list, gender specific or for levels
-	desc = "Level for cooking. Includes cooking mutant meat into meals among other things.",
+	desc = "Level for cooking. Includes cooking mutant meat into meals among other things. Does not require any other crafting traits.",
 	type = "pos", --can be pos or neg for listing on char creation, pos is left column, neg is right column, anything else will hide it from char creation
 	category = "Crafting", --shown in char creation and menu
 	cost = {[1] = 2, [2] = 4}, --cost in char creation, can be table for levels
@@ -198,8 +198,8 @@ trait = {
 	max = 3, --max level for level trait
 	creationMax = 1, --max for creation
 	xp = {
-		[1] = 25,
-		[2] = 60,
+		[1] = 15,
+		[2] = 40,
 	},
 	gate = "gate_repair"
 }
