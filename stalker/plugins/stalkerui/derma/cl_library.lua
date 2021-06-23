@@ -61,7 +61,7 @@ if (CLIENT) then
         Body:SetAllowLua(true)
         --Body:Dock( FILL )
         --Body:SetSize((556*(scaledW/textW)), ((515*(scaledH/textH))))
-        Body:SetWidth((556*(scaledW/textW))) --, 516*(scaledH/textH)
+        Body:SetWidth((550*(scaledW/textW))) --, 516*(scaledH/textH)
         --Body:Dock( FILL )
         --Body:SetFont("nutScaledInvenLight")
         --Body:SetText(bodyText)
