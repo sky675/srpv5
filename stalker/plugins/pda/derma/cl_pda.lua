@@ -139,10 +139,7 @@ function PANEL:Reset(newid)
 	local char = ply:getChar()
 	local inv = char:getInv()
 
-	self:NukeTabs()
-	self:NukePages()
-	self:RebuildPages()
-	self:RebuildTabs()
+
 
 	self:SetTab(1) --Go to home page
 
@@ -168,6 +165,12 @@ function PANEL:Reset(newid)
 			end
 		end
 	end
+
+	self:NukeTabs()
+	self:NukePages()
+	self:RebuildPages()
+	self:RebuildTabs()
+
 end
 
 function PANEL:OnRemove()
@@ -189,7 +192,7 @@ function PANEL:Init()
 	--]]
 	if(!self.pda) then
 		for _,v in pairs(inv:getItems()) do
-			if(v.base == "base_npda" and self.instid and v.id == self.istid) then
+			if(v.base == "base_npda" and self.instid and v.id == self.instid) then
 				self.pda = v
 				break 
 			elseif(v.base == "base_npda" and self.instid) then
