@@ -3,8 +3,18 @@ local PANEL = {}
 PANEL.tabLabel = "Map"
 
 
+local MAP_TEXTURES = {
+    ["rp_crossroads_v1b"] = {
+        texture = Material("sky/pda_maps/crossroads.png"),
+        sizeX = 1920,
+        sizeY = 1080
+    }
+}
+
 --[[
     This is still very much a wip.
+
+    No documentation because this is very scuffed right now, just uh don't mess with it. I'll come back and refactor a lot of it.
 
     TODO:
         -Map POI locations
@@ -16,12 +26,13 @@ PANEL.tabLabel = "Map"
 
 local contW, contH = ScrW()*0.289, ScrH()*0.498
 local scrollspeed = 0.03
-local mapOrgW, mapOrgH = 1920, 1080
-local rp_crossroads = Material("sky/pda_maps/crossroads.png")
 local isClicking = false
 local xOffset, yOffset = 0, 0
 local curX, curY = 0, 0 
-local lastX, lastY = -mapOrgW*0.45, -mapOrgW*0.2
+local lastX, lastY
+local mapText = Material("sky/pda_maps/nomap.png")
+local mapOrgW, mapOrgH = 1920, 1080
+local curMap = game.GetMap()
 
 local mapCoordScale
 local scaledMapCoordOffset
@@ -31,6 +42,16 @@ local startMouseX, startMouseY
 local mapIcons = {}
 
 function PANEL:Init()
+
+    for k, v in pairs(MAP_TEXTURES) do
+        if curMap == k then
+            mapText = v.texture
+            mapOrgW, mapOrgH = v.sizeX, v.sizeY
+        end
+    end
+
+    lastX, lastY = -mapOrgW*0.45, -mapOrgW*0.2
+    
     zoomOffset = 1
     mapW, mapH = mapOrgW, mapOrgH
 
@@ -77,7 +98,7 @@ function PANEL:Paint(w, h)
 
 
     surface.SetDrawColor(255,255,255,255)
-    surface.SetMaterial(rp_crossroads)
+    surface.SetMaterial(mapText)
 
     --gui.MouseX() gui.MouseY()
     if (isClicking) then

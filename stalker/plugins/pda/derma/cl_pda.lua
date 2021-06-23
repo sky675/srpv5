@@ -19,7 +19,7 @@ function PANEL:ConfigureTabs()
 	self:addTab(vgui.Create("pdaHome"), 1)
 	self:addTab(vgui.Create("pdaScoreboard"), 2)
 	self:addTab(vgui.Create("pdaMap"), 3)
-	self:addTab(vgui.Create("pdaNotes"), 4)
+	--self:addTab(vgui.Create("pdaNotes"), 4)
 	self:addTab(vgui.Create("pdaSettings"), 9998)
 	--self:addTab(vgui.Create("pdaAnnouncements"), 5)  --(Re-implemented your announcements system if you want to do anything with it :])
 	self:addTab(vgui.Create("pdaClose"), 9999) --This has a ShouldShow() parameter matching the nut.config option for pdaInternalCloseButton
@@ -56,6 +56,7 @@ function PANEL:AddTabsToList(tbl)
 			self.Scroll.tab[k]:SetSize(219, 35)
 			self.Scroll.tab[k]:Dock(TOP)
 			self.Scroll.tab[k].DoClick = function()
+				surface.PlaySound( "interface/beep.ogg" )
 				self:SetTab(k)
 			end
 		end
@@ -139,12 +140,9 @@ function PANEL:Reset(newid)
 	local char = ply:getChar()
 	local inv = char:getInv()
 
-	self:NukeTabs()
-	self:NukePages()
-	self:RebuildPages()
-	self:RebuildTabs()
 
-	self:SetTab(1) --Go to home page
+
+
 
 	self:SetVisible(true)
 	if (nut.config.get("pdaExternalCloseButton")) then
@@ -154,20 +152,28 @@ function PANEL:Reset(newid)
 
 	
 	if(type(newid) == "table") then
+		print("table found woopie!")
 		self.pda = newid
 	else
 		for k,v in pairs(inv:getItems()) do
 			if(v.base == "base_npda") then
-				if(newid and v.id == newid) then
+				if(newid and v.id == newid and v:getOwner() == ply) then
 					self.pda = v
 					break
-				elseif(self.pda:getOwner() == ply) then
-					self.pda = v
-					break
+				-- elseif(self.pda:getOwner() == ply and v.id == char:getData("activePDA")) then
+				-- 	self.pda = v
+				-- 	break
 				end
 			end
 		end
 	end
+
+	self:NukeTabs()
+	self:NukePages()
+	self:RebuildPages()
+	self:RebuildTabs()
+	self:SetTab(1) --Go to home page, should run after everythign is set so that it can grab the PDA
+
 end
 
 function PANEL:OnRemove()
@@ -189,7 +195,7 @@ function PANEL:Init()
 	--]]
 	if(!self.pda) then
 		for _,v in pairs(inv:getItems()) do
-			if(v.base == "base_npda" and self.instid and v.id == self.istid) then
+			if(v.base == "base_npda" and self.instid and v.id == self.instid) then
 				self.pda = v
 				break 
 			elseif(v.base == "base_npda" and self.instid) then
@@ -306,6 +312,7 @@ function PANEL:Init()
 	self.context = {}
 	self:ConfigureTabs()
 	self:AddTabsToList(self.tabs)
+	
 	self:SetTab(1) --Go to home page but also set the tab as selected
 end
 

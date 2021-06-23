@@ -375,9 +375,11 @@ if (CLIENT) then
                 nut.gui.menu:Remove()
 			end
 			if(!nut.gui.pda) then
-            nut.gui.pda = vgui.Create("pdaPanel")
-			nut.gui.pda.instid = inst
+				print("creating new instance of pdapanel")
+				nut.gui.pda = vgui.Create("pdaPanel")
+				nut.gui.pda.instid = inst
 			else
+				print("just resetting the pda panel, apparently.")
 				nut.gui.pda:Reset(inst)
 			end
 	end)

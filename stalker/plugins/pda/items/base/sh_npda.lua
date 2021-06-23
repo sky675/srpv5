@@ -16,7 +16,7 @@ ITEM.iconCam = {
 function ITEM:getDesc()
 	local desc = self.desc
 
-    desc = desc.."\nPower is "..(self:getData("isoff", false) and "off." or "on.")
+    desc = desc.."\nPDA Handle: " .. tostring(self:getData("pdahandle", "invalid")) .. "\nPower is "..(self:getData("isoff", false) and "off." or "on.")
 
 	return desc
 end
@@ -175,7 +175,7 @@ ITEM.functions.setactive = {
     icon = "icon16/drive_edit.png",
 	onRun = function(item)
 		item.player:getChar():setData("activePDA", item.id)
-		item.player:notify("set")
+		item.player:notify("Active PDA set to " .. tostring(item:getData("pdahandle", "invalid")))
 
         return false
     end,
