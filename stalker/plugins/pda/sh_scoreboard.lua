@@ -113,7 +113,8 @@ else--client
 				end
 			else
 				nut.gui.pda = vgui.Create("pdaPanel")
-				nut.gui.pda.pda = pd
+				--nut.gui.pda.pda = pd
+				nut.gui.pda:Reset(pd)
 			end
 
 			nxtTh = ct + 0.5

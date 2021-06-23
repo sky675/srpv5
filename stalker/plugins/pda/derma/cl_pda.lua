@@ -19,7 +19,7 @@ function PANEL:ConfigureTabs()
 	self:addTab(vgui.Create("pdaHome"), 1)
 	self:addTab(vgui.Create("pdaScoreboard"), 2)
 	self:addTab(vgui.Create("pdaMap"), 3)
-	self:addTab(vgui.Create("pdaNotes"), 4)
+	--self:addTab(vgui.Create("pdaNotes"), 4)
 	self:addTab(vgui.Create("pdaSettings"), 9998)
 	--self:addTab(vgui.Create("pdaAnnouncements"), 5)  --(Re-implemented your announcements system if you want to do anything with it :])
 	self:addTab(vgui.Create("pdaClose"), 9999) --This has a ShouldShow() parameter matching the nut.config option for pdaInternalCloseButton
@@ -56,6 +56,7 @@ function PANEL:AddTabsToList(tbl)
 			self.Scroll.tab[k]:SetSize(219, 35)
 			self.Scroll.tab[k]:Dock(TOP)
 			self.Scroll.tab[k].DoClick = function()
+				surface.PlaySound( "interface/beep.ogg" )
 				self:SetTab(k)
 			end
 		end
@@ -76,6 +77,7 @@ end
 	This doesn't check if shouldShow() is true, so do with that what you will
 --]]
 function PANEL:SetTab(newTab)
+	print("Running set tab")
 	self.Scroll.tab[self.curTab]:SetTextColor(Color(255,255,255,150)) --Unselected tab color
 	self.tabs[self.curTab]:onHide()
 	self.tabs[self.curTab]:KillFocus()
@@ -125,6 +127,7 @@ end
 	Disables (hides) the pda
 --]]
 function PANEL:DisablePDA()
+	print("Disabling PDA")
 	self.tabs[self.curTab]:onHide()
 	self:SetVisible(false)
 	self.CloseB:SetVisible(false)
@@ -141,7 +144,7 @@ function PANEL:Reset(newid)
 
 
 
-	self:SetTab(1) --Go to home page
+
 
 	self:SetVisible(true)
 	if (nut.config.get("pdaExternalCloseButton")) then
@@ -170,6 +173,7 @@ function PANEL:Reset(newid)
 	self:NukePages()
 	self:RebuildPages()
 	self:RebuildTabs()
+	self:SetTab(1) --Go to home page, should run after everythign is set so that it can grab the PDA
 
 end
 
@@ -309,6 +313,7 @@ function PANEL:Init()
 	self.context = {}
 	self:ConfigureTabs()
 	self:AddTabsToList(self.tabs)
+	
 	self:SetTab(1) --Go to home page but also set the tab as selected
 end
 
