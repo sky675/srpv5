@@ -77,7 +77,6 @@ end
 	This doesn't check if shouldShow() is true, so do with that what you will
 --]]
 function PANEL:SetTab(newTab)
-	print("Running set tab")
 	self.Scroll.tab[self.curTab]:SetTextColor(Color(255,255,255,150)) --Unselected tab color
 	self.tabs[self.curTab]:onHide()
 	self.tabs[self.curTab]:KillFocus()
@@ -127,7 +126,6 @@ end
 	Disables (hides) the pda
 --]]
 function PANEL:DisablePDA()
-	print("Disabling PDA")
 	self.tabs[self.curTab]:onHide()
 	self:SetVisible(false)
 	self.CloseB:SetVisible(false)
@@ -154,16 +152,17 @@ function PANEL:Reset(newid)
 
 	
 	if(type(newid) == "table") then
+		print("table found woopie!")
 		self.pda = newid
 	else
 		for k,v in pairs(inv:getItems()) do
 			if(v.base == "base_npda") then
-				if(newid and v.id == newid) then
+				if(newid and v.id == newid and v:getOwner() == ply) then
 					self.pda = v
 					break
-				elseif(self.pda:getOwner() == ply) then
-					self.pda = v
-					break
+				-- elseif(self.pda:getOwner() == ply and v.id == char:getData("activePDA")) then
+				-- 	self.pda = v
+				-- 	break
 				end
 			end
 		end

@@ -140,7 +140,6 @@ function PANEL:onDisplay()
     self.currentWeather:SetY(self.time:GetY() + self.time:GetTall() + (self.time:GetTall()/2))
     self.currentWeather:SetX((contW/2) - (self.currentWeather:GetWide()/2))
 
-    print("#####FORECAST#####")
     for i = 2, 4 do
         local data = forecastJson[i + idCast]
         if not data then break end
@@ -168,11 +167,8 @@ function PANEL:onDisplay()
         self.forecastTime[i-1]:SizeToContents()
         self.forecastTime[i-1]:SetY(self.forecastType[i-1]:GetY() + self.forecastType[i-1]:GetTall() * 1.5)
         self.forecastTime[i-1]:SetX((contW/3 * i-1) - ((contW/3 * i-1)/2) - (self.forecastTime[i-1]:GetWide()/2))
-        
-        print(data.Desc)
-        print(data.DisplayTime)
-        print("---------")
-            ---- Temp
+    
+        ---- Temp
         --max_temp = math.max(max_temp,data.Temperature)
         --min_temp = math.min(min_temp,data.Temperature)
     end

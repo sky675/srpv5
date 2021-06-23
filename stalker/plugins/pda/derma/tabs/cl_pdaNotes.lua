@@ -1,3 +1,7 @@
+--[[
+    --No longer needed, notes have been merged with the Home page.
+
+
 local PANEL = {}
 
 PANEL.tabLabel = "Notes"
@@ -84,3 +88,4 @@ function PANEL:onHide()
 end
 
 vgui.Register("pdaNotes", PANEL, "stalkerPdaTab")
+--]]
