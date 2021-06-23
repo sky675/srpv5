@@ -9,7 +9,7 @@ ITEM.weight = 5.37
 ITEM.width = 1
 ITEM.height = 1
 ITEM.outfitCategory = "head;mask;eyes"
-ITEM.price = 39520
+ITEM.price = 30520--39520
 ITEM.flag = "5"
 ITEM.size = "helm" --helm, light, medium, heavy, exo, mask, vest, sci, seva
 
@@ -327,16 +327,16 @@ ITEM.armor = {
 }
 ITEM.resists = {
 	--burn
-	[DMG_BURN] = 0.07,
+	[DMG_BURN] = 0.06,
 	--electric --less
-	[DMG_SHOCK] = 0.08,
+	[DMG_SHOCK] = 0.021,
 	--ext rad
-	[DMG_RADIATION] = 0.0235,
+	[DMG_RADIATION] = 0.427,
 	--chem
-	[DMG_ACID] = 0.042,
+	[DMG_ACID] = 0.168,
 	--psy
-	[DMG_SONIC] = 0.06,
-	["psy"] = 0.06,
+	[DMG_SONIC] = 0.24,
+	["psy"] = 0.24,
 	--explosion
 	[DMG_BLAST] = 0.3,
 	--phys
@@ -346,5 +346,5 @@ ITEM.resists = {
 	--bullet fire wound
 	[DMG_BULLET] = 0.08,
 
-	spd = 0.91,
+	spd = 0.96,
 }

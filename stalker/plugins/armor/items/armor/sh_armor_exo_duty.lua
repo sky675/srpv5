@@ -8,7 +8,8 @@ ITEM.addWeight = 113
 ITEM.width = 2
 ITEM.height = 3
 ITEM.outfitCategory = "armor"
-ITEM.price = 466680 --136680
+--i was originally going to do the unique values but i dont feel like it rn
+ITEM.price = 449680--using exo anomaly price + 60000 + 260000 --136680
 ITEM.flag = "5"
 ITEM.fakeFaction = FACTION_DUTY
 ITEM.size = "exo" --helm, light, medium, heavy, exo, mask, vest, sci
@@ -161,24 +162,24 @@ ITEM.armor = {
 }
 ITEM.resists = {
 	--burn
-	[DMG_BURN] = 0.08,
+	[DMG_BURN] = 0.069,
 	--electric --less
-	[DMG_SHOCK] = 0.4,
+	[DMG_SHOCK] = 0.175,
 	--ext rad
-	[DMG_RADIATION] = 0.03,
+	[DMG_RADIATION] = 0.18, --based from rad-0.02 instead of just rad
 	--chem
-	[DMG_ACID] = 0.032,
+	[DMG_ACID] = 0.128,
 	--psy
-	[DMG_SONIC] = 0.07,
-	["psy"] = 0.07,
+	[DMG_SONIC] = 0, --0 since no helm by default
+	["psy"] = 0,
 	--explosion
-	[DMG_BLAST] = 0.96,
+	[DMG_BLAST] = 0.85,
 	--bullet fire wound
-	[DMG_BULLET] = 0.58,
+	[DMG_BULLET] = 0.48,
 	--phys
-	[DMG_SLASH] = 0.64,
-	[DMG_CLUB] = 0.64,
-	[DMG_CRUSH] = 0.64,
+	[DMG_SLASH] = 0.29,
+	[DMG_CLUB] = 0.29,
+	[DMG_CRUSH] = 0.29,
 
 	spd = 0.8,
 	nospr = true,

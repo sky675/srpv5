@@ -60,24 +60,27 @@ function ITEM:canWear(ply)
 	end
 end
 
+ITEM.armor = {
+	head = {level = ARMOR_NONE},
+}
 ITEM.resists = {
 	--burn
-	[DMG_BURN] = 0.01,
+	[DMG_BURN] = 0.004,
 	--electric --less
-	[DMG_SHOCK] = 0.05,
+	[DMG_SHOCK] = 0.015,
 	--ext rad
-	[DMG_RADIATION] = 0.011,
+	[DMG_RADIATION] = 0.199,
 	--chem
-	[DMG_ACID] = 0.033,
+	[DMG_ACID] = 0.148,
 	--psy
-	[DMG_SONIC] = 0.001,
-	["psy"] = 0.001,
+	[DMG_SONIC] = 0.005,
+	["psy"] = 0.005,
 	--explosion
-	[DMG_BLAST] = 0.12,
+	[DMG_BLAST] = 0.22,
 	--phys
-	[DMG_SLASH] = 0.012,
-	[DMG_CLUB] = 0.012,
-	[DMG_CRUSH] = 0.012,
+	[DMG_SLASH] = 0.014,
+	[DMG_CLUB] = 0.014,
+	[DMG_CRUSH] = 0.014,
 	--bullet fire wound
 	[DMG_BULLET] = 0.012,
 

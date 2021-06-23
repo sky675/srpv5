@@ -8,7 +8,7 @@ ITEM.addWeight = 10
 ITEM.width = 2
 ITEM.height = 3
 ITEM.outfitCategory = "armor"
-ITEM.price = 14600
+ITEM.price = 44700--14600
 ITEM.flag = "f"
 ITEM.fakeFaction = FACTION_FREEDOM
 ITEM.size = "medium" --helm, light, medium, heavy, exo, mask, vest, sci, seva
@@ -159,24 +159,24 @@ ITEM.armor = {
 }
 ITEM.resists = {
 	--burn
-	[DMG_BURN] = 0.09,
+	[DMG_BURN] = 0.078,
 	--electric --less
-	[DMG_SHOCK] = 0.2,
+	[DMG_SHOCK] = 0.05,
 	--ext rad
-	[DMG_RADIATION] = 0.005,
+	[DMG_RADIATION] = 0.1,
 	--chem
-	[DMG_ACID] = 0.12,
+	[DMG_ACID] = 0.48,
 	--psy
 	[DMG_SONIC] = 0,
 	["psy"] = 0,
 	--explosion
 	[DMG_BLAST] = 0.21,
 	--phys
-	[DMG_SLASH] = 0.32,
-	[DMG_CLUB] = 0.32,
-	[DMG_CRUSH] = 0.32,
+	[DMG_SLASH] = 0.145,
+	[DMG_CLUB] = 0.145,
+	[DMG_CRUSH] = 0.145,
 	--bullet fire wound
-	[DMG_BULLET] = 0.25,
+	[DMG_BULLET] = 0.208,
 
-	spd = 0.97,
+	spd = 0.98,
 }

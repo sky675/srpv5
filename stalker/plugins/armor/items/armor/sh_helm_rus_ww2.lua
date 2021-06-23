@@ -6,7 +6,7 @@ ITEM.skin = 0
 ITEM.width = 1
 ITEM.height = 1
 ITEM.outfitCategory = "head"
-ITEM.price = 400
+ITEM.price = 6000
 ITEM.flag = "0"
 ITEM.exRender = true
 ITEM.iconCam = {
@@ -90,24 +90,24 @@ ITEM.armor = {
 }
 ITEM.resists = {
 	--burn
-	[DMG_BURN] = 0.01,
+	[DMG_BURN] = 0,
 	--electric --less
-	[DMG_SHOCK] = 0.05,
+	[DMG_SHOCK] = 0,
 	--ext rad
-	[DMG_RADIATION] = 0.011,
+	[DMG_RADIATION] = 0,
 	--chem
-	[DMG_ACID] = 0.033,
+	[DMG_ACID] = 0,
 	--psy
-	[DMG_SONIC] = 0.001,
-	["psy"] = 0.001,
+	[DMG_SONIC] = 0,
+	["psy"] = 0,
 	--explosion
-	[DMG_BLAST] = 0.12,
+	[DMG_BLAST] = 0.1,
 	--phys
-	[DMG_SLASH] = 0.012,
-	[DMG_CLUB] = 0.012,
-	[DMG_CRUSH] = 0.012,
+	[DMG_SLASH] = 0.01,
+	[DMG_CLUB] = 0.01,
+	[DMG_CRUSH] = 0.01,
 	--bullet fire wound
-	[DMG_BULLET] = 0.012,
+	[DMG_BULLET] = 0.01,
 
 	spd = 0.99,
 }

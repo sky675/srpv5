@@ -8,7 +8,7 @@ ITEM.addWeight = 16
 ITEM.width = 2
 ITEM.height = 3
 ITEM.outfitCategory = "armor"
-ITEM.price = 40300
+ITEM.price = 44600--40300
 ITEM.flag = "M"
 ITEM.size = "medium" --helm, light, medium, heavy, mask, vest
 ITEM.fakeFaction = FACTION_MILITARY
@@ -156,24 +156,24 @@ ITEM.armor = {
 }
 ITEM.resists = {
 	--burn
-	[DMG_BURN] = 0.07,
+	[DMG_BURN] = 0.06,
 	--electric
-	[DMG_SHOCK] = 0.34,
+	[DMG_SHOCK] = 0.085,
 	--ext rad
-	[DMG_RADIATION] = 0.005,
+	[DMG_RADIATION] = 0.1,
 	--chem
-	[DMG_ACID] = 0.02,
+	[DMG_ACID] = 0.08,
 	--psy
 	[DMG_SONIC] = 0,
 	["psy"] = 0,
 	--explosion
 	[DMG_BLAST] = 0.5,
 	--bullet fire wound
-	[DMG_BULLET] = 0.31,
+	[DMG_BULLET] = 0.258,
 	--phys
-	[DMG_SLASH] = 0.75,
-	[DMG_CLUB] = 0.75,
-	[DMG_CRUSH] = 0.75,
+	[DMG_SLASH] = 0.34,
+	[DMG_CLUB] = 0.34,
+	[DMG_CRUSH] = 0.34,
 
-	spd = 0.85,
+	spd = 0.91,
 }

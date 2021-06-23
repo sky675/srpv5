@@ -1,4 +1,4 @@
-ITEM.name = "CS2 Suit"
+ITEM.name = "CS-2 Suit"--cs2/light
 ITEM.desc = "Clear Sky's medium set of armor."
 ITEM.model = "models/sky/seperate/male_cs2.mdl"
 ITEM.category = "Clothing"
@@ -8,7 +8,7 @@ ITEM.addWeight = 12
 ITEM.width = 2
 ITEM.height = 3
 ITEM.outfitCategory = "armor"
-ITEM.price = 38250
+ITEM.price = 40250--38250
 ITEM.flag = "m"
 ITEM.fakeFaction = FACTION_CLEARSKY
 ITEM.size = "light" --helm, light, medium, heavy, mask, vest
@@ -156,24 +156,24 @@ ITEM.armor = {
 }
 ITEM.resists = {
 	--burn
-	[DMG_BURN] = 0.1,
+	[DMG_BURN] = 0.087,
 	--electric --less
-	[DMG_SHOCK] = 0.6,
+	[DMG_SHOCK] = 0.225,
 	--ext rad
-	[DMG_RADIATION] = 0.005,
+	[DMG_RADIATION] = 0.081,
 	--chem
-	[DMG_ACID] = 0.04,
+	[DMG_ACID] = 0.156,
 	--psy
 	[DMG_SONIC] = 0,
 	["psy"] = 0,
 	--explosion
 	[DMG_BLAST] = 0.1,
 	--bullet fire wound
-	[DMG_BULLET] = 0.2,
+	[DMG_BULLET] = 0.166,
 	--phys
-	[DMG_SLASH] = 0.2,
-	[DMG_CLUB] = 0.2,
-	[DMG_CRUSH] = 0.2,
+	[DMG_SLASH] = 0.09,
+	[DMG_CLUB] = 0.09,
+	[DMG_CRUSH] = 0.09,
 
-	spd = 0.93,
+	spd = 0.95,
 }

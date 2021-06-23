@@ -123,22 +123,22 @@ ITEM.resists = {
 	--burn
 	[DMG_BURN] = 0.01,
 	--electric --less
-	[DMG_SHOCK] = 0.04,
+	[DMG_SHOCK] = 0.08,
 	--ext rad
-	[DMG_RADIATION] = 0.001,
+	[DMG_RADIATION] = 0.024,
 	--chem
 	[DMG_ACID] = 0.03,
 	--psy
 	[DMG_SONIC] = 0,
 	["psy"] = 0,
 	--explosion
-	[DMG_BLAST] = 0.12,
+	[DMG_BLAST] = 0.25,
 	--bullet fire wound
-	[DMG_BULLET] = 0.22,
+	[DMG_BULLET] = 0.196,
 	--phys
-	[DMG_SLASH] = 0.15,
-	[DMG_CLUB] = 0.15,
-	[DMG_CRUSH] = 0.15,
+	[DMG_SLASH] = 0.106,
+	[DMG_CLUB] = 0.106,
+	[DMG_CRUSH] = 0.106,
 
-	spd = 0.96,
+	spd = 0.98,
 }

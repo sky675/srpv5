@@ -326,25 +326,24 @@ ITEM.armor = {
 	head = {level = ARMOR_III},
 }
 ITEM.resists = {
-	--burn
-	[DMG_BURN] = 0.01,
+	[DMG_BURN] = 0.016,
 	--electric --less
-	[DMG_SHOCK] = 0.13,
+	[DMG_SHOCK] = 0.021,
 	--ext rad
-	[DMG_RADIATION] = 0.037,
+	[DMG_RADIATION] = 0.436,
 	--chem
-	[DMG_ACID] = 0.047,
+	[DMG_ACID] = 0.168,
 	--psy
-	[DMG_SONIC] = 0.035,
-	["psy"] = 0.035,
+	[DMG_SONIC] = 0.276,
+	["psy"] = 0.276,
 	--explosion
-	[DMG_BLAST] = 0.25,
+	[DMG_BLAST] = 0.27,
 	--phys
-	[DMG_SLASH] = 0.038,
-	[DMG_CLUB] = 0.038,
-	[DMG_CRUSH] = 0.038,
+	[DMG_SLASH] = 0.036,
+	[DMG_CLUB] = 0.036,
+	[DMG_CRUSH] = 0.036,
 	--bullet fire wound
-	[DMG_BULLET] = 0.038,
+	[DMG_BULLET] = 0.036,
 
-	spd = 0.94,
+	spd = 0.96,
 }

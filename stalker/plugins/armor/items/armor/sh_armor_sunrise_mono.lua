@@ -8,7 +8,7 @@ ITEM.addWeight = 10
 ITEM.width = 2
 ITEM.height = 3
 ITEM.outfitCategory = "armor"
-ITEM.price = 14600
+ITEM.price = 45120--14600
 ITEM.flag = "O"
 ITEM.fakeFaction = FACTION_MONOLITH
 ITEM.size = "medium" --helm, light, medium, heavy, exo, mask, vest, sci, seva
@@ -160,24 +160,24 @@ ITEM.armor = {
 }
 ITEM.resists = {
 	--burn
-	[DMG_BURN] = 0.04,
+	[DMG_BURN] = 0.034,
 	--electric --less
-	[DMG_SHOCK] = 0.17,
+	[DMG_SHOCK] = 0.0425,
 	--ext rad
-	[DMG_RADIATION] = 0.011,
+	[DMG_RADIATION] = 0.2,
 	--chem
-	[DMG_ACID] = 0.04,
+	[DMG_ACID] = 0.16,
 	--psy
 	[DMG_SONIC] = 0,
 	["psy"] = 0,
 	--explosion
 	[DMG_BLAST] = 0.19,
 	--phys
-	[DMG_SLASH] = 0.19,
-	[DMG_CLUB] = 0.19,
-	[DMG_CRUSH] = 0.19,
+	[DMG_SLASH] = 0.186, --increased these a bit from pure values to match armor levels
+	[DMG_CLUB] = 0.186,
+	[DMG_CRUSH] = 0.186,
 	--bullet fire wound
-	[DMG_BULLET] = 0.19,
+	[DMG_BULLET] = 0.188,
 
-	spd = 0.95,
+	spd = 0.97,
 }

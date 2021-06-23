@@ -8,7 +8,7 @@ ITEM.addWeight = 13
 ITEM.width = 2
 ITEM.height = 3
 ITEM.outfitCategory = "armor"
-ITEM.price = 32280
+ITEM.price = 38280--32280
 ITEM.flag = "2"
 ITEM.size = "medium" --helm, light, medium, heavy, exo, mask, vest, sci
 
@@ -126,24 +126,24 @@ ITEM.armor = {
 }
 ITEM.resists = {
 	--burn
-	[DMG_BURN] = 0.03,
+	[DMG_BURN] = 0.026,
 	--electric --less
-	[DMG_SHOCK] = 0.58,
+	[DMG_SHOCK] = 0.145,
 	--ext rad
-	[DMG_RADIATION] = 0.003,
+	[DMG_RADIATION] = 0.054,
 	--chem
-	[DMG_ACID] = 0.02,
+	[DMG_ACID] = 0.08,
 	--psy
 	[DMG_SONIC] = 0,
 	["psy"] = 0,
 	--explosion
 	[DMG_BLAST] = 0.35,
 	--bullet fire wound
-	[DMG_BULLET] = 0.32,
+	[DMG_BULLET] = 0.266,
 	--phys
-	[DMG_SLASH] = 0.3,
-	[DMG_CLUB] = 0.3,
-	[DMG_CRUSH] = 0.3,
+	[DMG_SLASH] = 0.136,
+	[DMG_CLUB] = 0.136,
+	[DMG_CRUSH] = 0.136,
 
-	spd = 0.95,
+	spd = 0.96,
 }

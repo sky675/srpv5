@@ -1,5 +1,5 @@
 ITEM.name = "CS-3 Suit" --cs1/light novice
-ITEM.desc = "A suit created by Clear Sky without their faction colors. Helmets cannot be worn while wearing this. May have clipping issues with some headgear."
+ITEM.desc = "A light suit used by Clear Sky. Helmets cannot be worn while wearing this. May have clipping issues with some headgear."
 ITEM.model = "models/sky/seperate/male_cs3.mdl"
 ITEM.category = "Clothing"
 ITEM.skin = 0
@@ -9,7 +9,7 @@ ITEM.width = 2
 ITEM.height = 3
 ITEM.outfitCategory = "armor"
 ITEM.price = 32340
-ITEM.flag = "1"
+ITEM.flag = "m"
 ITEM.size = "light" --helm, light, medium, heavy, exo, mask, vest, sci, seva
 
 --interface/inv_items_cloth_2.ogg super light (masks, addons)
@@ -17,6 +17,18 @@ ITEM.size = "light" --helm, light, medium, heavy, exo, mask, vest, sci, seva
 --interface/inv_items_cloth_1.ogg med (rest, would like something more metal but eh)
 ITEM.equipSound = "interface/inv_items_cloth_2.ogg"
 ITEM.unequipSound = "interface/inv_items_cloth_2.ogg"
+local matreplace = {	
+	--["models/sky/stalker/beri_lone"] = "models/sky/stalker/beri_duty",
+	["models/sky/stalker/cs1_lone"] = "models/sky/stalker/cs1_csky",
+	["models/sky/stalker/cs2_lone"] = "models/sky/stalker/cs2_csky",
+	["models/sky/stalker/cs3_lone"] = "models/sky/stalker/cs3_csky",
+	["models/sky/stalker/exo_lone"] = "models/sky/stalker/exo_cs",
+	--["models/sky/stalker/io7a_lone"] = "models/sky/stalker/io7a_duty",
+	["models/sky/stalker/seva_lone"] = "models/sky/stalker/seva_csky",
+	["models/sky/stalker/skat_lone"] = "models/sky/stalker/skat_csky",
+	["models/sky/stalker/sunrise_lone"] = "models/sky/stalker/sunrise_csky",
+	["models/sky/stalker/sunrise_null"] = "models/sky/stalker/sunrise_csky",
+}
 
 ITEM.exRender = true
 ITEM.iconCam = {
@@ -26,6 +38,19 @@ ITEM.iconCam = {
 	fov = 14.763357201488,
 	
 	drawHook = function(ent, w, h)
+		local repl = matreplace
+		local mats = ent:GetMaterials()
+		for k2,v2 in pairs(repl) do
+			local mat
+			for k,v in pairs(mats) do
+				if(string.find(v, k2)) then
+					mat = k-1
+				end
+			end
+			if(mat) then
+				ent:SetSubMaterial(mat, v2)
+			end
+		end
 		
 	end,
 }
@@ -83,10 +108,14 @@ function ITEM:getCustomGS()
 	else
 		tbl.model = "models/sky/seperate/male_cs3.mdl"
 	end
-	tbl.submat = {}
-	local exskin = self:getData("exskin")
-	if(exskin and TEXTURETABLE[exskin]) then
-		tbl.submat = TEXTURETABLE[exskin]
+	
+	--moved like this, easier this way
+	tbl.submat = matreplace
+	if(self:getData("equip")) then --equip is true when its equipping, and not when its unequipping
+		self.player:getChar():setData("oldgsub", self.player:getChar():getData("gsub", {})["t"])
+	elseif(self.player:getChar():getData("oldgsub")) then
+		tbl.submat = self.player:getChar():getData("oldgsub")
+		self.player:getChar():setData("oldgsub")
 	end
 	--[[tbl.submat = {	
 		["sunrise_lone"] = "",

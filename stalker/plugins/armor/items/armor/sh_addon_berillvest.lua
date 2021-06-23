@@ -125,13 +125,13 @@ ITEM.armor = {
 }
 ITEM.resists = {
 	--burn
-	[DMG_BURN] = 0.01,
+	[DMG_BURN] = 0.04,
 	--electric
 	[DMG_SHOCK] = 0.08,
 	--ext rad
-	[DMG_RADIATION] = 0.001,
+	[DMG_RADIATION] = 0,
 	--chem
-	[DMG_ACID] = 0.01,
+	[DMG_ACID] = 0.1,
 	--psy
 	[DMG_SONIC] = 0,
 	["psy"] = 0,
@@ -140,9 +140,9 @@ ITEM.resists = {
 	--bullet fire wound
 	[DMG_BULLET] = 0.02,
 	--phys
-	[DMG_SLASH] = 0.1,
-	[DMG_CLUB] = 0.1,
-	[DMG_CRUSH] = 0.1,
+	[DMG_SLASH] = 0.08,
+	[DMG_CLUB] = 0.08,
+	[DMG_CRUSH] = 0.08,
 
 	spd = 0.97,
 }
