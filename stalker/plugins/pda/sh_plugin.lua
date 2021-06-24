@@ -144,7 +144,8 @@ nut.chat.register("pdabroad", {
     end,
 	onChatAdd = function(speaker, text, anonymous)
 		if(text == "") then return end
-        chat.AddText(Color(37,65,206),"[PDA-NOTIF] ", Color(255,255,255), text)
+        local pdattx = Material("sky/chat_icons/pda_alert.png")
+		chat.AddText(pdattx,Color(37,65,206),"[PDA-NOTIF] ", Color(255,255,255), text)
     end,
     filter = "pda",
     prefix = {"/pdanotif"}
@@ -178,7 +179,8 @@ nut.chat.register("pdalocal", {
 		--local testmat = Material("sky/faction_icons/stalker.png", "noclamp smooth")
 
         if(args[2]) then
-			chat.AddText(Color(100, 255, 50),"[PDA-LOCAL] ", Color(255, 255, 255), name..": "..args[2])
+			local pdattx = Material("sky/chat_icons/pda.png")
+			chat.AddText(pdattx,Color(100, 255, 50),"[PDA-LOCAL] ", Color(255, 255, 255), name..": "..args[2])
         end
 	end,
     filter = "pda"
@@ -232,7 +234,8 @@ nut.chat.register("pdafac", {
 		if(!fac) then print("tried to display faction message, but this isnt a valid faction?????") return end
 
         if(args[2]) then
-		chat.AddText(fac.color or Color(100, 255, 50), "[PDA-"..(factionChans[facnum] or "LMK IF THIS SHOWS").."] ", Color(255, 255, 255), name..": "..args[2])
+		local pdattx = Material("sky/chat_icons/pda.png")
+		chat.AddText(pdattx,fac.color or Color(100, 255, 50), "[PDA-"..(factionChans[facnum] or "LMK IF THIS SHOWS").."] ", Color(255, 255, 255), name..": "..args[2])
         end
 	end,
     filter = "pda"
@@ -270,7 +273,8 @@ nut.chat.register("pdaparty", {
 		end
 
         if(args[2]) then
-		chat.AddText(Color(153, 0, 0),"[PDA-PARTY] ", Color(255, 255, 255), name..": "..args[2])
+		local pdattx = Material("sky/chat_icons/pda.png")
+		chat.AddText(pdattx,Color(153, 0, 0),"[PDA-PARTY] ", Color(255, 255, 255), name..": "..args[2])
         end
 	end,
     filter = "pda"
@@ -317,7 +321,8 @@ nut.chat.register("pdapm", {
 		--name = name..args[1]
 
 
-		chat.AddText(Color(206, 82, 24),"[PDA-PM] ", Color(255, 255, 255), name..": "..args[3])
+		local pdattx = Material("sky/chat_icons/pda_msg.png")
+		chat.AddText(pdattx,Color(206, 82, 24),"[PDA-PM] ", Color(255, 255, 255), name..": "..args[3])
 	end,
     filter = "pda"
 })
@@ -349,7 +354,8 @@ nut.chat.register("pdatrade", {
 		end
 
         if(args[2]) then
-		    chat.AddText(Color(37, 231, 245),"[PDA-TRADE] ", Color(255, 255, 255), name..": "..args[2])
+		local pdattx = Material("sky/chat_icons/pda.png")
+		chat.AddText(pdattx,Color(37, 231, 245),"[PDA-TRADE] ", Color(255, 255, 255), name..": "..args[2])
         end
     end,
     filter = "pda"
