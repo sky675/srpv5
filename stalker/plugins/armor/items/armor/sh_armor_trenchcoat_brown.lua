@@ -1,4 +1,4 @@
-ITEM.name = "Trenchcoat (Black)"
+ITEM.name = "Trenchcoat (Brown)"
 ITEM.desc = "A common trenchcoat."
 ITEM.model = "models/sky/seperate/male_trenchcoat.mdl"
 ITEM.category = "Clothing"
@@ -17,6 +17,9 @@ ITEM.size = "light" --helm, light, medium, heavy, exo, mask, vest, sci, seva
 --interface/inv_items_cloth_1.ogg med (rest, would like something more metal but eh)
 ITEM.equipSound = "interface/inv_items_cloth_2.ogg"
 ITEM.unequipSound = "interface/inv_items_cloth_2.ogg"
+local matreplace = {	
+	["trenchcoat_black"] = "models/sky/stalker/trenchcoat_brown"
+}
 
 ITEM.exRender = true
 ITEM.iconCam = {
@@ -26,7 +29,19 @@ ITEM.iconCam = {
 	fov = 14.763357201488,
 	
 	drawHook = function(ent, w, h)
-		
+		local repl = matreplace
+		local mats = ent:GetMaterials()
+		for k2,v2 in pairs(repl) do
+			local mat
+			for k,v in pairs(mats) do
+				if(string.find(v, k2)) then
+					mat = k-1
+				end
+			end
+			if(mat) then
+				ent:SetSubMaterial(mat, v2)
+			end
+		end
 	end,
 }
 ITEM.onGetDropModel = function(item, ent)
@@ -83,10 +98,14 @@ function ITEM:getCustomGS()
 	else
 		tbl.model = "models/sky/seperate/male_trenchcoat.mdl"
 	end
-	tbl.submat = {}
-	local exskin = self:getData("exskin")
-	if(exskin and TEXTURETABLE[exskin]) then
-		tbl.submat = TEXTURETABLE[exskin]
+	
+	--moved like this, easier this way
+	tbl.submat = matreplace
+	if(self:getData("equip")) then --equip is true when its equipping, and not when its unequipping
+		self.player:getChar():setData("oldgsub", self.player:getChar():getData("gsub", {})["t"])
+	elseif(self.player:getChar():getData("oldgsub")) then
+		tbl.submat = self.player:getChar():getData("oldgsub")
+		self.player:getChar():setData("oldgsub")
 	end
 	--[[tbl.submat = {	
 		["sunrise_lone"] = "",
