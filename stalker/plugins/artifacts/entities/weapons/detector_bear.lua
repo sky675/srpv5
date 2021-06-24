@@ -264,7 +264,7 @@ function SWEP:Think()
 		if(IsValid(ent)) then
 			local md = self.VElements["veles"].modelEnt
 			if(IsValid(md)) then
-				md:SetBodygroup(2, 1)
+				self.VElements["veles"].bodygroup[2] = 1--md:SetBodygroup(2, 1)
 				local ply = LocalPlayer()
 				local ang = ply:GetAngles();
 				local pos = ent:GetPos() - ply:GetShootPos()
@@ -279,10 +279,7 @@ function SWEP:Think()
 				self.Owner:EmitSound(Sound("stalkerdetectors/echo.wav"), 100, 100)//math.Clamp(250-dist/2,50,250))
 			end
 		else
-			local md = self.VElements["veles"].modelEnt
-			if(IsValid(md)) then
-				md:SetBodygroup(2, 0)
-			end
+			self.VElements["veles"].bodygroup[2] = 0--md:SetBodygroup(2, 1)
 		end
 	end
 end
