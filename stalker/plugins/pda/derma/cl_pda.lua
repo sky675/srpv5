@@ -12,7 +12,7 @@ local PANEL = {}
 
 --[[
 	Gathers all the different pages of the PDA to be added to the collection, use the hook to add pda tabs from another plugin. 
-	*Use a unique priority identifier* - ideally increments of 100, ya know
+	*Use a unique priority identifier* - ideally increments of 100 if its implemented via a plugin, ya know, for compatibility sake
 	Priority determines order of appearance, lowest number being higher on the list.
 --]]
 function PANEL:ConfigureTabs()
