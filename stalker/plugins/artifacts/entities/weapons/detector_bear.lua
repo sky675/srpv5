@@ -117,10 +117,14 @@ SWEP.VElements = {
 local anomalies = {
 	--list of ["uniqueid"] = true that this detects
 	["art_dragoneye"] = true,
+	["art_basilisk"] = true,
+	["art_blackstone"] = true, --this apparently is unused
 	["art_knot"] = true,
 	["art_ball"] = true,
+	["art_gimlet"] = true,
 	["art_tapeworm"] = true,
 	["art_seraphim"] = true,
+	["art_signet"] = true,
 	["art_electron"] = true,
 	["art_claw"] = true,
 	["art_generator"] = true,
@@ -155,7 +159,9 @@ local anomalies = {
 	["art_soul"] = true,
 
 	["art_crystal"] = true,
+	["art_moonlight"] = true,
 	["art_wrenched"] = true,
+	["art_empty"] = true,
 	["art_gravi"] = true,
 	["art_eye"] = true,
 	["art_kolobok"] = true,
@@ -264,7 +270,7 @@ function SWEP:Think()
 		if(IsValid(ent)) then
 			local md = self.VElements["veles"].modelEnt
 			if(IsValid(md)) then
-				md:SetBodygroup(2, 1)
+				self.VElements["veles"].bodygroup[2] = 1--md:SetBodygroup(2, 1)
 				local ply = LocalPlayer()
 				local ang = ply:GetAngles();
 				local pos = ent:GetPos() - ply:GetShootPos()
@@ -279,10 +285,7 @@ function SWEP:Think()
 				self.Owner:EmitSound(Sound("stalkerdetectors/echo.wav"), 100, 100)//math.Clamp(250-dist/2,50,250))
 			end
 		else
-			local md = self.VElements["veles"].modelEnt
-			if(IsValid(md)) then
-				md:SetBodygroup(2, 0)
-			end
+			self.VElements["veles"].bodygroup[2] = 0--md:SetBodygroup(2, 1)
 		end
 	end
 end

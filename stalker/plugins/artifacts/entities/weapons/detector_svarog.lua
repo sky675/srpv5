@@ -116,10 +116,14 @@ SWEP.WElements = {
 local anomalies = {
 	--list of ["uniqueid"] = true that this detects
 	["art_dragoneye"] = true,
+	["art_basilisk"] = true,
+	["art_blackstone"] = true, --this apparently is unused
 	["art_knot"] = true,
 	["art_ball"] = true,
+	["art_gimlet"] = true,
 	["art_tapeworm"] = true,
 	["art_seraphim"] = true,
+	["art_signet"] = true,
 	["art_electron"] = true,
 	["art_claw"] = true,
 	["art_generator"] = true,
@@ -154,7 +158,9 @@ local anomalies = {
 	["art_soul"] = true,
 
 	["art_crystal"] = true,
+	["art_moonlight"] = true,
 	["art_wrenched"] = true,
+	["art_empty"] = true,
 	["art_gravi"] = true,
 	["art_eye"] = true,
 	["art_kolobok"] = true,
@@ -165,19 +171,39 @@ local anomalies = {
 	["art_goldfish"] = true,
 	["art_flame"] = true,
 	["art_snowflake"] = true,
+	["art_firefly"] = true,
+	["art_flash"] = true,
 
 	--anomalies
 	["maysorubka_anomaly"] = true,
 	["jarka"] = true,
 	["electra_anomaly"] = true,
 	["gazirovka_anomaly"] = true,
+	["kometa"] = true,
+	["par"] = true,
+	["electra_anomaly_type2"] = true,
+	["kometa_electra"] = true,
+	["kisel_anomaly"] = true,
+	["kometa_kisel"] = true,
+	["tramplin_anomaly"] = true,
+	["maysorubka_anomaly_type2"] = true,
+	["anom_hoverstone"] = true,
 }
 --sky/detector/svarog_burn/chem/elec/grav.png
 local anomTrans = {
 	["maysorubka_anomaly"] = "sky/detector/svarog_grav.png",
 	["jarka"] = "sky/detector/svarog_burn.png",
 	["electra_anomaly"] = "sky/detector/svarog_elec.png",
-	["gazirovka_anomaly"] = "sky/detector/svarog_chem.png"
+	["gazirovka_anomaly"] = "sky/detector/svarog_chem.png",
+	["kometa"] = "sky/detector/svarog_burn.png",
+	["par"] = "sky/detector/svarog_burn.png",
+	["electra_anomaly_type2"] = "sky/detector/svarog_elec.png",
+	["kometa_electra"] = "sky/detector/svarog_elec.png",
+	["kisel_anomaly"] = "sky/detector/svarog_chem.png",
+	["kometa_kisel"] = "sky/detector/svarog_chem.png",
+	["tramplin_anomaly"] = "sky/detector/svarog_grav.png",
+	["maysorubka_anomaly_type2"] = "sky/detector/svarog_grav.png",
+	["anom_hoverstone"] = "sky/detector/svarog_grav.png",
 }
 local imageScale = {
 	["sky/detector/svarog_burn.png"] = 2,

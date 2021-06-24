@@ -538,6 +538,17 @@ Add in some vodka to negate the negative effects.]],
 				end
 			end
 		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			local item = nut.item.instances[handpick]
+			if(item:getData("uses", item.uses) <= 1) then --1 or less
+				items[handpick] = item --add it to the list for removal
+			else
+				item:setData("uses", item:getData("uses", item.uses)-1)
+			end
+		end,
 		ingredients = { --items that will be taken
 			["food_meat_blood"] = 1, --or # of needed,
 		},
@@ -570,6 +581,17 @@ Add in some vodka to negate the negative effects.]],
 				if(v.uniqueID:find("_vodka")) then
 					return k
 				end
+			end
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			local item = nut.item.instances[handpick]
+			if(item:getData("uses", item.uses) <= 1) then --1 or less
+				items[handpick] = item --add it to the list for removal
+			else
+				item:setData("uses", item:getData("uses", item.uses)-1)
 			end
 		end,
 		ingredients = { --items that will be taken
@@ -606,6 +628,17 @@ Add in some vodka to negate the negative effects.]],
 				end
 			end
 		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			local item = nut.item.instances[handpick]
+			if(item:getData("uses", item.uses) <= 1) then --1 or less
+				items[handpick] = item --add it to the list for removal
+			else
+				item:setData("uses", item:getData("uses", item.uses)-1)
+			end
+		end,
 		ingredients = { --items that will be taken
 			["food_meat_dog"] = 1, --or # of needed,
 		},
@@ -638,6 +671,17 @@ Add in some vodka to negate the negative effects.]],
 				if(v.uniqueID:find("_vodka")) then
 					return k
 				end
+			end
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			local item = nut.item.instances[handpick]
+			if(item:getData("uses", item.uses) <= 1) then --1 or less
+				items[handpick] = item --add it to the list for removal
+			else
+				item:setData("uses", item:getData("uses", item.uses)-1)
 			end
 		end,
 		ingredients = { --items that will be taken
@@ -674,6 +718,17 @@ Add in some vodka to negate the negative effects.]],
 				end
 			end
 		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			local item = nut.item.instances[handpick]
+			if(item:getData("uses", item.uses) <= 1) then --1 or less
+				items[handpick] = item --add it to the list for removal
+			else
+				item:setData("uses", item:getData("uses", item.uses)-1)
+			end
+		end,
 		ingredients = { --items that will be taken
 			["food_meat_flesh"] = 1, --or # of needed,
 		},
@@ -706,6 +761,17 @@ Add in some vodka to negate the negative effects.]],
 				if(v.uniqueID:find("_vodka")) then
 					return k
 				end
+			end
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			local item = nut.item.instances[handpick]
+			if(item:getData("uses", item.uses) <= 1) then --1 or less
+				items[handpick] = item --add it to the list for removal
+			else
+				item:setData("uses", item:getData("uses", item.uses)-1)
 			end
 		end,
 		ingredients = { --items that will be taken
@@ -742,6 +808,17 @@ Add in some vodka to negate the negative effects.]],
 				end
 			end
 		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			local item = nut.item.instances[handpick]
+			if(item:getData("uses", item.uses) <= 1) then --1 or less
+				items[handpick] = item --add it to the list for removal
+			else
+				item:setData("uses", item:getData("uses", item.uses)-1)
+			end
+		end,
 		ingredients = { --items that will be taken
 			["food_meat_rat"] = 1, --or # of needed,
 		},
@@ -774,6 +851,17 @@ Add in some vodka to negate the negative effects.]],
 				if(v.uniqueID:find("_vodka")) then
 					return k
 				end
+			end
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			local item = nut.item.instances[handpick]
+			if(item:getData("uses", item.uses) <= 1) then --1 or less
+				items[handpick] = item --add it to the list for removal
+			else
+				item:setData("uses", item:getData("uses", item.uses)-1)
 			end
 		end,
 		ingredients = { --items that will be taken
@@ -810,6 +898,17 @@ Add in some water to reduce negative effects.]],
 				end
 			end
 		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			local item = nut.item.instances[handpick]
+			if(item:getData("uses", item.uses) <= 1) then --1 or less
+				items[handpick] = item --add it to the list for removal
+			else
+				item:setData("uses", item:getData("uses", item.uses)-1)
+			end
+		end,
 		ingredients = { --items that will be taken
 			["food_meat_blood"] = 1, --or # of needed,
 		},
@@ -842,6 +941,17 @@ Add in some water to reduce negative effects.]],
 				if(v.uniqueID:find("_water")) then
 					return k
 				end
+			end
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			local item = nut.item.instances[handpick]
+			if(item:getData("uses", item.uses) <= 1) then --1 or less
+				items[handpick] = item --add it to the list for removal
+			else
+				item:setData("uses", item:getData("uses", item.uses)-1)
 			end
 		end,
 		ingredients = { --items that will be taken
@@ -878,6 +988,17 @@ Add in some water to reduce negative effects.]],
 				end
 			end
 		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			local item = nut.item.instances[handpick]
+			if(item:getData("uses", item.uses) <= 1) then --1 or less
+				items[handpick] = item --add it to the list for removal
+			else
+				item:setData("uses", item:getData("uses", item.uses)-1)
+			end
+		end,
 		ingredients = { --items that will be taken
 			["food_meat_dog"] = 1, --or # of needed,
 		},
@@ -910,6 +1031,17 @@ Add in some water to reduce negative effects.]],
 				if(v.uniqueID:find("_water")) then
 					return k
 				end
+			end
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			local item = nut.item.instances[handpick]
+			if(item:getData("uses", item.uses) <= 1) then --1 or less
+				items[handpick] = item --add it to the list for removal
+			else
+				item:setData("uses", item:getData("uses", item.uses)-1)
 			end
 		end,
 		ingredients = { --items that will be taken
@@ -946,6 +1078,17 @@ Add in some water to reduce negative effects.]],
 				end
 			end
 		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			local item = nut.item.instances[handpick]
+			if(item:getData("uses", item.uses) <= 1) then --1 or less
+				items[handpick] = item --add it to the list for removal
+			else
+				item:setData("uses", item:getData("uses", item.uses)-1)
+			end
+		end,
 		ingredients = { --items that will be taken
 			["food_meat_flesh"] = 1, --or # of needed,
 		},
@@ -978,6 +1121,17 @@ Add in some water to reduce negative effects.]],
 				if(v.uniqueID:find("_water")) then
 					return k
 				end
+			end
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			local item = nut.item.instances[handpick]
+			if(item:getData("uses", item.uses) <= 1) then --1 or less
+				items[handpick] = item --add it to the list for removal
+			else
+				item:setData("uses", item:getData("uses", item.uses)-1)
 			end
 		end,
 		ingredients = { --items that will be taken
@@ -1014,6 +1168,17 @@ Add in some water to reduce negative effects.]],
 				end
 			end
 		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			local item = nut.item.instances[handpick]
+			if(item:getData("uses", item.uses) <= 1) then --1 or less
+				items[handpick] = item --add it to the list for removal
+			else
+				item:setData("uses", item:getData("uses", item.uses)-1)
+			end
+		end,
 		ingredients = { --items that will be taken
 			["food_meat_rat"] = 1, --or # of needed,
 		},
@@ -1046,6 +1211,17 @@ Add in some water to reduce negative effects.]],
 				if(v.uniqueID:find("_water")) then
 					return k
 				end
+			end
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			local item = nut.item.instances[handpick]
+			if(item:getData("uses", item.uses) <= 1) then --1 or less
+				items[handpick] = item --add it to the list for removal
+			else
+				item:setData("uses", item:getData("uses", item.uses)-1)
 			end
 		end,
 		ingredients = { --items that will be taken

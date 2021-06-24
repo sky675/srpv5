@@ -71,7 +71,7 @@ function ITEM:onEntityCreated(ent)
 		local tr = util.TraceLine( trace )
 		
 		local dist = tr.HitPos:Distance( tr.StartPos )
-		local scale = math.Clamp( 150 - dist, 0.25, 150 ) / 150
+		local scale = math.Clamp( 25 - dist, 0.25, 25 ) / 25
 		
 		if tr.Hit then
 			phys:ApplyForceCenter( tr.HitNormal * ( phys:GetMass() * ( scale * 15 ) ) )
