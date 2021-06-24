@@ -80,7 +80,6 @@ if (SERVER) then
 								},
 									-- onSuccess function
 								function( body, length, headers, code )
-									--print( "~~~Done translating!" )
 									PrintTable(util.JSONToTable(body))							
 									table.insert(disclist, k, util.JSONToTable(body).data.translations[1].translatedText)
 		
@@ -99,7 +98,6 @@ if (SERVER) then
 						end)
 						
 
-						--PrintTable(disclist)
 					end
 
 				end,
