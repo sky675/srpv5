@@ -92,13 +92,6 @@ local PLUGIN = PLUGIN
 		RANK_LEADER = cach
 		RANK_TOBEADD = {}
 	end
-	
-	hook.Add("OnCharCreated", "expboost", function(client, char)
-		local fac = char:getFaction()
-		if(fac == FACTION_MONOLITH or fac == FACTION_MERC) then
-			PLUGIN:AddXp(char, RANK_TABLE["experienced"])
-		end
-	end)
 
 	function PLUGIN:AddXp(char, amt)
 		local xp = char:getData("rankpoints", 0)
