@@ -1,5 +1,23 @@
 local PANEL = {}
 	function PANEL:Init()
+
+		STALKER_HELP_TEXT[2].body = ""
+		for k, v in SortedPairsByMemberValue(nut.plugin.list, "name") do
+			STALKER_HELP_TEXT[2].body = (STALKER_HELP_TEXT[2].body..[[
+				<p>
+					<span style="font-size: 22;"><b>%s</b><br /></span>
+					<span style="font-size: smaller;">
+					<b>%s</b>: %s<br />
+					<b>%s</b>: %s
+			]]):format(v.name or "Unknown", L"desc", v.desc or L"noDesc", L"author", v.author)
+
+			if (v.version) then
+				STALKER_HELP_TEXT[2].body = STALKER_HELP_TEXT[2].body.."<br /><b>"..L"version".."</b>: "..v.version
+			end
+
+			STALKER_HELP_TEXT[2].body = STALKER_HELP_TEXT[2].body.."</span></p>"
+		end
+
 		if (IsValid(nut.gui.info)) then
 			nut.gui.info:Remove()
 		end
@@ -233,6 +251,11 @@ local PANEL = {}
 						tip = "Help",
 						order = 50,
 						func = function()
+							--Setup Plugin List
+
+							--Setup Commands List
+							
+					
 							stalkerLibrary("Help Information", STALKER_HELP_TEXT)
 						end
 					}
