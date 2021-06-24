@@ -244,6 +244,13 @@ function GM:LoadNutFonts(font, genericFont)
 		weight = 800
 	})
 
+	surface.CreateFont("nutScaledBrokenSub", {	
+		font = "Dirty Headline",
+		size = ScreenScale(18),
+		extended = true,
+		weight = 800
+	})
+
 	surface.CreateFont("nutScaledInvenLightButMediumer", {	
 		font = genericFont,
 		size = 20*(ScrH()/768),
