@@ -78,7 +78,7 @@ if (CLIENT) then
 				end
 			end
 
-			surface.SetFont("nutSubTitleFont")
+			surface.SetFont("nutScaledBrokenSub")
 			
 			local name = hook.Run("GetWeaponName", v) or v:GetPrintName():upper()
 			local tx, ty = surface.GetTextSize(name)
@@ -95,7 +95,7 @@ if (CLIENT) then
 					2, ty/2,
 					color,
 					0, 1,
-					"nutSubTitleFont"
+					"nutScaledBrokenSub"
 				)
 			cam.PopModelMatrix()
 
@@ -108,8 +108,8 @@ if (CLIENT) then
 	end
 
 	local weaponInfo = {
-		"Author",
-		"Contact",
+		--"Author",
+		--"Contact",
 		"Purpose",
 		"Instructions"
 	}

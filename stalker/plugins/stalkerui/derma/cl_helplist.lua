@@ -7,7 +7,14 @@ STALKER_HELP_TEXT = {
 <p><strong>Discord Link <i>(Hold)</i>:</strong> <i>Test</i></p>]],
             color=Color(138, 164, 255)
         },
-    [2] =
+    [2]=
+        {
+            title = "Plugins",
+            body = 
+[[<h1>Plugins:</h1>
+]]
+        },
+    [3] =
         {
             title = "Basic Controls",
             body = 
@@ -17,7 +24,7 @@ STALKER_HELP_TEXT = {
 <p><strong>Tab:</strong> <i>View Active PDA</i></p>]]
         },
 
-    [3] =
+    [4] =
         {
             title = "Factions of The Zone",
             body = 
@@ -108,7 +115,7 @@ img {
     <p>The Monolith were originally ordinary Stalkers who believed in the power of the Wish Granter. Prior to Clear Sky, the faction reportedly made an exodus to the Zone's center and disappeared. After the large emission during the events of S.T.A.L.K.E.R.: Clear Sky, they became active. The Monolith are the front line soldiers of the C-Consciousness, and would rather die than let any Stalker reach the sacred crystal. Although capable of higher reasoning and emotion, they nevertheless carry out orders with fanatic effectiveness. The Monolith faction has no allies, and actively attacks all other factions.</p></div>
 </div>]]
         },
-    [4] =
+    [5] =
         {
             title = "More guides",
             body = 

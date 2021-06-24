@@ -17,11 +17,11 @@ local PANEL = {}
 --]]
 function PANEL:ConfigureTabs()
 	self:addTab(vgui.Create("pdaHome"), 1)
-	self:addTab(vgui.Create("pdaScoreboard"), 2)
-	self:addTab(vgui.Create("pdaMap"), 3)
-	--self:addTab(vgui.Create("pdaNotes"), 4)
+	self:addTab(vgui.Create("pdaMap"), 2)
+	self:addTab(vgui.Create("pdaScoreboard"), 3) --Clunky code, I know - Line #78 in sh_scoreboard: pda.tabs[3]:UpdateScoreboard(tbl) must match this priority
+	self:addTab(vgui.Create("pdaLeaderboard"), 4) --This has a ShouldShow() parameter matching the nut.config option for leaderboardEnabled
+	--self:addTab(vgui.Create("pdaAdmin"), 9997) --This has a ShouldShow() parameter that checks for flag Z
 	self:addTab(vgui.Create("pdaSettings"), 9998)
-	--self:addTab(vgui.Create("pdaAnnouncements"), 5)  --(Re-implemented your announcements system if you want to do anything with it :])
 	self:addTab(vgui.Create("pdaClose"), 9999) --This has a ShouldShow() parameter matching the nut.config option for pdaInternalCloseButton
 
 	hook.Run("pdaConfigureTabs", self)
@@ -31,7 +31,7 @@ end
 	Adds a tab to the tab collection, initalizing the vgui elements and setting them invisible.
 --]]
 function PANEL:addTab(tab, priority)
-
+	
 	assert(IsValid(tab), "Invalid panel for tab")
 	assert(tab.isTab, "Panel must inherit stalkerPdaTab")
 	if (isnumber(priority)) then
