@@ -1,4 +1,4 @@
-
+local PLUGIN = PLUGIN
 	--auto update
 	function PLUGIN:OnLoaded()
 		timer.Create("rankupdate", 600, 0, function()
