@@ -510,10 +510,554 @@ PLUGIN.recipeList = {
 	},
 
 	--cooking
+	["cook_blood_vodka"] = {
+		name = "Bloodsucker Goulash (Vodka Quality)",
+		desc = [[Use more advanced cooking knowledge to create a Bloodsucker Goulash out of Bloodsucker meat and assorted spices and other ingredients.
+Add in some vodka to negate the negative effects.]],
+		category = "Cooking (Vodka Quality)",
+		model = "models/wick/wrbstalker/anomaly/items/wick_meat_bloodsucker.mdl",
+		--skin = skin of model (not required),
+		workbench = {["cooking"]=true,},
+		traits = { --traits requirements
+			["crafting_cook"] = 2,--min level needed or true for no level ones,
+			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		customIng = "1x Any Vodka",
+		handpick = function(items) --pick an item 
+			for k,v in pairs(items) do
+				if(v.uniqueID:find("_vodka")) then
+					return k
+				end
+			end
+		end,
+		ingredients = { --items that will be taken
+			["food_meat_blood"] = 1, --or # of needed,
+		},
+		result = "food_meal_a_blood", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
+	["cook_boar_vodka"] = {
+		name = "Boar Chops (Vodka Quality)",
+		desc = [[Use more advanced cooking knowledge to prepare some Boar Chops with assorted seasonings and other ingredients.
+Add in some vodka to negate the negative effects.]],
+		category = "Cooking (Vodka Quality)",
+		model = "models/wick/wrbstalker/anomaly/items/wick_meat_boar.mdl",
+		--skin = skin of model (not required),
+		workbench = {["cooking"]=true,},
+		traits = { --traits requirements
+			["crafting_cook"] = 2,--min level needed or true for no level ones,
+			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		customIng = "1x Any Vodka",
+		handpick = function(items) --pick an item 
+			for k,v in pairs(items) do
+				if(v.uniqueID:find("_vodka")) then
+					return k
+				end
+			end
+		end,
+		ingredients = { --items that will be taken
+			["food_meat_boar"] = 1, --or # of needed,
+		},
+		result = "food_meal_a_boar", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
+	["cook_dog_vodka"] = {
+		name = "Dog Chops (Vodka Quality)",
+		desc = [[Use more advanced cooking knowledge to prepare some Dog meat with assorted seasonings and other ingredients.
+Add in some vodka to negate the negative effects.]],
+		category = "Cooking (Vodka Quality)",
+		model = "models/wick/wrbstalker/anomaly/items/wick_meat_dog.mdl",
+		--skin = skin of model (not required),
+		workbench = {["cooking"]=true,},
+		traits = { --traits requirements
+			["crafting_cook"] = 2,--min level needed or true for no level ones,
+			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		customIng = "1x Any Vodka",
+		handpick = function(items) --pick an item 
+			for k,v in pairs(items) do
+				if(v.uniqueID:find("_vodka")) then
+					return k
+				end
+			end
+		end,
+		ingredients = { --items that will be taken
+			["food_meat_dog"] = 1, --or # of needed,
+		},
+		result = "food_meal_a_dog", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
+	["cook_chimera_vodka"] = {
+		name = "Chimera Meat (Vodka Quality)",
+		desc = [[Use more advanced cooking knowledge to prepare some Chimera meat with assorted seasonings and other ingredients.
+Add in some vodka to negate the negative effects.]],
+		category = "Cooking (Vodka Quality)",
+		model = "models/wick/wrbstalker/anomaly/items/wick_chimera_food.mdl",
+		--skin = skin of model (not required),
+		workbench = {["cooking"]=true,},
+		traits = { --traits requirements
+			["crafting_cook"] = 2,--min level needed or true for no level ones,
+			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		customIng = "1x Any Vodka",
+		handpick = function(items) --pick an item 
+			for k,v in pairs(items) do
+				if(v.uniqueID:find("_vodka")) then
+					return k
+				end
+			end
+		end,
+		ingredients = { --items that will be taken
+			["food_meat_chimera"] = 1, --or # of needed,
+		},
+		result = "food_meal_a_chimera", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
+	["cook_flesh_vodka"] = {
+		name = "Flesh Bacon (Vodka Quality)",
+		desc = [[Use more advanced cooking knowledge to turn some Flesh meat into some fat and greasy bacon.
+Add in some vodka to negate the negative effects.]],
+		category = "Cooking (Vodka Quality)",
+		model = "models/wick/wrbstalker/anomaly/items/wick_meat_flesh.mdl",
+		--skin = skin of model (not required),
+		workbench = {["cooking"]=true,},
+		traits = { --traits requirements
+			["crafting_cook"] = 2,--min level needed or true for no level ones,
+			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		customIng = "1x Any Vodka",
+		handpick = function(items) --pick an item 
+			for k,v in pairs(items) do
+				if(v.uniqueID:find("_vodka")) then
+					return k
+				end
+			end
+		end,
+		ingredients = { --items that will be taken
+			["food_meat_flesh"] = 1, --or # of needed,
+		},
+		result = "food_meal_a_flesh", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
+	["cook_pseudodog_vodka"] = {
+		name = "Pseudodog Chops (Vodka Quality)",
+		desc = [[Use more advanced cooking knowledge to prepare some Pseudodog Chops with assorted seasonings and other ingredients.
+Add in some vodka to negate the negative effects.]],
+		category = "Cooking (Vodka Quality)",
+		model = "models/wick/wrbstalker/anomaly/items/wick_meat_pseudodog.mdl",
+		--skin = skin of model (not required),
+		workbench = {["cooking"]=true,},
+		traits = { --traits requirements
+			["crafting_cook"] = 2,--min level needed or true for no level ones,
+			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		customIng = "1x Any Vodka",
+		handpick = function(items) --pick an item 
+			for k,v in pairs(items) do
+				if(v.uniqueID:find("_vodka")) then
+					return k
+				end
+			end
+		end,
+		ingredients = { --items that will be taken
+			["food_meat_pseudodog"] = 1, --or # of needed,
+		},
+		result = "food_meal_a_pseudodog", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
+	["cook_rat_vodka"] = {
+		name = "Rat Skewers (Vodka Quality)",
+		desc = [[Use more advanced cooking knowledge to prepare some Rat Skewers with assorted seasonings and other ingredients.
+Add in some vodka to negate the negative effects.]],
+		category = "Cooking (Vodka Quality)",
+		model = "models/wick/wrbstalker/anomaly/items/wick_meat_tushkano.mdl",
+		--skin = skin of model (not required),
+		workbench = {["cooking"]=true,},
+		traits = { --traits requirements
+			["crafting_cook"] = 2,--min level needed or true for no level ones,
+			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		customIng = "1x Any Vodka",
+		handpick = function(items) --pick an item 
+			for k,v in pairs(items) do
+				if(v.uniqueID:find("_vodka")) then
+					return k
+				end
+			end
+		end,
+		ingredients = { --items that will be taken
+			["food_meat_rat"] = 1, --or # of needed,
+		},
+		result = "food_meal_a_rat", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
+	["cook_snork_vodka"] = {
+		name = "Snork Hand (Vodka Quality)",
+		desc = [[Use more advanced cooking knowledge to prepare a Grilled Snork Hand.
+Add in some vodka to negate the negative effects.]],
+		category = "Cooking (Vodka Quality)",
+		model = "models/kek1ch/snork_food.mdl",
+		--skin = skin of model (not required),
+		workbench = {["cooking"]=true,},
+		traits = { --traits requirements
+			["crafting_cook"] = 2,--min level needed or true for no level ones,
+			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		customIng = "1x Any Vodka",
+		handpick = function(items) --pick an item 
+			for k,v in pairs(items) do
+				if(v.uniqueID:find("_vodka")) then
+					return k
+				end
+			end
+		end,
+		ingredients = { --items that will be taken
+			["food_meat_snork"] = 1, --or # of needed,
+		},
+		result = "food_meal_a_snork", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
+	["cook_blood_water"] = {
+		name = "Bloodsucker Goulash (Water Quality)",
+		desc = [[Use basic cooking knowledge to create a Bloodsucker Goulash out of Bloodsucker meat and assorted spices and other ingredients.
+Add in some water to reduce negative effects.]],
+		category = "Cooking (Water Quality)",
+		model = "models/wick/wrbstalker/anomaly/items/wick_meat_bloodsucker.mdl",
+		--skin = skin of model (not required),
+		workbench = {["cooking"]=true,},
+		traits = { --traits requirements
+			["crafting_cook"] = 1,--min level needed or true for no level ones,
+			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		customIng = "1x Any Clean Water",
+		handpick = function(items) --pick an item 
+			for k,v in pairs(items) do
+				if(v.uniqueID:find("_water")) then
+					return k
+				end
+			end
+		end,
+		ingredients = { --items that will be taken
+			["food_meat_blood"] = 1, --or # of needed,
+		},
+		result = "food_meal_b_blood", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
+	["cook_boar_water"] = {
+		name = "Boar Chops (Water Quality)",
+		desc = [[Use basic cooking knowledge to prepare some Boar Chops with assorted seasonings and other ingredients.
+Add in some water to reduce negative effects.]],
+		category = "Cooking (Water Quality)",
+		model = "models/wick/wrbstalker/anomaly/items/wick_meat_boar.mdl",
+		--skin = skin of model (not required),
+		workbench = {["cooking"]=true,},
+		traits = { --traits requirements
+			["crafting_cook"] = 1,--min level needed or true for no level ones,
+			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		customIng = "1x Any Clean Water",
+		handpick = function(items) --pick an item 
+			for k,v in pairs(items) do
+				if(v.uniqueID:find("_water")) then
+					return k
+				end
+			end
+		end,
+		ingredients = { --items that will be taken
+			["food_meat_boar"] = 1, --or # of needed,
+		},
+		result = "food_meal_b_boar", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
+	["cook_dog_water"] = {
+		name = "Dog Chops (Water Quality)",
+		desc = [[Use basic cooking knowledge to prepare some Dog meat with assorted seasonings and other ingredients.
+Add in some water to reduce negative effects.]],
+		category = "Cooking (Water Quality)",
+		model = "models/wick/wrbstalker/anomaly/items/wick_meat_dog.mdl",
+		--skin = skin of model (not required),
+		workbench = {["cooking"]=true,},
+		traits = { --traits requirements
+			["crafting_cook"] = 1,--min level needed or true for no level ones,
+			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		customIng = "1x Any Clean Water",
+		handpick = function(items) --pick an item 
+			for k,v in pairs(items) do
+				if(v.uniqueID:find("_water")) then
+					return k
+				end
+			end
+		end,
+		ingredients = { --items that will be taken
+			["food_meat_dog"] = 1, --or # of needed,
+		},
+		result = "food_meal_b_dog", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
+	["cook_chimera_water"] = {
+		name = "Chimera Meat (Water Quality)",
+		desc = [[Use basic cooking knowledge to prepare some Chimera meat with assorted seasonings and other ingredients.
+Add in some water to reduce negative effects.]],
+		category = "Cooking (Water Quality)",
+		model = "models/wick/wrbstalker/anomaly/items/wick_chimera_food.mdl",
+		--skin = skin of model (not required),
+		workbench = {["cooking"]=true,},
+		traits = { --traits requirements
+			["crafting_cook"] = 1,--min level needed or true for no level ones,
+			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		customIng = "1x Any Clean Water",
+		handpick = function(items) --pick an item 
+			for k,v in pairs(items) do
+				if(v.uniqueID:find("_water")) then
+					return k
+				end
+			end
+		end,
+		ingredients = { --items that will be taken
+			["food_meat_chimera"] = 1, --or # of needed,
+		},
+		result = "food_meal_b_chimera", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
+	["cook_flesh_water"] = {
+		name = "Flesh Bacon (Water Quality)",
+		desc = [[Use basic cooking knowledge to turn some Flesh meat into some fat and greasy bacon.
+Add in some water to reduce negative effects.]],
+		category = "Cooking (Water Quality)",
+		model = "models/wick/wrbstalker/anomaly/items/wick_meat_flesh.mdl",
+		--skin = skin of model (not required),
+		workbench = {["cooking"]=true,},
+		traits = { --traits requirements
+			["crafting_cook"] = 1,--min level needed or true for no level ones,
+			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		customIng = "1x Any Clean Water",
+		handpick = function(items) --pick an item 
+			for k,v in pairs(items) do
+				if(v.uniqueID:find("_water")) then
+					return k
+				end
+			end
+		end,
+		ingredients = { --items that will be taken
+			["food_meat_flesh"] = 1, --or # of needed,
+		},
+		result = "food_meal_b_flesh", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
+	["cook_pseudodog_water"] = {
+		name = "Pseudodog Chops (Water Quality)",
+		desc = [[Use basic cooking knowledge to prepare some Pseudodog Chops with assorted seasonings and other ingredients.
+Add in some water to reduce negative effects.]],
+		category = "Cooking (Water Quality)",
+		model = "models/wick/wrbstalker/anomaly/items/wick_meat_pseudodog.mdl",
+		--skin = skin of model (not required),
+		workbench = {["cooking"]=true,},
+		traits = { --traits requirements
+			["crafting_cook"] = 1,--min level needed or true for no level ones,
+			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		customIng = "1x Any Clean Water",
+		handpick = function(items) --pick an item 
+			for k,v in pairs(items) do
+				if(v.uniqueID:find("_water")) then
+					return k
+				end
+			end
+		end,
+		ingredients = { --items that will be taken
+			["food_meat_pseudodog"] = 1, --or # of needed,
+		},
+		result = "food_meal_b_pseudodog", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
+	["cook_rat_water"] = {
+		name = "Rat Skewers (Water Quality)",
+		desc = [[Use basic cooking knowledge to prepare some Rat Skewers with assorted seasonings and other ingredients.
+Add in some water to reduce negative effects.]],
+		category = "Cooking (Water Quality)",
+		model = "models/wick/wrbstalker/anomaly/items/wick_meat_tushkano.mdl",
+		--skin = skin of model (not required),
+		workbench = {["cooking"]=true,},
+		traits = { --traits requirements
+			["crafting_cook"] = 1,--min level needed or true for no level ones,
+			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		customIng = "1x Any Clean Water",
+		handpick = function(items) --pick an item 
+			for k,v in pairs(items) do
+				if(v.uniqueID:find("_water")) then
+					return k
+				end
+			end
+		end,
+		ingredients = { --items that will be taken
+			["food_meat_rat"] = 1, --or # of needed,
+		},
+		result = "food_meal_b_rat", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
+	["cook_snork_water"] = {
+		name = "Snork Hand (Water Quality)",
+		desc = [[Use basic cooking knowledge to prepare a Grilled Snork Hand.
+Add in some water to reduce negative effects.]],
+		category = "Cooking (Water Quality)",
+		model = "models/kek1ch/snork_food.mdl",
+		--skin = skin of model (not required),
+		workbench = {["cooking"]=true,},
+		traits = { --traits requirements
+			["crafting_cook"] = 1,--min level needed or true for no level ones,
+			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		customIng = "1x Any Clean Water",
+		handpick = function(items) --pick an item 
+			for k,v in pairs(items) do
+				if(v.uniqueID:find("_water")) then
+					return k
+				end
+			end
+		end,
+		ingredients = { --items that will be taken
+			["food_meat_snork"] = 1, --or # of needed,
+		},
+		result = "food_meal_b_snork", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
 	["cook_blood"] = {
 		name = "Bloodsucker Goulash (Low Quality)",
 		desc = [[Use basic cooking knowledge to create a Bloodsucker Goulash out of Bloodsucker meat and assorted spices and other ingredients.]],
-		category = "Cooking",
+		category = "Cooking (Low Quality)",
 		model = "models/wick/wrbstalker/anomaly/items/wick_meat_bloodsucker.mdl",
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
@@ -538,7 +1082,7 @@ PLUGIN.recipeList = {
 	["cook_boar"] = {
 		name = "Boar Chops (Low Quality)",
 		desc = [[Use basic cooking knowledge to prepare some Boar Chops with assorted seasonings and other ingredients.]],
-		category = "Cooking",
+		category = "Cooking (Low Quality)",
 		model = "models/wick/wrbstalker/anomaly/items/wick_meat_boar.mdl",
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
@@ -563,7 +1107,7 @@ PLUGIN.recipeList = {
 	["cook_dog"] = {
 		name = "Dog Chops (Low Quality)",
 		desc = [[Use basic cooking knowledge to prepare some Dog meat with assorted seasonings and other ingredients.]],
-		category = "Cooking",
+		category = "Cooking (Low Quality)",
 		model = "models/wick/wrbstalker/anomaly/items/wick_meat_dog.mdl",
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
@@ -588,7 +1132,7 @@ PLUGIN.recipeList = {
 	["cook_chimera"] = {
 		name = "Chimera Meat (Low Quality)",
 		desc = [[Use basic cooking knowledge to prepare some Chimera meat with assorted seasonings and other ingredients.]],
-		category = "Cooking",
+		category = "Cooking (Low Quality)",
 		model = "models/wick/wrbstalker/anomaly/items/wick_chimera_food.mdl",
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
@@ -613,7 +1157,7 @@ PLUGIN.recipeList = {
 	["cook_flesh"] = {
 		name = "Flesh Bacon (Low Quality)",
 		desc = [[Use basic cooking knowledge to turn some Flesh meat into some fat and greasy bacon.]],
-		category = "Cooking",
+		category = "Cooking (Low Quality)",
 		model = "models/wick/wrbstalker/anomaly/items/wick_meat_flesh.mdl",
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
@@ -638,7 +1182,7 @@ PLUGIN.recipeList = {
 	["cook_pseudodog"] = {
 		name = "Pseudodog Chops (Low Quality)",
 		desc = [[Use basic cooking knowledge to prepare some Pseudodog Chops with assorted seasonings and other ingredients.]],
-		category = "Cooking",
+		category = "Cooking (Low Quality)",
 		model = "models/wick/wrbstalker/anomaly/items/wick_meat_pseudodog.mdl",
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
@@ -663,7 +1207,7 @@ PLUGIN.recipeList = {
 	["cook_rat"] = {
 		name = "Rat Skewers (Low Quality)",
 		desc = [[Use basic cooking knowledge to prepare some Rat Skewers with assorted seasonings and other ingredients.]],
-		category = "Cooking",
+		category = "Cooking (Low Quality)",
 		model = "models/wick/wrbstalker/anomaly/items/wick_meat_tushkano.mdl",
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
@@ -688,7 +1232,7 @@ PLUGIN.recipeList = {
 	["cook_snork"] = {
 		name = "Snork Hand (Low Quality)",
 		desc = [[Use basic cooking knowledge to prepare a Grilled Snork Hand.]],
-		category = "Cooking",
+		category = "Cooking (Low Quality)",
 		model = "models/kek1ch/snork_food.mdl",
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
