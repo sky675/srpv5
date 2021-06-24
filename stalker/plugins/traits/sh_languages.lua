@@ -243,7 +243,7 @@ function genChat(trait, chatbasename, lang, prefixtable)
 		end)
 	end
 
-	des = "Talk into a radio you have or your commlink cyberware in "..lang
+	des = "Talk into a radio you have in "..lang
 	local chatType = chatbasename.."radio"
 	nut.chat.register(chatType, {
 		desc = des,
