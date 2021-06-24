@@ -117,11 +117,16 @@ SWEP.WElements = {
 
 local anomalies = {
 	--list of ["uniqueid"] = true that this detects
+	//junk
 	["art_dragoneye"] = true,
+	["art_basilisk"] = true,
+	["art_blackstone"] = true, --this apparently is unused
 	["art_knot"] = true,
 	["art_ball"] = true,
+	["art_gimlet"] = true,
 	["art_tapeworm"] = true,
 	["art_seraphim"] = true,
+	["art_signet"] = true,
 	["art_electron"] = true,
 	["art_claw"] = true,
 	["art_generator"] = true,
