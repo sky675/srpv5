@@ -18,6 +18,9 @@ nut.config.add("pdaExternalCloseButton", false, "Whether or not to show a close 
 nut.config.add("pdaInternalCloseButton", true, "Whether or not to show a close button in the pda gui.", nil, {
 	category = PLUGIN.name
 })
+nut.config.add("leaderboardEnabled", true, "Whether or not to the leaderboard in PDA should be enabled.", nil, {
+	category = PLUGIN.name
+})
 
 nut.config.add("pdaAnnouncementsURL", "http://nutscript.com", "The URL to be loaded for the PDA announcements tab", nil, {
 	category = PLUGIN.name
