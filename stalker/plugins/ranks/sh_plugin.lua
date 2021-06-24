@@ -57,6 +57,11 @@ if(SERVER) then
 	function PLUGIN:LoadData()
 		RANK_LEADER = self:getData({}, nil, true)
 	end
+
+	netstream.Hook("getleaderboard", function(ply)
+		netstream.Start(ply, "sendleaderboard", RANK_LEADER)
+	end)
+
 else
 	
 end

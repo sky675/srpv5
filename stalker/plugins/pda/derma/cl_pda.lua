@@ -152,7 +152,6 @@ function PANEL:Reset(newid)
 
 	
 	if(type(newid) == "table") then
-		print("table found woopie!")
 		self.pda = newid
 	else
 		for k,v in pairs(inv:getItems()) do

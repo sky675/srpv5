@@ -146,6 +146,22 @@ function GM:LoadNutFonts(font, genericFont)
 		weight = 500
 	})
 
+	surface.CreateFont("nutSmallItalicFont", {
+		font = font,
+		size = math.max(ScreenScale(6), 17),
+		extended = true,
+		weight = 500,
+		italic = true
+	})
+
+	surface.CreateFont("nutSmallItalicBoldFont", {
+		font = font,
+		size = math.max(ScreenScale(6), 17),
+		extended = true,
+		weight = 800,
+		italic = true
+	})
+
 	surface.CreateFont("nutItemDescFont", {
 		font = font,
 		size = math.max(ScreenScale(6), 17),
