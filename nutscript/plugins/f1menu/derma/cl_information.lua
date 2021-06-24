@@ -115,6 +115,8 @@ local PANEL = {}
 			if (!suppress or !suppress.name) then --character name
 				self.nameTopLine = self:Add("DLabel")
 				self.nameBotLine = self:Add("DLabel")
+				self.rankTitle = self:Add("DLabel")
+				self.rankPoints = self:Add("DLabel")
 
 				local nameFont = "nutScaledInvenMed"
 				local nameColor = Color(153, 143, 127)
@@ -123,6 +125,12 @@ local PANEL = {}
 				self.nameTopLine:SetTextColor(nameColor)
 				self.nameBotLine:SetFont(nameFont)
 				self.nameBotLine:SetTextColor(nameColor)
+
+				self.rankTitle:SetFont("nutScaledInvenLightButMediumer")
+				self.rankPoints:SetFont("nutScaledInvenLightButMediumer")
+				self.rankTitle:SetTextColor(Color(119, 126, 126))
+				self.rankPoints:SetTextColor(Color(46,91,128))
+
 
 			end
 
@@ -466,7 +474,10 @@ local PANEL = {}
 
 			self.nameBotLine:SetPos(invPosX+(355*(invw/invTextureW)), (invPosY+(55*(invh/invTextureH))) - 30*(ScrH()/768)) --this last bit is size from loadfonts
 			self.nameTopLine:SetPos(invPosX+(355*(invw/invTextureW)), (invPosY+(55*(invh/invTextureH))) - 45*(ScrH()/768))
-			
+
+
+
+
 			hook.Add(
 				"OnCharVarChanged",
 				self,
@@ -502,9 +513,22 @@ local PANEL = {}
 
 		--FACTION SET TEXT
 		if (self.faction) then
-			self.faction:SetText(L(team.GetName(LocalPlayer():Team())))
+			self.faction:SetText(L(team.GetName(LocalPlayer():Team())) .. ", ")
 			self.faction:SizeToContents()
 			self.faction:SetPos(invPosX+(360*(invw/invTextureW)), (invPosY+(60*(invh/invTextureH))) - 15*(ScrH()/768))
+
+						
+
+			--Rank & XP
+			self.rankTitle:SetText(RANK_TRANS[LocalPlayer():getChar():getData("rank", "novice")] .. " ")
+			self.rankPoints:SetText(LocalPlayer():getChar():getData("rankpoints", "0"))
+
+			self.rankTitle:SizeToContents()
+			self.rankPoints:SizeToContents()
+
+			self.rankTitle:SetPos(self.faction:GetX() + self.faction:GetWide(), self.faction:GetY())
+			self.rankPoints:SetPos(self.rankTitle:GetX() + self.rankTitle:GetWide(), self.faction:GetY())
+
 		end
 
 		--TIME
