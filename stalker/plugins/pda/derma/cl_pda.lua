@@ -20,7 +20,7 @@ function PANEL:ConfigureTabs()
 	self:addTab(vgui.Create("pdaMap"), 2)
 	self:addTab(vgui.Create("pdaScoreboard"), 3) --Clunky code, I know - Line #78 in sh_scoreboard: pda.tabs[3]:UpdateScoreboard(tbl) must match this priority
 	self:addTab(vgui.Create("pdaLeaderboard"), 4) --This has a ShouldShow() parameter matching the nut.config option for leaderboardEnabled
-	self:addTab(vgui.Create("pdaAdmin"), 9997)
+	--self:addTab(vgui.Create("pdaAdmin"), 9997) --This has a ShouldShow() parameter that checks for flag Z
 	self:addTab(vgui.Create("pdaSettings"), 9998)
 	self:addTab(vgui.Create("pdaClose"), 9999) --This has a ShouldShow() parameter matching the nut.config option for pdaInternalCloseButton
 
