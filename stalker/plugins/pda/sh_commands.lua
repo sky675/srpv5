@@ -140,7 +140,7 @@ nut.command.add("pdagetpartychannel", {
 })
 
 nut.command.add("pdaparty", {
-	desc = "Use party channel, requires you to be in a run and have a PDA",
+	desc = "Use party channel, requires you to have a PDA and have a non-empty channel id set in the PDA",
 	syntax = "<string message>",
 	onRun = function(client, arguments)
         if(client:getNetVar("neardeath")) then return end
