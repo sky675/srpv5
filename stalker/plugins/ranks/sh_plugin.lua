@@ -12,6 +12,19 @@ nut.config.add("rankLeaderCount",  20, "The amount of people to keep in the cach
 	category = "Rankings"
 })
 
+nut.config.add("rankXpItem", 1, "The XP given when picking up a naturally spawned (from loot) item. 0 disables", nil, {
+	data = {min = 0, max = 100},
+	category = "Rankings"
+})
+nut.config.add("rankXpNpc", 2, "The XP given when killing an npc. 0 disables", nil, {
+	data = {min = 0, max = 100},
+	category = "Rankings"
+})
+nut.config.add("rankXpPly", 5, "The XP given to a player after a player they downed acds (will only work with damage on). 0 disables", nil, {
+	data = {min = 0, max = 100},
+	category = "Rankings"
+})
+
 RANK_TABLE = {
 	--min value for the rank
 	["novice"] = 0,
@@ -44,6 +57,8 @@ RANK_PRICES = {
 	["legend"] = 10000,
 }
 
+nut.util.include("sh_commands.lua")
+nut.util.include("sv_integration.lua")
 nut.util.include("sv_xp.lua")
 
 if(SERVER) then
