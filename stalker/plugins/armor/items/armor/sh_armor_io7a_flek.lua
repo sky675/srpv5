@@ -1,5 +1,5 @@
-ITEM.name = "Merc IO7A Suit"
-ITEM.desc = "A suit officially designated as 'Light Combat Suit', commonly worn by Mercenaries. This has the classic blue coloring they tend to wear."
+ITEM.name = "IO7A Suit (Flecktarn)"
+ITEM.desc = "A suit officially designated as 'Light Combat Suit', commonly worn by Mercenaries. This has been dyed in a flecktarn camo."
 ITEM.model = "models/sky/seperate/male_io7a.mdl"
 ITEM.category = "Clothing"
 ITEM.skin = 0
@@ -21,12 +21,12 @@ local matreplace = {
 	["beri_lone"] = "models/sky/stalker/beri_blak",
 	["cs1_lone"] = "models/sky/stalker/cs1_dawn",
 	["cs2_lone"] = "models/sky/stalker/cs2_blak",
-	["exo_lone"] = "models/sky/stalker/exo_merc",
-	["io7a_lone"] = "models/sky/stalker/io7a_merc",
+	["exo_lone"] = "models/sky/stalker/exo_blak",
+	["io7a_lone"] = "models/sky/stalker/io7a_flek",
 	["seva_lone"] = "models/sky/stalker/seva_midn",
-	["skat_lone"] = "models/sky/stalker/skat_merc",
-	["sunrise_lone"] = "models/sky/stalker/sunrise_merc",
-	["sunrise_null"] = "models/sky/stalker/sunrise_merc",
+	["skat_lone"] = "models/sky/stalker/skat_blak",
+	//["sunrise_lone"] = "models/sky/stalker/sunrise_blak",
+	//["sunrise_null"] = "models/sky/stalker/sunrise_blak",
 }
 
 ITEM.exRender = true
