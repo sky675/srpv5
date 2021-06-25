@@ -46,6 +46,29 @@ RANK_TRANS = {
 	["master"] = "Master",
 	["legend"] = "Legend"
 }
+REP_TABLE = {
+	--min value for rep
+	["terrible"] = -9999,
+	["realbad"] = -2000,
+	["verybad"] = -1500,
+	["bad"] = -1000,
+	["neutral"] = -500,
+	["good"] = 500,
+	["verygood"] = 1000,
+	["realgood"] = 1500,
+	["excellent"] = 2000
+}
+REP_TRANS = {
+	["terrible"] = "Terrible",
+	["realbad"] = "Dreary",
+	["verybad"] = "Awful",
+	["bad"] = "Bad",
+	["neutral"] = "Neutral",
+	["good"] = "Good",
+	["verygood"] = "Great",
+	["realgood"] = "Brilliant",
+	["excellent"] = "Excellent"
+}
 RANK_PRICES = {
 	["novice"] = 250,
 	["trainee"] = 500,

@@ -12,6 +12,7 @@ local PLUGIN = PLUGIN
 	function rankingTest() 
 		for i = 1, 40 do
 			local xp = math.random(1000, 30000)
+			local rep = math.random(-2500, 2500)
 			local newrank
 			local maxxp
 			--find rank
@@ -25,7 +26,7 @@ local PLUGIN = PLUGIN
 					newrank = k
 				end
 			end
-			RANK_TOBEADD[math.random(1, 500)] = {["name"] = "test"..math.random(1,50000), ["fac"] = math.random(1,9), ["xp"] = xp, ["rank"] = newrank}
+			RANK_TOBEADD[math.random(1, 500)] = {["name"] = "test"..math.random(1,50000), ["fac"] = math.random(1,9), ["xp"] = xp, ["rank"] = newrank, ["rep"] = rep}
 		end
 
 		print("printing generated ranks")
@@ -63,6 +64,7 @@ local PLUGIN = PLUGIN
 					fac = v.fac,
 					id = v.id,
 					xp = v.xp,
+					rep = v.rep,
 					rank = v.rank
 				}
 			end
@@ -75,6 +77,7 @@ local PLUGIN = PLUGIN
 					fac = v.fac,
 					id = k,
 					xp = v.xp,
+					rep = v.rep,
 					rank = v.rank
 				}
 			end
@@ -116,12 +119,39 @@ local PLUGIN = PLUGIN
 		--if the xp is higher than the min get it to update the list next cycle
 		if(nut.config.get("rankMinLeader", 0) <= xp) then
 			--including the name and faction just in case they arent loaded (which tbh theres a large chance they wont) when the ranks are updated
-			RANK_TOBEADD[char:getID()] = {["name"] = char:getName(), ["fac"] = char:getFaction(), ["xp"] = xp, ["rank"] = newrank}
+			RANK_TOBEADD[char:getID()] = {["name"] = char:getName(), ["fac"] = char:getFaction(), ["xp"] = xp, ["rank"] = newrank, ["rep"] = char:getData("rep", "neutral")}
 			self.updateRank = true
 		end
 		--at a new rank
 		if(newrank != oldrank) then
 			char:setData("rank", newrank)
+			return newrank --return new rank
+		end
+	end
+
+	function PLUGIN:AddRep(char, amt)
+		local xp = char:getData("reppoints", 0)
+		local oldrank = char:getData("rep", "neutral")
+		xp = xp + amt
+
+		local newrank
+		local maxxp
+		--find rank
+		for k,v in pairs(REP_TABLE) do
+			if(xp >= v) then
+				if(!maxxp or v > maxxp) then
+					maxxp = v
+				else
+					continue
+				end
+				newrank = k
+			end
+		end
+
+		char:setData("reppoints", xp)
+		--at a new rank
+		if(newrank != oldrank) then
+			char:setData("rep", newrank)
 			return newrank --return new rank
 		end
 	end
