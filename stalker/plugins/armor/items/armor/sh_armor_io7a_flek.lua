@@ -1,35 +1,32 @@
-ITEM.name = "Monolith Suit"
-ITEM.desc = "A standard outfit for the Monolith."
-ITEM.model = "models/sky/seperate/male_sunrise.mdl"
+ITEM.name = "IO7A Suit (Flecktarn)"
+ITEM.desc = "A suit officially designated as 'Light Combat Suit', commonly worn by Mercenaries. This has been dyed in a flecktarn camo."
+ITEM.model = "models/sky/seperate/male_io7a.mdl"
 ITEM.category = "Clothing"
-ITEM.skin = 17
-ITEM.weight = 8.2
-ITEM.addWeight = 10
+ITEM.skin = 0
+ITEM.weight = 9
+ITEM.addWeight = 13
 ITEM.width = 2
 ITEM.height = 3
 ITEM.outfitCategory = "armor"
-ITEM.price = 45120--14600
-ITEM.flag = "O"
-ITEM.fakeFaction = FACTION_MONOLITH
-ITEM.size = "medium" --helm, light, medium, heavy, exo, mask, vest, sci, seva
-ITEM.artifactCnt = 1
+ITEM.price = 38280--32280
+ITEM.flag = "m"
+ITEM.size = "medium" --helm, light, medium, heavy, exo, mask, vest, sci
 
 --interface/inv_items_cloth_2.ogg super light (masks, addons)
 --interface/inv_items_cloth_3.ogg light (spd >= .7)
 --interface/inv_items_cloth_1.ogg med (rest, would like something more metal but eh)
 ITEM.equipSound = "interface/inv_items_cloth_3.ogg"
 ITEM.unequipSound = "interface/inv_items_cloth_3.ogg"
---the materials to be replaced on the model
 local matreplace = {	
 	["beri_lone"] = "models/sky/stalker/beri_blak",
 	["cs1_lone"] = "models/sky/stalker/cs1_dawn",
 	["cs2_lone"] = "models/sky/stalker/cs2_blak",
-	["exo_lone"] = "models/sky/stalker/exo_mono",
-	["io7a_lone"] = "models/sky/stalker/io7a_monolith",
-	["seva_lone"] = "models/sky/stalker/seva_mono",
-	["skat_lone"] = "models/sky/stalker/skat_monolith",
-	["sunrise_lone"] = "models/sky/stalker/wind_mono",
-	["sunrise_null"] = "models/sky/stalker/wind_mono"
+	["exo_lone"] = "models/sky/stalker/exo_blak",
+	["io7a_lone"] = "models/sky/stalker/io7a_flek",
+	["seva_lone"] = "models/sky/stalker/seva_midn",
+	["skat_lone"] = "models/sky/stalker/skat_blak",
+	//["sunrise_lone"] = "models/sky/stalker/sunrise_blak",
+	//["sunrise_null"] = "models/sky/stalker/sunrise_blak",
 }
 
 ITEM.exRender = true
@@ -56,7 +53,7 @@ ITEM.iconCam = {
 	end,
 }
 ITEM.onGetDropModel = function(item, ent)
-	return "models/sky/dropped/sunrise.mdl"
+	return "models/sky/dropped/io7a.mdl"
 end
 
 --ITEM.upgradePath = "eyes"
@@ -111,6 +108,7 @@ ITEM.canRemove = function(self, ply)
 	end
 end
 
+
 --ITEM.gsresetsubmat = true --this is annoying
 --todo need a way to change forms, set rank to something at some point?
 function ITEM:getCustomGS()
@@ -120,9 +118,9 @@ function ITEM:getCustomGS()
 	}
 
 	if(self.player:isFemale()) then
-		tbl.model = "models/sky/seperate/female_sunrise.mdl"
+		tbl.model = "models/sky/seperate/female_io7a.mdl"
 	else
-		tbl.model = "models/sky/seperate/male_sunrise.mdl"
+		tbl.model = "models/sky/seperate/male_io7a.mdl"
 	end
 
 	--moved like this, easier this way
@@ -133,11 +131,6 @@ function ITEM:getCustomGS()
 		tbl.submat = self.player:getChar():getData("oldgsub")
 		self.player:getChar():setData("oldgsub")
 	end
-
-	--[[tbl.remsubmat = {	
-		["sunrise_lone"] = "",
-		["sunrise_null"] = ""
-	}]]
 	--submat
 	
 	return tbl
@@ -150,34 +143,34 @@ ITEM.getBodyGroups = function(item, ply)
 	return {["arms"] = ply:isFemale() and 3 or 4,["hands"] = 3}
 end
 
-ITEM.upgradePath = "sunrise"
-ITEM.armor = {--these were like this by chairs request, so ive changed it to be more in line with the rest of the suits (tho tbh with those stats it should be like iia lmao)
-	chest = {level = ARMOR_II},
-	larm = {level = ARMOR_NONE},
-	rarm = {level = ARMOR_NONE},
-	lleg = {level = ARMOR_NONE},
-	rleg = {level = ARMOR_NONE},
+ITEM.upgradePath = "io7a"
+ITEM.armor = {
+	chest = {level = ARMOR_IIIA},
+	larm = {level = ARMOR_IIA},
+	rarm = {level = ARMOR_IIA},
+	lleg = {level = ARMOR_IIA},
+	rleg = {level = ARMOR_IIA},
 }
 ITEM.resists = {
 	--burn
-	[DMG_BURN] = 0.034,
+	[DMG_BURN] = 0.026,
 	--electric --less
-	[DMG_SHOCK] = 0.0425,
+	[DMG_SHOCK] = 0.145,
 	--ext rad
-	[DMG_RADIATION] = 0.2,
+	[DMG_RADIATION] = 0.054,
 	--chem
-	[DMG_ACID] = 0.16,
+	[DMG_ACID] = 0.08,
 	--psy
 	[DMG_SONIC] = 0,
 	["psy"] = 0,
 	--explosion
-	[DMG_BLAST] = 0.19,
-	--phys
-	[DMG_SLASH] = 0.186, --increased these a bit from pure values to match armor levels
-	[DMG_CLUB] = 0.186,	--0.086 orig
-	[DMG_CRUSH] = 0.186,
+	[DMG_BLAST] = 0.35,
 	--bullet fire wound
-	[DMG_BULLET] = 0.188,--0.158 orig
+	[DMG_BULLET] = 0.266,
+	--phys
+	[DMG_SLASH] = 0.136,
+	[DMG_CLUB] = 0.136,
+	[DMG_CRUSH] = 0.136,
 
-	spd = 0.97,
+	spd = 0.96,
 }

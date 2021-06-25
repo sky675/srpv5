@@ -1,22 +1,25 @@
-ITEM.name = "Sunrise Stalker Suit"
-ITEM.desc = "A suit built within the zone."
-ITEM.model = "models/sky/seperate/male_sunrise.mdl"
+ITEM.name = "Trenchcoat (Green)"
+ITEM.desc = "A common trenchcoat."
+ITEM.model = "models/sky/seperate/male_trenchcoat.mdl"
 ITEM.category = "Clothing"
 ITEM.skin = 0
-ITEM.weight = 6.2
-ITEM.addWeight = 6
+ITEM.weight = 5.2
+ITEM.addWeight = 5
 ITEM.width = 2
 ITEM.height = 3
 ITEM.outfitCategory = "armor"
-ITEM.price = 34280--14280
+ITEM.price = 23320
 ITEM.flag = "1"
-ITEM.size = "medium" --helm, light, medium, heavy, exo, mask, vest, sci, seva
+ITEM.size = "light" --helm, light, medium, heavy, exo, mask, vest, sci, seva
 
 --interface/inv_items_cloth_2.ogg super light (masks, addons)
 --interface/inv_items_cloth_3.ogg light (spd >= .7)
 --interface/inv_items_cloth_1.ogg med (rest, would like something more metal but eh)
-ITEM.equipSound = "interface/inv_items_cloth_3.ogg"
-ITEM.unequipSound = "interface/inv_items_cloth_3.ogg"
+ITEM.equipSound = "interface/inv_items_cloth_2.ogg"
+ITEM.unequipSound = "interface/inv_items_cloth_2.ogg"
+local matreplace = {	
+	["trenchcoat_black"] = "models/sky/stalker/trenchcoat_green"
+}
 
 ITEM.exRender = true
 ITEM.iconCam = {
@@ -26,11 +29,23 @@ ITEM.iconCam = {
 	fov = 14.763357201488,
 	
 	drawHook = function(ent, w, h)
-		
+		local repl = matreplace
+		local mats = ent:GetMaterials()
+		for k2,v2 in pairs(repl) do
+			local mat
+			for k,v in pairs(mats) do
+				if(string.find(v, k2)) then
+					mat = k-1
+				end
+			end
+			if(mat) then
+				ent:SetSubMaterial(mat, v2)
+			end
+		end
 	end,
 }
 ITEM.onGetDropModel = function(item, ent)
-	return "models/sky/dropped/sunrise.mdl"
+	return "models/sky/dropped/trenchcoat.mdl"
 end
 
 --ITEM.upgradePath = "eyes"
@@ -79,14 +94,18 @@ function ITEM:getCustomGS()
 	}
 
 	if(self.player:isFemale()) then
-		tbl.model = "models/sky/seperate/female_sunrise.mdl"
+		tbl.model = "models/sky/seperate/female_trenchcoat.mdl"
 	else
-		tbl.model = "models/sky/seperate/male_sunrise.mdl"
+		tbl.model = "models/sky/seperate/male_trenchcoat.mdl"
 	end
-	tbl.submat = {}
-	local exskin = self:getData("exskin")
-	if(exskin and TEXTURETABLE[exskin]) then
-		tbl.submat = TEXTURETABLE[exskin]
+	
+	--moved like this, easier this way
+	tbl.submat = matreplace
+	if(self:getData("equip")) then --equip is true when its equipping, and not when its unequipping
+		self.player:getChar():setData("oldgsub", self.player:getChar():getData("gsub", {})["t"])
+	elseif(self.player:getChar():getData("oldgsub")) then
+		tbl.submat = self.player:getChar():getData("oldgsub")
+		self.player:getChar():setData("oldgsub")
 	end
 	--[[tbl.submat = {	
 		["sunrise_lone"] = "",
@@ -106,7 +125,7 @@ end
 
 ITEM.upgradePath = "sunrise"
 ITEM.armor = {
-	chest = {level = ARMOR_II},
+	chest = {level = ARMOR_IIA},
 	larm = {level = ARMOR_NONE},
 	rarm = {level = ARMOR_NONE},
 	lleg = {level = ARMOR_NONE},
@@ -116,22 +135,22 @@ ITEM.resists = {
 	--burn
 	[DMG_BURN] = 0.121,
 	--electric --less
-	[DMG_SHOCK] = 0.15,
+	[DMG_SHOCK] = 0.1275,
 	--ext rad
-	[DMG_RADIATION] = 0.129,
+	[DMG_RADIATION] = 0.04,
 	--chem
-	[DMG_ACID] = 0.12,
+	[DMG_ACID] = 0.16,
 	--psy
 	[DMG_SONIC] = 0,
 	["psy"] = 0,
 	--explosion
-	[DMG_BLAST] = 0.25,
+	[DMG_BLAST] = 0.2,
 	--phys
-	[DMG_SLASH] = 0.136,
-	[DMG_CLUB] = 0.136,
-	[DMG_CRUSH] = 0.136,
+	[DMG_SLASH] = 0.09,
+	[DMG_CLUB] = 0.09,
+	[DMG_CRUSH] = 0.09,
 	--bullet fire wound
-	[DMG_BULLET] = 0.225,
+	[DMG_BULLET] = 0.166,
 
-	spd = 0.96,
+	spd = 0.98,
 }

@@ -1,22 +1,36 @@
-ITEM.name = "Sunrise Stalker Suit"
+ITEM.name = "Bear Stalker Suit"
 ITEM.desc = "A suit built within the zone."
 ITEM.model = "models/sky/seperate/male_sunrise.mdl"
 ITEM.category = "Clothing"
-ITEM.skin = 0
-ITEM.weight = 6.2
+ITEM.skin = 7
+ITEM.weight = 7
 ITEM.addWeight = 6
 ITEM.width = 2
 ITEM.height = 3
 ITEM.outfitCategory = "armor"
-ITEM.price = 34280--14280
+ITEM.price = 36900--14600
 ITEM.flag = "1"
 ITEM.size = "medium" --helm, light, medium, heavy, exo, mask, vest, sci, seva
+--ITEM.artifactCnt = 1
 
 --interface/inv_items_cloth_2.ogg super light (masks, addons)
 --interface/inv_items_cloth_3.ogg light (spd >= .7)
 --interface/inv_items_cloth_1.ogg med (rest, would like something more metal but eh)
 ITEM.equipSound = "interface/inv_items_cloth_3.ogg"
 ITEM.unequipSound = "interface/inv_items_cloth_3.ogg"
+--the materials to be replaced on the model
+local matreplace = {	
+	--[[["beri_lone"] = "models/sky/stalker/beri_blak",
+	["cs1_lone"] = "models/sky/stalker/cs1_dawn",
+	["cs2_lone"] = "models/sky/stalker/cs2_blak",
+	["exo_lone"] = "models/sky/stalker/exo_mono",
+	["io7a_lone"] = "models/sky/stalker/io7a_monolith",
+	["seva_lone"] = "models/sky/stalker/seva_mono",
+	["skat_lone"] = "models/sky/stalker/skat_monolith",]]
+	["sunrise_lone"] = "models/sky/stalker/stalker_band",
+	["sunrise_null"] = "models/sky/stalker/stalker_band",
+	["exo_lone"] = "models/sky/stalker/exo_band",
+}
 
 ITEM.exRender = true
 ITEM.iconCam = {
@@ -26,7 +40,19 @@ ITEM.iconCam = {
 	fov = 14.763357201488,
 	
 	drawHook = function(ent, w, h)
-		
+		local repl = matreplace
+		local mats = ent:GetMaterials()
+		for k2,v2 in pairs(repl) do
+			local mat
+			for k,v in pairs(mats) do
+				if(string.find(v, k2)) then
+					mat = k-1
+				end
+			end
+			if(mat) then
+				ent:SetSubMaterial(mat, v2)
+			end
+		end
 	end,
 }
 ITEM.onGetDropModel = function(item, ent)
@@ -35,6 +61,22 @@ end
 
 --ITEM.upgradePath = "eyes"
 
+--[[
+function ITEM:getName()
+	--todo change name depending on rank?
+	
+	local dataRank = self:getData("rank", "default")
+	local name = ""
+
+	if(SCHEMA.rankMods[dataRank]) then
+		name = SCHEMA.rankMods[dataRank].name
+	else
+		name = SCHEMA.rankMods["RCT"].name --idk
+	end
+
+	return name.." (Male)"
+end
+]]
 
 ITEM.canWear = function(self, ply)
 	local model = ply:GetModel()
@@ -69,7 +111,6 @@ ITEM.canRemove = function(self, ply)
 	end
 end
 
-
 --ITEM.gsresetsubmat = true --this is annoying
 --todo need a way to change forms, set rank to something at some point?
 function ITEM:getCustomGS()
@@ -83,12 +124,17 @@ function ITEM:getCustomGS()
 	else
 		tbl.model = "models/sky/seperate/male_sunrise.mdl"
 	end
-	tbl.submat = {}
-	local exskin = self:getData("exskin")
-	if(exskin and TEXTURETABLE[exskin]) then
-		tbl.submat = TEXTURETABLE[exskin]
+
+	--moved like this, easier this way
+	tbl.submat = matreplace
+	if(self:getData("equip")) then --equip is true when its equipping, and not when its unequipping
+		self.player:getChar():setData("oldgsub", self.player:getChar():getData("gsub", {})["t"])
+	elseif(self.player:getChar():getData("oldgsub")) then
+		tbl.submat = self.player:getChar():getData("oldgsub")
+		self.player:getChar():setData("oldgsub")
 	end
-	--[[tbl.submat = {	
+
+	--[[tbl.remsubmat = {	
 		["sunrise_lone"] = "",
 		["sunrise_null"] = ""
 	}]]
@@ -114,9 +160,9 @@ ITEM.armor = {
 }
 ITEM.resists = {
 	--burn
-	[DMG_BURN] = 0.121,
+	[DMG_BURN] = 0.39,
 	--electric --less
-	[DMG_SHOCK] = 0.15,
+	[DMG_SHOCK] = 0.025,
 	--ext rad
 	[DMG_RADIATION] = 0.129,
 	--chem
@@ -127,11 +173,11 @@ ITEM.resists = {
 	--explosion
 	[DMG_BLAST] = 0.25,
 	--phys
-	[DMG_SLASH] = 0.136,
-	[DMG_CLUB] = 0.136,
-	[DMG_CRUSH] = 0.136,
+	[DMG_SLASH] = 0.145, --increased these a bit from pure values to match armor levels
+	[DMG_CLUB] = 0.145,
+	[DMG_CRUSH] = 0.145,
 	--bullet fire wound
-	[DMG_BULLET] = 0.225,
+	[DMG_BULLET] = 0.224,
 
 	spd = 0.96,
 }
