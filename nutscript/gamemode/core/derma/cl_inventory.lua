@@ -68,7 +68,7 @@ function PANEL:setItemType(itemTypeOrID)
 		self.ExtraPaint = function(self, x, y)
 			local paintFunc = item.paintIcon
 			local modelID
-			local customCam
+			local camInfo
 			
 			if (paintFunc and type(paintFunc) == "function") then
 				paintFunc(item, self)
@@ -76,6 +76,8 @@ function PANEL:setItemType(itemTypeOrID)
 				if (item.uniqueID == "run_obj") then
 					modelID = item:getModel()
 					modelID = string.gsub(modelID, "/", "")
+				else
+					camInfo = item.iconCam
 				end
 				local exIcon = ikon:getIcon(modelID or item.uniqueID)
 				if (exIcon) then
@@ -89,7 +91,7 @@ function PANEL:setItemType(itemTypeOrID)
 						item.height,
 						--item.iconmodel or (item.getModel and item:getModel()) or item.model,
 						item.iconmodel or (item.getModel and item:getModel()) or item.model,
-						customCam or item.iconCam
+						camInfo
 					)
 				end
 			end
