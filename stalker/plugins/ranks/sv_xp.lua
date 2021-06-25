@@ -39,7 +39,7 @@ local PLUGIN = PLUGIN
 					newrep = k
 				end
 			end
-			RANK_TOBEADD[math.random(1, 500)] = {["name"] = "test"..math.random(1,50000), ["fac"] = math.random(1,9), ["xp"] = xp, ["rank"] = newrank, ["rep"] = rep}
+			RANK_TOBEADD[math.random(1, 500)] = {["name"] = "test"..math.random(1,50000), ["fac"] = math.random(1,9), ["xp"] = xp, ["rank"] = newrank, ["rep"] = newrep}
 		end
 
 		print("printing generated ranks")
