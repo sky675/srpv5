@@ -15,6 +15,8 @@ local PLUGIN = PLUGIN
 			local rep = math.random(-2500, 2500)
 			local newrank
 			local maxxp
+			local newrep
+			local maxrep
 			--find rank
 			for k,v in pairs(RANK_TABLE) do
 				if(xp >= v) then
@@ -26,12 +28,23 @@ local PLUGIN = PLUGIN
 					newrank = k
 				end
 			end
+			--find rep
+			for k,v in pairs(REP_TABLE) do
+				if(rep >= v) then
+					if(!maxrep or v > maxrep) then
+						maxrep = v
+					else
+						continue
+					end
+					newrep = k
+				end
+			end
 			RANK_TOBEADD[math.random(1, 500)] = {["name"] = "test"..math.random(1,50000), ["fac"] = math.random(1,9), ["xp"] = xp, ["rank"] = newrank, ["rep"] = rep}
 		end
 
 		print("printing generated ranks")
 		for k,v in pairs(RANK_TOBEADD) do
-			print(k, v.name, v.fac, v.xp, v.rank)
+			print(k, v.name, v.fac, v.xp, v.rank, v.rep)
 		end
 		PLUGIN:ResortRankList()
 	end
@@ -152,6 +165,16 @@ local PLUGIN = PLUGIN
 		--at a new rank
 		if(newrank != oldrank) then
 			char:setData("rep", newrank)
+			--if its possible to be on the list
+			if(char:getData("rankpoints", 0) > nut.config.get("rankMinLeader", 0)) then
+				for k,v in ipairs(RANK_LEADER) do
+					if(v.id == char:getID()) then
+						v.rep = newrank
+						break
+					end
+				end
+			end
+
 			return newrank --return new rank
 		end
 	end
