@@ -67,22 +67,29 @@ function PANEL:setItemType(itemTypeOrID)
 		self.Icon:SetVisible(false)
 		self.ExtraPaint = function(self, x, y)
 			local paintFunc = item.paintIcon
-
+			local modelID
+			local customCam
+			
 			if (paintFunc and type(paintFunc) == "function") then
 				paintFunc(item, self)
 			else
-				local exIcon = ikon:getIcon(item.uniqueID)
+				if (item.uniqueID == "run_obj") then
+					modelID = item:getModel()
+					modelID = string.gsub(modelID, "/", "")
+				end
+				local exIcon = ikon:getIcon(modelID or item.uniqueID)
 				if (exIcon) then
 					surface.SetMaterial(exIcon)
 					surface.SetDrawColor(color_white)
 					surface.DrawTexturedRect(0, 0, x, y)
 				else
 					ikon:renderIcon(
-						item.uniqueID,
+						modelID or item.uniqueID,
 						item.width,
 						item.height,
+						--item.iconmodel or (item.getModel and item:getModel()) or item.model,
 						item.iconmodel or (item.getModel and item:getModel()) or item.model,
-						item.iconCam
+						customCam or item.iconCam
 					)
 				end
 			end

@@ -9,6 +9,12 @@ ITEM.category = "misc"
 ITEM.onGetDropModel = true
 ITEM.data = { customName = ITEM.name, customDesc = ITEM.desc }
 ITEM.noBusiness = true
+ITEM.exRender = true
+ITEM.iconCam = {
+	pos = Vector(326.23556518555, 273.74407958984, 198.58656311035),
+	ang = Angle(25, 220, 0),
+	fov = 5.2530555555556,
+}
 
 ITEM.ignoreStash = true
 
@@ -29,7 +35,10 @@ ITEM.functions.Custom = {
 		end, item:getName()) --end of name
 			
 		--hopefully resets the player's icons
-		client:ConCommand("nut_flushicon")
+		timer.Simple(0.2, function() 
+			client:ConCommand("nut_flushicon")
+		end)
+
 		
 		return false
 	end,
@@ -58,6 +67,16 @@ function ITEM:getName()
 	end
 	
 	return Format(name)
+end
+
+function ITEM:getModel()
+	local model = self.model
+	
+	if(self:getData("customMdl") != nil) then
+		model = self:getData("customMdl")
+	end
+	
+	return Format(model)
 end
 
 function ITEM:onGetDropModel()
