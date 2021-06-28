@@ -850,6 +850,12 @@ function PLUGIN:SpawnRound()
 				end
 			end
 			]]
+			if(item.uses) then
+				if(self.lootTables[v.table].randomAmmo != 2) then
+					data["uses"] = math.random(1, item.uses)
+				end
+			end
+
 			nut.item.spawn(it, actualPos, function(item, entity)
 				self.curItems[k] = entity 
 
@@ -880,6 +886,88 @@ function PLUGIN:SpawnRound()
 		end
 	end
 end
+
+--[[table of multiple {
+	id = "id",
+	num = 1,
+	data = {}
+}
+]]
+local function tableAdd(tblid, cnt)
+	local tot = {}
+	for i = 1,cnt do
+		local it = table.Random(realB[tblid])
+		if(it == "none") then continue end --dont spawn anything
+
+		--this is a table value, get the real one
+		if(PLUGIN.lootTables[tblid].istableloot) then
+			it = table.Random(realB[it])
+		end
+
+		local item = nut.item.get(it)
+		if(!item) then continue end --invalid item
+		
+		local data = {}
+		if(item.uses) then
+			if(PLUGIN.lootTables[tblid].randomAmmo != 2) then
+				data["uses"] = math.random(1, item.uses)
+			end
+		end
+		local num = 1
+		if(item.base == "base_ammo") then
+			if(PLUGIN.lootTables[tblid].randomAmmo != 2) then
+				--~33% chance to be max
+				if(math.random(0, 2) != 0) then 
+					num = math.random(1, item.maxQuantity)
+				end
+			end
+		end
+
+		tot[#tot+1] = {
+			["id"] = it,
+			["num"] = num,
+			["data"] = data
+		}
+	end
+	return tot
+end
+
+nut.command.add("lootfill", {
+	desc = "fill your inventory full of items based on what you put in, syntax is: num,table with spaces in between different tables",
+	//syntax = "[intstring numtableid]",
+    adminOnly = true,
+	onRun = function(client, arguments)
+		PrintTable(arguments)
+		local ex = {}
+		for k,v in pairs(arguments) do
+			local split = string.Split(v, ",")		
+			if(!realB[split[2]]) then client:notify(split[2].." is not a valid table", 2) continue end
+			local tbl = tableAdd(split[2], split[1])
+			ex[#ex+1] = tbl
+		end
+
+		local inv = client:getChar():getInv()
+		local actadd = {}
+		for k,tbl in ipairs(ex) do
+			actadd[k] = 0
+			for _,it in ipairs(tbl) do
+				--PrintTable(it)
+				local res = inv:add(it.id, it.num, it.data)
+					:next(function(item)
+						actadd[k] = actadd[k] + 1
+					end)
+					:catch(function(err)
+						print(err)
+					end)
+				--print(res)
+			end
+		end
+		timer.Simple(0.1, function()
+			client:notify("done ".. table.concat(actadd, ","))
+		end)
+        --return 
+	end
+})
 
 if(SERVER) then
 	hook.Add("ShutDown", "removeitems", function()

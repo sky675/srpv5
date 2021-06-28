@@ -13,6 +13,52 @@ nut.command.add("lootspawn", {
 	end
 })
 
+nut.command.add("lootremove", {
+	syntax = "<number id>",
+	desc = "Remove specified loot point, see lootshow for positions",
+    adminOnly = true,
+	onRun = function(client, arguments)
+        if(PLUGIN.spawnPos[tonumber(arguments[1])]) then
+            table.remove(PLUGIN.spawnPos, arguments[1])
+            PLUGIN:SaveData()
+        else
+            return "There is no point with that ID!"
+        end
+
+        return "Loot spawn point #"..arguments[1].." removed!"
+	end
+})
+
+nut.command.add("lootshow", {
+    syntax = "[number timeShown]",
+	desc = "Show all loot points for timeShown or 20 seconds",
+    adminOnly = true,
+    onRun = function(client, arguments)
+        local time = 20
+        if(tonumber(arguments[1])) then 
+            time = tonumber(arguments[1])
+        end
+        
+	local points = PLUGIN.spawnPos
+	local scenes = PLUGIN.scenePos
+    local limP = {p = {}, s = {}}
+
+    for k,v in pairs(points) do
+        limP.p[k] = v.pos
+	end
+	for k,v in pairs(scenes) do
+		limP.s[k] = v.pos
+	end
+
+    net.Start("RecLotPoints")
+    net.WriteTable(limP)
+    net.WriteInt(time, 32)
+    net.Send(client)
+
+        return "Loot spawn points showing for "..time.." seconds."
+    end
+})
+--[[
 nut.command.add("createrandommag", {
 	syntax = "<string itemid>",
 	desc = "Creates a magazine/ammo box with a random ammo count",
@@ -66,49 +112,4 @@ nut.command.add("createrandommag", {
 		end
 	end
 })
-
-nut.command.add("lootremove", {
-	syntax = "<number id>",
-	desc = "Remove specified loot point, see lootshow for positions",
-    adminOnly = true,
-	onRun = function(client, arguments)
-        if(PLUGIN.spawnPos[tonumber(arguments[1])]) then
-            table.remove(PLUGIN.spawnPos, arguments[1])
-            PLUGIN:SaveData()
-        else
-            return "There is no point with that ID!"
-        end
-
-        return "Loot spawn point #"..arguments[1].." removed!"
-	end
-})
-
-nut.command.add("lootshow", {
-    syntax = "[number timeShown]",
-	desc = "Show all loot points for timeShown or 20 seconds",
-    adminOnly = true,
-    onRun = function(client, arguments)
-        local time = 20
-        if(tonumber(arguments[1])) then 
-            time = tonumber(arguments[1])
-        end
-        
-	local points = PLUGIN.spawnPos
-	local scenes = PLUGIN.scenePos
-    local limP = {p = {}, s = {}}
-
-    for k,v in pairs(points) do
-        limP.p[k] = v.pos
-	end
-	for k,v in pairs(scenes) do
-		limP.s[k] = v.pos
-	end
-
-    net.Start("RecLotPoints")
-    net.WriteTable(limP)
-    net.WriteInt(time, 32)
-    net.Send(client)
-
-        return "Loot spawn points showing for "..time.." seconds."
-    end
-})
+]]
