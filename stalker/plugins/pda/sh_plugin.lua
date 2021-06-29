@@ -329,9 +329,9 @@ nut.chat.register("pdapm", {
 
 nut.chat.register("pdatrade", {
     onCanHear = function(speaker, listener)
-        if(listener:GetPDATradeOpt()) then
+        --[[if(listener:GetPDATradeOpt()) then --unused now no need to check
             return false
-        end
+        end]]
 		if(listener:getNetVar("isjammed")) then return false end
 		
         return listener:HasPDA()
@@ -358,7 +358,7 @@ nut.chat.register("pdatrade", {
 		chat.AddText(pdattx,Color(37, 231, 245),"[PDA-TRADE] ", Color(255, 255, 255), name..": "..args[2])
         end
     end,
-    filter = "pda"
+    filter = "pdatrade"
 })
 
 function PLUGIN:GetSimList()
@@ -422,7 +422,12 @@ if (CLIENT) then
 		    if(!message) then message = "" end
 		
     		if(!string.find(message, "%S")) then return text end
-	    	if(NUT_CVAR_CHATFILTER:GetString():lower():find("pda") or (GetConVar("nutDisablePdaSound") and GetConVar("nutDisablePdaSound"):GetBool())) then return text end
+			--need to make sure this works
+			if(chatType == "pdatrade") then
+				if(NUT_CVAR_CHATFILTER:GetString():lower():find("pdatrade") or (GetConVar("nutDisablePdaSound") and GetConVar("nutDisablePdaSound"):GetBool())) then return text end
+			else--if(chatType:find("pda")) then
+	    		if(NUT_CVAR_CHATFILTER:GetString():lower():find("pda,") or (GetConVar("nutDisablePdaSound") and GetConVar("nutDisablePdaSound"):GetBool())) then return text end
+			end
 
 			if(chatType == "pdabroad") then
 				surface.PlaySound("pda/pda_news.ogg", 50)
@@ -435,7 +440,7 @@ if (CLIENT) then
 	
 	netstream.Hook("fakepdanote", function(text)
 		--if(!LocalPlayer():HasPDA()) then return end
-		if(NUT_CVAR_CHATFILTER:GetString():lower():find("pda")) then return end
+		if(NUT_CVAR_CHATFILTER:GetString():lower():find("pda,")) then return end
 
 		if(GetConVar("nutDisablePdaSound") and GetConVar("nutDisablePdaSound"):GetBool()) then
 		else --simple

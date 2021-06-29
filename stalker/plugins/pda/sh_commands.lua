@@ -291,7 +291,7 @@ nut.command.add("pdatrade", {
 		end
 	end,
 })
-
+--[[
 nut.command.add("pdaopttrade", {
 	desc = "Opt out of the trade channel or opt back in",
     onRun = function(client, arguments)
@@ -308,7 +308,7 @@ nut.command.add("pdaopttrade", {
         end
     end,
 })
-
+]]
 
 nut.command.add("pdafreehandle", {
 	desc = "Used to remove the specified handle from any pda instances that have it, so it should make it available again",
@@ -558,6 +558,7 @@ nut.command.add("pdablock", {
         if(!item) then return "You need a PDA to use this command!" end
 
         local target = nil
+		--todo change to loop through item instances instead
         for k,v in ipairs(player.GetAll()) do --look through for handles
             if(nut.util.stringMatches(v:GetPDAHandle(), arguments[1])) then
                 target = v
@@ -566,9 +567,9 @@ nut.command.add("pdablock", {
         end
         if(!IsValid(target)) then return "Handle not found!" end
 
-        local blocklist = item:getData("pdablocked")
+        local blocklist = item:getData("pdablocked","")
         if(string.find(blocklist, tostring(target:GetPDAID()))) then
-            item:setData("pdablocked", blocklist:gsub(tostring(target:GetPDAID()), ""), player.GetAll())
+            item:setData("pdablocked", blocklist:gsub(","..tostring(target:GetPDAID()), ""), player.GetAll())
             client:notify("You have unblocked #"..tostring(target:GetPDAID()))
         else
             item:setData("pdablocked", blocklist..","..tostring(target:GetPDAID()), player.GetAll())
