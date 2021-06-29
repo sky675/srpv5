@@ -144,6 +144,7 @@ nut.chat.register("pdabroad", {
     end,
 	onChatAdd = function(speaker, text, anonymous)
 		if(text == "") then return end
+		
         local pdattx = Material("sky/chat_icons/pda_alert.png")
 		chat.AddText(pdattx,Color(37,65,206),"[PDA-NOTIF] ", Color(255,255,255), text)
     end,
@@ -446,7 +447,8 @@ if (CLIENT) then
 		else --simple
 			surface.PlaySound("pda/pda_news.ogg", 50) 
 		end
-		chat.AddText(Color(37,65,206),"[PDA-NOTIF] ", Color(255, 255, 255), text)
+		local pdattx = Material("sky/chat_icons/pda_alert.png")
+		chat.AddText(pdattx,Color(37,65,206),"[PDA-NOTIF] ", Color(255, 255, 255), text)
 		
 	end)
 else
