@@ -1,6 +1,7 @@
 --similar to payitem but it cant be customized
 ITEM.name = "run objective"
 ITEM.model = "models/props_lab/box01a.mdl"
+ITEM.weight = 0
 ITEM.width = 1
 ITEM.height = 1
 ITEM.desc = "obj"
