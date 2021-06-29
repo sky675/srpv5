@@ -7,7 +7,7 @@ nut.config.add("allowFlavorItems", true, "Whether or not the option during chara
 	category = PLUGIN.name
 })
 
---TODO: Create option to exclude factions from flavor item creation
+
 
 FLAVOR_MODELS = {
     ["models/warz/consumables/medicine.mdl"] = {
