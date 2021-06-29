@@ -232,7 +232,14 @@ end
 
 
 function PANEL:shouldSkip()
-	return false
+	local factionFlavor = nut.faction.indices[self:getContext("faction")].noflavoritem
+	if factionFlavor then
+		flavoritem.creating = false
+		self:setContext("flavoritem", flavoritem)
+		return true 
+	else
+		return false
+	end
 end
 
 -- Called if this step has been skipped over.
