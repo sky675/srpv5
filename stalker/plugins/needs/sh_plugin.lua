@@ -174,4 +174,38 @@ if(SERVER) then
 			end
 		end
 	end)
+else
+    NUT_CVAR_MUTEEAT = CreateClientConVar("nut_mute_eat", 0, true, true)
+
+	local eatSounds = {
+		["interface/inv_drink_flask.ogg"] = true,
+		["interface/inv_drink_can.ogg"] = true,
+		["interface/inv_eat_paperwrap.ogg"] = true,
+		["interface/inv_eat_can_open.ogg"] = true,
+		["interface/inv_eat_mutant_food.ogg"] = true,
+		["interface/inv_eat_ration1.ogg"] = true,
+	}
+	
+    function PLUGIN:SetupQuickMenu(menu)
+    	--if (LocalPlayer():IsSuperAdmin()) then
+            local buttonItem = menu:addCheck("Toggle Eat/Drink Sounds", function(panel, state)
+                if(state) then
+                    RunConsoleCommand("nut_mute_eat", "1")
+                else
+                    RunConsoleCommand("nut_mute_eat", "0")
+                end
+            end, NUT_CVAR_MUTEEAT:GetBool())
+
+            menu:addSpacer()
+        --end
+    end
+
+	hook.Add("EntityEmitSound", "emittest", function(tbl)
+		--test
+		if(NUT_CVAR_MUTEEAT:GetBool() and eatSounds[tbl.SoundName]) then
+			print("bad sound found stopped")
+			return false
+		end
+	end)
+
 end

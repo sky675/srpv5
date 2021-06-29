@@ -71,6 +71,9 @@ if (CLIENT) then
 			draw.SimpleText(item:getData("uses", item.uses).."/"..item.uses, "DermaDefault", w - 5 , h - 5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_BOTTOM, 1, color_black)
 		end
 	end
+	netstream.Hook("playUseSound", function(ent, snd, lvl)
+		ent:EmitSound(snd, lvl)
+	end)
 end
 
 ITEM.functions.use = {
@@ -118,7 +121,8 @@ ITEM.functions.use = {
 		end
 		
 		if(item.useSound) then
-			item.player:EmitSound(item.useSound, 60)
+			--item.player:EmitSound(item.useSound, 60)
+			netstream.Start(item.player:GetPos(), "playUseSound", item.player, item.useSound, 60)
 		end
 
 		if(item.uses) then
