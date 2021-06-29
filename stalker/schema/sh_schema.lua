@@ -75,7 +75,7 @@ if(SERVER) then
 end
 if(CLIENT) then
 	function SCHEMA:ConfigureCharacterCreationSteps(panel)
-		panel:addStep(vgui.Create("nutSkinStuff"), 200)
+		panel:addStep(vgui.Create("nutSkinStuff"), 100)
 	end
 end
 
@@ -150,6 +150,7 @@ nut.char.registerVar("gss", {
 		newData.data.gs = value
 	end
 })
+
 nut.char.registerVar("anorak", {
 	--field = "_bgs",
 	default = {},
@@ -166,6 +167,24 @@ nut.char.registerVar("anorak", {
 	end
 })
 
+nut.char.registerVar("flavoritem", {
+	--field = "_bgs",
+	default = {},
+	index = 2,
+	--noDisplay = true,
+	noNetworking = true, --it gets set in data so this is fine
+	onValidate = function(value, data)
+	end,
+	onAdjust = function(client, data, value, newData)
+		PrintTable(data or {})
+		print("value custom item "..tostring(value))
+		PrintTable(newData or {})
+
+		newData.flavoritem = nil
+		newData.data = newData.data or {}
+		newData.data.flavoritem = value
+	end
+})
 
 nut.chat.register("mel", {
 	desc = "/me but in yelling range",

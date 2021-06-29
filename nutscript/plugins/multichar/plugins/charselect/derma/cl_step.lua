@@ -102,6 +102,15 @@ function PANEL:addLabel(text)
 	return label
 end
 
+function PANEL:addSubLabel(text)
+	local label = self:Add("DLabel")
+	label:SetFont("stalkerTraitSubLabelFont")
+	label:SetText(L(text):upper())
+	label:SizeToContents()
+	label:Dock(TOP)
+	return label
+end
+
 function PANEL:onHide()
 end
 

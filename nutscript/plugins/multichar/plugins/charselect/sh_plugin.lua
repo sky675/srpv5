@@ -93,6 +93,12 @@ function PLUGIN:LoadFonts(font)
 		size = ScreenScale(15),
 		additive = true
 	})
+	surface.CreateFont("stalkerTraitSubLabelFont", {
+		font = "Dirty Headline",
+		weight = 200,
+		size = ScreenScale(12),
+		additive = true
+	})
 end
 
 function PLUGIN:NutScriptLoaded()
