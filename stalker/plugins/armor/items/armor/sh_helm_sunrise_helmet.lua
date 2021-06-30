@@ -25,6 +25,7 @@ ITEM.canWear = function(self, ply)
 	if(nut.newchar.isBM(model)) then
 		local model = self.player.bm.t:GetModel()
 		if(model:find("cs3")) then return false, "Helmets can not be worn with the CS3!" end
+		if(model:find("gorka")) then return false, "Stalker helmets cannot be worn with a gorka!" end
 		return true
 	else
 		return false, "Your model cannot wear this item!"
