@@ -46,6 +46,18 @@ local skills = {
 			["crafting_tech.2"] = 4,
 			["crafting.5"] = 3,
 		},
+		order = {
+			"crafting.3",
+			"crafting_repair.1",
+			"crafting_weapon.1",
+			"crafting_armor.1",
+			"crafting_tech.1",
+			"crafting_repair.2",
+			"crafting_repaira.1",
+			"crafting_repairw.1",
+			"crafting_tech.2",
+			"crafting.5",
+		},
 		picknames = { --friendlier names to display on buttons
 		["crafting.3"] = "General Crafting Level 3",
 		["crafting.5"] = "General Crafting Level 5",
@@ -71,6 +83,10 @@ local skills = {
 			--not including it should make it nil
 			["crafting_repairw.1"] = 1,
 			["crafting_repaira.1"] = 1,
+		},
+		order = {
+			"crafting_repairw.1",
+			"crafting_repaira.1",
 		},
 		picknames = { --friendlier names to display on buttons
 			["crafting_repairw.1"] = "Weapon Repair",
@@ -116,11 +132,13 @@ function PLUGIN:GetSkillChoiceForSkill(name)
 	local curtrt= LocalPlayer():getChar():getTrait()
 
 	local avail = {}
-	for k,v in pairs(skills[name].picks) do
+	--for k,v in pairs(skills[name].picks) do
+	for l,k in ipairs(skills[name].order) do
+		local v = skills[name].picks[k]
 		local spl = string.Split(k, ".")
 		if(curtrt[spl[1]] and (curtrt[spl[1]] == true or curtrt[spl[1]] >= tonumber(spl[2]))) then continue end 
 		if(levelcnt[name] >= v) then
-			avail[#avail+1] = {name = skills[name].picknames[k], id = k}
+			avail[#avail+1] = {name = skills[name].picknames[k].." | Cost: "..v, id = k}
 			if(#avail == 4) then break end
 		end
 	end
