@@ -24,7 +24,7 @@ ITEM.radGiveTime = 10
 local function onUse(item)
     --new sound needed
     item.player:EmitSound("player/items/pain_pills/pills_deploy_2.wav", 60)
-    item.player:TakeDamage(2)
+    item.player:TakeDamage(1)
 end
 
 ITEM:hook("use", onUse)
