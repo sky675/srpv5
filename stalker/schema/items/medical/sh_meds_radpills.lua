@@ -31,7 +31,7 @@ ITEM:hook("usef", onUse)
 function ITEM:customUse(char)
     local itemid = item.id
     hook.Add("CustomArmorResists", "itemuse"..itemid, function(client, levels)
-        levels[DMG_RADIATION] = (levels[DMG_RADIATION] or 1)*0.6
+        levels[DMG_RADIATION] = (levels[DMG_RADIATION] or 0)*1.4
     end)
     timer.Create("resRem"..itemid, 330, 1, function()
         hook.Remove("CustomArmorResists", "itemuse"..itemid)
