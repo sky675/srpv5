@@ -10,7 +10,7 @@ ITEM.height = 3
 ITEM.outfitCategory = "armor"
 ITEM.price = 36900--14600
 ITEM.flag = "1"
-ITEM.size = "medium" --helm, light, medium, heavy, exo, mask, vest, sci, seva
+ITEM.size = "light" --helm, light, medium, heavy, exo, mask, vest, sci, seva
 --ITEM.artifactCnt = 1
 
 --interface/inv_items_cloth_2.ogg super light (masks, addons)
