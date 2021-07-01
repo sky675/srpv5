@@ -10,7 +10,7 @@ ITEM.height = 3
 ITEM.outfitCategory = "armor"
 ITEM.price = 32340
 ITEM.flag = "1"
-ITEM.size = "light" --helm, light, medium, heavy, exo, mask, vest, sci, seva
+ITEM.size = "gorka" --helm, light, medium, heavy, exo, mask, vest, sci, seva
 
 --interface/inv_items_cloth_2.ogg super light (masks, addons)
 --interface/inv_items_cloth_3.ogg light (spd >= .7)
@@ -125,7 +125,7 @@ end
 
 ITEM.upgradePath = "sunrise"
 ITEM.armor = {
-	chest = {level = ARMOR_II},
+	chest = {level = ARMOR_III},
 	larm = {level = ARMOR_NONE},
 	rarm = {level = ARMOR_NONE},
 	lleg = {level = ARMOR_NONE},
@@ -133,24 +133,24 @@ ITEM.armor = {
 }
 ITEM.resists = {
 	--burn
-	[DMG_BURN] = 0.126,
-	--electric --less
-	[DMG_SHOCK] = 0.24,
+	[DMG_BURN] = 0.1,
+	--electric
+	[DMG_SHOCK] = 0.11,
 	--ext rad
-	[DMG_RADIATION] = 0.045,
+	[DMG_RADIATION] = 0.13,
 	--chem
-	[DMG_ACID] = 0.148,
+	[DMG_ACID] = 0.13,
 	--psy
 	[DMG_SONIC] = 0,
 	["psy"] = 0,
 	--explosion
-	[DMG_BLAST] = 0.24,
-	--phys
-	[DMG_SLASH] = 0.14,
-	[DMG_CLUB] = 0.14,
-	[DMG_CRUSH] = 0.14,
+	[DMG_BLAST] = 0.4,
 	--bullet fire wound
-	[DMG_BULLET] = 0.208,
+	[DMG_BULLET] = 0.238,
+	--phys
+	[DMG_SLASH] = 0.28,
+	[DMG_CLUB] = 0.28,
+	[DMG_CRUSH] = 0.28,
 
-	spd = 0.97,
+	spd = 0.9,
 }

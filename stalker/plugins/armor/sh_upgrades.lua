@@ -40,6 +40,11 @@ local slotMaxes = {
 		["lining"] = 2,
 		["core"] = 3,--another lining, weight decrease (possibly artifact max increase too, or as separate?), stm increase, or additional chest slot for better armor
 	},
+	["gorka"] = {
+		["chest"] = 1,
+		["lining"] = 3,
+		["core"] = 4,--another lining, weight decrease (possibly artifact max increase too, or as separate?), stm increase, or additional chest slot for better armor
+	},
 	["heavy"] = {
 		["chest"] = 3,
 		["lining"] = 2,
@@ -279,6 +284,7 @@ local upgrades = {
 			["vest"] = true,
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			["sci"] = true,
@@ -312,6 +318,7 @@ local upgrades = {
 			["vest"] = true,
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			["sci"] = true,
@@ -345,6 +352,7 @@ local upgrades = {
 			["vest"] = true,
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			["sci"] = true,
@@ -378,6 +386,7 @@ local upgrades = {
 			["vest"] = true,
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			["sci"] = true,
@@ -412,6 +421,7 @@ local upgrades = {
 			["vest"] = true,
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			["sci"] = true,
@@ -446,6 +456,7 @@ local upgrades = {
 			["vest"] = true,
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			["sci"] = true,
@@ -479,6 +490,7 @@ local upgrades = {
 			["vest"] = true,
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			["sci"] = true,
@@ -512,6 +524,7 @@ local upgrades = {
 			["vest"] = true,
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			["sci"] = true,
@@ -545,6 +558,7 @@ local upgrades = {
 			["vest"] = true,
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			["sci"] = true,
@@ -579,6 +593,7 @@ local upgrades = {
 			["vest"] = true,
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			["sci"] = true,
@@ -613,6 +628,7 @@ local upgrades = {
 			["vest"] = true,
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			["sci"] = true,
@@ -646,6 +662,7 @@ local upgrades = {
 			["vest"] = true,
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			["sci"] = true,
@@ -679,6 +696,7 @@ local upgrades = {
 			["vest"] = true,
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			["sci"] = true,
@@ -712,6 +730,7 @@ local upgrades = {
 			["vest"] = true,
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			["sci"] = true,
@@ -744,6 +763,7 @@ local upgrades = {
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			["sci"] = true,
@@ -782,6 +802,7 @@ local upgrades = {
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
 			["medium"] = true,
+			["gorka"] = true,
 		},
 		resist = { --optional resist table, -m functionality like artifacts, 
 			--however also can be normal to be added on
@@ -820,6 +841,7 @@ local upgrades = {
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["seva"] = true,
 		},
 		resist = { --optional resist table, -m functionality like artifacts, 
@@ -859,6 +881,7 @@ local upgrades = {
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["sci"] = true,
 		},
 		resist = { --optional resist table, -m functionality like artifacts, 
@@ -914,6 +937,44 @@ local upgrades = {
 		},
 		itemWeightMod = 1.1, --optional multiplier to modify item weight
 	},
+	["chest_armorlimbs"] = {
+		name = "Soft limb armor for Gorka (IIA)",
+		--item variables
+		desc = "Armor for the arms for use with the Gorka suit.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 11300, --price for item
+		width = 2,
+		height = 1,
+		weight = 0.4,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "chest",
+		slotspace = 1, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["gorka"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			[DMG_BLAST.."-m"] = 1.1,
+			--phys
+			[DMG_SLASH.."-m"] = 1.1,
+			[DMG_CLUB.."-m"] = 1.1,
+			[DMG_CRUSH.."-m"] = 1.1,
+			--bullet fire wound
+			[DMG_BULLET.."-m"] = 1.15,
+			["spd"] = 0.98,
+		},
+		levels = { --optional overwrite an armor level
+			larm = {level = ARMOR_IIA},
+			rarm = {level = ARMOR_IIA},
+		},
+		itemWeightMod = 1.1, --optional multiplier to modify item weight
+	},
 	--core, movement
 	["core_exospr"] = {
 		name = "Hydraulic boosters for an exoskeleton",
@@ -962,6 +1023,7 @@ local upgrades = {
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
 			--["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			--["vest"] = true,
@@ -1047,6 +1109,7 @@ local upgrades = {
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			--["vest"] = true,
@@ -1101,6 +1164,7 @@ local upgrades = {
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			--["vest"] = true,
@@ -1133,6 +1197,7 @@ local upgrades = {
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			["vest"] = true,
@@ -1166,6 +1231,7 @@ local upgrades = {
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			["vest"] = true,
@@ -1196,6 +1262,7 @@ local upgrades = {
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
 			["light"] = true,
 			["medium"] = true,
+			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
 			["vest"] = true,
