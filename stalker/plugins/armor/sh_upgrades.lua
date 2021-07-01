@@ -783,11 +783,11 @@ local upgrades = {
 	},
 	--chest, armor
 	["chest_armor4"] = {
-		name = "Armor plate for vest (IV)",
+		name = "Armor plate (IV)",
 		--item variables
 		desc = "A *larger* plate for a suit. Cannot downgrade to a lower armor level.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 40000, --price for item
+		price = 70000, --price for item
 		width = 2,
 		height = 1,
 		weight = 1.8,
