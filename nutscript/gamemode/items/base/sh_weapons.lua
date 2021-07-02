@@ -121,6 +121,7 @@ ITEM.functions.Equip = {
 				if (
 					v.isWeapon and
 					client.carryWeapons[item.weaponCategory] and
+					IsValid(client.carryWeapons[item.weaponCategory]) and
 					v:getData("equip")
 			 	) then
 					client:notifyLocalizedL("weaponSlotFilled", 3)

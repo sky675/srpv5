@@ -313,6 +313,7 @@ if(SERVER) then
 			if(msgs) then
 				net.WriteFloat(dmgmulti)
 				local infl = dmginfo:GetInflictor()
+				print(infl, atk, wep)
 				if(IsValid(infl) and !infl:IsWeapon()) then
 					net.WriteString(infl:GetClass())
 				else
@@ -493,6 +494,9 @@ if(SERVER) then
 		end
 		if(IsValid(dmg:GetAttacker()) and dmg:GetAttacker():GetClass() == "nut_item") then
 			return true
+		end
+		if(dmg:GetInflictor():GetCollisionGroup() == COLLISION_GROUP_PROJECTILE) then
+			
 		end
 		
 		if((target.NEXTBOT or target:IsNPC()) and dmg:GetAttacker():IsPlayer()) then
