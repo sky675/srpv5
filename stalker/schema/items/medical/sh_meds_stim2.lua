@@ -1,4 +1,4 @@
-ITEM.name = "Military Stimpack"
+ITEM.name = "Army Stimpack"
 ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_stim2.mdl"--stalker/item/medical/medkit1.mdl"
 ITEM.skin = 0
 ITEM.width = 1
