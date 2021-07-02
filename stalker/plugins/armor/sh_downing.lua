@@ -313,8 +313,8 @@ if(SERVER) then
 			if(msgs) then
 				net.WriteFloat(dmgmulti)
 				local infl = dmginfo:GetInflictor()
-				print(infl, atk, wep)
-				if(IsValid(infl) and !infl:IsWeapon()) then
+				--print(infl, atk, wep)
+				if(IsValid(infl) and !infl:IsWeapon() and atk != infl) then
 					net.WriteString(infl:GetClass())
 				else
 					net.WriteString(wep.Primary and wep.Primary.Ammo or "gren")
