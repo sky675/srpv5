@@ -348,7 +348,7 @@ PLUGIN.recipeList = {
 		name = "Bandage",
 		desc = [[A simple bandage.]],
 		category = "Medical",
-		model = "models/sky/items/bandage.mdl",
+		model = "models/wick/wrbstalker/anomaly/items/wick_dev_bandage.mdl",
 		--skin = skin of model (not required),
 		workbench = {["basic"]=true,},
 		--[[
@@ -373,12 +373,12 @@ PLUGIN.recipeList = {
 		name = "Upgrade Bandage",
 		desc = [[Increase the quality of a bandage by using a jar of antiseptics.]],
 		category = "Medical",
-		model = "models/sky/items/bandage.mdl",
+		model = "models/wick/wrbstalker/cop/newmodels/items/wick_bandage.mdl",
 		--skin = skin of model (not required),
 		workbench = {["basic"]=true,},
 		traits = { --traits requirements
 			["crafting"] = 1,--min level needed or true for no level ones,
-			--["tech_med"] = 1,
+			["tech_med"] = 1,
 		},
 		--[[
 		attribs = { --attrib requirements
@@ -400,12 +400,12 @@ PLUGIN.recipeList = {
 		name = "Medkit",
 		desc = [[Combine various things to make a basic medkit.]],
 		category = "Medical",
-		model = "models/sky/items/medkit1.mdl",
+		model = "models/wick/wrbstalker/anomaly/items/wick_dev_aptechka_low.mdl",
 		--skin = skin of model (not required),
 		workbench = {["basic"]=true,},
 		traits = { --traits requirements
-			["crafting"] = 2,--min level needed or true for no level ones,
-			--["tech_med"] = 1,
+			["crafting"] = 1,--min level needed or true for no level ones,
+			["tech_med"] = 1,
 		},
 		--[[
 		attribs = { --attrib requirements
@@ -417,11 +417,110 @@ PLUGIN.recipeList = {
 		]]
 		ingredients = { --items that will be taken
 			["meds_bandage"] = 2, --or # of needed,
-			["comp_jar_antiseptic"] = 1,
-			["comp_scrap_cloth"] = 3,
+			["junk_meds"] = 1,
+			["comp_scrap_cloth"] = 1,
 		},
 		result = "medkit", --can also be table for multiple results
 		--flag = "", --optional can be left out, flag to check for
+	},
+
+
+	["med_stim1"] = {
+		name = "Improvised Stimpack",
+		desc = [[Create an improvised stimpack.]],
+		category = "Medical",
+		model = "models/wick/wrbstalker/anomaly/items/dez_stim1.mdl",
+		workbench = {["basic"] = true,},
+		traits = {
+			["crafting"] = 1,
+			["tech_med"] = 1,
+		},
+		requirements = {
+			["junk_toolkitd"] = true,
+		},
+		ingredients = {
+			["medkit"] = 2,
+			["junk_syringe"] = 1,
+		},
+		result = "meds_stim1",
+	},
+	["med_stim2"] = {
+		name = "Army Stimpack",
+		desc = [[Create an army stimpack.]],
+		category = "Medical",
+		model = "models/wick/wrbstalker/anomaly/items/dez_stim2.mdl",
+		workbench = {["basic"] = true,},
+		traits = {
+			["crafting"] = 2,
+			["tech_med"] = 1,
+		},
+		requirements = {
+			["junk_toolkitd"] = true,
+		},
+		ingredients = {
+			["medkit2"] = 2,
+			["junk_syringe"] = 1,
+		},
+		result = "meds_stim2",
+	},
+	["med_stim3"] = {
+		name = "Scientific Stimpack",
+		desc = [[Create a scientific stimpack.]],
+		category = "Medical",
+		model = "models/wick/wrbstalker/anomaly/items/dez_stim2.mdl",
+		workbench = {["basic"] = true,},
+		traits = {
+			["crafting"] = 2,
+			["tech_med"] = 2,
+		},
+		requirements = {
+			["junk_toolkitd"] = true,
+		},
+		ingredients = {
+			["medkit3"] = 2,
+			["junk_syringe"] = 1,
+		},
+		result = "meds_stim3",
+	},
+	["med_medkit2"] = {
+		name = "Army Medkit",
+		desc = [[Create a scientific stimpack.]],
+		category = "Medical",
+		model = "models/wick/wrbstalker/anomaly/items/wick_dev_aptechka_high.mdl",
+		workbench = {["basic"] = true,},
+		traits = {
+			["crafting"] = 2,
+			["tech_med"] = 1,
+		},
+		requirements = {
+			["junk_toolkitd"] = true,
+		},
+		ingredients = {
+			["medkit"] = 3,
+			["meds_bandage"] = 2,
+			["junk_meds"] = 1,
+		},
+		result = "medkit2",
+	},
+	["med_medkit3"] = {
+		name = "Scientific Medkit",
+		desc = [[Create a scientific stimpack.]],
+		category = "Medical",
+		model = "models/wick/wrbstalker/anomaly/items/wick_dev_aptechka_mid.mdl",
+		workbench = {["basic"] = true,},
+		traits = {
+			["crafting"] = 2,
+			["tech_med"] = 2,
+		},
+		requirements = {
+			["junk_toolkitd"] = true,
+		},
+		ingredients = {
+			["medkit2"] = 3,
+			["meds_bandage2"] = 2,
+			["junk_meds"] = 1,
+		},
+		result = "medkit3",
 	},
 
 	--crafting
@@ -507,6 +606,176 @@ PLUGIN.recipeList = {
 		},
 		result = "comp_pad_cloth", --can also be table for multiple results
 		--flag = "", --optional can be left out, flag to check for
+	},
+	["comp_mcb"] = {
+		name = "Military Circuit Board",
+		desc = [[Create a military circuit board.]],
+		category = "Components",
+		model = "models/illusion/eftcontainers/militaryboard.mdl",
+		workbench = {["basic"] = true,},
+		traits = {
+			["crafting_spec"] = 2,
+			["crafting_tech"] = 3,
+		},
+		requirements = {
+			["junk_toolkit2"] = true,
+		},
+		ingredients = {
+			["comp_tech1"] = 4,
+			["junk_boxcap"] = 9,
+		},
+		result = "junk_militaryboard",
+	},
+
+	--devices
+	["dev_echo"] = {
+		name = "Echo Detector",
+		desc = [[Use a broken simple detector to create an Echo detector.]],
+		category = "Detectors",
+		model = "models/kali/miscstuff/stalker/detector_echo.mdl",
+		workbench = {["basic"] = true,["weapons"] = true,},
+		traits = {
+			["crafting_spec"] = 1,
+			["crafting_tech"] = 2,
+		},
+		requirements = {
+			["junk_toolkit1"] = true,
+		},
+		ingredients = {
+			["junk_detector"] = 1,
+			["comp_tech1"] = 3,
+			["junk_boxres"] = 6,
+			["comp_wire1"] = 3,
+		},
+		result = "detect_echo",
+	},
+	["dev_bear"] = {
+		name = "Bear Detector",
+		desc = [[Use an Echo detector to create a Bear detector.]],
+		category = "Detectors",
+		model = "models/kali/miscstuff/stalker/detector_bear.mdl",
+		workbench = {["basic"] = true,["weapons"] = true,},
+		traits = {
+			["crafting_spec"] = 2,
+			["crafting_tech"] = 3,
+		},
+		requirements = {
+			["junk_toolkit2"] = true,
+		},
+		ingredients = {
+			["detect_echo"] = 1,
+			["comp_tech1"] = 3,
+			["junk_magnet"] = 2,
+			["junk_boxcap"] = 7,
+		},
+		result = "detect_bear",
+	},
+	["dev_veles"] = {
+		name = "Veles Detector",
+		desc = [[Use a Bear detector to create a Veles detector.]],
+		category = "Detectors",
+		model = "models/kali/miscstuff/stalker/detector_veles.mdl",
+		workbench = {["basic"] = true,["weapons"] = true,},
+		traits = {
+			["crafting_spec"] = 2,
+			["crafting_tech"] = 4,
+		},
+		requirements = {
+			["junk_toolkit3"] = true,
+		},
+		ingredients = {
+			["detect_bear"] = 1,
+			["junk_militaryboard"] = 1,
+			["junk_gyroscope"] = 1,
+			["junk_boxres"] = 7,
+		},
+		result = "detect_veles",
+	},
+
+	--art conts
+	["artc_llmc"] = {
+		name = "Lead-lined Metal Container",
+		desc = [[Create a lead-lined metal container.]],
+		category = "Artifact Containers",
+		model = "models/wick/wrbstalker/anomaly/items/dez_lead_box_closed.mdl",
+		workbench = {["basic"] = true,},
+		traits = {
+			["crafting_spec"] = 1,
+			["crafting_tech"] = 2,
+		},
+		requirements = {
+			["junk_toolkit1"] = true,
+		},
+		ingredients = {
+			["comp_scrap_metal"] = 9,
+			["junk_boxres"] = 7,
+			["comp_mech1"] = 3,
+			["comp_tech1"] = 2,
+		},
+		result = "artcont_llmc",
+	},
+	["artc_iam"] = {
+		name = "Improvised Application Module",
+		desc = [[Create an improvised application module out of a lead-lined metal container.]],
+		category = "Artifact Containers",
+		model = "models/wick/wrbstalker/anomaly/items/dez_iam.mdl",
+		workbench = {["basic"] = true,},
+		traits = {
+			["crafting_spec"] = 2,
+			["crafting_tech"] = 2,
+		},
+		requirements = {
+			["junk_toolkit2"] = true,
+		},
+		ingredients = {
+			["artcont_llmc"] = 1,
+			["junk_boxres"] = 8,
+			["comp_mech2"] = 2,
+			["junk_magnet"] = 2,
+		},
+		result = "artcont_iam",
+	},
+	["artc_aac"] = {
+		name = "Artifact Application Container",
+		desc = [[Upgrade an improvised application module to an artifact application container.]],
+		category = "Artifact Containers",
+		model = "models/wick/wrbstalker/anomaly/items/dez_aac.mdl",
+		workbench = {["basic"] = true,},
+		traits = {
+			["crafting_spec"] = 2,
+			["crafting_tech"] = 3,
+		},
+		requirements = {
+			["junk_toolkit3"] = true,
+		},
+		ingredients = {
+			["artcont_iam"] = 1,
+			["junk_boxtrans"] = 7,
+			["junk_militarycable"] = 1,
+			["junk_boxcap"] = 8,
+		},
+		result = "artcont_aac",
+	},
+	["artc_aam"] = {
+		name = "Artifact Application Module",
+		desc = [[Upgrade an artifact application container to an artifact application module.]],
+		category = "Artifact Containers",
+		model = "models/wick/wrbstalker/anomaly/items/dez_aam.mdl",
+		workbench = {["basic"] = true,},
+		traits = {
+			["crafting_spec"] = 3,
+			["crafting_tech"] = 4,
+		},
+		requirements = {
+			["junk_toolkit3"] = true,
+		},
+		ingredients = {
+			["artcont_aac"] = 1,
+			["junk_boxtrans"] = 9,
+			["junk_militaryboard"] = 1,
+			["junk_virtex"] = 1,
+		},
+		result = "artcont_aam",
 	},
 
 	--cooking
@@ -1678,9 +1947,9 @@ this upgrade is PERMANENT and cannot be reverted]],
 		customRes = "1x that unequipped weapon with the upgrade applied",
 		ingredients = { --items that will be taken
 			--temp removed ingredients for testing
-			--["comp_mech2"] = 1,
-			--["comp_scrap_metal"] = 2,
-			--["comp_duct_tape"] = 1,
+			["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 3,
+			["comp_duct_tape"] = 1,
 		},
 		--flag = "", --optional can be left out, flag to check for
 		handpick = function(items) --pick an item 
