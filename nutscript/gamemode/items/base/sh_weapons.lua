@@ -281,7 +281,7 @@ function ITEM:onRegistered()
 end
 
 hook.Add("PlayerDeath", "nutStripClip", function(client)
-	client.carryWeapons = {}
+	--client.carryWeapons = {}
 
 	local inventory = client:getChar() and client:getChar():getInv()
 	if (not inventory) then return end
@@ -298,6 +298,11 @@ function ITEM:onRemoved()
 		local receiver = inv.getReceiver and inv:getReceiver()
 
 		if (IsValid(receiver) and receiver:IsPlayer()) then
+			if(self:getData("equip")) then
+				receiver.carryWeapons[self.weaponCategory] = nil
+			end
+
+
 			local weapon = receiver:GetWeapon(self.class)
 
 			if (IsValid(weapon)) then
