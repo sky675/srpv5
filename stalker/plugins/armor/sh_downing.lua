@@ -312,7 +312,12 @@ if(SERVER) then
 			
 			if(msgs) then
 				net.WriteFloat(dmgmulti)
-				net.WriteString(wep.Primary and wep.Primary.Ammo or "gren")
+				local infl = dmginfo:GetInflictor()
+				if(IsValid(infl) and !infl:IsWeapon()) then
+					net.WriteString(infl:GetClass())
+				else
+					net.WriteString(wep.Primary and wep.Primary.Ammo or "gren")
+				end
 
 
 				net.Send({ply, atk})
@@ -794,8 +799,8 @@ else --client
 		
 		local pos = target:WorldToLocal(attacker:GetPos())
 		local bear = rad2deg*-math.atan2(pos.y, pos.x)
-
-		if(wep.ClassName == "weapon_frag" or wep.ClassName == ammo) then
+		
+		if(wep.ClassName == "weapon_frag" or wep.ClassName == ammo or ammo:find("_thr_") or ammo:find("_eft_")) then
 			if(target == LocalPlayer()) then
 				chat.AddText("You were hit by the blast of a grenade!")
 			else
