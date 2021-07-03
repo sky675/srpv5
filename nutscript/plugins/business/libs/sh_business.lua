@@ -60,7 +60,7 @@ if (SERVER) then
 		if (client.nextUse and client.nextUse > RealTime()) then
 			return
 		end
-		client.nextUse = RealTime() + .05
+		client.nextUse = RealTime() + .5
 
 		local entity = client.nutShipment
 		local itemTable = nut.item.list[uniqueID]
