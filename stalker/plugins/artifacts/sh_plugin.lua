@@ -24,6 +24,10 @@ function PLUGIN:InitializedItems()--Plugins()
 		ITEM.artid = data.artid
 		ITEM.junkArt = data.junkArt
 		ITEM.hasUse = data.hasUse
+		if(data.iconCam) then --prob wont be used for anything else so
+			ITEM.exRender = true
+			ITEM.iconCam = data.iconCam
+		end
 	end
 end
 

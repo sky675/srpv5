@@ -12,10 +12,10 @@ ITEM.price = 15660
 ITEM.flag = "U"
 ITEM.exRender = true
 ITEM.iconCam = {
-	pos = Vector(204.65017700195, 171.98754882813, 125.76376342773),
-	ang = Angle(25, 220, 0),
-	entAng = Angle(-4.2422332763672, -34.203453063965, -29.306127548218),
-	fov = 4.5640734434771,
+	pos = Vector(164.61325073242, 138.17222595215, 68.875579833984),
+	ang = Angle(17.598403930664, 220, 0),
+	entAng = Angle(10.321555137634, 16.459260940552, 0.38565218448639),
+	fov = 5.0066941391729,
 }
 ITEM.useSound = "interface/inv_repair_kit.ogg"
 

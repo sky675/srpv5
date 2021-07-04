@@ -12,10 +12,10 @@ ITEM.price = 8660
 ITEM.flag = "m"
 ITEM.exRender = true
 ITEM.iconCam = {
-	pos = Vector(81.18147277832, 68.162734985352, 47.397178649902),
+	pos = Vector(71.227592468262, 59.833045959473, 43.228233337402),
 	ang = Angle(25, 220, 0),
-	entAng = Angle(72.425811767578, 30.819278717041, -2.0949611663818),
-	fov = 4.3050503581505,
+	entAng = Angle(52.985145568848, 48.422061920166, -1.301815032959),
+	fov = 4.2738840131467,
 }
 ITEM.useSound = "interface/inv_repair_sewing_kit_fast.ogg"
 

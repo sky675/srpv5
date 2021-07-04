@@ -878,6 +878,12 @@ PLUGIN.artItems = {
 		artid = "kolobok",
 		junkArt = false,
 		hasUse = true, --true if has an active in desc
+		iconCam = {
+			pos = Vector(147.28645324707, 123.82252502441, 94.496612548828),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 2.6518231768487,
+		}		
 	},
     ["art_firefly"] = {
 		name = "Firefly",
@@ -892,6 +898,12 @@ PLUGIN.artItems = {
 		artid = "firefly",
 		junkArt = false,
 		hasUse = true, --true if has an active in desc
+		iconCam = {
+			pos = Vector(178.26388549805, 149.56039428711, 117.08714294434),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 1.2979553936818,
+		}		
 	},
     ["art_shell"] = {
 		name = "Shell",
@@ -920,6 +932,12 @@ PLUGIN.artItems = {
 		artid = "nightstar",
 		junkArt = false,
 		hasUse = false, --true if has an active in desc
+		iconCam = {
+			pos = Vector(147.28645324707, 123.82252502441, 94.496612548828),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 2.6518231768487,
+		}		
 	},
     ["art_stoneflower"] = {
 		name = "Stone Flower",
@@ -934,6 +952,12 @@ PLUGIN.artItems = {
 		artid = "stoneflower",
 		junkArt = false,
 		hasUse = false, --true if has an active in desc
+		iconCam = {
+			pos = Vector(96.859771728516, 81.424224853516, 58.952766418457),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(33.017581939697, 0.39450764656067, -28.045347213745),
+			fov = 3.4138372093174,
+		}		
 	},
     ["art_moonlight"] = {
 		name = "Moonlight",
@@ -948,6 +972,12 @@ PLUGIN.artItems = {
 		artid = "moonlight",
 		junkArt = false,
 		hasUse = false, --true if has an active in desc
+		iconCam = {
+			pos = Vector(105.26225280762, 88.346755981445, 67.645332336426),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, 0.39450764656067, 0),
+			fov = 2.6705417261291,
+		}		
 	},
     ["art_battery"] = {
 		name = "Battery",
@@ -990,6 +1020,12 @@ PLUGIN.artItems = {
 		artid = "flash",
 		junkArt = false,
 		hasUse = false, --true if has an active in desc
+		iconCam = {
+			pos = Vector(178.26388549805, 149.56039428711, 116.42101287842),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 1.2979553936818,
+		}		
 	},
     ["art_meatchunk"] = {
 		name = "Meat Chunk",
@@ -1102,6 +1138,12 @@ PLUGIN.artItems = {
 		artid = "wrenched",
 		junkArt = false,
 		hasUse = false, --true if has an active in desc
+		iconCam = {
+			pos = Vector(158.5043182373, 133.03677368164, 100.18608856201),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, 0, 0),
+			fov = 2.7708888642801,
+		}		
 	},
     ["art_empty"] = {
 		name = "Empty",
@@ -1120,7 +1162,7 @@ PLUGIN.artItems = {
     ["art_jellyfish"] = {
 		name = "Jellyfish",
 		desc = "",
-		model = "models/spec45as/stalker/artefacts/af_medusa.mdl",
+		model = "models/kali/miscstuff/stalker/artifacts/jellyfish.mdl",
 		--skin = 0,
 		price = 24900,
 		width = 1,

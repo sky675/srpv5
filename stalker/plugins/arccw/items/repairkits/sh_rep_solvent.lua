@@ -12,10 +12,10 @@ ITEM.price = 1754
 ITEM.flag = "U"
 ITEM.exRender = true
 ITEM.iconCam = {
-	pos = Vector(97.889465332031, 82.138999938965, 62.225917816162),
+	pos = Vector(79.109504699707, 68.136528015137, 50.304725646973),
 	ang = Angle(25, 220, 0),
-	entAng = Angle(0, 0, 0),
-	fov = 2.7469389957807,
+	entAng = Angle(-44.99836730957, -28.662355422974, 7.6899514198303),
+	fov = 2.7983064838108,
 }
 ITEM.useSound = "interface/inv_repair_spray_oil.ogg"
 

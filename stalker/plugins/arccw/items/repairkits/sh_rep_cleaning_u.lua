@@ -5,17 +5,17 @@ Requires basic repair level 2.
 It can only be used on weapons above 60 percent durability.
 It will repair the weapon by 20 percent durability.]]
 ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_cleaning_kit_u.mdl"
-ITEM.width = 1
+ITEM.width = 2
 ITEM.height = 1
 ITEM.weight = 0.8
 ITEM.price = 11139
 ITEM.flag = "U"
 ITEM.exRender = true
 ITEM.iconCam = {
-	pos = Vector(204.65017700195, 171.98754882813, 124.9169921875),
+	pos = Vector(124.00009918213, 104.1301651001, 76.173828125),
 	ang = Angle(25, 220, 0),
-	entAng = Angle(-3.1173117160797, -41.176486968994, -32.534511566162),
-	fov = 3.3584447999441,
+	entAng = Angle(-2.7284789085388, 49.222156524658, 0.24168792366982),
+	fov = 4.4762301222046,
 }
 ITEM.useSound = "interface/inv_repair_brushes.ogg"
 
