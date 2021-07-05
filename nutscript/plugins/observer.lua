@@ -110,8 +110,9 @@ else
 				client:GodEnable()
 				-- Don't allow npcs to target the player.
 				client:SetNoTarget(true)
-				nut.log.addRaw(client:Name().." turned on observer. Pos: "..tostring(client:GetPos()))
-				hook.Run("OnPlayerObserve", client, state)
+				local clientPos = client:GetPos()
+				nut.log.addRaw(client:Name().." turned on observer. Pos: "..tostring(clientPos))
+				hook.Run("OnPlayerObserve", client, state, clientPos)
 			else
 				if (client.nutObsData) then
 					-- Move they player back if they want.
@@ -140,8 +141,9 @@ else
 				client:GodDisable()
 				-- Let npcs target the player again.
 				client:SetNoTarget(false)
-				nut.log.addRaw(client:Name().." turned off observer. Pos: "..tostring(client:GetPos()))
-				hook.Run("OnPlayerObserve", client, state)
+				local clientPos = client:GetPos()
+				nut.log.addRaw(client:Name().." turned off observer. Pos: "..tostring(clientPos))
+				hook.Run("OnPlayerObserve", client, state, clientPos)
 			end
 		end
 	end
