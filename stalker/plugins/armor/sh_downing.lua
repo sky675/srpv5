@@ -325,7 +325,9 @@ if(SERVER) then
 			end
 			local pl = ply
 			if(IsValid(atk)) then
-				nut.log.addRaw(atk:Name().." ("..atk:steamName()..") attacked "..pl:Name().." ("..pl:steamName()..") with "..((wep and (wep.ClassName or wep:GetClass())) or "a mine or something probably").." ["..hitStrings[hg].."/"..((pl:getNetVar("typing") and "void") or tostring(dmgmulti)).."]")
+				local logAtkMsg = (atk:Name().." ("..atk:steamName()..") attacked "..pl:Name().." ("..pl:steamName()..") with "..((wep and (wep.ClassName or wep:GetClass())) or "a mine or something probably").." ["..hitStrings[hg].."/"..((pl:getNetVar("typing") and "void") or tostring(dmgmulti)).."]")
+				nut.log.addRaw(logAtkMsg)
+				hook.Run("OnPlyAttack", atk, pl, wep, (hitStrings[hg].."/"..((pl:getNetVar("typing") and "void") or tostring(dmgmulti))), logAtkMsg)
 			end
 			--smh
 			if(!on) then 

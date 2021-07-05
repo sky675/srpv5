@@ -300,7 +300,6 @@ function GM:PlayerSay(client, message)
 
 	nut.chat.send(client, chatType, message, anonymous)
 	nut.log.add(client, "chat", chatType and chatType:upper() or "??", message)
-
 	hook.Run("PostPlayerSay", client, message, chatType, anonymous)
 
 	return ""
