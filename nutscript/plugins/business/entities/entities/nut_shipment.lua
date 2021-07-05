@@ -22,7 +22,7 @@ if (SERVER) then
 
 		self:setNetVar("delTime", CurTime() + 500)
 
-		timer.Simple(120, function()
+		timer.Simple(500, function()
 			if (IsValid(self)) then
 				self:Remove()
 			end
