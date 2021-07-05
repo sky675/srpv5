@@ -25,6 +25,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(151.271, 127.309059, 99.512566),
+			ang = Angle(25, 220, 0)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_aa"] = {
@@ -51,6 +56,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(106.238548, 91.531387, 69.685066),
+			ang = Angle(25, 220, 0)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_cap"] = {
@@ -64,6 +74,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(16.785751, 13.244063, 44.792107),
+			ang = Angle(64.502, 218.922, 0)
+		},
 		destroy = {["junk_boxcap"] = 3},
 	},
 	["junk_cat"] = {
@@ -77,6 +92,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(53.647812, 45.253075, 41.497608),
+			ang = Angle(25, 220, 0)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_chain"] = {
@@ -90,6 +110,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(8.322406, -0.333569, 62.564308),
+			ang = Angle(82.087, 168.746, 0)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_circuitboard"] = {
@@ -104,6 +129,11 @@ local itemList = {
 		count = 1,
 		isStackable = false,
 		destroy = {["comp_tech1"] = 1},
+		exRender = false,
+		iconCam = {
+			pos = Vector(66.909546, 0.794356, 113.482895),
+			ang = Angle(59.509, 180.492, 0.000)
+		}
 	},
 	["junk_coffee"] = {
 		name = "Coffee Majaica",
@@ -116,6 +146,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(-116.388031, 25.259331, 23.848083),
+			ang = Angle(9.247, 347.726, -45.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_mcontrol"] = {
@@ -129,6 +164,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(-0.000148, -17.665874, 224.618713),
+			ang = Angle(94.634, 270.013, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_defib"] = {
@@ -142,6 +182,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(54.767628, 0.275826, 108.957840),
+			ang = Angle(62.798, 108.365, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_diagset"] = {
@@ -155,6 +200,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(40.961369, 39.289696, 101.984619),
+			ang = Angle(60.931, 224.479, 180.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_dryfuel"] = {
@@ -168,6 +218,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(63.228062, 0.156858, 72.279739),
+			ang = Angle(48.634, 180.137, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_drill"] = {
@@ -181,6 +236,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(41.306953, 164.723846, 86.381866),
+			ang = Angle(25.551, 257.038, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_motor"] = {
@@ -194,6 +254,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(158.540222, 153.201187, 68.371346),
+			ang = Angle(15.790, 223.753, -110.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_vpx"] = {
@@ -207,6 +272,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(41.784798, 34.801525, 118.000511),
+			ang = Angle(65.115, 219.757, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_fcond"] = {
@@ -220,6 +290,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(124.656532, 1.435433, 52.024826),
+			ang = Angle(19.504, 180.669, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_gasa"] = {
@@ -233,6 +308,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(-12.243372, -0.000602, 87.979858),
+			ang = Angle(96.317, 180.627, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_geiger"] = {
@@ -246,6 +326,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(8.570874, -0.004631, 86.566383),
+			ang = Angle(84.256, 180.182, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_gchain"] = {
@@ -259,6 +344,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(51.892750, 10.160728, 77.533432),
+			ang = Angle(55.662, 190.020, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_gpblue"] = {
@@ -272,6 +362,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(-60.187611, -15.693003, 36.726002),
+			ang = Angle(26.818, 374.632, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_gpgreen"] = {
@@ -285,6 +380,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(-60.187611, -15.693003, 36.726002),
+			ang = Angle(26.818, 374.632, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_gpred"] = {
@@ -298,6 +398,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(-60.187611, -15.693003, 36.726002),
+			ang = Angle(26.818, 374.632, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_gphone"] = {
@@ -311,6 +416,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(36.384441, 18.245768, 65.991219),
+			ang = Angle(58.203, 206.680, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_gphonex"] = {
@@ -324,6 +434,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(32.713799, 27.900621, -81.917984),
+			ang = Angle(-62.413, 220.562, 90.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_graphicscard"] = {
@@ -337,6 +452,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(1.266420, -93.623238, 158.049042),
+			ang = Angle(59.153, 90.688, 0.500)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_gyroscope"] = {
@@ -350,6 +470,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(10.733521, 8.982714, 97.197456),
+			ang = Angle(81.767, 220.497, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_gyrotachometer"] = {
@@ -363,6 +488,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(2.261142, -102.339340, 7.327351),
+			ang = Angle(2.348, 91.257, 90.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_hdd"] = {
@@ -376,6 +506,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(0.000000, 47.471420, 151.827972),
+			ang = Angle(72.564, 270.0, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_helix"] = {
@@ -389,6 +524,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(38.036377, 26.472553, 113.671822),
+			ang = Angle(67.595, 214.940, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_horse"] = {
@@ -402,6 +542,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(107.150505, 82.253021, 27.060747),
+			ang = Angle(8.605, 217.126, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_hose"] = {
@@ -415,6 +560,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(137.794296, 115.290131, 35.091461),
+			ang = Angle(10.661, 219.434, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_itape"] = {
@@ -428,7 +578,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
 		destroy = {["comp_duct_tape"] = 1},
+		iconCam = {
+			pos = Vector(22.352676, 16.364597, 30.052832),
+			ang = Angle(47.027, 216.185, 0.000)
+		}
 	},
 	["junk_lcdc"] = {
 		name = "Working LCD Screen",
@@ -441,6 +596,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(0.000000, -27.819275, 114.123734),
+			ang = Angle(103.659, 270.000, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_lcdd"] = {
@@ -454,6 +614,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(0.000000, -27.819275, 114.123734),
+			ang = Angle(103.659, 270.000, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_lightbulb"] = {
@@ -467,6 +632,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(-24.437037, -26.796070, 51.404163),
+			ang = Angle(53.047, 45.768, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_lion"] = {
@@ -480,6 +650,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(75.799652, 283.329651, 102.143829),
+			ang = Angle(18.146, 255.248, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_magnet"] = {
@@ -493,6 +668,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(45.092552, 37.184708, 74.983574),
+			ang = Angle(51.733, 219.518, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_matches"] = {
@@ -506,6 +686,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(31.287968, 28.578520, 20.039644),
+			ang = Angle(24.767, 222.415, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_meds"] = {
@@ -519,6 +704,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(55.649288, 45.556770, 81.181625),
+			ang = Angle(48.363, 219.530, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_syringe"] = {
@@ -532,6 +722,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(16.918648, 15.093630, 55.355949),
+			ang = Angle(67.797, 221.800, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_militarybattery"] = {
@@ -545,6 +740,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(350.396851, -2.304929, 39.662231),
+			ang = Angle(5.431, 179.726, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_militaryboard"] = {
@@ -558,6 +758,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(63.196869, 2.223051, 81.200188),
+			ang = Angle(52.158, 182.020, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_militarycable"] = {
@@ -571,6 +776,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(130.743088, 101.841141, 43.366348),
+			ang = Angle(14.090, 217.891, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_nailpack"] = {
@@ -584,6 +794,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(49.233067, 49.688862, 47.635220),
+			ang = Angle(33.717, 225.179, -15.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_nixxor"] = {
@@ -597,6 +812,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
 		--destroy = {["id"] = 1},
 	},
 	["junk_nuts"] = {
@@ -610,7 +826,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
 		destroy = {["comp_mech1"] = 4},
+		iconCam = {
+			pos = Vector(16.550480, 21.079140, 52.893337),
+			ang = Angle(62.780, 231.895, 0.000)
+		}
 	},
 	["junk_screws"] = {
 		name = "Pack of Screws",
@@ -623,6 +844,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(31.716215, -76.659256, 77.450333),
+			ang = Angle(42.998, 112.513, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_paracord"] = {
@@ -636,6 +862,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(108.099312, 2.162381, 179.510437),
+			ang = Angle(58.709, 181.176, 180.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_asea"] = {
@@ -649,6 +880,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(-61.440659, -0.300000, 196.133575),
+			ang = Angle(72.452, 0.025, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_relay"] = {
@@ -662,6 +898,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(1.099766, 0.185540, 98.640610),
+			ang = Angle(89.912, 269.860, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_plexiglass"] = {
@@ -675,6 +916,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(-0.202572, 38.860264, 72.925407),
+			ang = Angle(61.704, 270.299, 80.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_pliers"] = {
@@ -688,6 +934,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(52.487114, 48.302715, 95.568527),
+			ang = Angle(53.013, 222.214, 180.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_powerbank"] = {
@@ -701,6 +952,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(72.203049, 23.770094, 78.239761),
+			ang = Angle(45.533, 198.263, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_powercord"] = {
@@ -714,7 +970,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
 		destroy = {["comp_wire1"] = 4},
+		iconCam = {
+			pos = Vector(136.817978, 1.265495, 25.424057),
+			ang = Angle(10.234, 180.576, 0.000)
+		}
 	},
 	["junk_powerfilter"] = {
 		name = "Military Power Filter",
@@ -727,6 +988,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(102.693718, 19.694603, 141.252396),
+			ang = Angle(53.173, 190.096, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_psu"] = {
@@ -740,7 +1006,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
 		destroy = {["junk_boxcap"] = 6},
+		iconCam = {
+			pos = Vector(-83.762451, 23.027689, 144.537872),
+			ang = Angle(58.749, 344.933, 0.000)
+		}
 	},
 	["junk_pressuregauge"] = {
 		name = "Pressure Gauge",
@@ -753,6 +1024,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(-0.125678, -110.592987, 34.686291),
+			ang = Angle(16.669, 90.098, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_propane"] = {
@@ -766,6 +1042,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(235.568497, 62.910748, 76.330696),
+			ang = Angle(15.546, 194.982, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_rfid"] = {
@@ -779,6 +1060,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(93.220474, 58.890320, 143.992310),
+			ang = Angle(52.470, 212.265, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_roler"] = {
@@ -792,6 +1078,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(0.427798, -58.678612, 0.055938),
+			ang = Angle(-0.760, 90.395, 40.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_screwdriver"] = {
@@ -805,6 +1096,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(46.590786, 42.517883, 137.434906),
+			ang = Angle(65.216, 222.434, 180.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_bolts"] = {
@@ -818,7 +1114,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
 		destroy = {["comp_mech1"] = 3},
+		iconCam = {
+			pos = Vector(17.137867, 18.226936, 89.521225),
+			ang = Angle(74.227, 225.996, 0.000)
+		}
 	},
 	["junk_silicontube"] = {
 		name = "Silicone Tube",
@@ -831,6 +1132,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(37.192829, 16.005798, 163.026123),
+			ang = Angle(76.080, 203.333, 30.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_sparkplug"] = {
@@ -844,6 +1150,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(13.805109, 16.186531, 71.133865),
+			ang = Angle(73.161, 229.625, 90.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_tetriz"] = {
@@ -857,6 +1168,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(-3.585689, 0.000000, 72.359558),
+			ang = Angle(92.903, 180.000, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_thermalmodule"] = {
@@ -870,6 +1186,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(-80.210144, 68.904823, -60.953648),
+			ang = Angle(-31.184, 319.426, 30.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_thermometer"] = {
@@ -883,6 +1204,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(-11.387485, 0.989978, 84.808098),
+			ang = Angle(84.247, -0.012, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_toolset"] = {
@@ -896,10 +1222,15 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(97.846741, -1.000000, 230.580795),
+			ang = Angle(66.641, 180.000, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_toothpaste"] = {
-		name = "Toothpaste",
+		name = "Ortodontox Toothpaste",
 		desc = "",
 		price = 288,--1800,--12,
 		model = "models/illusion/eftcontainers/toothpaste.mdl",
@@ -909,6 +1240,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(38.155277, 29.073256, 65.025696),
+			ang = Angle(53.498, 217.104, 75.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_virtex"] = {
@@ -922,6 +1258,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(-12.634764, -20.454996, 93.551193),
+			ang = Angle(104.435, 238.138, 80.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_waterfilter"] = {
@@ -935,6 +1276,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(1.901786, 68.199982, 26.900646),
+			ang = Angle(19.668, 269.180, -90.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_weaponparts"] = {
@@ -948,7 +1294,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
 		destroy = {["comp_scrap_metal"] = 6},
+		iconCam = {
+			pos = Vector(141.458069, 119.193077, 87.703583),
+			ang = Angle(25.286, 219.740, 0.000)
+		}
 	},
 	["junk_transmitter"] = {
 		name = "Military COFDM Wireless Transmitter",
@@ -961,6 +1312,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(-0.180000, 131.905716, 2.279910),
+			ang = Angle(0.291, 270.000, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	["junk_wires"] = {
@@ -974,7 +1330,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
 		destroy = {["comp_wire1"] = 3},
+		iconCam = {
+			pos = Vector(13.816720, 20.122938, 80.500481),
+			ang = Angle(73.003, 235.015, -90.000)
+		}
 	},
 	["junk_wrench"] = {
 		name = "Wrench",
@@ -987,6 +1348,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		iconCam = {
+			pos = Vector(43.180096, 40.987896, 175.037827),
+			ang = Angle(71.259, 223.776, 0.000)
+		}
 		--destroy = {["id"] = 1},
 	},
 	
@@ -1329,6 +1695,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(192.98796081543, 162.95477294922, 124.00960540771),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, -180, -0.70599770545959),
+			fov = 3.9154345901654,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_chimera"] = {
@@ -1342,6 +1714,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(677.77319335938, 523.80078125, 387.59927368164),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, -3.1452519893646, 25.43670463562),
+			fov = 0.38433572459084,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_chimera_claw"] = {
@@ -1355,6 +1733,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(52.070404052734, 43.506481170654, 32.069976806641),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, -10.644762992859, -17.083503723145),
+			fov = 2.8477859274274,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_dog"] = {
@@ -1368,6 +1752,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(88.209983825684, 74.242218017578, 54.84411239624),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(39.857192993164, 26.598180770874, -1.4117660522461),
+			fov = 4.340351919857,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_flesh"] = {
@@ -1381,6 +1771,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(67.599822998047, 56.836345672607, 41.220962524414),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(6.7982883453369, -46.205997467041, -64.048583984375),
+			fov = 4.2594936878766,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_bloodsucker"] = {
@@ -1394,6 +1790,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(182.45651245117, 153.70582580566, 112.90961456299),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, 0.0071214139461517, -24.37558555603),
+			fov = 3.7989831229897,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_snork_leg"] = {
@@ -1407,6 +1809,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(146.10583496094, 121.0281829834, 93.781967163086),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0.033828191459179, -180, -3.4045951366425),
+			fov = 4.9296050890315,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_snork_mask"] = {
@@ -1414,12 +1822,18 @@ local itemList = {
 		desc = "",
 		price = 1060,--12,
 		model = "models/wick/wrbstalker/anomaly/items/dez_snork_mask.mdl",
-		width = 1,
-		height = 1,
+		width = 2,
+		height = 2,
 		weight = 0.4,
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(204.00061035156, 173.73037719727, 127.07176208496),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(-1.0036488771439, 17.639936447144, -33.410861968994),
+			fov = 2.9873577906575,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_rat"] = {
@@ -1433,6 +1847,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(450.42367553711, 382.0791015625, 297.16418457031),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(-10.72265625, 98.53197479248, -0.7247588634491),
+			fov = 1.1429861681383,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_zombie"] = {
@@ -1446,19 +1866,31 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(131.85865783691, 111.28971099854, 81.068244934082),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(34.232643127441, 85.767974853516, 15.801683425903),
+			fov = 3.6173958175068,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_pseudofang"] = {
 		name = "Pseudodog Fang",
 		desc = "",
 		price = 250,--12, --big fang lmao
-		model = "models/wick/wrbstalker/anomaly/items/dez_item_chimera_cogot.mdl",
+		model = "models/wick/wrbstalker/anomaly/items/wick_crow_beak.mdl",
 		width = 1,
 		height = 1,
 		weight = 0.05,
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(52.070404052734, 43.506481170654, 32.069976806641),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, -10.644762992859, -17.083503723145),
+			fov = 2.8477859274274,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_pseudotail"] = {
@@ -1485,6 +1917,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(139.34733581543, 115.75588226318, 85.051696777344),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(21.415878295898, -25.315452575684, -25.432788848877),
+			fov = 4.5299924844488,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_pseudogiant_hand"] = {
@@ -1498,6 +1936,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(190.94467163086, 160.31996154785, 117.07089233398),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(37.701168060303, -36.980289459229, -23.149879455566),
+			fov = 4.0858655159697,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_pseudogiant_eye"] = {
@@ -1511,6 +1955,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(67.599822998047, 56.836345672607, 41.220962524414),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(6.7982883453369, -46.205997467041, -64.048583984375),
+			fov = 4.2594936878766,
+		}		
 		--destroy = {["id"] = 1},
 	},
 
@@ -1525,6 +1975,12 @@ local itemList = {
 		weight = 0.01,
 		flag = "m",
 		count = 25,
+		iconCam = {
+			pos = Vector(0, 0, 200),
+			ang = Angle(90, 0, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 1.0658581049246,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["patch_loner"] = {
@@ -1537,6 +1993,12 @@ local itemList = {
 		weight = 0.01,
 		flag = "m",
 		count = 25,
+		iconCam = {
+			pos = Vector(0, 0, 200),
+			ang = Angle(90, 0, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 1.0658581049246,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["patch_duty"] = {
@@ -1549,6 +2011,12 @@ local itemList = {
 		weight = 0.01,
 		flag = "m",
 		count = 25,
+		iconCam = {
+			pos = Vector(0, 0, 200),
+			ang = Angle(90, 0, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 1.0658581049246,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["patch_freedom"] = {
@@ -1561,6 +2029,12 @@ local itemList = {
 		weight = 0.01,
 		flag = "m",
 		count = 25,
+		iconCam = {
+			pos = Vector(0, 0, 200),
+			ang = Angle(90, 0, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 1.0658581049246,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["patch_merc"] = {
@@ -1573,6 +2047,12 @@ local itemList = {
 		weight = 0.01,
 		flag = "m",
 		count = 25,
+		iconCam = {
+			pos = Vector(0, 0, 200),
+			ang = Angle(90, 0, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 1.0658581049246,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["patch_military"] = {
@@ -1585,6 +2065,12 @@ local itemList = {
 		weight = 0.01,
 		flag = "m",
 		count = 25,
+		iconCam = {
+			pos = Vector(0, 0, 200),
+			ang = Angle(90, 0, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 1.0658581049246,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["patch_mono"] = {
@@ -1597,6 +2083,12 @@ local itemList = {
 		weight = 0.01,
 		flag = "m",
 		count = 25,
+		iconCam = {
+			pos = Vector(0, 0, 200),
+			ang = Angle(90, 0, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 1.0658581049246,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["patch_eco"] = {
@@ -1609,6 +2101,12 @@ local itemList = {
 		weight = 0.01,
 		flag = "m",
 		count = 25,
+		iconCam = {
+			pos = Vector(0, 0, 200),
+			ang = Angle(90, 0, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 1.0658581049246,
+		}		
 		--destroy = {["id"] = 1},
 	},
 
@@ -1640,6 +2138,9 @@ function PLUGIN:InitializedItems()
 		if(data.iconCam) then --prob wont be used for anything else so
 			ITEM.exRender = true
 			ITEM.iconCam = data.iconCam
+		end
+		if(data.exRender != nil) then
+			ITEM.exRender = data.exRender
 		end
 	end		
 end
