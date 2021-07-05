@@ -46,7 +46,7 @@ function ITEM:getDesc()
 end
 
 ITEM.functions.dropone = {
-	name = "Drop 1",
+	name = "Drop One (1)",
 	tip = "takeTip",
 	icon = "icon16/world.png",
 	onRun = function(item)
@@ -67,7 +67,7 @@ ITEM.functions.dropone = {
 		return false
 	end,
 	onCanRun = function(item)
-		return !IsValid(item.entity)
+		return !IsValid(item.entity) and item.isStackable and item.maxQuantity != 1
 	end
 
 }
