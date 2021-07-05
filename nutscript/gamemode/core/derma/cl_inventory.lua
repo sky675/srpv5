@@ -25,7 +25,7 @@ function renderNewIcon(panel, itemTable)
 		iconCam = {
 			cam_pos = iconCam.pos,
 			cam_ang = iconCam.ang,
-			cam_fov = iconCam.fov,
+			cam_fov = iconCam.fov or 4.2,
 		}
 		renderedIcons[string.lower(model)] = true
 		
