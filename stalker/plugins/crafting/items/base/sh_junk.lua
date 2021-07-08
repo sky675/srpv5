@@ -38,7 +38,7 @@ end
 
 function ITEM:getDesc()
 	local desc = self.desc
-	if(self:getQuantity() and item.maxQuantity != 1) then
+	if(self:getQuantity() and self.maxQuantity != 1) then
 		desc = desc.."\nStack: "..self:getQuantity().."/"..(self.maxQuantity or 1)
 	end
 
