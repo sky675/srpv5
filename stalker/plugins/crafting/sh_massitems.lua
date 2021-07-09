@@ -25,6 +25,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/30mmround_64x128.png")
 		--destroy = {["id"] = 1},
 	},
 	["junk_aa"] = {
@@ -38,6 +39,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/aabattery.png")
 		--destroy = {["id"] = 1},
 	},
 	["junk_alkali"] = {
@@ -51,6 +53,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/alkali_64x128.png")
 		--destroy = {["id"] = 1},
 	},
 	["junk_cap"] = {
@@ -64,6 +67,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/capacitors.png"),
 		destroy = {["junk_boxcap"] = 3},
 	},
 	["junk_cat"] = {
@@ -77,6 +81,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/catfigurine_64x256.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_chain"] = {
@@ -90,6 +95,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/chain.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_circuitboard"] = {
@@ -104,6 +110,7 @@ local itemList = {
 		count = 1,
 		isStackable = false,
 		destroy = {["comp_tech1"] = 1},
+		icon = Material("sky/itemicons/eft/circuitboard.png"),
 	},
 	["junk_coffee"] = {
 		name = "Coffee Majaica",
@@ -116,6 +123,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/coffee.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_mcontrol"] = {
@@ -129,6 +137,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/controller_128x64.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_defib"] = {
@@ -142,6 +151,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/defib.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_diagset"] = {
@@ -155,6 +165,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/diagset.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_dryfuel"] = {
@@ -168,6 +179,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/dryfuel.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_drill"] = {
@@ -180,7 +192,7 @@ local itemList = {
 		weight = 1.2,
 		flag = "m",
 		count = 1,
-		isStackable = false,
+		icon = Material("sky/itemicons/eft/electricdrill_128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_motor"] = {
@@ -194,6 +206,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/engine_128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_vpx"] = {
@@ -207,6 +220,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/flashstorage.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_fcond"] = {
@@ -220,6 +234,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/fuelconditioner_64x128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_gasa"] = {
@@ -233,6 +248,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/gasanalyser_64x128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_geiger"] = {
@@ -246,6 +262,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/geigercounter_64x128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_gchain"] = {
@@ -259,6 +276,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/goldchain.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_gpblue"] = {
@@ -272,6 +290,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/gpblue_64x128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_gpgreen"] = {
@@ -285,6 +304,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/gpgreen_64x128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_gpred"] = {
@@ -298,6 +318,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/gpred_64x128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_gphone"] = {
@@ -311,6 +332,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/gphone.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_gphonex"] = {
@@ -324,6 +346,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/gphonex.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_graphicscard"] = {
@@ -337,6 +360,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/graphicscard_128x64.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_gyroscope"] = {
@@ -350,6 +374,8 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		exRender = false,
+		icon = Material("sky/itemicons/eft/gyroscope.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_gyrotachometer"] = {
@@ -363,6 +389,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/gyrotachometer_64x128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_hdd"] = {
@@ -376,6 +403,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/hdd_128x64.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_helix"] = {
@@ -389,6 +417,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/helix.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_horse"] = {
@@ -402,6 +431,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/horse_64x128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_hose"] = {
@@ -415,6 +445,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/hose_128x64.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_itape"] = {
@@ -429,6 +460,7 @@ local itemList = {
 		count = 1,
 		isStackable = false,
 		destroy = {["comp_duct_tape"] = 1},
+		icon = Material("sky/itemicons/eft/insulatingtape.png"),
 	},
 	["junk_lcdc"] = {
 		name = "Working LCD Screen",
@@ -441,6 +473,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/lcdclean_64x128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_lcdd"] = {
@@ -454,6 +487,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/lcddirty_64x128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_lightbulb"] = {
@@ -467,6 +501,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/lightbulb.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_lion"] = {
@@ -480,6 +515,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/lionstatue_256x128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_magnet"] = {
@@ -493,6 +529,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/magnet.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_matches"] = {
@@ -506,6 +543,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/matches.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_meds"] = {
@@ -519,6 +557,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/medpile.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_syringe"] = {
@@ -532,6 +571,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/medsyringe.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_militarybattery"] = {
@@ -545,6 +585,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/militarybattery_256x128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_militaryboard"] = {
@@ -558,6 +599,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/militaryboard.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_militarycable"] = {
@@ -571,6 +613,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/militarycable_128x64.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_nailpack"] = {
@@ -584,6 +627,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/nailpack.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_nixxor"] = {
@@ -611,6 +655,7 @@ local itemList = {
 		count = 1,
 		isStackable = false,
 		destroy = {["comp_mech1"] = 4},
+		icon = Material("sky/itemicons/eft/nuts.png"),
 	},
 	["junk_screws"] = {
 		name = "Pack of Screws",
@@ -623,6 +668,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/packofscrews.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_paracord"] = {
@@ -636,6 +682,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/paracord_128x64.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_asea"] = {
@@ -649,6 +696,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/phaseantenna_128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_relay"] = {
@@ -662,6 +710,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/phaserelay.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_plexiglass"] = {
@@ -675,6 +724,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/plexiglass.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_pliers"] = {
@@ -688,6 +738,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/pliers.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_powerbank"] = {
@@ -701,6 +752,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/powerbank.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_powercord"] = {
@@ -715,6 +767,7 @@ local itemList = {
 		count = 1,
 		isStackable = false,
 		destroy = {["comp_wire1"] = 4},
+		icon = Material("sky/itemicons/eft/powercord_128x64.png"),
 	},
 	["junk_powerfilter"] = {
 		name = "Military Power Filter",
@@ -727,6 +780,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/powerfilter.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_psu"] = {
@@ -741,6 +795,7 @@ local itemList = {
 		count = 1,
 		isStackable = false,
 		destroy = {["junk_boxcap"] = 6},
+		icon = Material("sky/itemicons/eft/powersupplyunit_128.png"),
 	},
 	["junk_pressuregauge"] = {
 		name = "Pressure Gauge",
@@ -753,6 +808,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/pressuregauge_128x64.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_propane"] = {
@@ -766,6 +822,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/propanetank_128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_rfid"] = {
@@ -779,6 +836,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/rfidreader.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_roler"] = {
@@ -792,6 +850,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/rolex.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_screwdriver"] = {
@@ -805,6 +864,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/screwdriver.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_bolts"] = {
@@ -819,6 +879,7 @@ local itemList = {
 		count = 1,
 		isStackable = false,
 		destroy = {["comp_mech1"] = 3},
+		icon = Material("sky/itemicons/eft/screwnutbolt.png"),
 	},
 	["junk_silicontube"] = {
 		name = "Silicone Tube",
@@ -831,6 +892,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/silicontube.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_sparkplug"] = {
@@ -844,6 +906,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/sparkplug.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_tetriz"] = {
@@ -857,6 +920,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/tetriz_64x128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_thermalmodule"] = {
@@ -870,6 +934,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/thermalmodule.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_thermometer"] = {
@@ -883,6 +948,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/thermometer_64x128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_toolset"] = {
@@ -896,10 +962,11 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/toolset_128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_toothpaste"] = {
-		name = "Toothpaste",
+		name = "Ortodontox Toothpaste",
 		desc = "",
 		price = 288,--1800,--12,
 		model = "models/illusion/eftcontainers/toothpaste.mdl",
@@ -909,6 +976,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/toothpaste.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_virtex"] = {
@@ -922,6 +990,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/virtex.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_waterfilter"] = {
@@ -935,6 +1004,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/waterfilter_64x128.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_weaponparts"] = {
@@ -949,6 +1019,7 @@ local itemList = {
 		count = 1,
 		isStackable = false,
 		destroy = {["comp_scrap_metal"] = 6},
+		icon = Material("sky/itemicons/eft/weaponparts_128x64.png"),
 	},
 	["junk_transmitter"] = {
 		name = "Military COFDM Wireless Transmitter",
@@ -961,6 +1032,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/wirelesstransmitter_128x64.png"),
 		--destroy = {["id"] = 1},
 	},
 	["junk_wires"] = {
@@ -975,6 +1047,7 @@ local itemList = {
 		count = 1,
 		isStackable = false,
 		destroy = {["comp_wire1"] = 3},
+		icon = Material("sky/itemicons/eft/wires.png"),
 	},
 	["junk_wrench"] = {
 		name = "Wrench",
@@ -987,6 +1060,7 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		icon = Material("sky/itemicons/eft/wrench.png"),
 		--destroy = {["id"] = 1},
 	},
 	
@@ -1329,6 +1403,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(192.98796081543, 162.95477294922, 124.00960540771),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, -180, -0.70599770545959),
+			fov = 3.9154345901654,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_chimera"] = {
@@ -1342,6 +1422,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(677.77319335938, 523.80078125, 387.59927368164),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, -3.1452519893646, 25.43670463562),
+			fov = 0.38433572459084,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_chimera_claw"] = {
@@ -1355,6 +1441,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(52.070404052734, 43.506481170654, 32.069976806641),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, -10.644762992859, -17.083503723145),
+			fov = 2.8477859274274,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_dog"] = {
@@ -1368,6 +1460,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(88.209983825684, 74.242218017578, 54.84411239624),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(39.857192993164, 26.598180770874, -1.4117660522461),
+			fov = 4.340351919857,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_flesh"] = {
@@ -1381,6 +1479,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(67.599822998047, 56.836345672607, 41.220962524414),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(6.7982883453369, -46.205997467041, -64.048583984375),
+			fov = 4.2594936878766,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_bloodsucker"] = {
@@ -1394,6 +1498,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(182.45651245117, 153.70582580566, 112.90961456299),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, 0.0071214139461517, -24.37558555603),
+			fov = 3.7989831229897,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_snork_leg"] = {
@@ -1407,6 +1517,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(146.10583496094, 121.0281829834, 93.781967163086),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0.033828191459179, -180, -3.4045951366425),
+			fov = 4.9296050890315,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_snork_mask"] = {
@@ -1414,12 +1530,18 @@ local itemList = {
 		desc = "",
 		price = 1060,--12,
 		model = "models/wick/wrbstalker/anomaly/items/dez_snork_mask.mdl",
-		width = 1,
-		height = 1,
+		width = 2,
+		height = 2,
 		weight = 0.4,
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(204.00061035156, 173.73037719727, 127.07176208496),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(-1.0036488771439, 17.639936447144, -33.410861968994),
+			fov = 2.9873577906575,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_rat"] = {
@@ -1433,6 +1555,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(450.42367553711, 382.0791015625, 297.16418457031),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(-10.72265625, 98.53197479248, -0.7247588634491),
+			fov = 1.1429861681383,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_zombie"] = {
@@ -1446,19 +1574,31 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(131.85865783691, 111.28971099854, 81.068244934082),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(34.232643127441, 85.767974853516, 15.801683425903),
+			fov = 3.6173958175068,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_pseudofang"] = {
 		name = "Pseudodog Fang",
 		desc = "",
 		price = 250,--12, --big fang lmao
-		model = "models/wick/wrbstalker/anomaly/items/dez_item_chimera_cogot.mdl",
+		model = "models/wick/wrbstalker/anomaly/items/wick_crow_beak.mdl",
 		width = 1,
 		height = 1,
 		weight = 0.05,
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(52.070404052734, 43.506481170654, 32.069976806641),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(0, -10.644762992859, -17.083503723145),
+			fov = 2.8477859274274,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_pseudotail"] = {
@@ -1485,6 +1625,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(139.34733581543, 115.75588226318, 85.051696777344),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(21.415878295898, -25.315452575684, -25.432788848877),
+			fov = 4.5299924844488,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_pseudogiant_hand"] = {
@@ -1498,6 +1644,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(190.94467163086, 160.31996154785, 117.07089233398),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(37.701168060303, -36.980289459229, -23.149879455566),
+			fov = 4.0858655159697,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["part_pseudogiant_eye"] = {
@@ -1511,6 +1663,12 @@ local itemList = {
 		flag = "m",
 		count = 1,
 		isStackable = false,
+		iconCam = {
+			pos = Vector(67.599822998047, 56.836345672607, 41.220962524414),
+			ang = Angle(25, 220, 0),
+			entAng = Angle(6.7982883453369, -46.205997467041, -64.048583984375),
+			fov = 4.2594936878766,
+		}		
 		--destroy = {["id"] = 1},
 	},
 
@@ -1525,6 +1683,12 @@ local itemList = {
 		weight = 0.01,
 		flag = "m",
 		count = 25,
+		iconCam = {
+			pos = Vector(0, 0, 200),
+			ang = Angle(90, 0, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 1.0658581049246,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["patch_loner"] = {
@@ -1537,6 +1701,12 @@ local itemList = {
 		weight = 0.01,
 		flag = "m",
 		count = 25,
+		iconCam = {
+			pos = Vector(0, 0, 200),
+			ang = Angle(90, 0, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 1.0658581049246,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["patch_duty"] = {
@@ -1549,6 +1719,12 @@ local itemList = {
 		weight = 0.01,
 		flag = "m",
 		count = 25,
+		iconCam = {
+			pos = Vector(0, 0, 200),
+			ang = Angle(90, 0, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 1.0658581049246,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["patch_freedom"] = {
@@ -1561,6 +1737,12 @@ local itemList = {
 		weight = 0.01,
 		flag = "m",
 		count = 25,
+		iconCam = {
+			pos = Vector(0, 0, 200),
+			ang = Angle(90, 0, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 1.0658581049246,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["patch_merc"] = {
@@ -1573,6 +1755,12 @@ local itemList = {
 		weight = 0.01,
 		flag = "m",
 		count = 25,
+		iconCam = {
+			pos = Vector(0, 0, 200),
+			ang = Angle(90, 0, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 1.0658581049246,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["patch_military"] = {
@@ -1585,6 +1773,12 @@ local itemList = {
 		weight = 0.01,
 		flag = "m",
 		count = 25,
+		iconCam = {
+			pos = Vector(0, 0, 200),
+			ang = Angle(90, 0, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 1.0658581049246,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["patch_mono"] = {
@@ -1597,6 +1791,12 @@ local itemList = {
 		weight = 0.01,
 		flag = "m",
 		count = 25,
+		iconCam = {
+			pos = Vector(0, 0, 200),
+			ang = Angle(90, 0, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 1.0658581049246,
+		}		
 		--destroy = {["id"] = 1},
 	},
 	["patch_eco"] = {
@@ -1609,6 +1809,12 @@ local itemList = {
 		weight = 0.01,
 		flag = "m",
 		count = 25,
+		iconCam = {
+			pos = Vector(0, 0, 200),
+			ang = Angle(90, 0, 0),
+			entAng = Angle(0, 180, 0),
+			fov = 1.0658581049246,
+		}		
 		--destroy = {["id"] = 1},
 	},
 
@@ -1637,9 +1843,13 @@ function PLUGIN:InitializedItems()
 
 		ITEM.destroyval = data.destroy
 
+		ITEM.icon = data.icon
 		if(data.iconCam) then --prob wont be used for anything else so
 			ITEM.exRender = true
 			ITEM.iconCam = data.iconCam
+		end
+		if(data.exRender != nil) then
+			ITEM.exRender = data.exRender
 		end
 	end		
 end

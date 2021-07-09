@@ -103,7 +103,10 @@ if (SERVER) then
 				end
 
 				if (drop) then
-					nut.item.spawn(uniqueID, entity:GetPos() + Vector(0, 0, 16))
+					nut.item.spawn(uniqueID, entity:GetPos() + Vector(0, 0, 16), function(item, ent)
+						ent:SetCollisionGroup(COLLISION_GROUP_PROJECTILE)
+						ent.busitem = true
+					end)
 					itemTaken()
 				else
 					client:getChar():getInv():add(uniqueID, itemTable.maxQuantity, {})
@@ -119,6 +122,13 @@ if (SERVER) then
 						end)
 				end
 			end
+		end
+	end)
+	--this is real lazy but idc lmao
+	hook.Add("PhysgunDrop", "stopspamlag", function(ply, ent)
+		if(ent:GetClass() != "nut_item") then return end
+		if(IsValid(ent) and ent:GetCollisionGroup() == COLLISION_GROUP_PROJECTILE and ent.busitem) then
+			ent:SetCollisionGroup(COLLISION_GROUP_WEAPON) --the normal
 		end
 	end)
 else

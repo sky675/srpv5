@@ -1,7 +1,7 @@
 local PLUGIN = PLUGIN
 
 nut.command.add("directorspawn", {
-	desc = "Add a spawn at your current position, it will spawn [class] or synth enemies at a random point in a ring around pos from rangeMin to rangeMax.",
+	desc = "Add a spawn at your current position, it will spawn [class] or assorted mutant enemies at a random point in a ring around pos from rangeMin to rangeMax.",
 	syntax = "<number rangeMin> <number rangeMax> [string class]",
     adminOnly = true,
 	onRun = function(client, arguments)

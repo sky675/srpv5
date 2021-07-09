@@ -6,6 +6,8 @@ PLUGIN.desc = "modified old director system"
 nut.util.include("sh_commands.lua")
 --nut.util.include("sh_infection.lua")
 
+--todo uh completely rewrite this lmao, also dont know if this even works
+
 nut.config.add("director", true, "Whether the director is globally active.", nil, {
 	category = "server"
 })
@@ -22,13 +24,18 @@ local mutants = {
     "npc_vj_srp_m_rat",
     "npc_vj_srp_m_rat",
     "npc_vj_srp_m_rat",
-    "npc_wick_mutant_bloodsucker_young",
-    "npc_wick_mutant_dog",
-    "npc_wick_mutant_dog",
-    "npc_wick_mutant_dog",
-    "npc_wick_mutant_dog",
-    "npc_wick_mutant_dog",
-    "npc_wick_mutant_dog",
+    "npc_vj_srp_m_bloodsucker",
+    "npc_vj_srp_m_bloodsucker",
+    "npc_vj_srp_m_snork",
+    "npc_vj_srp_m_snork",
+    "npc_vj_srp_m_dog",
+    "npc_vj_srp_m_dog",
+    "npc_vj_srp_m_dog",
+    "npc_vj_srp_m_dog",
+    "npc_vj_srp_m_dog",
+    "npc_vj_srp_m_pseudodog",
+    "npc_vj_srp_m_pseudodog",
+    "npc_vj_srp_m_pseudodog",
 }
 
 PLUGIN.spawnPos = PLUGIN.spawnPos or {}
@@ -45,6 +52,7 @@ PLUGIN.spawnPos = PLUGIN.spawnPos or {}
 } this is auto generated tho, dont set it
 ]]
 
+--this is unused but ill leave it
 PLUGIN.events = {
     ["yell"] = {0.02, true, {0,1}, true},
     ["sky9x19mm"] = {0.07, true, {0,1}, true},
@@ -68,7 +76,13 @@ zombies spawned through these actions are limited by the zombie cap for the posi
 so if the cap has max zombies, more will not spawn
 ]]
 
+--only the first 2 levels are used here
+--the first level is for the default config of mutants
+--the second level is used when a class is specified for the spawn
 PLUGIN.spawnLevels = {
+	--3 spawned from a point max,
+	--0 or 1 enemys spawned every cycle,
+	--300 seconds per cycle
     {3, {0,1}, 300}, --synths
     {3, {0,1}, 1800}, --npcs
     {2, {0,4}, 60},

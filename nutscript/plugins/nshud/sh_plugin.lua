@@ -102,8 +102,9 @@ end
 
 local charInfo = {}
 
-local OFFSET_NORMAL = Vector(0, 0, 80)
-local OFFSET_CROUCHING = Vector(0, 0, 48)
+local OFFSET_NORMAL = Vector(0, 0, 16)--80)
+//local OFFSET_CROUCHING = Vector(0, 0, 14)--48)
+local OFFSET_DOWN = Vector(0, 0, 48)
 
 paintedEntitiesCache = {}
 
@@ -121,10 +122,17 @@ function PLUGIN:DrawEntityInfo(entity, alpha, position)
 	if (not character) then return end
 
 	if(!oldent) then
-		position = position or toScreen(entity.GetPos(entity)
-			+ (entity.Crouching(entity) and OFFSET_CROUCHING or OFFSET_NORMAL))
+		//im sure this is slow but eh
+		local att = entity.LookupAttachment(entity, "eyes")
+		local ovr
+		if(att != 0) then
+			local tbl = entity.GetAttachment(entity, att)
+			ovr = tbl.Pos
+		end
+		position = position or toScreen((ovr or entity.EyePos(entity))//GetPos(entity)
+			+ OFFSET_NORMAL)//(entity.Crouching(entity) and OFFSET_CROUCHING or OFFSET_NORMAL))
 	else
-		position = position or toScreen(oldent.GetPos(oldent) + OFFSET_CROUCHING)
+		position = position or toScreen(oldent.GetPos(oldent) + OFFSET_DOWN)
 	end
 
 	local x, y = position.x, position.y
@@ -234,7 +242,7 @@ function PLUGIN:HUDPaintBackground()
 				local client = entity.getNetVar(entity, "player")
 
 				if (IsValid(client)) then
-					local position = toScreen(
+					local position = toScreen( --offset down here too?
 						entity.LocalToWorld(entity, entity.OBBCenter(entity))
 					)
 					hookRun("DrawEntityInfo", client, alpha, position)
