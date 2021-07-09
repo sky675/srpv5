@@ -233,6 +233,7 @@ if(SERVER) then
 				local n3 = ply:Name()
 				local n4 = ply:SteamName()
 				nut.log.addRaw(n1.." ("..n2..") downed "..n3.." ("..n4..")!", FLAG_DANGER)
+				hook.Run("OnPlyDowned", atk, ply)
 				--nut.log.addRaw((atk.Name and atk:Name()) or "An entity".." ("..(atk.SteamName and atk:SteamName()) or atk:GetClass()..") downed "..ply:Name().." ("..ply:SteamName()..")!", FLAG_DANGER)
 				if(!IsValid(ply.nutRagdoll)) then
 					ply:setRagdolled(true, nil)

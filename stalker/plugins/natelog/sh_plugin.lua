@@ -5,8 +5,25 @@ PLUGIN.desc = "New logging system to be used with an external program for admini
 --[[
 
 
-    local Entry = {
+    if file.Exists( "nLogs", "DATA" ) and !file.Exists( "nLogs/eventlog.json", "DATA" ) then
+        print("[nLog] No nLog file, creating. . .")
+        file.Write("nLogs/eventlog.json", logHeader) --create the log file
+        logFile = "nLogs/eventlog.json"
 
+    elseif !file.Exists( "nLogs", "DATA" ) then
+        print("[nLog] No nLog directory or nLog file, creating. . .")
+        file.CreateDir( "nLogs" ) -- create directory
+        file.Write("nLogs/eventlog.json", logHeader) --create the log file
+        logFile = "nLogs/eventlog.json"
+    else
+        logFile = "nLogs/eventlog.json"
+    end
+
+    TODO:
+        LUA: 
+            Seperate Logs per session
+        Python: 
+            Dynamically create list of all filter types
 
 --]]
 
@@ -25,20 +42,14 @@ if(SERVER) then
     end
     --local logHeader = "~~ nLog Created @ " .. os.time() .. " | ".. os.date(timeFormat, os.time()) .. " ~~\nTime Formating: " .. timeFormat .. "\nServer IP: "..thisIP.."\n~~ Begin nLogging ~~\n"
     local logHeader = "[\n"
-    --Preliminary checks to make sure log files exist
-    if file.Exists( "data", "nLogs" ) and !file.Exists( "data/nLogs", "eventlog.json" ) then
-        print("[nLog] No nLog file, creating. . .")
-        file.Write("nLogs/eventlog.json", logHeader) --create the log file
-        logFile = "nLogs/eventlog.json"
-
-    elseif !file.Exists( "data", "nLogs" ) then
+    --Preliminary checks to make sure log dir exist
+    if !file.Exists( "nLogs", "DATA" ) then
         print("[nLog] No nLog directory or nLog file, creating. . .")
         file.CreateDir( "nLogs" ) -- create directory
-        file.Write("nLogs/eventlog.json", logHeader) --create the log file
-        logFile = "nLogs/eventlog.json"
-    else
-        logFile = "nLogs/eventlog.json"
     end
+    logFile = "nLogs/eventlog_"..os.time()..".json"
+    file.Write(logFile, logHeader) --create the log file
+    
     
 
     function nLog.addType(newType) --adds new log type
@@ -252,6 +263,153 @@ if(SERVER) then
         local message = (msg)
         nLog.addLog("attack", message, tags)
     end
+
+    function PLUGIN:OnPlyUseCommand(client, text, match, realCommand, arguments)
+
+        local character = client:getChar()
+
+        local tags = {
+            ["sender-steamid"] = client:SteamID64(),
+            ["charid"] = character:getID(),
+            ["charname"] = character:getName(),
+            ["pos"] = tostring(client:GetPos()),
+            ["command"] = tostring(realCommand),
+            ["command-text"] = tostring(text),
+            ["command-match"] = tostring(match)
+        }
+
+        local message = (IsValid(client) and client:steamName() or "PLAYER") .. " as " .. character:getName() .. " used command ".. text
+        nLog.addLog("command", message, tags)
+
+	end
+
+    function PLUGIN:PlayerAuthed(client, steamID, uniqueID)
+        local tags = {
+            ["sender-steamid"] = steamID,
+            ["uniqueID"] = uniqueID,
+            ["sender-steamname"] = client:steamName()
+        }
+        local message = (IsValid(client) and client:steamName() or "PLAYER") .. " joined the server."
+        nLog.addLog("connect", message, tags)
+    end
+
+    function PLUGIN:PlayerDisconnected(client)
+        local tags = {
+            ["sender-steamid"] = client:SteamID64(),
+            --["uniqueID"] = client:UniqueID()
+            ["sender-steamname"] = client:steamName()
+        }
+        local message = (IsValid(client) and client:steamName() or "PLAYER") .. " left the server."
+        nLog.addLog("disconnect", message, tags)
+    end
+
+    function PLUGIN:PlayerDeath(client, inflictor, attacker)
+        if client == attacker then
+            local tags = {
+                ["death-type"] = "suicide",
+                ["inflictor"] = inflictor:GetName(),
+                ["victim"] = {
+                    ["steamid"] = client:SteamID64(),
+                    ["charname"] = client:Name(),
+                    ["pos"] = tostring(client:GetPos()),
+                }
+            }
+            local message = client:Name() .. " killed themselves."
+        else
+            local tags = {
+                ["death-type"] = "kill",
+                ["inflictor"] = inflictor:GetName(),
+                ["attacker"] = {
+                    ["steamid"] = attacker:IsPlayer() and attacker:SteamID64() or attacker:GetClass(),
+                    ["charname"] = attacker:GetName() ~= "" and attacker:GetName() or attacker:GetClass() or "No Name",
+                    ["pos"] = tostring(attacker:GetPos()) or "No Position",
+                },
+                ["victim"] = {
+                    ["steamid"] = client:SteamID64(),
+                    ["charname"] = client:Name(),
+                    ["pos"] = tostring(client:GetPos()),
+                }
+            }
+            local message = (attacker:GetName() ~= "" and attacker:GetName() or attacker:GetClass()).." ("..attacker:GetClass()..") killed "..client:Name()
+        end
+        nLog.addLog("plydeath", message, tags)
+    end
+
+    function PLUGIN:OnPlyDowned(atk, ply)
+        local attacker, client = atk, ply
+        local tags = {
+            ["death-type"] = "kill",
+            ["attacker"] = {
+                ["steamid"] = attacker:IsPlayer() and attacker:SteamID64() or attacker:GetClass(),
+                ["charname"] = attacker:GetName() ~= "" and attacker:GetName() or attacker:GetClass() or "No Name",
+                ["pos"] = tostring(attacker:GetPos()) or "No Position",
+            },
+            ["victim"] = {
+                ["steamid"] = client:SteamID64(),
+                ["charname"] = client:Name(),
+                ["pos"] = tostring(client:GetPos()),
+            }
+        }
+        local message = (attacker:GetName() ~= "" and attacker:GetName() or attacker:GetClass()).." ("..attacker:GetClass()..") downed "..client:Name()
+        nLog.addLog("plydown", message, tags)
+    end
+    
+    function PLUGIN:PlayerHurt(client, attacker, health, damage)
+        local health, damage = health, damage
+        local tags = {
+            ["attacker"] = {
+                ["steamid"] = attacker:IsPlayer() and attacker:SteamID64() or attacker:GetClass(),
+                ["charname"] = attacker:GetName() ~= "" and attacker:GetName() or attacker:GetClass() or "No Name",
+                ["pos"] = tostring(attacker:GetPos()) or "No Position",
+                ["health"] = tostring(health),
+                ["damage"] = tostring(damage)
+            },
+            ["victim"] = {
+                ["steamid"] = client:SteamID64(),
+                ["charname"] = client:Name(),
+                ["pos"] = tostring(client:GetPos()),
+            }
+        }
+        local message = (attacker:IsPlayer() and attacker:Name() or attacker:GetClass()) .." hurt "..client:Name().." for " .. damage .. "(" .. health+damage .."->".. health ..")"
+        nLog.addLog("plyhurt", message, tags)
+    end
+
+    function PLUGIN:OnCharMoney(client, amount)
+        local client, amount = client, amount
+        local tags = {
+            ["sender-steamid"] = client:SteamID64(),
+            ["charname"] = client:Name(),
+            ["pos"] = client:GetPos(),
+            ["amount-changed"] = tostring(amount)
+        }
+        if amount < 0 then
+            local message = client:Name() or "CHARACTER" .. ' has lost ' .. amount .. ' in money'
+        else
+            local message = client:Name() or "CHARACTER" .. ' has gained ' .. amount .. ' in money'
+        end
+        nLog.addLog("money", message, tags)
+    end
+
+    function PLUGIN:OnPlayerPurchaseDoor(client, entity, buy)
+        local client, entity, buy = client, entity, buy
+        local intertype
+        if buy then
+            intertype = "bought"
+        else
+            intertype = "sold"
+        end
+        local tags = {
+            ["sender-steamid"] = client:SteamID64(),
+            ["charname"] = client:Name(),
+            ["pos"] = client:GetPos(),
+            ["doorinteraction"] = intertype .. ' door'
+        }
+        local message = client:Name() or "CHARACTER" .. ' ' .. intertype .. ' a door'
+        nLog.addLog("doorownership", message, tags)
+    end
+
+    --vendor buy, sell, exit, access
+
 
 end
 

@@ -290,6 +290,7 @@ if (SERVER) then
 
 				if (!realCommand) then
 					nut.log.add(client, "command", text)
+					hook.Run("OnPlyUseCommand", client, text, match, realCommand, arguments)
 				end
 			else
 				if (IsValid(client)) then

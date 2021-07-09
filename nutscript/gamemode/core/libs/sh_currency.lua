@@ -57,6 +57,8 @@ end
 function charMeta:giveMoney(amount, takingMoney)
 	if (!takingMoney) then
 		nut.log.add(self:getPlayer(), "money", amount)
+
+		hook.Run("OnCharMoney", self:getPlayer(), amount)
 	end
 		
 	self:setMoney(self:getMoney() + amount)
@@ -66,6 +68,7 @@ end
 
 function charMeta:takeMoney(amount)
 	nut.log.add(self:getPlayer(), "money", -amount)
+	hook.Run("OnCharMoney", self:getPlayer(), -amount)
 
 	amount = math.abs(amount)
 	self:giveMoney(-amount, true)
