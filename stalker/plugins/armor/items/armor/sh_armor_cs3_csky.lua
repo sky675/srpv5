@@ -10,6 +10,7 @@ ITEM.height = 3
 ITEM.outfitCategory = "armor"
 ITEM.price = 32340
 ITEM.flag = "m"
+ITEM.fakeFaction = FACTION_CLEARSKY
 ITEM.size = "light" --helm, light, medium, heavy, exo, mask, vest, sci, seva
 
 --interface/inv_items_cloth_2.ogg super light (masks, addons)
