@@ -16,7 +16,7 @@ class windowClass(wx.Frame):
 	def __init__(self, *args, **kwargs):
 		super(windowClass, self).__init__(*args, **kwargs)
 		self.logfile = None
-		
+		self.allentrytypes = []
 		self.SetMinSize(Size(1090,500))
 		self.basicGUI()
 		self.CheckConfig()
@@ -146,6 +146,7 @@ class windowClass(wx.Frame):
 
 	def onFilter(self, e):
 		self.filter = FilterDialog()
+		self.filter.defineEntryTypes(self.allentrytypes)
 		self.filter.ShowModal()
 		self.filterSettings = self.filter.filterSettings
 		print("###################################")
@@ -205,7 +206,20 @@ class windowClass(wx.Frame):
 	def populateLog(self):
 		self.list.DeleteAllItems()
 		index = 0
+
+		#reset filter file
+		cwd = str(os.getcwd())
+		filterFile = "filters.ini"
+		filterPath = cwd + "\\" + filterFile
+		try:
+			if os.path.isfile(filterFile):
+				os.remove(filterPath)
+		except OSError:
+			pass
+		
 		for value in self.logfile:
+			if (value["entrytype"] not in self.allentrytypes):
+				self.allentrytypes.append(value["entrytype"])
 			msgColValue = wordwrap(value["message"], 500, wx.ClientDC(self))
 			self.list.InsertStringItem(index, value["entrytype"])
 			self.list.SetStringItem(index, 1, str(value["time"]))

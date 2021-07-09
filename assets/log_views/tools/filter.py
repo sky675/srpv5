@@ -10,8 +10,9 @@ class FilterDialog(wx.Dialog):
 		self.filterSettings = None
 		#initialize the dialog
 		wx.Dialog.__init__(self, None, wx.ID_ANY, 'Filter', size =(550, 300))
-		self.createWidgets()
 
+		self.allentrytypes = []
+		
 	def createNewFilterConfig(self, dir):
 		
 		config = configobj.ConfigObj()
@@ -22,10 +23,15 @@ class FilterDialog(wx.Dialog):
 		config['Labels']['param'] = "Tag Value:"
 		
 		config['Values'] = {}
-		config['Values']['entrytype'] = ["none", "none", "chat", "attack", "item", "observer", "charload", "chardelete", "charcreate", "shipmentcreate", "shipmenttake", "vendortrade"]
+		config['Values']['entrytype'] = ["none", "none"]
+		config['Values']['entrytype'].extend(self.allentrytypes)
 		config['Values']['param'] = ""
 		
 		config.write()
+
+	def defineEntryTypes(self, list):
+		self.allentrytypes = list
+		self.createWidgets()
 
 	def createWidgets(self):
 		#create & layout the widgets in the dialog
