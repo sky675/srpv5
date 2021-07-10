@@ -321,7 +321,7 @@ local IsOp = function(_, client) return client:IsAdmin() or client:IsUserGroup("
 
 -- Set the gamemode hooks to the appropriate shortcuts.
 GM.PlayerGiveSWEP = IsAdmin
-GM.PlayerSpawnEffect = IsAdmin
+GM.PlayerSpawnEffect = IsOp
 GM.PlayerSpawnSENT = IsOp
 
 function GM:PlayerSpawnNPC(client, npcType, weapon)

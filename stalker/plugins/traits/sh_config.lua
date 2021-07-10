@@ -835,7 +835,7 @@ trait = {
 			--if(!char:getInv():hasItem("eyes_glasses", {equip = true}) and !char:getInv():hasItem("eyes_glasses_dark", {equip = true})) then
 			local has = false
 			for k,v in pairs(char:getInv():getItems()) do
-				if(v.uniqueID == "eyes_glasses" or v.uniqueID == "eyes_glasses_dark") then
+				if(v.uniqueID == "eyes_glasses" or v.uniqueID == "eyes_glasses_dark" or v.uniqueID:find("eco") or v.uniqueID:find("seva")) then
 					if(v:getData("equip")) then
 						has = true
 						break
