@@ -55,7 +55,10 @@ nut.command.add("settypingimm", {
 nut.command.add("plyrevive", {
 	desc = "Revive a downed player completely",
 	syntax = "<string name>",
-	adminOnly = true,
+	--adminOnly = true,
+	onCheckAccess = function(client)
+		return client:IsAdmin() or client:IsUserGroup("operator")
+	end,
 	onRun = function(client, arguments)
 		local dw = nut.config.get("downing", false)
 		if (!dw) then return "Downing is not on :(" end
@@ -498,7 +501,7 @@ if(SERVER) then
 		if(IsValid(dmg:GetAttacker()) and dmg:GetAttacker():GetClass() == "nut_item") then
 			return true
 		end
-		if(dmg:GetInflictor():GetCollisionGroup() == COLLISION_GROUP_PROJECTILE) then
+		if(IsValid(dmg:GetInflictor()) and dmg:GetInflictor():GetCollisionGroup() == COLLISION_GROUP_PROJECTILE) then
 			
 		end
 		

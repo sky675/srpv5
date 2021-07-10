@@ -1,6 +1,7 @@
 LANGUAGE = {
 
 	stash = "Stash",
+	stashEntity = "Stash",
 	stashIn = "Deposit",
 	stashOut = "Withdraw",
 	stashError = "Failed to store thing in the stash.",

@@ -915,7 +915,7 @@ Add in some vodka to negate the negative effects.]],
 		--flag = "", --optional can be left out, flag to check for
 	},
 	["cook_chimera_vodka"] = {
-		name = "Chimera Meat (Vodka Quality)",
+		name = "The Masculine Meal (Vodka Quality)",
 		desc = [[Use more advanced cooking knowledge to prepare some Chimera meat with assorted seasonings and other ingredients.
 Add in some vodka to negate the negative effects.]],
 		category = "Cooking (Vodka Quality)",
@@ -1275,7 +1275,7 @@ Add in some water to reduce negative effects.]],
 		--flag = "", --optional can be left out, flag to check for
 	},
 	["cook_chimera_water"] = {
-		name = "Chimera Meat (Water Quality)",
+		name = "The Masculine Meal (Water Quality)",
 		desc = [[Use basic cooking knowledge to prepare some Chimera meat with assorted seasonings and other ingredients.
 Add in some water to reduce negative effects.]],
 		category = "Cooking (Water Quality)",
@@ -1575,7 +1575,7 @@ Add in some water to reduce negative effects.]],
 		--flag = "", --optional can be left out, flag to check for
 	},
 	["cook_chimera"] = {
-		name = "Chimera Meat (Low Quality)",
+		name = "The Masculine Meal (Low Quality)",
 		desc = [[Use basic cooking knowledge to prepare some Chimera meat with assorted seasonings and other ingredients.]],
 		category = "Cooking (Low Quality)",
 		model = "models/wick/wrbstalker/anomaly/items/wick_chimera_food.mdl",
