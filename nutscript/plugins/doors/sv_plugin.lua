@@ -55,6 +55,26 @@ function PLUGIN:EntityKeyValue(ent, key, value)
 	end
 end
 
+function PLUGIN:MassHideAllDoors()
+	local t = ents.GetAll()
+	for k,entity in pairs(t) do
+		if(IsValid(entity) and entity:isDoor()) then
+			entity:setNetVar("noSell", true)
+			entity:setNetVar("hidden", true)
+			
+
+
+			PLUGIN:callOnDoorChildren(entity, function(child)
+				child:setNetVar("noSell", true)
+				child:setNetVar("hidden", true)
+
+			end)
+		end
+	end
+
+	PLUGIN:SaveDoorData()
+end
+
 function PLUGIN:copyParentDoor(child)
 	local parent = child.nutParent
 
