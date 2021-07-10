@@ -64,7 +64,7 @@ function PLUGIN:MassHideAllDoors()
 			
 
 
-			PLUGIN:callOnDoorChildren(entity, function(child)
+			self:callOnDoorChildren(entity, function(child)
 				child:setNetVar("noSell", true)
 				child:setNetVar("hidden", true)
 
@@ -72,7 +72,7 @@ function PLUGIN:MassHideAllDoors()
 		end
 	end
 
-	PLUGIN:SaveDoorData()
+	self:SaveDoorData()
 end
 
 function PLUGIN:copyParentDoor(child)
