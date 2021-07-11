@@ -140,7 +140,7 @@ nut.command.add("charclearsubmats", {
 nut.command.add("charseteyecolor", {
 	syntax = "<string target> <string color>",
     adminOnly = true,
-	desc = "Set the eye color of the person (blue, green, or anything else for hazel)",
+	desc = "Set the eye color of the person (blue, green, or anything else/nothing for hazel)",
 	onRun = function(client, arguments)
         local target = nut.util.findPlayer(arguments[1])
 		if(!target) then return "invalid player" end

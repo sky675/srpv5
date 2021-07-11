@@ -1969,7 +1969,7 @@ this upgrade is PERMANENT and cannot be reverted]],
 		desc = [[temp name maybe
 changes the ammo type you're using with your weapon. will not work with shotguns.
 NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory]],
-		category = "Weapon Upgrades",
+		category = "Generic Weapon Upgrades",
 		render = {
 			icon = "entities/acwatt_go_ammo_match.png"
 		},
