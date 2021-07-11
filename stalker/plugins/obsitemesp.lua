@@ -32,7 +32,7 @@ if CLIENT then
                 nut.util.drawText("item: "..name, x, y-size, ColorAlpha(Color(220,220,220,255),alpha), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, nil, alpha)
 				end
 				---[[
-				if(v:GetClass() == "gas_zone1") then
+				if(v:GetClass() == "sky_radiation") then
 					local scrPos = v:GetPos():ToScreen()
 					local marginx, marginy = sy*.1, sy*.1
 					local x, y = math.Clamp(scrPos.x, marginx, sx - marginx), math.Clamp(scrPos.y, marginy, sy - marginy)
@@ -44,7 +44,7 @@ if CLIENT then
 					surface.SetDrawColor(30, 30, 30, alpha)
 					surface.DrawRect(x - size/2, y - size/2, size, size)
 	
-					nut.util.drawText("Gas Zone", x, y-size, ColorAlpha(Color(0,220,0,255),alpha), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, nil, alpha)	
+					nut.util.drawText("Radiation Spot", x, y-size, ColorAlpha(Color(0,220,0,255),alpha), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, nil, alpha)	
 				end
 				--]]
             end
