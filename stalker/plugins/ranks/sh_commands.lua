@@ -1,3 +1,4 @@
+local PLUGIN = PLUGIN
 
 nut.command.add("xpadd", {
 	adminOnly = true,
