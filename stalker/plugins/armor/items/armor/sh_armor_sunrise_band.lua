@@ -27,8 +27,8 @@ local matreplace = {
 	["io7a_lone"] = "models/sky/stalker/io7a_monolith",
 	["seva_lone"] = "models/sky/stalker/seva_mono",
 	["skat_lone"] = "models/sky/stalker/skat_monolith",]]
-	["sunrise_lone"] = "models/sky/stalker/stalker_band",
-	["sunrise_null"] = "models/sky/stalker/stalker_band",
+	["sunrise_lone"] = "models/sky/stalker/sunrise_band",
+	["sunrise_null"] = "models/sky/stalker/sunrise_band",
 	["exo_lone"] = "models/sky/stalker/exo_band",
 }
 

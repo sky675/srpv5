@@ -8,7 +8,7 @@ if CLIENT then
     function PLUGIN:HUDPaint()
         local client = LocalPlayer()
 
-        if (client:IsSuperAdmin() and client:GetMoveType() == MOVETYPE_NOCLIP and !client:InVehicle() and NUT_CVAR_ADMINESP:GetBool() and NUT_CVAR_ITEMESP:GetBool()) then
+        if (client:IsAdmin() and client:GetMoveType() == MOVETYPE_NOCLIP and !client:InVehicle() and NUT_CVAR_ADMINESP:GetBool() and NUT_CVAR_ITEMESP:GetBool()) then
             local sx, sy = surface.ScreenWidth(), surface.ScreenHeight()
 
             for k, v in ipairs(ents.GetAll()) do

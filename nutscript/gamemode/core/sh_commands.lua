@@ -63,7 +63,7 @@ nut.command.add("setvoicemail", {
 })
 
 nut.command.add("flaggive", {
-	superAdminOnly = true,
+	adminOnly = true,
 	syntax = "<string name> [string flags]",
 	onRun = function(client, arguments)
 		local target = nut.command.findPlayer(client, arguments[1])

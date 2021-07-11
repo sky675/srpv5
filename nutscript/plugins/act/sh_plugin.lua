@@ -62,6 +62,7 @@ for k, v in pairs(PLUGIN.acts) do
 					end
 
 					local duration = client:forceSequence(sequence, nil, info.untimed and 0 or nil)
+					if(!info.untimed and !isnumber(duration)) then return "@modelNoSeq" end
 
 					client.nutSeqUntimed = info.untimed
 					client.nutNextAct = CurTime() + (info.untimed and 4 or duration) + 1

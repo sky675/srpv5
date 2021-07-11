@@ -32,6 +32,7 @@ if(SERVER) then
 		--self:UseTriggerBounds(true)
 		self:PhysicsInitBox(Vector(-30.94, -40.71, -252.72), Vector(30.26, 30.30, 3.56))
 		self:SetTrigger(true)
+		self:ResetSequence("idle")
 
 		local physobj = self:GetPhysicsObject()
 		if(IsValid(physobj)) then

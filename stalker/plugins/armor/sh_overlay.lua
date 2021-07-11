@@ -26,7 +26,7 @@ hook.Add("RenderScreenspaceEffects", "maskoverlay", function()
 	local char = LocalPlayer():getChar()
 	if(!char or (tp and tp:GetBool())) then return end
 	local ovr = char:getData("ovr", "")
-	if(!mov:GetBool()) then
+	if(mov:GetBool()) then
 		if(overlaymats[ovr]) then
 			--render.DrawTextureToScreen(mat:GetTexture("$basetexture"))
 			DrawMaterialOverlay(overlaymats[ovr], 0.1)

@@ -13,7 +13,7 @@ if (CLIENT) then
 	function PLUGIN:HUDPaint()
 		client = LocalPlayer()
 
-		if (client:IsSuperAdmin() and client:GetMoveType() == MOVETYPE_NOCLIP and !client:InVehicle() and NUT_CVAR_ADMINESP:GetBool()) then--(client:IsAdmin() or client:IsUserGroup("operator"))  and client:GetMoveType() == MOVETYPE_NOCLIP and !client:InVehicle() and NUT_CVAR_ADMINESP:GetBool()) then
+		if (client:IsAdmin() and client:GetMoveType() == MOVETYPE_NOCLIP and !client:InVehicle() and NUT_CVAR_ADMINESP:GetBool()) then--(client:IsAdmin() or client:IsUserGroup("operator"))  and client:GetMoveType() == MOVETYPE_NOCLIP and !client:InVehicle() and NUT_CVAR_ADMINESP:GetBool()) then
 			sx, sy = surface.ScreenWidth(), surface.ScreenHeight()
 
 			for k, v in ipairs(player.GetAll()) do

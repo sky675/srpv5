@@ -27,8 +27,8 @@ local matreplace = {
 	["io7a_lone"] = "models/sky/stalker/io7a_dull",
 	["seva_lone"] = "models/sky/stalker/seva_midn",
 	["skat_lone"] = "models/sky/stalker/skat_blak",
-	["sunrise_lone"] = "models/sky/stalker/stalker_blak",
-	["sunrise_null"] = "models/sky/stalker/stalker_blak",
+	["sunrise_lone"] = "models/sky/stalker/sunrise_blak",
+	["sunrise_null"] = "models/sky/stalker/sunrise_blak",
 }
 
 ITEM.exRender = true
