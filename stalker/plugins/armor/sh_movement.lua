@@ -144,7 +144,7 @@ hook.Add("SetupMove", "slowhpply", function(ply, moved, commandd)
 					
 	if(!res["norat"]) then
 		local baserat = nut.config.get("movespeedRatio", 0.4)
-		if(IsValid(ply) and (char:getFaction() == FACTION_MONO or res["imprat"])) then baserat = baserat + 0.2 end						
+		if(IsValid(ply) and (char:getFaction() == FACTION_MONOLITH or res["imprat"])) then baserat = baserat + 0.2 end						
 		ratio = (ply:Health()/ply:GetMaxHealth()) + baserat
 		if(ratio > 1) then
 			ratio = 1
@@ -218,7 +218,7 @@ if (SERVER) then
 					
 					if(!res["norat"]) then
 						local baserat = nut.config.get("movespeedRatio", 0.4)
-						if(IsValid(ply) and ply:getChar() and (ply:getChar():getFaction() == FACTION_MONO or res["imprat"])) then baserat = baserat + 0.2 end						
+						if(IsValid(ply) and ply:getChar() and (ply:getChar():getFaction() == FACTION_MONOLITH or res["imprat"])) then baserat = baserat + 0.2 end						
 						ratio = (ply:Health()/ply:GetMaxHealth()) + baserat
 						if(ratio > 1) then
 							ratio = 1
@@ -246,11 +246,11 @@ if (SERVER) then
 						print("test", tostring(client:IsSprinting()), tostring(client:KeyDown(IN_SPEED) and length2D >= (runSpeed - 20)), tostring(length2D), tostring(runSpeed-20), client:GetRunSpeed(), "<- is -5 = runspeed")
 					end
 					if (!ply:getNetVar("brth") and client:IsSprinting()) then--(((length2D >= (runSpeed - 10)) or (length2D >= (client:GetRunSpeed() - 10))) or (client:KeyDown(IN_SPEED) and length2D > 10))) then
-						offset = -2 + ((character:getAttrib("stm", 0)*(client:GetArmorResists()["spr"] or 1)) / 60) --* character:getStmAdd()) / 60)
+						offset = -2 + ((character:getAttrib("stm", 0)*(res["spr"] or 1)) / 60) --* character:getStmAdd()) / 60)
 					elseif (offset > 0.5) then
-						offset = math.max(0, 1 * (client:GetArmorResists()["stmres"] or 1))
+						offset = math.max(0, 1 * (res["stmres"] or 1))
 					else
-						offset = math.max(0, 1.75 * (client:GetArmorResists()["stmres"] or 1))
+						offset = math.max(0, 1.75 * (res["stmres"] or 1))
 					end
 
 					--if crouching and not moving
