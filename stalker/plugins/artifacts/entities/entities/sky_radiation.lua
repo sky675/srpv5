@@ -72,7 +72,7 @@ if(SERVER) then
 		end
 		local function spawn(ent, data)
 			if !data or !istable( data ) then 
-				print("uh load no data")
+				//print("uh load no data")
 				ent:Spawn()
 				return 
 			end

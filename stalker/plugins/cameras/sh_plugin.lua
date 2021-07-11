@@ -168,11 +168,11 @@ if(SERVER and PermaProps) then
 	end
 	local function spawn(ent, data)
 		if !data or !istable( data ) then 
-			print("uh load no data")
+			//print("uh load no data")
 			ent:Spawn()
 			return 
 		end
-		print("uh load")
+		//print("uh load")
 		PrintTable(data)
 
 		ent:Spawn()
