@@ -10,9 +10,7 @@ nut.config.add("allowFlavorItems", true, "Whether or not the option during chara
 
 
 FLAVOR_MODELS = {
-    ["models/warz/consumables/medicine.mdl"] = {
-        name = "Pill Bottle"
-    },
+    
     ["models/spec45as/stalker/quest/documents_6.mdl"] = {
         name = "Documents"
     },
