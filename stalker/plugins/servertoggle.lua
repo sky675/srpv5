@@ -20,7 +20,7 @@ nut.command.add("servertoggle", {
  	end
 })
 
-if(servertoggle) then return end
+if(serverToggle) then return end
 
 if(SERVER) then
 
