@@ -44,6 +44,7 @@ if(SERVER) then
 	function ENT:Think()
 		local radius = self:GetRadius()*self:GetRadius()
 		for k,v in ipairs(player.GetAll()) do
+			if(v:GetMoveType() == MOVETYPE_NOCLIP) then continue end
 			local dist = v:GetPos():DistToSqr(self:GetPos())
 			if(dist <= radius) then
 				local radres = v:GetArmorResists()[DMG_RADIATION] or 0
