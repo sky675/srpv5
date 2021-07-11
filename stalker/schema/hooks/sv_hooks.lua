@@ -223,16 +223,17 @@ hook.Add("PlayerLoadedChar", "eyegive", function(ply, char, lastChar)
 		end
 	end
 
-	if(char:getData("eyes")) then
-		if(char:getData("eyes") == "blue") then
+	local eyes = char:getData("eyes")
+	if(eyes) then
+		if(eyes == "blue") then
 			for k,v in pairs(mat) do
 				ply:SetSubMaterial(v.mat, v.type == "l" and "models/bloo_ltcom_zel/citizens/eyeball_l_blue" or "models/bloo_ltcom_zel/citizens/eyeball_r_blue")
 			end
-		elseif(char:getData("eyes") == "green") then
+		elseif(eyes == "green") then
 			for k,v in pairs(mat) do
 				ply:SetSubMaterial(v.mat, v.type == "l" and "models/bloo_ltcom_zel/citizens/eyeball_l_green" or "models/bloo_ltcom_zel/citizens/eyeball_r_green")
 			end
-		elseif(char:getData("eyes") == "cyber") then
+		elseif(eyes == "cyber") then
 			for k,v in pairs(mat) do
 				ply:SetSubMaterial(v.mat, v.type == "l" and "models/sky/eyeball_cyber_l" or "models/sky/eyeball_cyber_r")
 			end
