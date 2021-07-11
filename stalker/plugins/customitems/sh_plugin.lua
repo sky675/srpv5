@@ -40,21 +40,12 @@ FLAVOR_MODELS = {
     ["models/wick/wrbstalker/anomaly/items/wick_book3.mdl"] ={
         name = "Light Red Textbook"
     },
-    ["models/kek1ch/identity_card.mdl"] ={
-        name = "Passport"
-    },
-    ["models/kek1ch/portable_player.mdl"] ={
-        name = "MP3 Player"
-    },
-    ["models/kek1ch/carts_36.mdl"] ={
-        name = "Deck of Playing Cards"
-    },
-    ["models/kek1ch/notes_writing_book_2.mdl"] ={
-        name = "Notebook"
-    },
     ["models/wick/wrbstalker/anomaly/items/dez_drink_match0.mdl"] ={
         name = "Matchbook"
-    }  
+    },
+    ["models/spec45as/stalker/quest/notes_photo_1.mdl"] = {
+        name = "Photograph"
+    },
 }
 
 
