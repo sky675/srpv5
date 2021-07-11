@@ -328,10 +328,12 @@ hook.Add("ArcCW_PlayerCanAttach", "pickyatts", function(ply, wep, attname, slot,
 			local slotids = {}
 			for key, value in ipairs(wep.Attachments) do
 				if(istable(value.Slot)) then
-					for _, s in ipairs(table) do
+					for _, s in ipairs(value.Slot) do
+						if(slotids[s]) then continue end --fuck this shit
 						slotids[s] = key
 					end
 				else
+					if(slotids[value.Slot]) then continue end --fuck this shit
 					slotids[value.Slot] = key
 				end
 			end
@@ -357,6 +359,7 @@ hook.Add("ArcCW_PlayerCanAttach", "pickyatts", function(ply, wep, attname, slot,
 		return false 
 	end
 	ply.isattaching = nil
+	--return true
 end)
 
 if(CLIENT) then

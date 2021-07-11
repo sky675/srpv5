@@ -102,9 +102,11 @@ function ITEM:attachTo(target, ply)
 	for key, value in ipairs(wep.Attachments) do
 		if(istable(value.Slot)) then
 			for _, s in ipairs(value.Slot) do
+				if(slotids[s]) then continue end --fuck this shit
 				slotids[s] = key
 			end
 		else
+			if(slotids[value.Slot]) then continue end --fuck this shit
 			slotids[value.Slot] = key
 		end
 	end
