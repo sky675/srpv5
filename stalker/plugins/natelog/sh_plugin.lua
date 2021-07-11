@@ -60,7 +60,9 @@ if(SERVER) then
     function nLog.addLog(type, logString, logTags) --returns true if event is logged, false otherwise.  --file.Write()
         --local keys = { ... }
         if assert(logFile, "Attempting add nLog entry, but nLog file does not exist or is still nil!", true) then
-            
+            if logString == "" or logString == nil then
+                logstring = "This log has no message, please fix."
+            end
             local entryTable = {
                 time = os.time(),
                 entrytype = type,
