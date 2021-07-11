@@ -45,7 +45,9 @@ if(SERVER) then
 		end
 		--then find storages (both of these should have a unique status)
 		for k,v in ipairs(ents.FindByClass("nut_storage")) do
-			for _,item in pairs(v:getInv():getItems()) do
+			local inv = v:getInv()
+			if(!inv) then continue end
+			for _,item in pairs(inv:getItems()) do
 				if(item.base == "base_npda" and !item:getData("isoff")) then
 					tbl[#tbl+1] = {
 						["handle"] = item:getData("pdahandle", "invalid"),
