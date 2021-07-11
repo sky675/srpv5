@@ -90,6 +90,9 @@ nut.command.add("charclearsubmats", {
 		if(!char) then return "no char" end
 		
 		ply:SetSubMaterial()
+		if(ply.bm and ply.bm.t) then
+			ply.bm.t:SetSubmaterial()
+		end
 		char:setData("submat")
 		char:setData("gsub")
 	
