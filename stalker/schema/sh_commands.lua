@@ -61,6 +61,7 @@ end
 
 nut.command.add("charsetanorakskin", {
 	syntax = "<string target> <int skin>",
+    adminOnly = true,
 	desc = "Set the skin of the person's anorak (these are not found on the model)",
 	onRun = function(client, arguments)
         local target = nut.util.findPlayer(arguments[1])
@@ -77,6 +78,109 @@ nut.command.add("charsetanorakskin", {
 		return "should be changed"
 	end,
 })
+
+nut.command.add("charclearsubmats", {
+	syntax = "<string target>",
+    adminOnly = true,
+	desc = "Using this will completely REMOVE the submaterials of the target, make sure they have all clothing items unequipped when using this command.",
+	onRun = function(client, arguments)
+        local ply = nut.util.findPlayer(arguments[1])
+		if(!ply) then return "invalid player" end
+		local char = ply:getChar()
+		if(!char) then return "no char" end
+		
+		ply:SetSubMaterial()
+		char:setData("submat")
+		char:setData("gsub")
+	
+		local mats = ply:GetMaterials()
+		local mat = {}
+		for k,v in ipairs(mats) do
+			if(string.find(v, "eyeball_l")) then
+				mat[#mat+1] = {mat = k-1, type = "l"}
+			end
+			if(string.find(v, "eyeball_r")) then
+				mat[#mat+1] = {mat = k-1, type = "r"}
+			end
+		end
+	
+		local eyes = char:getData("eyes")
+		if(eyes) then
+			if(eyes == "blue") then
+				for k,v in pairs(mat) do
+					ply:SetSubMaterial(v.mat, v.type == "l" and "models/bloo_ltcom_zel/citizens/eyeball_l_blue" or "models/bloo_ltcom_zel/citizens/eyeball_r_blue")
+				end
+			elseif(eyes == "green") then
+				for k,v in pairs(mat) do
+					ply:SetSubMaterial(v.mat, v.type == "l" and "models/bloo_ltcom_zel/citizens/eyeball_l_green" or "models/bloo_ltcom_zel/citizens/eyeball_r_green")
+				end
+			elseif(eyes == "cyber") then
+				for k,v in pairs(mat) do
+					ply:SetSubMaterial(v.mat, v.type == "l" and "models/sky/eyeball_cyber_l" or "models/sky/eyeball_cyber_r")
+				end
+			else
+				for k,v in pairs(mat) do
+					ply:SetSubMaterial(v.mat)
+				end
+			end
+		else
+			for k,v in pairs(mat) do
+				ply:SetSubMaterial(v.mat)
+			end
+		end
+		
+		--should be it
+		return "should reset"
+	end,
+})
+
+nut.command.add("charseteyecolor", {
+	syntax = "<string target> <string color>",
+    adminOnly = true,
+	desc = "Set the eye color of the person (blue, green, or anything else for hazel)",
+	onRun = function(client, arguments)
+        local target = nut.util.findPlayer(arguments[1])
+		if(!target) then return "invalid player" end
+		local color = arguments[2]
+		local char = target:getChar()
+		if(!char) then return "no char" end
+		
+		local mats = target:GetMaterials()
+		local mat = {}
+		for k,v in ipairs(mats) do
+			if(string.find(v, "eyeball_l")) then
+				mat[#mat+1] = {mat = k-1, type = "l"}
+			end
+			if(string.find(v, "eyeball_r")) then
+				mat[#mat+1] = {mat = k-1, type = "r"}
+			end
+		end
+
+		char:setData("eyes", color)
+		if(color == "blue") then
+			for k,v in pairs(mat) do
+				target:SetSubMaterial(v.mat, v.type == "l" and "models/bloo_ltcom_zel/citizens/eyeball_l_blue" or "models/bloo_ltcom_zel/citizens/eyeball_r_blue")
+			end
+		elseif(color == "green") then
+			for k,v in pairs(mat) do
+				target:SetSubMaterial(v.mat, v.type == "l" and "models/bloo_ltcom_zel/citizens/eyeball_l_green" or "models/bloo_ltcom_zel/citizens/eyeball_r_green")
+			end
+		elseif(color == "cyber") then
+			for k,v in pairs(mat) do
+				target:SetSubMaterial(v.mat, v.type == "l" and "models/sky/eyeball_cyber_l" or "models/sky/eyeball_cyber_r")
+			end
+		else
+			for k,v in pairs(mat) do
+				target:SetSubMaterial(v.mat)
+			end
+		end
+
+		
+		--should be it
+		return "should be changed"
+	end,
+})
+
 
 local whitelistArmors = {
 	"_sunrise", "_io7a", "_eco", "_trenchcoat"
