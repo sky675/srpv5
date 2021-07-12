@@ -182,7 +182,7 @@ if(SERVER) then
             local tags = {
                 ["sender-steamid"] = client:SteamID64(),
                 ["charname"] = client:Name(),
-                ["vendor"] = vendory:getName(),
+                ["vendor"] = vendor:getName(),
                 ["itemname"] = item:getName(),
                 ["issell"] = tostring(issell)
             }
