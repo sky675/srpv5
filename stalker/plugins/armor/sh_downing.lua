@@ -302,7 +302,7 @@ if(SERVER) then
 			if(msgs) then
 				if(IsValid(wep) and wep.Num and wep.Num > 1) then
 					shotcache[ply] = (shotcache[ply] or 0) + 1
-					dmginfo[ply] = dmginfo
+					dmgcache[ply] = dmginfo
 					local dist = math.Round(ply:GetPos():Distance(atk:GetPos())/52.49, 2)
 					local levels = ply:GetArmorLevels()
 					local dmgmulti = 1
