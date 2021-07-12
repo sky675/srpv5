@@ -37,6 +37,13 @@ function PANEL:createTabs()
 			:onConfirm(function() gui.OpenURL("https://discord.gg/VPztejY") end)
 	end, true)
 
+	self:addTab("forums", function()
+		vgui.Create("nutCharacterConfirm")
+			:setTitle("FORUMS")
+			:setMessage("CONFIRM TO OPEN THE FORUM LINK.")
+			:onConfirm(function() gui.OpenURL("https://stalker-kolobok.com/") end)
+	end, true)
+
 	-- If the player has a character (i.e. opened this menu from F1 menu), then
 	-- don't add a disconnect button. Just add a close button.
 	if (LocalPlayer():getChar()) then
