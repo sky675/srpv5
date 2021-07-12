@@ -281,6 +281,8 @@ if(SERVER) then
 
 	end
 
+	local shotcache = {}
+	local dmgcache = {}
 	
 	local function ScaleDmg(ply, hg, dmginfo)
 		local on = nut.config.get("damage", true)
@@ -298,6 +300,33 @@ if(SERVER) then
 			atk:getChar():setVar("lastvic", ply)
 
 			if(msgs) then
+				if(IsValid(wep) and wep.Num and wep.Num > 1) then
+					shotcache[ply] = (shotcache[ply] or 0) + 1
+					dmginfo[ply] = dmginfo
+					local dist = math.Round(ply:GetPos():Distance(atk:GetPos())/52.49, 2)
+					local levels = ply:GetArmorLevels()
+					local dmgmulti = 1
+					if(wep.Primary) then
+						dmgmulti = PLUGIN:IsCharProtected(levels, hitToLevel[hg], wep, levels.durability)
+					end
+					timer.Create("shotc"..ply:SteamID64(), 0.1, 1, function()
+
+						net.Start("PlayerGetDmg")
+						net.WriteEntity(ply)
+						net.WriteEntity(atk)
+						net.WriteEntity(wep)
+						net.WriteInt(hg, 4)
+						net.WriteInt(dist, 32)
+						net.WriteFloat(dmgmulti)
+						net.WriteString(shotcache[ply].."|"..wep.Primary and wep.Primary.Ammo or "gren")
+
+						net.Send({ply, atk})
+						
+						shotcache[ply] = 0
+					end)
+					return
+				end
+
 				net.Start("PlayerGetDmg")
 				net.WriteEntity(ply)
 				net.WriteEntity(atk)
@@ -865,6 +894,13 @@ else --client
 			return
 		end
 
+		local cachecnt
+		if(ammo:find("|")) then
+			local spl = string.Split(ammo, "|")
+			ammo = spl[2]
+			cachecnt = spl[1]
+		end
+
 		local ammostr = ammoStrings[ammo]
 		if(!ammostr) then
 			local spl = string.Split(ammo, "_")
@@ -878,7 +914,7 @@ else --client
 				protection = "Your armor protects you from the bullet."
 			end
 
-			chat.AddText("You were hit by "..ammostr.." in "..(hitStrings[hitgroup] or "an unknown place").." from "..dist.." meters away! "..protection.." Bearing: "..math.Round(bear, 0))
+			chat.AddText("You were hit by "..ammostr.." in "..(hitStrings[hitgroup] or "an unknown place").." from "..dist.." meters away! "..protection.." Bearing: "..math.Round(bear, 0)..(cachecnt and " You were also hit "..cachecnt.." other times with the same weapon!" or ""))
 		else --confirmation
 			if(prot >= 1) then
 				protection = "They do not appear to be protected from the bullet."
@@ -886,7 +922,7 @@ else --client
 				protection = "They appear to be protected from the bullet."
 			end
 
-			chat.AddText("You hit someone with "..ammostr.." in "..(hitStrings[hitgroup] or "an unknown place").." from "..dist.." meters away! "..protection)
+			chat.AddText("You hit someone with "..ammostr.." in "..(hitStrings[hitgroup] or "an unknown place").." from "..dist.." meters away! "..protection..(cachecnt and " You also hit them "..cachecnt.." other times with the same weapon!" or ""))
 		end
 	end)
 end
