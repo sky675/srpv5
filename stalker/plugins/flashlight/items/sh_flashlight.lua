@@ -44,7 +44,7 @@ ITEM.functions.EquipUn = { --i hate this lol
 	sound = "interface/inv_belt.ogg",
 	onRun = function(item)
 		item:setData("equip", nil)
-
+		local client = item.player
 		if (item.player:FlashlightIsOn()) then --change to false
 			local wep = client:GetActiveWeapon()
 			if(wep and ((wep.GetStat and wep:GetStat("HasFlashlight")) or wep.HasFlashlight)) then-- and !nut.plugin.list["flashlight"]:BatteryIsEmpty(wep.nutItem)) then
