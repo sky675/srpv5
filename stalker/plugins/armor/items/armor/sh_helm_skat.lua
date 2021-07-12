@@ -269,7 +269,7 @@ ITEM.getBodyGroups = function(item, ply)
 	end
 
 	--this should get all the ones rn
-	if(IsValid(ply.bm.t)) then
+	if(ply.bm and IsValid(ply.bm.t)) then
 		local old = ply.bm.t:GetBodyGroups()
 		local olbg = {}
 		for k,v in pairs(old) do
