@@ -757,6 +757,8 @@ else --client
 		["sky44"] = "a .44 Magnum round",
 		["sky23mm"] = "a 23mm Barricade round",
 		["buckshot"] = "a 12 Gauge buckshot pellet",
+		["buskshot_slug"] = "a 12 Gauge slug",
+		["buckshot_sabot"] = "a 12 Gauge sabot round",
 		["357"] = "a .357 Magnum round",
 		["skygp25"] = "a GP-25 grenade explosion",
 		["skym203"] = "a M-203 grenade explosion",
@@ -764,6 +766,11 @@ else --client
 		["gren"] = "something with no Primary??? (grenade more than likely)",
 		["ar2"] = "a 6mm pulse round",
 		["skyar3"] = "a 6mm pulse round",
+	}
+	local specAmmo = {
+		["ap"] = "AP round",
+		["jhp"] = "JHP round",
+		["match"] = "Match round",
 	}
 	local hitStrings = {
 		[HITGROUP_GENERIC] = "an unknown place",
@@ -857,6 +864,12 @@ else --client
 
 			return
 		end
+
+		local ammostr = ammoStrings[ammo]
+		if(!ammostr) then
+			local spl = string.Split(ammo, "_")
+			ammostr = (ammoStrings[spl[1]] or ammo):gsub("_"..spl[2], (specAmmo[spl[2]] or ""))
+		end
 		
 		if(target == LocalPlayer()) then --incoming damage
 			if(prot >= 1) then --this can be above 1 now lol
@@ -865,7 +878,7 @@ else --client
 				protection = "Your armor protects you from the bullet."
 			end
 
-			chat.AddText("You were hit by "..(ammoStrings[ammo] or ammo).." in "..(hitStrings[hitgroup] or "an unknown place").." from "..dist.." meters away! "..protection.." Bearing: "..math.Round(bear, 0))
+			chat.AddText("You were hit by "..ammostr.." in "..(hitStrings[hitgroup] or "an unknown place").." from "..dist.." meters away! "..protection.." Bearing: "..math.Round(bear, 0))
 		else --confirmation
 			if(prot >= 1) then
 				protection = "They do not appear to be protected from the bullet."
@@ -873,7 +886,7 @@ else --client
 				protection = "They appear to be protected from the bullet."
 			end
 
-			chat.AddText("You hit someone with "..(ammoStrings[ammo] or ammo).." in "..(hitStrings[hitgroup] or "an unknown place").." from "..dist.." meters away! "..protection)
+			chat.AddText("You hit someone with "..ammostr.." in "..(hitStrings[hitgroup] or "an unknown place").." from "..dist.." meters away! "..protection)
 		end
 	end)
 end
