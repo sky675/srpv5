@@ -46,6 +46,7 @@ function ITEM:onCombineTo(target)
 	if(item.traitreq) then
 		local t = nut.traits.hasTrait(ply, item.traitreq.trait)
 		if(type(item.traitreq.val) == "number") then
+			if(!t) then t = 0 end
 			if(t < item.traitreq.val) then
 				ply:notify("You do not meet the trait requirements for this item!", 3)
 				return
