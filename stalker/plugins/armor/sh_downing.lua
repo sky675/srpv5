@@ -868,7 +868,7 @@ else --client
 		local ammostr = ammoStrings[ammo]
 		if(!ammostr) then
 			local spl = string.Split(ammo, "_")
-			ammostr = (ammoStrings[spl[1]] or ammo):gsub("_"..spl[2], (specAmmo[spl[2]] or ""))
+			ammostr = (ammoStrings[spl[1]] or ammo):gsub("round", (specAmmo[spl[2]] or ""))
 		end
 		
 		if(target == LocalPlayer()) then --incoming damage
