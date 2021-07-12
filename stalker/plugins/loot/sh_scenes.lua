@@ -1,4 +1,5 @@
 local PLUGIN = PLUGIN
+if(true) then return end
 
 PLUGIN.sceneData = PLUGIN.sceneData or {}
 
