@@ -309,6 +309,10 @@ if(SERVER) then
 					if(wep.Primary) then
 						dmgmulti = PLUGIN:IsCharProtected(levels, hitToLevel[hg], wep, levels.durability)
 					end
+					local pl = ply
+					local logAtkMsg = (atk:Name().." ("..atk:steamName()..") attacked "..pl:Name().." ("..pl:steamName()..") with "..((wep and (wep.ClassName or wep:GetClass())) or "a mine or something probably").." ["..hitStrings[hg].."/"..((pl:getNetVar("typing") and "void") or tostring(dmgmulti)).."]")
+					nut.log.addRaw(logAtkMsg)
+					hook.Run("OnPlyAttack", atk, pl, wep, (hitStrings[hg].."/"..((pl:getNetVar("typing") and "void") or tostring(dmgmulti))), logAtkMsg)
 					timer.Create("shotc"..ply:SteamID64(), 0.1, 1, function()
 
 						net.Start("PlayerGetDmg")
