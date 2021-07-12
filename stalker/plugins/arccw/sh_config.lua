@@ -4585,8 +4585,8 @@ local weaponList = {
 	["cwep_m_knifelarge"] = {
 		--exclusive upgrade ideas: 
 		--?
-		name = "Large Knife",
-		desc = "A huge knife (possibly M9 bayonet but idk thats why its large knife)",
+		name = "Bowie Knife",
+		desc = "A huge knife.",
 		price = 12050,
 		model = "models/danguyen/commandoknife.mdl",
 		width = 2,
