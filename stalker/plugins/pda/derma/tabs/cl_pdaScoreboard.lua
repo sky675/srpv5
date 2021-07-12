@@ -79,7 +79,8 @@ function PANEL:onDisplay()
 end
 
 function PANEL:onHide()
-    for k,_ in pairs(self.pan) do
+	if(!self.pan) then return end
+    for k,_ in ipairs(self.pan) do
         self.pan[k]:Remove()
     end
 end
