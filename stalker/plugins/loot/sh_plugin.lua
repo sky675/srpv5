@@ -486,13 +486,13 @@ PLUGIN.lootTables = {
 	["trash"] = {
 		istableloot = true,
 		loot = {
-			{"none",15},
-			{"common_eft", 3},
+			{"none",17},
+			{"common_eft", 2},
 			{"uncommon_eft", 1},
-			{"common_junk",4},
-			{"common_food",3},
-			{"uncomm_junk",1},
-			{"rare_meds",2},
+			{"common_junk",5},
+			{"common_food",4},
+			{"uncomm_junk",2},
+			{"rare_meds",3},
 		},
 		durability = {100, 100}, --durability when spawned if weapon or suit (for watever reason)
 		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
@@ -501,8 +501,8 @@ PLUGIN.lootTables = {
 		istableloot = true,
 		loot = {
 			{"none",24},
-			{"common_eft", 6},
-			{"uncommon_eft", 3},
+			{"common_eft", 3},
+			{"uncommon_eft", 1},
 			{"common_junk",6},
 			{"common_food",4},
 			{"uncomm_junk",4},
@@ -517,7 +517,7 @@ PLUGIN.lootTables = {
 		istableloot = true,
 		loot = {
 			{"none",24},
-			{"uncommon_eft", 6},
+			{"uncommon_eft", 4},
 			{"rare_eft", 1},
 			{"uncomm_junk",5},
 			{"uncomm_ammo",7},
@@ -533,7 +533,7 @@ PLUGIN.lootTables = {
 		istableloot = true,
 		loot = {
 			{"none",23},
-			{"uncommon_eft", 6},
+			{"uncommon_eft", 5},
 			{"rare_eft", 2},
 			{"rare_ammo",7},
 			{"rare_wep",2},
@@ -548,7 +548,7 @@ PLUGIN.lootTables = {
 		istableloot = true,
 		loot = {
 			{"none",19},
-			{"rare_eft", 3},
+			{"rare_eft", 2},
 			{"rare_ammo",6},
 			{"epic_atts",1},
 			{"epic_meds",3},
