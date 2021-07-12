@@ -34,6 +34,16 @@ if(StormFox2) then
 				StormFox2.Time.Set(dt[1] * 60 + dt[2] + (dt[3] / 60))
 			end
 		end)
+	else
+		net.Receive("StormFox2.maplight", function(len)
+			local c_var = net.ReadUInt(7)
+			if last_sv and last_sv == c_var then return end -- No need
+			last_sv = c_var
+			timer.Simple(1, function()
+				render.RedownloadAllLightmaps()
+			end)
+		end)
+		
 	end
 
 	return
