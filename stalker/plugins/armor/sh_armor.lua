@@ -177,8 +177,8 @@ local ammoProtect = {
 		ap = {[ARMOR_IV] = 0.6},
 	},
 	["sky762x25"] = {
-		normal = {[ARMOR_IIIA] = 0.8, [ARMOR_III] = 0.6, [ARMOR_IV] = 0.4},
-		ap = {[ARMOR_III] = 0.7, [ARMOR_IV] = 0.5},
+		normal = {[ARMOR_II] = 0.9, [ARMOR_IIIA] = 0.7, [ARMOR_III] = 0.5, [ARMOR_IV] = 0.3},
+		ap = {[ARMOR_IIIA] = 0.8, [ARMOR_III] = 0.6, [ARMOR_IV] = 0.4},
 	},
 	["sky46"] = {
 		jhp = {[ARMOR_NONE] = 1.4, [ARMOR_IIA] = 1.25,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.8, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.3},

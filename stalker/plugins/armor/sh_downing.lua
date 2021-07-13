@@ -328,7 +328,7 @@ if(SERVER) then
 						
 						shotcache[ply] = 0
 					end)
-					return
+					return true
 				end
 
 				net.Start("PlayerGetDmg")
