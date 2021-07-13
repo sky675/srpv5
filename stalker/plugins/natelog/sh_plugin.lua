@@ -27,14 +27,14 @@ PLUGIN.desc = "New logging system to be used with an external program for admini
 
 --]]
 
+
 nLog = nLog or {}
 
 local timeFormat = "%H:%M:%S %d/%m/%Y"
-local logFile = nil
-
 
 if(SERVER) then
     local logTypes = {}
+	nLog.logFile = nLog.logFile or nil
 
     local thisIP = game.GetIPAddress()
     if thisIP == "loopback" then
@@ -47,19 +47,27 @@ if(SERVER) then
         print("[nLog] No nLog directory or nLog file, creating. . .")
         file.CreateDir( "nLogs" ) -- create directory
     end
-    logFile = "nLogs/eventlog_"..os.time()..".json"
-    file.Write(logFile, logHeader) --create the log file
+	--thisll fix it making new files on refreshes
+	if(!nLog.logFile) then
+		print("HOW")
+	    nLog.logFile = "nLogs/eventlog_"..os.time()..".json"
+	    file.Write(nLog.logFile, logHeader) --create the log file
+	end
     
-    
-
     function nLog.addType(newType) --adds new log type
         table.insert(logTypes, string.lower(newType))
-
     end
 
+	hook.Add("ShutDown", "closelog", function()
+		if(nLog.logFile) then
+			file.Append(nLog.logFile, "]")
+		end
+	end)
+	
+	nLog.inited = nLog.inited or false
     function nLog.addLog(type, logString, logTags) --returns true if event is logged, false otherwise.  --file.Write()
         --local keys = { ... }
-        if assert(logFile, "Attempting add nLog entry, but nLog file does not exist or is still nil!", true) then
+        if assert(nLog.logFile, "Attempting add nLog entry, but nLog file does not exist or is still nil!", true) then
             if logString == "" or logString == nil then
                 logstring = "This log has no message, please fix."
             end
@@ -71,15 +79,17 @@ if(SERVER) then
                 map = game.GetMap(),   
             }
             local openedCurCont
-            local entryJson = util.TableToJSON(entryTable, true) .. "\n]"
-            local curCont = file.Read(logFile)
-            if curCont == logHeader then
-                openedCurCont = curCont:sub(1, -2) .. "\n"
+			--im fairly certain this was the cause of the lag, so im rewriting it so it appends to the log instead of grabbing it and rewriting it every time
+            local entryJson = util.TableToJSON(entryTable, true) .. "\n"
+            --local curCont = file.Read(logFile)
+            if !nLog.inited then--curCont == logHeader then
+                openedCurCont = "\n"--curCont:sub(1, -2) .. "\n"
+				nLog.inited = true
             else
-                openedCurCont = curCont:sub(1, -2) .. ",\n"
+                openedCurCont = ",\n"--curCont:sub(1, -2) .. ",\n"
             end
             local newCont = openedCurCont .. entryJson
-            file.Write(logFile, newCont)
+            file.Append(nLog.logFile, newCont)
             --[[
             local logStamp = "[" .. os.time() .. "]["..string.upper(game.GetMap()).."][" .. string.upper(type) .."]"
             local keyStamp
