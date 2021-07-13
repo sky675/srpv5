@@ -27,6 +27,27 @@ local loadAmount = {
 	150,
 	300
 }
+if(SERVER) then
+	netstream.Hook("ammoLoad", function(ply, id, amount)
+		local item = nut.item.instances[id]
+		if (item and amount <= item:getQuantity()) then
+			if (amount > 0) then
+				item:addQuantity(-amount)
+	
+				ply:GiveAmmo(amount, item.ammo)
+				ply:EmitSound(item.useSound or "items/ammo_pickup.wav", 110)
+			elseif (amount == 0) then
+				ply:GiveAmmo(item:getQuantity(), item.ammo)
+				ply:EmitSound(item.useSound or "items/ammo_pickup.wav", 110)
+				item:remove()
+				return
+			end
+			if(item:getQuantity() <= 0) then
+				item:remove()
+			end
+		end
+	end)
+end
 
 ITEM.functions.use = { -- sorry, for name order.
 	name = "Load",
@@ -57,7 +78,12 @@ ITEM.functions.use = { -- sorry, for name order.
 	end,
 	onClick = function(item, data)
 		if (data == -1) then
-
+			Derma_StringRequest("Ammo Load", "Enter the ammo to load", "0", function(text)
+				local num = tonumber(text)
+				if(num) then
+					netstream.Start("ammoLoad", item.id, num)
+				end
+			end)
 			return false
 		end
 	end,
