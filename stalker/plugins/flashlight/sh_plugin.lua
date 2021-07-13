@@ -58,10 +58,17 @@ function PLUGIN:PlayerSwitchFlashlight(client, state)
 	end
 
 	local wep = client:GetActiveWeapon()
-	item = character:getInv():getFirstItemOfType("flashlight")
-	if(item and item:getData("equip") and !wep.TwoHandedWep) then
-		return true
+	--item = character:getInv():getFirstItemOfType("flashlight")
+	if(!wep.TwoHandedWep) then
+		for _, item in pairs(self:getItems()) do
+			if (item.uniqueID == "flashlight" and item:getData("equip")) then
+				return true
+			end
+		end
 	end
+	--[[if(item and item:getData("equip") and !wep.TwoHandedWep) then
+		return true
+	end]]
 
 
 	if(wep and ((wep.GetStat and wep:GetStat("HasFlashlight")) or wep.HasFlashlight)) then
