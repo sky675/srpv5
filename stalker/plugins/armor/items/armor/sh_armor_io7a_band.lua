@@ -145,7 +145,7 @@ end
 
 ITEM.upgradePath = "io7a"
 ITEM.armor = {
-	chest = {level = ARMOR_II},--honestly this could be 2 lmao
+	chest = {level = ARMOR_IIIA},--honestly this could be 2 lmao
 	larm = {level = ARMOR_NONE},
 	rarm = {level = ARMOR_NONE},
 	lleg = {level = ARMOR_NONE},

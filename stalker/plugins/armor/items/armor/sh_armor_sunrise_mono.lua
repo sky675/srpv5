@@ -152,9 +152,9 @@ end
 
 ITEM.upgradePath = "sunrise"
 ITEM.armor = {--these were like this by chairs request, so ive changed it to be more in line with the rest of the suits (tho tbh with those stats it should be like iia lmao)
-	chest = {level = ARMOR_II},
-	larm = {level = ARMOR_NONE},
-	rarm = {level = ARMOR_NONE},
+	chest = {level = ARMOR_IIIA}, --stats wise this makes no sense but what the fuck ever
+	larm = {level = ARMOR_IIA},
+	rarm = {level = ARMOR_IIA},
 	lleg = {level = ARMOR_NONE},
 	rleg = {level = ARMOR_NONE},
 }
