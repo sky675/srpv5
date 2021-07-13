@@ -322,7 +322,7 @@ if(SERVER) then
 						net.WriteInt(hg, 4)
 						net.WriteInt(dist, 32)
 						net.WriteFloat(dmgmulti)
-						net.WriteString(shotcache[ply].."|"..(wep.Primary and wep.Primary.Ammo or "gren"))
+						net.WriteString((shotcache[ply]-1).."|"..(wep.Primary and wep.Primary.Ammo or "gren"))
 
 						net.Send({ply, atk})
 						
