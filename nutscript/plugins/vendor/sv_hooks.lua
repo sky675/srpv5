@@ -118,6 +118,7 @@ function PLUGIN:VendorTradeAttempt(
 				return
 			end
 
+			price = item:getPrice()
 			local canTransferItem, reason = hook.Run("CanItemBeTransfered", item, inventory, VENDOR_INVENTORY_MEASURE)
 			if (canTransferItem == false) then
 				client:notifyLocalizedL(reason or "vendorError", 3)
