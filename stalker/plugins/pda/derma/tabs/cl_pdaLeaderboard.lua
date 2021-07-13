@@ -2,6 +2,12 @@
 netstream.Hook("sendleaderboard", function(tbl)
     local contW, contH = ScrW()*0.289, ScrH()*0.498
     self = nut.gui.pda.tabs[4]
+	
+    if (self.entry) then
+        for k,v in pairs(self.entry) do
+            self.entry[k]:Remove()
+        end 
+    end
 
     self.entry = {}
 
