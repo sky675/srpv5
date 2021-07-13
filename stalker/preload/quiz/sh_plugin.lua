@@ -17,13 +17,16 @@ if(SERVER) then
 		if(#prog == 0) then
 			RunConsoleCommand("ev","kick",ply:Name(),"Failed the quiz -- also answered 0 questions anyway. are you okay?")
 		end
-	
-		RunConsoleCommand("ev","kick",ply:Name(),"Failed the quiz")
+
+		local count = 0
 	
 		local tabl = ""
 		for k,v in pairs(prog or {}) do
+			if(!v) then count = count + 1 end
 			tabl = tabl..tostring(k)..":"..tostring(v).." - "
 		end
+	
+		RunConsoleCommand("ev","kick",ply:Name(),"Failed the quiz -- incorrect questions: "..count)
 
 		nut.log.addRaw(ply:Name().." was kicked for failing the quiz, they answered "..tostring(#prog).." questions, and this is the answer table: "..tabl, FLAG_DANGER)
 	end)
