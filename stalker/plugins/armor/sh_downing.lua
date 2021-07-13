@@ -890,9 +890,9 @@ else --client
 		
 		if(ammo and (ammo == "none" or ammo == "")) then
 			if(target == LocalPlayer()) then
-				chat.AddText("You were hit with a(n) "..wep.PrintName.." in "..(hitStrings[hitgroup] or "an unknown place").."!")
+				chat.AddText("You were hit with a(n) "..wep.PrintName..(" in "..hitStrings[hitgroup] or "an unknown place").."!")
 			else
-				chat.AddText("You someone with a(n) "..wep.PrintName.." in "..(hitStrings[hitgroup] or "an unknown place").."!")
+				chat.AddText("You someone with a(n) "..wep.PrintName..(" in "..hitStrings[hitgroup] or "an unknown place").."!")
 			end
 
 			return
@@ -918,7 +918,7 @@ else --client
 				protection = "Your armor protects you from the bullet."
 			end
 
-			chat.AddText("You were hit by "..ammostr.." in "..(hitStrings[hitgroup] or "an unknown place").." from "..dist.." meters away! "..protection.." Bearing: "..math.Round(bear, 0)..(cachecnt and " You were also hit "..cachecnt.." other times with the same weapon!" or ""))
+			chat.AddText("You were hit by "..ammostr.." in "..(hitStrings[hitgroup] or "an unknown place").." from "..dist.." meters away! "..protection.." Bearing: "..math.Round(bear, 0).."."..(cachecnt and " You were also hit "..cachecnt.." other times with the same weapon!" or ""))
 		else --confirmation
 			if(prot >= 1) then
 				protection = "They do not appear to be protected from the bullet."
