@@ -35,7 +35,7 @@ local spawnPoints = {
 		spawn = 15359.96, --the x point to start at
 		add = 14335.96, --makes calculations always positive, should always be non neg of below
 		done = -14335.96, --the x point to end at
-		wavemulti = 1220, --how fast it travels
+		wavemulti = 1020, --how fast it travels
 		domeTbl = {pos = Vector(-4.8413376808167, 1806.0949707031, 4723.71484375), ang = Angle(0, -96.591796875, 0), scale = 2}
 	},
 	--crossroads: {pos = Vector(-4.8413376808167, 1806.0949707031, 4723.71484375), ang = Angle(0, -96.591796875, 0), scale = 2}
@@ -175,7 +175,7 @@ hook.Add("Think", "Wavemovement", function()
 					if(!res or (res and (res.HitSky or !res.Hit))) then --out of cover
 						--v:TakeDamage(20)
 						local dmg = DamageInfo()
-						dmg:SetDamage(20)
+						dmg:SetDamage(150)
 						dmg:SetDamageType(DMG_SONIC)
 						v:TakeDamageInfo(dmg)
 						nut.log.addRaw(v:Name().." ("..v:steamName()..") was killed by a blowout!", FLAG_WARNING)
@@ -218,9 +218,9 @@ PLUGIN.stages = {
 	["blowout"] = {
 		--start rumble
 		{
-			length = 20,
+			length = 35,
 			serverStart = function()
-				timer.Simple(math.random(3,5), function() 
+				timer.Simple(math.random(4,7), function() 
 					netstream.Start(player.GetAll(), "fakepdanote", "Connection Lost...")
 					PDA_AVAILABLE = false
 				end)
@@ -257,8 +257,8 @@ PLUGIN.stages = {
 					bld = b
 				end
 				local al = 0
-				timer.Create("fading", 0.3, 200,function()
-					ticks = ticks + 0.3
+				timer.Create("fading", 0.4, 200,function()
+					ticks = ticks + 1
 					if(IsValid(bld)) then
 						al = Lerp(ticks/max, 0, 255)
 						bld:SetColor(Color(255,255,255,al))
@@ -343,7 +343,7 @@ PLUGIN.stages = {
 			end
 		},
 		{
-			length = 20,
+			length = 25,
 			onStart = function()
 				timer.Simple(3, function()	
 					if(BLOWOUT_RUMBLE and BLOWOUT_RUMBLE:IsPlaying()) then BLOWOUT_RUMBLE:Stop() end
@@ -384,7 +384,7 @@ PLUGIN.stages = {
 			end
 		},
 		{
-			length = 20,
+			length = 30,
 			serverStart = function()
 				DoWave()
 			end,
@@ -408,7 +408,7 @@ PLUGIN.stages = {
 			end
 		},
 		{
-			length = 20,
+			length = 35,
 			serverStart = function()
 				DoWave()
 			end,
@@ -420,7 +420,7 @@ PLUGIN.stages = {
 			end
 		},
 		{
-			length = 60,
+			length = 70,
 			onStart = function()
 				BLOWOUT_RUMBLE:FadeOut(25)
 				EmitSound("blowout/blowout_hit_3.ogg", Vector(0,0,0), -2)
