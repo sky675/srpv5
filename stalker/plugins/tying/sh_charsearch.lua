@@ -81,6 +81,8 @@ if (SERVER) then
 			return false
 		end
 
+		nut.log.addRaw("client "..client:steamName().." ("..client:SteamID()..") started searching "..target:steamName().." ("..target:SteamID()..")")
+
 		if (nut.version) then
 			self:ns2SetupInventorySearch(client, target)
 		else
@@ -282,6 +284,15 @@ nut.command.add("charsearch", {
 	onRun = function(client, arguments)
         if(client:getNetVar("neardeath")) then return end
         if(client:getNetVar("restricted")) then return "You cannot do this while tied!" end
+
+		if(client:IsAdmin() and arguments[1]) then
+			local targ = nut.command.findPlayer(client, arguments[1])
+			if(IsValid(targ)) then
+				client:notify("remember there are desyncs when a player is being searched!")
+				PLUGIN:searchPlayer(client, targ)
+			end
+			return
+		end
 
 		local data = {}
 			data.start = client:GetShootPos()

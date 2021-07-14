@@ -49,7 +49,6 @@ if(SERVER) then
     end
 	--thisll fix it making new files on refreshes
 	if(!nLog.logFile) then
-		print("HOW")
 	    nLog.logFile = "nLogs/eventlog_"..os.time()..".json"
 	    file.Write(nLog.logFile, logHeader) --create the log file
 	end
@@ -78,6 +77,13 @@ if(SERVER) then
                 tags = logTags,
                 map = game.GetMap(),   
             }
+			--make a new log after 500000 bytes
+			if(file.Size(nLog.logFile, "DATA") > 400000) then
+				file.Append(nLog.logFile, "]")
+
+				nLog.logFile = "nLogs/eventlog_"..os.time()..".json"
+				file.Write(nLog.logFile, logHeader) --create the log file
+			end
             local openedCurCont
 			--im fairly certain this was the cause of the lag, so im rewriting it so it appends to the log instead of grabbing it and rewriting it every time
             local entryJson = util.TableToJSON(entryTable, true) .. "\n"
