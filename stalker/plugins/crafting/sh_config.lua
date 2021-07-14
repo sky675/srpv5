@@ -1507,7 +1507,7 @@ Add in some water to reduce negative effects.]],
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
 		traits = { --traits requirements
-			["crafting_cook"] = 1,--min level needed or true for no level ones,
+			--["crafting_cook"] = 1,--min level needed or true for no level ones,
 			--["tech_med"] = 1,
 		},
 		--[[
@@ -1518,6 +1518,9 @@ Add in some water to reduce negative effects.]],
 			["requireuniqueid"] = true, --or # of needed,
 		},
 		]]
+		onCreate = function(ply)
+			nut.traits.addXp(ply, "crafting_cook", 1)
+		end,
 		ingredients = { --items that will be taken
 			["food_meat_blood"] = 1, --or # of needed,
 		},
@@ -1532,7 +1535,7 @@ Add in some water to reduce negative effects.]],
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
 		traits = { --traits requirements
-			["crafting_cook"] = 1,--min level needed or true for no level ones,
+			--["crafting_cook"] = 1,--min level needed or true for no level ones,
 			--["tech_med"] = 1,
 		},
 		--[[
@@ -1543,6 +1546,9 @@ Add in some water to reduce negative effects.]],
 			["requireuniqueid"] = true, --or # of needed,
 		},
 		]]
+		onCreate = function(ply)
+			nut.traits.addXp(ply, "crafting_cook", 1)
+		end,
 		ingredients = { --items that will be taken
 			["food_meat_boar"] = 1, --or # of needed,
 		},
@@ -1557,7 +1563,7 @@ Add in some water to reduce negative effects.]],
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
 		traits = { --traits requirements
-			["crafting_cook"] = 1,--min level needed or true for no level ones,
+			--["crafting_cook"] = 1,--min level needed or true for no level ones,
 			--["tech_med"] = 1,
 		},
 		--[[
@@ -1568,6 +1574,9 @@ Add in some water to reduce negative effects.]],
 			["requireuniqueid"] = true, --or # of needed,
 		},
 		]]
+		onCreate = function(ply)
+			nut.traits.addXp(ply, "crafting_cook", 1)
+		end,
 		ingredients = { --items that will be taken
 			["food_meat_dog"] = 1, --or # of needed,
 		},
@@ -1582,7 +1591,7 @@ Add in some water to reduce negative effects.]],
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
 		traits = { --traits requirements
-			["crafting_cook"] = 1,--min level needed or true for no level ones,
+			--["crafting_cook"] = 1,--min level needed or true for no level ones,
 			--["tech_med"] = 1,
 		},
 		--[[
@@ -1593,6 +1602,9 @@ Add in some water to reduce negative effects.]],
 			["requireuniqueid"] = true, --or # of needed,
 		},
 		]]
+		onCreate = function(ply)
+			nut.traits.addXp(ply, "crafting_cook", 1)
+		end,
 		ingredients = { --items that will be taken
 			["food_meat_chimera"] = 1, --or # of needed,
 		},
@@ -1607,7 +1619,7 @@ Add in some water to reduce negative effects.]],
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
 		traits = { --traits requirements
-			["crafting_cook"] = 1,--min level needed or true for no level ones,
+			--["crafting_cook"] = 1,--min level needed or true for no level ones,
 			--["tech_med"] = 1,
 		},
 		--[[
@@ -1618,6 +1630,9 @@ Add in some water to reduce negative effects.]],
 			["requireuniqueid"] = true, --or # of needed,
 		},
 		]]
+		onCreate = function(ply)
+			nut.traits.addXp(ply, "crafting_cook", 1)
+		end,
 		ingredients = { --items that will be taken
 			["food_meat_flesh"] = 1, --or # of needed,
 		},
@@ -1632,7 +1647,7 @@ Add in some water to reduce negative effects.]],
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
 		traits = { --traits requirements
-			["crafting_cook"] = 1,--min level needed or true for no level ones,
+			--["crafting_cook"] = 1,--min level needed or true for no level ones,
 			--["tech_med"] = 1,
 		},
 		--[[
@@ -1643,6 +1658,9 @@ Add in some water to reduce negative effects.]],
 			["requireuniqueid"] = true, --or # of needed,
 		},
 		]]
+		onCreate = function(ply)
+			nut.traits.addXp(ply, "crafting_cook", 1)
+		end,
 		ingredients = { --items that will be taken
 			["food_meat_pseudodog"] = 1, --or # of needed,
 		},
@@ -1657,7 +1675,7 @@ Add in some water to reduce negative effects.]],
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
 		traits = { --traits requirements
-			["crafting_cook"] = 1,--min level needed or true for no level ones,
+			--["crafting_cook"] = 1,--min level needed or true for no level ones,
 			--["tech_med"] = 1,
 		},
 		--[[
@@ -1668,6 +1686,9 @@ Add in some water to reduce negative effects.]],
 			["requireuniqueid"] = true, --or # of needed,
 		},
 		]]
+		onCreate = function(ply)
+			nut.traits.addXp(ply, "crafting_cook", 1)
+		end,
 		ingredients = { --items that will be taken
 			["food_meat_rat"] = 1, --or # of needed,
 		},
@@ -1682,7 +1703,7 @@ Add in some water to reduce negative effects.]],
 		--skin = skin of model (not required),
 		workbench = {["cooking"]=true,},
 		traits = { --traits requirements
-			["crafting_cook"] = 1,--min level needed or true for no level ones,
+			--["crafting_cook"] = 1,--min level needed or true for no level ones,
 			--["tech_med"] = 1,
 		},
 		--[[
@@ -1693,6 +1714,9 @@ Add in some water to reduce negative effects.]],
 			["requireuniqueid"] = true, --or # of needed,
 		},
 		]]
+		onCreate = function(ply)
+			nut.traits.addXp(ply, "crafting_cook", 1)
+		end,
 		ingredients = { --items that will be taken
 			["food_meat_snork"] = 1, --or # of needed,
 		},
