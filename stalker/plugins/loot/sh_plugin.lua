@@ -882,6 +882,8 @@ function PLUGIN:SpawnRound()
 						--~33% chance to be max
 						if(math.random(0, 2) != 0) then 
 							item:setQuantity(math.random(1, item.maxQuantity))
+						else
+							num = item.maxQuantity
 						end
 					end
 				end
@@ -932,6 +934,8 @@ local function tableAdd(tblid, cnt)
 				--~33% chance to be max
 				if(math.random(0, 2) != 0) then 
 					num = math.random(1, item.maxQuantity)
+				else
+					num = item.maxQuantity
 				end
 			end
 		end
