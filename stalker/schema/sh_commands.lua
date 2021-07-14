@@ -59,6 +59,17 @@ netstream.Hook("precachecmd", function()
 end)
 end
 
+nut.command.add("chargetmoney", {
+	syntax = "<string target>",
+	adminOnly = true,
+	onRun = function(client, arguments) 
+        local target = nut.util.findPlayer(arguments[1])
+		if(!target) then return "invalid player" end
+		
+		return target:getChar():getName().." "..target:getChar():getMoney()
+	end
+})
+
 nut.command.add("charsetanorakskin", {
 	syntax = "<string target> <int skin>",
     adminOnly = true,
