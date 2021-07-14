@@ -350,8 +350,8 @@ PLUGIN.stages = {
 					BLOWOUT_RUMBLE = CreateSound(game.GetWorld(), "blowout/blowout_rumble.wav")
 					BLOWOUT_RUMBLE:SetSoundLevel(0)
 					BLOWOUT_RUMBLE:ChangeVolume(0)
-					BLOWOUT_RUMBLE:ChangeVolume(1, 25)
 					BLOWOUT_RUMBLE:Play()
+					BLOWOUT_RUMBLE:ChangeVolume(1, 25)
 				end)
 			end,
 			onEnd = function(earlyexit)
