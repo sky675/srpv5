@@ -2,7 +2,7 @@
 ITEM.name = "Bloodsucker Goulash w/ Water"
 ITEM.desc = "A small prepared meal made out of bloodsucker meat with spices and other ingredients. Added water decreases detrimental effects of mutant meat, but still would not recommend eating."
 ITEM.price = 1922
-ITEM.model = "models/kek1ch/meat_bloodsucker.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_meat_bloodsucker.mdl"
 ITEM.flag = "m"
 ITEM.width = 1
 ITEM.height = 1

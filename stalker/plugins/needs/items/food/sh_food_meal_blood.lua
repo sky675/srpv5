@@ -2,7 +2,7 @@
 ITEM.name = "Bloodsucker Goulash"
 ITEM.desc = "A small prepared meal made out of bloodsucker meat with spices and other ingredients. Would not recommend eating."
 ITEM.price = 1422
-ITEM.model = "models/kek1ch/meat_bloodsucker.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_meat_bloodsucker.mdl"
 ITEM.flag = "m"
 ITEM.width = 1
 ITEM.height = 1
