@@ -11,6 +11,10 @@ ITEM.category = "Ammunition"
 function ITEM:getDesc()
 	return Format(self.ammoDesc or self.desc, self:getQuantity())
 end
+function ITEM:getPrice()
+	local per = self.price/self.maxQuantity
+	return per*(self:getQuantity() or self.maxQuantity or 1)
+end
 
 function ITEM:paintOver(item, w, h)
 	local quantity = item:getQuantity()
