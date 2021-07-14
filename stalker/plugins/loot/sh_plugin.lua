@@ -492,7 +492,7 @@ PLUGIN.lootTables = {
 			{"common_junk",5},
 			{"common_food",4},
 			{"uncomm_junk",2},
-			{"rare_meds",3},
+			{"rare_meds",2},
 		},
 		durability = {100, 100}, --durability when spawned if weapon or suit (for watever reason)
 		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
@@ -508,7 +508,7 @@ PLUGIN.lootTables = {
 			{"uncomm_junk",4},
 			{"uncomm_ammo",4},
 			{"rare_ammo",2},
-			{"rare_meds",6},
+			{"rare_meds",2},
 		},
 		durability = {100, 100}, --durability when spawned if weapon or suit (for watever reason)
 		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max
@@ -524,7 +524,7 @@ PLUGIN.lootTables = {
 			{"rare_ammo",4},
 			{"rare_wep",2},
 			--{"rare_atts",1},
-			{"rare_meds",5},
+			{"rare_meds",3},
 		},
 		durability = {40, 65}, --durability when spawned if weapon or suit (for watever reason)
 		randomAmmo = 0, --random ammo amt when spawning, 0 = all ammo, 1 = just mags, 2 = always max

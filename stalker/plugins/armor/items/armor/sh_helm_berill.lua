@@ -305,12 +305,14 @@ ITEM.getBodyGroups = function(item, ply)
 
 	--if(ply:GetModel():find("_mask")) then
 		bg["hood"] = 5
+		if(ply.bm and IsValid(ply.bm.t)) then
 		if(ply.bm.t:GetModel():find("anorak")) then
 			bg["anorak"] = 1
 		end
 		if(ply.bm.t:GetModel():find("io7a")) then --im fucking dumb
 			bg["torso"] = 1
 		end
+	end
 	--else --have to redo the default bgs
 		--bg["hands"] = 3
 		--bg["arms"] = ply:isFemale() and 3 or 4
