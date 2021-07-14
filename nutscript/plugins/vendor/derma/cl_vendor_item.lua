@@ -89,7 +89,7 @@ function PANEL:showAction()
 		surface.SetDrawColor(0, 0, 0, 220)
 		surface.DrawRect(0, 0, w, h)
 	end
-	self.action:SetText(L(self.isSelling and "sell" or "buy"):upper())
+	self.action:SetText(L(self.isSelling and "sell" or "buy"):upper()..(self.isSelling and " (AMOUNT MAY BE INCORRECT)" or ""))
 	self.action.nutToolTip = true
 	self.action:SetToolTip(
 		"<font=nutItemDescFont>"..self.item:getDesc()
