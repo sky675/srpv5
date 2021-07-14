@@ -60,7 +60,7 @@ if(SERVER) then
 		--then find ents
 		for k,v in ipairs(ents.FindByClass("nut_item")) do
 			local item = nut.item.instances[v.nutItemID]
-			if(item.base == "base_npda" and !item:getData("isoff")) then
+			if(item and item.base == "base_npda" and !item:getData("isoff")) then
 				tbl[#tbl+1] = {
 					["handle"] = item:getData("pdahandle", "invalid"),
 					["title"] = item:getData("pdatitle", ""),
