@@ -739,7 +739,7 @@ PLUGIN.recipeList = {
 		name = "Artifact Application Container",
 		desc = [[Upgrade an improvised application module to an artifact application container.]],
 		category = "Artifact Containers",
-		model = "models/wick/wrbstalker/anomaly/items/dez_aac.mdl",
+		model = "models/wick/wrbstalker/anomaly/items/wick_aac.mdl",
 		workbench = {["basic"] = true,},
 		traits = {
 			["crafting_spec"] = 2,
@@ -760,7 +760,7 @@ PLUGIN.recipeList = {
 		name = "Artifact Application Module",
 		desc = [[Upgrade an artifact application container to an artifact application module.]],
 		category = "Artifact Containers",
-		model = "models/wick/wrbstalker/anomaly/items/dez_aam.mdl",
+		model = "models/wick/wrbstalker/anomaly/items/wick_aam.mdl",
 		workbench = {["basic"] = true,},
 		traits = {
 			["crafting_spec"] = 3,
