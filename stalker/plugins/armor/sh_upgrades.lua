@@ -900,6 +900,43 @@ local upgrades = {
 		},
 		itemWeightMod = 1.1, --optional multiplier to modify item weight
 	},
+	["chest_armor2"] = {
+		name = "Armor plate (II)",
+		--item variables
+		desc = "A new plate for a suit. Cannot downgrade to a lower armor level.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 9000, --price for item
+		width = 2,
+		height = 1,
+		weight = 0.6,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "chest",
+		slotspace = 1, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["light"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			[DMG_BLAST.."-m"] = 1.1,
+			--phys
+			[DMG_SLASH.."-m"] = 1.1,
+			[DMG_CLUB.."-m"] = 1.1,
+			[DMG_CRUSH.."-m"] = 1.1,
+			--bullet fire wound
+			[DMG_BULLET.."-m"] = 1.1,
+			["spd"] = 0.95,
+		},
+		levels = { --optional overwrite an armor level
+			chest = {level = ARMOR_II},
+		},
+		itemWeightMod = 1.1, --optional multiplier to modify item weight
+	},
 	["chest_armor2a"] = {
 		name = "Armor plate for vest (IIA)",
 		--item variables

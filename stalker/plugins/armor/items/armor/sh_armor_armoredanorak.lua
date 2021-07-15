@@ -54,7 +54,7 @@ end
 
 ITEM.upgradePath = "anorakarmor"
 ITEM.armor = {
-	chest = {level = ARMOR_I},
+	chest = {level = ARMOR_IIA},
 }
 ITEM.resists = {
 	--burn
