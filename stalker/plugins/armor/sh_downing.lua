@@ -237,6 +237,7 @@ if(SERVER) then
 				local n4 = ply:SteamName()
 				nut.log.addRaw(n1.." ("..n2..") downed "..n3.." ("..n4..")!", FLAG_DANGER)
 				hook.Run("OnPlyDowned", atk, ply)
+				ply:ExitVehicle() --yes
 				--nut.log.addRaw((atk.Name and atk:Name()) or "An entity".." ("..(atk.SteamName and atk:SteamName()) or atk:GetClass()..") downed "..ply:Name().." ("..ply:SteamName()..")!", FLAG_DANGER)
 				if(!IsValid(ply.nutRagdoll)) then
 					ply:setRagdolled(true, nil)
@@ -246,7 +247,6 @@ if(SERVER) then
 						timer.Remove("nutUnRagdoll"..ply:SteamID())
 					end
 				end
-				ply:ExitVehicle() --yes
 
 				if(!hg or hg != HITGROUP_HEAD) then
 					ply:setNetVar("canrevive", true)
@@ -282,7 +282,7 @@ if(SERVER) then
 	end
 
 	local shotcache = {}
-	local dmgcache = {}
+	--local dmgcache = {}
 	
 	local function ScaleDmg(ply, hg, dmginfo)
 		local on = nut.config.get("damage", true)
@@ -300,9 +300,10 @@ if(SERVER) then
 			atk:getChar():setVar("lastvic", ply)
 
 			if(msgs) then
-				if(IsValid(wep) and wep.Num and wep.Num > 1) then
-					shotcache[ply] = (shotcache[ply] or 0) + 1
-					dmgcache[ply] = dmginfo
+				if(IsValid(wep) and (wep:GetBuff("Num") or 1) > 1) then
+					shotcache[ply] = shotcache[ply] or {}
+					shotcache[ply][hg] = (shotcache[ply][hg] or 0)+1
+					--dmgcache[ply] = dmginfo
 					local dist = math.Round(ply:GetPos():Distance(atk:GetPos())/52.49, 2)
 					local levels = ply:GetArmorLevels()
 					local dmgmulti = 1
@@ -322,11 +323,17 @@ if(SERVER) then
 						net.WriteInt(hg, 4)
 						net.WriteInt(dist, 32)
 						net.WriteFloat(dmgmulti)
-						net.WriteString((shotcache[ply]-1).."|"..(wep.Primary and wep.Primary.Ammo or "gren"))
+						local shotstr = ""
+						--1,chest;3,leftarm|buckshot
+						for k,v in pairs(shotcache[ply]) do
+							shotstr = shotstr..v..","..k..";"
+						end
+						shotstr = string.sub(shotstr, 1, -2)
+						net.WriteString(shotstr.."|"..(wep.Primary and wep.Primary.Ammo or "gren"))
 
 						net.Send({ply, atk})
 						
-						shotcache[ply] = 0
+						shotcache[ply] = nil
 					end)
 					return true
 				end
@@ -790,7 +797,7 @@ else --client
 		["sky44"] = "a .44 Magnum round",
 		["sky23mm"] = "a 23mm Barricade round",
 		["buckshot"] = "a 12 Gauge buckshot pellet",
-		["buskshot_slug"] = "a 12 Gauge slug",
+		["buckshot_slug"] = "a 12 Gauge slug",
 		["buckshot_sabot"] = "a 12 Gauge sabot round",
 		["357"] = "a .357 Magnum round",
 		["skygp25"] = "a GP-25 grenade explosion",
@@ -899,13 +906,25 @@ else --client
 		end
 
 		local cachecnt
+		local fullShot = ""
+		--1,chest;3,leftarm|buckshot
 		if(ammo:find("|")) then
 			local spl = string.Split(ammo, "|")
 			ammo = spl[2]
 			cachecnt = spl[1]
+			--print(cachecnt)
+			local cach = string.Split(cachecnt, ";")
+			if(#cach != 0) then
+				fullShot = " In total the hits were: "
+			end
+			for k,v in ipairs(cach) do
+				local cc = string.Split(v, ",")
+				fullShot = fullShot..cc[1].." times in "..(hitStrings[tonumber(cc[2])] or "an unknown place")..". "
+			end
 		end
 
 		local ammostr = ammoStrings[ammo]
+		print(ammo, ammostr)
 		if(!ammostr) then
 			local spl = string.Split(ammo, "_")
 			ammostr = (ammoStrings[spl[1]] or ammo):gsub("round", (specAmmo[spl[2]] or ""))
@@ -918,7 +937,7 @@ else --client
 				protection = "Your armor protects you from the bullet."
 			end
 
-			chat.AddText("You were hit by "..ammostr.." in "..(hitStrings[hitgroup] or "an unknown place").." from "..dist.." meters away! "..protection.." Bearing: "..math.Round(bear, 0).."."..(cachecnt and " You were also hit "..cachecnt.." other times with the same weapon!" or ""))
+			chat.AddText("You were hit by "..ammostr.." in "..(hitStrings[hitgroup] or "an unknown place").." from "..dist.." meters away! "..protection.." Bearing: "..math.Round(bear, 0).."."..fullShot)--(cachecnt and " You were also hit "..cachecnt.." other times with the same weapon!" or ""))
 		else --confirmation
 			if(prot >= 1) then
 				protection = "They do not appear to be protected from the bullet."
@@ -926,7 +945,7 @@ else --client
 				protection = "They appear to be protected from the bullet."
 			end
 
-			chat.AddText("You hit someone with "..ammostr.." in "..(hitStrings[hitgroup] or "an unknown place").." from "..dist.." meters away! "..protection..(cachecnt and " You also hit them "..cachecnt.." other times with the same weapon!" or ""))
+			chat.AddText("You hit someone with "..ammostr.." in "..(hitStrings[hitgroup] or "an unknown place").." from "..dist.." meters away! "..protection..fullShot)--(cachecnt and " You also hit them "..cachecnt.." other times with the same weapon!" or ""))
 		end
 	end)
 end
