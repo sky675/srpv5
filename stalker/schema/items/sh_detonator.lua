@@ -23,7 +23,8 @@ function ITEM:getDesc()
 end
 
 function ITEM:onCombineTo(target)
-	if(target.uniqueID != "c4" or target:getData("linked") == true) then return end
+	if(target.uniqueID != "c4" and target.uniqueID != "ied") then return end
+	if(target:getData("linked") == true) then return end
 
 	local ply = self.player
 	local item = self
