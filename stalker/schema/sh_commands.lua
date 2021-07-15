@@ -1,5 +1,5 @@
 nut.command.add("rollattrib", {
-	desc = "Roll out of 100, and then have the specified attribute value added onto it.",
+	desc = "Roll out of 100, and then have the specified attribute value added onto it. (end, qkn, stm, str)",
 	syntax = "<string attribid>",
 	onRun = function(client, arguments)
 		local attrib = client:getChar():getAttrib(arguments[1])
@@ -10,7 +10,7 @@ nut.command.add("rollattrib", {
 	end
 })
 nut.command.add("rollattribdis", {
-	desc = "Roll disadvantage out of 100, and then have the specified attribute value added onto it.",
+	desc = "Roll disadvantage out of 100, and then have the specified attribute value added onto it. (end, qkn, stm, str)",
 	syntax = "<string attribid>",
 	onRun = function(client, arguments)
 		local attrib = client:getChar():getAttrib(arguments[1])
@@ -24,7 +24,7 @@ nut.command.add("rollattribdis", {
 	end
 })
 nut.command.add("rollattribadv", {
-	desc = "Roll advantage out of 100, and then have the specified attribute value added onto it.",
+	desc = "Roll advantage out of 100, and then have the specified attribute value added onto it. (end, qkn, stm, str)",
 	syntax = "<string attribid>",
 	onRun = function(client, arguments)
 		local attrib = client:getChar():getAttrib(arguments[1])
