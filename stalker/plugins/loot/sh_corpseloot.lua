@@ -43,6 +43,7 @@ PLUGIN.dropTables = {
 		},
 		singleOnly = {
 			["hide_boar"] = true,
+			["part_boar"] = true,
 		},
 		knife = 2,
 		lootAmt = {1,3},
@@ -69,6 +70,9 @@ PLUGIN.dropTables = {
 			{"part_rat", 5},
 			{"food_meat_rat", 5},
 			{"none", 5},
+		},
+		singleOnly = {
+			["part_rat"] = true,
 		},
 		knife = 1,
 		lootAmt = {1,3},
@@ -98,6 +102,7 @@ PLUGIN.dropTables = {
 		},
 		singleOnly = {
 			["hide_bloodsucker"] = true,
+			["part_bloodsucker"] = true,
 		},
 		knife = 1,
 		lootAmt = {1,3},
@@ -109,6 +114,9 @@ PLUGIN.dropTables = {
 			{"part_dog", 10},
 			{"food_meat_dog", 10},
 			{"none", 5},
+		},
+		singleOnly = {
+			["part_dog"] = true,
 		},
 		knife = 1,
 		lootAmt = {1,2},
@@ -125,6 +133,7 @@ PLUGIN.dropTables = {
 		},
 		singleOnly = {
 			["hide_pseudodog"] = true,
+			["part_pseudotail"] = true,
 		},
 		knife = 1,
 		lootAmt = {1,3},
@@ -142,6 +151,8 @@ PLUGIN.dropTables = {
 		},
 		singleOnly = {
 			["hide_psydog"] = true,
+			["part_pseudotail"] = true,
+			["part_controller_brain"] = true,
 		},
 		knife = 1,
 		lootAmt = {1,3},
