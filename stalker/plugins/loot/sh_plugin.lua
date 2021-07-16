@@ -246,6 +246,7 @@ PLUGIN.lootTables = {
 			{"ammo_762x54", 1},
 			{"ammo_762x54_ap", 1},
 			{"ammo_762x54_hp", 1},]]
+			{"ammo_762x25", 2},
 			{"ammo_9x19", 3},
 			{"ammo_9x18", 4},
 			{"ammo_762x54", 1},
@@ -265,6 +266,7 @@ PLUGIN.lootTables = {
 			--{"ammo_45acp_hp", 1},
 			--{"ammo_45acp_ap", 1},
 			{"ammo_buckshot", 5},
+			{"ammo_762x25", 5},
 			--{"ammo_slug", 2}, 
 			--{"ammo_dragon", 1},
 			--{"ammo_frag", 1},
