@@ -22,6 +22,21 @@ function ITEM:paintOver(item, w, h)
 	draw.SimpleText(quantity.."/"..item.maxQuantity, "DermaDefault", w - 5 , h - 5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_BOTTOM, 1, color_black)
 end
 
+ITEM.onCombine = function(self, target)
+	if(self.uniqueID == target.uniqueID) then
+		local combined = self:getQuantity() + target:getQuantity()
+		
+		if(combined > self.maxQuantity) then
+			self:setQuantity(self.maxQuantity)
+			target:setQuantity(combined - self.maxQuantity)
+		else
+			target:remove()
+			self:setQuantity(combined)
+		end
+
+	end
+end
+
 local loadAmount = {
 	5,
 	10,
