@@ -238,8 +238,9 @@ if (CLIENT) then
 			--print("f1 pressed cool cool")
 			-- F1 Close
 			local keypress = KEY_F1
-			if(input.LookupBinding("gm_showhelp") != "no value") then
-				keypress = input.GetKeyCode(input.LookupBinding("gm_showhelp"))
+			local bind = input.LookupBinding("gm_showhelp")
+			if(bind != nil and bind != "no value") then
+				keypress = input.GetKeyCode(bind)
 			end
 	
 			if (key == keypress) then
