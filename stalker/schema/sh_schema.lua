@@ -195,7 +195,7 @@ nut.chat.register("mel", {
 		-- Make the whisper chat slightly brighter than IC chat.
 		return Color(color.r + 35, color.g + 35, color.b + 35)
 	end,
-    onCanHear = nut.config.get("chatRange", 280) * 2,
+    onCanHear = nut.config.get("chatRange", 280) * 2.5,
     prefix = {"/mel", "/actionl"},
     font = "nutChatFontItalics",
     filter = "actions",
