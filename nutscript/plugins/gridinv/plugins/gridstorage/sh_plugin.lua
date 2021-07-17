@@ -140,7 +140,7 @@ STORAGE_DEFINITIONS["models/items/item_item_crate.mdl"] = {
 		h = 2
 	}
 }
-STORAGE_DEFINITIONS["models/props/cs_militia/footlocker01_closed.mdl"] = {
+STORAGE_DEFINITIONS["models/props/CS_militia/footlocker01_closed.mdl"] = {
 	name = "Footlocker",
 	desc = "A green metal footlocker.",
 	invType = INV_TYPE_ID,
@@ -156,6 +156,15 @@ STORAGE_DEFINITIONS["models/props/de_prodigy/ammo_can_02.mdl"] = {
 	invData = {
 		w = 5,
 		h = 2
+	}
+}
+STORAGE_DEFINITIONS["models/props_borealis/bluebarrel001.mdl"] = {
+	name = "Barrel Cache",
+	desc = "A blue barrel.",
+	invType = INV_TYPE_ID,
+	invData = {
+		w = 3,
+		h = 4
 	}
 }
 
