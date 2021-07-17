@@ -70,7 +70,7 @@ local PLUGIN = PLUGIN
 		local min = nut.config.get("rankMinLeader", 0)
 		local cutoff = nut.config.get("rankLeaderCount", 5)
 		for k,v in ipairs(old) do
-			if(!added[v.id] and min <= v.xp) then --checking again
+			if(!added[v.id] and !new[v.id] and min <= v.xp) then --checking again
 				added[v.id] = true
 				cach[#cach+1] = {
 					name = v.name,
