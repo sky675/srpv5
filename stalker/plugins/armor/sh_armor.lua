@@ -134,6 +134,7 @@ local ammoProtect = {
 	["buckshot"] = {
 		normal = {[ARMOR_IIIA] = 0.5, [ARMOR_III] = 0.35, [ARMOR_IV] = 0.1},
 		slug = {[ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.15},
+		oldslug = {[ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.15},
 		sabot = {[ARMOR_III] = 0.65, [ARMOR_IV] = 0.4},
 	},
 	["357"] = {
@@ -223,12 +224,13 @@ local ammoProtect = { [ARMOR_NONE] = {[""]=true},
 function PLUGIN:IsCharProtected(levels, part, wep, durability)
     if(levels) then
 		if(levels[part] and (durability or 1) != 0) then
-			if(ammoProtect[wep.Primary.Ammo]) then			--uh just in case
+			local ammo = string.Split(wep.Primary.Ammo, "_")[1]
+			if(ammoProtect[ammo]) then			--uh just in case
 				local spec = (wep.GetStat and wep:GetStat("SpecAmmo")) or (wep.GetBuff and wep:GetBuff("SpecAmmo")) or wep.SpecAmmo
-				if(spec and ammoProtect[wep.Primary.Ammo][spec]) then
-					return ammoProtect[wep.Primary.Ammo][spec][levels[part].level] or 1
+				if(spec and ammoProtect[ammo][spec]) then
+					return ammoProtect[ammo][spec][levels[part].level] or 1
 				else
-					return ammoProtect[wep.Primary.Ammo]["normal"][levels[part].level] or 1
+					return ammoProtect[ammo]["normal"][levels[part].level] or 1
 				end
 			else
 				return 1 --just do no mod if its not in the table

@@ -265,7 +265,24 @@ ITEM.functions.zSwap = {
 		else
 			wep = ply:GetWeapon(item.class)
 		end]]
+		local mag = item:getData("ammo")
+		item:setData("ammo")
+
+		--weapons.Get(item.class).Primary.Ammo is one
+
 		local ats = item:getData("atts", {})
+		local ammoBack = item.ammoType
+		if(ammoBack and mag) then
+			local old = ats["go_ammo"]
+			if(old) then
+				local spec = ArcCW.AttachmentTable[old].SpecAmmo
+				if(spec) then
+					ammoBack = ammoBack.."_"..spec
+				end
+			end
+			print("ammo",ammoBack)
+			item.player:GiveAmmo(mag, ammoBack, true)
+		end
 
 		if(sub == "none") then
 			ats["go_ammo"] = nil
