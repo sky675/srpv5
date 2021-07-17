@@ -5,6 +5,7 @@ ITEM.category = "Clothing"
 ITEM.skin = 0
 ITEM.width = 1
 ITEM.height = 1
+ITEM.weight = 1.3
 ITEM.outfitCategory = "head"
 ITEM.price = 6000
 ITEM.flag = "0"
