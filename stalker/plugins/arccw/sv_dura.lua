@@ -22,6 +22,9 @@ hook.Add("Hook_ShouldNotFire", "dura", function(weapon)
 		if(itm) then
 			dura = itm:getData("durability")
 		end
+		if(weapon:GetBuff("CanJam")) then
+			dura = 10
+		end
 
 		if(dura and dura < 90) then 
 			if(math.random(0, dura*2) == 0) then

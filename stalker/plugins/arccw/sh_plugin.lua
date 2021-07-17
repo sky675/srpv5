@@ -22,23 +22,28 @@ nut.config.add("weaponDurability", false, "enables weapon durability", nil, {
 glob_switchClass = {
 	["pistol"] = {
 		["none"] = "No Special Ammo",
+		["sky_ammo_old"] = "Old Ammo",
 		["go_ammo_tmj"] = "AP Ammo",
 		["go_ammo_jhp"] = "JHP Ammo",
-		["go_ammo_match"] = "Match Ammo"
+		["go_ammo_match"] = "Match Ammo",
 	},
 	["shotgun"] = {
 		["none"] = "No Special Ammo",
+		["sky_ammo_old"] = "Old Ammo",
 		["go_ammo_sg_slug"] = "Slug Ammo",
+		["sky_ammo_old_slug"] = "Old Slug Ammo",
 		["go_ammo_sg_sabot"] = "Sabot Ammo",
 	},
 	["n"] = {
 		["none"] = "No Special Ammo",
+		["sky_ammo_old"] = "Old Ammo",
 		["go_ammo_tmj"] = "AP Ammo",
 		["go_ammo_jhp"] = "JHP Ammo",
 		["go_ammo_match"] = "Match Ammo"
 	},
 	["ws"] = {
 		["none"] = "No Special Ammo",
+		["sky_ammo_old"] = "Old Ammo",
 		["go_ammo_tmj"] = "AP Ammo",
 		["go_ammo_jhp"] = "JHP Ammo",
 		["go_ammo_match"] = "Match Ammo"
@@ -55,13 +60,13 @@ local newAmmo = {
 		"sky545","sky338"
 	},
 	{
-		"_ap","_jhp","_match"
+		"_ap","_jhp","_match","_old"
 	},
 	{
 		"buckshot","sky23mm"
 	},
 	{
-		"_slug","_sabot"
+		"_slug","_sabot","_old","_oldslug"
 	}
 }
 for k,v in pairs(newAmmo[1]) do
@@ -83,6 +88,24 @@ for k,v in pairs(newAmmo[3]) do
 	end
 end
 
+nut.command.add("checkammo", {
+	desc = "Check how much ammo of a specific type you have. Use no spaces or periods (ex: 9x19, 762x25, buckshot, etc), add _(type) to check special ammo of the type (45acp_ap, 545_old, buckshot_slug, etc)",
+	syntax = "<string name>",
+	onRun = function(client, arguments)
+        if(client:getNetVar("neardeath")) then return end
+		
+		local ammotry = game.GetAmmoID(arguments[1])
+		if(ammotry == -1) then
+			ammotry = game.GetAmmoID("sky"..arguments[1])
+		end
+
+		if(ammotry != -1) then
+			return "ammo for "..arguments[1]..": "..client:GetAmmoCount(ammotry)
+		else
+			return "no ammo type found for "..arguments[1]
+		end
+	end
+})
 
 --convars to change:
 --arccw_truenames 1
@@ -403,7 +426,7 @@ end
 if(SERVER) then
 	hook.Add("Hook_PostFireRocket", "nutgren", function(weapon, grenade)
 		--this will only be used with grenades
-		if(weapon.nutItem) then
+		if(weapon.nutItem and weapon.nutItem.base != "base_cweapon") then
 			weapon.nutItem:remove()
 		end
 	end)

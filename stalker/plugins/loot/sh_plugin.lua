@@ -222,6 +222,24 @@ PLUGIN.lootTables = {
 	["uncomm_ammo"] = { --pistol, buckshot, etc
 		loot = {
 			--{"ammo_338", 1},
+			
+			{"ammo_45acp_old", 3},
+			{"ammo_buckshot_old", 2},	
+			{"ammo_slug_old", 1}, 
+			{"ammo_762x25_old", 2},
+			{"ammo_9x19_old", 3},
+			{"ammo_9x18_old", 4},
+			{"ammo_762x54_old", 1},
+			--{"ammo_9x19_large", 1},
+			--{"ammo_9x19_hp", 1},
+			--{"ammo_9x19_ap", 1},
+		},
+		durability = {100, 100}, --durability when spawned if weapon or suit (for watever reason)
+		randomAmmo = 0,
+	},
+	["rare_ammo"] = { --pistol, buckshot, etc
+		loot = {
+			--{"ammo_338", 1},
 			{"ammo_45acp", 3},
 			--{"ammo_45acp_large", 1},
 			--{"ammo_45acp_hp", 1},
@@ -257,7 +275,7 @@ PLUGIN.lootTables = {
 		durability = {100, 100}, --durability when spawned if weapon or suit (for watever reason)
 		randomAmmo = 0,
 	},
-	["rare_ammo"] = { --other rarer ammo
+	["epic_ammo"] = { --other rarer ammo
 		loot = {
 			--{"ammo_338", 1},
 			--{"generic_mag", 5}, 
@@ -523,7 +541,8 @@ PLUGIN.lootTables = {
 			{"rare_eft", 1},
 			{"uncomm_junk",5},
 			{"uncomm_ammo",7},
-			{"rare_ammo",4},
+			{"rare_ammo",3},
+			{"epic_ammo",2},
 			{"rare_wep",2},
 			--{"rare_atts",1},
 			{"rare_meds",3},
@@ -537,7 +556,8 @@ PLUGIN.lootTables = {
 			{"none",23},
 			{"uncommon_eft", 5},
 			{"rare_eft", 2},
-			{"rare_ammo",7},
+			{"rare_ammo",6},
+			{"epic_ammo",2},
 			{"rare_wep",2},
 			{"rare_atts",1},
 			{"rare_meds",4},
@@ -551,7 +571,8 @@ PLUGIN.lootTables = {
 		loot = {
 			{"none",19},
 			{"rare_eft", 2},
-			{"rare_ammo",6},
+			{"rare_ammo",4},
+			{"epic_ammo",3},
 			{"epic_atts",1},
 			{"epic_meds",3},
 			{"epic_wep",3},

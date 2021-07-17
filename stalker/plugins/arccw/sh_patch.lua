@@ -972,6 +972,23 @@ local attEdits = {
 			O_Hook_Override_Ammo = function(wep, data)
 				return ammoAtt(wep, data, "_match")
 			end,
+			SpecAmmo = "match"
+		}
+	},
+	["sky_ammo_old"] = {
+		mods = {
+			O_Hook_Override_Ammo = function(wep, data)
+				return ammoAtt(wep, data, "_old")
+			end,
+			SpecAmmo = "old"
+		}
+	},
+	["sky_ammo_old_slug"] = {
+		mods = {
+			O_Hook_Override_Ammo = function(wep, data)
+				return ammoAtt(wep, data, "_oldslug")
+			end,
+			SpecAmmo = "oldslug"
 		}
 	},
 	["go_ammo_sg_slug"] = {
@@ -1079,8 +1096,10 @@ hook.Add("InitPostEntity", "arcweps_patch", function()
 							else
 								ov = self.Primary.Ammo
 							end
-							netstream.Start(self:GetOwner(), "updateammopls", ov, self:GetClass())
+						else
+							ov = self.Primary.Ammo
 						end
+						netstream.Start(self:GetOwner(), "updateammopls", ov, self:GetClass())
 					end)
 				end
 
