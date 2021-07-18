@@ -226,7 +226,7 @@ function PLUGIN:IsCharProtected(levels, part, wep, durability)
 		if(levels[part] and (durability or 1) != 0) then
 			local ammo = string.Split(wep.Primary.Ammo, "_")[1]
 			if(ammoProtect[ammo]) then			--uh just in case
-				local spec = (wep.GetStat and wep:GetStat("SpecAmmo")) or (wep.GetBuff and wep:GetBuff("SpecAmmo")) or wep.SpecAmmo
+				local spec = (wep.GetStat and wep:GetStat("SpecAmmo")) or (wep.GetBuff and wep:GetBuff_Override("SpecAmmo")) or wep.SpecAmmo
 				if(spec and ammoProtect[ammo][spec]) then
 					return ammoProtect[ammo][spec][levels[part].level] or 1
 				else

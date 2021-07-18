@@ -22,7 +22,7 @@ hook.Add("Hook_ShouldNotFire", "dura", function(weapon)
 		if(itm) then
 			dura = itm:getData("durability")
 		end
-		if(weapon:GetBuff("CanJam")) then
+		if(weapon:GetBuff_Override("CanJam")) then
 			dura = 10
 		end
 
