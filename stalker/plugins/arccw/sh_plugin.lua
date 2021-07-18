@@ -6,7 +6,8 @@ PLUGIN.desc = "adds support for arccw weps+atts, no mags (for now..)"
 nut.util.include("sh_hooks.lua")
 nut.util.include("sh_config.lua")
 nut.util.include("sh_patch.lua")
-nut.util.include("sv_dura.lua")
+nut.util.include("sh_dura.lua")
+--nut.util.include("sv_dura.lua")
 
 --it hurts
 nut.config.add("weaponDurability", false, "enables weapon durability", nil, {
