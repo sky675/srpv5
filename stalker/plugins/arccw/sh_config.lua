@@ -5381,7 +5381,7 @@ local attList = {
 	},
 	["go_supp_osprey"] = {
 		name = "Osprey Suppressor",
-		desc = "A suppressor used for weapons chambered in: 9x19mm.",
+		desc = "A suppressor used for weapons chambered in: 9x19mm.",--, 9x18mm, also used for the TT-33.",
 		price = 15500,
 		model = "models/weapons/arccw_go/atts/supp_osprey.mdl",
 		width = 2,
@@ -5462,7 +5462,7 @@ local attList = {
 	},
 	["go_supp_rotor43"] = {
 		name = "Rotor43 Suppressor",
-		desc = "A suppressor used for weapons chambered in: 5.56x45mm, also accepts 7.62x39mm AK and ACE models, and the SVD",
+		desc = "A suppressor used for weapons chambered in: 5.56x45mm, also accepts 7.62x39mm AK and ACE models, the SKS, and the SVD",
 		price = 17500,
 		model = "models/weapons/arccw_go/atts/supp_large.mdl",
 		width = 2,

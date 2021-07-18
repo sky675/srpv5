@@ -165,6 +165,9 @@ local suppAllow = {
 		},
 		["arccw_bo2_browninghp"] = true,
 		["arccw_bo1_uzi"] = true,
+		--["arccw_temp_makarov"] = true,
+		--["arccw_temp_skorpion"] = true,
+		--["arccw_temp_tt33"] = true,
 	},
 	["go_supp_ssq"] = {
 		--45
@@ -261,6 +264,7 @@ local suppAllow = {
 			["mifl_fas2_ak_mag"] = {["none"] = true, ["mifl_fas2_ak_mag_762_45"] = true, ["mifl_fas2_ak_mag_82"] = true}
 		},
 		["arccw_mifl_fas2_rpk"] = true,
+		["arccw_temp_sks"] = true,
 	},
 	["go_supp_pbs1"] = {
 		--762x39
