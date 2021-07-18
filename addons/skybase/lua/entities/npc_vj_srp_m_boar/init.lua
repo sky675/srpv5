@@ -6,7 +6,7 @@ include('shared.lua')
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = "models/monsters/boar.mdl" 
-ENT.StartHealth = 120
+ENT.StartHealth = 290
 ENT.MoveType = MOVETYPE_STEP
 ENT.HullType = HULL_MEDIUM
 ---------------------------------------------------------------------------------------------------------------------------------------------

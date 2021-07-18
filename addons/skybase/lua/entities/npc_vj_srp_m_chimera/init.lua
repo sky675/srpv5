@@ -6,7 +6,7 @@ include('shared.lua')
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = "models/tnb/stalker/chimera2.mdl" 
-ENT.StartHealth = 400
+ENT.StartHealth = 650
 ENT.MoveType = MOVETYPE_STEP
 ENT.HullType = HULL_LARGE
 ---------------------------------------------------------------------------------------------------------------------------------------------

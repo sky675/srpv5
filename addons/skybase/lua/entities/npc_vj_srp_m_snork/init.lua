@@ -2,7 +2,7 @@ AddCSLuaFile("shared.lua")
 include('shared.lua')
 
 ENT.Model = {"models/wick/snork/wick_snork.mdl"} -- The game will pick a random model from the table when the SNPC is spawned | Add as many as you want
-ENT.StartHealth = 80 --500 hp??????????
+ENT.StartHealth = 210 --500 hp??????????
 ENT.MoveType = MOVETYPE_STEP
 ENT.HullType = HULL_HUMAN
 

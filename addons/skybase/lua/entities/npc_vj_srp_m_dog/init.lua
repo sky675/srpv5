@@ -8,7 +8,7 @@ include('shared.lua')
 ENT.Model = {
 	"models/wick/dog/wick_blind_dog.mdl"
 } 
-ENT.StartHealth = 50
+ENT.StartHealth = 80
 ENT.MoveType = MOVETYPE_STEP
 ENT.HullType = HULL_HUMAN
 --ENT.HullSizeNormal = false 

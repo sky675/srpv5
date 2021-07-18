@@ -2,7 +2,7 @@ AddCSLuaFile("shared.lua")
 include('shared.lua')
 
 ENT.Model = {"models/wick/krovo/wick_krovosos.mdl"} -- The game will pick a random model from the table when the SNPC is spawned | Add as many as you want
-ENT.StartHealth = 110
+ENT.StartHealth = 250
 ENT.MoveType = MOVETYPE_STEP
 ENT.HullType = HULL_HUMAN
 

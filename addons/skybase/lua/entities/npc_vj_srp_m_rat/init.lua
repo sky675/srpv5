@@ -6,7 +6,7 @@ include('shared.lua')
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = "models/monsters/tushkan.mdl"
-ENT.StartHealth = 25
+ENT.StartHealth = 10
 ENT.MoveType = MOVETYPE_STEP
 ENT.HullType = HULL_HUMAN
 ---------------------------------------------------------------------------------------------------------------------------------------------
