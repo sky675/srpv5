@@ -20,10 +20,9 @@ ENT.hackTypes = {
 	--disable cam
 	--change circuit id
 	--self destruct
-	["bloop"] = {
+	["act"] = {
 		onRun = function(self, ply)
-			print("woah")
-			print(tostring(self), tostring(ply))
+			self:EmitSound("buttons/combine_button_locked.wav", 80)
 		end,
 		level = 1,
 	}

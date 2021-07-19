@@ -1,5 +1,5 @@
-ITEM.name = "Hacking Remote"
-ITEM.desc = "todo better name, allows you to hack from far away"
+ITEM.name = "Hacking Remote Device"
+ITEM.desc = "A cobbled together mysterious piece of technology. It has a faint beep and a randomly blinking light on it."
 ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_detector_8.mdl"
 ITEM.weight = 0.1
 ITEM.price = 1800
