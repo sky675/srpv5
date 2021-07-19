@@ -82,10 +82,11 @@ PLUGIN.dropTables = {
 	["npc_vj_srp_m_zombie"] = {
 		loot = {
 			{"part_zombie", 5},
-			{"ammo_45acp", 2},
-			{"ammo_9x19", 2},
-			{"ammo_9x18", 2},
-			{"ammo_buckshot", 1},
+			{"ammo_45acp_old", 2},
+			{"ammo_9x19_old", 2},
+			{"ammo_9x18_old", 2},
+			{"ammo_762x25_old", 2},
+			{"ammo_buckshot_old", 1},
 			{"none", 5},
 		},
 		knife = 1,
