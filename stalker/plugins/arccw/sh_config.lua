@@ -8261,7 +8261,7 @@ local ammoList = {
 	},
 	["ammo_23mm"] = {
 		name = "23mm Ammo Box",
-		desc = "A box of ammo currently containing %s shells.", --use %s for number
+		desc = "A box of buckshot currently containing %s shells.", --use %s for number
 		price = 3000,
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_12x70_buck.mdl",
 		width = 2,
@@ -8290,7 +8290,7 @@ local ammoList = {
 	},
 	["ammo_buckshot"] = {
 		name = "12 Gauge Ammo Box",
-		desc = "A box of ammo currently containing %s shells.", --use %s for number
+		desc = "A box of buckshot currently containing %s shells.", --use %s for number
 		price = 1500,--75ea
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_12x70_buck_2.mdl",
 		width = 2,
@@ -8417,6 +8417,123 @@ local ammoList = {
 		--category = "Attachments",
 		flag = "1",--any flag in this will make it return true
 		ammo = "buckshot_sabot",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.026200776919723, 14.994012832642, 0.82984000444412),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_23mm_old"] = {
+		name = "23mm Old Ammo Box",
+		desc = "A box of buckshot currently containing %s shells.", --use %s for number
+		price = 1700,--150ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_12x70_buck_old.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.065,
+		--category = "Attachments",
+		flag = "5",--any flag in this will make it return true
+		ammo = "sky23mm_old",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.026200776919723, 14.994012832642, 0.82984000444412),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_buckshot_old"] = {
+		name = "12 Gauge Old Ammo Box",
+		desc = "A box of old buckshot currently containing %s shells.", --use %s for number
+		price = 800,--40ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_12x70_buck_2_old.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.045,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "buckshot_old",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.026200776919723, 14.994012832642, 0.82984000444412),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	--200
+	["ammo_23mm_slug_old"] = {
+		name = "23mm Old Slug Ammo Box",
+		desc = "A box of old Slug ammo currently containing %s shells.", --use %s for number
+		price = 1900,
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_12x76_zhekan_old.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.065,
+		--category = "Attachments",
+		flag = "5",--any flag in this will make it return true
+		ammo = "sky23mm_oldslug",
+		maxQuantity = 20,
+		--defQuantity = 50,
+		--useSound = "", --sound to use instead of atts own
+		iconCam = {
+			pos = Vector(-0.026200776919723, 14.994012832642, 0.82984000444412),
+			ang = Angle(0, 270, 0),
+			entAng = Angle(-13.908400535583, -38.924156188965, -16.338712692261),
+			fov = 45.325249134121,
+		
+		}, --pretty icons
+		--exRender = false, --overriding for old icon way if above exists
+		--iconmodel = "", --will use this model for icon making instead of normal model
+		--icon = "", --premade icons
+		--noBusiness = true, --doesnt appear in business menu
+		--destroyval = { --creates an automatic destruction func
+		--	["item"] = 1, --these are the results
+		--},
+	},
+	["ammo_buckshot_slug_old"] = {
+		name = "12 Gauge old Old Slug Ammo Box",
+		desc = "A box of Slug ammo currently containing %s shells.", --use %s for number
+		price = 1000,--50ea
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_12x76_zhekan_2_old.mdl",
+		width = 2,
+		height = 1,
+		weight = 0.045,
+		--category = "Attachments",
+		flag = "1",--any flag in this will make it return true
+		ammo = "buckshot_oldslug",
 		maxQuantity = 20,
 		--defQuantity = 50,
 		--useSound = "", --sound to use instead of atts own
