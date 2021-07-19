@@ -538,6 +538,9 @@ if(SERVER) then
 		if(target:GetClass() == "prop_physics" and dmg:IsExplosionDamage() and dmg:GetAttacker():IsPlayer()) then
 			return true
 		end
+		if(target:IsPlayer() and IsValid(dmg:GetAttacker()) and dmg:GetAttacker():GetClass() == "func_door") then
+			return true
+		end
 		if(IsValid(dmg:GetAttacker()) and dmg:GetAttacker():GetClass() == "nut_item") then
 			return true
 		end
