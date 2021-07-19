@@ -1,7 +1,7 @@
 local PANEL = {}
 local quiztbl = {
 	{
-		question = "Can you type in English and properly, using capital letters and full stops?",
+		question = "Can you type in English and properly, using capital letters and full stops?\nPlease pick the correct example.",
 		answers = {
 			"yes i can",
 			"Yes, I can.",
@@ -48,7 +48,7 @@ local quiztbl = {
 			"baddie182",
 			"Kanye West",
 			"John",
-			"Michael Gray"
+			"Oleg Ivanov"
 		},
 		correct = 4,
 	},
