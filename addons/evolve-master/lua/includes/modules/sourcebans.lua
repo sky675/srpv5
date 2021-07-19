@@ -122,8 +122,8 @@ end
 local function banid(id)
 	game.ConsoleCommand("banid 5 " .. id .. "\n");
 end
-local function kickid(id)
-	game.ConsoleCommand("kickid " .. id .. " You are BANNED from this server!\n");
+local function kickid(id, reason)
+	game.ConsoleCommand("kickid " .. id .. " You are BANNED from this server! "..(reason or "").."\n");
 end
 local function cleanIP(ip)
 	return string.match(ip, "(%d+%.%d+%.%d+%.%d+)");
@@ -431,7 +431,7 @@ function BanPlayer(ply, time, reason, admin, callback)
 	end
 	local sid = ply:SteamID();
 	doBan(sid, getIP(ply), ply:Name(), time, reason, admin, callback);
-	kickid(sid);
+	kickid(sid, reason);
 end
 
 ---
