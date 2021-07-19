@@ -352,7 +352,9 @@ PLUGIN.stages = {
 					BLOWOUT_RUMBLE:ChangeVolume(0)
 					BLOWOUT_RUMBLE:Stop()
 					BLOWOUT_RUMBLE:Play()
+					timer.Simple(0, function()
 					BLOWOUT_RUMBLE:ChangeVolume(1, 25)
+					end)
 				end)
 			end,
 			onEnd = function(earlyexit)
