@@ -8524,7 +8524,7 @@ local ammoList = {
 		--},
 	},
 	["ammo_buckshot_slug_old"] = {
-		name = "12 Gauge old Old Slug Ammo Box",
+		name = "12 Gauge Old Slug Ammo Box",
 		desc = "A box of Slug ammo currently containing %s shells.", --use %s for number
 		price = 1000,--50ea
 		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_12x76_zhekan_2_old.mdl",
