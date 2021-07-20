@@ -17,6 +17,30 @@ nut.command.add("xpadd", {
 
  	end
 })
+nut.command.add("xpmultiadd", {
+	adminOnly = true,
+	syntax = "<int toadd> [string spaceseparatedplayers]",
+	desc = "Allows you to add xp to multiple players at once.",
+	onRun = function(client, arguments)
+		local xp = 0
+		for k,v in pairs(arguments) do
+			local atmt = tonumber(v)
+			if(v != nil) then --xp
+				xp = atmt
+			else
+				local ply = nut.util.findPlayer(v)
+				if(!ply or xp == 0) then continue end
+				
+				local newrank = PLUGIN:AddXp(ply:getChar(), xp)
+
+				nut.log.addRaw(client:steamName().." ("..client:SteamID()..") just changed "..ply:Name().." ("..ply:steamName().."|"..ply:SteamID()..") rank points by "..xp..". They are now "..(newrank or "same rank"))
+
+			end
+		end
+		
+		return "check logs for changes"
+ 	end
+})
 nut.command.add("xpget", {
 	adminOnly = true,
 	syntax = "<string player>",
