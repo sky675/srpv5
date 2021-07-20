@@ -29,8 +29,10 @@ if(SERVER) then
 			end
 			tabl = tabl..tostring(k)..":"..tostring(v).." - "
 		end
-	
-		RunConsoleCommand("ev","kick",ply:Name(),"Failed the quiz -- "..count.." questions wrong:"..wrong)--incorrect questions: "..count)
+		
+		local qu = count == 1 and "question" or "questions"
+
+		RunConsoleCommand("ev","kick",ply:Name(),"Failed the quiz -- "..count.." "..qu.." wrong:"..wrong)--incorrect questions: "..count)
 
 		nut.log.addRaw(ply:Name().." was kicked for failing the quiz, they answered "..tostring(#prog).." questions, and this is the answer table: "..tabl, FLAG_DANGER)
 	end)
