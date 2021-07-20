@@ -518,8 +518,18 @@ if(SERVER) then
 				return 
 			end
 
-			ply.nutShipment = ent
-			netstream.Start(ply, "gencorpseloot", ent, ent.items, ent.npcClass)
+			local val = 2 * nut.traits.getMod(ply, "actiontime")
+			ply:setAction("Looting...", val)
+			ply:doStaredAction(ent, function()
+				ply.nutShipment = ent
+				netstream.Start(ply, "gencorpseloot", ent, ent.items, ent.npcClass)
+			end,val,function()
+				ent.lootusing = false
+				ply:setAction()
+			end)
+
+			--ply.nutShipment = ent
+			--netstream.Start(ply, "gencorpseloot", ent, ent.items, ent.npcClass)
 			//ply.lootuse = ent
 			print("using")
 			--then network to client to generate ui
