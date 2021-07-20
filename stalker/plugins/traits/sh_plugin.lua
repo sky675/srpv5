@@ -578,7 +578,7 @@ function PLUGIN:PlayerFootstep(ply, pos, foot, sound, volume, rf)
 
 		if(ply:Crouching()) then
 		if(traits["gen_catlike"]) then
-			ply:EmitSound(sound, 75, math.random(98,102), volume*0.1)
+			ply:EmitSound(sound, 75, math.random(98,102), volume*0.5)
 		else
 			ply:EmitSound(sound, 75, math.random(98,102), volume*0.8)
 		end
