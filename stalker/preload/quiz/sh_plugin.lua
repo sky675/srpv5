@@ -16,6 +16,7 @@ if(SERVER) then
 		ply:setNutData("intro") --uh reset yeah
 		if(#prog == 0) then
 			RunConsoleCommand("ev","kick",ply:Name(),"Failed the quiz -- also answered 0 questions anyway. are you okay?")
+			return
 		end
 
 		local count = 0
