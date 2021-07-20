@@ -351,6 +351,10 @@ if(SERVER) then
 			if(wep.Primary) then
 				dmgmulti = PLUGIN:IsCharProtected(levels, hitToLevel[hg], wep, levels.durability)
 				
+				--awful but idk how else to do this
+				if(wep:GetClass() == "arccw_waw_ppsh41") then
+					dmgmulti = dmgmulti + 0.2
+				end
 			--else
 			end
 			
