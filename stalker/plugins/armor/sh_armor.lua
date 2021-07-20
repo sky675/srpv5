@@ -68,6 +68,7 @@ nut.command.add("resetstatuses", {
 })
 
 
+
 --armor enums
 ARMOR_NONE = 0
 ARMOR_IIA = 1
@@ -259,6 +260,48 @@ function PLUGIN:StringToArmorEnum(string)
 	return ARMOR_NONE
 end
 
+local stringtoenum = {
+	[ARMOR_NONE] = "none",
+	[ARMOR_I] = "I",
+	[ARMOR_IIA] = "IIA",
+	[ARMOR_II] = "II",
+	[ARMOR_IIIA] = "IIIA",
+	[ARMOR_III] = "III",
+	[ARMOR_IV] = "IV",
+	[ARMOR_V] = "V",
+}
+
+--should be armorenum to string lol
+local function EnumToString(string)
+	if(type(string) == "string") then return string end
+	if(stringtoenum[string]) then
+		return stringtoenum[string]
+	end
+	return "none"
+end
+
+nut.command.add("setarmorlevel", {
+	desc = "set the armor level of a specific part of an item",
+	syntax = "<int itemid> <string bodypart> <string armorlevel>",
+	adminOnly = true,
+	onRun = function(client, arguments)
+		local item = nut.item.instances[tonumber(arguments[1])]
+		if(!item) then return "item not found" end
+		if(item.base != "base_armor") then return "item is not armor" end
+
+		local armor = item:GetArmor()
+		if(blank[arguments[2]]) then
+			local enum = PLUGIN:StringToArmorEnum(arguments[3]:upper())
+			armor[arguments[2]] = {
+				level = enum
+			}
+			item:setData("armor", armor)
+			return "set armor part "..arguments[2].." to "..EnumToString(enum)
+		else
+			return "not a valid bodypart (chest, head, larm, rarm, lleg, rleg)"
+		end
+	end
+})
 
 do
 	local playerMeta = FindMetaTable("Player")
