@@ -1556,10 +1556,10 @@ local weaponList = {
 		width = 5,
 		height = 2,
 		weight = 7.5,
-		class = "arccw_go_m249",
+		class = "arccw_go_m249para",
 		category = "Weapons - MGs",
 		type = "n",
-		ammoType = "sky545",
+		ammoType = "sky556",
 		flag = "5",--any flag in this will make it return true
 		--defaultMods = {
 			

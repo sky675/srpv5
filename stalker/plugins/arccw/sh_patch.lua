@@ -183,7 +183,7 @@ local weaponEdits = {
 			Ammo = "sky46"
 		}
 	},
-	["arccw_go_m249"] = {
+	["arccw_go_m249para"] = {
 		mods = {
 			TwoHandedWep =true,
 		}, 
