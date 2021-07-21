@@ -25,7 +25,7 @@ nut.command.add("xpmultiadd", {
 		local xp = 0
 		for k,v in pairs(arguments) do
 			local atmt = tonumber(v)
-			if(v != nil) then --xp
+			if(atmt != nil) then --xp
 				xp = atmt
 			else
 				local ply = nut.util.findPlayer(v)
