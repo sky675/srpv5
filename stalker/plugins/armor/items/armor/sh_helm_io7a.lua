@@ -9,7 +9,8 @@ ITEM.weight = 2.9
 ITEM.width = 1
 ITEM.height = 1
 ITEM.outfitCategory = "head;mask;eyes"
-ITEM.price = 15920--8920
+--this price straight up is a steal
+ITEM.price = 7120--15920--8920
 ITEM.flag = "2"
 ITEM.size = "mask" --helm, light, medium, heavy, exo, mask, vest, sci, seva
 
