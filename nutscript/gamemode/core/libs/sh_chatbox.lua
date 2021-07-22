@@ -21,7 +21,8 @@ function nut.chat.register(chatType, data)
 
 		data.onCanHear = function(speaker, listener)
 			-- Length2DSqr is faster than Length2D, so just check the squares.
-			return (speaker:GetPos() - listener:GetPos()):LengthSqr() <= range
+			local spk = IsValid(speaker.nutRagdoll) and speaker.nutRagdoll:GetPos() or speaker:GetPos()
+			return (spk - listener:GetPos()):LengthSqr() <= range
 		end
 	end
 
