@@ -71,10 +71,22 @@ nut.command.add("pdafaction", {
         message = client:GetPDAHandle().."|"..message
 
 		if(item) then
-			nut.chat.send(client, "pdafac", message, anonymous)
+			nut.chat.send(client, "pdafaction", message, anonymous)
 		else
 			client:notify("You need a PDA to use PDA commands.", 3)
 		end
+	end,
+})
+nut.command.add("pdaobit", {
+	desc = "Create an obituary message. Use quotes for each arguments. Example: /pdaobit \"name, faction\" \"in location\" \"death reason/body description\"",
+	syntax = "<string namefaction> <string location> <string deathdesc>",
+	onRun = function(client, arguments)
+        if(!client:IsAdmin() and !client:IsUserGroup("operator")) then return "@noPerm" end
+		if(!PDA_AVAILABLE) then return "The chat servers are currently unavailable." end
+
+		local message = (arguments[1] or "no name")..": Found "..(arguments[2] or "no location")..". "..(arguments[3] or "no reason").."."
+		
+		nut.chat.send(client, "pdaobit", message)
 	end,
 })
 if(CLIENT) then

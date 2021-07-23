@@ -133,6 +133,23 @@ do
 	end
 end
 
+nut.chat.register("pdaobit", {
+	desc = "Broadcast channel usage",
+    onCanSay = function(speaker, text)
+        return (speaker:IsAdmin() or speaker:IsUserGroup("operator")) and PDA_AVAILABLE
+    end,
+    onCanHear = function(speaker, listener)
+		if(listener:getNetVar("isjammed")) then return false end
+        return listener:HasPDA()
+    end,
+	onChatAdd = function(speaker, text, anonymous)
+		if(text == "") then return end
+		
+        local pdattx = Material("sky/chat_icons/pda_alert.png")
+		chat.AddText(pdattx,Color(111,149,219),"[PDA-OBIT] ", Color(255,255,255), text)
+    end,
+    filter = "pda",
+})
 nut.chat.register("pdabroad", {
 	desc = "Broadcast channel usage",
     onCanSay = function(speaker, text)
@@ -204,7 +221,7 @@ local factionChans = {
 	[9] = "MONO",
 }
 
-nut.chat.register("pdafac", {
+nut.chat.register("pdafaction", {
 	onCanSay = function(speaker, text)
         
 		return speaker:getChar():getFaction() != FACTION_LONER and speaker:HasPDA()
@@ -413,7 +430,7 @@ if (CLIENT) then
 	    	if(!PDA_AVAILABLE) then return "" end
 			local args = split(text, "|")
 			local message = ""
-			if(chatType == "pdabroad") then-- o or chatType == "pdaparty" or chatType == "pdatrade") then
+			if(chatType == "pdabroad" or chatType == "pdaobit") then-- o or chatType == "pdaparty" or chatType == "pdatrade") then
 		    	message = args[1]
     		elseif(chatType == "pdapm") then
 	    		message = args[3]
@@ -430,7 +447,7 @@ if (CLIENT) then
 	    		if(NUT_CVAR_CHATFILTER:GetString():lower():find("pda,") or (GetConVar("nutDisablePdaSound") and GetConVar("nutDisablePdaSound"):GetBool())) then return text end
 			end
 
-			if(chatType == "pdabroad") then
+			if(chatType == "pdabroad" or chatType == "pdaobit") then
 				surface.PlaySound("pda/pda_news.ogg", 50)
 			else
 			surface.PlaySound("pda/pda.wav", 50)
