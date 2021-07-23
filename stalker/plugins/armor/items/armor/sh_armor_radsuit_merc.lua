@@ -1,18 +1,18 @@
-ITEM.name = "Duty Exoskeleton"
-ITEM.desc = "An exoskeleton."
+ITEM.name = "Mercenary Rad Suit"
+ITEM.desc = "An exoskeleton without the exoskeleton."
 ITEM.model = "models/sky/seperate/male_radsuit.mdl"
 ITEM.category = "Clothing"
 ITEM.skin = 1
-ITEM.weight = 48
-ITEM.addWeight = 113
+ITEM.weight = 19
+ITEM.addWeight = 19
 ITEM.width = 2
 ITEM.height = 3
 ITEM.outfitCategory = "armor"
 --i was originally going to do the unique values but i dont feel like it rn
-ITEM.price = 449680--using exo anomaly price + 60000 + 260000 --136680
-ITEM.flag = "D"
-ITEM.fakeFaction = FACTION_DUTY
-ITEM.size = "exo" --helm, light, medium, heavy, exo, mask, vest, sci
+ITEM.price = 189680--using exo anomaly price + 60000--105680 
+ITEM.flag = "m"
+ITEM.fakeFaction = FACTION_MERC
+ITEM.size = "heavy" --helm, light, medium, heavy, exo, mask, vest, sci
 
 --interface/inv_items_cloth_2.ogg super light (masks, addons)
 --interface/inv_items_cloth_3.ogg light (spd >= .7)
@@ -21,15 +21,15 @@ ITEM.equipSound = "interface/inv_items_cloth_1.ogg"
 ITEM.unequipSound = "interface/inv_items_cloth_1.ogg"
 --the materials to be replaced on the model
 local matreplace = {	
-	["beri_lone"] = "models/sky/stalker/beri_duty",
+	["beri_lone"] = "models/sky/stalker/beri_blak",
 	["cs1_lone"] = "models/sky/stalker/cs1_duty",
 	["cs2_lone"] = "models/sky/stalker/cs2_blak",
-	["exo_lone"] = "models/sky/stalker/exo_duty",
-	["io7a_lone"] = "models/sky/stalker/io7a_duty",
+	["exo_lone"] = "models/sky/stalker/exo_merc",
+	["io7a_lone"] = "models/sky/stalker/io7a_merc",
 	["seva_lone"] = "models/sky/stalker/seva_duty",
-	["skat_lone"] = "models/sky/stalker/skat_duty",
-	["sunrise_lone"] = "models/sky/stalker/psz9d_duty",
-	["sunrise_null"] = "models/sky/stalker/psz9d_duty"
+	["skat_lone"] = "models/sky/stalker/skat_merc",
+	["sunrise_lone"] = "models/sky/stalker/sunrise_merc",
+	["sunrise_null"] = "models/sky/stalker/sunrise_merc"
 }
 
 ITEM.exRender = true
@@ -54,11 +54,10 @@ ITEM.iconCam = {
 			end
 		end
 		
-		ent:SetBodygroup(1,1)
 	end,
 }
 ITEM.onGetDropModel = function(item, ent)
-	return "models/sky/dropped/exo.mdl"
+	return "models/sky/dropped/radsuit.mdl"
 end
 
 --ITEM.upgradePath = "eyes"
@@ -137,10 +136,6 @@ function ITEM:getCustomGS()
 		self.player:getChar():setData("oldgsub")
 	end
 	--submat
-
-	tbl.custombg = {[1] = 1}
-	tbl.remove = {[1] = 0}
-	tbl.removebg = -1
 	
 	return tbl
 end
@@ -173,7 +168,7 @@ ITEM.resists = {
 	[DMG_SONIC] = 0, --0 since no helm by default
 	["psy"] = 0,
 	--explosion
-	[DMG_BLAST] = 0.85,
+	[DMG_BLAST] = 0.75,
 	--bullet fire wound
 	[DMG_BULLET] = 0.48,
 	--phys
@@ -181,6 +176,5 @@ ITEM.resists = {
 	[DMG_CLUB] = 0.29,
 	[DMG_CRUSH] = 0.29,
 
-	spd = 0.8,
-	nospr = true,
+	spd = 0.73,
 }

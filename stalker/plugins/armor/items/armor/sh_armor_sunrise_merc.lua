@@ -1,35 +1,34 @@
-ITEM.name = "Duty Exoskeleton"
-ITEM.desc = "An exoskeleton."
-ITEM.model = "models/sky/seperate/male_radsuit.mdl"
+ITEM.name = "Mercenary Sunrise Suit"
+ITEM.desc = "A basic zone-made suit commonly used by Mercenaries."
+ITEM.model = "models/sky/seperate/male_sunrise.mdl"
 ITEM.category = "Clothing"
-ITEM.skin = 1
-ITEM.weight = 48
-ITEM.addWeight = 113
+ITEM.skin = 5
+ITEM.weight = 5.2
+ITEM.addWeight = 7
 ITEM.width = 2
 ITEM.height = 3
 ITEM.outfitCategory = "armor"
---i was originally going to do the unique values but i dont feel like it rn
-ITEM.price = 449680--using exo anomaly price + 60000 + 260000 --136680
-ITEM.flag = "D"
-ITEM.fakeFaction = FACTION_DUTY
-ITEM.size = "exo" --helm, light, medium, heavy, exo, mask, vest, sci
+ITEM.price = 49080--14280
+ITEM.flag = "m"
+ITEM.fakeFaction = FACTION_MERC
+ITEM.size = "light" --helm, light, medium, heavy, exo, mask, vest, sci, seva
 
 --interface/inv_items_cloth_2.ogg super light (masks, addons)
 --interface/inv_items_cloth_3.ogg light (spd >= .7)
 --interface/inv_items_cloth_1.ogg med (rest, would like something more metal but eh)
-ITEM.equipSound = "interface/inv_items_cloth_1.ogg"
-ITEM.unequipSound = "interface/inv_items_cloth_1.ogg"
+ITEM.equipSound = "interface/inv_items_cloth_3.ogg"
+ITEM.unequipSound = "interface/inv_items_cloth_3.ogg"
 --the materials to be replaced on the model
 local matreplace = {	
-	["beri_lone"] = "models/sky/stalker/beri_duty",
-	["cs1_lone"] = "models/sky/stalker/cs1_duty",
+	["beri_lone"] = "models/sky/stalker/beri_blak",
+	["cs1_lone"] = "models/sky/stalker/cs1_dawn",
 	["cs2_lone"] = "models/sky/stalker/cs2_blak",
-	["exo_lone"] = "models/sky/stalker/exo_duty",
-	["io7a_lone"] = "models/sky/stalker/io7a_duty",
-	["seva_lone"] = "models/sky/stalker/seva_duty",
-	["skat_lone"] = "models/sky/stalker/skat_duty",
-	["sunrise_lone"] = "models/sky/stalker/psz9d_duty",
-	["sunrise_null"] = "models/sky/stalker/psz9d_duty"
+	["exo_lone"] = "models/sky/stalker/exo_merc",
+	//["io7a_lone"] = "models/sky/stalker/io7a_duty",
+	["seva_lone"] = "models/sky/stalker/seva_midn",
+	["skat_lone"] = "models/sky/stalker/skat_merc",
+	["sunrise_lone"] = "models/sky/stalker/sunrise_merc",
+	["sunrise_null"] = "models/sky/stalker/sunrise_merc"
 }
 
 ITEM.exRender = true
@@ -53,12 +52,10 @@ ITEM.iconCam = {
 				ent:SetSubMaterial(mat, v2)
 			end
 		end
-		
-		ent:SetBodygroup(1,1)
 	end,
 }
 ITEM.onGetDropModel = function(item, ent)
-	return "models/sky/dropped/exo.mdl"
+	return "models/sky/dropped/sunrise.mdl"
 end
 
 --ITEM.upgradePath = "eyes"
@@ -113,7 +110,6 @@ ITEM.canRemove = function(self, ply)
 	end
 end
 
-
 --ITEM.gsresetsubmat = true --this is annoying
 --todo need a way to change forms, set rank to something at some point?
 function ITEM:getCustomGS()
@@ -123,9 +119,9 @@ function ITEM:getCustomGS()
 	}
 
 	if(self.player:isFemale()) then
-		tbl.model = "models/sky/seperate/female_radsuit.mdl"
+		tbl.model = "models/sky/seperate/female_sunrise.mdl"
 	else
-		tbl.model = "models/sky/seperate/male_radsuit.mdl"
+		tbl.model = "models/sky/seperate/male_sunrise.mdl"
 	end
 
 	--moved like this, easier this way
@@ -136,11 +132,12 @@ function ITEM:getCustomGS()
 		tbl.submat = self.player:getChar():getData("oldgsub")
 		self.player:getChar():setData("oldgsub")
 	end
-	--submat
 
-	tbl.custombg = {[1] = 1}
-	tbl.remove = {[1] = 0}
-	tbl.removebg = -1
+	--[[tbl.remsubmat = {	
+		["sunrise_lone"] = "",
+		["sunrise_null"] = ""
+	}]]
+	--submat
 	
 	return tbl
 end
@@ -152,35 +149,34 @@ ITEM.getBodyGroups = function(item, ply)
 	return {["arms"] = ply:isFemale() and 3 or 4,["hands"] = 3}
 end
 
-ITEM.upgradePath = "rad"
+ITEM.upgradePath = "sunriseduty"
 ITEM.armor = {
-	chest = {level = ARMOR_IV},
-	larm = {level = ARMOR_III},
-	rarm = {level = ARMOR_III},
-	lleg = {level = ARMOR_III},
-	rleg = {level = ARMOR_III},
+	chest = {level = ARMOR_II},
+	larm = {level = ARMOR_NONE},
+	rarm = {level = ARMOR_NONE},
+	lleg = {level = ARMOR_NONE},
+	rleg = {level = ARMOR_NONE},
 }
 ITEM.resists = {
 	--burn
-	[DMG_BURN] = 0.069,
+	[DMG_BURN] = 0.26,
 	--electric --less
-	[DMG_SHOCK] = 0.175,
+	[DMG_SHOCK] = 0.275,
 	--ext rad
-	[DMG_RADIATION] = 0.18, --based from rad-0.02 instead of just rad
+	[DMG_RADIATION] = 0.147,
 	--chem
-	[DMG_ACID] = 0.128,
+	[DMG_ACID] = 0.24,
 	--psy
-	[DMG_SONIC] = 0, --0 since no helm by default
+	[DMG_SONIC] = 0,
 	["psy"] = 0,
 	--explosion
-	[DMG_BLAST] = 0.85,
-	--bullet fire wound
-	[DMG_BULLET] = 0.48,
+	[DMG_BLAST] = 0.24,
 	--phys
-	[DMG_SLASH] = 0.29,
-	[DMG_CLUB] = 0.29,
-	[DMG_CRUSH] = 0.29,
+	[DMG_SLASH] = 0.14,
+	[DMG_CLUB] = 0.14,
+	[DMG_CRUSH] = 0.14,
+	--bullet fire wound
+	[DMG_BULLET] = 0.224,
 
-	spd = 0.8,
-	nospr = true,
+	spd = 0.96,
 }

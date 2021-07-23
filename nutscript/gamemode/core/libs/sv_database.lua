@@ -367,7 +367,7 @@ CREATE TABLE IF NOT EXISTS `nut_characters` (
 	`_schema` VARCHAR(24) NOT NULL COLLATE 'utf8mb4_general_ci',
 	`_createTime` DATETIME NOT NULL,
 	`_lastJoinTime` DATETIME NOT NULL,
-	`_data` VARCHAR(2048) DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+	`_data` VARCHAR(4096) DEFAULT NULL COLLATE 'utf8mb4_general_ci',
 	`_money` INT(10) UNSIGNED NULL DEFAULT '0',
 	`_faction` VARCHAR(24) DEFAULT NULL COLLATE 'utf8mb4_general_ci',
 	PRIMARY KEY (`_id`)

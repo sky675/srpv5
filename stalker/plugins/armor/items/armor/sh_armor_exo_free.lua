@@ -10,7 +10,7 @@ ITEM.height = 3
 ITEM.outfitCategory = "armor"
 --i was originally going to do the unique values but i dont feel like it rn
 ITEM.price = 449680--using exo anomaly price + 60000 + 260000 --136680
-ITEM.flag = "5"
+ITEM.flag = "F"
 ITEM.fakeFaction = FACTION_FREEDOM
 ITEM.size = "exo" --helm, light, medium, heavy, exo, mask, vest, sci
 

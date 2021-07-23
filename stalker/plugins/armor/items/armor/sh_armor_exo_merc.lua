@@ -1,4 +1,4 @@
-ITEM.name = "Duty Exoskeleton"
+ITEM.name = "Mercenary Exoskeleton"
 ITEM.desc = "An exoskeleton."
 ITEM.model = "models/sky/seperate/male_radsuit.mdl"
 ITEM.category = "Clothing"
@@ -10,8 +10,8 @@ ITEM.height = 3
 ITEM.outfitCategory = "armor"
 --i was originally going to do the unique values but i dont feel like it rn
 ITEM.price = 449680--using exo anomaly price + 60000 + 260000 --136680
-ITEM.flag = "D"
-ITEM.fakeFaction = FACTION_DUTY
+ITEM.flag = "m"
+ITEM.fakeFaction = FACTION_MERC
 ITEM.size = "exo" --helm, light, medium, heavy, exo, mask, vest, sci
 
 --interface/inv_items_cloth_2.ogg super light (masks, addons)
@@ -21,15 +21,15 @@ ITEM.equipSound = "interface/inv_items_cloth_1.ogg"
 ITEM.unequipSound = "interface/inv_items_cloth_1.ogg"
 --the materials to be replaced on the model
 local matreplace = {	
-	["beri_lone"] = "models/sky/stalker/beri_duty",
+	["beri_lone"] = "models/sky/stalker/beri_blak",
 	["cs1_lone"] = "models/sky/stalker/cs1_duty",
 	["cs2_lone"] = "models/sky/stalker/cs2_blak",
-	["exo_lone"] = "models/sky/stalker/exo_duty",
-	["io7a_lone"] = "models/sky/stalker/io7a_duty",
+	["exo_lone"] = "models/sky/stalker/exo_merc",
+	["io7a_lone"] = "models/sky/stalker/io7a_merc",
 	["seva_lone"] = "models/sky/stalker/seva_duty",
-	["skat_lone"] = "models/sky/stalker/skat_duty",
-	["sunrise_lone"] = "models/sky/stalker/psz9d_duty",
-	["sunrise_null"] = "models/sky/stalker/psz9d_duty"
+	["skat_lone"] = "models/sky/stalker/skat_merc",
+	["sunrise_lone"] = "models/sky/stalker/sunrise_merc",
+	["sunrise_null"] = "models/sky/stalker/sunrise_merc"
 }
 
 ITEM.exRender = true
