@@ -7,7 +7,8 @@ local PLUGIN = PLUGIN
 PLUGIN.name = "stormfox support"
 PLUGIN.author = "sky"
 PLUGIN.desc = "sets stormfox's time to ns's time"
-
+--sf_maplight_auto 0
+--sf_maplight_dynamic 1
 if(StormFox2) then
 	if(SERVER) then
 		function PLUGIN:OnLoaded()
@@ -35,7 +36,7 @@ if(StormFox2) then
 			end
 		end)
 	else
-		net.Receive("StormFox2.maplight", function(len)
+		net.Receive("StormFox2.lightstyle", function(len)
 			local c_var = net.ReadUInt(7)
 			if last_sv and last_sv == c_var then return end -- No need
 			last_sv = c_var
