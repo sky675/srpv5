@@ -51,6 +51,7 @@ function PANEL:onDisplay()
 	self.cost = 0--main.cost = 0
 	self.negtraits = 0 --main.negtraits = 0
 	self.langtraits = 1 --main.langtraits = 1
+	panel:setContext("traits", nil)
 	
 	--needs to be up here
 	--below this a label to display trait points left
