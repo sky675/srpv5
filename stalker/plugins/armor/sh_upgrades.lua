@@ -825,7 +825,7 @@ local upgrades = {
 		--item variables
 		desc = "A *better* plate for a suit. Cannot downgrade to a lower armor level.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 25000, --price for item
+		price = 50000, --price for item
 		width = 2,
 		height = 1,
 		weight = 1.2,
@@ -865,7 +865,7 @@ local upgrades = {
 		--item variables
 		desc = "A new plate for a suit. Cannot downgrade to a lower armor level.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 13000, --price for item
+		price = 15000, --price for item
 		width = 2,
 		height = 1,
 		weight = 0.75,
@@ -905,7 +905,7 @@ local upgrades = {
 		--item variables
 		desc = "A new plate for a suit. Cannot downgrade to a lower armor level.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 9000, --price for item
+		price = 12000, --price for item
 		width = 2,
 		height = 1,
 		weight = 0.6,
@@ -942,7 +942,7 @@ local upgrades = {
 		--item variables
 		desc = "A better plate used for vests.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 6600, --price for item
+		price = 9600, --price for item
 		width = 2,
 		height = 1,
 		weight = 0.4,
@@ -975,9 +975,9 @@ local upgrades = {
 		itemWeightMod = 1.1, --optional multiplier to modify item weight
 	},
 	["chest_armorlimbs"] = {
-		name = "Soft limb armor for Gorka (IIA)",
+		name = "Soft limb armor for Gorka (II)",
 		--item variables
-		desc = "Armor for the arms for use with the Gorka suit.",
+		desc = "Armor for the limbs for use with the Gorka suit.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
 		price = 11300, --price for item
 		width = 2,
@@ -997,20 +997,22 @@ local upgrades = {
 		},
 		resist = { --optional resist table, -m functionality like artifacts, 
 			--however also can be normal to be added on
-			[DMG_BLAST.."-m"] = 1.1,
+			[DMG_BLAST.."-m"] = 1.25,
 			--phys
-			[DMG_SLASH.."-m"] = 1.1,
-			[DMG_CLUB.."-m"] = 1.1,
-			[DMG_CRUSH.."-m"] = 1.1,
+			[DMG_SLASH.."-m"] = 1.2,
+			[DMG_CLUB.."-m"] = 1.2,
+			[DMG_CRUSH.."-m"] = 1.2,
 			--bullet fire wound
-			[DMG_BULLET.."-m"] = 1.15,
-			["spd"] = 0.98,
+			[DMG_BULLET.."-m"] = 1.3,
+			["spd"] = 0.96,
 		},
 		levels = { --optional overwrite an armor level
-			larm = {level = ARMOR_IIA},
-			rarm = {level = ARMOR_IIA},
+			larm = {level = ARMOR_II},
+			rarm = {level = ARMOR_II},
+			lleg = {level = ARMOR_II},
+			rleg = {level = ARMOR_II},
 		},
-		itemWeightMod = 1.1, --optional multiplier to modify item weight
+		itemWeightMod = 1.2, --optional multiplier to modify item weight
 	},
 	--core, movement
 	["core_exospr"] = {

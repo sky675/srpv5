@@ -8,7 +8,7 @@ ITEM.addWeight = 12
 ITEM.width = 2
 ITEM.height = 3
 ITEM.outfitCategory = "armor"
-ITEM.price = 40250--38250
+ITEM.price = 60250--40250--38250
 ITEM.flag = "3"
 ITEM.size = "light" --helm, light, medium, heavy, mask, vest, sci
 

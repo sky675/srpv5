@@ -8,7 +8,7 @@ ITEM.addWeight = 13
 ITEM.width = 2
 ITEM.height = 3
 ITEM.outfitCategory = "armor"
-ITEM.price = 38340--36340 is a bit ridiculous for how bad this suit is--32280
+ITEM.price = 58340--38340--36340 is a bit ridiculous for how bad this suit is--32280
 ITEM.flag = "1"
 ITEM.size = "light" --helm, light, medium, heavy, exo, mask, vest, sci
 

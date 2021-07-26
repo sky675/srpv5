@@ -8,7 +8,7 @@ ITEM.addWeight = 5
 ITEM.width = 2
 ITEM.height = 3
 ITEM.outfitCategory = "armor"
-ITEM.price = 54340
+ITEM.price = 68340--54340
 ITEM.flag = "1"
 ITEM.size = "gorka" --helm, light, medium, heavy, exo, mask, vest, sci, seva
 
