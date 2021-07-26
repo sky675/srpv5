@@ -16,7 +16,7 @@ ITEM.iconCam = {
 	entAng = Angle(11.853380203247, 0.23231868445873, -12.186507225037),
 	fov = 2.7732601405786,
 }
-ITEM.size = "helm" --helm, light, medium, heavy, exo, mask, vest, sci, seva
+ITEM.size = "nonelol" --helm, light, medium, heavy, exo, mask, vest, sci, seva
 
 --interface/inv_items_cloth_2.ogg masks
 --interface/inv_items_cloth_3.ogg helms works i guess?
