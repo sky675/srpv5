@@ -56,7 +56,7 @@ function nut.chat.register(chatType, data)
 			local translated = L2(chatType.."Format", name, text)
 			
 			--haha this is ugly but fuck it its the easiest way
-			local client = speaker
+			local client = LocalPlayer()
 			if(nut.traits and nut.traits.hasTrait(client, "big_nonenglish")) then-- and !LocalPlayer():getChar():getImplants("implants", "autotrans")) then--Data("implants", {})["autotrans"]) then
 				if(chatType == "ic") then
 					chat.AddText(color, string.format("%s says in "..nonenglishname or "English".." something you cannot understand.", name))
