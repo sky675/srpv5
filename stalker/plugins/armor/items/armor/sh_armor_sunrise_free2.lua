@@ -167,8 +167,8 @@ end
 ITEM.upgradePath = "wind"
 ITEM.armor = {
 	chest = {level = ARMOR_II}, --tbh the wind should be decreased to 2a lmao
-	larm = {level = ARMOR_NONE},
-	rarm = {level = ARMOR_NONE},
+	larm = {level = ARMOR_IIA},
+	rarm = {level = ARMOR_IIA},
 	lleg = {level = ARMOR_NONE},
 	rleg = {level = ARMOR_NONE},
 }

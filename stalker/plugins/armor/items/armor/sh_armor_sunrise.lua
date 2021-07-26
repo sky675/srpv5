@@ -107,8 +107,8 @@ end
 ITEM.upgradePath = "sunrise"
 ITEM.armor = {
 	chest = {level = ARMOR_II},
-	larm = {level = ARMOR_NONE},
-	rarm = {level = ARMOR_NONE},
+	larm = {level = ARMOR_IIA},
+	rarm = {level = ARMOR_IIA},
 	lleg = {level = ARMOR_NONE},
 	rleg = {level = ARMOR_NONE},
 }
