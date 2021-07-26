@@ -300,7 +300,7 @@ if(SERVER) then
 			atk:getChar():setVar("lastvic", ply)
 
 			if(msgs) then
-				if(IsValid(wep) and (wep:GetBuff("Num") or 1) > 1) then
+				if(IsValid(wep) and wep.GetBuff and (wep:GetBuff("Num") or 1) > 1) then
 					shotcache[ply] = shotcache[ply] or {}
 					shotcache[ply][hg] = (shotcache[ply][hg] or 0)+1
 					--dmgcache[ply] = dmginfo
@@ -311,7 +311,7 @@ if(SERVER) then
 						dmgmulti = PLUGIN:IsCharProtected(levels, hitToLevel[hg], wep, levels.durability)
 					end
 					local pl = ply
-					local logAtkMsg = (atk:Name().." ("..atk:steamName()..") attacked "..pl:Name().." ("..pl:steamName()..") with "..((wep and (wep.ClassName or wep:GetClass())) or "a mine or something probably").." ["..hitStrings[hg].."/"..((pl:getNetVar("typing") and "void") or tostring(dmgmulti)).."]")
+					local logAtkMsg = (atk:Name().." ("..atk:steamName()..") attacked "..pl:Name().." ("..pl:steamName()..") with "..((wep and (wep.ClassName or wep:GetClass())) or "a mine or something probably").." ["..hitStrings[hg].."/"..((wep and wep.Primary) and (wep.Primary.Ammo or "?") or "?").."/"..((pl:getNetVar("typing") and "void") or tostring(dmgmulti)).."]")
 					nut.log.addRaw(logAtkMsg)
 					hook.Run("OnPlyAttack", atk, pl, wep, (hitStrings[hg].."/"..((pl:getNetVar("typing") and "void") or tostring(dmgmulti))), logAtkMsg)
 					timer.Create("shotc"..ply:SteamID64(), 0.1, 1, function()
@@ -373,7 +373,7 @@ if(SERVER) then
 			end
 			local pl = ply
 			if(IsValid(atk)) then
-				local logAtkMsg = (atk:Name().." ("..atk:steamName()..") attacked "..pl:Name().." ("..pl:steamName()..") with "..((wep and (wep.ClassName or wep:GetClass())) or "a mine or something probably").." ["..hitStrings[hg].."/"..((pl:getNetVar("typing") and "void") or tostring(dmgmulti)).."]")
+				local logAtkMsg = (atk:Name().." ("..atk:steamName()..") attacked "..pl:Name().." ("..pl:steamName()..") with "..((wep and (wep.ClassName or wep:GetClass())) or "a mine or something probably").." ["..hitStrings[hg].."/"..((wep and wep.Primary) and (wep.Primary.Ammo or "?") or "?").."/"..((pl:getNetVar("typing") and "void") or tostring(dmgmulti)).."]")
 				nut.log.addRaw(logAtkMsg)
 				hook.Run("OnPlyAttack", atk, pl, wep, (hitStrings[hg].."/"..((pl:getNetVar("typing") and "void") or tostring(dmgmulti))), logAtkMsg)
 			end
