@@ -198,12 +198,12 @@ if(SERVER) then
 		
 			local atk = dmginfo:GetAttacker()
 			--downing
-			if(dmginfo:GetDamage() >= (ply:Health()-1)) then --should get near death
+			if(dmginfo:GetDamage() >= (ply:Health()-1) and ply:Alive() and !ply:getNetVar("neardeath")) then --should get near death
 				--hmm
 				if(nut.config.get("pkActive", false)) then
 					return
 				end
-
+				
 				local olddmg = dmginfo:GetDamage()
 				--dmginfo:SetMaxDamage(ply:Health()-1)
 				dmginfo:SetDamage(0)--ply:Health()-1) --this is mildly annoying but watever
@@ -294,7 +294,9 @@ if(SERVER) then
 			if(IsValid(ply.nutRagdoll)) then
 				return
 			end
-			
+			if(ply:getNetVar("neardeath")) then
+				return true
+			end
 
 			ply:getChar():setVar("lastatk", atk)
 			atk:getChar():setVar("lastvic", ply)
@@ -565,6 +567,10 @@ if(SERVER) then
 
 		--nut.log.addRaw
 		if(target:IsPlayer()) then
+			if(target:getNetVar("neardeath")) then
+				dmg:ScaleDamage(0)
+				return true
+			end
 			local atk = dmg:GetAttacker()
 			if(IsValid(atk) and atk:IsPlayer()) then
 				local wep = atk:GetActiveWeapon()
@@ -677,7 +683,6 @@ if(SERVER) then
 				return PLUGIN:DownPlayer(target, dmg)
 			end
 			if(target:IsPlayer() and (!dmg:GetAttacker() or !dmg:GetAttacker():IsNPC()) and !IsValid(dmg:GetInflictor().Owner)) then--(string.find(class, "gas_zone"))) then
-				
 				return PLUGIN:DownPlayer(target, dmg)
 			end
 		else
