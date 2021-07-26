@@ -37,6 +37,63 @@ nut.command.add("rollattribadv", {
 		nut.chat.send(client, "roll", "1d100 adv = "..nums[val].." (other was "..nums[other]..") + "..attrib.." ("..arguments[1]..") = "..(nums[val]+attrib))
 	end
 })
+local transres = {
+	["rad"] = DMG_RADIATION,
+	["psy"] = DMG_SONIC,
+	["chem"] = DMG_ACID,
+	["burn"] = DMG_BURN,
+	["elec"] = DMG_SHOCK,
+	["phys"] = DMG_SLASH,
+	["exp"] = DMG_BLAST,
+	["bullet"] = DMG_BULLET,
+	["spd"] = "spd",
+	["stmrec"] = "stmres",
+}
+nut.command.add("rollresist", {
+	desc = "Roll out of 100, and then have the specified resistance multiply it. (rad, psy, chem, burn, elec, phys, exp, bullet, spd, stmrec)",
+	syntax = "<string attribid>",
+	onRun = function(client, arguments)
+		local attrib = transres[arguments[1]]
+		if(!attrib) then return "invalid resist id" end
+		local armor = client:GetArmorResists()
+		local multi = armor[attrib] and armor[attrib]+1 or 1
+		local max = 100
+		local val = math.random(max)
+		nut.chat.send(client, "roll", "1d100 = "..val.." * "..multi.." ("..arguments[1]..") = "..(val*multi))
+	end
+})
+nut.command.add("rollresistdis", {
+	desc = "Roll disadvantage out of 100, and then have the specified resistance multiply it. (rad, psy, chem, burn, elec, phys, exp, bullet, spd, stmrec)",
+	syntax = "<string attribid>",
+	onRun = function(client, arguments)
+		local attrib = transres[arguments[1]]
+		if(!attrib) then return "invalid resist id" end
+		local armor = client:GetArmorResists()
+		local multi = armor[attrib] and armor[attrib]+1 or 1
+		local max = 100
+		local nums = {math.random(max), math.random(max)}
+		local val = nums[1] > nums[2] and 2 or 1
+		local other = val == 2 and 1 or 2
+
+		nut.chat.send(client, "roll", "1d100 dis = "..nums[val].." (other was "..nums[other]..") * "..multi.." ("..arguments[1]..") = "..(nums[val]*multi))
+	end
+})
+nut.command.add("rollresistadv", {
+	desc = "Roll advantage out of 100, and then have the specified resistance multiply it. (rad, psy, chem, burn, elec, phys, exp, bullet, spd, stmrec)",
+	syntax = "<string attribid>",
+	onRun = function(client, arguments)
+		local attrib = transres[arguments[1]]
+		if(!attrib) then return "invalid resist id" end
+		local armor = client:GetArmorResists()
+		local multi = armor[attrib] and armor[attrib]+1 or 1
+		local max = 100
+		local nums = {math.random(max), math.random(max)}
+		local val = nums[1] > nums[2] and 1 or 2
+		local other = val == 2 and 1 or 2
+
+		nut.chat.send(client, "roll", "1d100 adv = "..nums[val].." (other was "..nums[other]..") * "..multi.." ("..arguments[1]..") = "..(nums[val]*multi))
+	end
+})
 
 nut.command.add("chardie", {
 	desc = "Used to kill yourself if you die in RP",
