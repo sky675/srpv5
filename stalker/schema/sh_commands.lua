@@ -4,6 +4,7 @@ nut.command.add("rollattrib", {
 	onRun = function(client, arguments)
 		local attrib = client:getChar():getAttrib(arguments[1])
 		if(!attrib) then return "invalid attrib id" end
+		attrib = math.Round(attrib, 0)
 		local max = 100
 		local val = math.random(max)
 		nut.chat.send(client, "roll", "1d100 = "..val.." + "..attrib.." ("..arguments[1]..") = "..(val+attrib))
@@ -15,6 +16,7 @@ nut.command.add("rollattribdis", {
 	onRun = function(client, arguments)
 		local attrib = client:getChar():getAttrib(arguments[1])
 		if(!attrib) then return "invalid attrib id" end
+		attrib = math.Round(attrib, 0)
 		local max = 100
 		local nums = {math.random(max), math.random(max)}
 		local val = nums[1] > nums[2] and 2 or 1
@@ -29,6 +31,7 @@ nut.command.add("rollattribadv", {
 	onRun = function(client, arguments)
 		local attrib = client:getChar():getAttrib(arguments[1])
 		if(!attrib) then return "invalid attrib id" end
+		attrib = math.Round(attrib, 0)
 		local max = 100
 		local nums = {math.random(max), math.random(max)}
 		local val = nums[1] > nums[2] and 1 or 2
@@ -57,6 +60,7 @@ nut.command.add("rollresist", {
 		if(!attrib) then return "invalid resist id" end
 		local armor = client:GetArmorResists()
 		local multi = armor[attrib] and armor[attrib]+1 or 1
+		multi = math.Round(multi, 3)
 		local max = 100
 		local val = math.random(max)
 		nut.chat.send(client, "roll", "1d100 = "..val.." * "..multi.." ("..arguments[1]..") = "..(val*multi))
@@ -70,6 +74,7 @@ nut.command.add("rollresistdis", {
 		if(!attrib) then return "invalid resist id" end
 		local armor = client:GetArmorResists()
 		local multi = armor[attrib] and armor[attrib]+1 or 1
+		multi = math.Round(multi, 3)
 		local max = 100
 		local nums = {math.random(max), math.random(max)}
 		local val = nums[1] > nums[2] and 2 or 1
@@ -86,6 +91,7 @@ nut.command.add("rollresistadv", {
 		if(!attrib) then return "invalid resist id" end
 		local armor = client:GetArmorResists()
 		local multi = armor[attrib] and armor[attrib]+1 or 1
+		multi = math.Round(multi, 3)
 		local max = 100
 		local nums = {math.random(max), math.random(max)}
 		local val = nums[1] > nums[2] and 1 or 2
