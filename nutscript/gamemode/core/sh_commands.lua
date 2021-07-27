@@ -3,7 +3,9 @@ nut.command.add("roll", {
 	syntax = "[number maximum]",
 	onRun = function(client, arguments)
 		local max = math.min(tonumber(arguments[1]) or 100, 100)
-		nut.chat.send(client, "roll", math.random(0, max).." out of "..max)
+		local amt = math.random(0, max)
+		nut.log.addRaw(client:Name().." ("..client:SteamID()..") did roll: "..amt.." out of "..max)
+		nut.chat.send(client, "roll", amt.." out of "..max)
 	end
 })
 

@@ -7,6 +7,8 @@ nut.command.add("rollattrib", {
 		attrib = math.Round(attrib, 0)
 		local max = 100
 		local val = math.random(max)
+		nut.log.addRaw(client:Name().." ("..client:SteamID()..") did roll attrib: "..val.." + "..attrib.." ("..arguments[1]..") = "..(val+attrib))
+
 		nut.chat.send(client, "roll", "1d100 = "..val.." + "..attrib.." ("..arguments[1]..") = "..(val+attrib))
 	end
 })
@@ -21,6 +23,7 @@ nut.command.add("rollattribdis", {
 		local nums = {math.random(max), math.random(max)}
 		local val = nums[1] > nums[2] and 2 or 1
 		local other = val == 2 and 1 or 2
+		nut.log.addRaw(client:Name().." ("..client:SteamID()..") did roll attrib dis: "..nums[val].." (other was "..nums[other]..") + "..attrib.." ("..arguments[1]..") = "..(nums[val]+attrib))
 
 		nut.chat.send(client, "roll", "1d100 dis = "..nums[val].." (other was "..nums[other]..") + "..attrib.." ("..arguments[1]..") = "..(nums[val]+attrib))
 	end
@@ -36,6 +39,7 @@ nut.command.add("rollattribadv", {
 		local nums = {math.random(max), math.random(max)}
 		local val = nums[1] > nums[2] and 1 or 2
 		local other = val == 2 and 1 or 2
+		nut.log.addRaw(client:Name().." ("..client:SteamID()..") did roll attrib adv: "..nums[val].." (other was "..nums[other]..") + "..attrib.." ("..arguments[1]..") = "..(nums[val]+attrib))
 
 		nut.chat.send(client, "roll", "1d100 adv = "..nums[val].." (other was "..nums[other]..") + "..attrib.." ("..arguments[1]..") = "..(nums[val]+attrib))
 	end
@@ -63,6 +67,8 @@ nut.command.add("rollresist", {
 		multi = math.Round(multi, 3)
 		local max = 100
 		local val = math.random(max)
+		nut.log.addRaw(client:Name().." ("..client:SteamID()..") did roll resist: "..val.." * "..multi.." ("..arguments[1]..") = "..(val*multi))
+
 		nut.chat.send(client, "roll", "1d100 = "..val.." * "..multi.." ("..arguments[1]..") = "..(val*multi))
 	end
 })
@@ -79,6 +85,7 @@ nut.command.add("rollresistdis", {
 		local nums = {math.random(max), math.random(max)}
 		local val = nums[1] > nums[2] and 2 or 1
 		local other = val == 2 and 1 or 2
+		nut.log.addRaw(client:Name().." ("..client:SteamID()..") did roll resist dis: "..nums[val].." (other was "..nums[other]..") * "..multi.." ("..arguments[1]..") = "..(nums[val]*multi))
 
 		nut.chat.send(client, "roll", "1d100 dis = "..nums[val].." (other was "..nums[other]..") * "..multi.." ("..arguments[1]..") = "..(nums[val]*multi))
 	end
@@ -96,6 +103,7 @@ nut.command.add("rollresistadv", {
 		local nums = {math.random(max), math.random(max)}
 		local val = nums[1] > nums[2] and 1 or 2
 		local other = val == 2 and 1 or 2
+		nut.log.addRaw(client:Name().." ("..client:SteamID()..") did roll resist adv: "..nums[val].." (other was "..nums[other]..") * "..multi.." ("..arguments[1]..") = "..(nums[val]*multi))
 
 		nut.chat.send(client, "roll", "1d100 adv = "..nums[val].." (other was "..nums[other]..") * "..multi.." ("..arguments[1]..") = "..(nums[val]*multi))
 	end
