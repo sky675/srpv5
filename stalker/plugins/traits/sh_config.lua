@@ -457,7 +457,7 @@ trait = {
 	desc = "Medical knowledge. First level decreases healing time from medical items by 16.7 percent, second instead decreases healing time by 33.3 percent.",
 	type = "pos", --can be pos or neg for listing on char creation, pos is left column, neg is right column, anything else will hide it from char creation
 	category = "Knowledge", --shown in char creation and menu
-	cost = {[1] = 4,[2] = 6}, --cost in char creation, can be table for levels
+	cost = {[1] = 1,[2] = 3}, --cost in char creation, can be table for levels
 	conflicting = {"gen_healdec"}, --table of conflicting traits
 	max = 2, --max level for level trait
 	creationMax = 2, --max for creation
