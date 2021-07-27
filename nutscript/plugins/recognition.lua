@@ -180,7 +180,7 @@ else
 			class = nut.chat.classes[class]
 
 			for k, v in ipairs(player.GetAll()) do
-				if (client != v and v:getChar() and class.onCanHear(client, v)) then
+				if (client != v and v:getChar() and v:GetMoveType() != MOVETYPE_NOCLIP and class.onCanHear(client, v)) then
 					targets[#targets + 1] = v
 				end
 			end
