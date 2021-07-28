@@ -245,7 +245,7 @@ if (SERVER) then
 					if(staminatest) then
 						print("test", tostring(client:IsSprinting()), tostring(client:KeyDown(IN_SPEED) and length2D >= (runSpeed - 20)), tostring(length2D), tostring(runSpeed-20), client:GetRunSpeed(), "<- is -5 = runspeed")
 					end
-					if (!ply:getNetVar("brth") and client:IsSprinting()) then--(((length2D >= (runSpeed - 10)) or (length2D >= (client:GetRunSpeed() - 10))) or (client:KeyDown(IN_SPEED) and length2D > 10))) then
+					if (!ply:getNetVar("brth") and client:IsSprinting() and (((length2D >= (runSpeed - 10)) or (length2D >= (client:GetRunSpeed() - 10))) or (client:KeyDown(IN_SPEED) and length2D > 10))) then
 						offset = -2 + ((character:getAttrib("stm", 0)*(res["spr"] or 1)) / 40) --* character:getStmAdd()) / 60)
 					elseif (offset > 0.5) then
 						offset = math.max(0, 1 * (res["stmres"] or 1))
