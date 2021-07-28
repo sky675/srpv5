@@ -6,6 +6,7 @@ ENT.PrintName = "Item"
 ENT.Category = "NutScript"
 ENT.Spawnable = false
 ENT.RenderGroup = RENDERGROUP_BOTH
+ENT.DoNotDuplicate = true
 
 if (SERVER) then
 	function ENT:Initialize()
