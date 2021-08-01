@@ -20,8 +20,8 @@ function ITEM:drawEntity(ent)
 end
 function ITEM:think(ent)
 	if(self.junkArt) then return end
-	local active = false
-	for k,v in pairs( player.GetAll() ) do
+	--[[local active = false
+	for k,v in ipairs( player.GetAll() ) do
 		if v:GetPos():Distance( ent:GetPos() ) < 2000 then
 			active = true
 			break
@@ -37,7 +37,7 @@ function ITEM:think(ent)
 		if IsValid( phys ) then
 			phys:Wake()
 		end
-	end
+	end]]
 
 	local nearby = ents.FindInSphere(ent:GetPos(), 200)
 	local set = true
@@ -47,6 +47,18 @@ function ITEM:think(ent)
 
 			set = false
 			break --stop it lmao dont need the rest of it
+		end
+	end
+	local active = !set
+
+	ent.Active = active
+	
+	if active == false then
+		ent.ReActivate = true
+	else
+		local phys = ent:GetPhysicsObject()
+		if IsValid( phys ) then
+			phys:Wake()
 		end
 	end
 	ent:setNetVar("dontinteract", set) 
