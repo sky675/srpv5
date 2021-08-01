@@ -34,6 +34,7 @@ ITEM.functions.Custom = {
 				end, item:getData("customMdl", item.model)) --end of model
 			end, item:getDesc()) --end of desc
 		end, item:getName()) --end of name
+		item:setData("customCreator", client:SteamID64())
 			
 		--hopefully resets the player's icons
 		timer.Simple(0.2, function() 
@@ -44,6 +45,28 @@ ITEM.functions.Custom = {
 		return false
 	end,
 	
+	onCanRun = function(item)
+		local client = item.player or item:getOwner()
+		return client:IsAdmin()
+	end
+}
+
+ITEM.functions.Creator = {
+	name = "Find Creator",
+	tip = "Get the SteamID64 of the item creator",
+	icon = "icon16/wrench.png",
+	onRun = function(item)
+		local client = item.player
+		local creator = item:getData("customCreator") or nil
+		if creator == nil then
+			nut.util.notify("No creator logged.")
+		else
+			nut.util.notify("Item created by: " .. creator)
+		end
+
+		return false
+	end,
+
 	onCanRun = function(item)
 		local client = item.player or item:getOwner()
 		return client:IsAdmin()

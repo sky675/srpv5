@@ -68,6 +68,7 @@ function PLUGIN:OnCharCreated(client, char)
                 customName = flavorItemData.name,
                 customDesc = flavorItemData.desc,
                 customMdl = flavorItemData.model,
+                customCreator = "On Char Creation",
             })
 		end
     end
@@ -92,6 +93,7 @@ if (SERVER) then
             customName = itemTable.name,
             customDesc = itemTable.desc,
             customMdl = itemTable.model,
+            customCreator = client:SteamID64(),
         })
     end)
 
