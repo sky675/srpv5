@@ -78,7 +78,10 @@ function ITEM:onEntityCreated(ent)
 		end
 	end
 end
-
+--prevent damage being done to artifacts, still need to see if i can ignore it
+function ITEM:OnDamage(dmginfo)
+	return true
+end
 function ITEM:getDesc()
 	local str = self.desc
 

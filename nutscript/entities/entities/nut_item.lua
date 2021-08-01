@@ -31,6 +31,7 @@ if (SERVER) then
 	end
 
 	function ENT:OnTakeDamage(dmginfo)
+		if(itemTable and itemTable.onDamage and itemTable:OnDamage(dmginfo)) then return end
 		local damage = dmginfo:GetDamage()
 		self:setHealth(self.health - damage)
 
