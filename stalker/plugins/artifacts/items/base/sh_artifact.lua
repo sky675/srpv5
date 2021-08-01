@@ -50,11 +50,15 @@ function ITEM:think(ent)
 		end
 	end
 	local active = !set
-
+	ent.CanPickup = active
 	ent.Active = active
 	
 	if active == false then
 		ent.ReActivate = true
+		local phys = ent:GetPhysicsObject()
+		if IsValid( phys ) then
+			phys:Sleep()
+		end
 	else
 		local phys = ent:GetPhysicsObject()
 		if IsValid( phys ) then
@@ -91,7 +95,7 @@ function ITEM:onEntityCreated(ent)
 	end
 end
 --prevent damage being done to artifacts, still need to see if i can ignore it
-function ITEM:OnDamage(dmginfo)
+function ITEM:onDamage(dmginfo)
 	return true
 end
 function ITEM:getDesc()
