@@ -28,7 +28,7 @@ end
 
 if(SERVER) then
 	util.AddNetworkString("doradsnd")
-
+	
 	function ENT:Initialize()
 		self:SetMoveType(MOVETYPE_NONE)  
 		self:SetSolid(SOLID_BBOX)	
@@ -42,14 +42,17 @@ if(SERVER) then
 	end
 
 	function ENT:Think()
-		local radius = self:GetRadius()*self:GetRadius()
+		if(!self.actualradius) then
+			self.actualradius = self:GetRadius()*self:GetRadius()
+		end
+
 		for k,v in ipairs(player.GetAll()) do
 			if(v:GetMoveType() == MOVETYPE_NOCLIP) then continue end
 			local dist = v:GetPos():DistToSqr(self:GetPos())
-			if(dist <= radius) then
+			if(dist <= self.actualradius) then
 				local radres = v:GetArmorResists()[DMG_RADIATION] or 0
 				local baseline = 0.2-(radres*1.2)
-				local mult = baseline+(1-dist/radius)
+				local mult = baseline+(1-dist/self.actualradius)
 				--print("within 250 ", mult)
 				if(mult <= 0) then continue end
 				local realdmg = self:GetDamage()*mult
