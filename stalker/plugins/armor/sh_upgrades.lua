@@ -1593,7 +1593,7 @@ function PLUGIN:InitializedItems()
 		ITEM.width = data.width
 		ITEM.height = data.height
 		ITEM.weight = data.weight
-		ITEM.flag = data.flag or "m"
+		ITEM.flag = data.flag or "N"
 		ITEM.traitreq = data.traitreq
 		ITEM.upid = id
 		if(data.iconCam) then --prob wont be used for anything else so
