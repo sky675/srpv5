@@ -1,13 +1,20 @@
 local PLUGIN = PLUGIN
 PLUGIN.name = "Custom Flavor Items"
 PLUGIN.author = "sky & Nate"
-PLUGIN.desc = "Provides the option during character creation to spawn with a custom flavor option"
+PLUGIN.desc = "Provides the option during character creation to spawn with a custom flavor option as well as adding a way to create custom items easily."
 
 nut.config.add("allowFlavorItems", true, "Whether or not the option during character creation to create an item will show.", nil, {
 	category = PLUGIN.name
 })
 
-
+nut.command.add("createitem", {
+	desc = "Create an Item",
+    adminOnly = true,
+	onRun = function(client, arguments)
+        netstream.Start(client, "createcustomitem")
+        --vgui.Create("CreateItemMenu")
+    end,
+})
 
 FLAVOR_MODELS = {
     
@@ -68,9 +75,35 @@ function PLUGIN:OnCharCreated(client, char)
 end
 
 if (SERVER) then
-    
+    netstream.Hook("validatecustomitem", function(client, itemTable)
+        print("validating model...")
+        if(util.IsValidModel(itemTable.model)) then
+            netstream.Start(client, "recieveItemValidation", itemTable, true, "Item Valid")
+            print("model valid")
+        else
+            netstream.Start(client, "recieveItemValidation", itemTable, false, "Invalid Model Provided")
+            print("model invalid")
+        end
+    end)
+
+    netstream.Hook("addcustomitem", function(client, itemTable)
+        local inv = client:getChar():getInv()
+        inv:add("run_obj", 1, {
+            customName = itemTable.name,
+            customDesc = itemTable.desc,
+            customMdl = itemTable.model,
+        })
+    end)
+
 else
     function PLUGIN:ConfigureCharacterCreationSteps(panel)
 		panel:addStep(vgui.Create("nutCharacterFlavorItem"), 400)
 	end
+
+    netstream.Hook("createcustomitem", function()
+        if(!IsValid(createcustomitem)) then
+            local createcustomitem = vgui.Create("CreateItemMenu")
+            createcustomitem:SetPaintBackground(false)
+        end
+	end)
 end
