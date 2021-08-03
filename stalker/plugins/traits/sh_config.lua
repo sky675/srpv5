@@ -135,10 +135,10 @@ trait = {
 --	hide = true,
 	creationMax = 1,--0,--2, --max for creation
 	xp = {
-		[1] = 5,
-		[2] = 10,
-		[3] = 15,
-		[4] = 25,
+		[1] = 2,
+		[2] = 6,
+		[3] = 12,
+		[4] = 20,
 	},
 	gate = "gate_craft",
 	require = "crafting_1", --the trait required to pick this
