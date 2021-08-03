@@ -58,9 +58,9 @@ trait = {
 nut.traits.add(uid, trait)
 uid = "crafting_spec"
 trait = {
-	name = "Tech",
+	name = "Special Tech",
 	getName = function(char) 
-		return "Tech Level "..(char:getTrait("crafting_spec") or "???")--Data("traits", {})["crafting_weapon"] or "???") 
+		return "Special Tech Level "..(char:getTrait("crafting_spec") or "???")--Data("traits", {})["crafting_weapon"] or "???") 
 	end, --only called in trait list, gender specific or for levels
 	desc = "Tech crafting level, used to determine your ability to craft technician-exclusive recipes.",
 	type = "pos", --can be pos or neg for listing on char creation, pos is left column, neg is right column, anything else will hide it from char creation
