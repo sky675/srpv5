@@ -106,4 +106,21 @@ Double-action. That means something along the lines of "/me runs up the hill tow
     </p>
 ]]
         },
+	[6] = 
+		{
+			title = "Mugging",
+			body =
+[[<h1>Mugging:
+<p>So, this has become a much more prominent thing since server launch, so I suppose I'll outline proper mugging rules here. Please keep in mind- these are for balance reasons.
+A. You can take either a primary weapon or 5000 rubles. However, depending on the tier of the weapon (i.e, an M79, an AWM, M60... super heavily modded weapons, etc.) you may not able to take a primary. This is to stop not only unfair circumstances, but to prevent admin guide characters/traders/jobgiver's weapons from entering circulation, but also from undoing weeks of work. You cannot take suits, period- however, if the player being mugged lets you, and wants to be robbed blind, that's a different story. 
+These rules are subject to change, depending on the situation.
+B. You cannot mug the same person the same day. 
+C. You cannot kill the person then mug/loot them. Mug them first, then kill them if you're going to.
+D. Don't mug down. By this, I mean if you have a CS-2 and AK-74, don't go around mugging rookies with makarovs, sawed offs and SMG's. This is to prevent the classic issue of 'the rich get richer, the poor get poorer'
+E. Lastly, if you are killed in the process of mugging someone, or someone finds out who you are and kills you (white knighting or not), this will be either a TK or a PK. Depending on the situation, and player/admin verdict.
+However, if you, the victim or the person who attempts to retaliate after the mugging- are killed by the muggers, this will count as IC drama, and you will also be PK'd.
+These rules are non negotiable. Anyone breaching them will be subject to a kick or ban, plus the loss of whatever they overmugged
+</p>
+]]
+		}
 }
