@@ -347,7 +347,7 @@ PLUGIN.stages = {
 			onStart = function()
 				timer.Simple(3, function()	
 					if(BLOWOUT_RUMBLE and BLOWOUT_RUMBLE:IsPlaying()) then BLOWOUT_RUMBLE:Stop() end
-					BLOWOUT_RUMBLE = CreateSound(game.GetWorld(), "blowout/blowout_rumble.wav")
+					BLOWOUT_RUMBLE = CreateSound(LocalPlayer(), "blowout/blowout_rumble.wav")
 					BLOWOUT_RUMBLE:SetSoundLevel(0)
 					BLOWOUT_RUMBLE:ChangeVolume(0)
 					BLOWOUT_RUMBLE:Stop()

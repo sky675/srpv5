@@ -125,12 +125,13 @@ function ENT:CustomOnThink()
 end
 
 function ENT:CustomInitialize()
-	local psy = math.random(1,2)
+	--why did i keep this lol
+	--[[local psy = math.random(1,2)
 	if ( psy == 1 ) then
 		self.HasRangeAttack = true
 	elseif ( psy == 2 ) then
 		self.HasRangeAttack = false		
-	end
+	end]]
 	self:SetSkin(math.random(0,2))
 	
 	self:SetCollisionBounds(Vector(20, 20, 35), Vector(-10, -10, 0))

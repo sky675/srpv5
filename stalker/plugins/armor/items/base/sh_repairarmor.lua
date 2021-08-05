@@ -20,7 +20,10 @@ function ITEM:getDesc()
 end
 
 function ITEM:onCombineTo(target)
-	if(target.base != "base_armor" or target:getData("equip") == true) then return end
+	if(target.base != "base_armor" or target:getData("equip") == true) then 
+		self.player:notify("Not a suit or item is equipped")
+		return 
+	end
 
 	
 	local ply = self.player

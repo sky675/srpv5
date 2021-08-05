@@ -51,7 +51,8 @@ if(SERVER) then
 			local dist = v:GetPos():DistToSqr(self:GetPos())
 			if(dist <= self.actualradius) then
 				local radres = v:GetArmorResists()[DMG_RADIATION] or 0
-				local baseline = 0.2-(radres*1.2)
+				--33% less
+				local baseline = -0.2-(radres*0.8) --old full force base: 0.2-(radres*1.2)
 				local mult = baseline+(1-dist/self.actualradius)
 				--print("within 250 ", mult)
 				if(mult <= 0) then continue end

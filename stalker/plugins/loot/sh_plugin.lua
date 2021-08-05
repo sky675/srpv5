@@ -647,7 +647,7 @@ PLUGIN.lootTables = {
 PLUGIN.maxItems = 40			--this V is not correct anymore
 PLUGIN.spawnRate = {5400,9600}--a little over 2 hr to a little under 4 hr, seems like a little too much for me but eh{4800,7200} --1 hr to 2 hr until next spawn
 PLUGIN.maxSpawnThresh = 0.5 --if its time for next spawn, and #curItems/maxItems > maxSpawnThresh, items will not be spawned this round
-PLUGIN.minplayers = 3
+PLUGIN.minplayers = 6
 
 PLUGIN.curSpawnRate = PLUGIN.curSpawnRate or 0
 PLUGIN.curSpawnTime = PLUGIN.curSpawnTime or 0
@@ -1031,7 +1031,17 @@ if(SERVER) then
 		end)
 		PLUGIN.curSpawnRate = math.random(PLUGIN.spawnRate[1], PLUGIN.spawnRate[2])
 		timer.Create("LootSpawningT", 1, 0, function()
-			if(player.GetCount() <= PLUGIN.minplayers) then return end --we dont want stuff to spawn while there is no players
+			--if(player.GetCount() <= PLUGIN.minplayers) then return end --we dont want stuff to spawn while there is no players
+			--better way of doing this, require min players or a superadmin online
+			local num = 0
+			local go = false
+			for k, v in ipairs(player.GetAll()) do
+				num = num + 1
+				if(num > PLUGIN.minplayers) then go = true end 
+				if(v:IsSuperAdmin()) then go = true end
+				if(go) then break end
+			end
+			if(!go) then return end
 			if(PLUGIN.curSpawnRate > PLUGIN.curSpawnTime) then
 				PLUGIN.curSpawnTime = PLUGIN.curSpawnTime + 1 --idk if += or ++ are things in lua still lol
 				return --its not time yet
