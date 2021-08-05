@@ -3228,7 +3228,7 @@ local weaponList = {
 		--?
 		name = "G36",
 		desc = "An assault rifle that's a little bootleg that is chambered in 5.56x45mm.",
-		price = 0,
+		price = 49880,
 		model = "models/weapons/arccw/mifl/fas2/c_g36c.mdl",
 		groups = {
 			[3] = 4
