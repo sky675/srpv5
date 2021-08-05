@@ -56,12 +56,13 @@ ITEM.functions.Creator = {
 	tip = "Get the SteamID64 of the item creator",
 	icon = "icon16/wrench.png",
 	onRun = function(item)
+		local ply = item.player
 		local client = item.player
 		local creator = item:getData("customCreator") or nil
 		if creator == nil then
-			nut.util.notify("No creator logged.")
+			ply:notify("No creator logged.")
 		else
-			nut.util.notify("Item created by: " .. creator)
+			ply:notify("Item created by: " .. creator)
 		end
 
 		return false
