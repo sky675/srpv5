@@ -621,6 +621,12 @@ local attEdits = {
 			Override_Ammo = "sky45acp"
 		}
 	},
+	["go_glock_mag_26_45acp"] = {
+		mods = {
+			--notable things:
+			Override_Ammo = "sky45acp"
+		}
+	},
 	["go_usp_mag_15_9"] = {
 		mods = {
 			--notable things:
