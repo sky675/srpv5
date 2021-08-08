@@ -170,8 +170,8 @@ function PLUGIN:RemoveUserFromGroup(grp, ply)
 	end
 end
 
-function PLUGIN:DisbandGroup(group)
-	local group = self.pauseGroup[group]
+function PLUGIN:DisbandGroup(grp)
+	local group = self.pauseGroup[grp]
 	if(!group) then return end
 
 	for k, ply in ipairs(group.players) do
