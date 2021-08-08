@@ -57,7 +57,7 @@ nut.command.add("pausegetply", {
 		local grp = arguments[1]
 		if(!PLUGIN.pauseGroup[grp]) then return "group does not exist" end
 		
-		return "players in group "..table.concat(PLUGIN.pauseGroup[grp].players, ", ")
+		return "players in group - i still need to fix this pls remind me"
 	end
 })
 --pauseremove
@@ -118,7 +118,9 @@ function PLUGIN:ToggleFreeze(grp)
 		nut.log.addRaw("pausing group "..grp)
 		nut.util.notify("Pausing", group.players)
 		for k, ply in ipairs(group.players) do
-			ply:Lock()
+			if(IsValid(ply)) then
+				ply:Lock()
+			end
 		end
 	else
 		local amt = 0
@@ -129,7 +131,9 @@ function PLUGIN:ToggleFreeze(grp)
 			nut.util.notify("Resume!", group.players)
 			nut.log.addRaw("unpaused group "..grp)
 			for k, ply in ipairs(group.players) do
-				ply:UnLock()
+				if(IsValid(ply)) then
+					ply:UnLock()
+				end
 			end
 		end)
 	end
@@ -172,7 +176,9 @@ function PLUGIN:DisbandGroup(group)
 
 	for k, ply in ipairs(group.players) do
 		if(group.paused) then
-			ply:UnLock()
+			if(IsValid(ply)) then
+				ply:UnLock()
+			end
 		end
 	end
 
