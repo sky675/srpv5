@@ -3576,6 +3576,47 @@ this upgrade is PERMANENT and cannot be reverted]],
 			})
 		end,
 	}, 
+	["weaponmod_sr25_auto"] = {
+		name = "SR-25 Automatic Upgrade",
+		desc = [[temp name maybe
+makes the SR-25 automatic, *slightly* illegal
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_homemade_auto.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 2,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit3"] = true, },
+		customIng = "1x any unequipped SR-25",
+		customRes = "1x that unequipped SR-25 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			["comp_mech2"] = 4,
+			["comp_scrap_metal"] = 9,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			--thisll fuck shit up if i decide to implement some of the perks but eh
+			return specificUpgradeValid(items, "arccw_mifl_fas2_sr25", {
+				["go_perk"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_perk"] = "go_homemade_auto"
+			})
+		end,
+	}, 
 	--sr25 whisper barrel - arccw_mifl_fas2_sr25 - mifl_fas2_sr25_hg=mifl_fas2_sr25_barrel_sd
 	["weaponmod_sr25_whisper"] = {
 		name = "SR-25 Whisper Handguard Upgrade",

@@ -33,7 +33,7 @@ nut.command.add("pausetoggle", {
 		if(!PLUGIN.pauseGroup[grp]) then return "group does not exist" end
 		PLUGIN:ToggleFreeze(grp)
 		
-		return "toggled group "..PLUGIN.pauseGroup[grp].paused
+		return "toggled group "..tostring(PLUGIN.pauseGroup[grp].paused)
 	end
 })
 --pauseget
@@ -45,7 +45,19 @@ nut.command.add("pauseget", {
 		local grp = arguments[1]
 		if(!PLUGIN.pauseGroup[grp]) then return "group does not exist" end
 		
-		return "pause status: "..PLUGIN.pauseGroup[grp].paused
+		return "pause status: "..tostring(PLUGIN.pauseGroup[grp].paused)
+	end
+})
+
+nut.command.add("pausegetply", {
+	desc = "Get all players in a group",
+	syntax = "<string groupname>",
+	adminOnly = true,
+	onRun = function(client, arguments)
+		local grp = arguments[1]
+		if(!PLUGIN.pauseGroup[grp]) then return "group does not exist" end
+		
+		return "players in group "..table.concat(PLUGIN.pauseGroup[grp].players, ", ")
 	end
 })
 --pauseremove
@@ -65,6 +77,10 @@ nut.command.add("pauseremove", {
 			PLUGIN:RemoveUserFromGroup(grp, target)
 		end
 		
+		if(added == "") then
+			return "could not find any targets"
+		end
+
 		return "removed"..added.." from group "..grp
 	end
 })
@@ -136,7 +152,15 @@ function PLUGIN:RemoveUserFromGroup(grp, ply)
 	local group = self.pauseGroup[group]
 	if(!group) then return end
 
-	table.RemoveByValue(group.players, ply)
+	local id
+	for k, v in ipairs(group.players) do
+		if(v == ply) then
+			id = k
+		end
+	end
+	if(id) then
+		table.remove(group.players, id)
+	end
 	if(group.paused) then
 		ply:UnLock()
 	end
