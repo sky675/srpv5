@@ -182,5 +182,5 @@ function PLUGIN:DisbandGroup(grp)
 		end
 	end
 
-	self.pauseGroup[group] = nil
+	self.pauseGroup[grp] = nil
 end
