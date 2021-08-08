@@ -151,14 +151,17 @@ end
 function PLUGIN:RemoveUserFromGroup(grp, ply)
 	local group = self.pauseGroup[group]
 	if(!group) then return end
-
+	print("why isnt this working")
 	local id
 	for k, v in ipairs(group.players) do
+		print("ply ",k, v)
 		if(v == ply) then
+			print("what were looking for")
 			id = k
 		end
 	end
 	if(id) then
+		print("removing")
 		table.remove(group.players, id)
 	end
 	if(group.paused) then
