@@ -132,7 +132,12 @@ hook.Add("SetupMove", "slowhpply", function(ply, moved, commandd)
 			spd = prone.config.MoveSpeed
 		end
 		
-		moved:SetMaxClientSpeed(spd*ms)
+		if(ply:IsSprinting()) then
+			moved:SetMaxClientSpeed(spd*over)
+		else
+			moved:SetMaxClientSpeed(spd*ms)
+		end
+
 		commandd:SetForwardMove(commandd:GetForwardMove()*ms)
 		commandd:SetSideMove(commandd:GetSideMove()*ms)
 
@@ -166,7 +171,11 @@ hook.Add("SetupMove", "slowhpply", function(ply, moved, commandd)
 		spd = prone.config.MoveSpeed
 	end
 
-	moved:SetMaxClientSpeed(spd*ratio*ms)
+	if(ply:IsSprinting()) then
+		moved:SetMaxClientSpeed(spd*over)
+	else
+		moved:SetMaxClientSpeed(spd*ratio*ms)
+	end
 	commandd:SetForwardMove(commandd:GetForwardMove()*ratio*ms)
 	commandd:SetSideMove(commandd:GetSideMove()*ratio*ms)
 end)
