@@ -294,7 +294,8 @@ if(SERVER) then
 			if(IsValid(ply.nutRagdoll)) then
 				return
 			end
-			if(ply:getNetVar("neardeath")) then
+			--spook
+			if(ply:getChar():getData("ether")) then
 				return true
 			end
 
