@@ -517,12 +517,12 @@ nut.command.add("pdalocalban", {
         local id = target:GetPDAID()
         if(nut.plugin.list["pda"].globBan[id]) then
             nut.plugin.list["pda"].globBan[id] = nil
-            nut.plugin.list["pda"].SaveBanList()
+            nut.plugin.list["pda"]:SaveBanList()
             return "Unbanned #"..tostring(id).." from global chat."
         end
 
         nut.plugin.list["pda"].globBan[id] = true
-        nut.plugin.list["pda"].SaveBanList()
+        nut.plugin.list["pda"]:SaveBanList()
         return "Banned #"..tostring(id).." from global chat."
     end
 })
@@ -547,12 +547,12 @@ nut.command.add("pdatradeban", {
         local id = target:GetPDAID()
         if(nut.plugin.list["pda"].tradeBan[id]) then
             nut.plugin.list["pda"].tradeBan[id] = nil
-            nut.plugin.list["pda"].SaveBanList()
+            nut.plugin.list["pda"]:SaveBanList()
             return "Unbanned #"..tostring(id).." from trade chat."
         end
 
         nut.plugin.list["pda"].tradeBan[id] = true
-        nut.plugin.list["pda"].SaveBanList()
+        nut.plugin.list["pda"]:SaveBanList()
         return "Banned #"..tostring(id).." from trade chat."
     end
 })
