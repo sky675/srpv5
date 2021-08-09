@@ -35,8 +35,9 @@ local PANEL = {}
 
 		self.inv.action.DoClick = function()
 			local selectedItem = nut.gui.stash.activeItem
-
+			print("inv doclick")
 			if (IsValid(selectedItem)) then
+				print("is valid, sending to server")
 				netstream.Start("stashIn", selectedItem.indexID, true)
 			end
 		end

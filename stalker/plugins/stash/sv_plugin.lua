@@ -180,10 +180,13 @@ netstream.Hook("stashIn", function(client, itemID)
 		local char = client:getChar()
 		local item = nut.item.instances[itemID]
 		local inventory = nut.item.inventories[item.invID]
-
+		print("in")
 		if (item and inventory) then
+			print("item and inv")
 			findStash(client):next(function(stashEntity)
+				print("in next")
 				if (IsValid(stashEntity)) then
+					print("should be good?")
 					if (char:getStashMax() == char:getStashCount()) then
 						client:notifyLocalizedL("stashFull", 3)
 						return
@@ -229,6 +232,8 @@ netstream.Hook("stashIn", function(client, itemID)
 					end, function(error)
 						client:notifyLocalizedL("stashError", 3)
 					end)
+				else
+					print("invalid")
 				end
 			end, function(error)
 				client:notifyLocalizedL("stashFar", 3)
