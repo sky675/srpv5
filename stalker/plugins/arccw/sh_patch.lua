@@ -305,6 +305,12 @@ local weaponEdits = {
 		mods = {
 			Type = "sniper", --pistol, smg, shotgun, ar, sniper
 			TwoHandedWep =true,
+			--fuck this dipshit
+			Hook_ModifyBodygroups = function(wep, data)
+				local vm = data.vm
+				if(!IsValid(vm)) then return end
+				if wep.Attachments[1].Installed then vm:SetBodygroup(2, 4) end
+			end,
 		}, 
 		primarymods = {
 			Ammo = "sky762x51"
