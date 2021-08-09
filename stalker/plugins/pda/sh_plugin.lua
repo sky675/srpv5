@@ -351,6 +351,10 @@ nut.chat.register("pdatrade", {
             return false
         end]]
 		if(listener:getNetVar("isjammed")) then return false end
+        local block = string.find(listener:GetPDABlockList(), tostring(speaker:GetPDAID()))
+        if(block) then
+            return false
+        end
 		
         return listener:HasPDA()
         
