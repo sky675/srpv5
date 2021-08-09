@@ -82,10 +82,22 @@ function ITEM:attachTo(target, ply)
 		ply:notify("Category already filled!", 3)
 		return false
 	end
+	if(item.cat == "ubgl") then
+		if(ats["foregrip"] != nil and (ats[item.cat] != "" and !ats[item.cat]:find("go_extras_"))) then 
+			ply:notify("There is a foregrip attached", 3)
+			return false 
+		end
+	end
+	if(item.cat == "foregrip") then
+		if(ats["ubgl"] != nil and (ats[item.cat] != "" and !ats[item.cat]:find("go_extras_"))) then 
+			ply:notify("There is a grenade launcher attached", 3)
+			return false 
+		end
+	end
 	--im currently unsure how to detect whether an attachment is compatible
 	--so forcing equipped for now
 	if(!wep or !IsValid(wep)) then
-		ply:notify("You must equip the weapon.")
+		ply:notify("You must equip the weapon.", 3)
 		return false
 	end
 
