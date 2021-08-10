@@ -589,6 +589,9 @@ local weaponEdits = {
 		}
 	},
 }
+local function Ammo(wep, ammo)
+    return wep.Owner:GetAmmoCount(ammo)
+end
 local ammoAtt = function(wep, data, amm)
 	if(data.current and data.current:find(amm)) then
 		return data
@@ -827,13 +830,69 @@ local attEdits = {
 	["mifl_fas2_ubw_m203"] = {
 		mods = {
 			--notable things:
-			Override_Ammo = "skym203"
+			UBGL_Ammo = "skym203",
+			UBGL_Reload = function(wep, ubgl)
+				if wep:Clip2() >= 1 then return end
+			
+				if wep:Clip2() == 0 then
+			
+					wep:DoLHIKAnimation("reload", 90/60)
+			
+					wep:SetNextSecondaryFire(CurTime() + 90/60)
+			
+					wep:PlaySoundTable({
+						{s = "Arccw_FAS2_Generic.Cloth_Movement" ,		t = 0},
+						{s = "weapons/arccw_mifl/fas2/famas/famas_magin.wav", t = 50/60},
+						{s = "Arccw_FAS2_Generic.Cloth_Movement" ,		t = 80/60},
+					})
+				end
+			
+				local reserve = Ammo(wep, "skygp25")
+			
+				reserve = reserve + wep:Clip2()
+			
+				local clip = 1
+			
+				local load = math.Clamp(clip, 0, reserve)
+			
+				wep.Owner:SetAmmo(reserve - load, "skygp25")
+			
+				wep:SetClip2(load)
+			end
 		}
 	},
 	["mifl_fas2_ubw_gp25"] = {
 		mods = {
 			--notable things:
-			Override_Ammo = "skygp25"
+			UBGL_Ammo = "skygp25",
+			UBGL_Reload = function(wep, ubgl)
+				if wep:Clip2() >= 1 then return end
+			
+				if wep:Clip2() == 0 then
+			
+					wep:DoLHIKAnimation("reload", 90/60)
+			
+					wep:SetNextSecondaryFire(CurTime() + 90/60)
+			
+					wep:PlaySoundTable({
+						{s = "Arccw_FAS2_Generic.Cloth_Movement" ,		t = 0},
+						{s = "weapons/arccw_mifl/fas2/famas/famas_magin.wav", t = 50/60},
+						{s = "Arccw_FAS2_Generic.Cloth_Movement" ,		t = 80/60},
+					})
+				end
+			
+				local reserve = Ammo(wep, "skygp25")
+			
+				reserve = reserve + wep:Clip2()
+			
+				local clip = 1
+			
+				local load = math.Clamp(clip, 0, reserve)
+			
+				wep.Owner:SetAmmo(reserve - load, "skygp25")
+			
+				wep:SetClip2(load)
+			end
 		}
 	},
 	["mifl_fas2_ks23_tube_12"] = {
