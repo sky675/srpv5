@@ -847,7 +847,7 @@ local attEdits = {
 					})
 				end
 			
-				local reserve = Ammo(wep, "skygp25")
+				local reserve = Ammo(wep, "skym203")
 			
 				reserve = reserve + wep:Clip2()
 			
@@ -855,7 +855,7 @@ local attEdits = {
 			
 				local load = math.Clamp(clip, 0, reserve)
 			
-				wep.Owner:SetAmmo(reserve - load, "skygp25")
+				wep.Owner:SetAmmo(reserve - load, "skym203")
 			
 				wep:SetClip2(load)
 			end
