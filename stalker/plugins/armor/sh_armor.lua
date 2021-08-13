@@ -134,8 +134,8 @@ local ammoProtect = {
 	},
 	["buckshot"] = {
 		normal = {[ARMOR_IIIA] = 0.5, [ARMOR_III] = 0.35, [ARMOR_IV] = 0.1},
-		slug = {[ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.15},
-		oldslug = {[ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.15},
+		slug = {[ARMOR_II] = 0.9, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.15},
+		oldslug = {[ARMOR_II] = 0.9, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.15},
 		sabot = {[ARMOR_III] = 0.65, [ARMOR_IV] = 0.4},
 	},
 	["357"] = {
