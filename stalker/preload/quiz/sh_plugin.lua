@@ -3,6 +3,11 @@ PLUGIN.name = "Quiz"
 PLUGIN.author = "sky"
 PLUGIN.desc = "wip redone quiz"
 
+
+nut.config.add("quiz", true, "Enable/disables the quiz", nil, {
+    category = "server"    
+})
+
 hook.Add("PluginShouldLoad", "disableintro", function(id)
 	if(id == "nsintro") then return false end
 end)
@@ -44,6 +49,7 @@ if(SERVER) then
 
 else --client
 	hook.Add("CreateQuiz", "quizintro", function()
+		if(!nut.config.get("quiz", false)) then return end
 		return vgui.Create("nut_newquiz")
 	end)
 

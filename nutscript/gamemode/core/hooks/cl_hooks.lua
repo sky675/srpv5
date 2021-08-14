@@ -395,7 +395,7 @@ function GM:CharacterListLoaded()
 				panel:nutLoadOldRemove()
 				
 				local quiz = 
-				hasNotSeenIntro and hook.Run("CreateQuiz") or nill
+				hasNotSeenIntro and hook.Run("CreateQuiz") or nil
 
 				quiz.nutLoadOldRemove = quiz.OnRemove
 				quiz.OnRemove = function(panel)
