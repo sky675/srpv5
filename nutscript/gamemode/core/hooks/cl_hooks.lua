@@ -397,12 +397,15 @@ function GM:CharacterListLoaded()
 				local quiz = 
 				hasNotSeenIntro and hook.Run("CreateQuiz") or nil
 
-				quiz.nutLoadOldRemove = quiz.OnRemove
-				quiz.OnRemove = function(panel)
-					panel:nutLoadOldRemove()
+				if(quiz) then
+					quiz.nutLoadOldRemove = quiz.OnRemove
+					quiz.OnRemove = function(panel)
+						panel:nutLoadOldRemove()
+						hook.Run("NutScriptLoaded")
+					end
+				else
 					hook.Run("NutScriptLoaded")
 				end
-				
 			end
 			nut.gui.intro = intro
 		else
