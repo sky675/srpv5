@@ -56,8 +56,13 @@ nut.command.add("pausegetply", {
 	onRun = function(client, arguments)
 		local grp = arguments[1]
 		if(!PLUGIN.pauseGroup[grp]) then return "group does not exist" end
+
+		local str = ""
+		for k,v in ipairs(grp.players) do
+			str = str.." "..v:Name()
+		end
 		
-		return "players in group - i still need to fix this pls remind me"
+		return "players in group - "..str
 	end
 })
 --pauseremove
