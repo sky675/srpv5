@@ -1,8 +1,15 @@
+local attribTbl = {
+	["quickness"] = "qkn",
+	["endurance"] = "end",
+	["stamina"] = "stm",
+	["strength"] = "str"
+}
+
 nut.command.add("rollattrib", {
 	desc = "Roll out of 100, and then have the specified attribute value added onto it. valid: (end, qkn, stm, str)",
 	syntax = "<string attribid>",
 	onRun = function(client, arguments)
-		local attrib = client:getChar():getAttrib(arguments[1])
+		local attrib = client:getChar():getAttrib(attribTbl[arguments[1]:lower()] or arguments[1])
 		if(!attrib) then return "invalid attrib id" end
 		attrib = math.Round(attrib, 0)
 		local max = 100
@@ -16,7 +23,7 @@ nut.command.add("rollattribdis", {
 	desc = "Roll disadvantage out of 100, and then have the specified attribute value added onto it. valid: (end, qkn, stm, str)",
 	syntax = "<string attribid>",
 	onRun = function(client, arguments)
-		local attrib = client:getChar():getAttrib(arguments[1])
+		local attrib = client:getChar():getAttrib(attribTbl[arguments[1]:lower()] or arguments[1])
 		if(!attrib) then return "invalid attrib id" end
 		attrib = math.Round(attrib, 0)
 		local max = 100
@@ -32,7 +39,7 @@ nut.command.add("rollattribadv", {
 	desc = "Roll advantage out of 100, and then have the specified attribute value added onto it. valid: (end, qkn, stm, str)",
 	syntax = "<string attribid>",
 	onRun = function(client, arguments)
-		local attrib = client:getChar():getAttrib(arguments[1])
+		local attrib = client:getChar():getAttrib(attribTbl[arguments[1]:lower()] or arguments[1])
 		if(!attrib) then return "invalid attrib id" end
 		attrib = math.Round(attrib, 0)
 		local max = 100
@@ -57,7 +64,7 @@ local transres = {
 	["stmrec"] = "stmres",
 }
 nut.command.add("rollresist", {
-	desc = "Roll out of 100, and then have the specified resistance multiply it. valid: (rad, psy, chem, burn, elec, phys, exp, bullet, spd, stmrec)",
+	desc = "Roll out of 100, and then have the specified resistance multiply it. valid ids: (rad, psy, chem, burn, elec, phys, exp, bullet, spd, stmrec)",
 	syntax = "<string attribid>",
 	onRun = function(client, arguments)
 		local attrib = transres[arguments[1]]
