@@ -123,7 +123,7 @@ local function banid(id)
 	game.ConsoleCommand("banid 5 " .. id .. "\n");
 end
 local function kickid(id, reason)
-	game.ConsoleCommand("kickid " .. id .. " You are BANNED from this server! "..(reason or "").."\n");
+	game.ConsoleCommand("kickid " .. id .. " You are BANNED from this server! "..(reason or "No reason specified").."\n");
 end
 local function cleanIP(ip)
 	return string.match(ip, "(%d+%.%d+%.%d+%.%d+)");
@@ -218,7 +218,7 @@ function doBan(steamID, ip, name, length, reason, admin, callback)
 	query.name = name;
 	query:start();
 	if (steamID ~= "") then
-		kickid(steamID);
+		kickid(steamID, reason);
 		banid(steamID);
 	end
 end
