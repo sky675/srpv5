@@ -645,9 +645,12 @@ PLUGIN.lootTables = {
 
 --config (should move this to the actual config but this works for now)
 PLUGIN.maxItems = 40			--this V is not correct anymore
+PLUGIN.minItems = 15
 PLUGIN.spawnRate = {5400,9600}--a little over 2 hr to a little under 4 hr, seems like a little too much for me but eh{4800,7200} --1 hr to 2 hr until next spawn
 PLUGIN.maxSpawnThresh = 0.5 --if its time for next spawn, and #curItems/maxItems > maxSpawnThresh, items will not be spawned this round
 PLUGIN.minplayers = 6
+--this is minused by the min players, original was 18
+PLUGIN.maxplayers = 12
 
 PLUGIN.curSpawnRate = PLUGIN.curSpawnRate or 0
 PLUGIN.curSpawnTime = PLUGIN.curSpawnTime or 0
@@ -819,7 +822,7 @@ function PLUGIN:SpawnRound()
 		--changing it so items will get replaced
 		if(IsValid(self.curItems[k])) then continue end --dont do anything if theres an item
 		if(self:IsPointClear(k)) then 
-			if(#self.curItems == self.maxItems) then return end
+			if(#self.curItems >= ((self.curRatio or 1)*self.maxItems)) then return end
 			if(!realB[v.table]) then --trying to change this to the 1 that is made earlier
 				nut.log.addRaw("Loot spawn position "..k.." was deleted: The table it used is invalid now!", FLAG_WARNING)
 				table.remove(self.spawnPos, k)
@@ -1057,8 +1060,9 @@ if(SERVER) then
 					table.insert(realItems, v)
 				end
 			end
-
-			if((#realItems/PLUGIN.maxItems) > PLUGIN.maxSpawnThresh) then return end --theres still a majority of items left
+			local ratio = math.Clamp(#player.GetAll()-PLUGIN.minplayers, 0, PLUGIN.maxplayers)/PLUGIN.maxplayers
+			PLUGIN.curRatio = ratio
+			if((#realItems/(ratio*PLUGIN.maxItems)) > PLUGIN.maxSpawnThresh) then return end --theres still a majority of items left
 
 			PLUGIN:SpawnRound() --do eeeet
 		end)
