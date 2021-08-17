@@ -390,7 +390,7 @@ if(SERVER) then
 				atk:getChar():updateAttrib("str", dmginfo:GetDamage()*0.0001)
 			end
 
-			local negx, negy = math.random(-1, 0), math.random(-1, 0)
+			local negx, negy = math.random(-1, 1), math.random(-1, 1)
 			local ranx, rany = math.Rand(0.5, 1)*negx*(dmginfo:GetDamage()/5), math.Rand(0.5, 1)*negy*(dmginfo:GetDamage()/3)
 			local viewpunchmult = 1
 			if(wep.GetStat and wep:GetStat("ViewPunchMulti")) then
