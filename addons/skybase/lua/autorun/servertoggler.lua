@@ -3,8 +3,8 @@ if(game.SinglePlayer()) then return end
 serverToggle = serverToggle or {}
 
 local pass = "shazbot" --pass to get in when closed
-local closedStr = " | https://discord.gg/DFKbGSu6FH" --string to add when closed
-local defName = "Kolobok | STALKER Serious Roleplay"
+local closedStr = "| https://discord.gg/DFKbGSu6FH" --string to add when closed
+local defName = "Kolobok|STALKER Serious Roleplay"
 
 serverToggle.curStatus = serverToggle.curStatus or (cookie.GetNumber("serverTog", 1) == 1)  --false = open
 
