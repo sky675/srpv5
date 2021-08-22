@@ -149,6 +149,9 @@ PLUGIN.lootTables = {
 			{"mask_bbandana", 2},
 			{"mask_respirator", 2},
 			{"mask_surgicalmask", 2},
+			{"junk_gpblue", 8},
+			{"junk_gpgreen", 8},
+			{"junk_gpred", 4},
 
 		},
 		durability = {100, 100}, --durability when spawned if weapon or suit (for watever reason)

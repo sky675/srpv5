@@ -778,6 +778,386 @@ PLUGIN.recipeList = {
 		result = "artcont_aam",
 	},
 
+	--ammo
+	["amm_9x19"] = {
+		name = "9x19mm Ammo Box",
+		desc = [[Turn old ammo into good ammo.]],
+		category = "Ammo Crafting",
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_9x19_fmj.mdl",
+		workbench = {["weapons"] = true,},
+		traits = {
+			["crafting_weapon"] = 1,
+			["crafting_spec"] = 1,
+		},
+		requirements = {
+			["junk_toolkita"] = true,
+		},
+		ingredients = {
+			["ammo_9x19_old"] = 30,
+			["junk_gpblue"] = 1,
+		},
+		result = {
+			["ammo_9x19"] = 15,
+		},
+	},
+	["amm_9x18"] = {
+		name = "9x18mm Ammo Box",
+		desc = [[Turn old ammo into good ammo.]],
+		category = "Ammo Crafting",
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_9x18_fmj.mdl",
+		workbench = {["weapons"] = true,},
+		traits = {
+			["crafting_weapon"] = 1,
+			["crafting_spec"] = 1,
+		},
+		requirements = {
+			["junk_toolkita"] = true,
+		},
+		ingredients = {
+			["ammo_9x18_old"] = 30,
+			["junk_gpblue"] = 1,
+		},
+		result = {
+			["ammo_9x18"] = 15,
+		},
+	},
+	["amm_9x39"] = {
+		name = "9x39mm Ammo Box",
+		desc = [[Turn old ammo into good ammo.]],
+		category = "Ammo Crafting",
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_9x39_pab9.mdl",
+		workbench = {["weapons"] = true,},
+		traits = {
+			["crafting_weapon"] = 2,
+			["crafting_spec"] = 1,
+		},
+		requirements = {
+			["junk_toolkita"] = true,
+		},
+		ingredients = {
+			["ammo_9x39_old"] = 20,
+			["junk_gpgreen"] = 1,
+		},
+		result = {
+			["ammo_9x39"] = 10,
+		},
+	},
+	["amm_46"] = {
+		name = "4.6x30mm Ammo Box",
+		desc = [[Turn old ammo into good ammo.]],
+		category = "Ammo Crafting",
+		model = "models/items/boxmrounds.mdl",
+		workbench = {["weapons"] = true,},
+		traits = {
+			["crafting_weapon"] = 2,
+			["crafting_spec"] = 2,
+		},
+		requirements = {
+			["junk_toolkita"] = true,
+		},
+		ingredients = {
+			["ammo_46_old"] = 20,
+			["junk_gpgreen"] = 2,
+		},
+		result = {
+			["ammo_46"] = 10,
+		},
+	},
+	["amm_57"] = {
+		name = "5.7x30mm Ammo Box",
+		desc = [[Turn old ammo into good ammo.]],
+		category = "Ammo Crafting",
+		model = "models/items/boxmrounds.mdl",
+		workbench = {["weapons"] = true,},
+		traits = {
+			["crafting_weapon"] = 2,
+			["crafting_spec"] = 2,
+		},
+		requirements = {
+			["junk_toolkita"] = true,
+		},
+		ingredients = {
+			["ammo_57_old"] = 20,
+			["junk_gpgreen"] = 2,
+		},
+		result = {
+			["ammo_57"] = 10,
+		},
+	},
+	["amm_45acp"] = {
+		name = "45 ACP Ammo Box",
+		desc = [[Turn old ammo into good ammo.]],
+		category = "Ammo Crafting",
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_1143x23_fmj.mdl",
+		workbench = {["weapons"] = true,},
+		traits = {
+			["crafting_weapon"] = 1,
+			["crafting_spec"] = 1,
+		},
+		requirements = {
+			["junk_toolkita"] = true,
+		},
+		ingredients = {
+			["ammo_45acp_old"] = 30,
+			["junk_gpblue"] = 1,
+		},
+		result = {
+			["ammo_45acp"] = 15,
+		},
+	},
+	["amm_50ae"] = {
+		name = "50 AE Ammo Box",
+		desc = [[Turn old ammo into good ammo.]],
+		category = "Ammo Crafting",
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_50_ae.mdl",
+		workbench = {["weapons"] = true,},
+		traits = {
+			["crafting_weapon"] = 1,
+			["crafting_spec"] = 2,
+		},
+		requirements = {
+			["junk_toolkita"] = true,
+		},
+		ingredients = {
+			["ammo_50ae_old"] = 30,
+			["junk_gpblue"] = 2,
+		},
+		result = {
+			["ammo_50ae"] = 15,
+		},
+	},
+	["amm_762x25"] = {
+		name = "7.62x25mm Ammo Box",
+		desc = [[Turn old ammo into good ammo.]],
+		category = "Ammo Crafting",
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x25_p.mdl",
+		workbench = {["weapons"] = true,},
+		traits = {
+			["crafting_weapon"] = 1,
+			["crafting_spec"] = 1,
+		},
+		requirements = {
+			["junk_toolkita"] = true,
+		},
+		ingredients = {
+			["ammo_762x25_old"] = 30,
+			["junk_gpblue"] = 1,
+		},
+		result = {
+			["ammo_762x25"] = 15,
+		},
+	},
+	["amm_762x39"] = {
+		name = "7.62x39mm Ammo Box",
+		desc = [[Turn old ammo into good ammo.]],
+		category = "Ammo Crafting",
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x39_fmj.mdl",
+		workbench = {["weapons"] = true,},
+		traits = {
+			["crafting_weapon"] = 2,
+			["crafting_spec"] = 1,
+		},
+		requirements = {
+			["junk_toolkita"] = true,
+		},
+		ingredients = {
+			["ammo_762x39_old"] = 20,
+			["junk_gpgreen"] = 1,
+		},
+		result = {
+			["ammo_762x39"] = 10,
+		},
+	},
+	["amm_762x51"] = {
+		name = "7.62x51mm NATO Ammo Box",
+		desc = [[Turn old ammo into good ammo.]],
+		category = "Ammo Crafting",
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x51_fmj.mdl",
+		workbench = {["weapons"] = true,},
+		traits = {
+			["crafting_weapon"] = 2,
+			["crafting_spec"] = 2,
+		},
+		requirements = {
+			["junk_toolkita"] = true,
+		},
+		ingredients = {
+			["ammo_762x51_old"] = 20,
+			["junk_gpred"] = 1,
+		},
+		result = {
+			["ammo_762x51"] = 10,
+		},
+	},
+	["amm_762x54"] = {
+		name = "7.62x54mmR Ammo Box",
+		desc = [[Turn old ammo into good ammo.]],
+		category = "Ammo Crafting",
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x54_7h1.mdl",
+		workbench = {["weapons"] = true,},
+		traits = {
+			["crafting_weapon"] = 2,
+			["crafting_spec"] = 2,
+		},
+		requirements = {
+			["junk_toolkita"] = true,
+		},
+		ingredients = {
+			["ammo_762x54_old"] = 20,
+			["junk_gpred"] = 1,
+		},
+		result = {
+			["ammo_762x54"] = 10,
+		},
+	},
+	["amm_556"] = {
+		name = "5.56x45mm Ammo Box",
+		desc = [[Turn old ammo into good ammo.]],
+		category = "Ammo Crafting",
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_556x45_ss190.mdl",
+		workbench = {["weapons"] = true,},
+		traits = {
+			["crafting_weapon"] = 2,
+			["crafting_spec"] = 1,
+		},
+		requirements = {
+			["junk_toolkita"] = true,
+		},
+		ingredients = {
+			["ammo_556_old"] = 20,
+			["junk_gpgreen"] = 1,
+		},
+		result = {
+			["ammo_556"] = 10,
+		},
+	},
+	["amm_545"] = {
+		name = "5.45x39mm Ammo Box",
+		desc = [[Turn old ammo into good ammo.]],
+		category = "Ammo Crafting",
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_545x39_fmj.mdl",
+		workbench = {["weapons"] = true,},
+		traits = {
+			["crafting_weapon"] = 2,
+			["crafting_spec"] = 1,
+		},
+		requirements = {
+			["junk_toolkita"] = true,
+		},
+		ingredients = {
+			["ammo_545_old"] = 20,
+			["junk_gpgreen"] = 1,
+		},
+		result = {
+			["ammo_545"] = 10,
+		},
+	},
+	["amm_338"] = {
+		name = "338 Lapua Ammo Box",
+		desc = [[Turn old ammo into good ammo.]],
+		category = "Ammo Crafting",
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_762x54_ap.mdl",
+		workbench = {["weapons"] = true,},
+		traits = {
+			["crafting_weapon"] = 3,
+			["crafting_spec"] = 2,
+		},
+		requirements = {
+			["junk_toolkita"] = true,
+		},
+		ingredients = {
+			["ammo_338_old"] = 20,
+			["junk_gpred"] = 2,
+		},
+		result = {
+			["ammo_338"] = 10,
+		},
+	},
+	["amm_23mm"] = {
+		name = "23mm Ammo Box",
+		desc = [[Turn old ammo into good ammo.]],
+		category = "Ammo Crafting",
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_12x70_buck.mdl",
+		workbench = {["weapons"] = true,},
+		traits = {
+			["crafting_weapon"] = 3,
+			["crafting_spec"] = 3,
+		},
+		requirements = {
+			["junk_toolkita"] = true,
+		},
+		ingredients = {
+			["ammo_23mm_old"] = 20,
+			["junk_gpred"] = 2,
+		},
+		result = {
+			["ammo_23mm"] = 10,
+		},
+	},
+	["amm_23mm_slug"] = {
+		name = "23mm Slug Ammo Box",
+		desc = [[Turn old ammo into good ammo.]],
+		category = "Ammo Crafting",
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_12x70_buck.mdl",
+		workbench = {["weapons"] = true,},
+		traits = {
+			["crafting_weapon"] = 3,
+			["crafting_spec"] = 3,
+		},
+		requirements = {
+			["junk_toolkita"] = true,
+		},
+		ingredients = {
+			["ammo_23mm_slug_old"] = 20,
+			["junk_gpred"] = 2,
+		},
+		result = {
+			["ammo_23mm_slug"] = 10,
+		},
+	},
+	["amm_buckshot"] = {
+		name = "12 Gauge Ammo Box",
+		desc = [[Turn old ammo into good ammo.]],
+		category = "Ammo Crafting",
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_12x70_buck_2.mdl",
+		workbench = {["weapons"] = true,},
+		traits = {
+			["crafting_weapon"] = 1,
+			["crafting_spec"] = 1,
+		},
+		requirements = {
+			["junk_toolkita"] = true,
+		},
+		ingredients = {
+			["ammo_buckshot_old"] = 20,
+			["junk_gpblue"] = 2,
+		},
+		result = {
+			["ammo_buckshot"] = 10,
+		},
+	},
+	["amm_buckshot_slug"] = {
+		name = "12 Gauge Slug Ammo Box",
+		desc = [[Turn old ammo into good ammo.]],
+		category = "Ammo Crafting",
+		model = "models/wick/wrbstalker/anomaly/items/wick_ammo_12x76_zhekan_2.mdl",
+		workbench = {["weapons"] = true,},
+		traits = {
+			["crafting_weapon"] = 1,
+			["crafting_spec"] = 1,
+		},
+		requirements = {
+			["junk_toolkita"] = true,
+		},
+		ingredients = {
+			["ammo_buckshot_slug_old"] = 20,
+			["junk_gpblue"] = 2,
+		},
+		result = {
+			["ammo_buckshot_slug"] = 10,
+		},
+	},
+
 	--cooking
 	["cook_blood_vodka"] = {
 		name = "Bloodsucker Goulash (Vodka Quality)",
