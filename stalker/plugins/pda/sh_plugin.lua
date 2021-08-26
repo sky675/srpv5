@@ -472,6 +472,19 @@ if (CLIENT) then
 		chat.AddText(pdattx,Color(37,65,206),"[PDA-NOTIF] ", Color(255, 255, 255), text)
 		
 	end)
+	
+	netstream.Hook("fakepdaintro", function(text)
+		--if(!LocalPlayer():HasPDA()) then return end
+		if(NUT_CVAR_CHATFILTER:GetString():lower():find("pda,")) then return end
+
+		if(GetConVar("nutDisablePdaSound") and GetConVar("nutDisablePdaSound"):GetBool()) then
+		else --simple
+			surface.PlaySound("pda/pda_news.ogg", 50) 
+		end
+		local pdattx = Material("sky/chat_icons/pda_alert.png")
+		chat.AddText(pdattx,Color(37,65,206),"[PDA-NOTIF] ", Color(255, 255, 255), unpack(text))
+		
+	end)
 else
 	util.AddNetworkString("OpenPDA")
 	util.AddNetworkString("ChangePDAHandle")
@@ -484,10 +497,10 @@ else
 			char:setData("pn", true) --i wanted as little data use as possible, couldve done 0/1 but eh
 
 			timer.Simple(math.random(6, 13), function()
-			netstream.Start(ply, "Welcome to the Unified STALKER Local Area Network.", "phrnewlinephr",
+			netstream.Start(ply, "fakepdaintro", {"Welcome to the Unified STALKER Local Area Network.", "phrnewlinephr",
 			--"Based on internal data, there are ".."(todo)".." individuals in the zone.", "phrnewlinephr",
 			"You may want to set your PDA handle for use on the network, this can be done via TAB>Settings", "phrnewlinephr",
-			"PDA initialization is complete! Welcome to the Chernobyl Exclusion Zone.")
+			"PDA initialization is complete! Welcome to the Chernobyl Exclusion Zone."})
 			end)
 		end
 	end)
