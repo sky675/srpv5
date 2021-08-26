@@ -312,6 +312,7 @@ ITEM.functions.zDetach = {
 			--if(k == 3||k == 4||k == 5||k > 9) then continue end
 			--if(!TFA.Attachments.Atts[v]) then continue end
 			if(item.cantDetach and item.cantDetach[k]) then continue end --integrated supp
+			if(!ArcCW.AttachmentTable[v]) then continue end
 			options[v] = {
 				name = ArcCW.AttachmentTable[v].PrintName,--TFA.Attachments.Atts[v].Name,
 				--sound = "",
