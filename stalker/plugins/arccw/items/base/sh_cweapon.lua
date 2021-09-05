@@ -371,7 +371,7 @@ ITEM.functions.zDetach = {
 			nut.item.spawn(itd, ply:getItemDropPos())
 		end
 		--ply:EmitSound("cw/detach.wav")
-		if(item.defaultMods and item.defaultMods[sub] and item.defaultMods[sub] != "") then
+		if(item.defaultMods and item.defaultMods[sub]) then-- and item.defaultMods[sub] != "") then
 			ats[sub] = item.defaultMods[sub] --return it to default
 		else
 			ats[sub] = nil
@@ -425,8 +425,8 @@ function ITEM:doAttach(weapon)
 			ply.isattaching = true
 			weapon:Attach(slotids[slot], name)
 			if(weapon.Attachments[slotids[slot]].Installed != name) then
-				nut.log.addRaw("uh something didnt attach correctly "..self:getID().." "..self:getOwner():Name())
-				self:getOwner():notify("uh something didnt attach correctly lmao", 3)
+				nut.log.addRaw("uh something didnt attach correctly "..self:getID().." "..self:getOwner():Name().." "..name)
+				self:getOwner():notify("uh something didnt attach correctly lmao "..name, 3)
 			end
 		end
 	end
