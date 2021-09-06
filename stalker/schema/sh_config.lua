@@ -311,8 +311,9 @@ SCHEMA.workshop = { --29 currently (last eft megapack)
 	"2341591778", --160 props
 	"2438451886", --stalker item pack
 	"1999644123", --eft megapack
-	"2306981774", --crossroads
+	--"2306981774", --crossroads
 	"691812012", --workbenches
+	"1741815380", --jupiter
 }
 
 --individual files to add to fastdl
