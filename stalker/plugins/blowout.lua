@@ -38,6 +38,15 @@ local spawnPoints = {
 		wavemulti = 1020, --how fast it travels
 		domeTbl = {pos = Vector(-4.8413376808167, 1806.0949707031, 4723.71484375), ang = Angle(0, -96.591796875, 0), scale = 2}
 	},
+	["rp_jupiter_remaster"] = {
+		xory = "y",
+		pos = false,
+		spawn = 15871.96,
+		add = 15871.96,
+		done = -15871.96,
+		wavemulti = 1020,
+		domeTbl = {pos = Vector(-495.64379882813, -5.0873184204102, -4748.8017578125),ang = Angle(-1.6094970703125, -101.59606933594, -1.351318359375),scale = 1}
+	}
 	--crossroads: {pos = Vector(-4.8413376808167, 1806.0949707031, 4723.71484375), ang = Angle(0, -96.591796875, 0), scale = 2}
 	--domeTbl = {pos = Vector(), ang = Angle(), scale = 1} 
 }
