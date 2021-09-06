@@ -58,7 +58,8 @@ nut.command.add("pausegetply", {
 		if(!PLUGIN.pauseGroup[grp]) then return "group does not exist" end
 
 		local str = ""
-		for k,v in ipairs(grp.players) do
+		for k,v in ipairs(PLUGIN.pauseGroup[grp].players) do
+			if(!v:IsValid()) then continue end
 			str = str.." "..v:Name()
 		end
 		
