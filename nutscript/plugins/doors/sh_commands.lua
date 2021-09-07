@@ -226,7 +226,7 @@ nut.command.add("doorsetfaction", {
 		end
 	end
 })
-
+--lua_run for k,ent in ipairs(ents.FindByClass("prop_door_rotating")) do ent:setNetVar("noSell", true) ent:setNetVar("hidden", true) end nut.plugin.list.doors:SaveDoorData()
 nut.command.add("doorfullhide", {
 	adminOnly = true,
 	desc = "fully hide+unownable a door, works one way, made for convenience",

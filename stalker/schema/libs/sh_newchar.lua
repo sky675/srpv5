@@ -37,6 +37,7 @@ local exec = { --these still use the other models weird hitboxes btw
 local fems = { 
 	["models/sky/heads/neo.mdl"] = true,
 	["models/sky/heads/quiet.mdl"] = true,
+	["models/sky/heads/cake.mdl"] = true,
 }
 local stringFind = string.find
 --not entirely sure why i called them bm tbh

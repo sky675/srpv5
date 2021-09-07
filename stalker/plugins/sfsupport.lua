@@ -9,6 +9,7 @@ PLUGIN.author = "sky"
 PLUGIN.desc = "sets stormfox's time to ns's time"
 --sf_maplight_auto 0
 --sf_maplight_dynamic 1
+--lua_run StormFox2.Time.Set("12:00 PM")
 if(StormFox2) then
 	if(SERVER) then
 		function PLUGIN:OnLoaded()
