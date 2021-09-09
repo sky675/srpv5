@@ -314,6 +314,10 @@ SCHEMA.workshop = { --29 currently (last eft megapack)
 	--"2306981774", --crossroads
 	"691812012", --workbenches
 	"1741815380", --jupiter
+	"430077474", --zona 1
+	"430106735", --zona 2
+	"430147227", --zona 3
+	"430453978", --zona 4
 }
 
 --individual files to add to fastdl
