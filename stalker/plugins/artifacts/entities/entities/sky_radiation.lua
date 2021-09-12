@@ -24,6 +24,12 @@ function ENT:SetupDataTables()
 			min = 0, max = 1000
 		}
 	})
+
+	if(SERVER) then
+		self:NetworkVarNotify("Radius", function(ent, name, old, new)
+			ent.actualradius = new*new
+		end)
+	end
 end
 
 if(SERVER) then
