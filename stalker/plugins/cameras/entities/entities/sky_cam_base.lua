@@ -98,13 +98,13 @@ else--client
 		if(ent.Base != "sky_cam_base" && ent:GetClass() != "sky_cam_base") then return end
 		--idk if i need to do this but eh
 		if(ent:GetDestroyed()) then
-			if(!IsValid(self.particle)) then
-				self.particle = CreateParticleSystem(self, "smoke_gib_01", PATTACH_ABSORIGIN_FOLLOW, nil, self.relativeAtt)
+			if(!IsValid(ent.particle)) then
+				ent.particle = CreateParticleSystem(ent, "smoke_gib_01", PATTACH_ABSORIGIN_FOLLOW, nil, self.relativeAtt)
 			else
 				return
 			end
-			if(self.particle) then 
-				self.particle:StartEmission(true) 
+			if(ent.particle) then 
+				ent.particle:StartEmission(true) 
 			end --idk if thisll loop?
 		end
 	end)
