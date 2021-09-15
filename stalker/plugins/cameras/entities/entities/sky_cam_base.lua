@@ -99,7 +99,7 @@ else--client
 		--idk if i need to do this but eh
 		if(ent:GetDestroyed()) then
 			if(!IsValid(ent.particle)) then
-				ent.particle = CreateParticleSystem(ent, "smoke_gib_01", PATTACH_ABSORIGIN_FOLLOW, nil, self.relativeAtt)
+				ent.particle = CreateParticleSystem(ent, "smoke_gib_01", PATTACH_ABSORIGIN_FOLLOW, nil, ent.relativeAtt)
 			else
 				return
 			end
