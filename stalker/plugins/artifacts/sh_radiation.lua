@@ -106,6 +106,17 @@ if(SERVER) then
 		end)
 	end)
 
+	hook.Add("PlayerDeath", "RefundSomerads", function(ply, inf, atk) 
+		local char = ply:getChar()
+		if(char) then
+			local rads = char:getRad()
+
+			if(rads >= dmgThreshold) then
+				char:setRad(rads-60)
+			end
+		end
+	end)
+
 else--client
 	nut.bar.add(function()
 		if(LocalPlayer():getChar()) then --just to be safe
