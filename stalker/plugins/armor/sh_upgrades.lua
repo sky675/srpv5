@@ -787,7 +787,7 @@ local upgrades = {
 		--item variables
 		desc = "A *larger* plate for a suit. Cannot downgrade to a lower armor level.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 70000, --price for item
+		price = 50000, --price for item
 		width = 2,
 		height = 1,
 		weight = 1.8,
@@ -825,7 +825,7 @@ local upgrades = {
 		--item variables
 		desc = "A *better* plate for a suit. Cannot downgrade to a lower armor level.",
 		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
-		price = 50000, --price for item
+		price = 30000, --price for item
 		width = 2,
 		height = 1,
 		weight = 1.2,
