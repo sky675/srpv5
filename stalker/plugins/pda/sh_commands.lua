@@ -78,7 +78,7 @@ nut.command.add("pdafaction", {
 	end,
 })
 nut.command.add("pdaobit", {
-	desc = "Create an obituary message. Use quotes for each arguments. Example: /pdaobit \"name, faction\" \"in location\" \"death reason/body description\"",
+	desc = "Create an obituary message. Use quotes for each arguments. Periods unnecessary. Example: /pdaobit \"name, faction\" \"in location\" \"death reason/body description\"",
 	syntax = "<string namefaction> <string location> <string deathdesc>",
 	onRun = function(client, arguments)
         if(!client:IsAdmin() and !client:IsUserGroup("operator")) then return "@noPerm" end
