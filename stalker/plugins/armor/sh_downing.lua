@@ -84,6 +84,7 @@ nut.command.add("plyrevive", {
 		target:setNetVar("neardeath", nil)
 		target:setNetVar("startdown", nil)
 		target:setNetVar("canrevive", nil)
+		target:setNetVar("canresp", nil)
 		target:setNetVar("canscirevive", nil)
 		target:setNetVar("canplatrevive", nil)
 		target:SetHealth(target:GetMaxHealth())
