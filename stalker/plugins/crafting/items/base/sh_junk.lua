@@ -191,6 +191,8 @@ ITEM.functions.take = {
 		inventory:add(item.uniqueID, item:getQuantity())
 			:next(function(res)
 				client.itemTakeTransaction = nil
+				PrintTable(res)
+				hook.Run("OnItemPickup", res, client, entity)
 
 				if (IsValid(entity)) then
 					entity.nutIsSafe = true
@@ -199,7 +201,8 @@ ITEM.functions.take = {
 				item:remove()
 
 				if (not IsValid(client)) then return end
-				nut.log.add(client, "itemTake", name, 1)
+				//nut.log.add(client, "itemTake", name, 1)
+				nut.log.add(client, "itemTake", name.."#"..res.id, 1)
 
 				d:resolve()
 			end)

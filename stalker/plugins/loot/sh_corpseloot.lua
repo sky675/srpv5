@@ -81,13 +81,13 @@ PLUGIN.dropTables = {
 	},
 	["npc_vj_srp_m_zombie"] = {
 		loot = {
-			{"part_zombie", 5},
+			{"part_zombie", 9},
 			{"ammo_45acp_old", 2},
 			{"ammo_9x19_old", 2},
 			{"ammo_9x18_old", 2},
 			{"ammo_762x25_old", 2},
 			{"ammo_buckshot_old", 1},
-			{"none", 5},
+			{"none", 6},
 		},
 		knife = 1,
 		lootAmt = {1,3},
@@ -432,6 +432,7 @@ if(SERVER) then
 						--entity:Remove()
 					end
 					
+
 					client.shipmentTransaction = nil
 					netstream.Start(client, "takeShp", uniqueID, amount)
 				end
@@ -454,6 +455,11 @@ if(SERVER) then
 								client:notifyLocalizedL(res.error, 3)
 							elseif (not res.error) then
 								itemTaken()
+								print("res ")
+								PrintTable(res)
+								if(res.id) then
+									hook.Run("OnItemPickup", res, client, entity)
+								end
 							end
 						end, function(error)
 							client:notifyLocalizedL(error, 3)

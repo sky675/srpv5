@@ -39,13 +39,15 @@ NUT_ITEM_DEFAULT_FUNCTIONS = {
 				:next(function(res)
 					client.itemTakeTransaction = nil
 
+					hook.Run("OnItemPickup", res, client, entity)
+
 					if (IsValid(entity)) then
 						entity.nutIsSafe = true
 						entity:Remove()
 					end
 
 					if (not IsValid(client)) then return end
-					nut.log.add(client, "itemTake", item.name, 1)
+					nut.log.add(client, "itemTake", item.name.."#"..res.id, 1)
 
 					d:resolve()
 				end)
