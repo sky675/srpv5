@@ -78,9 +78,9 @@ ITEM:postHook("Equip", function(item, result, data)
 		end
 	end
 	if(mat) then
-		item.player:SetSubMaterial(mat, "models/sky/stalker/seva_free")
+		item.player:SetSubMaterial(mat, "models/sky/stalker/seva_mono2")
 		local sub = item.player:getChar():getData("submat", {})
-		sub["seva_lone"] = "models/sky/stalker/seva_free"
+		sub["seva_lone"] = "models/sky/stalker/seva_mono2"
 		item.player:getChar():setData("submat", sub)
 	end
 end)
