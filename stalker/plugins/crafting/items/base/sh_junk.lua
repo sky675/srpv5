@@ -191,8 +191,14 @@ ITEM.functions.take = {
 		inventory:add(item.uniqueID, item:getQuantity())
 			:next(function(res)
 				client.itemTakeTransaction = nil
-				PrintTable(res)
-				hook.Run("OnItemPickup", res, client, entity)
+				--PrintTable(res)
+				if(res.id) then
+					hook.Run("OnItemPickup", v, client, entity)
+				else
+					for k,v in pairs(res) do
+						hook.Run("OnItemPickup", v, client, entity)
+					end
+				end
 
 				if (IsValid(entity)) then
 					entity.nutIsSafe = true
