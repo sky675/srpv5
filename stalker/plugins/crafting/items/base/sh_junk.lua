@@ -193,7 +193,7 @@ ITEM.functions.take = {
 				client.itemTakeTransaction = nil
 				--PrintTable(res)
 				if(res.id) then
-					hook.Run("OnItemPickup", v, client, entity)
+					hook.Run("OnItemPickup", res, client, entity)
 				else
 					for k,v in pairs(res) do
 						hook.Run("OnItemPickup", v, client, entity)

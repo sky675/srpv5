@@ -6,6 +6,7 @@ PLUGIN.desc = "will return items that a player who died picked up in the few min
 if(SERVER) then
 	hook.Add("OnItemPickup", "return", function(item, ply, ent)
 		if(!IsValid(ply)) then return end
+		if(!item) then return end
 
 		//this is uh fine
 		ply.lastitems = ply.lastitems or {}
