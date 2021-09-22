@@ -1176,6 +1176,8 @@ hook.Add("InitPostEntity", "arcweps_patch", function()
 
 				return val
 			end
+			function bwep:ToggleCustomizeHUD()
+			end
 		end
 	end
 
