@@ -126,6 +126,7 @@ function PLUGIN:ToggleFreeze(grp)
 		for k, ply in ipairs(group.players) do
 			if(IsValid(ply)) then
 				ply:Lock()
+				ply:SetNoTarget(true)
 			end
 		end
 	else
@@ -139,6 +140,7 @@ function PLUGIN:ToggleFreeze(grp)
 			for k, ply in ipairs(group.players) do
 				if(IsValid(ply)) then
 					ply:UnLock()
+					ply:SetNoTarget(false)
 				end
 			end
 		end)
@@ -154,6 +156,7 @@ function PLUGIN:AddUserToGroup(grp, ply)
 	table.insert(group.players, ply)
 	if(group.paused) then
 		ply:Lock()
+		ply:SetNoTarget(true)
 	end
 	self.pauseGroup[grp] = group
 end
@@ -173,6 +176,7 @@ function PLUGIN:RemoveUserFromGroup(grp, ply)
 	end
 	if(group.paused) then
 		ply:UnLock()
+		ply:SetNoTarget(false)
 	end
 end
 
@@ -184,6 +188,7 @@ function PLUGIN:DisbandGroup(grp)
 		if(group.paused) then
 			if(IsValid(ply)) then
 				ply:UnLock()
+				ply:SetNoTarget(false)
 			end
 		end
 	end
