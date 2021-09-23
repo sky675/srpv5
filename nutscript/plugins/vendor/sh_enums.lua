@@ -2,7 +2,7 @@
 VENDOR_WELCOME = 1
 VENDOR_LEAVE = 2
 VENDOR_NOTRADE = 3
-
+--lua_run local ent = Player(14):GetEyeTrace().Entity for k,v in pairs(nut.item.list) do ent.items[k] = {[3] = 3} end nut.plugin.list.vendor:saveVendors()
 -- Keys for item information.
 VENDOR_PRICE = 1
 VENDOR_STOCK = 2
