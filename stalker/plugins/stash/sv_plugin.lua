@@ -152,6 +152,8 @@ function PLUGIN:DoStashRequest(client)
 			end
 		end
 
+		nut.log.addRaw(client:Name().." ("..client:SteamID()..") accessed their stash")
+
 		if (!char.firstInit) then
 			char.firstInit = true
 			-- why?
@@ -220,9 +222,11 @@ netstream.Hook("stashIn", function(client, itemID)
 						client:notifyLocalizedL("stashError", 3)
 						return
 					end
-
+					local name = item:getName()
 					item:removeFromInventory(true):next(function()
 						clientStash[itemID] = true
+
+						nut.log.addRaw(client:Name().." ("..client:SteamID()..") put "..name.." #"..itemID.." into their stash")
 
 						char:setStash(clientStash)
 						netstream.Start(client, "stashIn")
@@ -266,6 +270,8 @@ netstream.Hook("stashOut", function(client, itemID)
 						
 					inventory:add(item):next(function()
 						clientStash[itemID] = nil
+
+						nut.log.addRaw(client:Name().." ("..client:SteamID()..") took "..item:getName().." #"..itemID.." out of their stash")
 
 						char:setStash(clientStash)
 						netstream.Start(client, "stashOut")
