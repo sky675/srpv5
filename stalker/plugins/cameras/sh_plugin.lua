@@ -74,33 +74,36 @@ hook.Add("SetupMove", "cammovement", function(ply, mov, cmd)
 	--put thing to only do this if touched a or d
 	local cams = PLUGIN:GetCameras(ply:GetNW2String("viewcamid"))
 	if(!cams or #cams == 0) then return end --just in case
-	local id = ply:GetNW2Int("viewcamentid",1)--table.KeyFromValue(cams, ply:GetNW2Entity("viewcament")) or 1
-	--i thiiiiiiiiink this should work?
-	--print("move ",cmd:KeyDown(IN_MOVELEFT),cmd:KeyDown(IN_MOVERIGHT))
-	--ok now if pressed a, move id down one, 
-	if(mov:KeyPressed(IN_MOVELEFT)) then --left, so down
-		--and if not in cams make it 1 instead
-		if(id != 1) then
-			id = id - 1
-		end
-		--and ofc set new ent to that
-		ply:SetNW2Int("viewcamentid", id)
-		ply:SetNW2Entity("viewcament", cams[id])
+	if(!ply.camcd or ply.camcd < CurTime()) then
+		ply.camcd = CurTime()+2
+		local id = ply:GetNW2Int("viewcamentid",1)--table.KeyFromValue(cams, ply:GetNW2Entity("viewcament")) or 1
+		--i thiiiiiiiiink this should work?
+		--print("move ",cmd:KeyDown(IN_MOVELEFT),cmd:KeyDown(IN_MOVERIGHT))
+		--ok now if pressed a, move id down one, 
+		if(mov:KeyPressed(IN_MOVELEFT)) then --left, so down
+			--and if not in cams make it 1 instead
+			if(id != 1) then
+				id = id - 1
+			end
+			--and ofc set new ent to that
+			ply:SetNW2Int("viewcamentid", id)
+			ply:SetNW2Entity("viewcament", cams[id])
 
-	--else if pressed d move it up one instead,
-	elseif(mov:KeyPressed(IN_MOVERIGHT)) then --right, so sup
-		--and if 0 make it max cams
-		if(id == #cams) then
-			
+		--else if pressed d move it up one instead,
+		elseif(mov:KeyPressed(IN_MOVERIGHT)) then --right, so sup
+			--and if 0 make it max cams
+			if(id == #cams) then
+				
+			else
+				id = id + 1
+			end
+			--and ofc do same
+			ply:SetNW2Int("viewcamentid", id)
+			ply:SetNW2Entity("viewcament", cams[id])
+
 		else
-			id = id + 1
+			--nothing?
 		end
-		--and ofc do same
-		ply:SetNW2Int("viewcamentid", id)
-		ply:SetNW2Entity("viewcament", cams[id])
-
-	else
-		--nothing?
 	end
 
 	mov:SetVelocity(Vector(0,0,0))
