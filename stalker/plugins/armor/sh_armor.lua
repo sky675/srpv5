@@ -187,11 +187,11 @@ local ammoProtect = {
 		normal = {[ARMOR_III] = 0.6, [ARMOR_IV] = 0.4},
 		ap = {[ARMOR_IV] = 0.6},
 	},
-	["sky57"] = {
-		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.4,[ARMOR_II] = 1.3, [ARMOR_IIIA] = 1.2, [ARMOR_III] = 0.75, [ARMOR_IV] = 0.3},
-		normal = {[ARMOR_IV] = 0.4},
+	["sky46"] = {
+		jhp = {[ARMOR_NONE] = 1.4, [ARMOR_IIA] = 1.25,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.8, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.3},
+		normal = {[ARMOR_III] = 0.6, [ARMOR_IV] = 0.4},
 		ap = {[ARMOR_IV] = 0.6},
-	}
+	},
 	--23mm and 338 pens everything so not here
 }
 
