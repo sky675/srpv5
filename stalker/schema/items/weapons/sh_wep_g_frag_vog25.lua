@@ -1,5 +1,5 @@
 ITEM.name = "VOG-25 Grenade" --tier 4 grenade
-ITEM.desc = "A fragmentation grenade. Has a medium-sized blast radius and a 3 second timer."
+ITEM.desc = "A fragmentation grenade. Has a medium-sized blast radius and a 2 second timer."
 ITEM.price = 5289
 ITEM.model = "models/eft_grenades/grenade vog-25 khattabka.mdl"
 ITEM.width = 1

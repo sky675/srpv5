@@ -1,5 +1,5 @@
 ITEM.name = "F1 Grenade" --tier 4 grenade
-ITEM.desc = "A fragmentation grenade. Has a medium-sized blast radius and a 3 second timer."
+ITEM.desc = "A fragmentation grenade. Has a medium-sized blast radius and a 3.5 second timer."
 ITEM.price = 5289
 ITEM.model = "models/eft_grenades/grenade f-1.mdl"
 ITEM.width = 1

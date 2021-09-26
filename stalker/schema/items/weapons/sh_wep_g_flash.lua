@@ -1,5 +1,5 @@
 ITEM.name = "Flashbang" --tier 4 grenade
-ITEM.desc = "A flashbang. Has a 2 second timer."
+ITEM.desc = "A flashbang. Has a 2.5 second timer."
 ITEM.price = 3300
 ITEM.model = "models/weapons/arccw_go/w_eq_flashbang_thrown.mdl"
 ITEM.width = 1
