@@ -432,7 +432,7 @@ PLUGIN.recipeList = {
 		model = "models/wick/wrbstalker/anomaly/items/dez_stim1.mdl",
 		workbench = {["basic"] = true,},
 		traits = {
-			["crafting"] = 1,
+			--["crafting"] = 1,
 			["tech_med"] = 1,
 		},
 		requirements = {
@@ -451,7 +451,7 @@ PLUGIN.recipeList = {
 		model = "models/wick/wrbstalker/anomaly/items/dez_stim2.mdl",
 		workbench = {["basic"] = true,},
 		traits = {
-			["crafting"] = 2,
+			--["crafting"] = 2,
 			["tech_med"] = 1,
 		},
 		requirements = {
@@ -470,7 +470,7 @@ PLUGIN.recipeList = {
 		model = "models/wick/wrbstalker/anomaly/items/dez_stim2.mdl",
 		workbench = {["basic"] = true,},
 		traits = {
-			["crafting"] = 2,
+			--["crafting"] = 2,
 			["tech_med"] = 2,
 		},
 		requirements = {
@@ -489,7 +489,7 @@ PLUGIN.recipeList = {
 		model = "models/wick/wrbstalker/anomaly/items/wick_dev_aptechka_high.mdl",
 		workbench = {["basic"] = true,},
 		traits = {
-			["crafting"] = 2,
+			--["crafting"] = 2,
 			["tech_med"] = 1,
 		},
 		requirements = {
@@ -509,7 +509,7 @@ PLUGIN.recipeList = {
 		model = "models/wick/wrbstalker/anomaly/items/wick_dev_aptechka_mid.mdl",
 		workbench = {["basic"] = true,},
 		traits = {
-			["crafting"] = 2,
+			--["crafting"] = 2,
 			["tech_med"] = 2,
 		},
 		requirements = {
