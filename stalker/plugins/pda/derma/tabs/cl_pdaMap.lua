@@ -8,6 +8,11 @@ local MAP_TEXTURES = {
         texture = Material("sky/pda_maps/crossroads.png"),
         sizeX = 1920,
         sizeY = 1080
+    },
+    ["rp_jupiter_remaster"] = {
+        texture = Material("sky/pda_maps/rp_jupiter_remaster.png"),
+        sizeX = 1920,
+        sizeY = 1080
     }
 }
 
