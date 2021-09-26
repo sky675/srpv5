@@ -5,7 +5,7 @@ ITEM.model = "models/kali/miscstuff/stalker/food/bread.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.19
-ITEM.hungerAmt = 13
+ITEM.hungerAmt = 18
 ITEM.thirstAmt = -2
 
 ITEM.useSound = "interface/inv_eat_paperwrap.ogg"

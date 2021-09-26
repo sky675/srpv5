@@ -1,6 +1,6 @@
 ITEM.name = "Stale bread loaf"
 ITEM.desc = "A stale loaf of bread from Russia."
-ITEM.price = 500
+ITEM.price = 400
 ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_bred.mdl"
 ITEM.width = 1
 ITEM.height = 1
