@@ -464,6 +464,7 @@ PLUGIN.objs = {
 			SpawnEnemies(enem, area.enemySpawns, used,
 				math.random(4,5), math.random(2,3),
 				function(npc)
+					npc.DisableWandering = true
 					if(!canspawn) then return end
 					
 					if(!spawnedBounty && math.random(1,6) == 2) then
@@ -517,7 +518,10 @@ PLUGIN.objs = {
 			local eid = math.random(#enem)
 
 			SpawnEnemies(enem[eid], area.enemySpawns, used,
-				math.random(5,7), math.random(3,4)) --again prob scale
+				math.random(5,7), math.random(3,4), 
+				function(npc)
+					npc.DisableWandering = true
+				end) --again prob scale
 
 			if(#ents.FindByClass("sky_bb") == 0) then return end --no bountyboards spawned rn
 	
