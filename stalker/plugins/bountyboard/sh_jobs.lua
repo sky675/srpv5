@@ -72,10 +72,25 @@ local genericItemTbl = {
 		},
 	},
 	{
+		uniqueID = "part_zombie",
+		counts = {
+			{count = 2, rewards = {400,500,550}},
+			{count = 3, rewards = {550,600,650}},
+			{count = 4, rewards = {650,700,750}},
+		},
+	},
+	{
 		uniqueID = "patch_bandit",
 		counts = {
 			{count = 5, rewards = {1550,1500,1600}},
 			{count = 7, rewards = {1950,1900,2000}},
+		},
+	},
+	{
+		uniqueID = "patch_mono",
+		counts = {
+			{count = 2, rewards = {1550,1500,1600}},
+			{count = 3, rewards = {1950,1900,2000}},
 		},
 	},
 	{
@@ -91,7 +106,9 @@ local genericItemPlurs = {
 	["part_dog"] = "Dog Tails",
 	["part_flesh"] = "Flesh Eyes",
 	["part_bloodsucker"] = "Bloodsucker Jaws",
+	["part_zombie"] = "Zombie Hands",
 	["patch_bandit"] = "Bandit Patches",
+	["patch_mono"] = "Monolith Patches",
 }
 
 --job templates
@@ -176,13 +193,16 @@ PLUGIN.jobTemps = {
 		generate = function(npc) --return a table, gets merged with curjob
 			local id
 			local rand = bountyItems[math.random(#bountyItems)]
+			local ite
 			nut.item.instance(0, "run_obj", {
 				customName = rand.name,
 				customDesc = rand.desc,
 				customMdl = rand.model
 			}, 1, 1, function(item)
 				id = item.id
+				ite = item
 			end)
+			ite:setData("jobid", id)
 			npc:setNetVar("dropitem", id)
 
 			--THIS IS FINE, THE CUSTOM FUNCTION DOES IT CORRECTLY
@@ -195,7 +215,54 @@ PLUGIN.jobTemps = {
 		onTurnIn = function(client, job) 
 			local has = false
 			for k,v in pairs(client:getChar():getInv():getItems()) do
-				if(v.id == job.itemid) then --psure k is the same too but idk
+				if(v:getData("jobid", 0) == job.itemid) then --psure k is the same too but idk
+					has = true
+					v:remove()
+				end
+			end
+			return has
+		end,
+		giveReward = function(client, job)
+			client:getChar():giveMoney(job.reward)
+			client:notify("Received "..nut.currency.get(job.reward))
+		end
+	},
+	["mutantbounty"] = { --this is randomly placed in autoevents, so its unique and has a few unique functions with different args
+		name = "Clear the %s Lair at %s - %s", --formatted, %s
+		desc = "Find and clear the specified mutant lair and deliver the special item found inside.", --generic desc? idk
+		unique = true, --uncomment to prevent this from being random gen
+		generate = function() --return a table, gets merged with curjob
+			local id
+			local rand = bountyItems[math.random(#bountyItems)]
+			local ite
+			nut.item.instance(0, "run_obj", {
+				customName = rand.name,
+				customDesc = rand.desc,
+				customMdl = rand.model,
+			}, 1, 1, function(item)
+				id = item.id
+				ite = item
+			end)
+
+			ite:setData("jobid", id)
+
+			--THIS IS FINE, THE CUSTOM FUNCTION DOES IT CORRECTLY
+			return ite, id, bountyPrices[math.random(#bountyPrices)]
+		end,
+		format = function(eid, area, job) --format table, return table
+			local enem = {
+				"Bloodsucker",
+				"Dog",
+				"Snork",
+			}
+
+			return {enem[eid] or "???", area.name, nut.currency.get(job)}
+		end,
+		--checked when you try and turn it in, return true/false
+		onTurnIn = function(client, job) 
+			local has = false
+			for k,v in pairs(client:getChar():getInv():getItems()) do
+				if(v:getData("jobid", 0) == job.itemid) then --psure k is the same too but idk
 					has = true
 					v:remove()
 				end
