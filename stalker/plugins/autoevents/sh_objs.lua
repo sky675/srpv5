@@ -99,7 +99,7 @@ local function SpawnEnemies(enmlist, spawntable, run, amt, minamt, callback)
 			--spawn at pos
 			enm = enm+1
 			local np = ents.Create(enmlist[math.random(#enmlist)])
-			if(np) then
+			if(IsValid(np)) then
 				np:SetPos(v[1])
 				np:SetAngles(v[2])
 				if(!np.NEXTBOT and np:IsNPC()) then
@@ -372,7 +372,7 @@ local mutantposs = {
 	{
 		name = "DOGS",
 		list = {
-			"npc_wick_mutant_dog"
+			"npc_vj_srp_m_dog"
 		},
 	},
 	{
@@ -457,11 +457,15 @@ PLUGIN.objs = {
 				--"nb_srp_anorak_bandit",
 				"npc_vj_srp_anorak_rogue",
 			}
+			local canspawn = true			
+			if(#ents.FindByClass("sky_bb") == 0) then canspawn = false end --no bountyboards spawned rn
 
 			local spawnedBounty = false
 			SpawnEnemies(enem, area.enemySpawns, used,
-				math.random(3,5), math.random(1,2),
+				math.random(4,5), math.random(2,3),
 				function(npc)
+					if(!canspawn) then return end
+					
 					if(!spawnedBounty && math.random(1,6) == 2) then
 						spawnedBounty = true
 						local job = nut.plugin.list.bountyboard.jobTemps["banditbounty"]
@@ -481,6 +485,61 @@ PLUGIN.objs = {
 				end) --again prob scale
 
 			SpawnLoot(area.itemSpawns, used, math.random(4,6), math.random(2,3))
+
+		end,
+		checkComplete = function(obj, used)
+			return CheckAliveEnemies(used.enemies) == 0
+		end,
+		onCleanup = function(used)
+			for k,v in pairs(used.enemies or {}) do
+				if(IsValid(v)) then v:Remove() end
+			end
+			--leave items lol
+			for k,v in pairs(used.other or {}) do
+				if(IsValid(v)) then v:Remove() end
+			end
+		end
+	},
+	[3] = {
+		name = "Mutant Lair",
+		--available = true,
+		--needplayers = false,
+		onSpawn = function(obj, area, used) 
+			used.other = used.other or {}
+			SpawnRandomProps(area.props, used.other)
+
+			local enem = {
+				--"nb_srp_anorak_bandit",
+				{"npc_vj_srp_m_bloodsucker"},
+				{"npc_vj_srp_m_dog"},
+				{"npc_vj_srp_m_snork"},
+			}
+			local eid = math.random(#enem)
+
+			SpawnEnemies(enem[eid], area.enemySpawns, used,
+				math.random(5,7), math.random(3,4)) --again prob scale
+
+			if(#ents.FindByClass("sky_bb") == 0) then return end --no bountyboards spawned rn
+	
+			if(math.random(1,4) == 2) then
+				local job = nut.plugin.list.bountyboard.jobTemps["mutantbounty"]
+
+				local item, id, reward = job.generate()
+				if(!id) then return end --uh just in case
+
+				local tbl = {
+					name = Format(job.name, unpack(job.format(eid, area, reward))),
+					unique = true,
+					type = "mutantbounty",
+					itemid = id,
+					["reward"] = reward
+				}
+				nut.plugin.list.bountyboard:ForceJob(tbl)
+				
+				item:spawn(area.itemSpawns[math.random(#area.itemSpawns)][2]+Vector(0,0,15))
+			end
+
+			--SpawnLoot(area.itemSpawns, used, math.random(4,6), math.random(2,3))
 
 		end,
 		checkComplete = function(obj, used)
