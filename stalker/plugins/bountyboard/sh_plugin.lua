@@ -28,7 +28,7 @@ nut.command.add("bountyCustom", {
 	desc = "allows to create a custom bounty for the dropped item you are looking at with specified reward",
 	onRun = function(client, arguments)
 		local tr = client:GetEyeTrace()
-		if(!tr.Hit or !IsValid(tr.Entity) or !tr.Entity:GetClass() != "nut_item") then return "not looking at item" end
+		if(!tr.Hit or !IsValid(tr.Entity) or tr.Entity:GetClass() != "nut_item") then return "not looking at item" end
 
 		local item = tr.Entity.nutItemID
 		local name = tr.Entity:getItemTable().name
@@ -151,7 +151,7 @@ if(SERVER) then
 
 	netstream.Hook("bbGetJobs", function(client)
 		local jobs = {}
-		for k,v in pairs(self.curJobs) do
+		for k,v in pairs(PLUGIN.curJobs) do
 			jobs[k] = {
 				name = v.name,
 				type = v.type

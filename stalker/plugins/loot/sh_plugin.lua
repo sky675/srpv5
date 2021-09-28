@@ -651,9 +651,9 @@ PLUGIN.maxItems = 40			--this V is not correct anymore
 PLUGIN.minItems = 15
 PLUGIN.spawnRate = {5400,9600}--a little over 2 hr to a little under 4 hr, seems like a little too much for me but eh{4800,7200} --1 hr to 2 hr until next spawn
 PLUGIN.maxSpawnThresh = 0.5 --if its time for next spawn, and #curItems/maxItems > maxSpawnThresh, items will not be spawned this round
-PLUGIN.minplayers = 6
+PLUGIN.minplayers = 7
 --this is minused by the min players, original was 18
-PLUGIN.maxplayers = 12
+PLUGIN.maxplayers = 16
 
 PLUGIN.curSpawnRate = PLUGIN.curSpawnRate or 0
 PLUGIN.curSpawnTime = PLUGIN.curSpawnTime or 0

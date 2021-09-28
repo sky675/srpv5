@@ -84,6 +84,7 @@ PLUGIN.curUsed = PLUGIN.curUsed or {}
 
 PLUGIN.curNextSpawn = PLUGIN.curNextSpawn or nil
 PLUGIN.spawnTimer = {5800,8400} --idk for now
+PLUGIN.minplayers = 7
 
 if(SERVER) then
 	--moved so i can manually restart it
@@ -101,11 +102,20 @@ if(SERVER) then
 			if(mon != 1 and math.random(1,mon) == 1) then return end --% to not do anything
 			self.curNextSpawn = CurTime()+math.random(self.spawnTimer[1], self.spawnTimer[2])
 
+			local num = 0
+			local go = false
+			for k, v in ipairs(player.GetAll()) do
+				num = num + 1
+				if(num > PLUGIN.minplayers) then go = true end 
+				if(v:IsSuperAdmin()) then go = true end
+				if(go) then break end
+			end
+			if(!go) then return end
 
 			--if i do area first, ones that only have 1 area like mutant attack
 			--will be very rare
 			local valobj = {}
-			for k,v in pairs(self.objs) do
+			for k,v in ipairs(self.objs) do
 				if(v.available == false) then
 				else --idk if != will work with ^
 					valobj[#valobj+1] = k
@@ -126,7 +136,7 @@ if(SERVER) then
 				--this could be bad since were doing probably a bunch at once
 				local nearby = ents.FindInSphere(v.origin, v.radius)
 				local found = self.objs[obj].needplayers or false
-				for k2,v2 in pairs(nearby) do
+				for k2,v2 in ipairs(nearby) do
 					if(IsValid(v2) 
 						&& v2:GetClass():lower() == "player" 
 						&& v2:GetMoveType() != MOVETYPE_NOCLIP) then
@@ -174,7 +184,7 @@ if(SERVER) then
 		local area = self.areas[map][areaid]
 		if(obj == nil) then
 			local valobj = {}
-			for k,v in pairs(self.objs) do
+			for k,v in ipairs(self.objs) do
 				if(area.objs[k]) then
 					valobj[valobj+1] = k
 				end
