@@ -686,7 +686,7 @@ PLUGIN.recipeList = {
 		ingredients = {
 			["detect_bear"] = 1,
 			["junk_militaryboard"] = 1,
-			["junk_gyroscope"] = 1,
+			["junk_virtex"] = 2,
 			["junk_boxres"] = 7,
 		},
 		result = "detect_veles",
