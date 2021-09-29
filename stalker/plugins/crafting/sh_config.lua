@@ -2783,6 +2783,46 @@ this upgrade is PERMANENT and cannot be reverted]],
 			})
 		end,
 	}, 
+	["weaponmod_mp5_long"] = {
+		name = "MP5 Carbine Barrel Upgrade",
+		desc = [[temp name maybe
+adds the long-length 500mm carbine barrel upgrade to a MP5
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/acwatt_go_mac10_barrel_med.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 1,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit1"] = true, },
+		customIng = "1x any unequipped MP5",
+		customRes = "1x that unequipped MP5 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			--["comp_mech2"] = 2,
+			["comp_scrap_metal"] = 4,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_go_mp5", {
+				["go_mp5_barrel"] = "none",
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["go_mp5_barrel"] = "go_mp5_barrel_long"
+			})
+		end,
+	}, 
 	--mac10 patrol barrel - arccw_go_mac10 - go_mac10_barrel=go_mac10_barrel_med
 	["weaponmod_mac10_med"] = {
 		name = "MAC-10 Patrol Barrel Upgrade",
