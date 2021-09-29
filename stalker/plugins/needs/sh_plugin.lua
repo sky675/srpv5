@@ -121,8 +121,8 @@ if(SERVER) then
 					local thirst = char:GetThirst()
 					local curTime = CurTime() --micro optimization :)
 
-					if(thirst > 0) then					--460
-						if(curTime - lastCheckThir > (690 * nut.traits.getMod(ply, "thirst"))) then
+					if(thirst > 0) then					--460, 690
+						if(curTime - lastCheckThir > (890 * nut.traits.getMod(ply, "thirst"))) then
 							char:SetThirst(thirst - 1)
 							lastCheckThir = curTime
 						end
@@ -133,8 +133,8 @@ if(SERVER) then
 						end
 					end
 					
-					if(hunger > 0) then					--540
-						if(curTime - lastCheckHung > (770 * nut.traits.getMod(ply, "hunger"))) then
+					if(hunger > 0) then					--540, 770
+						if(curTime - lastCheckHung > (970 * nut.traits.getMod(ply, "hunger"))) then
 							char:SetHunger(hunger - 1)
 							lastCheckHung = curTime
 						end
