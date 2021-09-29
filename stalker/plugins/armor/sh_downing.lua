@@ -134,9 +134,10 @@ nut.command.add("devutilhealth", {
 		local tr = client:GetEyeTrace()
 		if(tr.Entity) then
 			if(tr.Entity.Health) then
-				return tr.Entity:Health()
+				return "Health "..tr.Entity:Health()
 			end
 		end
+		return "could not find entity with health"
 	end
 })
 
