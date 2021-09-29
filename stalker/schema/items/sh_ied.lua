@@ -40,13 +40,13 @@ function ITEM:Detonate(ent, item)
 	util.Effect("Explosion", effectdata)
 	util.Decal("Scorch", ent:GetPos(), ent:GetPos()-Vector(0,0,15))
 	--util.Effect("Explode", effectdata)
-	ent.Damage = 180--110
-	util.BlastDamage(item:getOwner(), item:getOwner(), ent:GetPos(), math.pow( ent.Damage / 100,0.75) * 200, ent.Damage )
+	ent.Damage = 280--110
+	util.BlastDamage(item:getOwner(), item:getOwner(), ent:GetPos(), math.pow( ent.Damage / 100,0.9) * 350, ent.Damage )
 	shake = ents.Create("env_shake")
 	shake:SetOwner(item:getOwner())
 	shake:SetPos(ent:GetPos())
 	shake:SetKeyValue("amplitude", tostring(ent.Damage * 20)) -- Power of the shake
-	shake:SetKeyValue("radius", tostring( math.pow( ent.Damage / 100,0.75) * 500) ) -- Radius of the shake
+	shake:SetKeyValue("radius", tostring( math.pow( ent.Damage / 100,0.9) * 700) ) -- Radius of the shake
 	shake:SetKeyValue("duration", tostring( ent.Damage / 200 )) -- Time of shake
 	shake:SetKeyValue("frequency", "255") -- How har should the screenshake be
 	shake:SetKeyValue("spawnflags", "4") -- Spawnflags(In Air)
