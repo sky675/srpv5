@@ -6,7 +6,7 @@ ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.86
 ITEM.hungerAmt = 0
-ITEM.thirstAmt = 20
+ITEM.thirstAmt = 25
 
 ITEM.useSound = "interface/inv_drink_can.ogg"
 

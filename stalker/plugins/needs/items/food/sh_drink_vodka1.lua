@@ -9,7 +9,7 @@ ITEM.uses = 3
 ITEM.radGive = -8
 ITEM.radGiveTime = 10
 ITEM.hungerAmt = 2
-ITEM.thirstAmt = 9
+ITEM.thirstAmt = 16
 ITEM.alcrem = 3
 
 ITEM.useSound = "interface/inv_drink_flask.ogg"

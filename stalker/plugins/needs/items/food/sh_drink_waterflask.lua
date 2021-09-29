@@ -8,7 +8,7 @@ ITEM.weight = 1
 ITEM.radGive = -30
 ITEM.radGiveTime = 20
 ITEM.hungerAmt = 0
-ITEM.thirstAmt = 20
+ITEM.thirstAmt = 30
 ITEM.uses = 3
 
 ITEM.useSound = "interface/inv_drink_flask.ogg"

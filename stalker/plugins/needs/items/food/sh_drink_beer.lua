@@ -6,7 +6,7 @@ ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.71
 ITEM.hungerAmt = 4
-ITEM.thirstAmt = 10
+ITEM.thirstAmt = 16
 ITEM.alcrem = 2
 
 ITEM.useSound = "interface/inv_drink_flask.ogg"

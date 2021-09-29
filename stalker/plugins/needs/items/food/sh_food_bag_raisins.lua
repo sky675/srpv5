@@ -5,7 +5,7 @@ ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_raisins.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.05
-ITEM.hungerAmt = 15
+ITEM.hungerAmt = 30
 ITEM.thirstAmt = -5
 
 ITEM.useSound = "interface/inv_eat_paperwrap.ogg"

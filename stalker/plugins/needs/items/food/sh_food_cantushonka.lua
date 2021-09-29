@@ -5,7 +5,7 @@ ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_tushonka.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.34
-ITEM.hungerAmt = 54
+ITEM.hungerAmt = 85
 ITEM.thirstAmt = -20
 
 ITEM.useSound = "interface/inv_eat_can_open.ogg"

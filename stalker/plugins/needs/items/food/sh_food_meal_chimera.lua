@@ -6,7 +6,7 @@ ITEM.flag = "m"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.25
-ITEM.hungerAmt = 65
+ITEM.hungerAmt = 80
 ITEM.radGive = 30
 ITEM.radGiveTime = 5
 

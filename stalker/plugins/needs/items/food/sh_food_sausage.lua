@@ -5,7 +5,7 @@ ITEM.model = "models/kali/miscstuff/stalker/food/diet sausage.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.11
-ITEM.hungerAmt = 17
+ITEM.hungerAmt = 34
 
 ITEM.useSound = "interface/inv_eat_mutant_food.ogg"
 

@@ -5,7 +5,7 @@ ITEM.model = "models/illusion/eftcontainers/alyonka.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.19
-ITEM.hungerAmt = 13
+ITEM.hungerAmt = 26
 ITEM.thirstAmt = -4
 
 ITEM.useSound = "interface/inv_eat_paperwrap.ogg"

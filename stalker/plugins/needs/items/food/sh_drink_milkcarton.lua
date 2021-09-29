@@ -6,7 +6,7 @@ ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 4.4
 ITEM.hungerAmt = 0
-ITEM.thirstAmt = 15
+ITEM.thirstAmt = 20
 ITEM.radGive = 10
 ITEM.radGiveTime = 5
 

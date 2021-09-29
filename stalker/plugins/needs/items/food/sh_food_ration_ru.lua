@@ -5,7 +5,7 @@ ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_ration_ru.mdl"
 ITEM.width = 2
 ITEM.height = 1
 ITEM.weight = 0.2
-ITEM.hungerAmt = 53
+ITEM.hungerAmt = 90
 ITEM.thirstAmt = -20
 ITEM.uses = 7
 

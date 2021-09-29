@@ -5,7 +5,7 @@ ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_glucose_s.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.013
-ITEM.hungerAmt = 18
+ITEM.hungerAmt = 36
 ITEM.thirstAmt = -5
 ITEM.healthPerc = 0.04
 

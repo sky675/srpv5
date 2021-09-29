@@ -6,7 +6,7 @@ ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.33
 ITEM.hungerAmt = 5
-ITEM.thirstAmt = 21
+ITEM.thirstAmt = 29
 ITEM.dontalch = true
 ITEM.alcrem = -3
 
