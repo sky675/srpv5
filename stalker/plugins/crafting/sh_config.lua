@@ -378,7 +378,7 @@ PLUGIN.recipeList = {
 		workbench = {["basic"]=true,},
 		traits = { --traits requirements
 			["crafting"] = 1,--min level needed or true for no level ones,
-			["tech_med"] = 1,
+			--["tech_med"] = 1,
 		},
 		--[[
 		attribs = { --attrib requirements
@@ -405,7 +405,7 @@ PLUGIN.recipeList = {
 		workbench = {["basic"]=true,},
 		traits = { --traits requirements
 			["crafting"] = 1,--min level needed or true for no level ones,
-			["tech_med"] = 1,
+			--["tech_med"] = 1,
 		},
 		--[[
 		attribs = { --attrib requirements
