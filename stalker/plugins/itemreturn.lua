@@ -14,6 +14,8 @@ if(SERVER) then
 
 		ply.lastitems[id] = ent:GetPos()
 		timer.Create("lastpos"..id, 300, 1, function()
+			if(!IsValid(ply)) then return end
+			if(ply:getNetVar("neardeath")) then return end
 			if(!ply.lastitems) then return end
 			if(ply.lastitems[id]) then
 				ply.lastitems[id] = nil
