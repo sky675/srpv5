@@ -90,6 +90,7 @@ function ITEM:onCombineTo(target)
 		if(nut.traits and item.traitreq) then
 			nut.traits.addXp(item.player, item.traitreq.trait, item.xpinc or 1)
 
+			//this wont do anything if they dont have tech
 			nut.traits.addXp(item.player, "crafting_spec", up*2)
 		end
 

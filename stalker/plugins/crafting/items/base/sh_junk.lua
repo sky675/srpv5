@@ -208,7 +208,13 @@ ITEM.functions.take = {
 
 				if (not IsValid(client)) then return end
 				//nut.log.add(client, "itemTake", name, 1)
-				nut.log.add(client, "itemTake", name.."#"..res.id, 1)
+				if(res.id) then
+					nut.log.add(client, "itemTake", name.."#"..res.id, 1)
+				else
+					for k,v in pairs(res) do
+						nut.log.add(client, "itemTake", name.."#"..v.id, 1)
+					end
+				end
 
 				d:resolve()
 			end)
