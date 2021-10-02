@@ -8,7 +8,7 @@ ITEM.addWeight = 16
 ITEM.width = 2
 ITEM.height = 3
 ITEM.outfitCategory = "armor"
-ITEM.price = 58600--52600--44600--40300
+ITEM.price = 78600--58600--52600--44600--40300
 ITEM.flag = "3"
 ITEM.size = "medium" --helm, light, medium, heavy, mask, vest
 
@@ -119,10 +119,10 @@ end
 ITEM.upgradePath = "berill"
 ITEM.armor = {
 	chest = {level = ARMOR_III},
-	larm = {level = ARMOR_NONE},
-	rarm = {level = ARMOR_NONE},
-	lleg = {level = ARMOR_NONE},
-	rleg = {level = ARMOR_NONE},
+	larm = {level = ARMOR_II},
+	rarm = {level = ARMOR_II},
+	lleg = {level = ARMOR_II},
+	rleg = {level = ARMOR_II},
 }
 ITEM.resists = {
 	--burn

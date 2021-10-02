@@ -8,7 +8,7 @@ ITEM.addWeight = 16
 ITEM.width = 2
 ITEM.height = 3
 ITEM.outfitCategory = "armor"
-ITEM.price = 52600--44600--40300
+ITEM.price = 72600--52600--44600--40300
 ITEM.flag = "M"
 ITEM.size = "medium" --helm, light, medium, heavy, mask, vest
 ITEM.fakeFaction = FACTION_MILITARY
@@ -149,10 +149,10 @@ end
 ITEM.upgradePath = "berill"
 ITEM.armor = {
 	chest = {level = ARMOR_III},
-	larm = {level = ARMOR_IIA},
-	rarm = {level = ARMOR_IIA},
-	lleg = {level = ARMOR_IIA},
-	rleg = {level = ARMOR_IIA},
+	larm = {level = ARMOR_II},
+	rarm = {level = ARMOR_II},
+	lleg = {level = ARMOR_II},
+	rleg = {level = ARMOR_II},
 }
 ITEM.resists = {
 	--burn
