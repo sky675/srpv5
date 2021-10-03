@@ -126,27 +126,38 @@ function PANEL:onDisplay()
 								boot:DoClick()
 							end
 						end
+						--print("unpicking")
 
+						--print("lang before "..main.langtraits)
 						main.cost = main.cost - v.cost
 						if(v.category == "Languages") then
 							main.langtraits = main.langtraits - 1
 						end
 						if(k == "big_trilingual") then --remove one if nonenglish is chosen
 							--main.langtraits = main.langtraits - 1
-							if(main.lastchoselang) then
+							if(main.lastlangs and #main.lastlangs >= (nut.config.get("langTraits",2)-1)) then
+								--print("reset trilingual")
+								local lang = main.lastlangs[#main.lastlangs]
+
 								local tr = panel:getContext("traits", {})
-								tr[main.lastchoselang] = nil
+								tr[lang] = nil
 								panel:setContext("traits", tr)
 								--panel.payload.traits[main.lastchoselang] = nil
 								--panel.payload.data.traits[main.lastchoselang] = nil
-								buttons[main.lastchoselang].picked = nil
-								buttons[main.lastchoselang]:SetBGColor(Color(255,255,255))
-								buttons[main.lastchoselang]:SetTextColor(Color( 140, 140, 140, 255 ))
-								main.lastchoselang = nil
+								buttons[lang].picked = nil
+								buttons[lang]:SetBGColor(Color(255,255,255))
+								buttons[lang]:SetTextColor(Color( 140, 140, 140, 255 ))
+								table.remove(main.lastlangs, #main.lastlangs)
+								--main.langtraits = main.langtraits + 1
+								--if(main.langtraits > 1) then
+								--	main.langtraits = main.langtraits - 1
+								--end
 							else
+								--print("not reset")
 								main.langtraits = main.langtraits + 1
 							end
 						end
+						--print("lang after "..main.langtraits)
 						labpos:SetText(nut.config.get("traitPoints")-main.cost.." Trait Point(s), "..nut.config.get("langTraits")-main.langtraits.." Language(s)")
 						labneg:SetText(nut.config.get("negTraits")-main.negtraits.." Negative Trait Choice(s)")						labneg:SizeToContentsX()
 						labpos:SizeToContentsX()
@@ -181,13 +192,17 @@ function PANEL:onDisplay()
 							buttons[v.require].required = buttons[v.require].required or {}
 							buttons[v.require].required[k.."_"..i] = buttons[k.."_"..i]
 						end
+						--print("picking")
 
 						main.cost = main.cost + v.cost
 						if(v.category == "Languages") then
 							main.langtraits = main.langtraits + 1
-							main.lastchoselang = k
+							main.lastlangs = main.lastlangs or {}
+							main.lastlangs[#main.lastlangs+1] = k
+							--main.lastchoselang = k
 						end
 						if(k == "big_trilingual") then --remove one if nonenglish is chosen
+							--print("removing one")
 							main.langtraits = main.langtraits - 1
 						end
 						labpos:SetText(nut.config.get("traitPoints")-main.cost.." Trait Point(s), "..nut.config.get("langTraits")-main.langtraits.." Language(s)")
@@ -346,9 +361,29 @@ function PANEL:onDisplay()
 
 						main.cost = main.cost - v.cost
 						main.negtraits = main.negtraits - 1
-						if(k == "big_nonenglish") then --add one if nonenglish was unpicked
-							main.langtraits = main.langtraits + 1
+						if(k == "big_nonenglish") then --remove one if nonenglish is chosen
+							--main.langtraits = main.langtraits - 1
+							if(main.lastlangs and #main.lastlangs >= (nut.config.get("langTraits",2)-1)) then
+								--print("reset trilingual")
+								local lang = main.lastlangs[#main.lastlangs]
+
+								local tr = panel:getContext("traits", {})
+								tr[lang] = nil
+								panel:setContext("traits", tr)
+								--panel.payload.traits[main.lastchoselang] = nil
+								--panel.payload.data.traits[main.lastchoselang] = nil
+								buttons[lang].picked = nil
+								buttons[lang]:SetBGColor(Color(255,255,255))
+								buttons[lang]:SetTextColor(Color( 140, 140, 140, 255 ))
+								table.remove(main.lastlangs, #main.lastlangs)
+							else
+								--print("not reset")
+								main.langtraits = main.langtraits + 1
+							end
 						end
+						--if(k == "big_nonenglish") then --add one if nonenglish was unpicked
+						--	main.langtraits = main.langtraits + 1
+						--end
 						labpos:SetText(nut.config.get("traitPoints")-main.cost.." Trait Point(s), "..nut.config.get("langTraits")-main.langtraits.." Language(s)")
 						labneg:SetText(nut.config.get("negTraits")-main.negtraits.." Negative Trait Choice(s)")						labneg:SizeToContentsX()
 						labpos:SizeToContentsX()
