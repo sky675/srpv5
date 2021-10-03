@@ -114,7 +114,7 @@ SWEP.VElements = {
 }
 
 
-local anomalies = {
+SWEP.anomalies = {
 	--list of ["uniqueid"] = true that this detects
 	["art_dragoneye"] = true,
 	["art_basilisk"] = true,
@@ -242,7 +242,7 @@ function SWEP:Think()
 			if anomalies[string.lower(v:GetClass())] then
 				table.insert(anoms, v)
 			end]]
-			if(v.getItemID and anomalies[v:getItemID()]) then
+			if(v.getItemID and self.anomalies[v:getItemID()]) then
 				table.insert(anoms, v)
 			end
 			--im not entirely sure what else it should beep at so

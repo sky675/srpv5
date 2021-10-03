@@ -113,7 +113,7 @@ SWEP.WElements = {
 }
 
 
-local anomalies = {
+SWEP.anomalies = {
 	--list of ["uniqueid"] = true that this detects
 	["art_dragoneye"] = true,
 	["art_basilisk"] = true,

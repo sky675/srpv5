@@ -114,7 +114,7 @@ SWEP.WElements = {
 
 
 
-local anomalies = {
+SWEP.anomalies = {
 	--list of ["uniqueid"] = true that this detects
 	["art_dragoneye"] = true,
 	["art_basilisk"] = true,
@@ -214,7 +214,7 @@ function SWEP:Think()
 					local x, y = PointOnCircle( tstdeg, dest/30, -3, 21 )
 						
 					if dest < 700 then
-						if v.getItemID and anomalies[v:getItemID()] then
+						if v.getItemID and self.anomalies[v:getItemID()] then
 							--print(v:GetClass())
 							surface.SetDrawColor( 0, 255, 0, 255 )
 							DrawPointOnThatShit("icon16/control_play.png", x, y, v:GetAngles().yaw, 2 )

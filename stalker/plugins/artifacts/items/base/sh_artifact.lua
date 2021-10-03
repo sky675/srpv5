@@ -42,11 +42,15 @@ function ITEM:think(ent)
 	local nearby = ents.FindInSphere(ent:GetPos(), 200)
 	local set = true
 	for k,v in ipairs(nearby) do
-		if(v:IsPlayer() and IsValid(v:GetActiveWeapon()) 
-			and v:GetActiveWeapon():GetClass():find("detector")) then
+		if(v:IsPlayer()) then
+			local wep = v:GetActiveWeapon()
+			if(IsValid(wep)
+				and wep:GetClass():find("detector")
+				and wep.anomalies[self.uniqueID]) then
 
-			set = false
-			break --stop it lmao dont need the rest of it
+				set = false
+				break --stop it lmao dont need the rest of it
+			end
 		end
 	end
 	local active = !set
