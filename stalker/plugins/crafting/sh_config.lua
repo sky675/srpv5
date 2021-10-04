@@ -621,7 +621,7 @@ PLUGIN.recipeList = {
 			["junk_toolkit2"] = true,
 		},
 		ingredients = {
-			["comp_tech1"] = 4,
+			["comp_tech1"] = 5,
 			["junk_boxcap"] = 9,
 		},
 		result = "junk_militaryboard",
