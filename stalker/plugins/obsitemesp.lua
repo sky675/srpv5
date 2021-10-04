@@ -66,7 +66,7 @@ if CLIENT then
     end
 
     function PLUGIN:SetupQuickMenu(menu)
-    	if (LocalPlayer():IsSuperAdmin()) then
+    	if (LocalPlayer():IsAdmin()) then
             local buttonItem = menu:addCheck("Toggle Item ESP", function(panel, state)
                 if(state) then
                     RunConsoleCommand("nut_obsitemesp", "1")
