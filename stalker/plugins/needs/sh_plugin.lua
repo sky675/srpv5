@@ -127,10 +127,10 @@ if(SERVER) then
 							lastCheckThir = curTime
 						end
 					else
-						if(curTime - lastCheckThir > 60) then
+						--[[if(curTime - lastCheckThir > 60) then
 							ply:SetHealth(math.min(ply:GetMaxHealth(), ply:Health()-1))
 							lastCheckThir = curTime
-						end
+						end]]
 					end
 					
 					if(hunger > 0) then					--540, 770
@@ -139,10 +139,10 @@ if(SERVER) then
 							lastCheckHung = curTime
 						end
 					else
-						if(curTime - lastCheckHung > 60) then
+						--[[if(curTime - lastCheckHung > 60) then
 							ply:SetHealth(math.min(ply:GetMaxHealth(), ply:Health()-1))
 							lastCheckHung = curTime
-						end
+						end]]
 					end
 
 						--cannot decide between 60, 90, and 120
