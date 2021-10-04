@@ -50,6 +50,8 @@ if(SERVER) then
 				character:setData("health", nil)
 			end
 			
+			hook.Run("OnDownedFinish", ply, ply:getNetVar("lastatk"))
+
 			--maybe?
 			ply:setNetVar("neardeath", nil) --just to be safe
 			ply:Kill()
