@@ -156,6 +156,38 @@ function PANEL:Init()
 	end
 	y = y + self.partyBut:GetTall() + 5
 
+	self.colorLabel = self:Add("DLabel")
+	self.colorLabel:SetPos(10,y)
+	self.colorLabel:SetFont("nutSmallFont")
+	self.colorLabel:SetText("Color Status: If ORIGINAL, your handle color is white. If FACTION, it will be your factions main color.")
+	self.colorLabel:DockMargin(2,7,2,2)
+	self.colorLabel:Dock(TOP)
+	--netHandleLabel:SetWide(self.Content.Scroll:GetWide())
+	self.colorLabel:SetWrap(true)
+	self.colorLabel:SetAutoStretchVertical(true)
+	--pdaLabel:SizeToContents()
+
+
+	y = y + self.colorLabel:GetTall() + 22
+
+	self.colorBut = self:Add("DButton")
+	self.colorBut:SetPos(10,y)
+	self.colorBut:SetSize(ScrW()*0.15, 22)--80,22)
+	self.colorBut:DockMargin(2,22,2,2)
+	self.colorBut:Dock(TOP)
+	--setsize
+	self.colorBut:SetFont("nutSmallFont")
+	self.colorBut:SetText("Edit Setting")
+	self.colorBut.DoClick = function(sel)
+		local cur = self.pda:getData("color", false)
+		cur = !cur
+		net.Start("ChangePDAColor")
+		net.WriteBool(cur)
+		net.WriteInt(self.pda.id, 32)
+		net.SendToServer()
+		nut.util.notify("Color setting set to "..(cur and "FACTION" or "ORIGINAL"))
+	end
+	y = y + self.colorBut:GetTall() + 5
 end
 
 function PANEL:onDisplay()
@@ -179,6 +211,11 @@ function PANEL:onDisplay()
 		DisableClipping(false)
 	end
 
+    self.colorLabel.PaintOver = function(sel,w,h)
+		DisableClipping(true)   --replace temp with self.pda:getData("pdahandle", "invalid")
+		draw.SimpleText("Your color setting: "..(self.pda:getData("color", false) and "FACTION" or "ORIGINAL"), "nutSmallFont", 0, h+15, Color(200,200,200,255), TEXT_ALIGN_LEFT, TEXT_ALIGN_BOTTOM)
+		DisableClipping(false)
+	end
 end
 
 vgui.Register("pdaSettings", PANEL, "stalkerPdaTab")

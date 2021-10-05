@@ -195,10 +195,13 @@ nut.chat.register("pdalocal", {
 			end
 		end
 		--local testmat = Material("sky/faction_icons/stalker.png", "noclamp smooth")
+		local col = speaker:GetPDA():getData("color", false)
+		local facnum = speaker:getChar():getFaction()
+		local fac = nut.faction.indices[facnum]
 
         if(args[2]) then
 			local pdattx = Material("sky/chat_icons/pda.png")
-			chat.AddText(pdattx,Color(100, 255, 50),"[PDA-LOCAL] ", Color(255, 255, 255), name..": "..args[2])
+			chat.AddText(pdattx,Color(100, 255, 50),"[PDA-LOCAL] ", (col and fac.color or Color(255, 255, 255)), name, Color(255,255,255), ": "..args[2])
         end
 	end,
     filter = "pda"
@@ -375,9 +378,13 @@ nut.chat.register("pdatrade", {
 			end
 		end
 
+		local col = speaker:GetPDA():getData("color", false)
+		local facnum = speaker:getChar():getFaction()
+		local fac = nut.faction.indices[facnum]
+
         if(args[2]) then
 		local pdattx = Material("sky/chat_icons/pda.png")
-		chat.AddText(pdattx,Color(37, 231, 245),"[PDA-TRADE] ", Color(255, 255, 255), name..": "..args[2])
+		chat.AddText(pdattx,Color(37, 231, 245),"[PDA-TRADE] ", (col and fac.color or Color(255, 255, 255)), name, Color(255,255,255), ": "..args[2])
         end
     end,
     filter = "pdatrade"
@@ -490,6 +497,7 @@ else
 	util.AddNetworkString("ChangePDAHandle")
 	util.AddNetworkString("ChangePDATitle")
 	util.AddNetworkString("ChangePDAParty")
+	util.AddNetworkString("ChangePDAColor")
 	util.AddNetworkString("ChangePDANotes")
 
 	hook.Add("PlayerLoadedChar", "pdaintromsg", function(ply, char, lastChar)
@@ -533,6 +541,12 @@ else
         local idd = net.ReadInt(32)
 
         nut.item.instances[idd]:setData("partych", change, player.GetAll())
+    end)
+    net.Receive("ChangePDAColor", function(len, ply)
+        local change = net.ReadBool()
+        local idd = net.ReadInt(32)
+
+        nut.item.instances[idd]:setData("color", change, player.GetAll())
     end)
 
 	net.Receive("ChangePDANotes", function(len, ply)

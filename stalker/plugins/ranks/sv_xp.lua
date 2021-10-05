@@ -60,6 +60,11 @@ local PLUGIN = PLUGIN
 		RANK_LEADER = {}
 	end
 
+	--easy way to remove someone from scoreboard: 
+	--add them to RANK_TOBEADD with 0 xp, 
+	--so theyll get skipped and removed from the leaderboard
+
+
 	function PLUGIN:ResortRankList()
 		--loop through the current one sorted by xp, making a new one
 		--skip any that dont meet the current min
