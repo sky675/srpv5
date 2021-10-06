@@ -30,6 +30,11 @@ local slotMaxes = {
 		["lining"] = 1,
 		["core"] = 1,--another lining, weight decrease and/or artifact max increase
 	},
+	["vestl"] = {
+		["chest"] = 1,
+		["lining"] = 1,
+		["core"] = 1,--another lining, weight decrease and/or artifact max increase
+	},
 	["light"] = {
 		["chest"] = 1,
 		["lining"] = 1,
@@ -841,6 +846,7 @@ local upgrades = {
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
 			["light"] = true,
 			["medium"] = true,
+			["vestl"] = true,
 			["gorka"] = true,
 			["seva"] = true,
 		},
