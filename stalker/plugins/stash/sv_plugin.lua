@@ -218,6 +218,10 @@ netstream.Hook("stashIn", function(client, itemID)
 						client:notifyLocalizedL("stashBag", 3)
 						return
 					end
+					if(item.base == "base_artifact") then
+						client:notify("You cannot put artifacts in your stash!")
+						return
+					end
 					if (clientStash[itemID]) then
 						client:notifyLocalizedL("stashError", 3)
 						return

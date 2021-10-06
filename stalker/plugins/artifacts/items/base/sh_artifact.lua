@@ -80,7 +80,7 @@ function ITEM:onEntityCreated(ent)
 		
 		if self.ReActivate then
 			self.ReActivate = false
-			phys:ApplyForceCenter( Vector( 0, 0, 1 ) * ( phys:GetMass() * 15 ) )
+			phys:ApplyForceCenter( Vector( 0, 0, 1 ) * ( phys:GetMass() * 12 ) )
 		end
 		
 		local trace = {}
@@ -94,7 +94,7 @@ function ITEM:onEntityCreated(ent)
 		local scale = math.Clamp( 25 - dist, 0.25, 25 ) / 25
 		
 		if tr.Hit then
-			phys:ApplyForceCenter( tr.HitNormal * ( phys:GetMass() * ( scale * 15 ) ) )
+			phys:ApplyForceCenter( tr.HitNormal * ( phys:GetMass() * ( scale * 6 ) ) )
 		end
 	end
 end
