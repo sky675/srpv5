@@ -1,5 +1,5 @@
 ITEM.name = "Bread loaf"
-ITEM.desc = "A load of bread from outside the Zone."
+ITEM.desc = "A loaf of bread from outside the Zone."
 ITEM.price = 600
 ITEM.model = "models/kali/miscstuff/stalker/food/bread.mdl"
 ITEM.width = 1
