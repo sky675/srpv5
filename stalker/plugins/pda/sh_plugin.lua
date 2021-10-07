@@ -195,9 +195,13 @@ nut.chat.register("pdalocal", {
 			end
 		end
 		--local testmat = Material("sky/faction_icons/stalker.png", "noclamp smooth")
-		local col = speaker:GetPDA():getData("color", false)
-		local facnum = speaker:getChar():getFaction()
-		local fac = nut.faction.indices[facnum]
+		local col = false 
+		local pda = speaker:GetPDA()
+		if(pda) then
+			col = pda:getData("color", false)
+			local facnum = speaker:getChar():getFaction()
+			local fac = nut.faction.indices[facnum]
+		end
 
         if(args[2]) then
 			local pdattx = Material("sky/chat_icons/pda.png")
