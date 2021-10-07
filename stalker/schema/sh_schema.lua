@@ -235,7 +235,7 @@ nut.chat.register("itl", {
 	desc = "/it but in yelling range",
 	onChatAdd = function(speaker, text)
 		local color = nut.config.get("chatColor")
-		chat.AddText(Color(color.r + 35, color.g +35, color.b+35), "**"..text)
+		chat.AddText(Color(color.r + 35, color.g +35, color.b+35), "***"..text)
 	end,
 	onCanHear = nut.config.get("chatRange", 280) * 2,
 	prefix = {"/itl"},
@@ -248,7 +248,7 @@ nut.chat.register("its", {
 	desc = "/it but in whisper range",
 	onChatAdd = function(speaker, text)
 		local color = nut.config.get("chatColor")
-		chat.AddText(Color(color.r - 35, color.g -35, color.b-35), "**"..text)
+		chat.AddText(Color(color.r - 35, color.g -35, color.b-35), "***"..text)
 	end,
 	onCanHear = nut.config.get("chatRange", 280) * 0.25,
 	prefix = {"/its"},
