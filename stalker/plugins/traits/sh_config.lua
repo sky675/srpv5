@@ -909,7 +909,7 @@ trait = {
 	cost = -1, --cost in char creation, can be table for levels
 	onLoad = function(ply, char)
 		local id = char:getID()
-		timer.Create("alcoh"..id, 2400, 0, function()
+		timer.Create("alcoh"..id, 5400, 0, function()
 			if(!IsValid(ply) or !ply:getChar() or ply:getChar():getID() != id) then timer.Remove("alcoh"..id) return end
 			local cur = ply:getChar():getData("alcoh", 0)
 			ply:getChar():setData("alcoh", math.Clamp(cur+1, 0, 6))
