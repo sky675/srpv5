@@ -33,6 +33,7 @@ nut.command.add("pdalocal", {
         message = client:GetPDAHandle().."|"..message
 
 		if(item) then
+			nut.log.add(client, "chat", "PDALOCAL", message)
 			nut.chat.send(client, "pdalocal", message, anonymous)
 		else
 			client:notify("You need a PDA to use PDA commands.", 3)
@@ -71,6 +72,7 @@ nut.command.add("pdafaction", {
         message = client:GetPDAHandle().."|"..message
 
 		if(item) then
+			nut.log.add(client, "chat", "PDAFACTION", message)
 			nut.chat.send(client, "pdafaction", message, anonymous)
 		else
 			client:notify("You need a PDA to use PDA commands.", 3)
@@ -86,6 +88,7 @@ nut.command.add("pdaobit", {
 
 		local message = (arguments[1] or "no name")..": Found "..(arguments[2] or "no location")..". "..(arguments[3] or "no reason").."."
 		
+		nut.log.add(client, "chat", "PDAOBIT", message)
 		nut.chat.send(client, "pdaobit", message)
 	end,
 })
@@ -257,6 +260,7 @@ nut.command.add("pdapm", {
 		if(IsValid(target)) then
 			if(item and titem) then
 				nut.chat.send(client, "pdapm", message, anonymous, {client, target})
+				nut.log.add(client, "chat", "PDAPM", message)
 			elseif(!item) then
 				client:notify("You need a PDA to use PDA commands.", 3)
 			else
@@ -298,6 +302,7 @@ nut.command.add("pdatrade", {
 
 		if(item) then
 			nut.chat.send(client, "pdatrade", message, anonymous)
+			nut.log.add(client, "chat", "PDATRADE", message)
 		else
 			client:notify("You need a PDA to use PDA commands.", 3)
 		end
