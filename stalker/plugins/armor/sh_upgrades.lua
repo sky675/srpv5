@@ -423,12 +423,12 @@ local upgrades = {
 		slotspace = 2, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			["vest"] = true,
-			["light"] = true,
-			["medium"] = true,
-			["gorka"] = true,
-			["heavy"] = true,
-			["exo"] = true,
+			--["vest"] = true,
+			--["light"] = true,
+			--["medium"] = true,
+			--["gorka"] = true,
+			--["heavy"] = true,
+			--["exo"] = true,
 			["sci"] = true,
 			["seva"] = true,
 		},
@@ -595,12 +595,12 @@ local upgrades = {
 		slotspace = 1, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			["vest"] = true,
-			["light"] = true,
-			["medium"] = true,
-			["gorka"] = true,
-			["heavy"] = true,
-			["exo"] = true,
+			--["vest"] = true,
+			--["light"] = true,
+			--["medium"] = true,
+			--["gorka"] = true,
+			--["heavy"] = true,
+			--["exo"] = true,
 			["sci"] = true,
 			["seva"] = true,
 		},
