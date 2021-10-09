@@ -59,23 +59,23 @@ function nut.chat.register(chatType, data)
 			local client = LocalPlayer()
 			if(nut.traits and nut.traits.hasTrait(client, "big_nonenglish")) then-- and !LocalPlayer():getChar():getImplants("implants", "autotrans")) then--Data("implants", {})["autotrans"]) then
 				if(chatType == "ic") then
-					chat.AddText(color, string.format("%s says in "..nonenglishname or "English".." something you cannot understand.", name))
+					chat.AddText(color, string.format("%s says in "..(nonenglishname or "English").." something you cannot understand.", name))
 					return
 				end
 				if(chatType == "y") then
-					chat.AddText(color, string.format("%s yells in "..nonenglishname or "English".." something you cannot understand.", name))
+					chat.AddText(color, string.format("%s yells in "..(nonenglishname or "English").." something you cannot understand.", name))
 					return
 				end
 				if(chatType == "w") then
-					chat.AddText(color, string.format("%s whispers in "..nonenglishname or "English".." something you cannot understand.", name))
+					chat.AddText(color, string.format("%s whispers in "..(nonenglishname or "English").." something you cannot understand.", name))
 					return
 				end
 				if(chatType == "radio") then
-					chat.AddText(color, string.format("%s says in radio something in "..nonenglishname or "English".." you cannot understand.", name))
+					chat.AddText(color, string.format("%s says in radio something in "..(nonenglishname or "English").." you cannot understand.", name))
 					return
 				end
 				if(chatType == "radiow") then
-					chat.AddText(color, string.format("%s whispers in radio something in "..nonenglishname or "English".." you cannot understand.", name))
+					chat.AddText(color, string.format("%s whispers in radio something in "..(nonenglishname or "English").." you cannot understand.", name))
 					return
 				end
 			end
