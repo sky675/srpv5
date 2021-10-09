@@ -382,9 +382,9 @@ nut.chat.register("pdatrade", {
 			end
 		end
 
-		local col = speaker:GetPDA():getData("color", false)
-		local facnum = speaker:getChar():getFaction()
-		local fac = nut.faction.indices[facnum]
+		local col = false --speaker:GetPDA():getData("color", false)
+		--local facnum = speaker:getChar():getFaction()
+		--local fac = nut.faction.indices[facnum]
 
         if(args[2]) then
 		local pdattx = Material("sky/chat_icons/pda.png")
