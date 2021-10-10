@@ -177,6 +177,7 @@ for n=1, 5 do
 			local res = item:getData("res", {})
 			if(inv[sub]) then
 				res[n] = inv[sub].artid
+				nut.log.addRaw(item.player:Name().." ("..item.player:SteamID()..") stored "..inv[sub].artid.."#"..sub.." into a container")
 				inv[sub]:remove()
 				item:setData("res", res)
 				if(item.equipSound) then
@@ -235,6 +236,7 @@ for n=1, 5 do
 				local uni = ARTIFACT_DESCS[res[n]].itemid
 				local succ = item.player:getChar():getInv():add(uni)
 				if(succ) then
+					nut.log.addRaw(item.player:Name().." ("..item.player:SteamID()..") removed "..uni.." from a container")
 					res[n] = nil
 					if(item.unequipSound) then
 						item.player:EmitSound(item.unequipSound, 60)
