@@ -508,6 +508,12 @@ function GM:PlayerDisconnected(client)
 end
 
 function GM:PlayerAuthed(client, steamID, uniqueID)
+	local embed = {
+		description = "[" .. client:steamName().."](http://steamcommunity.com/profiles/".. tostring(client:SteamID64()) .." \"Steam Profile\") has connected to the server.",
+		timestamp = os.date("!%Y-%m-%dT%H:%M:%S.000Z"),
+		color = 0x91d485
+	}
+	hook.Run("EmbedDiscordMsg", embed)
 	nut.log.add(client, "playerConnected", client, steamID)
 end
 	

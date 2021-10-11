@@ -49,7 +49,9 @@ if (SERVER) then
 		--if (shouldNotify) then
 			nut.log.send(nut.util.getAdmins(), logString, flag)
 		--end
-
+		if !string.find(logString, "turned on observer. Pos") and !string.find(logString, "turned off observer. Pos") then
+			hook.Run("NeedDiscordMsg", nil, logString)
+		end
 		Msg("[LOG] ", logString.."\n")
 		if (!noSave) then
 			file.Append("nutscript/logs/"..os.date("%x"):gsub("/", "-")..".txt", "["..os.date("%X").."]\t"..logString.."\r\n")
@@ -61,6 +63,7 @@ if (SERVER) then
 		if (not isstring(logString)) then return end
 
 		hook.Run("OnServerLog", client, logType, ...)
+		hook.Run("NeedDiscordMsg", logType, logString)
 		Msg("[LOG] ", logString.."\n")
 
 		if (noSave) then return end

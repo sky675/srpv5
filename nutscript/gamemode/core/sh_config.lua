@@ -122,6 +122,21 @@ if (SERVER) then
 	end
 
 	netstream.Hook("cfgSet", function(client, key, value)
+		//hook.Run("NeedDiscordMsg", configChange, "⚠️⚠️Config Change⚠️⚠️ " .. client:steamName() .. " has set " .. tostring(key) .. " to " .. tostring(value))
+		local embed = {
+			title =  "⚠️⚠️Config Change⚠️⚠️",
+			description = "Updated by: [" .. client:steamName().."](http://steamcommunity.com/profiles/".. tostring(client:SteamID64()) .." \"Steam Profile\")",
+			timestamp = os.date("!%Y-%m-%dT%H:%M:%S.000Z"),
+			fields = {
+				{
+					name = "Value Changed: ",
+					value = "**"..tostring(key).."**" .. " was updated to " .. "**"..tostring(value).."** -- <@&"..nut.config.get("discordAlertRoleID")..">"
+				}
+			},
+			color = 0xed5f80
+		}
+		hook.Run("EmbedDiscordMsg", embed)
+
 		if (client:IsSuperAdmin() and type(nut.config.stored[key].default) == type(value) and hook.Run("CanPlayerModifyConfig", client, key) != false) then
 			nut.config.set(key, value)
 
