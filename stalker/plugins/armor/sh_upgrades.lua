@@ -1498,7 +1498,7 @@ local function suitUp_CheckValid(item, upitem)
 		local fine = true
 		for k,v in pairs(upgrade.levels) do
 			--purposefully not checking if the new level isnt better lmao
-			if(armor[k].level != ARMOR_I and armor[k].level >= v.level) then
+			if(armor[k] and armor[k].level and armor[k].level != ARMOR_I and armor[k].level >= v.level) then
 				fine = false
 				break --dont bother with the rest
 			end
