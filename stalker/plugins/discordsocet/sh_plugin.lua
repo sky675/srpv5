@@ -17,7 +17,7 @@ if (SERVER) then
     }
 
     local HTTP = CHTTP
-    local logURL = nut.config.get("discordWebsocketURL")
+    //local logURL = nut.config.get("discordWebsocketURL")
     local limit = 5
     local reset = 0
 
@@ -30,7 +30,7 @@ if (SERVER) then
        print("CHTTP not working erugh!") 
     end
 
-    local function SendDiscordMessage(embed, url)
+    local function SendDiscordMessage(embed, sendurl)
         local now = os.time(os.date("!*t"))
 
         if limit == 0 and now < reset then
@@ -48,7 +48,7 @@ if (SERVER) then
         if(nut.config.get("discordLoggingEnabled")) then
             HTTP({
                 method = "POST",
-                url = "https://discord.com/api/webhooks/896351302588710912/Q6Fi-sXhTgf5dZWk0xdq-6UxYsBmRMlFWONjrSqR8EPtNamdyj6529plg_s1EDdhZJ0h", //hardcoded :)
+                url = sendurl, 
                 body = util.TableToJSON({
                     embeds={embed}
                 }),
@@ -67,22 +67,42 @@ if (SERVER) then
     LOGTYPE_EXCLUDE = {
         playerConnected = true
     }
-    hook.Add("NeedDiscordMsg", "SendWebhook", function(logType, logString)
+    hook.Add("NeedDiscordMsg", "SendWebhook", function(logType, logString) //default logging
         local data = {
             description = logString,
             timestamp = os.date("!%Y-%m-%dT%H:%M:%S.000Z"),
             color = LOGTYPE_TRANS[logType] or 0x818791
         }
         if(!LOGTYPE_EXCLUDE[logType]) then
-            SendDiscordMessage(data, logURL)    
+            SendDiscordMessage(data, "https://discord.com/api/webhooks/896351302588710912/Q6Fi-sXhTgf5dZWk0xdq-6UxYsBmRMlFWONjrSqR8EPtNamdyj6529plg_s1EDdhZJ0h")    
         end
         
     end)
 
-    hook.Add("EmbedDiscordMsg", "SendEmbed", function(embed)
-        SendDiscordMessage(embed, logURL)
+    hook.Add("EmbedDiscordMsg", "SendEmbed", function(embed) //custom embed log
+        SendDiscordMessage(embed, "https://discord.com/api/webhooks/896351302588710912/Q6Fi-sXhTgf5dZWk0xdq-6UxYsBmRMlFWONjrSqR8EPtNamdyj6529plg_s1EDdhZJ0h")
     end)
 
-
+    hook.Add("PlayerMessageSend", "PDAMessageHook", function(speaker, chatType, text, anonymous, receivers) //pda hook handle thing
+        if chatType == "pdalocal" then
+            local args = string.Split(text, "|")
+            local handle = args[1]
+            if(anonymous) then
+                if(speaker:GetPDAMPF()) then
+                    handle = "Metropolice Force"
+                elseif(speaker:GetPDAMono()) then
+                    handle = "invalid"
+                end
+            end
+            local msg = args[2]
+            local data = {
+                title = handle,
+                description ="<:pda:896973797285056512> [PDA-LOCAL]: ".. msg,
+                timestamp = os.date("!%Y-%m-%dT%H:%M:%S.000Z"),
+                color = 0x64FF32
+            }
+            SendDiscordMessage(data, "https://discord.com/api/webhooks/896962355957760062/I8MY4A1c_U3SMQi5BAc39ytIalJ_B80xKKU1ntztF5xe0E85rx688HSHijwSlKtRYFRT")
+        end
+    end)
 
 end
