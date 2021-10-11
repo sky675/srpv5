@@ -1,4 +1,4 @@
-ITEM.name = "Sentinel of Freedom"
+ITEM.name = "Guardian of Freedom"
 ITEM.desc = "A reinforced suit of Freedom armor based off the Berill-5M suits."
 ITEM.model = "models/sky/seperate/male_berill.mdl"
 ITEM.category = "Clothing"
