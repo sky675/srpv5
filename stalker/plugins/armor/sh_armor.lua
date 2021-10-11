@@ -371,19 +371,7 @@ do
 							levels[k2] = v2
 						end
 					else
-						if(!levels[k2] or levels[k2] == 0) then
-							levels[k2] = v2
-						else
-							if(v2 > 0) then
-								if(levels[k2] < 0) then
-									levels[k2] = levels[k2] + v2
-								else
-									levels[k2] = (levels[k2] or 0) * v2
-								end
-							else
-								levels[k2] = levels[k2] + v2
-							end
-						end
+						levels[k2] = (levels[k2] or 0) + v2
 					end
 				end
 			end
