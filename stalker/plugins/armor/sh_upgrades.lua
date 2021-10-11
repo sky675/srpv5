@@ -72,7 +72,7 @@ local slotMaxes = {
 	},
 }
 local slotShow = {
-	["chest"] = "Chest",
+	["chest"] = "Armor",
 	["lining"] = "Lining",
 	["core"] = "Infrastructure",
 	["helm"] = "Armor",
