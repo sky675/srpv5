@@ -16,7 +16,7 @@ if (SERVER) then
         ENABLED = 1
     }
 
-    local HTTP = CHTTP
+    //local HTTP = CHTTP
     //local logURL = nut.config.get("discordWebsocketURL")
     local limit = 5
     local reset = 0
@@ -46,7 +46,7 @@ if (SERVER) then
             reset = headers["X-RateLimit-Reset"]
         end
         if(nut.config.get("discordLoggingEnabled")) then
-            HTTP({
+            CHTTP({
                 method = "POST",
                 url = sendurl, 
                 body = util.TableToJSON({
