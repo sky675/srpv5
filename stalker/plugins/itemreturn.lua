@@ -40,10 +40,23 @@ if(SERVER) then
 				end
 				stritems = stritems.." - "..item.name
 
+				if(item:getData("equip")) then
+					if(item.functions.deathun) then
+						item.player = ply
+						item.functions.deathun.onRun(item)
+						item.player = nil
+						item:setData("deathun")
+					elseif item.functions.EquipUn then
+						item.player = ply
+						item.functions.EquipUn.onRun(item)
+						item.player = nil
+					end
+				end
+
 				character:getInv():removeItem(k, true)
 				item:spawn(v)
 			end
-			
+
 			ply.lastitems = nil
 
 			nut.log.addRaw(ply:Name().." ("..ply:SteamID()..") died, and "..cnt.." items were returned to where they were when picked up."..stritems)
