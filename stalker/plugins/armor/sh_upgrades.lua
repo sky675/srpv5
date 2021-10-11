@@ -259,6 +259,8 @@ local upgrades = {
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
 			["helm"] = true,
 			["mask"] = true,
+			["sci"] = true,
+			["seva"] = true,
 		},
 		resist = { --optional resist table, -m functionality like artifacts, 
 			--however also can be normal to be added on
