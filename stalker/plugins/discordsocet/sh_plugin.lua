@@ -84,17 +84,17 @@ if (SERVER) then
     end)
 
     PDA_CHANNEL_COLOR_TRANS = {
-        "pdalocal" = 0x64FF32,
-        "pdatrade" = 0x73b4e6
+        ["pdalocal"] = 0x64FF32,
+        ["pdatrade"] = 0x73b4e6
     }
     PDA_CHANNEL_NAME_TRANS = {
-        "pdalocal" = "[PDA-LOCAL]",
-        "pdatrade" = "[PDA-TRADE]"
+        ["pdalocal"] = "[PDA-LOCAL]",
+        ["pdatrade"] = "[PDA-TRADE]"
     }
 
 
     hook.Add("PlayerMessageSend", "PDAMessageHook", function(speaker, chatType, text, anonymous, receivers) //pda hook handle thing
-        if chatType == "pdalocal" or "pdatrade" then
+        if chatType == "pdalocal" or chatType == "pdatrade" then
             local args = string.Split(text, "|")
             local handle = args[1]
             if(anonymous) then
