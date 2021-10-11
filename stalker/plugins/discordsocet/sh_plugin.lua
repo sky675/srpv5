@@ -83,8 +83,18 @@ if (SERVER) then
         SendDiscordMessage(embed, "https://discord.com/api/webhooks/896351302588710912/Q6Fi-sXhTgf5dZWk0xdq-6UxYsBmRMlFWONjrSqR8EPtNamdyj6529plg_s1EDdhZJ0h")
     end)
 
+    PDA_CHANNEL_COLOR_TRANS = {
+        "pdalocal" = 0x64FF32,
+        "pdatrade" = 0x73b4e6
+    }
+    PDA_CHANNEL_NAME_TRANS = {
+        "pdalocal" = "[PDA-LOCAL]",
+        "pdatrade" = "[PDA-TRADE]"
+    }
+
+
     hook.Add("PlayerMessageSend", "PDAMessageHook", function(speaker, chatType, text, anonymous, receivers) //pda hook handle thing
-        if chatType == "pdalocal" then
+        if chatType == "pdalocal" or "pdatrade" then
             local args = string.Split(text, "|")
             local handle = args[1]
             if(anonymous) then
@@ -97,9 +107,9 @@ if (SERVER) then
             local msg = args[2]
             local data = {
                 title = handle,
-                description ="<:pda:896973797285056512> [PDA-LOCAL]: ".. msg,
+                description ="<:pda:896973797285056512> "..PDA_CHANNEL_NAME_TRANS[chatType]..": ".. msg,
                 timestamp = os.date("!%Y-%m-%dT%H:%M:%S.000Z"),
-                color = 0x64FF32
+                color = PDA_CHANNEL_COLOR_TRANS[chatType]
             }
             SendDiscordMessage(data, "https://discord.com/api/webhooks/896962355957760062/I8MY4A1c_U3SMQi5BAc39ytIalJ_B80xKKU1ntztF5xe0E85rx688HSHijwSlKtRYFRT")
         end
