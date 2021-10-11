@@ -69,7 +69,16 @@ hook.Add("CustomArmorResists", "artifacts", function(client, levels)
 					end
 					levels[real] = (levels[real] or 0.01) * v2
 				else
-					levels[k2] = math.max((levels[k2] or 0) + v2, 0)
+					if(v2 > 0) then
+						if(levels[k2] < 0) then
+							levels[k2] = levels[k2] + v2
+						else
+							levels[k2] = (levels[k2] or 0) * v2
+						end
+					else
+						levels[k2] = levels[k2] + v2
+					end
+					--levels[k2] = math.max((levels[k2] or 0) + v2, 0)
 				end
 			end
 		end

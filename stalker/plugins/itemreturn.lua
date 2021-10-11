@@ -27,7 +27,7 @@ if(SERVER) then
 		if(ply.lastitems) then
 			local cnt = table.Count(ply.lastitems)
 			if(cnt == 0) then return end
-			nut.log.addRaw(ply:Name().." ("..ply:SteamID()..") died, and "..cnt.." items were returned to where they were when picked up.")
+			local stritems = ""
 			for k,v in pairs(ply.lastitems) do
 				--it does not make it from here to the other print???
 				local item = nut.item.instances[k]
@@ -38,13 +38,15 @@ if(SERVER) then
 				if (!character or !character:getInv() or !character:getInv().items[k]) then
 					continue
 				end
-				print(k, v)
+				stritems = stritems.." - "..item.name
 
 				character:getInv():removeItem(k, true)
 				item:spawn(v)
 			end
-
+			
 			ply.lastitems = nil
+
+			nut.log.addRaw(ply:Name().." ("..ply:SteamID()..") died, and "..cnt.." items were returned to where they were when picked up."..stritems)
 		end
 	end)
 end

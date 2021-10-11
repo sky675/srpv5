@@ -259,6 +259,8 @@ local upgrades = {
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
 			["helm"] = true,
 			["mask"] = true,
+			["sci"] = true,
+			["seva"] = true,
 		},
 		resist = { --optional resist table, -m functionality like artifacts, 
 			--however also can be normal to be added on
@@ -943,6 +945,44 @@ local upgrades = {
 		},
 		itemWeightMod = 1.1, --optional multiplier to modify item weight
 	},
+	["chest_sevaarmor2"] = {
+		name = "Armored visor (II)",
+		--item variables
+		desc = "An armored visor for a closed suit.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 11000, --price for item
+		width = 2,
+		height = 1,
+		weight = 0.4,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "chest",
+		slotspace = 1, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["sci"] = true,
+			["seva"] = true,
+		},
+		resist = { --optional resist table, -m functionality like artifacts, 
+			--however also can be normal to be added on
+			[DMG_BLAST.."-m"] = 1.04,
+			--phys
+			[DMG_SLASH.."-m"] = 1.04,
+			[DMG_CLUB.."-m"] = 1.04,
+			[DMG_CRUSH.."-m"] = 1.04,
+			--bullet fire wound
+			[DMG_BULLET.."-m"] = 1.04,
+			["spd"] = 0.98,
+		},
+		levels = { --optional overwrite an armor level
+			head = {level = ARMOR_II},
+		},
+		itemWeightMod = 1.04, --optional multiplier to modify item weight
+	},
 	["chest_armor2a"] = {
 		name = "Armor plate for vest (IIA)",
 		--item variables
@@ -1364,6 +1404,8 @@ local upgrades = {
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
 			["helm"] = true,
 			["mask"] = true,
+			["sci"] = true,
+			["seva"] = true,
 		},
 		reqOverride = 2,
 		--extra slots add
