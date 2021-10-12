@@ -132,6 +132,13 @@ hook.Add("PlayerInitialSpawn", "fukoffmusic", function(ply)
     else
         
 	end
+	if(game.GetMap() == "rp_jupiter_remaster") then
+		for k,v in pairs(ents.FindByClass("point_hurt")) do
+			if(IsValid(v)) then
+				v:Remove()
+			end
+		end
+	end
 	if(game.GetMap() == "rp_stalker_redux") then --afaik this is the only map this does it on and is why this is here
 		annoying = ents.FindByClass("trigger_soundscape")
 		for k,v in pairs(annoying) do
