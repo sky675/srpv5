@@ -220,14 +220,16 @@ class windowClass(wx.Frame):
 		for value in self.logfile:
 			if (value["entrytype"] not in self.allentrytypes):
 				self.allentrytypes.append(value["entrytype"])
-			msgColValue = wordwrap(value["message"], 500, wx.ClientDC(self))
-			self.list.InsertStringItem(index, value["entrytype"])
-			self.list.SetStringItem(index, 1, str(value["time"]))
-			self.list.SetStringItem(index, 2, msgColValue)
-			self.list.SetItemPyData(index, value["tags"])
-			self.list.SetItemData(index, value)
-			#self.list.SetItemData(index)
-			index += 1
+			if value["entrytype"] != "plydeath" and value["entrytype"] != "money":
+				print(value["entrytype"])
+				msgColValue = wordwrap(value["message"], 500, wx.ClientDC(self))
+				self.list.InsertStringItem(index, value["entrytype"])
+				self.list.SetStringItem(index, 1, str(value["time"]))
+				self.list.SetStringItem(index, 2, msgColValue)
+				self.list.SetItemPyData(index, value["tags"])
+				self.list.SetItemData(index, value)
+				#self.list.SetItemData(index)
+				index += 1
 		self.list.SetColumnWidth(0,wx.LIST_AUTOSIZE)
 
 	def ChooseLog(self, e):
@@ -244,6 +246,7 @@ class windowClass(wx.Frame):
 							self.logfile = jsonData
 							self.populateLog()
 						except Exception as e:
+							print(str(e))
 							wx.MessageBox("Failed to open file:\n" + str(e), 'Error', wx.OK | wx.ICON_ERROR)
 
 	def WIPFeature(self, e):
