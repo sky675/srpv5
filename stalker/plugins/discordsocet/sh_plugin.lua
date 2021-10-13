@@ -28,6 +28,7 @@ if (SERVER) then
         print("CHTTP working...")
     else
        print("CHTTP not working erugh!") 
+	   return
     end
 
     local function SendDiscordMessage(embed, sendurl)
