@@ -370,7 +370,7 @@ PLUGIN.recipeList = {
 		--flag = "", --optional can be left out, flag to check for
 	},
 	["basic_upbandage"] = {
-		name = "Upgrade Bandage",
+		name = "Upgrade Bandage (Gen Crafting)",
 		desc = [[Increase the quality of a bandage by using a jar of antiseptics.]],
 		category = "Medical",
 		model = "models/wick/wrbstalker/cop/newmodels/items/wick_bandage.mdl",
@@ -395,9 +395,35 @@ PLUGIN.recipeList = {
 		result = "meds_bandage2", --can also be table for multiple results
 		--flag = "", --optional can be left out, flag to check for
 	},
+	["basic_upbandage_med"] = {
+		name = "Upgrade Bandage (Med Knowledge)",
+		desc = [[Increase the quality of a bandage by using a jar of antiseptics.]],
+		category = "Medical",
+		model = "models/wick/wrbstalker/cop/newmodels/items/wick_bandage.mdl",
+		--skin = skin of model (not required),
+		workbench = {["basic"]=true,},
+		traits = { --traits requirements
+			--["crafting"] = 1,--min level needed or true for no level ones,
+			["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		ingredients = { --items that will be taken
+			["meds_bandage"] = true, --or # of needed,
+			["comp_jar_antiseptic"] = true,
+		},
+		result = "meds_bandage2", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
 	
 	["basic_medkit"] = {
-		name = "Medkit",
+		name = "Medkit (Gen Crafting)",
 		desc = [[Combine various things to make a basic medkit.]],
 		category = "Medical",
 		model = "models/wick/wrbstalker/anomaly/items/wick_dev_aptechka_low.mdl",
@@ -406,6 +432,33 @@ PLUGIN.recipeList = {
 		traits = { --traits requirements
 			["crafting"] = 1,--min level needed or true for no level ones,
 			--["tech_med"] = 1,
+		},
+		--[[
+		attribs = { --attrib requirements
+			["id"] = min needed,
+		},
+		requirements = { --require for items that will not be taken
+			["requireuniqueid"] = true, --or # of needed,
+		},
+		]]
+		ingredients = { --items that will be taken
+			["meds_bandage"] = 2, --or # of needed,
+			["junk_meds"] = 1,
+			["comp_scrap_cloth"] = 1,
+		},
+		result = "medkit", --can also be table for multiple results
+		--flag = "", --optional can be left out, flag to check for
+	},
+	["basic_medkitmed"] = {
+		name = "Medkit (Med Knowledge)",
+		desc = [[Combine various things to make a basic medkit.]],
+		category = "Medical",
+		model = "models/wick/wrbstalker/anomaly/items/wick_dev_aptechka_low.mdl",
+		--skin = skin of model (not required),
+		workbench = {["basic"]=true,},
+		traits = { --traits requirements
+			--["crafting"] = 1,--min level needed or true for no level ones,
+			["tech_med"] = 1,
 		},
 		--[[
 		attribs = { --attrib requirements

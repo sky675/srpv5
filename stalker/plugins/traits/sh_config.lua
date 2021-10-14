@@ -592,6 +592,7 @@ trait = {
 	category = "General", --shown in char creation and menu
 	cost = 1, --cost in char creation, can be table for levels
 	conflicting = {"gen_bleedinc"}, --table of conflicting traits
+	hide = true,
 	modify = {
 		inc = 1.3 --less is more often
 		--theres hardcoded stuff in getmod
@@ -717,6 +718,7 @@ trait = {
 	category = "General", --shown in char creation and menu
 	cost = -1, --cost in char creation, can be table for levels
 	conflicting = {"gen_bleeddec"}, --table of conflicting traits
+	hide = true,
 	modify = {
 		inc = 0.7 --less is more often
 		--theres hardcoded stuff in getmod
