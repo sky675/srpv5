@@ -1107,6 +1107,7 @@ end
 local function PatchWeapon(weapon, name)
 	//weapon.Base = "sky_mag_base_ins2" --hopefully this works?
 	local tochange = weaponEdits[name] --easier
+	weapon.CanBash = false --lmao
 	for k,v in pairs(tochange.mods or {}) do
 		weapon[k] = v
 	end
