@@ -18,7 +18,7 @@ if (SERVER) then
 
     //local HTTP = CHTTP
     //local logURL = nut.config.get("discordWebsocketURL")
-    local limit = 5
+    local limit = 20
     local reset = 0
 
 
