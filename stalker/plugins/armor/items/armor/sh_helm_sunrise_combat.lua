@@ -329,7 +329,7 @@ ITEM.overlaytype = "exo"
 
 ITEM.upgradePath = "helmexo"
 ITEM.armor = {
-	head = {level = ARMOR_IV},
+	head = {level = ARMOR_V},
 }
 ITEM.resists = {
 	--burn

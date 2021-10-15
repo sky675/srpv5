@@ -150,7 +150,7 @@ end
 
 ITEM.upgradePath = "rad"
 ITEM.armor = {
-	chest = {level = ARMOR_IV},
+	chest = {level = ARMOR_V},
 	larm = {level = ARMOR_III},
 	rarm = {level = ARMOR_III},
 	lleg = {level = ARMOR_III},
