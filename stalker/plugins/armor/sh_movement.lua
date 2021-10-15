@@ -279,7 +279,7 @@ if (SERVER) then
 
 					if (current != value) then
 						client:setLocalVar("stm", value)
-						client:SetRunSpeed(runSpeed)
+						client:SetRunSpeed(math.max(runSpeed, nut.config.get("walkSpeed", 130)))
 
 						if (value == 0 and !client:getNetVar("brth", false)) then
 							--client:SetRunSpeed(nut.config.get("walkSpeed"))

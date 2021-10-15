@@ -118,79 +118,90 @@ local blankres = {
 local ammoProtect = {
 	--if the armor level is not in this list, it means the ammo type will pen
 	["sky9x18"] = {
-		jhp = {[ARMOR_NONE] = 1.3, [ARMOR_I] = 0.6, [ARMOR_IIA] = 0.3,[ARMOR_II] = 0.2, [ARMOR_IIIA] = 0.15, [ARMOR_III] = 0.03, [ARMOR_IV] = 0.01},
-		normal = {[ARMOR_I] = 0.75, [ARMOR_IIA] = 0.5,[ARMOR_II] = 0.35, [ARMOR_IIIA] = 0.2, [ARMOR_III] = 0.05, [ARMOR_IV] = 0.025},
-		ap = {[ARMOR_II] = 0.5, [ARMOR_IIIA] = 0.35, [ARMOR_III] = 0.2, [ARMOR_IV] = 0.05},
+		jhp = {[ARMOR_NONE] = 1.3, [ARMOR_I] = 0.6, [ARMOR_IIA] = 0.3,[ARMOR_II] = 0.2, [ARMOR_IIIA] = 0.15, [ARMOR_III] = 0.03, [ARMOR_IV] = 0.01, [ARMOR_V] = 0.009},
+		normal = {[ARMOR_I] = 0.75, [ARMOR_IIA] = 0.5,[ARMOR_II] = 0.35, [ARMOR_IIIA] = 0.2, [ARMOR_III] = 0.05, [ARMOR_IV] = 0.025, [ARMOR_V] = 0.02},
+		ap = {[ARMOR_II] = 0.5, [ARMOR_IIIA] = 0.35, [ARMOR_III] = 0.2, [ARMOR_IV] = 0.05, [ARMOR_V] = 0.03},
 	},
 	["sky9x19"] = {
-		jhp = {[ARMOR_NONE] = 1.3, [ARMOR_IIA] = 0.5,[ARMOR_II] = 0.4, [ARMOR_IIIA] = 0.3, [ARMOR_III] = 0.15, [ARMOR_IV] = 0.05},
-		normal = {[ARMOR_IIA] = 0.7,[ARMOR_II] = 0.55, [ARMOR_IIIA] = 0.4, [ARMOR_III] = 0.25, [ARMOR_IV] = 0.1},
-		ap = {[ARMOR_II] = 0.7, [ARMOR_IIIA] = 0.5, [ARMOR_III] = 0.3, [ARMOR_IV] = 0.15},
+		jhp = {[ARMOR_NONE] = 1.3, [ARMOR_IIA] = 0.5,[ARMOR_II] = 0.4, [ARMOR_IIIA] = 0.3, [ARMOR_III] = 0.15, [ARMOR_IV] = 0.05, [ARMOR_V] = 0.03},
+		normal = {[ARMOR_IIA] = 0.7,[ARMOR_II] = 0.55, [ARMOR_IIIA] = 0.4, [ARMOR_III] = 0.25, [ARMOR_IV] = 0.1, [ARMOR_V] = 0.09},
+		ap = {[ARMOR_II] = 0.7, [ARMOR_IIIA] = 0.5, [ARMOR_III] = 0.3, [ARMOR_IV] = 0.15, [ARMOR_V] = 0.13},
 	},
 	["sky45acp"] = {
-		jhp = {[ARMOR_NONE] = 1.3, [ARMOR_IIA] = 0.5,[ARMOR_II] = 0.375, [ARMOR_IIIA] = 0.3, [ARMOR_III] = 0.2, [ARMOR_IV] = 0.075},
-		normal = {[ARMOR_IIA] = 0.7,[ARMOR_II] = 0.525, [ARMOR_IIIA] = 0.375, [ARMOR_III] = 0.225, [ARMOR_IV] = 0.1},
-		ap = {[ARMOR_II] = 0.7, [ARMOR_IIIA] = 0.55, [ARMOR_III] = 0.35, [ARMOR_IV] = 0.15},
+		jhp = {[ARMOR_NONE] = 1.3, [ARMOR_IIA] = 0.5,[ARMOR_II] = 0.375, [ARMOR_IIIA] = 0.3, [ARMOR_III] = 0.2, [ARMOR_IV] = 0.075, [ARMOR_V] = 0.07},
+		normal = {[ARMOR_IIA] = 0.7,[ARMOR_II] = 0.525, [ARMOR_IIIA] = 0.375, [ARMOR_III] = 0.225, [ARMOR_IV] = 0.1, [ARMOR_V] = 0.09},
+		ap = {[ARMOR_II] = 0.7, [ARMOR_IIIA] = 0.55, [ARMOR_III] = 0.35, [ARMOR_IV] = 0.15, [ARMOR_V] = 0.14},
 	},
 	["buckshot"] = {
-		normal = {[ARMOR_IIIA] = 0.5, [ARMOR_III] = 0.35, [ARMOR_IV] = 0.1},
-		slug = {[ARMOR_II] = 0.9, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.15},
-		oldslug = {[ARMOR_II] = 0.9, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.15},
-		sabot = {[ARMOR_III] = 0.65, [ARMOR_IV] = 0.4},
+		normal = {[ARMOR_IIIA] = 0.5, [ARMOR_III] = 0.35, [ARMOR_IV] = 0.1, [ARMOR_V] = 0.08},
+		slug = {[ARMOR_II] = 0.9, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.15, [ARMOR_V] = 0.13},
+		oldslug = {[ARMOR_II] = 0.9, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.15, [ARMOR_V] = 0.13},
+		sabot = {[ARMOR_III] = 0.65, [ARMOR_IV] = 0.4, [ARMOR_V] = 0.25},
 	},
 	["357"] = {
-		jhp = {[ARMOR_NONE] = 1.3, [ARMOR_IIA] = 0.9,[ARMOR_II] = 0.6, [ARMOR_IIIA] = 0.35, [ARMOR_III] = 0.2, [ARMOR_IV] = 0.05},
-		normal = {[ARMOR_II] = 0.65, [ARMOR_IIIA] = 0.5, [ARMOR_III] = 0.3, [ARMOR_IV] = 0.1},
-		ap = {[ARMOR_IIIA] = 0.6, [ARMOR_III] = 0.4, [ARMOR_IV] = 0.15},
+		jhp = {[ARMOR_NONE] = 1.3, [ARMOR_IIA] = 0.9,[ARMOR_II] = 0.6, [ARMOR_IIIA] = 0.35, [ARMOR_III] = 0.2, [ARMOR_IV] = 0.05, [ARMOR_V] = 0.04},
+		normal = {[ARMOR_II] = 0.65, [ARMOR_IIIA] = 0.5, [ARMOR_III] = 0.3, [ARMOR_IV] = 0.1, [ARMOR_V] = 0.08},
+		ap = {[ARMOR_IIIA] = 0.6, [ARMOR_III] = 0.4, [ARMOR_IV] = 0.15, [ARMOR_V] = 0.13},
 	},
 	["sky762x39"] = {
-		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.3,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.4, [ARMOR_IV] = 0.2},
-		normal = {[ARMOR_III] = 0.5, [ARMOR_IV] = 0.25},
-		ap = { [ARMOR_IV] = 0.5},
+		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.3,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.4, [ARMOR_IV] = 0.2, [ARMOR_V] = 0.15},
+		normal = {[ARMOR_III] = 0.5, [ARMOR_IV] = 0.25, [ARMOR_V] = 0.2},
+		ap = { [ARMOR_IV] = 0.5, [ARMOR_V] = 0.4},
 	},
 	["sky762x51"] = {
-		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.3,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.4, [ARMOR_IV] = 0.2},
-		normal = {[ARMOR_III] = 0.5, [ARMOR_IV] = 0.25},
-		ap = {[ARMOR_IV] = 0.5},
+		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.3,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.4, [ARMOR_IV] = 0.2, [ARMOR_V] = 0.15},
+		normal = {[ARMOR_III] = 0.5, [ARMOR_IV] = 0.25, [ARMOR_V] = 0.15},
+		ap = {[ARMOR_IV] = 0.5, [ARMOR_V] = 0.25},
 	},
 	["sky556"] = {
-		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.3,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.4, [ARMOR_IV] = 0.2},
-		normal = {[ARMOR_III] = 0.5, [ARMOR_IV] = 0.25},
-		ap = {[ARMOR_IV] = 0.5},
+		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.3,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.4, [ARMOR_IV] = 0.2, [ARMOR_V] = 0.15},
+		normal = {[ARMOR_III] = 0.5, [ARMOR_IV] = 0.25, [ARMOR_V] = 0.15},
+		ap = {[ARMOR_IV] = 0.5, [ARMOR_V] = 0.25},
 	},
 	["sky545"] = {
-		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.3,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.4, [ARMOR_IV] = 0.2},
-		normal = {[ARMOR_III] = 0.5, [ARMOR_IV] = 0.25},
-		ap = {[ARMOR_IV] = 0.5},
+		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.3,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.4, [ARMOR_IV] = 0.2, [ARMOR_V] = 0.15},
+		normal = {[ARMOR_III] = 0.5, [ARMOR_IV] = 0.25, [ARMOR_V] = 0.15},
+		ap = {[ARMOR_IV] = 0.5, [ARMOR_V] = 0.25},
 	},
 	["sky50ae"] = {
-		jhp = {[ARMOR_NONE] = 1.3, [ARMOR_IIA] = 1.2,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.6, [ARMOR_III] = 0.3, [ARMOR_IV] = 0.1},
-		normal = {[ARMOR_III] = 0.4, [ARMOR_IV] = 0.2},
-		ap = {[ARMOR_IV] = 0.3},
+		jhp = {[ARMOR_NONE] = 1.3, [ARMOR_IIA] = 1.2,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.6, [ARMOR_III] = 0.3, [ARMOR_IV] = 0.1, [ARMOR_V] = 0.05},
+		normal = {[ARMOR_III] = 0.4, [ARMOR_IV] = 0.2, [ARMOR_V] = 0.1},
+		ap = {[ARMOR_IV] = 0.3, [ARMOR_V] = 0.15},
 	},
 	["sky9x39"] = {
-		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.3,[ARMOR_II] = 1.15, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.5, [ARMOR_IV] = 0.35},
-		normal = {[ARMOR_III] = 0.65, [ARMOR_IV] = 0.3},
-		ap = {[ARMOR_IV] = 0.45},
+		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.3,[ARMOR_II] = 1.15, [ARMOR_IIIA] = 0.75, [ARMOR_III] = 0.5, [ARMOR_IV] = 0.35, [ARMOR_V] = 0.2},
+		normal = {[ARMOR_III] = 0.65, [ARMOR_IV] = 0.3, [ARMOR_V] = 0.2},
+		ap = {[ARMOR_IV] = 0.45, [ARMOR_V] = 0.2},
 	},
 	["sky762x54"] = {
-		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.4,[ARMOR_II] = 1.3, [ARMOR_IIIA] = 1.2, [ARMOR_III] = 0.75, [ARMOR_IV] = 0.3},
-		normal = {[ARMOR_IV] = 0.4},
-		ap = {[ARMOR_IV] = 0.6},
+		jhp = {[ARMOR_NONE] = 1.5, [ARMOR_IIA] = 1.4,[ARMOR_II] = 1.3, [ARMOR_IIIA] = 1.2, [ARMOR_III] = 0.75, [ARMOR_IV] = 0.3, [ARMOR_V] = 0.2},
+		normal = {[ARMOR_IV] = 0.4, [ARMOR_V] = 0.2},
+		ap = {[ARMOR_V] = 0.35},--pen all
 	},
 	["sky762x25"] = {
-		normal = {[ARMOR_II] = 0.9, [ARMOR_IIIA] = 0.7, [ARMOR_III] = 0.5, [ARMOR_IV] = 0.3},
-		ap = {[ARMOR_IIIA] = 0.8, [ARMOR_III] = 0.6, [ARMOR_IV] = 0.4},
+		normal = {[ARMOR_II] = 0.9, [ARMOR_IIIA] = 0.7, [ARMOR_III] = 0.5, [ARMOR_IV] = 0.3, [ARMOR_V] = 0.15},
+		ap = {[ARMOR_IIIA] = 0.8, [ARMOR_III] = 0.6, [ARMOR_IV] = 0.4, [ARMOR_V] = 0.2},
 	},
 	["sky46"] = {
-		jhp = {[ARMOR_NONE] = 1.4, [ARMOR_IIA] = 1.25,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.8, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.3},
-		normal = {[ARMOR_III] = 0.6, [ARMOR_IV] = 0.4},
-		ap = {[ARMOR_IV] = 0.6},
+		jhp = {[ARMOR_NONE] = 1.4, [ARMOR_IIA] = 1.25,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.8, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.3, [ARMOR_V] = 0.15},
+		normal = {[ARMOR_III] = 0.6, [ARMOR_IV] = 0.4, [ARMOR_V] = 0.25},
+		ap = {[ARMOR_IV] = 0.6, [ARMOR_V] = 0.3},
 	},
 	["sky57"] = {
-		jhp = {[ARMOR_NONE] = 1.4, [ARMOR_IIA] = 1.25,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.8, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.3},
-		normal = {[ARMOR_III] = 0.6, [ARMOR_IV] = 0.4},
-		ap = {[ARMOR_IV] = 0.6},
+		jhp = {[ARMOR_NONE] = 1.4, [ARMOR_IIA] = 1.25,[ARMOR_II] = 1.1, [ARMOR_IIIA] = 0.8, [ARMOR_III] = 0.45, [ARMOR_IV] = 0.3, [ARMOR_V] = 0.15},
+		normal = {[ARMOR_III] = 0.6, [ARMOR_IV] = 0.4, [ARMOR_V] = 0.25},
+		ap = {[ARMOR_IV] = 0.6, [ARMOR_V] = 0.3},
+	},
+	["sky23mm"] = {
+		normal = {[ARMOR_V] = 0.3},
+		slug = {[ARMOR_V] = 0.2},
+		oldslug = {[ARMOR_V] = 0.2},
+		sabot = {[ARMOR_V] = 0.75},
+	},
+	["sky338"] = {
+		jhp = {[ARMOR_NONE] = 1.6, [ARMOR_IIA] = 1.5,[ARMOR_II] = 1.4, [ARMOR_IIIA] = 1.3, [ARMOR_III] = 1.2, [ARMOR_IV] = 1.1, [ARMOR_V] = 0.5},
+		normal = {[ARMOR_V] = 0.35},
+		ap = {},--pen all
 	},
 	--23mm and 338 pens everything so not here
 }
@@ -224,7 +235,7 @@ local ammoProtect = { [ARMOR_NONE] = {[""]=true},
 --the players levels table, the part hit, the actual wep, and the dura of armor
 function PLUGIN:IsCharProtected(levels, part, wep, durability)
     if(levels) then
-		if(levels[part] and (durability or 1) != 0) then
+		if(levels[part] and (levels[part].dura or 1) > 0) then
 			local ammo = string.Split(wep.Primary.Ammo, "_")[1]
 			if(ammoProtect[ammo]) then			--uh just in case
 				local spec = (wep.GetStat and wep:GetStat("SpecAmmo")) or (wep.GetBuff and wep:GetBuff_Override("SpecAmmo")) or wep.SpecAmmo
@@ -338,6 +349,7 @@ do
 					if(!levels[k2] or levels[k2].level < r) then
 						local ee = v2
 						ee["orig"] = v.id
+						ee["dura"] = v:getData("durability")
 						levels[k2] = ee
 					end
 				end
@@ -417,7 +429,33 @@ do
         return {}
     end
 
-	function playerMeta:SetArmorDurability(part, newdur)
+	function playerMeta:SetArmorDurability(levels, part, dmgmulti, info)--part, newdur)
+		if(levels and levels[part]) then
+			local item = nut.item.instances[levels[part].orig]
+			local dura = levels[part].dura
+			if(!dura) then
+				--generate dura, maybe maxdura func on item
+				dura = item:getMaxDura()
+			end
+
+			if(dura) then
+				--local realmulti = 1
+				--[[if(dmgmulti > 1) then
+					realmulti = dmgmulti - 1
+				elseif(dmgmulti < 1) then
+					realmulti = dmgmulti + 1
+				end]]
+
+				--todo actual formula
+				local rem = info:GetDamage()*dmgmulti
+				print("taking damage "..info:GetDamage().."*"..dmgmulti..") = "..rem.." dura was "..dura.." and is now "..(dura-rem))
+				dura = dura-rem
+				--replace -100 with maxdura func * -1
+				item:setData("durability", math.max(dura, item:getMaxDura()*-0.5))
+			end
+		end
+
+		/*
 		local suit = self:GetArmorLevels()
 
 		local duradead = false
@@ -467,6 +505,7 @@ do
         if((duradead or newdur == 0) and SERVER) then
             self:notify("At least one of your armor parts broke!", 3)
         end
+		*/
     end
 end
 
@@ -481,6 +520,21 @@ hook.Add("OnHealPlayer", "stopheart", function(ply, heal)
 end)
 
 if(SERVER) then
+	hook.Add("CanPlayerDropItem", "stoppls", function(ply, item)
+		if(item.canRemove) then
+			local succ, err = item:canRemove(ply)
+			if(!succ) then
+				ply:notify(err, 3)
+				return false
+			end
+		end
+		
+		if((item:getData("artcnt") or item.artifactCnt)
+			and equipTblCount(ply:getChar(), "art", 0) > 1) then
+			ply:notify("Cannot unequip due to artifact containers.", 3)
+			return false
+		end
+	end)
 	
 	util.AddNetworkString("UpdateNVType")
 	util.AddNetworkString("SetNVType")

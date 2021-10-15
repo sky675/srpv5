@@ -197,7 +197,7 @@ function ITEM:getDesc()
 
 	local ar = self:getData("artcnt", self.artifactCnt or 0) 
 
-	str = str.."PROPERTIES:\n    •Condition: "..math.floor(self:getData("durability", 1)*100).."%\n"
+	str = str.."PROPERTIES:\n    •Condition: "..math.floor((self:getData("durability", self:getMaxDura())/self:getMaxDura())*100).."%\n"
 	if(self.size) then
 		str=str.."    •Armor Size: "..self.size.."\n"
 	end
@@ -245,6 +245,25 @@ function ITEM:getDesc()
 	end
 
 	return str
+end
+
+local basedura = {
+	["vest"] = 35,
+	["vestl"] = 80,
+	["light"] = 90,
+	["medium"] = 130,
+	["gorka"] = 130,
+	["heavy"] = 180,
+	["exo"] = 200,
+	["sci"] = 35,
+	["seva"] = 120,
+	["mask"] = 30,
+	["helm"] = 80,
+}
+
+function ITEM:getMaxDura()
+	--unsure how to do this?
+	return (basedura[self.size] or 100) * self:getData("duram", 1)
 end
 
 function ITEM:getWeight()

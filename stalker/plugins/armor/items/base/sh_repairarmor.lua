@@ -1,7 +1,7 @@
 ITEM.name = "Repair Kit"
 ITEM.desc = "repair weapon yes ok"
 ITEM.model = "models/warz/attachments/optic_acog.mdl"
-ITEM.category = "Repair Kits"
+ITEM.category = "Suit Repair Kits"
 --todo idk
 
 --needed
@@ -31,6 +31,10 @@ function ITEM:onCombineTo(target)
 
 	if(item.traitreq) then
 		local t = nut.traits.hasTrait(ply, item.traitreq.trait)
+		if(!t) then 
+			ply:notify("You do not meet the trait requirements for this item!", 3)
+			return
+		end
 		if(type(item.traitreq.val) == "number") then
 			if(t < item.traitreq.val) then
 				ply:notify("You do not meet the trait requirements for this item!", 3)
@@ -44,18 +48,36 @@ function ITEM:onCombineTo(target)
 		end
 	end
 
+	if(item.reqwb) then
+		local check = ents.FindInSphere(ply:GetPos(), 120)
+	
+		local rdy = false
+		for k,v in pairs(check) do
+			if(v:GetClass() == "sky_craft_armor") then
+				rdy = true 
+				break
+			end
+		end
+		if(!rdy) then
+			ply:notify("This repair item requires an armor workbench nearby!", 3)
+			return false
+		end
+		
+	end
+
 
 	local lvls = target:getData("durability")
 	--ply:notify("on combine to "..lvls)
 	if(lvls) then
-		if(lvls < (item.minDurability/100)) then
+		local mx = target:getMaxDura()
+		if((lvls/mx) < item.minDurability) then
 			ply:notify("The armor is too damaged for this!", 3)
 			return
 		end
 		
 		--ply:notify("adding")
 
-		target:setData("durability", math.Clamp(lvls + (item.baseRepair/100), 0, 1))
+		target:setData("durability", math.Clamp(lvls + (item.baseRepair*mx), mx*-0.5, mx))
 		
 		--[[
 		if(item.partToRepair == "suit") then
@@ -105,6 +127,7 @@ function ITEM:onCombineTo(target)
 
 		if(nut.traits and item.traitreq) then
 			nut.traits.addXp(item.player, item.traitreq.trait, item.xpinc or 1)
+			nut.traits.addXp(item.player, "crafting_spec", item.xpinc or 1)
 		end
 
 		if(item.useSound) then

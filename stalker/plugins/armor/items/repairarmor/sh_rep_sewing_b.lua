@@ -1,9 +1,8 @@
 ITEM.name = "Basic Sewing Kit"
 ITEM.desc = [[Drag onto damaged suit to repair it.
-This kit only repairs the body.
 Requires basic repair level 1.
-It can only be used above 85 percent durability.
-It will repair it by 12 percent durability.]]
+It can only be used above 65 percent durability.
+It will repair it by 25 percent durability.]]
 ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_sewing_kit_b.mdl"
 ITEM.width = 1
 ITEM.height = 1
@@ -19,7 +18,7 @@ ITEM.iconCam = {
 }
 ITEM.useSound = "interface/inv_repair_sewing_kit_fast.ogg"
 
-ITEM.minDurability = 85
-ITEM.baseRepair = 12
+ITEM.minDurability = 0.65
+ITEM.baseRepair = 0.25
 ITEM.partToRepair = "all" --suit, head
 ITEM.traitreq = {trait = "crafting_repair", val = 1}

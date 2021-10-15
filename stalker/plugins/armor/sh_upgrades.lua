@@ -288,7 +288,7 @@ local upgrades = {
 		slotspace = 3, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 			["light"] = true,
 			["medium"] = true,
 			["gorka"] = true,
@@ -322,7 +322,7 @@ local upgrades = {
 		slotspace = 3, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 			["light"] = true,
 			["medium"] = true,
 			["gorka"] = true,
@@ -356,7 +356,7 @@ local upgrades = {
 		slotspace = 3, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 			["light"] = true,
 			["medium"] = true,
 			["gorka"] = true,
@@ -390,7 +390,7 @@ local upgrades = {
 		slotspace = 3, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 			["light"] = true,
 			["medium"] = true,
 			["gorka"] = true,
@@ -425,7 +425,7 @@ local upgrades = {
 		slotspace = 2, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			--["vest"] = true,
+			--["vest"] = true,["vestl"] = true,
 			--["light"] = true,
 			--["medium"] = true,
 			--["gorka"] = true,
@@ -460,7 +460,7 @@ local upgrades = {
 		slotspace = 2, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 			["light"] = true,
 			["medium"] = true,
 			["gorka"] = true,
@@ -494,7 +494,7 @@ local upgrades = {
 		slotspace = 2, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 			["light"] = true,
 			["medium"] = true,
 			["gorka"] = true,
@@ -528,7 +528,7 @@ local upgrades = {
 		slotspace = 2, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 			["light"] = true,
 			["medium"] = true,
 			["gorka"] = true,
@@ -562,7 +562,7 @@ local upgrades = {
 		slotspace = 2, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 			["light"] = true,
 			["medium"] = true,
 			["gorka"] = true,
@@ -597,7 +597,7 @@ local upgrades = {
 		slotspace = 1, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			--["vest"] = true,
+			--["vest"] = true,["vestl"] = true,
 			--["light"] = true,
 			--["medium"] = true,
 			--["gorka"] = true,
@@ -632,7 +632,7 @@ local upgrades = {
 		slotspace = 1, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 			["light"] = true,
 			["medium"] = true,
 			["gorka"] = true,
@@ -666,7 +666,7 @@ local upgrades = {
 		slotspace = 1, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 			["light"] = true,
 			["medium"] = true,
 			["gorka"] = true,
@@ -700,7 +700,7 @@ local upgrades = {
 		slotspace = 1, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 			["light"] = true,
 			["medium"] = true,
 			["gorka"] = true,
@@ -734,7 +734,7 @@ local upgrades = {
 		slotspace = 1, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 			["light"] = true,
 			["medium"] = true,
 			["gorka"] = true,
@@ -1002,7 +1002,7 @@ local upgrades = {
 		slotspace = 1, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 		},
 		resist = { --optional resist table, -m functionality like artifacts, 
 			--however also can be normal to be added on
@@ -1111,7 +1111,7 @@ local upgrades = {
 			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
-			--["vest"] = true,
+			--["vest"] = true,["vestl"] = true,
 			["sci"] = true,
 			["seva"] = true,
 		},
@@ -1140,7 +1140,7 @@ local upgrades = {
 		slotspace = 1, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 			["light"] = true,
 		},
 		resist = { --optional resist table, -m functionality like artifacts, 
@@ -1169,7 +1169,7 @@ local upgrades = {
 		slotspace = 1, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 		},
 		additionalArtifact = 1, --optional adds onto artifact slot space
 	},
@@ -1197,7 +1197,7 @@ local upgrades = {
 			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
-			--["vest"] = true,
+			--["vest"] = true,["vestl"] = true,
 			["sci"] = true,
 			["seva"] = true,
 		},
@@ -1222,7 +1222,7 @@ local upgrades = {
 		slotspace = 1, --number of space itll take up in the slot
 		size = { --item sizes allowed
 			--helm, light, medium, heavy, exo, mask, vest, sci, seva
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 		},
 		--additionalArtifact = 1, --optional adds onto artifact slot space
 		itemWeightMod = 0.8, --optional multiplier to modify item weight
@@ -1252,13 +1252,70 @@ local upgrades = {
 			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
-			--["vest"] = true,
+			--["vest"] = true,["vestl"] = true,
 			["sci"] = true,
 			["seva"] = true,
 		},
 		additionalArtifact = 1, --optional adds onto artifact slot space
 		itemWeightMod = 0.9, --optional multiplier to modify item weight
 		maxWeightMod = 1.2, --optional multiplier to modify max weight
+	},
+	--core, duramods
+	["core_durasoft"] = {
+		name = "Enhanced durability for light suits and vests",
+		--item variables
+		desc = "An assorted set of materials that allow for a more durable suit. Will not modify current durability unless its full.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 9000, --price for item
+		width = 2,
+		height = 1,
+		weight = 1.3,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "core",
+		slotspace = 1, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["vest"] = true,
+			["vestl"] = true,
+			["light"] = true,
+		},
+		itemWeightMod = 1.1, --optional multiplier to modify item weight
+		duraMod = 1.25, --optional multiplier to modify max weight
+	},
+	["core_durahard"] = {
+		name = "Enhanced durability for medium and heavy suits",
+		--item variables
+		desc = "An assorted set of materials that allow for a more durable suit. Will not modify current durability unless its full.",
+		model = "models/wick/wrbstalker/anomaly/items/dez_upgr_o_2.mdl",
+		price = 16000, --price for item
+		width = 2,
+		height = 1,
+		weight = 1.6,
+		--flag = "",
+		traitreq = { --optional trait requirement
+			trait = "crafting_armor",
+			val = 1,
+		},
+		--upgrade specific variables
+		slot = "core",
+		slotspace = 1, --number of space itll take up in the slot
+		size = { --item sizes allowed
+			--helm, light, medium, heavy, exo, mask, vest, sci, seva
+			["medium"] = true,
+			["gorka"] = true,
+			["heavy"] = true,
+			["exo"] = true,
+			--["vest"] = true,["vestl"] = true,
+			["sci"] = true,
+			["seva"] = true,
+		},
+		itemWeightMod = 1.2, --optional multiplier to modify item weight
+		duraMod = 1.15, --optional multiplier to modify max weight
 	},
 	--core, slot adds
 	["core_lining"] = {
@@ -1285,7 +1342,7 @@ local upgrades = {
 			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 			["sci"] = true,
 			["seva"] = true,
 		},
@@ -1319,7 +1376,7 @@ local upgrades = {
 			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 		},
 		--extra slots add
 		slotadd = { --optional slots add, comment if not adding new slots
@@ -1350,7 +1407,7 @@ local upgrades = {
 			["gorka"] = true,
 			["heavy"] = true,
 			["exo"] = true,
-			["vest"] = true,
+			["vest"] = true,["vestl"] = true,
 		},
 		--extra slots add
 		slotadd = { --optional slots add, comment if not adding new slots
@@ -1594,11 +1651,15 @@ function applySuitUpgrade(ply, item, upitem)
 	end
 
 	--modify suit durability multiplier
-	--i kinda doubt durability will stay (unfortunately), but the method i had 
-	--will def not work as was originally implemented so this is currently
-	--not implemented (will need to modify before set durability func is called)
+	--not losing/gaining durability is fine, 
+	--theyll get at most 1 free hit if it gets lowered and its already inited
 	if(upgrade.duraMod) then
-		item:setData("duraMulti", item:getData("duraMulti", 1)*upgrade.duraMod)
+		--resetting if its max so its still max next time
+		if(item:getData("durability", 0) == item:getMaxDura()) then
+			item:setData("durability")
+		end
+
+		item:setData("duram", item:getData("duram", 1)*upgrade.duraMod)
 	end
 
 	--add to slot count

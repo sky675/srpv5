@@ -1,15 +1,14 @@
 ITEM.name = "Heavy Sewing Kit"
 ITEM.desc = [[Drag onto damaged suit to repair it.
-This kit only repairs the body.
 Requires armor repair.
-It can only be used above 65 percent durability.
-It will repair it by 20 percent durability.]]
+It can only be used above 10 percent durability.
+It will repair it by 80 percent durability.]]
 ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_sewing_kit_h.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.586
-ITEM.price = 13420
-ITEM.flag = "m"
+ITEM.price = 15420
+ITEM.flag = "U"
 ITEM.exRender = true
 ITEM.iconCam = {
 	pos = Vector(71.227592468262, 59.748641967773, 43.49048614502),
@@ -19,7 +18,7 @@ ITEM.iconCam = {
 }
 ITEM.useSound = "interface/inv_repair_sewing_kit_fast.ogg"
 
-ITEM.minDurability = 65
-ITEM.baseRepair = 20
+ITEM.minDurability = 0.1
+ITEM.baseRepair = 0.8
 ITEM.partToRepair = "all" --suit, head
 ITEM.traitreq = {trait = "crafting_repaira", val = 1}

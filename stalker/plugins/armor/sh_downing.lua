@@ -14,6 +14,9 @@ nut.config.add("downedRespawnTimer", 60, "The downed respawn length.", nil, {
 nut.config.add("shootMessages", true, "If on, chat messages are sent to the attacker and victim describing the type of bullet, range, direction, and tells you if you are protected from it or not.", nil, {
 	category = "Shoot to RP"
 })
+nut.config.add("suitDurability", true, "If on, will remove durability when taking pvp damage", nil, {
+	category = "Shoot to RP"
+})
 nut.config.add("durabilityPenalty", true, "If on, will remove a portion of all equipped items' durability, proportional to the current durability (less current == less lost), on death (when the player actually dies, post death)", nil, {
 	category = "Shoot to RP"
 })
@@ -49,6 +52,32 @@ nut.command.add("settypingimm", {
 		end
 
 		client:notify(on.." "..target:Name().."'s ability to be automatically immune from shots while typing.", 2)
+	end
+})
+nut.command.add("setduraimm", {
+	desc = "Toggle someone's durability immunity",
+	syntax = "<string name>",
+	adminOnly = true,
+	onRun = function(client, arguments)
+		local target = nut.util.findPlayer(arguments[1])
+
+		if(!IsValid(target)) then return "No target" end
+		local char = target:getChar()
+		if(!char) then return "no char" end
+
+		local setTo = true
+		if(char:getData("immdura")) then
+			setTo = nil
+		end
+
+		char:setData("immdura", setTo)
+		
+		local on = "enabled"
+		if(setTo == nil) then
+			on = "disabled"
+		end
+
+		client:notify(on.." "..target:Name().."'s ability to be immune to suit durability loss.", 2)
 	end
 })
 
@@ -313,7 +342,11 @@ if(SERVER) then
 					local levels = ply:GetArmorLevels()
 					local dmgmulti = 1
 					if(wep.Primary) then
-						dmgmulti = PLUGIN:IsCharProtected(levels, hitToLevel[hg], wep, levels.durability)
+						dmgmulti = PLUGIN:IsCharProtected(levels, hitToLevel[hg], wep)--, levels.durability)
+					end
+					--fuck it lmao
+					if(nut.config.get("suitDurability", true) and !ply:getChar():getData("immdura")) then
+						ply:SetArmorDurability(levels, hitToLevel[hg], dmgmulti, dmginfo)
 					end
 					local pl = ply
 					local logAtkMsg = (atk:Name().." ("..atk:steamName()..") attacked "..pl:Name().." ("..pl:steamName()..") with "..((wep and (wep.ClassName or wep:GetClass())) or "a mine or something probably").." ["..hitStrings[hg].."/"..((wep and wep.Primary) and (wep.Primary.Ammo or "?") or "?").."/"..((pl:getNetVar("typing") and "void") or tostring(dmgmulti)).."]")
@@ -354,7 +387,7 @@ if(SERVER) then
 			local protected
 			local dmgmulti = 1
 			if(wep.Primary) then
-				dmgmulti = PLUGIN:IsCharProtected(levels, hitToLevel[hg], wep, levels.durability)
+				dmgmulti = PLUGIN:IsCharProtected(levels, hitToLevel[hg], wep)--, levels.durability)
 				
 				--awful but idk how else to do this
 				if(wep:GetClass() == "arccw_waw_ppsh41") then
@@ -382,6 +415,11 @@ if(SERVER) then
 				nut.log.addRaw(logAtkMsg)
 				hook.Run("OnPlyAttack", atk, pl, wep, (hitStrings[hg].."/"..((pl:getNetVar("typing") and "void") or tostring(dmgmulti))), logAtkMsg)
 			end
+
+			if(nut.config.get("suitDurability", true) and !ply:getChar():getData("immdura")) then
+				ply:SetArmorDurability(levels, hitToLevel[hg], dmgmulti, dmginfo)
+			end
+
 			--smh
 			if(!on) then 
 				dmginfo:ScaleDamage(0) 
@@ -542,6 +580,22 @@ if(SERVER) then
 	hook.Add("ScalePlayerDamage", "ShootToRP", function(ply, hg, dmginfo)
 		return ScaleDmg(ply, hg, dmginfo)
 	end)
+
+	local entTrans ={
+		["electra_anomaly"] = DMG_SHOCK,
+		["electra_anomaly_type2"] = DMG_SHOCK,
+		["kometa_kisel"] = DMG_ACID,
+		["kometa_electra"] = DMG_SHOCK,
+		["gazirovka_anomaly"] = DMG_ACID,
+		["jarka"] = DMG_BURN,
+		["tramplin_anomaly"] = DMG_CRUSH,
+		["kisel_anomaly"] = DMG_ACID,
+		["kometa"] = DMG_BURN,
+		["par"] = DMG_BURN,
+		["maysorubka_anomaly"] = DMG_CLUB,
+		["maysorubka_anomaly_type2"] = DMG_CLUB,
+		["voronka_anomaly"] = DMG_CRUSH
+	}
 	
 	hook.Add("EntityTakeDamage", "disablegrendamage", function(target, dmg)
 		if(target:GetClass() == "prop_physics" and dmg:IsExplosionDamage() and dmg:GetAttacker():IsPlayer()) then
@@ -555,6 +609,12 @@ if(SERVER) then
 		end
 		if(IsValid(dmg:GetInflictor()) and dmg:GetInflictor():GetCollisionGroup() == COLLISION_GROUP_PROJECTILE) then
 			
+		end
+		if(IsValid(dmg:GetAttacker())) then
+			local newdmg = entTrans[dmg:GetAttacker():GetClass()]
+			if(entTrans) then
+				dmg:SetDamageType(newdmg)
+			end
 		end
 		
 		if((target.NEXTBOT or target:IsNPC()) and dmg:GetAttacker():IsPlayer()) then
@@ -632,7 +692,7 @@ if(SERVER) then
 			end
 			end
 
-			if(dmg:GetAttacker():IsNPC() or dmg:GetAttacker().NEXTBOT) then
+			--[[if(dmg:GetAttacker():IsNPC() or dmg:GetAttacker().NEXTBOT) then
 				local negx, negy = math.random(-1, 0), math.random(-1, 0)
 				local ranx, rany = math.Rand(0.3, 0.6)*negx*(dmg:GetDamage()/5), math.Rand(0.3, 0.6)*negy*(dmg:GetDamage()/3)
 	
@@ -641,16 +701,16 @@ if(SERVER) then
 				target:ViewPunch(ang) 
 				
 				if(math.random(1,6) == 1) then
-				if(target:GetArmorItems() != nil) then
-				local duraToRem = math.max(0.0001, 0.001+(0.1*((1-(levels.durability or 1)*(dmg:GetDamage()/8)))/100))
-				if(duraToRem < 0) then 
-					target:SetArmorDurability(nil, 0)
+					if(target:GetArmorItems() != nil) then
+						local duraToRem = math.max(0.0001, 0.001+(0.1*((1-(levels.durability or 1)*(dmg:GetDamage()/8)))/100))
+						if(duraToRem < 0) then 
+							target:SetArmorDurability(nil, 0)
+						end
+						--print("attacking: durabilty to remove "..duraToRem)
+						target:SetArmorDurability(nil, math.Clamp((levels.durability or 1)-duraToRem, 0, 1))
+					end
 				end
-				--print("attacking: durabilty to remove "..duraToRem)
-				target:SetArmorDurability(nil, math.Clamp((levels.durability or 1)-duraToRem, 0, 1))
-				end
-				end
-			end
+			end]]
 			if(dmg:IsFallDamage()) then
 				dmg:ScaleDamage(2)
 			end

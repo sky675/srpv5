@@ -1,9 +1,8 @@
 ITEM.name = "Basic Glue"
 ITEM.desc = [[Drag onto damaged suit to repair it.
-This kit repairs all of a suit.
 Doesn't require a trait to use.
-It can only be used above 85 percent durability.
-It will repair it by 5 percent durability.]]
+It can only be used above 80 percent durability.
+It will repair it by 15 percent durability.]]
 ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_glue_b.mdl"
 ITEM.width = 1
 ITEM.height = 1
@@ -19,7 +18,7 @@ ITEM.iconCam = {
 }
 ITEM.useSound = "interface/inv_repair_sewing_kit_fast.ogg"
 
-ITEM.minDurability = 90
-ITEM.baseRepair = 5
+ITEM.minDurability = 0.8
+ITEM.baseRepair = 0.15
 ITEM.partToRepair = "all" --suit, head
 --ITEM.traitreq = {trait = "crafting_repair", val = 1}
