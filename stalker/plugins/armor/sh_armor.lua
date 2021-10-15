@@ -444,6 +444,9 @@ do
     end
 
 	function playerMeta:SetArmorDurability(levels, part, dmgmulti, info, wep)--part, newdur)
+		if(IsValid(wep) and wep:GetClass() == "nut_hands") then
+			return
+		end
 		if(levels and levels[part]) then
 			local item = nut.item.instances[levels[part].orig]
 			local dura = levels[part].dura
