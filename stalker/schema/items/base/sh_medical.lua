@@ -118,7 +118,7 @@ ITEM.functions.use = { -- sorry, for name order.
 	onRun = function(item)
 		local client = item.player
 		if (item.player:Alive()) then
-			if(item.skillval and nut.traits.hasTrait(item.player, "tech_med") < item.skillval) then
+			if(item.skillval and (nut.traits.hasTrait(item.player, "tech_med") or 0) < item.skillval) then
 				item.player:notify("You don't meet trait requirements for this item!", 3)
 				return false
 			end
@@ -193,7 +193,7 @@ ITEM.functions.usef = { -- sorry, for name order.
 		local faketarget = trace.Entity
 		local target = faketarget
 		
-		if(item.skillval and nut.traits.hasTrait(item.player, "tech_med") < item.skillval) then
+		if(item.skillval and (nut.traits.hasTrait(item.player, "tech_med") or 0) < item.skillval) then
 			item.player:notify("You don't meet trait requirements for this item!", 3)
 			return false
 		end

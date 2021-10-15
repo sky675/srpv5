@@ -47,6 +47,10 @@ function ITEM:attachTo(target, ply)
 	--todo trait check
 	if(self.traitreq) then
 		local t = nut.traits.hasTrait(ply, self.traitreq.trait)
+		if(!t) then 
+			ply:notify("You do not meet the trait requirements for this item!", 3)
+			return
+		end
 		if(type(self.traitreq.val) == "number") then
 			if((t or 0) < self.traitreq.val) then
 				ply:notify("You do not meet the trait requirement for this item!", 3)
