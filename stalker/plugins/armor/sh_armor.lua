@@ -314,6 +314,20 @@ nut.command.add("setarmorlevel", {
 	end
 })
 
+nut.command.add("resetarmordura", {
+	desc = "reset the armor durability of an item",
+	syntax = "<int itemid>",
+	adminOnly = true,
+	onRun = function(client, arguments)
+		local item = nut.item.instances[tonumber(arguments[1])]
+		if(!item) then return "item not found" end
+		if(item.base != "base_armor") then return "item is not armor" end
+
+		item:setData("durability")
+		return "durability has been reset"
+	end
+})
+
 do
 	local playerMeta = FindMetaTable("Player")
 	
