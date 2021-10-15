@@ -443,7 +443,7 @@ do
         return {}
     end
 
-	function playerMeta:SetArmorDurability(levels, part, dmgmulti, info)--part, newdur)
+	function playerMeta:SetArmorDurability(levels, part, dmgmulti, info, wep)--part, newdur)
 		if(levels and levels[part]) then
 			local item = nut.item.instances[levels[part].orig]
 			local dura = levels[part].dura
@@ -459,6 +459,10 @@ do
 				elseif(dmgmulti < 1) then
 					realmulti = dmgmulti + 1
 				end]]
+				--this should be only jhp
+				if(dmgmulti > 1 and wep:GetClass() != "arccw_waw_ppsh41") then
+					dmgmulti = (dmgmulti-1)*0.5
+				end
 
 				--todo actual formula
 				local rem = info:GetDamage()*dmgmulti

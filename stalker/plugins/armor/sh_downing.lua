@@ -386,7 +386,7 @@ if(SERVER) then
 			local levels = ply:GetArmorLevels()
 			local protected
 			local dmgmulti = 1
-			if(wep.Primary) then
+			if(IsValid(wep) and wep.Primary) then
 				dmgmulti = PLUGIN:IsCharProtected(levels, hitToLevel[hg], wep)--, levels.durability)
 				
 				--awful but idk how else to do this
@@ -417,7 +417,7 @@ if(SERVER) then
 			end
 
 			if(nut.config.get("suitDurability", true) and !ply:getChar():getData("immdura")) then
-				ply:SetArmorDurability(levels, hitToLevel[hg], dmgmulti, dmginfo)
+				ply:SetArmorDurability(levels, hitToLevel[hg], dmgmulti, dmginfo, wep)
 			end
 
 			--smh
