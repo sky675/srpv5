@@ -109,6 +109,7 @@ local ammoup = {
 	},
 	["arccw_mifl_fas2_sr25"] = {
 		["none"] = "mifl_fas2_sr25_mag_762_20",
+		["mifl_fas2_sr25_mag_9mm_32"] = "mifl_fas2_sr25_mag_9mm_50",
 	},
 	["arccw_mifl_fas2_m3"] = {
 		["none"] = "mifl_fas2_m3_tube_x",
@@ -4087,6 +4088,47 @@ this upgrade is PERMANENT and cannot be reverted]],
 			if(!handpick) then ply:notify("uh this should never happen") return end
 			specificUpgrade(ply, handpick, {
 				["go_perk"] = "go_homemade_auto"
+			})
+		end,
+	}, 
+	["weaponmod_sr25_9mmconv"] = {
+		name = "SR-25 9x19mm Conversion Upgrade",
+		desc = [[temp name maybe
+changes the ammo type to 9x19 with 32 round mags
+NOTE: for best results, have the item you want this to be applied to be the ONLY unequipped applicable weapon in your inventory
+this upgrade is PERMANENT and cannot be reverted]],
+		category = "Weapon Upgrades",
+		render = {
+			icon = "entities/arccw_mifl_fas2_m4a1_ammo_32.png"
+		},
+		model = "models/fallout/components/box.mdl",--models/weapons/tfa_ins2/w_glock17.mdl",
+		--skin = skin of model (not required),
+		workbench = {["weapons"]=true,},
+		traits = { --traits requirements
+			["crafting_weapon"] = 2,--min level needed or true for no level ones,
+		},
+		requirements = { ["junk_toolkit2"] = true, },
+		customIng = "1x any unequipped SR-25",
+		customRes = "1x that unequipped SR-25 with the upgrade applied",
+		ingredients = { --items that will be taken
+			--temp removed ingredients for testing
+			["comp_mech2"] = 4,
+			["comp_scrap_metal"] = 7,
+			--["comp_duct_tape"] = 1,
+		},
+		--flag = "", --optional can be left out, flag to check for
+		handpick = function(items) --pick an item 
+			return specificUpgradeValid(items, "arccw_mifl_fas2_sr25", {
+				["mifl_fas2_sr25_mag"] = "none",
+				["go_ammo"] = "none"
+			})
+		end,
+		beforeCraft = function(ply, items, handpick)
+			--items are the items that will be taken, 
+			--return a table and it will reappear in oncreate as data
+			if(!handpick) then ply:notify("uh this should never happen") return end
+			specificUpgrade(ply, handpick, {
+				["mifl_fas2_sr25_mag"] = "mifl_fas2_sr25_mag_9mm_32"
 			})
 		end,
 	}, 
