@@ -612,7 +612,7 @@ if(SERVER) then
 		end
 		if(IsValid(dmg:GetAttacker())) then
 			local newdmg = entTrans[dmg:GetAttacker():GetClass()]
-			if(entTrans) then
+			if(newdmg) then
 				dmg:SetDamageType(newdmg)
 			end
 		end
