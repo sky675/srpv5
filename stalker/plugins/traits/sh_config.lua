@@ -870,9 +870,10 @@ nut.traits.add(uid, trait)
 uid = "big_cripple"
 trait = {
 	name = "'Movement Impaired'",
-	desc = "Somehow or another, you have a hard time moving. You cannot sprint and have a slower than normal walkspeed.",
+	desc = "Somehow or another, you have a hard time moving. You cannot sprint and have a slower than normal walkspeed. Additionally, you can't jump.",
 	type = "neg", --can be pos or neg for listing on char creation, pos is left column, neg is right column, anything else will hide it from char creation
 	category = "Special", --shown in char creation and menu
+	conflicting = {"gen_escape"}, --table of conflicting traits
 	cost = -2, --cost in char creation, can be table for levels
 }
 nut.traits.add(uid, trait)
