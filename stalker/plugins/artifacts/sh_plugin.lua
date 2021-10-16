@@ -75,3 +75,25 @@ hook.Add("CustomArmorResists", "artifacts", function(client, levels)
 		end
 	end
 end)
+
+nut.command.add("changefieldvalue", {
+	desc = "Change the radiation field values of the ent youre looking at, default values: dmg = 3, radius = 250",
+	syntax = "<number damage> <number radius>",
+	adminOnly = true,
+	onRun = function(client, arguments)
+		local dmg = tonumber(arguments[1])
+		local rad = tonumber(arguments[2])
+
+		local tr = client:GetEyeTrace()
+		if(tr.Entity and tr.Entity:GetClass() == "sky_radiation") then
+			if(dmg) then
+				tr.Entity:SetDamage(dmg)
+			end
+			if(rad) then
+				tr.Entity:SetRadius(rad)
+			end
+			return "set"
+		end
+		return "could not find radiation field"
+	end
+})
