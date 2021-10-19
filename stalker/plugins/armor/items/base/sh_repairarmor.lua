@@ -1,5 +1,5 @@
 ITEM.name = "Repair Kit"
-ITEM.desc = "repair weapon yes ok"
+ITEM.desc = ""
 ITEM.model = "models/warz/attachments/optic_acog.mdl"
 ITEM.category = "Suit Repair Kits"
 --todo idk
@@ -16,7 +16,24 @@ ITEM.traitreq = {trait = "id", val = true/num}
 ]]
 
 function ITEM:getDesc()
-    return self.desc
+    local desc = ""--self.desc
+
+	desc = desc.."\nDrag onto a damaged suit to repair it."
+
+	if(self.reqwb) then
+		desc = desc.."\nRequires an armor workbench nearby to use."
+	end
+
+	if(self.traitreq) then
+		desc = desc.."\nRequires "..(nut.traits.list[self.traitreq.trait].name).." Level "..self.traitreq.val.."."
+	else
+		desc = desc.."\nDoesn't require a trait to use."
+	end
+
+	desc = desc.."\nIt can only be used above "..(self.minDurability*100).."% durability."..
+		"\nIt will repair it by "..(self.baseRepair*100).."%."
+
+	return desc
 end
 
 function ITEM:onCombineTo(target)
