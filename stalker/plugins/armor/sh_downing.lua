@@ -155,6 +155,36 @@ nut.command.add("acd", {
 	end
 })
 
+nut.command.add("devutildura", {
+	desc = "Utility function to check durability",
+	syntax = "[string name]",
+	adminOnly = true,
+	onRun = function(client, arguments)
+		local target
+		if(arguments[1]) then
+			target = nut.util.findPlayer(arguments[1])
+		end
+		
+		if(!IsValid(target)) then
+			local tr = client:GetEyeTrace()
+			if(tr.Entity and tr.Entity.GetArmorItems) then
+				target = tr.Entity
+			end	
+		end
+
+		if(!IsValid(target)) then return "No target" end
+
+		local items = target:GetArmorItems()
+
+		local str = "items: "
+		for k, v in pairs(items) do
+			str = ";"..v.name.." - "..tostring(v:getData("durability", "unset (max)"))
+		end
+
+		return str
+	end
+})
+
 nut.command.add("devutilhealth", {
 	desc = "Utility function to get the health of who/what you're looking at",
 	adminOnly = true,
