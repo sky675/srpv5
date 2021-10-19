@@ -178,7 +178,7 @@ nut.command.add("devutildura", {
 
 		local str = "items: "
 		for k, v in pairs(items) do
-			str = ";"..v.name.." - "..tostring(v:getData("durability", "unset (max)"))
+			str = ";"..v.name.." - "..tostring(v:getData("durability", "unset (max)")).." - equip:"..tostring(v:getData("equip"))
 		end
 
 		return str
