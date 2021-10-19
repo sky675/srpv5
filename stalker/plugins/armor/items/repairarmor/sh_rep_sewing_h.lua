@@ -1,6 +1,6 @@
 ITEM.name = "Heavy Sewing Kit"
 ITEM.desc = [[Drag onto damaged suit to repair it.
-Requires armor repair.
+Requires basic repair level 2.
 It can only be used above 10 percent durability.
 It will repair it by 80 percent durability.]]
 ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_sewing_kit_h.mdl"

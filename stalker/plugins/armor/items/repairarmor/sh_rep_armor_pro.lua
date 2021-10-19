@@ -1,6 +1,6 @@
 ITEM.name = "Field Outfit Repair Kit"
 ITEM.desc = [[Drag onto damaged suit to repair it.
-Requires armor repair.
+Requires basic repair level 2.
 It can only be used above -10 percent durability.
 It will repair it by 70 percent durability.]]
 ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_armor_repair_pro.mdl"

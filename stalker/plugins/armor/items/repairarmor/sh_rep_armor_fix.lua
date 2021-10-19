@@ -1,7 +1,7 @@
 ITEM.name = "Heavy Duty Armor Repair Kit"
 ITEM.desc = [[Drag onto damaged suit to repair it.
 Requires an armor workbench.
-Requires armor repair.
+Requires basic repair level 2.
 It can be used at any point.
 It will repair it by 80 percent durability.]]
 ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_dev_instrument_1.mdl"
