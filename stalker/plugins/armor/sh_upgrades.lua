@@ -1408,6 +1408,7 @@ local upgrades = {
 			["heavy"] = true,
 			["exo"] = true,
 			["vest"] = true,["vestl"] = true,
+			["seva"] = true,
 		},
 		--extra slots add
 		slotadd = { --optional slots add, comment if not adding new slots
