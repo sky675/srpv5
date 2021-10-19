@@ -256,10 +256,10 @@ netstream.Hook("stashOut", function(client, itemID)
 		if (item and inventory) then
 			findStash(client):next(function(stashEntity)
 				if (IsValid(stashEntity)) then
-					if (char:getStashMax() == char:getStashCount()) then
+					--[[if (char:getStashMax() == char:getStashCount()) then
 						client:notifyLocalizedL("stashFull", 3)
 						return
-					end
+					end]]
 
 					local clientStash = char:getStash()
 
