@@ -23,4 +23,4 @@ ITEM.reqwb = true
 ITEM.minDurability = -1
 ITEM.baseRepair = 0.8
 ITEM.partToRepair = "all" --suit, head
-ITEM.traitreq = {trait = "crafting_repaira", val = 1}
+ITEM.traitreq = {trait = "crafting_repair", val = 2}
