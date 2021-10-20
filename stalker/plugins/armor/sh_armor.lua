@@ -447,6 +447,7 @@ do
 		if(IsValid(wep) and wep:GetClass() == "nut_hands") then
 			return
 		end
+		if(info:GetDamageType() == DMG_CRUSH) then return end
 		if(levels and levels[part]) then
 			local item = nut.item.instances[levels[part].orig]
 			local dura = levels[part].dura
