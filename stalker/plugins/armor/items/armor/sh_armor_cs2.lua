@@ -10,7 +10,7 @@ ITEM.height = 3
 ITEM.outfitCategory = "armor"
 ITEM.price = 60250--40250--38250
 ITEM.flag = "3"
-ITEM.size = "light" --helm, light, medium, heavy, mask, vest, sci
+ITEM.size = "medium" --helm, light, medium, heavy, mask, vest, sci
 
 --interface/inv_items_cloth_2.ogg super light (masks, addons)
 --interface/inv_items_cloth_3.ogg light (spd >= .7)
