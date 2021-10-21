@@ -446,7 +446,7 @@ if(SERVER) then
 				hook.Run("OnPlyAttack", atk, pl, wep, (hitStrings[hg].."/"..((pl:getNetVar("typing") and "void") or tostring(dmgmulti))), logAtkMsg)
 			end
 
-			if(nut.config.get("suitDurability", true) and !ply:getChar():getData("immdura")) then
+			if(nut.config.get("suitDurability", true) and !ply:getChar():getData("immdura") and !ply:getNetVar("typing")) then
 				ply:SetArmorDurability(levels, hitToLevel[hg], dmgmulti, dmginfo, wep)
 			end
 
