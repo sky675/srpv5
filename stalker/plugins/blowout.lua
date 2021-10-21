@@ -50,29 +50,6 @@ local spawnPoints = {
 	--crossroads: {pos = Vector(-4.8413376808167, 1806.0949707031, 4723.71484375), ang = Angle(0, -96.591796875, 0), scale = 2}
 	--domeTbl = {pos = Vector(), ang = Angle(), scale = 1} 
 }
-util.PrecacheSound("blowout/blowout_siren.ogg")
-util.PrecacheSound("blowout/blowout_begin.ogg")
-util.PrecacheSound("blowout/blowout_begin_02.ogg")
-util.PrecacheSound("blowout/blowout_wave_01.ogg")
-util.PrecacheSound("blowout/blowout_wave_02.ogg")
-util.PrecacheSound("blowout/blowout_wave_03.ogg")
-util.PrecacheSound("blowout/blowout_wave_04.ogg")
-util.PrecacheSound("blowout/blowout_wave_04.ogg")
-util.PrecacheSound("blowout/blowout_hit_03.ogg")
-util.PrecacheSound("blowout/blowout_rumble.wav") --todo make this loop
-util.PrecacheSound("blowout/blowout_particle_wave.wav")
-
-local bbegins = {
-	"blowout/blowout_begin.ogg", "blowout/blowout_begin_02.ogg", 
-}
-local bhits = {
-	"blowout/blowout_impact.ogg", "blowout/blowout_impact_02.ogg", 
-}
-local bwaves = {
-	"blowout/blowout_wave_01.ogg", "blowout/blowout_wave_02.ogg", 
-	"blowout/blowout_wave_03.ogg", "blowout/blowout_wave_04.ogg", 
-
-}
 
 --shit frmo the wiki
 local LoadedSounds
@@ -108,6 +85,99 @@ local function ReadSound( FileName )
 	end
 	return sound -- useful if you want to stop the sound yourself
 end
+
+util.PrecacheModel("models/hunter/plates/plate.mdl")
+game.AddParticles("particles/aurora_sphere2.pcf")
+game.AddParticles("particles/skybox_smoke.pcf")
+PrecacheParticleSystem("aurora_shockwave")
+PrecacheParticleSystem("portal_lightning_01")
+util.PrecacheSound("blowout/psi_storm_01.ogg") --i should split this up
+
+if(CLIENT) then
+
+	--timer for dealing damage when using this should be 
+	--whatever the result length of the timer is
+	--build up is about 6 seconds, so 20 total
+	local function CreatePsiVortexAtPos(pos, psistormbuildcnt, psistormbuildtime)
+		local ent1 = ClientsideModel("models/hunter/plates/plate.mdl")
+		local ent2 = ClientsideModel("models/hunter/plates/plate.mdl")
+	
+		ent1:SetPos(pos+Vector(0,0,900))
+		ent1:SetAngles(Angle(90, 180, 0))
+		ent2:SetPos(pos)
+		ent2:SetAngles(Angle(90, 180, 0))
+	
+		ent1:SetNoDraw(true)
+		ent2:SetNoDraw(true)
+	
+		local normang = Angle(0, 180, 0)
+		ent1:EmitSound("blowout/psi_storm_01.ogg", 110, 100, 1, 144)
+		timer.Simple(14, function()
+		//ParticleEffect("demo_aurora_01", ent1:GetPos(), normang)
+		ParticleEffect("aurora_shockwave", ent1:GetPos(), normang)
+		--buildup sound
+	
+		local int = 0
+		timer.Create("stormeffect"..CurTime(), psistormbuildtime, psistormbuildcnt, function()
+			int = int + 1
+			if(int != psistormbuildcnt) then 
+				ParticleEffect("aurora_shockwave", ent1:GetPos()+VectorRand(-90,91), normang)
+				return 
+			else
+				ParticleEffect("aurora_shockwave", ent1:GetPos(), normang)
+			end
+	
+		local sys = ent1:CreateParticleEffect("portal_lightning_01",  {
+			{attachtype = PATTACH_ABSORIGIN_FOLLOW,
+			entity = ent1},
+			{attachtype = PATTACH_ABSORIGIN_FOLLOW,
+			entity = ent2},
+		})
+		sys:StartEmission()
+		timer.Simple(1, function()
+			--strike sound
+			sys:StopEmission(false)
+	
+			ent1:Remove()
+			ent2:Remove()
+		end)
+		end)
+		end)
+	end
+	
+	netstream.Hook("dovortex", function(pos, psicnt, psitime)
+		CreatePsiVortexAtPos(pos, psicnt, psitime)
+	end)
+else
+	function CreatePsiVortexAtPos(pos)
+		netstream.Start(pos, "dovortex", pos, 10, 0.6)
+	end
+end
+
+util.PrecacheSound("blowout/blowout_siren.ogg")
+util.PrecacheSound("blowout/blowout_begin.ogg")
+util.PrecacheSound("blowout/blowout_begin_02.ogg")
+util.PrecacheSound("blowout/blowout_wave_01.ogg")
+util.PrecacheSound("blowout/blowout_wave_02.ogg")
+util.PrecacheSound("blowout/blowout_wave_03.ogg")
+util.PrecacheSound("blowout/blowout_wave_04.ogg")
+util.PrecacheSound("blowout/blowout_wave_04.ogg")
+util.PrecacheSound("blowout/blowout_hit_03.ogg")
+util.PrecacheSound("blowout/blowout_rumble.wav") --todo make this loop
+util.PrecacheSound("blowout/blowout_particle_wave.wav")
+
+local bbegins = {
+	"blowout/blowout_begin.ogg", "blowout/blowout_begin_02.ogg", 
+}
+local bhits = {
+	"blowout/blowout_impact.ogg", "blowout/blowout_impact_02.ogg", 
+}
+local bwaves = {
+	"blowout/blowout_wave_01.ogg", "blowout/blowout_wave_02.ogg", 
+	"blowout/blowout_wave_03.ogg", "blowout/blowout_wave_04.ogg", 
+
+}
+
 
 	local wavex = wavex or nil
 	local wavesound = wavesound or nil
@@ -229,7 +299,7 @@ PLUGIN.stages = {
 		{
 			length = 35,
 			serverStart = function()
-				timer.Simple(math.random(4,7), function() 
+				timer.Simple(math.random(5,8), function() 
 					netstream.Start(player.GetAll(), "fakepdanote", "Connection Lost...")
 					PDA_AVAILABLE = false
 				end)
@@ -241,7 +311,7 @@ PLUGIN.stages = {
 					StormFox2.Thunder.SetEnabled(true, 3)
 				end
 				local ticks = 0
-				local max = 200
+				local max = 300
 				local tbl = ents.FindByName("blowoutdome") or {}
 				local bld = tbl[1] or BLOWOUT_DOME
 				local tl = spawnPoints[game.GetMap()].domeTbl
@@ -266,7 +336,7 @@ PLUGIN.stages = {
 					bld = b
 				end
 				local al = 0
-				timer.Create("fading", 0.4, 200,function()
+				timer.Create("fading", 0.4, 300,function()
 					ticks = ticks + 1
 					if(IsValid(bld)) then
 						al = Lerp(ticks/max, 0, 255)
@@ -276,9 +346,9 @@ PLUGIN.stages = {
 			end,
 			onStart = function()
 
-				EmitSound(bbegins[math.random(#bbegins)], Vector(0,0,0), -2)
+				EmitSound(bbegins[math.random(#bbegins)], Vector(0,0,0),-2, 155)
 				timer.Simple(7, function()
-					EmitSound("blowout/blowout_siren.ogg", Vector(0,0,0), -2)
+					EmitSound("blowout/blowout_siren.ogg", Vector(0,0,0), -2, 156)
 				end)
 				local cc = {
 					--default
@@ -348,7 +418,7 @@ PLUGIN.stages = {
 			end,
 			onEnd = function(earlyexit)
 				if(earlyexit) then return end --dont want to have this playing forever if it gets canceled in this stage lol
-				EmitSound(bhits[math.random(#bhits)], Vector(0,0,0), -2)
+				EmitSound(bhits[math.random(#bhits)], Vector(0,0,0), -2, 157)
 			end
 		},
 		{
@@ -356,11 +426,11 @@ PLUGIN.stages = {
 			onStart = function()
 				timer.Simple(3, function()	
 					if(BLOWOUT_RUMBLE and BLOWOUT_RUMBLE:IsPlaying()) then BLOWOUT_RUMBLE:Stop() end
-					BLOWOUT_RUMBLE = CreateSound(LocalPlayer(), "blowout/blowout_rumble.wav")
-					BLOWOUT_RUMBLE:SetSoundLevel(0)
+					BLOWOUT_RUMBLE = ReadSound("blowout/blowout_rumble.wav")
+					--BLOWOUT_RUMBLE:SetSoundLevel(0)
 					BLOWOUT_RUMBLE:ChangeVolume(0)
-					BLOWOUT_RUMBLE:Stop()
-					BLOWOUT_RUMBLE:Play()
+					--BLOWOUT_RUMBLE:Stop()
+					--BLOWOUT_RUMBLE:Play()
 					timer.Simple(0, function()
 					BLOWOUT_RUMBLE:ChangeVolume(1, 25)
 					end)
@@ -387,7 +457,7 @@ PLUGIN.stages = {
 			onStart = function()
 				timer.Simple(5, function()
 					util.ScreenShake(Vector(0,0,0), 5, 6, 112, 100)
-					EmitSound(bwaves[math.random(#bwaves)], Vector(0,0,0), -2)
+					EmitSound(bwaves[math.random(#bwaves)], Vector(0,0,0), -2, 158)
 					
 				end)
 			end,
@@ -411,7 +481,7 @@ PLUGIN.stages = {
 			length = 10,
 			onStart = function()
 				timer.Simple(4, function()
-					EmitSound(bwaves[math.random(#bwaves)], Vector(0,0,0), -2)
+					EmitSound(bwaves[math.random(#bwaves)], Vector(0,0,0), -2, 158)
 					
 				end)
 			end,
@@ -435,7 +505,7 @@ PLUGIN.stages = {
 			length = 70,
 			onStart = function()
 				BLOWOUT_RUMBLE:FadeOut(25)
-				EmitSound("blowout/blowout_hit_3.ogg", Vector(0,0,0), -2)
+				EmitSound("blowout/blowout_hit_3.ogg", Vector(0,0,0), -2, 159)
 				
 				local cc = {
 					--default
@@ -549,7 +619,149 @@ PLUGIN.stages = {
 	},
 	--psistorm
 	["psistorm"] = {
+		{
+			length = 40,
+			serverStart = function()
+				timer.Simple(math.random(7,11), function() 
+					netstream.Start(player.GetAll(), "fakepdanote", "Connection Lost...")
+					PDA_AVAILABLE = false
+				end)
+				local ticks = 0
+				local max = 600
+				local tbl = ents.FindByName("blowoutdome") or {}
+				local bld = tbl[1] or BLOWOUT_DOME
+				local tl = spawnPoints[game.GetMap()].domeTbl
+				if(!bld and tl and !IsValid(BLOWOUT_DOME)) then
+					--todo make one if is in cfg
+					local b = ents.Create("prop_physics")
+					--models/de_tulip/tulip_skysphere_l.mdl prop_physics
+					b:SetModel("models/de_tulip/tulip_skysphere_l.mdl")
+					--freeze, set trans+invis and prevent physing
+					b:SetPos(tl.pos)
+					b:SetAngles(tl.ang)
+					b:Spawn()
+					b:Activate()
+					b:SetModelScale(tl.scale)
+					b:SetRenderMode(RENDERMODE_TRANSCOLOR)
+					b:SetColor(Color(255,255,255,0))
+					if(IsValid(b:GetPhysicsObject())) then
+						b:GetPhysicsObject():EnableMotion(false)
+					end
+					--set to global var BLOWOUT_DOME
+					BLOWOUT_DOME = b
+					bld = b
+				end
+				local al = 0
+				timer.Create("fading", 0.4, 600,function()
+					ticks = ticks + 1
+					if(IsValid(bld)) then
+						al = Lerp(ticks/max, 0, 255)
+						bld:SetColor(Color(255,255,255,al))
+					end
+				end)
+			end,
+			onStart = function()
 
+				//EmitSound(bbegins[math.random(#bbegins)], Vector(0,0,0), -2, 148)
+				timer.Simple(11, function()
+					EmitSound("blowout/blowout_siren.ogg", Vector(0,0,0), -2, 149)
+				end)
+				
+			end,
+			onEnd = function(earlyexit)
+
+			end
+		},
+		{
+			length = 188,
+			serverStart = function()
+				NEXTPSIAT = CurTime() + math.random(8, 16)
+			end,
+			--this is ran every second
+			serverThink = function()
+				if(NEXTPSIAT <= CurTime()) then
+					--find a position
+					local all = player.GetAll()
+					local target = all[math.random(1, #all)]
+					local pos
+					local fpos = target:GetPos() + Vector(math.random(-900,900), math.random(-900,900), 0)
+					local rest = util.TraceLine({
+						start = fpos + Vector(0,0,5000),
+						endpos = fpos + Vector(0,0,-5000)
+					})
+					if(res and res.Hit) then
+						pos = res.HitPos
+					end
+					if(!pos) then
+						pos = fpos--default if failed for some reason
+					end
+					print("psi!")
+					--and create one there
+					CreatePsiVortexAtPos(pos)
+					--and do the timer
+					timer.Simple(20.5, function()
+						--deal damage to anyone in the range whos not inside
+						local t = ents.FindInSphere(pos, 300)
+						for k,v in ipairs(t) do
+							if(v:IsPlayer() and v:Alive() and v:GetMoveType() != MOVETYPE_NOCLIP and !v:getNetVar("neardeath")) then
+								--roof check
+								local res = util.TraceLine({
+									start = v:GetPos(),
+									endpos = v:GetPos()+Vector(0,0,20000), --i remember up is last
+									filter = {v},
+								})
+								if(!res or (res and (res.HitSky or !res.Hit))) then --out of cover
+									--v:TakeDamage(20)
+									local dmg = DamageInfo()
+									dmg:SetDamage(150)
+									dmg:SetDamageType(DMG_SONIC)
+									v:TakeDamageInfo(dmg)
+									nut.log.addRaw(v:Name().." ("..v:steamName()..") was killed by a psistorm!", FLAG_WARNING)
+								end
+							end
+						end
+					end)
+
+					--then a new one
+					NEXTPSIAT = CurTime() + math.random(8, 16)
+				end
+			end,
+			serverEnd = function()
+				NEXTPSIAT = nil
+			end,
+		},
+		{
+			length = 30,
+			onStart = function()
+					
+			end,
+			serverStart = function()
+				local ticks = 0
+				local max = 60
+				local tbl = ents.FindByName("blowoutdome") or {}
+				local bld = tbl[1] or BLOWOUT_DOME
+				local al = 0
+				--fading out
+				timer.Create("fading", 0.2, 60,function()
+					ticks = ticks + 0.2
+					if(IsValid(bld)) then
+						al = Lerp(ticks/max, 255, 0)
+						bld:SetColor(Color(255,255,255,al))
+					end
+				end)
+
+				timer.Simple(2, function() 
+				netstream.Start(player.GetAll(), "fakepdanote", "Connection reestablished...")
+				end)
+				PDA_AVAILABLE = true
+				
+			end,
+			serverEnd = function()
+			end,
+			onEnd = function()
+				
+			end
+		}
 	},
 }
 
@@ -581,8 +793,8 @@ nut.command.add("startpsistorm", {
 	desc = "Function to start a psi-storm.",
 	onRun = function(client, arguments)
 		if(BLOWOUT_ACTIVE) then return "You cannot start a psi-storm when theres already a sequence active!" end
-		return "lol havent done this yet sry"
-		--PLUGIN:StartBlowout("psistorm")
+		--return "lol havent done this yet sry"
+		PLUGIN:StartBlowout("psistorm")
  	end
 })
 
