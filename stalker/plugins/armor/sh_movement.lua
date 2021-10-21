@@ -105,7 +105,7 @@ hook.Add("SetupMove", "slowhpply", function(ply, moved, commandd)
 	local hp = ply:Health()
 	if(!ply:getChar()) then return end --no reason then lmao
 
-	local res = ply:GetArmorResists()
+	local res = ply.res or ply:GetArmorResists() --just in case
 	local char = ply:getChar()
 
 	local over = 1
@@ -210,6 +210,13 @@ if (SERVER) then
 		local velocity
 		local length2D = 0
 		local runSpeed = client:GetRunSpeed() - 5
+		--scope scope scope!!
+		client.res = client:GetArmorResists()
+		--needs to get update fairly frequently but 4 times every frames seems unnecessary
+		timer.Create(uniqueID.."resup", 20, 0, function()
+			if(!IsValid(client)) then timer.Remove(uniqueID.."resup") return end
+			client.res = client:GetArmorResists()
+		end)
 
 		timer.Create(uniqueID, 0.25, 0, function()
 			if (IsValid(client)) then
@@ -225,7 +232,8 @@ if (SERVER) then
 					local ratio = 1
 					local ply = client
 					
-					local res = ply:GetArmorResists()
+					local res = client.res
+					--local res = ply:GetArmorResists()
 					
 					if(!res["norat"]) then
 						local baserat = nut.config.get("movespeedRatio", 0.4)

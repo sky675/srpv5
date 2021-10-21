@@ -373,7 +373,7 @@ do
         end
         return blank
     end
-    
+    --this shit would definitely use some form of caching
     function playerMeta:GetArmorResists()
 		local suit = self:GetArmorItems()
 		local def --no reason to copy it needlessly
