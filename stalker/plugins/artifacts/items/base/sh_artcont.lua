@@ -17,7 +17,7 @@ function ITEM:getDesc()
 		if(ARTIFACT_DESCS[ind[i]]) then
 			str = str..ARTIFACT_DESCS[ind[i]].name
 		else
-			str = str.."Empty"
+			str = str.."(Empty)"
 		end
 	end
 
