@@ -48,7 +48,7 @@ end
 
 hook.Add("CustomArmorResists", "artifacts", function(client, levels)
 	local items = PLUGIN:GetArtifactItems(client)
-	if(!items or #items == 0) then return end
+	if(!items or table.Count(items) == 0) then return end
 	for k,v in pairs(items) do
 		local vals = v:getData("res", {})
 		for k3,art in pairs(vals) do
