@@ -687,13 +687,22 @@ PLUGIN.stages = {
 					local fpos = target:GetPos() + Vector(math.random(-900,900), math.random(-900,900), 0)
 					local rest = util.TraceLine({
 						start = fpos + Vector(0,0,5000),
-						endpos = fpos + Vector(0,0,-5000)
+						endpos = fpos + Vector(0,0,-10000)
 					})
-					if(res and res.Hit) then
-						pos = res.HitPos
+					if(rest and rest.Hit) then
+						pos = rest.HitPos
 					end
-					if(!pos) then
-						pos = fpos--default if failed for some reason
+					if(!pos or !util.IsInWorld(pos)) then
+						--they may be up in the skybox so check without adding
+						rest = util.TraceLine({
+							start = fpos,-- + Vector(0,0,5000),
+							endpos = fpos + Vector(0,0,-10000)
+						})
+						if(rest and rest.Hit) then
+							pos = rest.HitPos
+						else
+							pos = fpos--default if failed for some reason
+						end
 					end
 					print("psi!")
 					--and create one there
