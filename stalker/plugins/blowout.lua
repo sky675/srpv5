@@ -578,10 +578,10 @@ PLUGIN.stages = {
 					end
 				end)
 
-				timer.Simple(2, function() 
+				timer.Simple(12, function() 
 				netstream.Start(player.GetAll(), "fakepdanote", "Connection reestablished...")
-				end)
 				PDA_AVAILABLE = true
+				end)
 				
 				--start rain if can?
 				if(StormFox2) then
@@ -684,7 +684,16 @@ PLUGIN.stages = {
 					local all = player.GetAll()
 					local target = all[math.random(1, #all)]
 					local pos
-					local fpos = target:GetPos() + Vector(math.random(-900,900), math.random(-900,900), 0)
+					local fpos = target:GetPos() + Vector(math.random(-2200,2200), math.random(-2200,2200), 0)
+					--failsafe
+					if(!util.IsInWorld(fpos)) then
+						fpos = target:GetPos() + Vector(math.random(-2200,2200), math.random(-2200,2200), 0)
+						if(!util.IsInWorld(fpos)) then
+							nut.log.addRaw("tried twice to spawn a vortex near "..target:Name().." but couldnt find a valid position in the world, just wanted to let u know")
+							NEXTPSIAT = CurTime() + math.random(4, 8)
+							return
+						end
+					end
 					local rest = util.TraceLine({
 						start = fpos + Vector(0,0,5000),
 						endpos = fpos + Vector(0,0,-10000)
@@ -704,7 +713,7 @@ PLUGIN.stages = {
 							pos = fpos--default if failed for some reason
 						end
 					end
-					print("psi!")
+					--print("psi!")
 					--and create one there
 					CreatePsiVortexAtPos(pos)
 					--and do the timer
@@ -751,18 +760,18 @@ PLUGIN.stages = {
 				local bld = tbl[1] or BLOWOUT_DOME
 				local al = 0
 				--fading out
-				timer.Create("fading", 0.2, 60,function()
-					ticks = ticks + 0.2
+				timer.Create("fading", 0.5, 60,function()
+					ticks = ticks + 0.5
 					if(IsValid(bld)) then
 						al = Lerp(ticks/max, 255, 0)
 						bld:SetColor(Color(255,255,255,al))
 					end
 				end)
 
-				timer.Simple(2, function() 
+				timer.Simple(20, function() 
 				netstream.Start(player.GetAll(), "fakepdanote", "Connection reestablished...")
-				end)
 				PDA_AVAILABLE = true
+				end)
 				
 			end,
 			serverEnd = function()
