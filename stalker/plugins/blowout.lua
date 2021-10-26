@@ -827,6 +827,12 @@ if(SERVER) then
 		--do a timer that automatically changes stages, local to change?
 		--use StartStage to change stage
 		if(BLOWOUT_ACTIVE) then return end --nope
+		if(!modeoverride or modeoverride == "blowout") then
+			if(!spawnPoints[game.GetMap()]) then
+				nut.log.addRaw("tried to do blowout on map that doesnt have it set up, canceled")
+				return
+			end
+		end
 		curStage = 1 --first stage
 		mode = modeoverride or "blowout"
 		BLOWOUT_ACTIVE = true
