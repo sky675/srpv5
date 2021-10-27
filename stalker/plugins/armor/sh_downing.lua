@@ -704,22 +704,22 @@ if(SERVER) then
 			end
 			--print(dmg:GetAttacker():GetClass().." "..dmg:GetDamageType(), dmg:IsDamageType(2))
 			local res = target:GetArmorResists()
-			local levels = target:GetArmorLevels()
-			if(levels.durability != 0) then
+			--local levels = target:GetArmorLevels()
+			--if(levels.durability != 0) then
 			for k,v in pairs(res) do
 				if(type(k) == "number" and dmg:IsDamageType(k)) then
 					--print("scaled "..k)
 					if(k == DMG_BULLET) then
 						if(dmg:GetAttacker():IsNPC()) then
-							dmg:ScaleDamage((1-(res[k] or 0)) * (levels.durability or 1))
+							dmg:ScaleDamage((1-(res[k] or 0)))-- * (levels.durability or 1))
 						end
 					else
 					local scale = 1
 						if(dmg:GetAttacker():IsNPC() or dmg:GetAttacker().NEXTBOT) then scale = 0.8 end
-						dmg:ScaleDamage((1-(res[k] or 0)) * scale * (levels.durability or 1))
+						dmg:ScaleDamage((1-(res[k] or 0)) * scale)-- * (levels.durability or 1))
 					end
 				end
-			end
+			--end
 			end
 
 			--[[if(dmg:GetAttacker():IsNPC() or dmg:GetAttacker().NEXTBOT) then
