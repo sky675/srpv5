@@ -495,9 +495,11 @@ if(SERVER) then
 									wep.nutItem:doAttach(wep)
 								end
 							end
+							timer.Simple(1.5, function()
 							if(v.ammo) then
 								wep:SetClip1(v.ammo)
 							end
+							end)
 							--[[ --old code
 							self:Give(v)
 							if (entity.nutAmmo) then
