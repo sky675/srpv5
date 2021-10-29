@@ -467,6 +467,8 @@ do
 				if(dmgmulti > 1 and wep:GetClass() != "arccw_waw_ppsh41") then
 					dmgmulti = (dmgmulti-1)*0.5
 				end
+				local res = self:GetArmorResists()
+				dmgmulti = dmgmulti*(1-(res[DMG_BULLET] or 0))
 
 				--todo actual formula
 				local rem = info:GetDamage()*dmgmulti
