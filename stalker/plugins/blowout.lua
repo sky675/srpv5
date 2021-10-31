@@ -784,19 +784,21 @@ PLUGIN.stages = {
 }
 
 nut.command.add("startblowout", {
-	adminOnly = true,
+	--adminOnly = true,
 	desc = "Function to start a blowout.",
 	onRun = function(client, arguments)
+        if(!client:IsAdmin() and !client:IsUserGroup("operator")) then return "@noPerm" end
 		if(BLOWOUT_ACTIVE) then return "You cannot start a blowout when theres already a sequence active!" end
 
 		PLUGIN:StartBlowout()
  	end
 })
 nut.command.add("startblowoutdelay", {
-	adminOnly = true,
+	--adminOnly = true,
 	desc = "Function to make a blowout happen in a specified number of seconds. <=0 or nothing to remove the timer",
 	syntax = "[number seconds]",
 	onRun = function(client, arguments)
+        if(!client:IsAdmin() and !client:IsUserGroup("operator")) then return "@noPerm" end
 		local num = tonumber(arguments[1])
 		if(num == nil or num <= 0) then timer.Remove("blowoutstarter") return "removed timer (if it existed)" end
 		timer.Create("blowoutstarter", num, 1, function()
@@ -807,9 +809,10 @@ nut.command.add("startblowoutdelay", {
  	end
 })
 nut.command.add("startpsistorm", {
-	adminOnly = true,
+	--adminOnly = true,
 	desc = "Function to start a psi-storm.",
 	onRun = function(client, arguments)
+        if(!client:IsAdmin() and !client:IsUserGroup("operator")) then return "@noPerm" end
 		if(BLOWOUT_ACTIVE) then return "You cannot start a psi-storm when theres already a sequence active!" end
 		--return "lol havent done this yet sry"
 		PLUGIN:StartBlowout("psistorm")
