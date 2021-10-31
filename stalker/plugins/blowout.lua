@@ -818,6 +818,66 @@ nut.command.add("startpsistorm", {
 		PLUGIN:StartBlowout("psistorm")
  	end
 })
+nut.command.add("psivortexatpos", {
+	desc = "Does a psi-vortex where you're looking",
+	onRun = function(client, arguments)
+        if(!client:IsAdmin() and !client:IsUserGroup("operator")) then return "@noPerm" end
+		
+		local tr = client:GetEyeTrace()
+		
+		local pos
+		local fpos = tr.Hit and tr.HitPos or client:GetPos()
+		--failsafe
+		if(!util.IsInWorld(fpos)) then
+			return "position found was not in world, try another location"
+		end
+		local rest = util.TraceLine({
+			start = fpos + Vector(0,0,5000),
+			endpos = fpos + Vector(0,0,-10000)
+		})
+		if(rest and rest.Hit) then
+			pos = rest.HitPos
+		end
+		if(!pos or !util.IsInWorld(pos)) then
+			--they may be up in the skybox so check without adding
+			rest = util.TraceLine({
+				start = fpos,-- + Vector(0,0,5000),
+				endpos = fpos + Vector(0,0,-10000)
+			})
+			if(rest and rest.Hit) then
+				pos = rest.HitPos
+			else
+				pos = fpos--default if failed for some reason
+			end
+		end
+		--print("psi!")
+		--and create one there
+		CreatePsiVortexAtPos(pos)
+		--and do the timer
+		timer.Simple(20.5, function()
+			--deal damage to anyone in the range whos not inside
+			local t = ents.FindInSphere(pos, 300)
+			for k,v in ipairs(t) do
+				if(v:IsPlayer() and v:Alive() and v:GetMoveType() != MOVETYPE_NOCLIP and !v:getNetVar("neardeath")) then
+					--roof check
+					local res = util.TraceLine({
+						start = v:GetPos(),
+						endpos = v:GetPos()+Vector(0,0,20000), --i remember up is last
+						filter = {v},
+					})
+					if(!res or (res and (res.HitSky or !res.Hit))) then --out of cover
+						--v:TakeDamage(20)
+						local dmg = DamageInfo()
+						dmg:SetDamage(150)
+						dmg:SetDamageType(DMG_SONIC)
+						v:TakeDamageInfo(dmg)
+						nut.log.addRaw(v:Name().." ("..v:steamName()..") was killed by a psistorm!", FLAG_WARNING)
+					end
+				end
+			end
+		end)
+ 	end
+})
 
 if(SERVER) then
 	--need player initial spawn hook for networking the current stage on spawn?
