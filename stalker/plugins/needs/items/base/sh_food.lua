@@ -83,6 +83,28 @@ ITEM.functions.use = {
     onRun = function(item)
 		local char = item.player:getChar()
 
+		if(item.matched) then
+			local inv = item.player:getChar():getInv()
+			local found = false
+			for k,v in pairs(inv) do
+				if(v.uniqueID == "matches") then
+					local uses = v:getData("uses", 6)
+					if(uses > 1) then
+						uses = uses - 1;
+						v:setData("uses", uses)
+					else
+						v:remove()
+					end
+					found = true
+					break
+				end
+			end
+			if(!found) then
+				item.player:notify("No matches found")
+				return false
+			end
+		end
+
 		if(item.healthPerc) then
 			local hp = item.player:Health()*item.healthPerc
 			item.player:TakeDamage(hp, item.player, item.player)

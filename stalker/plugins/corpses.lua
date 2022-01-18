@@ -67,27 +67,6 @@ function entMeta:generateBonesData()
 
 end
 
-// Permanent system
---[[ --no thanks
-function PLUGIN:LoadData()
-	for k, corpseData in pairs(self:getData()) do
-		createRagdoll(corpseData)
-	end
-end
-
-function PLUGIN:SaveData()
-
-	local ragdolls = {}
-
-	for k, v in pairs(ents.FindByClass( "prop_ragdoll" )) do
-		if v:isNutCorpse() then
-			ragdolls[#ragdolls + 1] = {v:GetNWString("nut_inventoryOwner"), v:GetMaterial(), v:GetAngles(), v:GetColor(), v:GetModel(), v:GetSkin(), v:GetPos(), v:GetVar("time"), v:GetNWInt("nut_inventoryID"), v:GetNWInt("corpseMoney"), v:GetNWInt("corpseInvH"), v:GetNWInt("corpseInvW"), v:GetVar("allBodyGroupsCorpses"), v:generateBonesData()}
-		end
-	end
-	
-	self:setData(ragdolls)
-end
-]]
 // Money functions
 
 local function addReserve(amt, ragdoll)
@@ -136,29 +115,9 @@ function entMeta:updateBones(playerDead, velocity, data)
 end
 
 function entMeta:setBodygroups(bodygroups, ply)
-	--print("bgs", bodygroups)
 	for k,v in pairs(bodygroups) do
-		--print(k, v)
 		self:SetBodygroup(k, v)
 	end
-	--[[if ply:getChar():getData("dedgroups") then
-		print("hello")
-		PrintTable(ply:getChar():getData("groups"))
-		for k,v in pairs(bodygroups) do
-			print(v.id, ply:GetBodygroup(v.id))
-		end
-		timer.Simple(0, function()
-		print("a dedgroups", ply:getChar():getData("dedgroups"), table.Count(ply:getChar():getData("dedgroups")))
-		PrintTable(ply:getChar():getData("dedgroups", {}))
-		--print("bodygroups")
-		--PrintTable(bodygroups)
-		for k, v in pairs(ply:getChar():getData("dedgroups", {})) do
-			print("hello there ", k, v)
-			self:SetBodygroup(k, v)
-		end
-		ply:getChar():setData("dedgroups", nil)
-	end)]]
-	--end
 	--ill set these here too lmao
 	local char = ply:getChar()
 	local mats = self:GetMaterials()
@@ -249,24 +208,6 @@ function createRagdoll(ragdollData, vel, ply)
 end
 
 // Server/Client communication
---[[
-function nut.item.restoreInv(invID, w, h, callback)
-	DEPRECATED()
-
-	nut.inventory.loadByID(invID)
-		:next(function(inventory)
-			if (not inventory) then return end
-
-			inventory:setData("w", w)
-			inventory:setData("h", h)
-
-			if (callback) then
-				callback(inventory)
-			end
-		end)
-end
-
-]]
 
 netstream.Hook("askOpenToServer", function(client, index, ownerName, ragdollEnt)
 	if !nut.item.inventories[index] then
@@ -312,13 +253,9 @@ function PLUGIN:PlayerDeath(victim, inflictor, attacker)
 		if(victim:getChar():getData("loseitems")) then
 		local victimInv = victim:getChar():getInv()
 		nut.inventory.instance("grid", {w = victimInv:getWidth(), h = victimInv:getHeight()}, function(inventory)
-			--local victimInv = victim:getChar():getInv()
-			--inventory.h = victimInv.h
-			--inventory.w = victimInv.w
 
 			local groups = table.Copy(victim:getChar():getData("groups", {}))
 			
-			--hook.Run("OnCorpseTransfer", victim, victimInv, inventory)
 
 			for k, slot in pairs(victimInv.slots) do
 				for key, itm in pairs(slot) do
@@ -345,9 +282,6 @@ function PLUGIN:PlayerDeath(victim, inflictor, attacker)
 			end
 			victim:getChar():setData("loseitems") --there u go
 			
-			--[[
-			print("stop", victim:getChar():getData("dedgroups"))
-			PrintTable(victim:getChar():getData("dedgroups", {}))]]
 			local ragdollData = {victim:getChar():getName(), victim:GetMaterial(), victim:GetAngles(), victim:GetColor(), victim:GetModel(), victim:GetSkin(), victim:GetPos(), 0, inventory:getID(), 0, inventory.h, inventory.w, groups}--GetBodyGroups()}
 			createRagdoll(ragdollData, victim:GetVelocity(), victim)
 		end)
@@ -359,11 +293,6 @@ function PLUGIN:PlayerDeath(victim, inflictor, attacker)
 			
 		end
 		
-		if (nut.config.get("pkActive") == false) or (nut.config.get("pkActive") == true && nut.config.get("pkWorld") == true && inflictor:IsWorld()) then
-			local victimChar = victim:getChar()
-				
-			--victimChar:setMoney(0)
-		end
 
 	end
 	
@@ -522,122 +451,6 @@ if(CLIENT)then
 		text:DockMargin(0, 0, 0, 0)
 		text:SetTextColor(color_white)
 		text:SetFont("nutGenericFont")
-        --[[ --money transfer lol
-		nut.gui.inv1:SetSize(nut.gui.inv1:GetWide(), nut.gui.inv1:GetTall() + 48)
-		local text = nut.gui.inv1:Add("DLabel")
-		text.Think = function()
-			if LocalPlayer():getChar() && IsValid(ragdollEnt) then
-				text:SetText(nut.currency.get(LocalPlayer():getChar():getMoney()))
-			else
-				nut.gui.inv1:Remove()
-				safebox_menuINV:Remove()
-			end
-		end
-		text:Dock(BOTTOM)
-		text:DockMargin(0, 0, nut.gui.inv1:GetWide()/2, 0)
-		text:SetTextColor(color_white)
-		text:SetFont("nutGenericFont")
-		
-		local entry = nut.gui.inv1:Add("DTextEntry")
-		entry:Dock(BOTTOM)
-		entry:DockMargin(nut.gui.inv1:GetWide()/2, 0, 0, 0)
-		entry:SetValue(0)
-		entry:SetNumeric(true)
-		entry.OnEnter = function()
-			local value = tonumber(entry:GetValue()) or 0
-			if value and value > 0 then
-				if LocalPlayer():getChar():hasMoney(value) then
-					surface.PlaySound("hgn/crussaria/items/itm_gold_down.wav")
-					netstream.Start("BankGiveMoneyCorpse", value, ragdollEnt)
-					--nut.command.send("actstand", 4)
-					entry:SetValue(0)
-				else
-					nut.util.notify(L("provideValidNumber"))
-					entry:SetValue(0)
-				end
-			else
-				nut.util.notify(L("cantAfford"))
-				entry:SetValue(0)
-			end		
-		end
-		
-		local transfer = nut.gui.inv1:Add("DButton")
-		transfer:Dock(BOTTOM)
-		transfer:DockMargin(nut.gui.inv1:GetWide()/2, 40, 0, -40)
-		transfer:SetText("Déposer")
-		transfer.DoClick = function()
-			local value = tonumber(entry:GetValue()) or 0
-			if value and value > 0 then
-				if LocalPlayer():getChar():hasMoney(value) then
-					surface.PlaySound("hgn/crussaria/items/itm_gold_down.wav")
-					netstream.Start("BankGiveMoneyCorpse", value, ragdollEnt)
-					--nut.command.send("actstand", 4)
-					entry:SetValue(0)
-				else
-					nut.util.notify(L("provideValidNumber"))
-					entry:SetValue(0)
-				end
-			else
-				nut.util.notify(L("cantAfford"))
-				entry:SetValue(0)
-			end					
-		end
-		
-		safebox_menuINV:SetSize(safebox_menuINV:GetWide(), safebox_menuINV:GetTall() + 48)
-		
-		local text1 = safebox_menuINV:Add("DLabel")
-		text1.Think = function()
-			if LocalPlayer():getChar() && IsValid(ragdollEnt) then
-				text1:SetText(nut.currency.get(ragdollEnt:GetNWInt("corpseMoney")))
-			else
-				nut.gui.inv1:Remove()
-				safebox_menuINV:Remove()
-			end
-		end			
-		text1:Dock(BOTTOM)
-		text1:DockMargin(0, 0, safebox_menuINV:GetWide()/2, 0)
-		text1:SetTextColor(color_white)
-		text1:SetFont("nutGenericFont")
-		
-		local entry1 = safebox_menuINV:Add("DTextEntry")
-		entry1:Dock(BOTTOM)
-		entry1:SetValue(ragdollEnt:GetNWInt("corpseMoney") or 0)
-		entry1:SetNumeric(true)
-		entry1:DockMargin(safebox_menuINV:GetWide()/2, 0, 0, 0)
-		entry1.OnEnter = function()
-			local value = tonumber(entry1:GetValue()) or 0
-			if ragdollEnt:GetNWInt("corpseMoney") >= value and value > 0 then
-				surface.PlaySound("hgn/crussaria/items/itm_gold_up.wav")
-				netstream.Start("BankTakeMoneyCorpse", value, ragdollEnt)
-				entry1:SetValue(0)
-			elseif value < 1 then
-				nut.util.notify(L("provideValidNumber"))
-				entry1:SetValue(0)
-			else
-				nut.util.notify(L("cantAfford"))
-				entry1:SetValue(0)
-			end			
-		end
-		
-		local transfer1 = safebox_menuINV:Add("DButton")
-		transfer1:Dock(BOTTOM)
-		transfer1:DockMargin(safebox_menuINV:GetWide()/2, 40, 0, -40)
-		transfer1:SetText("Retirer")
-		transfer1.DoClick = function()
-			local value = tonumber(entry1:GetValue()) or 0
-			if ragdollEnt:GetNWInt("corpseMoney") >= value and value > 0 then
-				surface.PlaySound("hgn/crussaria/items/itm_gold_up.wav")
-				netstream.Start("BankTakeMoneyCorpse", value, ragdollEnt)
-				entry1:SetValue(0)
-			elseif value < 1 then
-				nut.util.notify(L("provideValidNumber"))
-				entry1:SetValue(0)
-			else
-				nut.util.notify(L("cantAfford"))
-				entry1:SetValue(0)
-			end								
-        end
-        ]]
 	end
 	
 	// Server/Client communication
@@ -656,36 +469,6 @@ if(CLIENT)then
 		end
 	end )
 	
-	// First person view
---[[ --this is broken i think, besides doesnt it do this already?
-	hook.Add("CalcView", "first_person_death", function(client, origin, angles, fov)
-
-		local view = GAMEMODE.BaseClass:CalcView(client, origin, angles, fov) or {}
-		local ragdollEnt
-
-		if isnumber(client:getLocalVar("ragdollEnt", 0)) then
-			ragdollEnt = Entity(client:getLocalVar("ragdollEnt", 0))
-		end
-
-		if (!LocalPlayer():Alive() and IsValid(ragdollEnt)) then
-		 	local ent = ragdollEnt
-			local index = ent:LookupAttachment("eyes")
-
-			if (index) then
-				local data = ent:GetAttachment(index)
-
-				if (data) then
-					view.origin = data.Pos
-					view.angles = data.Ang
-				end
-				
-				return view
-			end
-		end
-
-		return GAMEMODE.BaseClass:CalcView(client, origin, angles, fov)
-	end)
-	]]
 end
 
 // Black Tea is a sushi --i agree but so are you for using // comments in lua

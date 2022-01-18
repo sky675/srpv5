@@ -155,28 +155,5 @@ FACTION.models = {
 	"models/sky/heads/female_23.mdl",
 }
 
-local SCHEMA = SCHEMA --will this work?
---[[
-function FACTION:onGetDefaultName(client)
-	local pay
-	if(SERVER) then return end
-	if(IsValid(nut.gui.charCreate)) then
-		pay = nut.gui.charCreate.payload
-	end
-	if(pay) then
-		print("okay")
-		PrintTable(pay)
-		if(!pay.name) then
-			print("no name")
-			return "Select a model first", true
-		end
-		print(pay.name)
-		print(pay.model)
-		if(pay.model and self.models[pay.model][1]) then
-			return SCHEMA:getRandomName(self.models[pay.model][1], client)
-		end
-	end
-end
-]]
 
 FACTION_CLEARSKY = FACTION.index

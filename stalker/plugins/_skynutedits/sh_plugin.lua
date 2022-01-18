@@ -1,45 +1,6 @@
 PLUGIN.name = "sky's edits"
 PLUGIN.author = "sky"
 PLUGIN.desc = "assorted hooks and other things"
---[[ current list of edits:
--a quiz to use with the quiz support
--removing the ability for everyone to move doors (because weve all done it in the past)
--another attempt to give me a special icon
--added jump should remove stamina
--remove candrive if not admin (might be arleady but whatever)
--remove bone manipulate from property
--added custom female hook
--added only draw ns crosshair with phys/tool and nut_ weapons
--added hook to remove annoying ambient music from some _redux maps
--added hook to disable tfa cmenu and bullet pen (probably should move to s2rp)
--added hook to disable player sprays
--added hook that disables drop weapons
-
-list of edits that i still had to change ns itself for (or would rather):
--fixes from black tea's fork
--added pac3 flag for pac access
--doubled typing distance (twice)
--character menu changes (different music)
--quiz support
--hidden scoreboard faction support (along with new multiple ally support)
--added operator to noclip availablity
--added letting the player know how long their char has been banned for
--removed remover from canproperty for normal players
--add neardeath shoottorp support to playersay (idk anywhere else itll work)
--removed damage scaling because shoottorp does it itself
--removed run_all_panicked as the player run anim (i hate it)
--attempt to change pistol holdtype to revolver holdtype anims
--added maxCreation attrib support
--added admins being immune from ooc limit
--added hidden support for charsetmodel
--changed it where string configs show their current value instead of default
--changed getadmin to allow operators
--lets op see logs with ^
--made my stamina edits (rename attribs, shoottorp support)
--changed throwpunch to require them to hit an entity to increase str (like it was before)
--allowed operator to use observer player esp
--add custom female hook run to isFemale
-]]
 
 nut.util.include("sh_commands.lua")
 --[[

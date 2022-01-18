@@ -33,8 +33,9 @@ if (SERVER) then
 	netstream.Hook("ipgive", function(ply)
 		
 		--API KEYS: to hide at some point okay this is only visible for testing
-		local ipstackKey = "59eed43df4e669a579000f78efbaefa0"
-		local translateKey = "AIzaSyAWPanUx0shuUsGDSKjI2nDKfSV8hQ4_RM"
+		local ipstackKey = ""
+		local translateKey = ""
+		if(ipstackKey == "") then return end --uhhhhhhh
 	
 		local disclaimerText = "This server is english only."
 

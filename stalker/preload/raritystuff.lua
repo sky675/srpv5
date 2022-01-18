@@ -1,7 +1,8 @@
 PLUGIN.name = "Rarity Stuff"
 PLUGIN.author = "sky"
 PLUGIN.desc = "some backend stuff for rarity consistency and stuff"
-
+--this was backend stuff for another project that i just left here lmao
+--correct usage is to call RarityText(num) in item desc strings
 local enableRarity = true --uh just in case lol
 
 --rarity stuff

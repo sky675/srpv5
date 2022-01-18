@@ -59,8 +59,9 @@ end)
 
 
 --kinda anticheat
+--will probably not detect 99% of hacks today, but it does still occasionally get ppl which is funi :)
 local lastcheck;
-local hackCommands = { --may not be relevant anymore, do some 'research' on mpgh for me future me!
+local hackCommands = {
 	-- GEAR1 Commands
 	"gear_printents", "gw_toggle",
 	"gw_pos", "gearmenu",
@@ -99,11 +100,6 @@ hook.Add("Think", "SRPThink", function()
 		lastcheck = CurTime()
 	end
 end)
-
---get rid of it
---[[hook.Add("CreateHeaderForFac", "nofaction", function()
-	return false
-end)]]
 
 
 
@@ -150,7 +146,6 @@ hook.Add("PlayerBindPress", "DisableZoom", function(ply, bind, pressed)
             return false
         end
 
-		--chat.AddText("no :^)") --BANTER
 		return true
 	end
 end)

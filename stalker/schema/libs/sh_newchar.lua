@@ -524,34 +524,19 @@ function clothesnonply(ply, data, realply)
 		t:SetModel(data.customt or (realply:isFemale() and defaultfemtop or defaultmaletop))
 		t:Spawn()
 		t:PhysicsDestroy()
-		--[[
-		if(t:GetPhysicsObject()) then
-			t:GetPhysicsObject():Remove()
-		end
-		]]
 		local b = ents.Create("base_gmodentity")
 		b:SetModel(data.customt or (realply:isFemale() and defaultfembot or defaultmalebot))
 		b:Spawn()
 		b:PhysicsDestroy()
-		--[[
-		if(b:GetPhysicsObject()) then
-			b:GetPhysicsObject():Remove()
-		end
-		]]
 
-		--t:InvalidateBoneCache()
 		t:SetParent(ply)
 		ply:CallOnRemove("remtop", function(ent) t:Remove() end)
 		t:AddEffects(bit.bor(EF_BONEMERGE,EF_BONEMERGE_FASTCULL))
-		--t:SetupBones()
 		ply.bm.t = t
 		
-
-		--b:InvalidateBoneCache()
 		b:SetParent(ply)
 		ply:CallOnRemove("rembot", function(ent) b:Remove() end)
 		b:AddEffects(bit.bor(EF_BONEMERGE,EF_BONEMERGE_FASTCULL))
-		--b:SetupBones()
 		ply.bm.b = b
 
 		if(defaultbothidden == -1) then --just uh putting it in here
@@ -635,14 +620,7 @@ function clothesnonply(ply, data, realply)
 		ply.bm.t:SetBodyGroups("00000000") --this works for now i guess?
 		ply.bm.b:SetBodyGroups("00000000") --this works for now i guess?
 	end
---[[
-	if(data.top) then
-		ply.bm.t:SetBodygroup(0, data.top)
-	end
-	if(data.bot) then
-		ply.bm.b:SetBodygroup(0, data.bot)
-	end
-	]]
+	
 	if(data.top) then
 		if(data.top != -1) then
 			if(ply.bm.t:GetRenderMode() != RENDERMODE_NORMAL) then
@@ -767,17 +745,6 @@ hook.Add("OnCharFallover", "bmfall", function(pl, rag, state)
 	end
 
 	clothesnonply(rag, tbl, pl)
-
-
-	--[[
-	net.Start("corpsecloth")
-	net.WriteEntity(rag)
-	net.WriteEntity(pl)
-	net.WriteTable(tbl)
-	net.Broadcast()
-	]]
-
-
 end)
 
 hook.Add("OnCorpseCreated", "bmcorpse", function(rag, pl)
@@ -811,31 +778,9 @@ hook.Add("OnCorpseCreated", "bmcorpse", function(rag, pl)
 	end
 
 	clothesnonply(rag, tbl, pl)
-
-
-	--[[
-	net.Start("corpsecloth")
-	net.WriteEntity(rag)
-	net.WriteEntity(pl)
-	net.WriteTable(tbl)
-	net.Broadcast()
-	]]
-
-	--[[
-	ply:setData("gdtop", nil, nil, player.GetAll())
-	ply:setData("gdbot", nil, nil, player.GetAll())
-	ply:setData("gdtopskin", nil, nil, player.GetAll())
-	ply:setData("gdbotskin", nil, nil, player.GetAll())
-	ply:setData("gcustomtop", nil, nil, player.GetAll())
-	ply:setData("gcustombot", nil, nil, player.GetAll())
-	ply:setData("gbgs", nil, nil, player.GetAll())
-	ply:setData("gsub", nil, nil, player.GetAll())
-	]]
 end)
 
 hook.Add("PlayerLoadedChar", "aaaSwapGSModels", function(ply, char, lastChar)
-	//nut.newchar.resetModels(ply)
-
 	if(serverside) then return end
 	if(!lastChar) then --should give the models on first loading char idk
 		net.Start("doallcothes")
@@ -843,16 +788,6 @@ hook.Add("PlayerLoadedChar", "aaaSwapGSModels", function(ply, char, lastChar)
 	end
 end)
 
---[[i dont know if theyre gonna remove themselves so just to be safe 
-they will dw
-hook.Add("PlayerDisconnected", "aaaremoveGS", function(ply)
-	if(IsValid(ply:GetNWEntity("top"))) then
-		ply:GetNWEntity("top"):Remove()
-	end
-	if(IsValid(ply:GetNWEntity("bot"))) then
-		ply:GetNWEntity("bot"):Remove()
-	end
-end)]]
 
 function nut.newchar.resetModels(pl)
 	local model = pl:GetModel()
@@ -1012,7 +947,6 @@ end
 
 function nut.newchar.setBody(ply, type, bg, custommodel, skin, custombgs, submats, force)
 	local model = ply:GetModel()
-	print("wtf", bg)
 	if(!nut.newchar.isBM(model) and !force) then return end
 	local realbg = bg
 	if((type == "top" or type == "bot" or type == "seperate") and bg == -1) then
@@ -1020,15 +954,10 @@ function nut.newchar.setBody(ply, type, bg, custommodel, skin, custombgs, submat
 		skin = 0
 	end
 
-	print("submats ",submats)
-	if(submats) then PrintTable(submats) end
-
 	local realtype = type
 	if(type == "seperate") then
 		realtype = "top"
 	end
-
-	print(type, bg, custommodel, skin, realtype)
 
 	local tbl = {[realtype] = bg}
 	if(type == "seperate" and realbg != -1) then
@@ -1066,8 +995,6 @@ function nut.newchar.setBody(ply, type, bg, custommodel, skin, custombgs, submat
 			tbl.customsubb = submats
 		end
 	end
-
-	PrintTable(tbl)
 
 	if(!serverside) then
 	net.Start("wearclothing")

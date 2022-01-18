@@ -7,19 +7,14 @@ if(SERVER and PermaProps) then
 	local function save(ent)
 		local content = {}
 		content.Other = {desc = ent:getNetVar("exDesc")}
-		print("uh save")
-		PrintTable(content)
 
 		return content
 	end
 	local function spawn(ent, data)
 		if !data or !istable( data ) then 
-			//print("uh load no data")
 			ent:Spawn()
 			return 
 		end
-		//print("uh load")
-		//PrintTable(data)
 
 		ent:Spawn()
 

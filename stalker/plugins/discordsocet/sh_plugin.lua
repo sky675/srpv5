@@ -75,13 +75,13 @@ if (SERVER) then
             color = LOGTYPE_TRANS[logType] or 0x818791
         }
         if(!LOGTYPE_EXCLUDE[logType]) then
-            SendDiscordMessage(data, "https://discord.com/api/webhooks/896351302588710912/Q6Fi-sXhTgf5dZWk0xdq-6UxYsBmRMlFWONjrSqR8EPtNamdyj6529plg_s1EDdhZJ0h")    
+            SendDiscordMessage(data, "webhook here")    
         end
         
     end)
 
     hook.Add("EmbedDiscordMsg", "SendEmbed", function(embed) //custom embed log
-        SendDiscordMessage(embed, "https://discord.com/api/webhooks/896351302588710912/Q6Fi-sXhTgf5dZWk0xdq-6UxYsBmRMlFWONjrSqR8EPtNamdyj6529plg_s1EDdhZJ0h")
+        SendDiscordMessage(embed, "webhook here")
     end)
 
     PDA_CHANNEL_COLOR_TRANS = {

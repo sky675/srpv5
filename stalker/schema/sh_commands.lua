@@ -123,20 +123,6 @@ nut.command.add("chardie", {
 	end
 })
 
---hope this works (it doesnt)
-nut.command.add("precachemodels", {
-	desc = "Precache important models clientside that arent automatically (npc models, weapon world models mainly). Will likely cause lag after running, just wait. Also might not even work, this is experimental.",
-    onRun = function(client, arguments)
-		netstream.Start(client, "precachecmd")
-        return "Done"
-	end
-})
-if(CLIENT) then
-netstream.Hook("precachecmd", function()
-	PrecacheConfigModels()
-end)
-end
-
 nut.command.add("chargetmoney", {
 	syntax = "<string target>",
 	adminOnly = true,

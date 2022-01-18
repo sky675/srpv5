@@ -51,34 +51,6 @@ function PANEL:onDisplay()
 				end
 			end
 		end
-		--[[ --unused
-		if(nut.newchar.isBM(model)) then
-			local fem = hook.Run("CustomFemaleModel", model, LocalPlayer()) or model:find("female") or model:find("metroll/f")
-
-			if(panel.model.modelcache and panel.model.modelcache != 0) then
-				for k,v in pairs(panel.model.modelcache) do
-					v:Remove()
-					panel.model.modelcache[k] = nil --srsly it doesnt get removed from the table
-				end
-			end
-
-			local top = ClientsideModel((fem and "models/sky/torsos/female_civ1.mdl") or "models/sky/torsos/male_civ1.mdl")--, RENDERGROUP_OPAQUE)
-			--top:Spawn() --spawn here if needed not sure if needed
-			top:SetParent(panel.model:GetEntity())
-			top:AddEffects(EF_BONEMERGE)
-			top:SetNoDraw(true) --it does this so..
-			panel.model.modelcache = panel.model.modelcache or {}
-			table.insert(panel.model.modelcache, top)
-
-			local bot = ClientsideModel((fem and "models/sky/legs/female_civ1.mdl") or "models/sky/legs/male_civ1.mdl")--, RENDERGROUP_OPAQUE)
-			--bot:Spawn() --spawn here if needed not sure if needed
-			bot:SetParent(panel.model:GetEntity())
-			bot:AddEffects(EF_BONEMERGE)
-			bot:SetNoDraw(true) --it does this so..
-			panel.model.modelcache = panel.model.modelcache or {}
-			table.insert(panel.model.modelcache, bot)
-			--PrintTable(panel.model.modelcache)
-		end]]
 	else
 		return --???????????
 	end
@@ -108,15 +80,9 @@ function PANEL:onDisplay()
 	--skin settings
 	if(#skins < 2) then
 		if(#skins == 1) then
-			--panel.payload.data = panel.payload.data or {}
-			--panel.payload.data.skin = skins[1] --make sure this shit is set i guess, how much this is called
 			self:setContext("skin", skins[1])
-			--panel.payload.skin = skins[1]
 			panel.model:GetEntity():SetSkin(skins[1])
 		else
-			--panel.payload.data = panel.payload.data or {}
-			--panel.payload.data.skin = 0 --needs to have something
-			--panel.payload.skin = 0
 			self:setContext("skin", 0)
 		end
 		local one = self:Add("DLabel")
@@ -148,9 +114,6 @@ function PANEL:onDisplay()
 	end
 	combo.OnSelect = function(pane, index, value)
 		local num = tonumber(string.Split(value, "#")[2]) --idk
-		--panel.payload.skin = num
-		--panel.payload.data = panel.payload.data or {}
-		--panel.payload.data.skin = num
 		self:setContext("skin", num)
 		panel.model:GetEntity():SetSkin(num)
 	end
@@ -178,11 +141,7 @@ function PANEL:onDisplay()
 
 	combo.OnSelect = function(pane, index, value)
 		local num = string.Split(value, ": ")[2]:lower() --idk
-		--panel.payload.eyes = num
-		--panel.payload.data = panel.payload.data or {}
-		--panel.payload.data.eyes = num
 		self:setContext("eyes", num)
-		--panel.model:GetEntity():SetSubMaterial(num)
 		
 		local mats = panel.model:GetEntity():GetMaterials()
 		local mat = {}
@@ -232,7 +191,6 @@ function PANEL:onDisplay()
 			dp:SetTextColor(color_white)
 			dp:SetPos(x, 0)
 			x = x + panel:GetWide()*0.2 + 12
-			--dp:SetValue("Select Bodygroup")
 			dp.Paint = function(dp, w, h)
 				nut.util.drawBlur(dp)
 				surface.SetDrawColor(0, 0, 0, 100)
@@ -247,12 +205,7 @@ function PANEL:onDisplay()
 				local cur = self:getContext("bgs", {})
 				cur[curbg] = num
 				self:setContext("bgs", cur)
-				--panel.payload.bgs = panel.payload.bgs or {}
-				--panel.payload.bgs[curbg] = num
-				--panel.payload.data = panel.payload.data or {}
-				--panel.payload.data.groups = panel.payload.data.groups or {}
 				panel.model:GetEntity():SetBodygroup(curbg, num)
-				--panel.payload.data.groups[curbg] = num
 			end
 		end
 		y = y + 20
@@ -262,7 +215,6 @@ function PANEL:onDisplay()
 		self:setContext("bgs", fem and faction.defaultBGs.female or faction.defaultBGs.male)
 	end
 
-	--comment below out and add new thing for chosing anorak color
 	--if faction table has a set texture (faction.anorak)
 	--dont let them select, otherwise choose from default
 	if(faction.hasanorak) then--string.find(model, "sky/stalker")) then
@@ -317,9 +269,6 @@ function PANEL:onDisplay()
 	
 		combo.OnSelect = function(pane, index, value, data)
 			local num = data
-			--panel.payload.eyes = num
-			--panel.payload.data = panel.payload.data or {}
-			--panel.payload.data.eyes = num
 			self:setContext("anorak", num)
 
 			local mats = panel.model:GetEntity().bm.t:GetMaterials()
@@ -344,120 +293,6 @@ function PANEL:onDisplay()
 	end
 
 
-	if(nut.newchar.isBM(model) and SCHEMA.GSCharConfig and !faction.defaultClothing) then
-		local fem = hook.Run("CustomFemaleModel", model, LocalPlayer(), nil, true) or model:find("female") or model:find("metroll/f")
-
-		local curt = 0
-		local curb = 0
-		local x = 0
-		local topm
-		local botm
-
-		if(fem) then
-			topm = SCHEMA.GSCharConfig.fem.top
-			botm = SCHEMA.GSCharConfig.fem.bot
-		else
-			topm = SCHEMA.GSCharConfig.male.top
-			botm = SCHEMA.GSCharConfig.male.bot
-		end
-
-		local bgpan = self:Add("DPanel")
-		self.gspan = bgpan
-		bgpan:SetSize(self:GetWide(), 65)
-		bgpan:SetPos(x,y)
-		bgpan:SetPaintBackground(false)
-
-		local labl = bgpan:Add("DLabel")
-		labl:SetSize(self:GetWide()*0.3, 20)
-		labl:SetPos(5, 0)--y)
-		labl:SetText("Starter Clothing")
-		labl:SetTooltip("Disclaimer: Preview may not be 100% accurate (clipping with arms, heads and hooded tops only happen in the previews)")
-
-		y = y + 25
-
-		--top
-		local dp = bgpan:Add("DComboBox")
-		dp:SetSize(self:GetWide(), 25)
-		dp:SetFont("stalkerTraitLabelFont")
-		dp:SetTextColor(color_white)
-		dp:SetPos(x, 0)
-		dp:SetTooltip("Disclaimer: Preview may not be 100% accurate (clipping with arms, heads and hooded tops only happen in the preview)")
-		x = x + self:GetWide()*0.2 + 12
-		dp.Paint = function(dp, w, h)
-			nut.util.drawBlur(dp)
-			surface.SetDrawColor(0, 0, 0, 100)
-			surface.DrawRect(0, 0, w, h)
-		end
-
-		for k,v in pairs(topm) do
-			dp:AddChoice(v.name, v.data)
-		end
-		dp:ChooseOptionID(1) --default first
-		dp.OnSelect = function(pane, index, value, num)
-			--panel.payload.gss = panel.payload.gss or {}
-			--panel.payload.gss.top = num.id
-			--panel.payload.data = panel.payload.data or {}
-			--panel.payload.data.gs = panel.payload.data.gs or {}
-			local cur = self:getContext("gss", {})
-			cur.top = num.id
-			self:setContext("gss", cur)
-
-			if(num.model) then
-			panel.model.modelcache[1]:SetModel(num.model)
-			else
-				panel.model.modelcache[1]:SetModel((fem and "models/sky/torsos/female_citizen1.mdl") or "models/sky/torsos/male_citizen1.mdl")
-			end
-			panel.model.modelcache[1]:SetBodygroup(0, num.bg)
-			panel.model.modelcache[1]:SetSkin(num.skin or 0)
-
-			--panel.payload.data.gs.top = num.id
-		end
-
-		--bot
-		dp = bgpan:Add("DComboBox")
-		dp:SetSize(self:GetWide(), 25)
-		dp:SetFont("stalkerTraitLabelFont")
-		dp:SetTextColor(color_white)
-		dp:SetPos(x, 0)
-		dp:SetTooltip("Disclaimer: Preview may not be 100% accurate (clipping with arms, heads and hooded tops only happen in the previews)")
-		x = x + self:GetWide()*0.2 + 12
-		dp.Paint = function(dp, w, h)
-			nut.util.drawBlur(dp)
-			surface.SetDrawColor(0, 0, 0, 100)
-			surface.DrawRect(0, 0, w, h)
-		end
-		for k,v in pairs(botm) do
-			dp:AddChoice(v.name, v.data)
-		end
-		dp:ChooseOptionID(1) --default first
-		dp.OnSelect = function(pane, index, value, num)
-			--panel.payload.gss = panel.payload.gss or {}
-			--panel.payload.gss.bot = num.id
-			--panel.payload.data = panel.payload.data or {}
-			--panel.payload.data.gs = panel.payload.data.gs or {}
-			local cur = self:getContext("gss", {})
-			cur.bot = num.id
-			self:setContext("gss", cur)
-
-			if(num.model) then
-			panel.model.modelcache[2]:SetModel(num.model)
-			else
-			panel.model.modelcache[2]:SetModel((fem and "models/sky/legs/female_citizen1.mdl") or "models/sky/legs/male_citizen1.mdl")
-			end
-			panel.model.modelcache[2]:SetBodygroup(0, num.bg)
-			panel.model.modelcache[2]:SetSkin(num.skin or 0)
-			
-			--panel.payload.data.gs.bot = num.id
-		end
-	elseif(nut.newchar.isBM(model) and faction.defaultClothing) then
-		if(istable(faction.defaultClothing)) then
-			if(!faction.defaultClothing["assign"]) then
-				faction.defaultClothing.assign = true
-			end
-
-			self:setContext("gss", faction.defaultClothing)
-		end
-	end
 end
 
 --use this to reset stuff if it has issues?

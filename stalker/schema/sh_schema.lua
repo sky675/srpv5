@@ -1,7 +1,7 @@
 SCHEMA.name = "STALKER"
 SCHEMA.introName = "STALKER"
 SCHEMA.author = "sky"
-SCHEMA.desc = ""--"Corporate control in Osaka, Japan."
+SCHEMA.desc = ""
 SCHEMA.descname = "STALKER RP"
 
 function SCHEMA:GetGameDescription()

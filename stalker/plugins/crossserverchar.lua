@@ -1,6 +1,7 @@
 PLUGIN.name = "Cross-Server Chars"
 PLUGIN.author = "sky"
 PLUGIN.desc = "allows chars to only be able to picked on specific servers"
+--this was never fully finished because we never had a second server so lmao
 
 CROSSSERVER_ID = 1 
 --the id it checks, you cant load the char if it doesnt match this

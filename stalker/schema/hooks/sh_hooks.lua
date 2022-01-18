@@ -87,8 +87,7 @@ function SCHEMA:CanItemBeTransfered(itemObject, curInv, inventory)
     end
 end
 
---arccw: m_hook_(name), func(data) data is table of buff and cur mult
-
+--these hooks are for tfa
 --i guess a way to go around this is by using the TFA_GetStat hook, idk
 --itd just be if statements for each stat, all the ones in the att
 -- ply:getImplantRes() to get implant specific adds to this, but do GetArmorResists instead just in case

@@ -6,83 +6,7 @@ hook.Add("ItemTransfered", "transferfunction", function(context)
 	end
 end)
 
-hook.Add("OnJammed", "main", function(ent)
-	print("jammed", ent)
-	if(ent:IsPlayer()) then
-		print("player")
-		if(ent:FlashlightIsOn()) then
-		ent:Flashlight(false)
-		end
-	end
-end)
-hook.Add("OnUnjammed", "main", function(ent)
-	
-end)
 
-local top_trans = {
-	--[1] = "default",
-	--[id in config] = {male id, female id}
-	--default models not included
-	--[1] = --black tshirt
-	--im so fucking stupid this is +1 higher than it should be
-
-	[2] = {"torso_fem_btshirt","torso_mal_btshirt"},
-	[3] = {"torso_fem_blwcoat","torso_mal_blwcoat"},
-	[4] = {"torso_fem_bcoat","torso_mal_bcoat"},
-	[5] = {"torso_fem_bwcoat","torso_mal_bwcoat"},
-	[6] = {"torso_fem_gbcoat","torso_mal_gbcoat"},
-	[7] = {"torso_fem_brcoat","torso_mal_brcoat"},
-	[8] = {"torso_fem_ghcoat","torso_mal_ghcoat"},
-	[9] = {"torso_fem_bhcoat","torso_mal_bhcoat"},
-	[10] = {"torso_fem_bwhcoat","torso_mal_bwhcoat"},
-	[11] = {"torso_fem_brhcoat","torso_mal_brhcoat"},
-	[12] = {"torso_fem_bthcoat","torso_mal_bthcoat"},
-	[13] = {"torso_fem_wblsshirt","torso_mal_bbzipvest"},
-	[14] = {"torso_fem_clsshirt","torso_mal_cbzipvest"},
-	[15] = {"torso_fem_tatjack","torso_mal_lsvest"},
-	[16] = {"torso_fem_ctatjacket","torso_mal_clsvest"},
-	[17] = {"torso_fem_fleece","torso_mal_fleece"},
-	[18] = {"torso_fem_pshirt","torso_mal_pshirt"},
-	[19] = {"torso_fem_wactjacket","torso_mal_rhoodie"},
-	[20] = {"torso_fem_bactjacket","torso_mal_bhoodie"},
-	[21] = {"torso_fem_bpuffer","torso_mal_bpuffer"},
-	[22] = {"torso_fem_cpuffer","torso_mal_cpuffer"},
-	[23] = {"torso_fem_brscrjack","torso_mal_brscrjack"},
-	[24] = {"torso_fem_blscrjack","torso_mal_blscrjack"},
-	[25] = {"torso_fem_blwscrjack","torso_mal_blwscrjack"},
-	[26] = {"torso_fem_brbscrjack","torso_mal_brbscrjack"},
-	[27] = {"torso_fem_braincoat","torso_mal_braincoat"},
-	[28] = {"torso_fem_wraincoat","torso_mal_wraincoat"},
-	[29] = {"torso_fem_bwintercoat","torso_mal_bwintercoat"},
-	[30] = {"torso_fem_dwintercoat","torso_mal_dwintercoat"},
-	[31] = {"torso_fem_wjack","torso_mal_sweater"},
-	[32] = {"torso_fem_wshirt","torso_mal_tatjack"},
-	[33] = {"torso_fem_bleatjack","torso_mal_bleatjack"},
-	[34] = {"torso_fem_wleatjack","torso_mal_wleatjack"},
-	[35] = {"torso_fem_suit","torso_mal_suit"},
-	[36] = {"torso_fem_bover","torso_mal_bover"},
-	[37] = {"torso_fem_gover","torso_mal_gover"},
-}
-local bot_trans = { --remember with the female trackpants, it starts going down as theres 1 less male one (so black would be the first suit pants for male)
-	--[1] = "default",
-	[2] = {"legs_fem_dbjeans","legs_mal_dbjeans"},
-	[3] = {"legs_fem_brjeans","legs_mal_brjeans"},
-	[4] = {"legs_fem_blcargo","legs_mal_blcargo"},
-	[5] = {"legs_fem_brcargo","legs_mal_brcargo"},
-	[6] = {"legs_fem_ccargo","legs_mal_ccargo"},
-	[7] = {"legs_fem_tcargo","legs_mal_tcargo"},
-	[8] = {"legs_fem_tpants","legs_mal_tpants"},
-	[9] = {"legs_fem_cpants","legs_mal_cpants"},
-	[10] = {"legs_fem_dspants","legs_mal_dspants"},
-	[11] = {"legs_fem_cspants","legs_mal_cspants"},
-	[12] = {"legs_fem_gcpants","legs_mal_gcpants"},
-	[13] = {"legs_fem_bcpants","legs_mal_bcpants"},
-	[14] = {"legs_fem_bapants","legs_mal_bapants"},
-	[15] = {"legs_fem_wtrpants","legs_mal_tatpants"},
-	[16] = {"legs_fem_btrpants","legs_mal_gdpants"},
-	[17] = {"legs_fem_gdpants","legs_mal_bdpants"},
-	[18] = {"legs_fem_bdpants",""},
-}
 local starters = {
 	"cwep_makarov", 
 	"pda", "ammo_9x18", "food_cantuna", 
@@ -142,26 +66,6 @@ function SCHEMA:OnCharCreated(client, character)
 	end
 
 	if (inventory) then	
-		local gs = character:getData("gs", {})
-		if(gs and !gs.assign) then --give starting items from char creation
-			if(gs.top and top_trans[gs.top+1]) then
-				inventory:add(top_trans[gs.top+1][fem and 1 or 2], 1, {equip = true})--, 3, 1)
-			end
-			if(gs.bot and bot_trans[gs.bot+1]) then
-				inventory:add(bot_trans[gs.bot+1][fem and 1 or 2], 1, {equip = true})--, 4, 1)
-			end
-		elseif(gs) then
-			if(gs.top) then
-				local eq = gs.topequip
-				if(eq == nil) then eq = true end
-				inventory:add(gs.top[fem and 1 or 2], 1, {equip = eq})
-			end
-			if(gs.bot) then
-				local eq = gs.botequip
-				if(eq == nil) then eq = true end
-				inventory:add(gs.bot[fem and 1 or 2], 1, {equip = eq})
-			end
-		end
 
 		if(character:getFaction() == FACTION_MUTANT) then return end --no starting items
 
@@ -305,15 +209,7 @@ hook.Add("OnPlayerHeal", "uhbothlmao", function(client, target, amount, seconds)
 
 	return amtchange, secchange
 end)
---[[
-function SCHEMA:InitializedPlugins()
-	if (!self.pacEx or #self.pacEx == 0) then return end
 
-	for k,v in pairs(self.pacEx) do
-		nut.pac.list[k] = v.pacData
-	end
-end
-]]
 util.AddNetworkString("BanMeAmHack")
 net.Receive("BanMeAmHack", function(len, ply)
 	RunConsoleCommand("ev","ban", ply:SteamID(), "0", "you have easily detectable hacks and frankly should be ashamed. fuck off.")
@@ -323,26 +219,6 @@ hook.Add("PlayerSpawn", "WideDecals", function(ply)
 	ply:RemoveAllDecals()
 end)--]]
 
---[[
-function SCHEMA:PostPlayerLoadout(ply)
-	local faction = ply:getChar():getFaction()
-
---this should work just change it based on watever u set the class names
-	timer.Simple(0, function() 
-	if(faction == FACTION_MONO or faction == FACTION_MUTANTS) then
-		ply.VJ_NPC_Class = {"CLASS_MONOLITH"}
-	elseif(faction == FACTION_FREEDOM and faction == FACTION_MERCS) then
-		ply.VJ_NPC_Class = {"CLASS_FREEBAN"}
-	elseif(faction == FACTION_DUTY and faction == FACTION_ECOLOGISTS) then
-		ply.VJ_NPC_Class = {"CLASS_DOLG"}
-	elseif(faction == FACTION_MILITARY) then
-		ply.VJ_NPC_Class = {"CLASS_UKM"}
-	else
-		ply.VJ_NPC_Class = nil
-	end
-	end)
-end
---]]
 
 hook.Add("PlayerGetStunThreshold", "trait", function(ply, atk)
 	local mod = nut.traits.getMod(ply, "cc", 3)
