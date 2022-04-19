@@ -3,6 +3,25 @@ PLUGIN.name = "Bounty Board/Odd Jobs"
 PLUGIN.author = "sky"
 PLUGIN.desc = "a bounty board entity with randomly generated generic jobs that can be turned in"
 
+//bountyboard is a plugin that generates random side jobs from templates, found in jobTemps
+//these jobs are generated every so often if there is a sky_bb entity on the map, which is where they can be turned in
+//PLUGIN.jobTemps, found in the jobs file is a table with string keys and table values that define jobs
+//the key is a unique id for the job temp
+//these tables have the following fields:
+//name - a string shown in the bountyboard entity, which can be formatted using the format function
+//desc - a generic desc for the job
+//unique - an optional bool which when true, prevents it from generating naturally and must be created via other means (ex an autoevent obj)
+//generate - a function that creates the objs for the job, what item get, the reward, etc, return a table which gets merged with the generated job
+//format - a function that allows you to format the name, return a table which is used for formatting the name
+//onTurnIn - a function that is ran when trying to turn in, you should check if they meet the objs and return true/false if they do/dont
+//giveReward - function used to give the turn iner when it was successful
+
+//the plugin comes with some example jobs:
+//genericItem asks for a random number of a part that will drop from various npcs (it does not spawn these npcs)
+//banditbounty is integrated with Rogue Camp in autoevents, an enemy that spawns in the event will drop a special item that can be turned in
+//mutantbounty is integrated with Mutant Lair in autoevents, it acts identical to banditbounty
+//custombounty is an admin-created bounty for a specified item, the command can be found below as bountyCustom
+
 local uniqueid = uniqueid or 0
 PLUGIN.curJobs = PLUGIN.curJobs or {}
 

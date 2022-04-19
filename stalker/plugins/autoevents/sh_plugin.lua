@@ -3,7 +3,74 @@ PLUGIN.name = "Autoevents"
 PLUGIN.author = "sky"
 PLUGIN.desc = "an in-map version of the run system, may be held together with duct tape idk"
 
---im prob gonna regret this
+//a rework of my gmod magnum opus, removing the accept system and having the events
+//autospawn at preset locations in the world
+//this file doesnt really need to be modified, everything relevant is changeable via configs or commands
+//the files u should be looking at is areas and objs:
+
+//areas: this is where the preset locations are defined
+//PLUGIN.areas is a table where the key is the map name and the value is a list
+//of preset locations
+//you can see it set up for rp_limansk_cs there already as an example
+//location table:
+//name is the name used to describe the location, which could be used by objs or etc
+//origin and radius defines the circle used to check if players are in or not in the area,
+//so it can know what objs it can spawn and not spawn
+//objs is a list of objs from the objs file that this area can spawn with
+//enemySpawns is a list of {vector, angle}s, used for randomly spawning enemies in the area
+//a concommand to create this based on your current position can be found in addons/skybase/autorun/sky_ammo, or here:
+/* 
+concommand.Add("_printpos", function(ply, cmd, args)
+	if(args[1] == "f") then
+		local tr = ply:GetEyeTrace()
+		local pos = tr.HitPos
+		print("pos: "..tostring(tr.HitPos))
+		SetClipboardText("Vector("..pos.x..", "..pos.y..", "..pos.z..")")
+		return
+	end
+	print("pos: ", ply:GetPos(), " ang: ", tostring(ply:EyeAngles()), ", clipboarded with just y")
+	local pos, ang = ply:GetPos(), ply:EyeAngles()
+	SetClipboardText("{Vector("..pos.x..", "..pos.y..", "..pos.z.."), Angle(0, "..ang.y..", 0)},\n")
+end, nil, "this is something i made for run configs, ignore it")
+*/
+//itemSpawns is a list of {loottable, vector}, used with the loot plugin to randomly spawn loot in the area
+//the above concommand can be used here with a f parameter (_printpos f) to get the position you're looking at
+//props is a list of a table used to define what a prop is and where to spawn, 
+//a command i used to make these can be found in addons/skybase/autorun/sky_ammo, or here:
+/*
+concommand.Add("_printentdata", function(ply, cmd, args)
+	print("copied")
+	local ent = ply:GetEyeTrace().Entity
+	local pos, ang = ent:GetPos(), ent:GetAngles()
+	SetClipboardText([[{
+		class = "]]..ent:GetClass()..[[",
+		model = "]]..ent:GetModel()..[[",
+		skin = ]]..ent:GetSkin()..[[,
+		pos = Vector(]]..pos.x..[[, ]]..pos.y..[[, ]]..pos.z..[[),
+		angle = Angle(]]..ang.p..[[, ]]..ang.y..[[, ]]..ang.r..[[),
+	},]])
+end, nil, "this is something i made for run configs, ignore it")
+*/
+//mutantSpawns is a list of {vector,angle}, exactly like enemy spawns, but used for mutant spawns coming in to the area in mutant attack
+//mutantTarget is a vector, where these mutants will try to head to on spawn
+
+//the other file, objs, includes, you may have guessed it, all the defined objs that can spawn at areas
+//PLUGIN.objs is a list of possible objs, which are tables that include various fields and functions
+//above this however are a bunch of functions, shared between the objs to help obj creation
+//the table is defined as this:
+//name is used to define the name of the obj, dont think this is actually shown anywhere
+//available you can include set to false to disable the obj from spawning
+//needplayers is another optional bool, which when true flips whether it can spawn to be where instead of requiring no players inside the checked sphere, there must be players inside the sphere
+//onSpawn is a function ran when the obj is spawned, its parameters are: 
+//obj - the obj that this function is in, 
+//area - the area table its spawning in, and 
+//used - the entry of curUsed that the obj and area are in
+//checkComplete is a function with the parameters of obj and used, used in the default timer function InitDefaultTimer, which should be in onSpawn, and is used to determine when the obj is finished so it can be cleaned up
+//onCleanup is a function with the parameter of used, ran when the obj needs to be cleaned up, remove props and still existing enemies
+
+//integration can done between this and bountyboard, spawning special jobs related to generated objs
+//example of this can be seen with objs 2 and 3
+
 nut.config.add("autoeventsEnabled", true, "Whether autoevents are being generated.", nil, {
     category = "Autoevents"    
 })
@@ -79,7 +146,7 @@ nut.util.include("sh_areas.lua")
 
 local uniqueid = uniqueid or 0
 
---list of areas currently being used, see trello or copy explanation here later
+--list of areas currently being used
 PLUGIN.curUsed = PLUGIN.curUsed or {}
 
 PLUGIN.curNextSpawn = PLUGIN.curNextSpawn or nil

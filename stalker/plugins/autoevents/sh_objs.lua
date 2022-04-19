@@ -437,6 +437,7 @@ PLUGIN.objs = {
 
 			netstream.Start(player.GetAll(), "fakepdanote", "WARNING: "..mutants.name.." APPROACHING "..area.name)
 
+			InitDefaultTimer(used["area"], used["obj"])
 		end,
 		checkComplete = function(obj, used)
 			return CheckAliveEnemies(used.enemies) == 0
@@ -487,6 +488,7 @@ PLUGIN.objs = {
 
 			SpawnLoot(area.itemSpawns, used, math.random(4,6), math.random(2,3))
 
+			InitDefaultTimer(used["area"], used["obj"])
 		end,
 		checkComplete = function(obj, used)
 			return CheckAliveEnemies(used.enemies) == 0
@@ -543,6 +545,7 @@ PLUGIN.objs = {
 				item:spawn(area.itemSpawns[math.random(#area.itemSpawns)][2]+Vector(0,0,15))
 			end
 
+			InitDefaultTimer(used["area"], used["obj"])
 			--SpawnLoot(area.itemSpawns, used, math.random(4,6), math.random(2,3))
 
 		end,
