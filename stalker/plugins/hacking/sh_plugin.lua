@@ -3,6 +3,10 @@ PLUGIN.name = "Hacking"
 PLUGIN.author = "sky"
 PLUGIN.desc = "hacking framework and stuff"
 
+--this is *extremely* old and wasnt really used in this schema, its still here primarily because i like using it
+--its assorted trait in the traits system are hidden and can only be given via rcon commands
+--i wanted to rewrite this to not be just one huge file but never ended up doing that
+
 --table of things so theyll stay the same between restarts (button disabled, etc)
 PLUGIN.mapdata = PLUGIN.mapdata or {}
 
@@ -58,6 +62,7 @@ local customdiffs = {
 
 --lua_run print(Entity(1):GetEyeTrace().Entity:MapCreationID())
 
+--the last time this was set up was for a hl2rp on a custom map
 local disabledents = {
 --filtered ents (buttons/doors that arent hackable)
 --MapCreationID so this will need to be fixed each build

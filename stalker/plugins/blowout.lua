@@ -36,6 +36,7 @@ local spawnPoints = {
 		add = 14335.96, --makes calculations always positive, should always be non neg of below
 		done = -14335.96, --the x point to end at
 		wavemulti = 1020, --how fast it travels
+		--this creates a blowout effect dome, meant to be in the skybox, the model for it is models/de_tulip/tulip_skysphere_l.mdl
 		domeTbl = {pos = Vector(-4.8413376808167, 1806.0949707031, 4723.71484375), ang = Angle(0, -96.591796875, 0), scale = 2}
 	},
 	["rp_jupiter_remaster"] = {
