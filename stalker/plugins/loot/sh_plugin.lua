@@ -668,7 +668,6 @@ PLUGIN.spawnPos = PLUGIN.spawnPos or {} --spawn positions
 ]]
 
 --nut.util.include("sh_director.lua")
-nut.util.include("sh_scenes.lua")
 nut.util.include("sh_commands.lua")
 nut.util.include("sh_corpseloot.lua")
 --nut.util.include("sh_tempstorage.lua")
