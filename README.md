@@ -11,11 +11,14 @@ Includes a multitude of custom plugins as well as a modified version of NutScrip
 
 ## Installation
 
-Drop the `nutscript` and `stalker` folders into your `garrysmod/gamemodes/` folder and set your gamemode launch option as such:
+1. Drop the `nutscript` and `stalker` folders into your `garrysmod/gamemodes/` folder.
+2. Set your gamemode launch option as such:
 
 ```
 -gamemode stalker
 ```
+
+3. Merge the `addons` folder with the `addons` folder in the server's directory.
 
 The gamemode by default is set up for the addons from this [collection](https://steamcommunity.com/sharedfiles/filedetails/?id=2489641694), you'll need to modify `sh_config.lua` in the schema to add/remove the workshop addons used.
 
@@ -55,11 +58,8 @@ The gamemode by default is set up for the addons from this [collection](https://
 
 ## Credits
 
-- [sky](https://github.com/sky675) (main dev)
+- [sky](https://sky675.itch.io/oasis) (main dev)
 - [NateStanley](https://github.com/NateStanley) (primarily all of the custom ui)
 - [the main NutScript developers](https://github.com/NutScript/NutScript)
 - [Helix developers](https://github.com/NebulousCloud/helix) (some features that were inserted into the custom NutScript version here were taken from a very early version of helix (namely the command descriptions and autocomplete))
 - the many many authors of various scripts and assets that we've used throughout the various lifetimes of this schema, from srpv1 back in 2017, to the most recent and likely final iteration in 2021.
-
-### sky's shameless plug:
-if you ever joined this or any previous iteration of this schema (or end up using anything from this for that matter too!), and want to support me for the work i've done throughout the years on this, you can help me out by buying [my game, OASIS: Tokyo](https://sky675.itch.io/oasis). it'd be extremely appreciated!
