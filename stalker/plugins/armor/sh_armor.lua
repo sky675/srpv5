@@ -451,6 +451,7 @@ do
 		if(levels and levels[part]) then
 			local item = nut.item.instances[levels[part].orig]
 			local dura = levels[part].dura
+			if(!item) then return end
 			if(!dura) then
 				--generate dura, maybe maxdura func on item
 				dura = item:getMaxDura()
