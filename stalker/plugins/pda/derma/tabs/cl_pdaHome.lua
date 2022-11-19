@@ -117,11 +117,11 @@ function PANEL:onDisplay()
     --[[
         Doing the weather forecast for next 9 hours
     --]]
-    local forecastJson = StormFox2.WeatherGen.GetForcast()
+    local forecastJson = StormFox2.WeatherGen.GetForecast()
     local unix = forecastJson.unix_stamp
     local idCast = -1
     local time = StormFox2.Time.Get()
-    if not unix then
+    --[[if not unix then
         for i = 1, 8 do
             if forecastJson[i].Time * 60 <= time then
                 idCast = idCast + 1
@@ -133,14 +133,14 @@ function PANEL:onDisplay()
                 idCast = idCast + 1
             end
         end
-    end
+    end]]
 
     self.currentWeather:SetText("Currently " .. StormFox2.Weather.GetDescription())
     self.currentWeather:SizeToContents()
     self.currentWeather:SetY(self.time:GetY() + self.time:GetTall() + (self.time:GetTall()/2))
     self.currentWeather:SetX((contW/2) - (self.currentWeather:GetWide()/2))
 
-    for i = 2, 4 do
+    --[[for i = 2, 4 do
         local data = forecastJson[i + idCast]
         if not data then break end
         --local x = i * ws - ws --something for rendering on the tv, ignore.
@@ -171,7 +171,7 @@ function PANEL:onDisplay()
         ---- Temp
         --max_temp = math.max(max_temp,data.Temperature)
         --min_temp = math.min(min_temp,data.Temperature)
-    end
+    end]]
 
 
 
