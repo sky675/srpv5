@@ -37,7 +37,6 @@
 
 
 function GM:SetupDatabase()
-	if(!game.IsDedicated()) then
 	-- Which method of storage: sqlite, tmysql4, mysqloo
 	nut.db.module = "sqlite"
 	-- The hostname for the MySQL server.
@@ -50,18 +49,4 @@ function GM:SetupDatabase()
 	nut.db.database = "nutscript"
 	-- The port for the database, you shouldn't need to change this.
 	nut.db.port = 3306
-	else
-		-- Which method of storage: sqlite, tmysql4, mysqloo
-		nut.db.module = "mysqloo"
-		-- The hostname for the MySQL server.
-		nut.db.hostname = "gspdb-chi.hosthavoc.com"
-		-- The username to login to the database.
-		nut.db.username = "db99993"
-		-- The password that is associated with the username.
-		nut.db.password = "23diFRrlRL"
-		-- The database that the user should login to.
-		nut.db.database = "db99993"
-		-- The port for the database, you shouldn't need to change this.
-		nut.db.port = 3306
-	end
 end
