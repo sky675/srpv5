@@ -1,7 +1,8 @@
 PLUGIN.name = "nLogs"
 PLUGIN.author = "Nate"
 PLUGIN.desc = "New logging system to be used with an external program for administration."
-
+--lmao
+if true then return end
 --[[
 
 
