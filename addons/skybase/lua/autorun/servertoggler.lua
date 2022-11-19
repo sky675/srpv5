@@ -6,14 +6,14 @@ local pass = "shazbot" --pass to get in when closed
 local closedStr = "| https://discord.gg/kolobok" --string to add when closed
 local defName = "Kolobok|STALKER Serious Roleplay"
 
-serverToggle.curStatus = serverToggle.curStatus or (cookie.GetNumber("serverTog", 1) == 1)  --false = open
+serverToggle.curStatus = serverToggle.curStatus or (cookie.GetNumber("serverTog", 0) == 1)  --false = open
 
 if(SERVER) then
 hook.Add("InitPostEntity", "testtoggle", function()
 	print("servertoggle: current name at init", GetHostName())
 	
 	serverToggle.originalName = defName
-	serverToggle.curStatus = tobool(cookie.GetNumber("serverTog", 1))
+	serverToggle.curStatus = tobool(cookie.GetNumber("serverTog", 0))
 	
 	if(serverToggle.curStatus) then
 		RunConsoleCommand("sv_password", pass)
