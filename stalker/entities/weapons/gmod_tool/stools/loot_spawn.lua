@@ -16,7 +16,7 @@ function TOOL:LeftClick(tr)
 	if !self:GetOwner():IsAdmin() then return end
 	
 	if(nut.plugin.list["loot"].lootTables[self:GetClientInfo("tableid")]) then
-		nut.command.run(self:GetOwner(), "lootspawn", {self:GetClientInfo("tableid"), self:GetClientNumber("detection")})
+		nut.command.run(self:GetOwner(), "lootspawn", {self:GetClientNumber("detection"), self:GetClientInfo("tableid")})
 	end
 
     return true
