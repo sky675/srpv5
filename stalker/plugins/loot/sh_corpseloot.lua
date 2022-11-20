@@ -1,5 +1,6 @@
 local PLUGIN = PLUGIN
 --todo split into server and client files
+--vj_npc_corpsecollision 3 is required for looting to work
 
 local knifeReq = {
 	{--rest
