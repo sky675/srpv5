@@ -29,7 +29,7 @@ ITEM:hook("usef", onUse)
 
 
 function ITEM:customUse(char)
-    local itemid = item.id
+    local itemid = self.id
     hook.Add("CustomArmorResists", "itemuse"..itemid, function(client, levels)
         levels[DMG_RADIATION] = (levels[DMG_RADIATION] or 0)*1.4
     end)

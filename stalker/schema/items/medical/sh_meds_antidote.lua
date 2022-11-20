@@ -30,7 +30,7 @@ ITEM:hook("usef", onUse)
 
 
 function ITEM:customUse(char)
-    local itemid = item.id
+    local itemid = self.id
     hook.Add("CustomArmorResists", "itemuse"..itemid, function(client, levels)
         levels[DMG_POISON] = (levels[DMG_POISON] or 0)*1.35
         levels[DMG_ACID] = (levels[DMG_ACID] or 0)*1.35
