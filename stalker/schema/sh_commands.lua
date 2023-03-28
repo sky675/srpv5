@@ -395,6 +395,83 @@ nut.command.add("forceresetpac", {
 	end
 })
 
+local vendorTbls = {
+	["main"] = {
+		"ammo_9x19",
+		"ammo_9x18",
+		"ammo_45acp",
+		"ammo_762x25",
+		"ammo_buckshot",
+		"ammo_buckshot_slug",
+		"rep_glue_b",
+		"drink_waterflask",
+		"food_bread",
+		"food_cantuna",
+		"meds_bandage",
+		"medkit",
+		"meds_antirad",
+		"binoculars"
+	}
+}
+
+nut.command.add("setvendor", {
+    syntax = "<string tableid>",
+	desc = "dont use this command",
+    adminOnly = true,
+    onRun = function(client, arguments)
+        local tr = client:GetEyeTrace()
+		if(tr.Entity and tr.Entity:GetClass() == "nut_vendor") then
+			local vend = tr.Entity
+			if(arguments[1] == "all") then
+				for k,v in pairs(nut.item.list) do vend.items[k] = {[3] = 3} end
+				nut.plugin.list.vendor:saveVendors()
+				return "ran all"
+			end
+			if(vendorTbls[arguments[1]] != nil) then
+				vend.items = vend.items or {}
+				for k, v in ipairs(vendorTbls[arguments[1]]) do
+					vend.items[v] = vend.items[v] or {}
+					vend.items[v][VENDOR_MODE] = VENDOR_SELLONLY
+				end
+				nut.plugin.list.vendor:saveVendors()
+
+				return "ran"
+			end
+			return "no tbl"
+		end
+
+		return "no entity"
+	end
+})
+nut.command.add("vendormulti", {
+    syntax = "<number multi>",
+	desc = "multiplies every items price by a set amount, put 0 to reset, dont use this command",
+    adminOnly = true,
+    onRun = function(client, arguments)
+		local num = tonumber(arguments[1])
+        local tr = client:GetEyeTrace()
+		if(tr.Entity and tr.Entity:GetClass() == "nut_vendor") then
+			local vend = tr.Entity
+			for k, v in pairs(vend.items) do
+				if(v[VENDOR_PRICE]) then
+					if(num == 0) then
+						v[VENDOR_PRICE] = nil
+					else
+						v[VENDOR_PRICE] = v[VENDOR_PRICE] * num
+					end
+				elseif(num != 0) then
+					v[VENDOR_PRICE] = nut.item.list[k].price * num
+				end
+			end
+			nut.plugin.list.vendor:saveVendors()
+
+			return "no tbl"
+		end
+
+		return "no entity"
+	end
+})
+
 nut.command.add("resetstorage", {
 	desc = "If you ever can't use storages, use this command, should work",
 	onRun = function(client, arguments)
