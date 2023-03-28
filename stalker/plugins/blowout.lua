@@ -47,7 +47,16 @@ local spawnPoints = {
 		done = -15871.96,
 		wavemulti = 1020,
 		domeTbl = {pos = Vector(-495.64379882813, -5.0873184204102, -4748.8017578125),ang = Angle(-1.6094970703125, -101.59606933594, -1.351318359375),scale = 1}
-	}
+	},
+	["rp_stalker_mixed"] = {
+		xory = "y",
+		pos = false,
+		spawn = 14335.96,
+		add = 14335.96,
+		done = -13311.97,
+		wavemulti = 1020,
+		domeTbl = {pos = Vector(-6065.6005859375, -6305.1489257813, -6974.3256835938),ang = Angle(0, -97.893676757813, 0),scale = 1}
+	},
 	--crossroads: {pos = Vector(-4.8413376808167, 1806.0949707031, 4723.71484375), ang = Angle(0, -96.591796875, 0), scale = 2}
 	--domeTbl = {pos = Vector(), ang = Angle(), scale = 1} 
 }
