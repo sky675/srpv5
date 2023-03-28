@@ -1,7 +1,7 @@
 ITEM.name = "Rat Meat"
 ITEM.desc = "A portion of a rodent. Would not recommend eating."
 ITEM.price = 166
-ITEM.model = "models/wick/wrbstalker/anomaly/items/dez_raw_tushkano.mdl"
+ITEM.model = "models/wick/wrbstalker/anomaly/items/wick_raw_tushkano.mdl"
 ITEM.flag = "m"
 ITEM.width = 1
 ITEM.height = 1
