@@ -191,6 +191,16 @@ local weaponEdits = {
 			Ammo = "sky556"
 		}
 	},
+	["arccw_go_m4"] = {		
+		mods = {			
+			Type = "ar", --pistol, smg, shotgun, ar, sniper			
+			TwoHandedWep =true,		
+		}, 		
+		primarymods = {			
+			ClipSize = 30, --why is this 36 wtf			
+			Ammo = "sky556"		
+		}
+	},
 	["arccw_go_negev"] = {
 		mods = {
 			TwoHandedWep =true,
@@ -597,6 +607,8 @@ local ammoAtt = function(wep, data, amm)
 		return data
 	end
 	if(wep.Primary.Ammo:find(amm)) then
+		data.current = wep.Primary.Ammo
+		netstream.Start(wep:GetOwner(), "updateammopls", data.current, wep:GetClass())
 		return data
 	end
 	data.current = (data.current or wep.Primary.Ammo)..amm

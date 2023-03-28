@@ -408,6 +408,11 @@ function ITEM:doAttach(weapon)
 
 	--add atts
 	timer.Simple(0, function()
+		--this is like the 3rd time now ive forgotten about this
+		local check = GetConVar("arccw_attinv_free")
+		if(!check:GetBool()) then
+			nut.log.addRaw("HEY arccw_attinv_free is 0!!! errors are about to come in, this *needs* that to be 1 to work")
+		end
 	for slot,name in pairs(ups) do
 		if(!slotids[slot]) then
 			nut.log.addRaw("uh something didnt attach correctly "..self:getID().." "..self:getOwner():Name()..", the slot "..slot.." doesnt exist")
@@ -419,8 +424,8 @@ function ITEM:doAttach(weapon)
 			ply.isattaching = true
 			weapon:Detach(slotids[slot])
 			if(weapon.Attachments[slotids[slot]].Installed != nil) then
-				nut.log.addRaw("uh something didnt attach correctly "..self:getID().." "..self:getOwner():Name())
-				self:getOwner():notify("uh something didnt attach correctly lmao", 3)
+				nut.log.addRaw("uh something didnt detach correctly "..self:getID().." "..self:getOwner():Name())
+				self:getOwner():notify("uh something didnt detach correctly lmao", 3)
 			end
 		else
 			ply.isattaching = true

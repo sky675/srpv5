@@ -11,7 +11,22 @@ hook.Add("Hook_PostFireBullets", "dura", function(weapon)
 		local itm = weapon.nutItem
 
 		if(itm) then
-			dura = itm:getData("durability")
+			dura = itm:getData("durability", 100)
+		end
+		if(dura and nut.config.get("weaponDurability", false)) then
+			local newDura = dura
+			local torem = math.max(0.0001, (((((weapon:GetFiringDelay())/100)+weapon:GetDamage(0))/newDura)/(18*itm:getData("incD",1))))
+			torem = torem * (itm:getData("duraMulti") and duraMulti or 1)
+
+			newDura = newDura-torem
+			itm:setData("durability", newDura)
+			
+			if(newDura <= 0) then
+				itm:setData("broken", true)
+				weapon:GetOwner():notify("Your "..weapon.PrintName.." has broken!")
+				itm:Unequip(weapon:GetOwner())
+				return
+			end
 		end
 		if(weapon:GetBuff_Override("CanJam")) then
 			dura = 10
