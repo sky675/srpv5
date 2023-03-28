@@ -13,7 +13,12 @@ local MAP_TEXTURES = {
         texture = Material("sky/pda_maps/rp_jupiter_remaster.png"),
         sizeX = 1920,
         sizeY = 1080
-    }
+    },
+    ["gm_marsh"] = {
+        texture = Material("sky/pda_maps/gm_marsh.png"),
+        sizeX = 1920,
+        sizeY = 1080
+    },
 }
 
 --[[

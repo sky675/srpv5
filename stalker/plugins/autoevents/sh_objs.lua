@@ -37,13 +37,21 @@ local function SpawnEnemies(enmlist, spawntable, run, amt, minamt, callback)
 						break
 					end
 				end
+				local pos = v2[1]
 				
+				local nav = navmesh.GetNearestNavArea(pos)
+				if(nav) then
+				local al = nav:GetClosestPointOnArea(pos)
+				if(al) then 
+					pos = al
+				end
+				end
 		
 				--spawn at pos
 				enm = enm+1
 				local np = ents.Create(enmlist[math.random(#enmlist)])
 				if(np) then
-					np:SetPos(v2[1])--+Vector(0,0,16))
+					np:SetPos(pos + Vector(0,0,64))--+Vector(0,0,16))
 					np:SetAngles(v2[2]) --mebi this will work idk
 					if(!np.NEXTBOT and np:IsNPC()) then
 						local SpawnFlags = bit.bor( SF_NPC_FADE_CORPSE, SF_NPC_ALWAYSTHINK, SF_NPC_NO_WEAPON_DROP )
@@ -96,11 +104,20 @@ local function SpawnEnemies(enmlist, spawntable, run, amt, minamt, callback)
 				end
 			end
 		
+			local pos = v[1]
+			local nav = navmesh.GetNearestNavArea(pos)
+			if(nav) then
+			local al = nav:GetClosestPointOnArea(pos)
+			if(al) then 
+				pos = al
+			end
+			end
+	
 			--spawn at pos
 			enm = enm+1
 			local np = ents.Create(enmlist[math.random(#enmlist)])
 			if(IsValid(np)) then
-				np:SetPos(v[1])
+				np:SetPos(pos + Vector(0,0,64))
 				np:SetAngles(v[2])
 				if(!np.NEXTBOT and np:IsNPC()) then
 					local SpawnFlags = bit.bor( SF_NPC_FADE_CORPSE, SF_NPC_ALWAYSTHINK, SF_NPC_NO_WEAPON_DROP )
@@ -364,19 +381,19 @@ local mutantposs = {
 		},
 	},]]
 	{
-		name = "FLESHES",
+		name = "Fleshes",
 		list = {
 			"npc_vj_srp_m_flesh"
 		},
 	},
 	{
-		name = "DOGS",
+		name = "Dogs",
 		list = {
 			"npc_vj_srp_m_dog"
 		},
 	},
 	{
-		name = "BOARS",
+		name = "Boars",
 		list = {
 			"npc_vj_srp_m_boar"
 		},
@@ -435,7 +452,7 @@ PLUGIN.objs = {
 					end
 				end)
 
-			netstream.Start(player.GetAll(), "fakepdanote", "WARNING: "..mutants.name.." APPROACHING "..area.name)
+			netstream.Start(player.GetAll(), "fakepdanote", "WARNING: "..mutants.name.." approaching "..area.name)
 
 			InitDefaultTimer(used["area"], used["obj"])
 		end,
