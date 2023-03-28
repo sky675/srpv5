@@ -8,8 +8,9 @@ nut.config.add("discordLoggingEnabled", true, "Enable discord logging", nil, {
 nut.config.add("discordAlertRoleID", "11111111111111111", "Discord Role ID to be alerted of certain events", nil, {
 	category = PLUGIN.name
 })
-//https://discord.com/api/webhooks/896351302588710912/Q6Fi-sXhTgf5dZWk0xdq-6UxYsBmRMlFWONjrSqR8EPtNamdyj6529plg_s1EDdhZJ0h test webhook
 
+--nerf this shit out for now just in case
+--[[
 if (SERVER) then
     local POST_MODES = {
         DISABLED = 0,
@@ -117,3 +118,4 @@ if (SERVER) then
     end)
 
 end
+]]

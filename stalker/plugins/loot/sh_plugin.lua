@@ -152,7 +152,9 @@ PLUGIN.lootTables = {
 			{"junk_gpblue", 8},
 			{"junk_gpgreen", 8},
 			{"junk_gpred", 4},
-
+			{"junk_boxres", 8},
+			{"junk_boxcap", 8},
+			{"junk_boxtrans", 8},
 		},
 		durability = {100, 100}, --durability when spawned if weapon or suit (for watever reason)
 		randomAmmo = 0,
@@ -824,7 +826,7 @@ function PLUGIN:SpawnRound()
 		--changing it so items will get replaced
 		if(IsValid(self.curItems[k])) then continue end --dont do anything if theres an item
 		if(self:IsPointClear(k)) then 
-			if(#self.curItems >= ((self.curRatio or 1)*self.maxItems)) then return end
+			if(#self.curItems >= ((self.curRatio or 1)*#self.spawnPos)) then return end
 			if(!realB[v.table]) then --trying to change this to the 1 that is made earlier
 				nut.log.addRaw("Loot spawn position "..k.." was deleted: The table it used is invalid now!", FLAG_WARNING)
 				table.remove(self.spawnPos, k)
@@ -1064,7 +1066,7 @@ if(SERVER) then
 			end
 			local ratio = math.Clamp(#player.GetAll()-PLUGIN.minplayers, 0, PLUGIN.maxplayers)/PLUGIN.maxplayers
 			PLUGIN.curRatio = ratio
-			if((#realItems/(ratio*PLUGIN.maxItems)) > PLUGIN.maxSpawnThresh) then return end --theres still a majority of items left
+			if((#realItems/(ratio*#PLUGIN.spawnPos)) > PLUGIN.maxSpawnThresh) then return end --theres still a majority of items left
 
 			PLUGIN:SpawnRound() --do eeeet
 		end)

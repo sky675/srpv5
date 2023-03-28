@@ -40,14 +40,10 @@ nut.command.add("lootshow", {
         end
         
 	local points = PLUGIN.spawnPos
-	local scenes = PLUGIN.scenePos
     local limP = {p = {}, s = {}}
 
     for k,v in pairs(points) do
         limP.p[k] = v.pos
-	end
-	for k,v in pairs(scenes) do
-		limP.s[k] = v.pos
 	end
 
     net.Start("RecLotPoints")
