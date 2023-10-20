@@ -17,6 +17,9 @@ if(StormFox2) then
 				local dt = string.Explode(":", os.date("%H:%M:%S", nut.date.get()))
 				StormFox2.Time.Set(dt[1] * 60 + dt[2] + (dt[3] / 60))
 				StormFox2.Setting.Set("time_speed", 1) --should set real world speed, doing this because maybe itll stop being unsynced then idk
+				//fixing an issue since apparently he changed this at some point?
+				StormFox2.Setting.Set("day_length", 720) 
+				StormFox2.Setting.Set("night_length", 720) 
 				print("time set to nutscript date time")
 				--id like to believe that the time offset was fixed, but
 				--its here anyway, uncomment if it is

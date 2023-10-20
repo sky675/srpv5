@@ -57,6 +57,15 @@ local spawnPoints = {
 		wavemulti = 1020,
 		domeTbl = {pos = Vector(-6065.6005859375, -6305.1489257813, -6974.3256835938),ang = Angle(0, -97.893676757813, 0),scale = 1}
 	},
+	["gm_marsh"] = {
+		xory = "x",
+		pos = false,
+		spawn = 10879.96,
+		add = 10879.96,
+		done = -10367.97,
+		wavemulti = 920,
+		domeTbl = {pos = Vector(285.18106079102, 1681.076171875, -2281.9240722656),ang = Angle(0, 171.650390625, 0),scale = 1}
+	},
 	--crossroads: {pos = Vector(-4.8413376808167, 1806.0949707031, 4723.71484375), ang = Angle(0, -96.591796875, 0), scale = 2}
 	--domeTbl = {pos = Vector(), ang = Angle(), scale = 1} 
 }
