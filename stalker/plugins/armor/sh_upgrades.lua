@@ -1,5 +1,54 @@
 local PLUGIN = PLUGIN
 
+--[[
+	weird bug, need to verify
+	
+	if you take an armor, then add a mod to it, the next armor you spawn will have the stats of the first armor
+
+[1:00 AM]
+sky:
+	hm
+	the same type of armor?
+
+[1:00 AM]
+zebra:
+	wacky and wild
+	yeah
+	just tested it
+
+[1:00 AM]
+sky:
+	weird
+	ill note that down, if we ever come back to that ill prob fix it then, ty
+
+[1:02 AM]
+zebra:
+	ty
+	im going to see if it's only an issue when 1 person mods and spawns. or if it replicates through salesman or 1 person spawning, another person modding, then the 1st person spawns a fresh one
+	yeah uhhhh it replicates through salesman too
+	it replicates through /chargiveitem as well lol what the fuck kind of bug is this
+
+[1:05 AM]
+sky:
+	yeah thats def super weird
+	its only the same type of armor right? if u spawn a different type of armor that has its own stats?
+
+[1:05 AM]
+zebra:
+	Yeah it's the same armor
+
+[1:07 AM]
+sky:
+	very strange yeah glancing at the code i dont have any idea why itd be doing that
+	maybe its something clientside? idk
+
+[1:07 AM]
+zebra:
+	goes across characters
+
+]]
+
+
 --todo:
 --add sizes to armors
 --implement suit durability modifier
