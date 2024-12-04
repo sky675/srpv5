@@ -518,42 +518,42 @@ if(SERVER) then
 						
 						--for changing durability
 						--base 0.001 + (0.1*((1-durability)*(dmg/2))/100)
-						local duraToRem = math.max(0.0001, 0.001+(0.1*((1-(levels.durability or 1)*(dmginfo:GetDamage()/8)))/100)*1.2)
-						if(hg == HITGROUP_HEAD) then
-							duraToRem = duraToRem*100
-						end
+						-- local duraToRem = math.max(0.0001, 0.001+(0.1*((1-(levels.durability or 1)*(dmginfo:GetDamage()/8)))/100)*1.2)
+						-- if(hg == HITGROUP_HEAD) then
+						-- 	duraToRem = duraToRem*100
+						-- end
 						
-						if(wep.Primary.Ammo == "buckshot") then
-							duraToRem = duraToRem*2
-						end
-						if(duraToRem < 0) then 
-							ply:SetArmorDurability(hitToLevel[hg], 0)
-						else
-						--print("attacking: durabilty to remove "..duraToRem)
-						ply:SetArmorDurability(hitToLevel[hg], math.Clamp((levels.durability or 1)-duraToRem, 0, 1))
-						end
+						-- if(wep.Primary.Ammo == "buckshot") then
+						-- 	duraToRem = duraToRem*2
+						-- end
+						-- if(duraToRem < 0) then 
+						-- 	ply:SetArmorDurability(hitToLevel[hg], 0)
+						-- else
+						-- --print("attacking: durabilty to remove "..duraToRem)
+						-- ply:SetArmorDurability(hitToLevel[hg], math.Clamp((levels.durability or 1)-duraToRem, 0, 1))
+						-- end
 					else
 						if(wep.GetStat and wep:GetStat("UnprocScale")) then
 							dmginfo:ScaleDamage(wep:GetStat("UnprocScale"))
 						end
 
-						if(levels[hit] and levels[hit] != ARMOR_NONE) then
-						local duraToRem = math.max(0.0001, (0.001+(0.1*((1-(levels.durability or 0.9999)*(dmginfo:GetDamage()/6)))/100))*2.5)
-						if(hg == HITGROUP_HEAD) then
-							duraToRem = duraToRem*100
-						end
-						if(wep:GetClass() == "sky_helsing") then
-							duraToRem = duraToRem*100
-						end
-						if(wep.Primary.Ammo == "buckshot") then
-							duraToRem = duraToRem*2
-						end
-						if(duraToRem < 0) then 
-							ply:SetArmorDurability(hitToLevel[hg], 0)
-						end
-						--print("attacking: durabilty to remove "..duraToRem)
-						ply:SetArmorDurability(hitToLevel[hg], math.Clamp((levels.durability or 1)-duraToRem, 0, 1))
-						end
+						-- if(levels[hit] and levels[hit] != ARMOR_NONE) then
+						-- local duraToRem = math.max(0.0001, (0.001+(0.1*((1-(levels.durability or 0.9999)*(dmginfo:GetDamage()/6)))/100))*2.5)
+						-- if(hg == HITGROUP_HEAD) then
+						-- 	duraToRem = duraToRem*100
+						-- end
+						-- if(wep:GetClass() == "sky_helsing") then
+						-- 	duraToRem = duraToRem*100
+						-- end
+						-- if(wep.Primary.Ammo == "buckshot") then
+						-- 	duraToRem = duraToRem*2
+						-- end
+						-- if(duraToRem < 0) then 
+						-- 	ply:SetArmorDurability(hitToLevel[hg], 0)
+						-- end
+						-- --print("attacking: durabilty to remove "..duraToRem)
+						-- ply:SetArmorDurability(hitToLevel[hg], math.Clamp((levels.durability or 1)-duraToRem, 0, 1))
+						-- end
 					end
 				end
 			end
