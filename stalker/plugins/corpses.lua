@@ -26,6 +26,10 @@ nut.config.add("corpseOpenTime", 5, "How much time for search a corpse.", nil, {
 	value = 5,
 })
 
+nut.config.add("corpseLooting", false, "Allows corpse looting. Players will lose all items in their inventory on death, and those items will be redistributed to the corpse's inventory.", nil, {
+	category = "server"
+})
+
 local entMeta = FindMetaTable("Entity")
 
 // Shared util functions
@@ -250,7 +254,7 @@ function PLUGIN:PlayerDeath(victim, inflictor, attacker)
 		local OldRagdoll = victim:GetRagdollEntity()
 		if ( OldRagdoll && OldRagdoll:IsValid() ) then OldRagdoll:Remove() end
 		
-		if(victim:getChar():getData("loseitems")) then
+		if(victim:getChar():getData("loseitems") or nut.config.get("corpseLooting", false)) then
 		local victimInv = victim:getChar():getInv()
 		nut.inventory.instance("grid", {w = victimInv:getWidth(), h = victimInv:getHeight()}, function(inventory)
 
